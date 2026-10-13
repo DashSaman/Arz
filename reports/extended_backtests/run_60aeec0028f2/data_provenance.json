@@ -1,0 +1,48 @@
+[
+  {
+    "market": "base_weth",
+    "network": "base",
+    "pool": "0xd0b53d9277642d899df5c87a3966a349a798f224",
+    "token": "0x4200000000000000000000000000000000000006",
+    "stable": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+    "symbol": "WETH/USDC",
+    "fee_bps": 5.0,
+    "quality": {
+      "count": 183,
+      "first": 1776038400,
+      "end_exclusive": 1791849600,
+      "interval": 86400,
+      "gaps": 0,
+      "sha256": "eba1cbe328f88b70afe87fced6cd3ea17c2f9ac01b997873c807272ca38bbfbf"
+    },
+    "url": "https://api.geckoterminal.com/api/v2/networks/base/pools/0xd0b53d9277642d899df5c87a3966a349a798f224/ohlcv/day?aggregate=1&limit=1000&currency=usd&token=0x4200000000000000000000000000000000000006&include_empty_intervals=false&before_timestamp=1791849599",
+    "daily_native": true,
+    "reason": "Hourly gaps/429 retained; native daily fallback fixed after selection, no reselection",
+    "warmup_limit": "180-day result includes up to72 initial warm-up candles; shorter windows have earlier daily context",
+    "rights": "Raw provider data not republished; Powered by CoinGecko / GeckoTerminal",
+    "access": "Research data only; no eligible execution route approved"
+  },
+  {
+    "market": "solana_sol",
+    "network": "solana",
+    "pool": "Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE",
+    "token": "So11111111111111111111111111111111111111112",
+    "stable": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "symbol": "SOL/USDC",
+    "fee_bps": 20.0,
+    "quality": {
+      "count": 183,
+      "first": 1776038400,
+      "end_exclusive": 1791849600,
+      "interval": 86400,
+      "gaps": 0,
+      "sha256": "f809ebc8a567b770f862f520cc78dd2a64a166da5481b881ade9c0490934fb6a"
+    },
+    "url": "https://api.geckoterminal.com/api/v2/networks/solana/pools/Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE/ohlcv/day?aggregate=1&limit=1000&currency=usd&token=So11111111111111111111111111111111111111112&include_empty_intervals=false&before_timestamp=1791849599",
+    "daily_native": true,
+    "reason": "Hourly gaps/429 retained; native daily fallback fixed after selection, no reselection",
+    "warmup_limit": "180-day result includes up to72 initial warm-up candles; shorter windows have earlier daily context",
+    "rights": "Raw provider data not republished; Powered by CoinGecko / GeckoTerminal",
+    "access": "Research data only; no eligible execution route approved"
+  }
+]

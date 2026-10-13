@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-10-13T09:17:34.947095+00:00",
+  "frozen_selection_sha256": "7c458e6ae9b2ac87b416196d297b2a3880b446e6c3514bad2d7a3127cfba5cc9",
+  "hypotheses_changed": false,
+  "selection_on_recent_data": false,
+  "daily_fallback_reason": "Published hourly gap/429 failures; daily aligns with frozen configurations",
+  "windows_days": [
+    30,
+    90,
+    180
+  ],
+  "costs": [
+    1,
+    1.5,
+    2,
+    3
+  ],
+  "caps": [
+    1,
+    2,
+    5,
+    10
+  ],
+  "additional_stresses": [
+    "high_slippage",
+    "gas_010",
+    "failed_10pct",
+    "low_liquidity",
+    "delay_1bar",
+    "adverse_fill_1pct"
+  ],
+  "withdraw_thresholds": [
+    150,
+    200,
+    250,
+    300
+  ],
+  "live_trading": "DISABLED"
+}

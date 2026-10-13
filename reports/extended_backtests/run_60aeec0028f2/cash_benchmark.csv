@@ -1,0 +1,6 @@
+days,initial,final_equity,g_daily,return,fees,interpretation
+30,100,100,0,0,0,Accounting comparator; excludes depeg/issuer/inflation/opportunity cost
+90,100,100,0,0,0,Accounting comparator; excludes depeg/issuer/inflation/opportunity cost
+180,100,100,0,0,0,Accounting comparator; excludes depeg/issuer/inflation/opportunity cost
+365,100,100,0,0,0,Accounting comparator; excludes depeg/issuer/inflation/opportunity cost
+730,100,100,0,0,0,Accounting comparator; excludes depeg/issuer/inflation/opportunity cost
