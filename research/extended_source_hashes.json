@@ -1,0 +1,15 @@
+{
+"scripts/publish_extended.py":"1d6256e18f724d693a6ef6ac8b0321cf5e0a93a50ca3f0799548bc90022bdd8a",
+"scripts/run_extended.py":"83c891177dc15b9d74d6bb647fd799d4b34cff846b8188ff0545766b8c00a0ee",
+"src/arz_extended/analysis.py":"be1dd312e7b9c75190d69c7e5f544b2ce52a0cb60ecf5ca63d13350645317ad9",
+"src/arz_extended/data.py":"4a6033112c0bd1d3f0b9005f7ebe861f514df7aaa9fda556ae7debc8245b49d7",
+"src/arz_extended/simulator.py":"faf709845247e107919c9715556e891692a774d0a6c3887e74d3f1467f071279",
+"src/arz_extended/sources.py":"626c329fbd36fd8f1c9b3442055eae859b150d185cd5cd21edaed5e9df487d1c",
+"src/arz_extended/strategies.py":"190c0f51692e5829145aee35861d0cd1a7b0d0eac2e5bd08fc7abde577b014ca",
+"tests/test_extended.py":"92595d9bd24b463d535254e2475f84ec3d4d799e91e861235d39ea396da9a55a",
+"tests/test_extended_invariants.py":"4b7b96a40db3d1eac0493eaa7634e88ace0d1f1bf511f602257b05775ab1186d",
+"tests/test_extended_review.py":"e5d433e9ec7c7c92c4511ff4a881ea79755ce3720608a39e7dfbfdbfe03b15fb",
+"tests/test_extended_sources.py":"f14dd05c1ea1a9976231f3e025a3cc08d4f8b0a9daabfad0b046517b1d502610",
+"tests/test_extended_statistics.py":"181b7915bbc8d279d7de9506e17240015f35bc3baea6f9d731f4a42a4a0916b5",
+"tests/test_extended_strategies.py":"cc48b430a00e75fd5d237d6e2022c7d115ece0e78577bf53fd88caee304d44ea"
+}

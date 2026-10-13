@@ -1,0 +1,36 @@
+[
+  {
+    "pool": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
+    "hour": 1629964800,
+    "transaction_hash": "0xfec476fa048ab7a0d4cd2a93d72ca9092e40328e040c1dbf6d43c8aaec4d745d",
+    "source_volume0": 0.0,
+    "source_volume1": 0.0,
+    "source_event_count": 165.0,
+    "source_fees_usd": 0.0,
+    "open": 3102.4402239011383,
+    "high": 3112.1628237999453,
+    "low": 3081.0759256412043,
+    "close": 3102.589044887993,
+    "observed_swap_count_in_sample_blocks": 20,
+    "receipt_gas_arithmetic_matches": true,
+    "other_transaction_fee_usd_proxy": 21.802776945239007,
+    "conclusion": "Sampled swaps refute no-trade interpretation if archived token volume is zero; not an exact-amount quote."
+  },
+  {
+    "pool": "0x11b815efb8f581194ae79006d24e0d814b7697f6",
+    "hour": 1629964800,
+    "transaction_hash": "0x37b7e9ba4d3a2f45cf599a58ec564f7ef9173639523d9c9e353bbb61e99e71d4",
+    "source_volume0": 0.0,
+    "source_volume1": 0.0,
+    "source_event_count": 135.0,
+    "source_fees_usd": 0.0,
+    "open": 0.00032235222844764235,
+    "high": 0.0003255394423320375,
+    "low": 0.0003214600128985798,
+    "close": 0.00032238069844806846,
+    "observed_swap_count_in_sample_blocks": 16,
+    "receipt_gas_arithmetic_matches": true,
+    "other_transaction_fee_usd_proxy": 31.870007055271216,
+    "conclusion": "Sampled swaps refute no-trade interpretation if archived token volume is zero; not an exact-amount quote."
+  }
+]

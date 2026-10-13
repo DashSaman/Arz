@@ -1,0 +1,9 @@
+[
+  {
+    "url": "https://zenodo.org/records/17302324/files/pool_hourly_data.parquet?download=1",
+    "observed_at": "2026-10-13T12:48:54.388056+00:00",
+    "http_status": 200,
+    "bytes": 14313055,
+    "sha256": "ed88166e388b3acf000783c354ba5888434f4c22a50c8e120cd8a6bb3dbdc58f"
+  }
+]

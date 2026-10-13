@@ -1,0 +1,9 @@
+# Phase 3 bounded implementation scope
+
+Continue preregistration 1fa32de without changing old strategies or results. One round only: data forensics; separately reviewed historical quote admission; network-specific receipt arithmetic; three frozen controls and one registered adaptive-momentum rule. All work is wallet-free. A structural quote validator is not a chain proof or investment certificate. Without independently replayed, hash-bound exact-amount evidence, execution-validated return is null and a positive candle result cannot qualify.
+
+The 2021-07-01 through 2022-01-01 interval is backward historical transfer, not forward temporal OOS. Preserve a minimum 72-bar warm-up; skip unsupported daily runs rather than insert missing prices. The predefined cap/cost grid is descriptive, not an optimization or selection exercise. Extra cases are nine specified execution stresses at cap 5, a nested 180-day descriptive window, four withdrawal thresholds at 4h, and comparable costed buy-and-hold. Maximum 700 simulations, at most 250 MB source responses. No minute history fabricated. No repeat of previously seen 365/730-day outputs as fresh OOS.
+
+Write failing synthetic tests before the new module, execute them locally, then run the complete existing-plus-new suite on the actual repository in GitHub Actions. Use one ephemeral public runner; no persistent server or paper service is started. Source retrieval failures remain in the evidence. Publish bounded derived outputs using the existing publisher deliberately scoped to the new research branch. Do not overwrite main or any other research branch. Preserve prior 690 outputs and original runtime byte-for-byte.
+
+The chat container had a DNS failure on direct Git clone. A remote-device clone attempt was blocked by the tool and was not retried there. Implementation therefore uses local isolated module tests and repository-native GitHub Actions, not execution on a user device.

@@ -1,0 +1,38 @@
+name: Academic DEX data quality audit
+on:
+  push:
+    branches: [research/2026-10-13-extended-validation]
+    paths: [.github/workflows/extended-academic-coverage.yml]
+permissions:
+  contents: read
+jobs:
+  coverage:
+    if: github.event.repository.private == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Isolated pinned data reader
+        run: |
+          python3 -m venv /tmp/arz-reader
+          /tmp/arz-reader/bin/python -m pip install --only-binary=:all: --no-deps pyarrow==21.0.0
+      - name: Validate licensed dataset without computing strategy performance
+        run: |
+          /tmp/arz-reader/bin/python - <<'PY'
+          import urllib.request,hashlib,io,collections,json,math,statistics,datetime
+          import pyarrow.parquet as pq
+          url='https://zenodo.org/records/17302324/files/pool_hourly_data.parquet?download=1'
+          with urllib.request.urlopen(url,timeout=80) as r: raw=r.read(20000001)
+          assert len(raw)<=20000000 and hashlib.sha256(raw).hexdigest()=='ed88166e388b3acf000783c354ba5888434f4c22a50c8e120cd8a6bb3dbdc58f'
+          groups=collections.defaultdict(list)
+          for row in pq.read_table(io.BytesIO(raw)).to_pylist():groups[row['poolId']].append(row)
+          for pool,rows in groups.items():
+              rows.sort(key=lambda x:x['periodStartUnix'])
+              valid=[r for r in rows if r['missing']==0 and all(isinstance(r[k],(int,float)) and math.isfinite(r[k]) and r[k]>0 for k in ['open','high','low','close'])]
+              best=[];current=[]
+              for r in valid:
+                  if current and (r['periodStartUnix']-current[-1]['periodStartUnix']).total_seconds()!=3600:current=[]
+                  current.append(r)
+                  if len(current)>len(best):best=current.copy()
+              print('POOL_AUDIT',json.dumps({'pool':pool,'name':rows[0]['pool_name'],'token0':rows[0]['token0_id'],'token1':rows[0]['token1_id'],'feeTier_values':sorted(set(r['feeTier'] for r in rows)), 'first':str(rows[0]['periodStartUnix']),'last':str(rows[-1]['periodStartUnix']),'rows':len(rows),'missing_flags':dict(collections.Counter(r['missing'] for r in rows)),'valid_rows':len(valid),'unique_timestamps':len(set(r['periodStartUnix'] for r in rows)),'longest_valid_hours':len(best),'longest_start':str(best[0]['periodStartUnix']) if best else None,'longest_end':str(best[-1]['periodStartUnix']) if best else None,'close_first3':[r['close'] for r in valid[:3]],'close_median':statistics.median(r['close'] for r in valid) if valid else None,'positive_volume_rows':sum(r['volumeToken0']>0 for r in valid),'ohlc_invalid_rows':sum(r['low']>min(r['open'],r['close']) or r['high']<max(r['open'],r['close']) or r['high']<r['low'] for r in valid)},default=str))
+          print('DATA_LICENSE','CC BY 4.0; Zhou, Liu and Brini; doi:10.5281/zenodo.17302324; no strategy results inspected')
+          PY

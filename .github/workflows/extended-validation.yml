@@ -1,0 +1,62 @@
+name: Bounded extended historical research
+on:
+  push:
+    branches: [research/2026-10-13-extended-validation]
+    paths: [.github/workflows/extended-validation.yml]
+permissions:
+  contents: write
+concurrency:
+  group: arz-extended-historical-research
+  cancel-in-progress: false
+jobs:
+  evaluate:
+    if: github.repository == 'DashSaman/Arz' && github.event.repository.private == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      PYTHONPATH: src
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Verify exact tested source and preserve baseline
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,pathlib,subprocess
+          for name,digest in json.loads(pathlib.Path('research/extended_source_hashes.json').read_text()).items():
+              assert hashlib.sha256(pathlib.Path(name).read_bytes()).hexdigest()==digest,name
+          changed=subprocess.check_output(['git','diff','--name-only','d21eb280170a0a27eba5c278a6381879431cf447','HEAD','--','src/arz','configs/research.json','configs/paper.json']).decode().strip()
+          assert not changed,changed
+          print('SOURCE_AND_ORIGINAL_CORE_IDENTITY_VERIFIED')
+          PY
+      - name: Run complete old and new offline tests
+        run: |
+          mkdir -p "reports/extended_backtests/run_${GITHUB_SHA:0:12}"
+          python3 - <<'PY'
+          import unittest,json,pathlib,os,datetime
+          root=pathlib.Path('reports/extended_backtests/run_'+os.environ['GITHUB_SHA'][:12])
+          suite=unittest.defaultTestLoader.discover('tests')
+          with (root/'software_tests.txt').open('w') as f: result=unittest.TextTestRunner(stream=f,verbosity=2).run(suite)
+          evidence={'observed_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'commit':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'tests':result.testsRun,'failures':len(result.failures),'errors':len(result.errors),'skipped':len(result.skipped),'passed':result.wasSuccessful(),'classification':'SOFTWARE_TESTS_NOT_MARKET_EVIDENCE'}
+          (root/'software_tests.json').write_text(json.dumps(evidence,indent=2))
+          print(json.dumps(evidence));print((root/'software_tests.txt').read_text())
+          if not result.wasSuccessful():raise SystemExit(1)
+          PY
+      - name: Isolate optional pinned Parquet reader
+        run: |
+          python3 -m venv .extended-venv
+          .extended-venv/bin/python -m pip install --only-binary=:all: --no-deps pyarrow==21.0.0
+          .extended-venv/bin/python -m pip check
+      - name: Execute preregistered bounded historical study
+        run: .extended-venv/bin/python scripts/run_extended.py --output "reports/extended_backtests/run_${GITHUB_SHA:0:12}"
+      - name: Publish derived research evidence only
+        if: always()
+        env:
+          GH_RESEARCH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          root="reports/extended_backtests/run_${GITHUB_SHA:0:12}"
+          if [ -f "$root/software_tests.json" ]; then
+            python3 scripts/publish_extended.py --reports "$root"
+          fi

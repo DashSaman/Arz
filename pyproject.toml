@@ -10,6 +10,9 @@ requires-python = ">=3.11"
 license = {text = "MIT"}
 dependencies = []
 
+[project.optional-dependencies]
+extended-data = ["pyarrow==21.0.0"]
+
 [project.scripts]
 arz = "arz.__main__:main"
 

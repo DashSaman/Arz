@@ -1,0 +1,16 @@
+[
+  {
+    "url": "https://api.geckoterminal.com/api/v2/networks/base/pools/0xd0b53d9277642d899df5c87a3966a349a798f224/ohlcv/day?aggregate=1&limit=1000&currency=usd&token=0x4200000000000000000000000000000000000006&include_empty_intervals=false&before_timestamp=1791849599",
+    "observed_unix": 1791883070.297695,
+    "http_status": 200,
+    "bytes": 11997,
+    "sha256": "2b5c1cc6d271a7cc659d756fcebc5811555efaa26cc2199182d6d111aeef13b7"
+  },
+  {
+    "url": "https://api.geckoterminal.com/api/v2/networks/solana/pools/Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE/ohlcv/day?aggregate=1&limit=1000&currency=usd&token=So11111111111111111111111111111111111111112&include_empty_intervals=false&before_timestamp=1791849599",
+    "observed_unix": 1791883085.86666,
+    "http_status": 200,
+    "bytes": 18660,
+    "sha256": "b0713954b6261880e59a81101cd4d581534694fea1b59e235cb2b5ec00ad5dcc"
+  }
+]

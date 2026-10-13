@@ -1,0 +1,36 @@
+name: Extended ledger audit and daily transfer
+on:
+  push:
+    branches: [research/2026-10-13-extended-validation]
+    paths: [.github/workflows/extended-followup.yml]
+permissions:
+  contents: write
+jobs:
+  evaluate:
+    if: github.repository == 'DashSaman/Arz' && github.event.repository.private == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      PYTHONPATH: src
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Verify combined tests and narrowly declared optional reader
+        run: |
+          bash scripts/install.sh
+          PYTHONPATH=src .venv/bin/python scripts/verify_repository.py --output-dir "reports/extended_backtests/run_${GITHUB_SHA:0:12}/verification"
+          test -z "$(git diff --name-only d21eb280170a0a27eba5c278a6381879431cf447 HEAD -- src/arz configs/research.json configs/paper.json)"
+      - name: Audit preserved results and run fixed daily transfer
+        run: PYTHONPATH=src .venv/bin/python scripts/run_extended_followup.py --output "reports/extended_backtests/run_${GITHUB_SHA:0:12}"
+      - name: Publish bounded derived evidence
+        if: always()
+        env:
+          GH_RESEARCH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          root="reports/extended_backtests/run_${GITHUB_SHA:0:12}"
+          if [ -f "$root/verification/latest.json" ]; then
+            python3 scripts/publish_extended.py --reports "$root"
+          fi

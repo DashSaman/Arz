@@ -1,0 +1,14 @@
+[
+  {
+    "market": "academic_usdc",
+    "timeframe": 86400,
+    "warmup_available": 56,
+    "reason": "72 pre-start warmup candles not available"
+  },
+  {
+    "market": "academic_usdt",
+    "timeframe": 86400,
+    "warmup_available": 38,
+    "reason": "72 pre-start warmup candles not available"
+  }
+]

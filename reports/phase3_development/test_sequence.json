@@ -1,0 +1,10 @@
+{
+  "date_utc": "2026-10-13",
+  "scope": "New self-contained Phase 3 module tests in isolated local patch workspace, not the full repository",
+  "command": "PYTHONPATH=src python -m unittest discover -s tests -v",
+  "red": {"tests": 17, "failures": 17, "exit_code": 1, "reason": "Evidence layer absent; assertion in setUp"},
+  "green": {"tests": 17, "failures": 0, "exit_code": 0},
+  "full_repository_verification": "PENDING_GITHUB_ACTIONS",
+  "fixtures": "SYNTHETIC_SOFTWARE_TESTS_NOT_MARKET_EVIDENCE",
+  "live_trading": "DISABLED"
+}

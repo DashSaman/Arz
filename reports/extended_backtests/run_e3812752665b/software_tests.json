@@ -1,0 +1,11 @@
+{
+  "observed_at": "2026-10-13T09:02:34.943657+00:00",
+  "commit": "e3812752665bf1856d84c6b2521cd0d0d43bb484",
+  "run_id": "38373480521",
+  "tests": 99,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "passed": true,
+  "classification": "SOFTWARE_TESTS_NOT_MARKET_EVIDENCE"
+}

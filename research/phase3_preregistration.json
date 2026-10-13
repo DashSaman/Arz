@@ -1,0 +1,53 @@
+{
+  "phase": 3,
+  "registration_date_utc": "2026-10-13",
+  "parent_commit": "c445c3a093cdd208a4048f26dbd62031af014638",
+  "live_trading": "DISABLED",
+  "initial_capital_usd": 100,
+  "purpose": "Resolve data/execution validity before selecting more profitable-looking hypotheses.",
+  "round_limit": 1,
+  "read_only": true,
+  "data_forensics": {
+    "academic_source": "https://zenodo.org/records/17302324",
+    "hourly_sha256": "ed88166e388b3acf000783c354ba5888434f4c22a50c8e120cd8a6bb3dbdc58f",
+    "checks": ["zero-volume vs OHLC movement and txCount", "common volume change point across pools", "upstream subgraph mapping history", "bounded independent swap/receipt evidence if accessible"],
+    "large_transaction_file_full_download": false,
+    "max_network_data_bytes": 250000000,
+    "no_gap_filling": true,
+    "unknown_volume_is_not_zero_trading_activity": true
+  },
+  "execution_gate": {
+    "default": "REJECT_UNSUPPORTED_FILL",
+    "required": ["chain/pool/token identity", "timestamp and block identity", "direction and exact amount", "price quote or fully specified historical liquidity model", "network-specific gas evidence", "fee and slippage assumptions", "quote age and cost budget"],
+    "price_only_results": "PRICE_ONLY_SIMULATION_NOT_EXECUTION_VALIDATED",
+    "quote_evidence_does_not_authorize_live_execution": true,
+    "tvl_is_not_active_liquidity": true
+  },
+  "performance_protocol": {
+    "condition": "Only new data with a documented coverage and quality check; executable conclusions additionally require execution gate.",
+    "new_archival_window_if_available": {"start": "2021-07-01T00:00:00Z", "end_exclusive": "2022-01-01T00:00:00Z", "scope": "fixed-rule historical transfer not temporal future OOS; previously unused performance window"},
+    "fixed_rule_controls": ["adaptive_sizing_v2", "mean_reversion_v2", "trend_v1"],
+    "additional_hypotheses": ["adaptive_momentum_volatility_scaled_v1"],
+    "additional_rule": {"momentum_bars": 24, "entry_threshold": 0.03, "exit_threshold": 0.0, "volatility_window": 20, "daily_volatility_target": 0.015, "max_allocation": 0.2, "warmup_bars": 72},
+    "timeframes_seconds": [3600, 14400, 86400],
+    "ordinary_attempt_caps": [1, 2, 5, 10],
+    "cost_factors": [1, 1.5, 2, 3],
+    "max_strategy_variants": 4,
+    "no_optimization": true,
+    "selection_after_seen_holdout": false,
+    "intraday_1m_5m_15m": "Only if genuine observed complete history exists; otherwise unavailable, never upsample hourly data.",
+    "long_horizon_365_730": "Do not rerun prior seen windows as fresh OOS; require genuinely new valid input.",
+    "withdrawal_thresholds_usd": [150, 200, 250, 300],
+    "statistical_probabilities": "Not estimated if execution or sample gate fails; no unconditional future-probability claims."
+  },
+  "software_plan": [
+    "Preserve baseline 107 tests and archived outputs.",
+    "Write failing tests for historical evidence validation, gas conversion, zero-volume contradiction detection, and fresh fixed-rule signals.",
+    "Implement isolated standard-library evidence layer without wallet, signing, funding, or live-order endpoints.",
+    "Run forensic measurements and bounded read-only source probes; preserve failures and source hashes.",
+    "Run conditional fixed-rule experiments without tuning and classify unsupported fills separately from paper performance.",
+    "Publish equivalent EN/FA reports, updated status/work log, test evidence and PR to main after compatibility/CI checks."
+  ],
+  "stopping_rule": "One bounded round. Continue only for demonstrably better data or a prespecified hypothesis. If execution cannot be supported, Reject executable-profit claims, retain diagnostic evidence, and keep real-capital decision NO-GO. No continuous paper service unless a candidate qualifies and an actual runtime is explicitly recorded.",
+  "privacy": "No private financial information, personal identifiers or credentials in public artifacts."
+}

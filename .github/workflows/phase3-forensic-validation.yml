@@ -1,0 +1,67 @@
+name: Phase 3 bounded forensics and evidence validation
+on:
+  push:
+    branches: [research/2026-10-13-phase3-forensic-validation]
+    paths:
+      - .github/workflows/phase3-forensic-validation.yml
+      - src/arz_phase3.py
+      - scripts/run_phase3.py
+      - tests/test_phase3_evidence.py
+      - tests/test_phase3_recovery.py
+      - scripts/run_phase3_recovery.py
+permissions:
+  contents: write
+concurrency:
+  group: arz-phase3-forensic-validation
+  cancel-in-progress: false
+jobs:
+  evaluate:
+    if: github.repository == 'DashSaman/Arz' && github.event.repository.private == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PYTHONPATH: src
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Verify original runtime and prior experimental evidence unchanged
+        run: |
+          python3 - <<'PY'
+          import subprocess
+          changes=subprocess.check_output(['git','diff','--name-only','1fa32deae33a57b280f20cf07983048fc4c03bc3','HEAD','--','src/arz','src/arz_extended','reports/backtests','reports/extended_backtests/run_e3812752665b','reports/extended_backtests/run_60aeec0028f2','configs']).decode().strip()
+          assert not changes,changes
+          print('PRIOR_CODE_AND_RESULTS_PRESERVED')
+          PY
+      - name: Run all baseline and new regression tests
+        run: |
+          export RESULT_DIR="reports/extended_backtests/run_phase3_${GITHUB_SHA:0:12}"
+          mkdir -p "$RESULT_DIR"
+          python3 - <<'PY'
+          import datetime,json,os,pathlib,unittest
+          root=pathlib.Path(os.environ['RESULT_DIR'])
+          with (root/'software_tests.txt').open('w') as f:
+              r=unittest.TextTestRunner(stream=f,verbosity=2).run(unittest.defaultTestLoader.discover('tests'))
+          record={'observed_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'commit':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'tests':r.testsRun,'failures':len(r.failures),'errors':len(r.errors),'skipped':len(r.skipped),'passed':r.wasSuccessful(),'classification':'SOFTWARE_TESTS_NOT_MARKET_EVIDENCE'}
+          (root/'software_tests.json').write_text(json.dumps(record,indent=2)+'\n')
+          print(json.dumps(record));print((root/'software_tests.txt').read_text())
+          if not r.wasSuccessful():raise SystemExit(1)
+          PY
+      - name: Isolated pinned public data reader
+        run: |
+          python3 -m venv .phase3-venv
+          .phase3-venv/bin/python -m pip install --only-binary=:all: --no-deps pyarrow==21.0.0
+          .phase3-venv/bin/python -m pip check
+      - name: Execute one pre-registered data and price-only round
+        run: .phase3-venv/bin/python scripts/run_phase3_recovery.py --output "reports/extended_backtests/run_phase3_${GITHUB_SHA:0:12}"
+      - name: Publish bounded evidence to this research branch only
+        if: always()
+        env:
+          GH_RESEARCH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          root="reports/extended_backtests/run_phase3_${GITHUB_SHA:0:12}"
+          if [ -f "$root/software_tests.json" ]; then
+            python3 -c "import sys;sys.path.insert(0,'scripts');import publish_extended as p;p.BRANCH='research/2026-10-13-phase3-forensic-validation';p.main()" --reports "$root"
+          fi

@@ -1,0 +1,12 @@
+{
+  "recorded_before_resume": "2026-10-13T12:48:54.128063+00:00",
+  "old_commit": "8153c55bffd99e6bac52ffcc12d55e31d9ea6583",
+  "prior_failure_preserved": true,
+  "corrections": [
+    "USD field absent -> unknown, not zero",
+    "Only pre-window gaps may delimit warmup; internal gaps still reject"
+  ],
+  "changed_strategy_parameters": false,
+  "completed_cases_reused_without_resimulation": true,
+  "live_trading": "DISABLED"
+}

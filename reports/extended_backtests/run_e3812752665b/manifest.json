@@ -1,0 +1,63 @@
+{
+  "all_run_ledgers_bytes": 3335558,
+  "baseline_core_untouched": true,
+  "candidate_variants": 26,
+  "code_commit": "e3812752665bf1856d84c6b2521cd0d0d43bb484",
+  "data_markets": 2,
+  "diagnostic_finalists": 3,
+  "errors": [
+    {
+      "error": "Gap, duplicate, or unordered candle",
+      "market": "base_weth",
+      "stage": "recent_acquisition"
+    },
+    {
+      "error": "HTTP Error 429: Too Many Requests",
+      "market": "solana_sol",
+      "stage": "recent_acquisition"
+    }
+  ],
+  "executed_backtests": 516,
+  "families": 13,
+  "file_sha256": {
+    "all_run_ledgers.jsonl.gz": "30c924753a41886e78dcc50b6f80057600d8144ac737812f2cec09e0131b1e14",
+    "benchmarks.csv": "c9a99c87cfd4afdbe918b1a5ea7bf8495cace9d30a6eccd8d656079654f71d89",
+    "data_provenance.json": "571980b69498ebc3f25f0beca17338419e384464c3f8abde9908b4c179d77fc3",
+    "errors.json": "c35fa3a35dc3758823a32068ab29445609ea4218856301d2174cf14aa0c25890",
+    "experiment_registry.csv": "c7a33f8f8b9f1695539cf673f6189aae442a8f35df2b47c77aac6b168c138f49",
+    "final_academic_usdc_adaptive_sizing_v2.json": "5ab1977517b2b26ab37291ea0e190ec5318d220b60ec4f806e132a0b51271a9e",
+    "final_academic_usdc_bollinger_v2.json": "4dbc8cf94f8d978ee36484a536d4605bb1793dedbe9d1789d891f8166a304c1a",
+    "final_academic_usdc_mean_reversion_v2.json": "38ae19d39bffeafc8197fc5794ecd8d238d54dade90ccebe5bff4ebcc50f2538",
+    "final_academic_usdt_adaptive_sizing_v2.json": "39b648988bfd1133b15efbcae7ccba6f9bb6628b3b4c4a8b8b8f78bcc5824d12",
+    "final_academic_usdt_bollinger_v2.json": "4dbc8cf94f8d978ee36484a536d4605bb1793dedbe9d1789d891f8166a304c1a",
+    "final_academic_usdt_mean_reversion_v2.json": "d6c7920df5362e77d30731a402ef791f44bb5aa6dad03e7285e3b18e70a4daed",
+    "final_results.csv": "88e8cde032a85b5c0b91e15d6d4fc07acd0521c77998f9febc29425c8175fa98",
+    "final_selection.json": "16c054a4cf7359dcfb2fc6097d6723944bbe2353487ead837c529f3be887cd9b",
+    "growth_targets.csv": "9e99ce742fbd1748729a5f9f6dd1eba17baafe40189e4b51bcf18fddc838ba69",
+    "ml_academic_usdc_14400.json": "279b3b2705f9135fe8f6b4c8adba922fb1ea42f809f8f47fad8d4db8a4dccf8a",
+    "ml_academic_usdt_14400.json": "7158fb77f7afdd9547080c74e656506e5018234fb2d05b4a86f4f60c22406a33",
+    "preregistration.json": "38c87d7e1cfb4d286e0283d1b870bab51295464b6eaac898fa46eff13670f97e",
+    "selection_frozen_before_holdout.json": "7c458e6ae9b2ac87b416196d297b2a3880b446e6c3514bad2d7a3127cfba5cc9",
+    "software_tests.json": "6b68dd19fdce4ed71b3488d4f7079686bead2b0f3bb6c5e6b3b598181f4f820f",
+    "software_tests.txt": "db5793665e7c359587ee522daff8f3b1cbe55825596a0bef6cf9a66de744b561",
+    "source_requests.json": "845481d8834cbfa2968c5023def4fd49aa24c9bdb7a7b7152623c76f467bc200",
+    "strategy_candidate_registry.csv": "3872c75be385a6b956e1f610da7c0c44964c740e50a62d654365617d16a5e25a",
+    "summary.csv": "9111950811c09ba02b0909877deafac31873811757544056087d0cca415b9cdb",
+    "uncertainty.json": "36a68381acba54f719b4bb2b8efcfaff5c54b3b2ec584b9060ebf765f5cd54fe"
+  },
+  "finished_at": "2026-10-13T09:05:23.604993+00:00",
+  "github_run_id": "38373480521",
+  "live_trading": "DISABLED",
+  "overlap": "Historical horizon windows reuse development/validation/holdout. Two ETH pools correlated. Recent transfer period overlaps previously seen 2026 market context.",
+  "qualified_paper_candidates": 0,
+  "rights": "Original code MIT; academic-data-derived results attributed under CC BY 4.0. Recent API raw data not redistributed; full rights review pending.",
+  "runtime_source_sha256": {
+    "src/arz_extended/__init__.py": "188c34b09b71418e07c84732319d4263a87aaa3ec76ca83099622fd3ce6aa578",
+    "src/arz_extended/analysis.py": "be1dd312e7b9c75190d69c7e5f544b2ce52a0cb60ecf5ca63d13350645317ad9",
+    "src/arz_extended/data.py": "4a6033112c0bd1d3f0b9005f7ebe861f514df7aaa9fda556ae7debc8245b49d7",
+    "src/arz_extended/simulator.py": "faf709845247e107919c9715556e891692a774d0a6c3887e74d3f1467f071279",
+    "src/arz_extended/sources.py": "626c329fbd36fd8f1c9b3442055eae859b150d185cd5cd21edaed5e9df487d1c",
+    "src/arz_extended/strategies.py": "190c0f51692e5829145aee35861d0cd1a7b0d0eac2e5bd08fc7abde577b014ca"
+  },
+  "started_at": "2026-10-13T09:02:38.713867+00:00"
+}

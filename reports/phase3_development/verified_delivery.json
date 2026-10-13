@@ -1,0 +1,26 @@
+{
+  "review_date_utc": "2026-10-13",
+  "preregistration_commit": "1fa32deae33a57b280f20cf07983048fc4c03bc3",
+  "runtime_commit": "ba0874428e9ba1eee9914afef58437097bf69f4b",
+  "results_commit": "d0bdaf9e023df2dac23a90af6f524c2db2d5818f",
+  "results_root": "reports/extended_backtests/run_phase3_ba0874428e9b",
+  "full_tests": {"tests": 128, "failures": 0, "errors": 0, "skipped": 0, "location": "GitHub Actions", "observed_at_utc": "2026-10-13T12:48:46.841453+00:00"},
+  "local_patch_tests": {"tests": 21, "scope": "isolated module synthetic tests only"},
+  "ci": [
+    {"id": 38400053488, "name": "Phase 3 bounded forensics and evidence validation", "status": "completed", "conclusion": "success", "job": 115305057554},
+    {"id": 38400053364, "name": "Research-only checks", "status": "completed", "conclusion": "success"},
+    {"id": 38400053430, "name": "Arz offline-only tests", "status": "completed", "conclusion": "success"}
+  ],
+  "first_failed_workflow": 38398327863,
+  "initial_failure_evidence": "reports/extended_backtests/run_phase3_8153c55bffd9",
+  "cases": {"unique_phase3": 464, "first_attempt_completed_and_reused": 232, "recovery_new": 232, "previous_extended_unchanged": 690, "previous_mvp_unchanged": 24, "independent_experiments_claimed": false},
+  "evaluation": {"start": "2021-07-01T00:00:00Z", "end_exclusive": "2022-01-01T00:00:00Z", "days": 184, "classification": "BACKWARD_TRANSFER_PRICE_ONLY_NOT_FORWARD_OOS"},
+  "selected_facts": {"best_observed_price_only_return": 0.04914183825572366, "same_configuration_double_cost_return": -0.02864434115526123, "execution_validated_oos_return": null, "withdrawal_triggers": 0, "withdrawal_cases": 32, "qualified_paper_candidates": 0},
+  "preserved_snapshots": {"PROJECT_STATUS.pre-phase3.md": "16d0289dfcef9c22cac2ecdcb94a85ff42662827", "WORK_LOG.pre-phase3.md": "210dff88e2f1e4735485d397802443727b7a9554"},
+  "unresolved": ["exact archived-volume extraction root cause", "independently replayed exact-amount historical quotes", "historical execution costs and active liquidity", "eligible complete route", "forward multi-market qualification", "sustained prospective paper evidence"],
+  "current_research_decision": "CONTINUE_ONLY_WITH_MATERIALLY_BETTER_DATA; REJECT_EXECUTABLE_PROFIT_CLAIM",
+  "live_capital_decision": "NO-GO",
+  "live_trading": "DISABLED",
+  "no_wallet_or_paid_service": true,
+  "subsequent_documentation_commit": "May follow; it does not change the tested code or measured outputs. Inspect HEAD and PR state before further writes."
+}

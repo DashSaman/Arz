@@ -1,0 +1,76 @@
+{
+  "versions": [
+    {
+      "as_of": "2023-12-01T00:00:00Z",
+      "commit": "bf03f940f17c3d32ee58bd37386f26713cff21e2",
+      "message": "Merge pull request #101 from Uniswap/match-with-deployed\n\nfix: update main with current version at ianlapham/uniswap-v3-subgraph",
+      "path": "src/mappings/core.ts",
+      "content_sha256": "f046d33b1e75cbfa59268f8cb55b6ff6ec2f1321ff1058574b495056aa466d49",
+      "hour_volume_assignments": [
+        {
+          "line": 427,
+          "text": "poolHourData.volumeUSD = poolHourData.volumeUSD.plus(amountTotalUSDTracked)"
+        },
+        {
+          "line": 428,
+          "text": "poolHourData.volumeToken0 = poolHourData.volumeToken0.plus(amount0Abs)"
+        },
+        {
+          "line": 429,
+          "text": "poolHourData.volumeToken1 = poolHourData.volumeToken1.plus(amount1Abs)"
+        }
+      ],
+      "day_volume_assignments": [
+        {
+          "line": 422,
+          "text": "poolDayData.volumeUSD = poolDayData.volumeUSD.plus(amountTotalUSDTracked)"
+        },
+        {
+          "line": 423,
+          "text": "poolDayData.volumeToken0 = poolDayData.volumeToken0.plus(amount0Abs)"
+        },
+        {
+          "line": 424,
+          "text": "poolDayData.volumeToken1 = poolDayData.volumeToken1.plus(amount1Abs)"
+        }
+      ]
+    },
+    {
+      "as_of": "2024-03-21T00:00:00Z",
+      "commit": "68cad02419d0e892c10b78177611651d1cf15a5d",
+      "message": "null check",
+      "path": "src/mappings/core.ts",
+      "content_sha256": "52e8148229b55bbded355f744768917f0cbdd645ac3343b808f9100ceab69e18",
+      "hour_volume_assignments": [
+        {
+          "line": 438,
+          "text": "poolHourData.volumeUSD = poolHourData.volumeUSD.plus(amountTotalUSDTracked)"
+        },
+        {
+          "line": 439,
+          "text": "poolHourData.volumeToken0 = poolHourData.volumeToken0.plus(amount0Abs)"
+        },
+        {
+          "line": 440,
+          "text": "poolHourData.volumeToken1 = poolHourData.volumeToken1.plus(amount1Abs)"
+        }
+      ],
+      "day_volume_assignments": [
+        {
+          "line": 433,
+          "text": "poolDayData.volumeUSD = poolDayData.volumeUSD.plus(amountTotalUSDTracked)"
+        },
+        {
+          "line": 434,
+          "text": "poolDayData.volumeToken0 = poolDayData.volumeToken0.plus(amount0Abs)"
+        },
+        {
+          "line": 435,
+          "text": "poolDayData.volumeToken1 = poolDayData.volumeToken1.plus(amount1Abs)"
+        }
+      ]
+    }
+  ],
+  "deployment_of_academic_source_proven": false,
+  "restriction": "No exact causal attribution without a matched deployment or author preprocessing lineage."
+}

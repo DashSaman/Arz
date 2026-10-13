@@ -1,0 +1,239 @@
+[
+  {
+    "market": "academic_usdc",
+    "timeframe": 3600,
+    "first": 1620252000,
+    "end_exclusive": 1640995200,
+    "warmup_before_start": 1346,
+    "source_gaps": [],
+    "discarded_prefix_rows": 0,
+    "input": {
+      "count": 5762,
+      "first": 1620252000,
+      "end_exclusive": 1640995200,
+      "interval": 3600,
+      "gaps": 0,
+      "sha256": "3db50b9f5d5018cafffa04956e1aa43deab81b690d4c68eb2d5863c1ee44392e"
+    }
+  },
+  {
+    "market": "academic_usdc",
+    "timeframe": 14400,
+    "first": 1620259200,
+    "end_exclusive": 1640995200,
+    "warmup_before_start": 336,
+    "source_gaps": [],
+    "discarded_prefix_rows": 0,
+    "input": {
+      "count": 1440,
+      "first": 1620259200,
+      "end_exclusive": 1640995200,
+      "interval": 14400,
+      "gaps": 0,
+      "sha256": "2b8499dde753862b990a844c1281c82a68f33957afad3660db7d4ed1f142ef37"
+    }
+  },
+  {
+    "market": "academic_usdc",
+    "timeframe": 86400,
+    "first": 1620259200,
+    "end_exclusive": 1640995200,
+    "warmup_before_start": 56,
+    "source_gaps": [],
+    "discarded_prefix_rows": 0,
+    "input": {
+      "count": 240,
+      "first": 1620259200,
+      "end_exclusive": 1640995200,
+      "interval": 86400,
+      "gaps": 0,
+      "sha256": "7a00236e7bbe0998aee716c10639e15b0badac193db41140803f57ed074049b9"
+    }
+  },
+  {
+    "market": "academic_usdt",
+    "timeframe": 3600,
+    "first": 1621792800,
+    "end_exclusive": 1640995200,
+    "warmup_before_start": 918,
+    "source_gaps": [
+      {
+        "previous": 1621425600,
+        "next": 1621432800
+      },
+      {
+        "previous": 1621447200,
+        "next": 1621454400
+      },
+      {
+        "previous": 1621598400,
+        "next": 1621605600
+      },
+      {
+        "previous": 1621609200,
+        "next": 1621616400
+      },
+      {
+        "previous": 1621634400,
+        "next": 1621641600
+      },
+      {
+        "previous": 1621656000,
+        "next": 1621663200
+      },
+      {
+        "previous": 1621663200,
+        "next": 1621670400
+      },
+      {
+        "previous": 1621681200,
+        "next": 1621688400
+      },
+      {
+        "previous": 1621720800,
+        "next": 1621728000
+      },
+      {
+        "previous": 1621764000,
+        "next": 1621774800
+      },
+      {
+        "previous": 1621782000,
+        "next": 1621792800
+      }
+    ],
+    "discarded_prefix_rows": 414,
+    "input": {
+      "count": 5334,
+      "first": 1621792800,
+      "end_exclusive": 1640995200,
+      "interval": 3600,
+      "gaps": 0,
+      "sha256": "202854eb1771ee8788f9d99b76fe5e2722ceea9bbd2519e0a362bbfef2bd6aa8"
+    }
+  },
+  {
+    "market": "academic_usdt",
+    "timeframe": 14400,
+    "first": 1621800000,
+    "end_exclusive": 1640995200,
+    "warmup_before_start": 229,
+    "source_gaps": [
+      {
+        "previous": 1621425600,
+        "next": 1621432800
+      },
+      {
+        "previous": 1621447200,
+        "next": 1621454400
+      },
+      {
+        "previous": 1621598400,
+        "next": 1621605600
+      },
+      {
+        "previous": 1621609200,
+        "next": 1621616400
+      },
+      {
+        "previous": 1621634400,
+        "next": 1621641600
+      },
+      {
+        "previous": 1621656000,
+        "next": 1621663200
+      },
+      {
+        "previous": 1621663200,
+        "next": 1621670400
+      },
+      {
+        "previous": 1621681200,
+        "next": 1621688400
+      },
+      {
+        "previous": 1621720800,
+        "next": 1621728000
+      },
+      {
+        "previous": 1621764000,
+        "next": 1621774800
+      },
+      {
+        "previous": 1621782000,
+        "next": 1621792800
+      }
+    ],
+    "discarded_prefix_rows": 414,
+    "input": {
+      "count": 1333,
+      "first": 1621800000,
+      "end_exclusive": 1640995200,
+      "interval": 14400,
+      "gaps": 0,
+      "sha256": "3f0b6d74c1603f8bcb4e94ca418b6750b0534a618f288844fcfb0e21d04ade0e"
+    }
+  },
+  {
+    "market": "academic_usdt",
+    "timeframe": 86400,
+    "first": 1621814400,
+    "end_exclusive": 1640995200,
+    "warmup_before_start": 38,
+    "source_gaps": [
+      {
+        "previous": 1621425600,
+        "next": 1621432800
+      },
+      {
+        "previous": 1621447200,
+        "next": 1621454400
+      },
+      {
+        "previous": 1621598400,
+        "next": 1621605600
+      },
+      {
+        "previous": 1621609200,
+        "next": 1621616400
+      },
+      {
+        "previous": 1621634400,
+        "next": 1621641600
+      },
+      {
+        "previous": 1621656000,
+        "next": 1621663200
+      },
+      {
+        "previous": 1621663200,
+        "next": 1621670400
+      },
+      {
+        "previous": 1621681200,
+        "next": 1621688400
+      },
+      {
+        "previous": 1621720800,
+        "next": 1621728000
+      },
+      {
+        "previous": 1621764000,
+        "next": 1621774800
+      },
+      {
+        "previous": 1621782000,
+        "next": 1621792800
+      }
+    ],
+    "discarded_prefix_rows": 414,
+    "input": {
+      "count": 222,
+      "first": 1621814400,
+      "end_exclusive": 1640995200,
+      "interval": 86400,
+      "gaps": 0,
+      "sha256": "77b97d259a682c34856f0b0b2f0280f86e82f007a332887d74684608670055be"
+    }
+  }
+]

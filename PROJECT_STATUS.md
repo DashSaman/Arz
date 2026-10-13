@@ -1,48 +1,54 @@
-# Project status / وضعیت پروژه
+# Arz project status / وضعیت پروژه
 
-Updated: 2026-10-13T01:54:56.802965+00:00. This is the initial research/MVP delivery checkpoint, not completion of prospective qualification.
+Reviewed: **2026-10-13 UTC**. **Live Trading Authorization Status: DISABLED. Real-capital decision: NO-GO.**
 
-- **Current Phase:** Phase 9 initial delivery completed with current investment decision **NO-GO**. Bounded software review, real main integration and both merged CI workflows completed. Prospective qualification remains pending.
-- **Completed Tasks:** Real repository inspection and initialization; requirements and predeclared acceptance gates; primary-source research snapshot; ten engine/module entries; eight DEX entries plus separate Hyperliquid products; four network comparisons; eleven DeFi models; 190 preserved source records; $100 economic model; three pre-registered strategies; original wallet-free Python MVP; 24 historical runs; independent defect correction; equivalent EN/FA reports and installation guide.
-- **Verified Results:** 999 complete four-hour bars / 166.5 days / 24 historical cases. Final holdout returns: trend −2.444309%, momentum −1.846313%, mean reversion +0.142732%; mean reversion at doubled costs −0.177705%. Only 6/6/4 closed trades respectively; all three baseline holdout mean-return uncertainty intervals include zero. Current full local suite: **56 tests passed**. Corrected core: 51 tests plus **12 independent closure methods** passed. Real GitHub Actions passed at code checkpoint 73f32d8 and both workflows at merged commit 818c3f0. Run IDs 38334222724 and 38334222714 independently read as completed/success; reports/tests/ci_merged.json records their scope.
-- **Failed Tests:** Ten independently reproduced pre-fix defects and historical RED tests are retained under reports/security and reports/tests/failures; their bounded closure passed. The real one-minute paper feed had two missing intervals and halted. No strategy passed the economic qualification gate. Failure of the first static CSV check was a checker blank-line handling issue, corrected and rerun; it was not a missing market observation.
-- **Open Questions:** Authorized durable/redistributable historical data; multiple market regimes and independent exact replay; calibrated executable quotes/gas/slippage; sufficient untouched OOS and genuinely prospective performance; legally eligible complete execution route; sustainable operations without added paid cost.
-- **Security Blockers:** No live executor, wallet, signer, approval or funded-key integration. Host/CVE/supply-chain/contract/live-execution audits not completed. Loss stops cannot guarantee a maximum loss. Current code is a research simulator; checksums and replay are consistency checks, not authentication against a malicious host.
-- **Access Blockers:** Official service-specific Iran restrictions apply to covered interfaces/APIs/products. Other protocol/RPC/issuer scopes remain unresolved. Citizenship, residence and IP are not interchangeable. Raw OHLCV retention/redistribution permission unresolved. Technical reachability is not eligibility.
-- **Active Branch:** main is the publication branch. The research/2026-10-13-mvp ref is retained; inspect the real refs for their current exact tips. Concurrent main work at 9e18c7d5e13ace7b5b55fffdea74725f31c0bfda and research core 73f32d8 are both ancestors of the verified merge; no force update was used.
-- **Latest Verified Commit:** 818c3f02aba5fa5064e14b56612341e003a3684c, actual main merge with two successful CI workflows and all 297 file blobs verified against local artifacts. This identifies the tested implementation; a following documentation-only checkpoint records its evidence. Use git rev-parse HEAD for the exact latest tip. Pre-performance registration remains eb837d09eaef38dc9cd38a13efcf86d00235e35d.
-- **Next Actions:** Continue only bounded research toward the unresolved gates below. Resolve data rights and suitable historical breadth, pre-register a genuinely new experiment if justified, calibrate permitted quote costs, and acquire real prospective observations with an actually available runtime before qualification. Do not repeat completed engine/source surveys without a dated reason. Do not tune repeatedly against this now-seen holdout.
-- **Live Trading Authorization Status:** **DISABLED**. Current investment recommendation: **NO-GO**. Research/prospective qualification: **PENDING**. No request for a financial action is being made.
+## Current Phase
 
-## Phase completion boundaries
+Phase 3 bounded forensic/data and price-only transfer round completed; the full execution-calibrated and forward-OOS qualification is **PARTIAL / PENDING**. Read the equivalent [English report](docs/en/phase3_validation.md) and [گزارش فارسی](docs/fa/phase3_validation.md) first. Earlier README/test summaries are dated MVP snapshots, not the latest Phase 3 counts. The preceding complete status is preserved byte-for-byte in [PROJECT_STATUS.pre-phase3.md](PROJECT_STATUS.pre-phase3.md).
 
-| Phase | Status at this checkpoint | Exit evidence / remaining limit |
-|---|---|---|
-| 0 — Repository | Completed | Real metadata, empty initial refs/contents/issues/PRs, actual commits and later concurrent-main inspection |
-| 1 — Requirements | Completed | docs/en/requirements.md; methodology; privacy and rejection gates |
-| 2 — Deep research | Snapshot delivered; unresolved fields remain open | Traceable matrices and bilingual reports; unavailable terms, minima, rates, deployment audits explicitly unknown |
-| 3 — Quantitative evaluation | Initial evaluation completed | Hypothetical economics, three fixed candidates, all current live candidates rejected |
-| 4 — Architecture | Completed for MVP | Shared simulation state machine; original standard-library core; no wallet |
-| 5 — Implementation | Completed for bounded research scope | Executable CLI, strict config/data/risk, accounting, journal, reports, tests |
-| 6 — Historical testing | Initial experiments completed; qualification pending | 24 runs, forward splits and cost sensitivity; selected single pool/short holdout/limited fill realism |
-| 7 — Paper trading | Connectivity checks completed; sustained performance pending | Four observations over 75s plus two confirmations over 25s; zero new completed bars/fills; no daemon |
-| 8 — Security review | Bounded software review completed; live readiness blocked | 56 local tests and targeted independent closure; no comprehensive infrastructure/contract audit |
-| 9 — Decision | Current NO-GO decision and actual repository integration completed | docs/en/final_decision.md; no financial authorization |
+## Completed Tasks
 
-## Preserved concurrent work
+- Inspected current refs and continued preregistration 1fa32de on an independent research branch.
+- Preserved original src/arz and src/arz_extended engines, prior configurations and 690 extended plus 24 MVP cases.
+- Added a wallet-free execution-evidence admission boundary, receipt arithmetic by network/era, zero-volume forensics and one registered adaptive-momentum hypothesis.
+- Completed 464 Phase 3 cases: 232 completed before a failure and reused after checksum/config/accounting validation; 232 newly simulated during recovery. These are overlapping scenarios, not independent strategies or 696 new cases.
+- Matched archived zero-volume observations to independently retrieved historical Swap logs; recorded two actual other-transaction fees with explicit USD assumptions.
+- Ran 128 full-repository tests successfully on GitHub Actions, preserving 107 prior tests and adding 21. No failed or skipped tests in that recorded suite.
 
-The original main history contributed the bilingual 30-day roadmap, whole-account daily-return audit helper, labeled synthetic input and five tests. The helper and roadmaps are preserved unchanged. Its CI workflow was adapted to the combined src layout, and AGENTS/status were reconciled. See reports/integration. Hypothetical 1–2% geometric daily returns and exploration of 2–10 daily trades are not forecasts or quotas and do not override the active four-attempt/fill daily cap. Thirty planned days are not elapsed paper evidence. Current planning minima are 90 prospective days and 100 closed trades, still insufficient on their own.
+## Verified Results
+
+Runtime: **ba0874428e9ba1eee9914afef58437097bf69f4b**. Published measured outputs: **d0bdaf9e023df2dac23a90af6f524c2db2d5818f**. [Manifest](reports/extended_backtests/run_phase3_ba0874428e9b/manifest.json).
+
+- 184-day frozen backward-transfer interval, 2021-07-01 to 2022-01-01 exclusive. Two correlated ETH pools, 1h/4h candles, caps 1/2/5/10 and cost factors 1/1.5/2/3. Not forward OOS.
+- Highest post-observation base-grid price-only result: mean_reversion_v2, WETH/USDC, 1h, cap2; $104.914184 from $100, +4.914184%, geometric daily +0.026075%, 49 cycles (36 positive/13 negative), drawdown 5.433938%. Same configuration at twice modeled costs: -2.864434%; at three times: -10.339991%.
+- Best **execution-validated forward OOS** return: **UNKNOWN / null**. No newly approved investment or paper candidate.
+- Newly introduced adaptive momentum in the USDC example: -2.444952% at 1h and -0.960370% at 4h, both negative at doubled costs too. No new AI superiority test was performed.
+- Maximum drawdown across the 464 cases: 10.588872%. Simulated withdrawal triggers: 0 of 32. Injected-failure cases contain 8156 simulated failed attempts, not real transactions.
+- Same-hour independent cross-check: 20/16 Swap events in blocks 13100000–13100030, while both source token volumes are zero. Exact data deployment/ETL root cause remains unknown.
+- CI on tested runtime: Phase3 38400053488, research checks 38400053364 and offline tests 38400053430 completed/success. Full suite record: [128 tests](reports/extended_backtests/run_phase3_ba0874428e9b/software_tests.json).
+
+## Failed Tests / Unfinished Tests
+
+First research workflow 38398327863 failed on prehistory gaps despite 124 successful tests. Its forensic diagnostic incorrectly required absent volumeUSD and excluded valid rows; that diagnostic is invalid, not evidence that all source observations were missing. Failures and 232 completed cases remain preserved under run_phase3_8153c55bffd9. Four added regression tests and the corrected 128-test suite close the specifically observed reader/coverage faults. Daily experiments were skipped for insufficient registered warm-up (56/38 available, 72 required); minute candles were not invented.
+
+No new valid 365/730-day execution replay, minute-frequency campaign, multi-leg arbitrage, cross-engine replay, fresh forward holdout, new ML fit, DSR/PBO or defensible future-probability claim. No sustained prospective paper observations were added.
+
+## Open Questions / Next Actions
+
+Stop this finite parameter round. Continue only after a material data improvement: source extraction/deployment lineage or reconciled Swap aggregates; permitted historical exact-amount quotes/replayed pool states; chain/era-specific gas and active liquidity; and an eligible complete route. Do not tune to the now-seen 2021 transfer window or call its numerical maximum a selected OOS winner. Prior 90-day/100-closed-cycle prospective minima remain unobserved and insufficient by themselves.
+
+## Security Blockers / Access Blockers
+
+No wallet, signer, approval, funded key, live executor, paid service or persistent trading process is enabled. Structural evidence admission and hashes are not authentication against a malicious host and not a contract audit. No exact-amount historical quote is independently approved. Base/Solana/Arbitrum fee arithmetic helpers are not calibrated execution datasets. Noncustodial design does not settle interface/API/RPC/issuer eligibility. Fresh Uniswap Labs and Circle terms were checked; no complete live route is approved. Stop triggers cannot guarantee a loss cap.
+
+## Active Branch / Latest Verified Commit
+
+Working publication branch: **research/2026-10-13-phase3-forensic-validation**. At final pre-publication inspection main remained d21eb280170a0a27eba5c278a6381879431cf447; other research refs were unchanged. Runtime ba08744 and outputs d0bdaf9 above identify tested scope; the following documentation-only commit records the evidence. Inspect live refs and git HEAD before continuing. Prepare/review a PR to main; no merge or force push is implied by this status.
 
 ## وضعیت فارسی
 
-این تحویل، نخستین بستهٔ پژوهش و MVP است و تکمیل آزمون آینده‌نگر محسوب نمی‌شود. بررسی واقعی مخزن، نیازمندی، پژوهش منابع، مدل اقتصادی، سه استراتژی پیش‌ثبت‌شده، نرم‌افزار بدون کیف‌پول، ۲۴ اجرای تاریخی و اصلاحات بازبینی مستقل انجام شده‌اند. ۵۶ آزمون کامل محلی موفق است؛ ۵۱ آزمون هسته و ۱۲ روش آزمون مستقل نیز بسته‌شدن یافته‌های محدودِ بررسی‌شده را تأیید می‌کنند. CI واقعی هسته و هر دو workflow نسخهٔ ادغام‌شده موفق بوده‌اند؛ شناسه‌های اجرا و شاهد فراداده در reports/tests/ci_merged.json ثبت است.
+دور محدود فاز ۳ تکمیل شد: ۴۶۴ حالت شامل ۲۳۲ اجرای کامل‌شدهٔ بازیابی‌شده و ۲۳۲ اجرای تازه؛ ۱۲۸ تست کامل مخزن موفق؛ و تطبیق مستقل نشان داد صفرِ حجم در ساعت نمونه به معنی نبود سواپ نیست. علت دقیق نقص استخراج هنوز معلوم نیست. اسناد کامل هر دو زبان در پیوندهای بالا هستند. وضعیت پیشین بدون تغییر بایتی در فایل آرشیو هم‌سطح حفظ شده است؛ گزارش‌های README مربوط به مرحلهٔ قدیمی‌اند.
 
-در آزمون نهایی، بازده روند ‎−۲٫۴۴۴۳۰۹٪، مومنتوم ‎−۱٫۸۴۶۳۱۳٪ و بازگشت به میانگین ‎+۰٫۱۴۲۷۳۲٪ بود؛ مورد آخر با دوبرابر هزینه به ‎−۰٫۱۷۷۷۰۵٪ رسید. تنها ۶، ۶ و ۴ معامله بسته وجود دارد و فاصلهٔ عدم‌قطعیت هر سه حالت پایه صفر را شامل می‌شود. هیچ استراتژی معیار اقتصادی ورود واقعی را نگذرانده است. خطاهای پیش از اصلاح، شکست‌های اولیه و توقف واقعی دادهٔ یک‌دقیقه‌ای حفظ شده‌اند.
+بیشینهٔ عددی صرفاً قیمتی، بازگشت به میانگین ساعتی با سقف ۲، حدود ۴٫۹۱۴٪ طی ۱۸۴ روز و ۰٫۰۲۶۰۷۵٪ هندسی روزانه دارد؛ با دوبرابر هزینه به ‎−۲٫۸۶۴٪ می‌رسد. ۴۹ چرخه، ۳۶ سود و ۱۳ زیان دارد و از بررسی پس از مشاهدهٔ جدول به دست آمده، نه انتخاب مستقل OOS. بازده اجراییِ تأییدشده و خارج از نمونهٔ آینده هنوز نامعلوم است. دو استخر هم‌بسته‌اند. بیشترین افت همهٔ سناریوها ۱۰٫۵۸۹٪ و برداشت فعال‌شده صفر از ۳۲ حالت است. مومنتوم تطبیقی تازه در مثال‌های ساعتی و چهارساعتهٔ USDC منفی شد.
 
-چهار مشاهدهٔ مجازی طی ۷۵ ثانیه و دو مشاهدهٔ تأییدی طی ۲۵ ثانیه انجام شد؛ کندل بستهٔ تازه یا معامله‌ای رخ نداد. هیچ سرویس پیوسته، پیام‌رسان، کیف‌پول، امضا یا معاملهٔ واقعی فعال نشده است. زمان واقعی لازم برای ۹۰ روز مشاهده و دست‌کم ۱۰۰ معامله هنوز سپری نشده و این حداقل‌ها نیز به‌تنهایی اثبات سود نیستند.
-
-مجوز نگهداری/بازنشر داده، بازتولید مستقل دقیق، دادهٔ متنوع، هزینهٔ اجرایی کالیبره‌شده، مسیر کامل و مجاز استفاده و حسابرسی زیرساخت/قرارداد حل نشده‌اند. محدودیت‌های تابعیت، اقامت، IP، API، رابط، پروتکل، RPC و ناشر استیبل‌کوین جدا هستند؛ دسترسی فنی مجوز استفاده نیست. آستانهٔ توقف، سقف زیان را تضمین نمی‌کند.
-
-کار هم‌زمان شاخهٔ اصلی شامل نقشهٔ راه دو‌زبانه و ابزار حسابداری روزانه و پنج آزمون آن حفظ شده است. بازده‌های فرضی روزانه وعده یا سهمیهٔ معامله نیستند و محدودیت فعلی را تغییر نمی‌دهند. ادغام واقعی بدون اجبار انجام و هر دو والد، مرجع main، هویت ۲۹۷ فایل و موفقیت هر دو workflow تأیید شد. Commit آزموده‌شده بالاتر آمده است؛ Commit بعدی فقط شاهد انتشار را ثبت می‌کند و HEAD نوک دقیق شاخه را نشان می‌دهد. پس از تحویل، ادامه از همین شواهد و پرسش‌های باز انجام شود؛ آزمون دیده‌شده دوباره برای انتخاب پارامتر استفاده نشود.
-
-**معاملهٔ واقعی: DISABLED. تصمیم سرمایه‌گذاری فعلی: NO-GO. تأیید عملکرد آینده‌نگر: PENDING. هیچ اقدام مالی از کاربر درخواست نشده است.**
+خطاهای اجرای نخست و ابزار تشخیص حفظ و اصلاح شدند؛ روزانه به علت آماده‌سازی ناکافی اجرا نشد و دادهٔ دقیقه‌ای ساخته نشد. هیچ کیف‌پول، تراکنش، هزینهٔ مالی یا سرویس پیوسته فعال نیست. پژوهش فقط با شواهد بهترِ داده/مظنه/هزینه ادامه یابد، نه تنظیم بی‌پایان پارامتر. **معاملهٔ واقعی DISABLED؛ سرمایهٔ واقعی NO-GO؛ نامزد واجد شرایط paper صفر؛ کل صلاحیت اجرایی آینده‌نگر PENDING.**

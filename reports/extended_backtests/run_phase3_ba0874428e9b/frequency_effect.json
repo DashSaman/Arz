@@ -1,0 +1,674 @@
+[
+  {
+    "strategy": "trend_v1",
+    "market": "academic_usdc",
+    "timeframe": 3600,
+    "min_return": -0.07904496942403796,
+    "max_return": -0.0671797803839064,
+    "caps_binding": true,
+    "points": [
+      {
+        "cap": 1,
+        "return_": -0.0671797803839064,
+        "closed": 54,
+        "attempts": 108,
+        "fees": 2.1449788694542464,
+        "cap_rejections": 251
+      },
+      {
+        "cap": 2,
+        "return_": -0.07904496942403796,
+        "closed": 53,
+        "attempts": 106,
+        "fees": 2.1015058200705994,
+        "cap_rejections": 42
+      },
+      {
+        "cap": 5,
+        "return_": -0.07836649486956361,
+        "closed": 58,
+        "attempts": 116,
+        "fees": 2.2983423943247057,
+        "cap_rejections": 0
+      },
+      {
+        "cap": 10,
+        "return_": -0.07836649486956361,
+        "closed": 58,
+        "attempts": 116,
+        "fees": 2.2983423943247057,
+        "cap_rejections": 0
+      }
+    ]
+  },
+  {
+    "strategy": "mean_reversion_v2",
+    "market": "academic_usdc",
+    "timeframe": 3600,
+    "min_return": 0.031011322110309863,
+    "max_return": 0.04914183825572366,
+    "caps_binding": true,
+    "points": [
+      {
+        "cap": 1,
+        "return_": 0.031011322110309863,
+        "closed": 44,
+        "attempts": 88,
+        "fees": 1.7772888409186327,
+        "cap_rejections": 135
+      },
+      {
+        "cap": 2,
+        "return_": 0.04914183825572366,
+        "closed": 49,
+        "attempts": 98,
+        "fees": 1.9838279318495118,
+        "cap_rejections": 13
+      },
+      {
+        "cap": 5,
+        "return_": 0.04003906899609035,
+        "closed": 49,
+        "attempts": 98,
+        "fees": 1.97971844340389,
+        "cap_rejections": 0
+      },
+      {
+        "cap": 10,
+        "return_": 0.04003906899609035,
+        "closed": 49,
+        "attempts": 98,
+        "fees": 1.97971844340389,
+        "cap_rejections": 0
+      }
+    ]
+  },
+  {
+    "strategy": "adaptive_sizing_v2",
+    "market": "academic_usdc",
+    "timeframe": 3600,
+    "min_return": -0.051404599409541445,
+    "max_return": -0.04871196608450802,
+    "caps_binding": true,
+    "points": [
+      {
+        "cap": 1,
+        "return_": -0.051404599409541445,
+        "closed": 37,
+        "attempts": 74,
+        "fees": 1.0890087390304282,
+        "cap_rejections": 45
+      },
+      {
+        "cap": 2,
+        "return_": -0.04871196608450802,
+        "closed": 37,
+        "attempts": 74,
+        "fees": 1.0896938301243233,
+        "cap_rejections": 0
+      },
+      {
+        "cap": 5,
+        "return_": -0.04871196608450802,
+        "closed": 37,
+        "attempts": 74,
+        "fees": 1.0896938301243233,
+        "cap_rejections": 0
+      },
+      {
+        "cap": 10,
+        "return_": -0.04871196608450802,
+        "closed": 37,
+        "attempts": 74,
+        "fees": 1.0896938301243233,
+        "cap_rejections": 0
+      }
+    ]
+  },
+  {
+    "strategy": "adaptive_momentum_volatility_scaled_v1",
+    "market": "academic_usdc",
+    "timeframe": 3600,
+    "min_return": -0.03096866367363731,
+    "max_return": -0.022807894057609985,
+    "caps_binding": true,
+    "points": [
+      {
+        "cap": 1,
+        "return_": -0.03096866367363731,
+        "closed": 56,
+        "attempts": 112,
+        "fees": 1.5724894587376848,
+        "cap_rejections": 355
+      },
+      {
+        "cap": 2,
+        "return_": -0.022807894057609985,
+        "closed": 60,
+        "attempts": 120,
+        "fees": 1.6873199073089737,
+        "cap_rejections": 26
+      },
+      {
+        "cap": 5,
+        "return_": -0.024449524549544178,
+        "closed": 61,
+        "attempts": 122,
+        "fees": 1.7132071538446512,
+        "cap_rejections": 0
+      },
+      {
+        "cap": 10,
+        "return_": -0.024449524549544178,
+        "closed": 61,
+        "attempts": 122,
+        "fees": 1.7132071538446512,
+        "cap_rejections": 0
+      }
+    ]
+  },
+  {
+    "strategy": "trend_v1",
+    "market": "academic_usdc",
+    "timeframe": 14400,
+    "min_return": 0.015862013339981617,
+    "max_return": 0.015862013339981617,
+    "caps_binding": false,
+    "points": [
+      {
+        "cap": 1,
+        "return_": 0.015862013339981617,
+        "closed": 16,
+        "attempts": 32,
+        "fees": 0.6564010235386609,
+        "cap_rejections": 0
+      },
+      {
+        "cap": 2,
+        "return_": 0.015862013339981617,
+        "closed": 16,
+        "attempts": 32,
+        "fees": 0.6564010235386609,
+        "cap_rejections": 0
+      },
+      {
+        "cap": 5,
+        "return_": 0.015862013339981617,
+        "closed": 16,
+        "attempts": 32,
+        "fees": 0.6564010235386609,
+        "cap_rejections": 0
+      },
+      {
+        "cap": 10,
+        "return_": 0.015862013339981617,
+        "closed": 16,
+        "attempts": 32,
+        "fees": 0.6564010235386609,
+        "cap_rejections": 0
+      }
+    ]
+  },
+  {
+    "strategy": "mean_reversion_v2",
+    "market": "academic_usdc",
+    "timeframe": 14400,
+    "min_return": 0.021854666430301678,
+    "max_return": 0.021854666430301678,
+    "caps_binding": false,
+    "points": [
+      {
+        "cap": 1,
+        "return_": 0.021854666430301678,
+        "closed": 8,
+        "attempts": 16,
+        "fees": 0.3231379976502864,
+        "cap_rejections": 0
+      },
+      {
+        "cap": 2,
+        "return_": 0.021854666430301678,
+        "closed": 8,
+        "attempts": 16,
+        "fees": 0.3231379976502864,
+        "cap_rejections": 0
+      },
+      {
+        "cap": 5,
+        "return_": 0.021854666430301678,
+        "closed": 8,
+        "attempts": 16,
+        "fees": 0.3231379976502864,
+        "cap_rejections": 0
+      },
+      {
+        "cap": 10,
+        "return_": 0.021854666430301678,
+        "closed": 8,
+        "attempts": 16,
+        "fees": 0.3231379976502864,
+        "cap_rejections": 0
+      }
+    ]
+  },
+  {
+    "strategy": "adaptive_sizing_v2",
+    "market": "academic_usdc",
+    "timeframe": 14400,
+    "min_return": 0.022978352616595147,
+    "max_return": 0.022978352616595147,
+    "caps_binding": false,
+    "points": [
+      {
+        "cap": 1,
+        "return_": 0.022978352616595147,
+        "closed": 8,
+        "attempts": 16,
+        "fees": 0.2293755948330571,
+        "cap_rejections": 0
+      },
+      {
+        "cap": 2,
+        "return_": 0.022978352616595147,
+        "closed": 8,
+        "attempts": 16,
+        "fees": 0.2293755948330571,
+        "cap_rejections": 0
+      },
+      {
+        "cap": 5,
+        "return_": 0.022978352616595147,
+        "closed": 8,
+        "attempts": 16,
+        "fees": 0.2293755948330571,
+        "cap_rejections": 0
+      },
+      {
+        "cap": 10,
+        "return_": 0.022978352616595147,
+        "closed": 8,
+        "attempts": 16,
+        "fees": 0.2293755948330571,
+        "cap_rejections": 0
+      }
+    ]
+  },
+  {
+    "strategy": "adaptive_momentum_volatility_scaled_v1",
+    "market": "academic_usdc",
+    "timeframe": 14400,
+    "min_return": -0.009603703641486447,
+    "max_return": 0.0011139277576069162,
+    "caps_binding": true,
+    "points": [
+      {
+        "cap": 1,
+        "return_": 0.0011139277576069162,
+        "closed": 28,
+        "attempts": 56,
+        "fees": 0.7944823969561288,
+        "cap_rejections": 23
+      },
+      {
+        "cap": 2,
+        "return_": -0.004742911960055523,
+        "closed": 30,
+        "attempts": 60,
+        "fees": 0.8490648005804923,
+        "cap_rejections": 6
+      },
+      {
+        "cap": 5,
+        "return_": -0.009603703641486447,
+        "closed": 30,
+        "attempts": 60,
+        "fees": 0.8483485158521249,
+        "cap_rejections": 0
+      },
+      {
+        "cap": 10,
+        "return_": -0.009603703641486447,
+        "closed": 30,
+        "attempts": 60,
+        "fees": 0.8483485158521249,
+        "cap_rejections": 0
+      }
+    ]
+  },
+  {
+    "strategy": "trend_v1",
+    "market": "academic_usdt",
+    "timeframe": 3600,
+    "min_return": -0.07841087244051011,
+    "max_return": -0.06852838150214197,
+    "caps_binding": true,
+    "points": [
+      {
+        "cap": 1,
+        "return_": -0.06852838150214197,
+        "closed": 54,
+        "attempts": 108,
+        "fees": 2.1438839625948374,
+        "cap_rejections": 249
+      },
+      {
+        "cap": 2,
+        "return_": -0.07841087244051011,
+        "closed": 53,
+        "attempts": 106,
+        "fees": 2.1031478177006244,
+        "cap_rejections": 31
+      },
+      {
+        "cap": 5,
+        "return_": -0.07832094498037775,
+        "closed": 57,
+        "attempts": 114,
+        "fees": 2.258486766543864,
+        "cap_rejections": 0
+      },
+      {
+        "cap": 10,
+        "return_": -0.07832094498037775,
+        "closed": 57,
+        "attempts": 114,
+        "fees": 2.258486766543864,
+        "cap_rejections": 0
+      }
+    ]
+  },
+  {
+    "strategy": "mean_reversion_v2",
+    "market": "academic_usdt",
+    "timeframe": 3600,
+    "min_return": 0.014842619860537525,
+    "max_return": 0.03242918585977563,
+    "caps_binding": true,
+    "points": [
+      {
+        "cap": 1,
+        "return_": 0.014842619860537525,
+        "closed": 43,
+        "attempts": 86,
+        "fees": 1.7243495378583475,
+        "cap_rejections": 116
+      },
+      {
+        "cap": 2,
+        "return_": 0.03242918585977563,
+        "closed": 47,
+        "attempts": 94,
+        "fees": 1.891330321143837,
+        "cap_rejections": 13
+      },
+      {
+        "cap": 5,
+        "return_": 0.023812828584753306,
+        "closed": 47,
+        "attempts": 94,
+        "fees": 1.8874837814163055,
+        "cap_rejections": 0
+      },
+      {
+        "cap": 10,
+        "return_": 0.023812828584753306,
+        "closed": 47,
+        "attempts": 94,
+        "fees": 1.8874837814163055,
+        "cap_rejections": 0
+      }
+    ]
+  },
+  {
+    "strategy": "adaptive_sizing_v2",
+    "market": "academic_usdt",
+    "timeframe": 3600,
+    "min_return": -0.05533719263352523,
+    "max_return": -0.052621083389965545,
+    "caps_binding": true,
+    "points": [
+      {
+        "cap": 1,
+        "return_": -0.05533719263352523,
+        "closed": 36,
+        "attempts": 72,
+        "fees": 1.062144114677872,
+        "cap_rejections": 40
+      },
+      {
+        "cap": 2,
+        "return_": -0.052621083389965545,
+        "closed": 36,
+        "attempts": 72,
+        "fees": 1.0628956121141484,
+        "cap_rejections": 0
+      },
+      {
+        "cap": 5,
+        "return_": -0.052621083389965545,
+        "closed": 36,
+        "attempts": 72,
+        "fees": 1.0628956121141484,
+        "cap_rejections": 0
+      },
+      {
+        "cap": 10,
+        "return_": -0.052621083389965545,
+        "closed": 36,
+        "attempts": 72,
+        "fees": 1.0628956121141484,
+        "cap_rejections": 0
+      }
+    ]
+  },
+  {
+    "strategy": "adaptive_momentum_volatility_scaled_v1",
+    "market": "academic_usdt",
+    "timeframe": 3600,
+    "min_return": -0.026855597527769105,
+    "max_return": -0.021483608692601023,
+    "caps_binding": true,
+    "points": [
+      {
+        "cap": 1,
+        "return_": -0.026855597527769105,
+        "closed": 55,
+        "attempts": 110,
+        "fees": 1.548280928182535,
+        "cap_rejections": 351
+      },
+      {
+        "cap": 2,
+        "return_": -0.021483608692601023,
+        "closed": 60,
+        "attempts": 120,
+        "fees": 1.6931632409645547,
+        "cap_rejections": 51
+      },
+      {
+        "cap": 5,
+        "return_": -0.021868316332447506,
+        "closed": 61,
+        "attempts": 122,
+        "fees": 1.7196270755290801,
+        "cap_rejections": 0
+      },
+      {
+        "cap": 10,
+        "return_": -0.021868316332447506,
+        "closed": 61,
+        "attempts": 122,
+        "fees": 1.7196270755290801,
+        "cap_rejections": 0
+      }
+    ]
+  },
+  {
+    "strategy": "trend_v1",
+    "market": "academic_usdt",
+    "timeframe": 14400,
+    "min_return": 0.022350841977912664,
+    "max_return": 0.022350841977912664,
+    "caps_binding": false,
+    "points": [
+      {
+        "cap": 1,
+        "return_": 0.022350841977912664,
+        "closed": 16,
+        "attempts": 32,
+        "fees": 0.657020738717469,
+        "cap_rejections": 0
+      },
+      {
+        "cap": 2,
+        "return_": 0.022350841977912664,
+        "closed": 16,
+        "attempts": 32,
+        "fees": 0.657020738717469,
+        "cap_rejections": 0
+      },
+      {
+        "cap": 5,
+        "return_": 0.022350841977912664,
+        "closed": 16,
+        "attempts": 32,
+        "fees": 0.657020738717469,
+        "cap_rejections": 0
+      },
+      {
+        "cap": 10,
+        "return_": 0.022350841977912664,
+        "closed": 16,
+        "attempts": 32,
+        "fees": 0.657020738717469,
+        "cap_rejections": 0
+      }
+    ]
+  },
+  {
+    "strategy": "mean_reversion_v2",
+    "market": "academic_usdt",
+    "timeframe": 14400,
+    "min_return": 0.022237693612479178,
+    "max_return": 0.022237693612479178,
+    "caps_binding": false,
+    "points": [
+      {
+        "cap": 1,
+        "return_": 0.022237693612479178,
+        "closed": 8,
+        "attempts": 16,
+        "fees": 0.3232926443880544,
+        "cap_rejections": 0
+      },
+      {
+        "cap": 2,
+        "return_": 0.022237693612479178,
+        "closed": 8,
+        "attempts": 16,
+        "fees": 0.3232926443880544,
+        "cap_rejections": 0
+      },
+      {
+        "cap": 5,
+        "return_": 0.022237693612479178,
+        "closed": 8,
+        "attempts": 16,
+        "fees": 0.3232926443880544,
+        "cap_rejections": 0
+      },
+      {
+        "cap": 10,
+        "return_": 0.022237693612479178,
+        "closed": 8,
+        "attempts": 16,
+        "fees": 0.3232926443880544,
+        "cap_rejections": 0
+      }
+    ]
+  },
+  {
+    "strategy": "adaptive_sizing_v2",
+    "market": "academic_usdt",
+    "timeframe": 14400,
+    "min_return": 0.023614426902690014,
+    "max_return": 0.023614426902690014,
+    "caps_binding": false,
+    "points": [
+      {
+        "cap": 1,
+        "return_": 0.023614426902690014,
+        "closed": 8,
+        "attempts": 16,
+        "fees": 0.22895287353123203,
+        "cap_rejections": 0
+      },
+      {
+        "cap": 2,
+        "return_": 0.023614426902690014,
+        "closed": 8,
+        "attempts": 16,
+        "fees": 0.22895287353123203,
+        "cap_rejections": 0
+      },
+      {
+        "cap": 5,
+        "return_": 0.023614426902690014,
+        "closed": 8,
+        "attempts": 16,
+        "fees": 0.22895287353123203,
+        "cap_rejections": 0
+      },
+      {
+        "cap": 10,
+        "return_": 0.023614426902690014,
+        "closed": 8,
+        "attempts": 16,
+        "fees": 0.22895287353123203,
+        "cap_rejections": 0
+      }
+    ]
+  },
+  {
+    "strategy": "adaptive_momentum_volatility_scaled_v1",
+    "market": "academic_usdt",
+    "timeframe": 14400,
+    "min_return": -0.009787071249793939,
+    "max_return": -0.00048031572617134087,
+    "caps_binding": true,
+    "points": [
+      {
+        "cap": 1,
+        "return_": -0.00048031572617134087,
+        "closed": 28,
+        "attempts": 56,
+        "fees": 0.7991552541256618,
+        "cap_rejections": 24
+      },
+      {
+        "cap": 2,
+        "return_": -0.004749040949977967,
+        "closed": 30,
+        "attempts": 60,
+        "fees": 0.8542788357040838,
+        "cap_rejections": 6
+      },
+      {
+        "cap": 5,
+        "return_": -0.009787071249793939,
+        "closed": 30,
+        "attempts": 60,
+        "fees": 0.8535272272207776,
+        "cap_rejections": 0
+      },
+      {
+        "cap": 10,
+        "return_": -0.009787071249793939,
+        "closed": 30,
+        "attempts": 60,
+        "fees": 0.8535272272207776,
+        "cap_rejections": 0
+      }
+    ]
+  }
+]

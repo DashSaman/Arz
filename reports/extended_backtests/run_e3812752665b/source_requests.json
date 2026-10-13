@@ -1,0 +1,70 @@
+[
+  {
+    "bytes": 14313055,
+    "http_status": 200,
+    "observed_unix": 1791882158.7399242,
+    "sha256": "ed88166e388b3acf000783c354ba5888434f4c22a50c8e120cd8a6bb3dbdc58f",
+    "url": "https://zenodo.org/records/17302324/files/pool_hourly_data.parquet?download=1"
+  },
+  {
+    "bytes": 2330,
+    "http_status": 200,
+    "observed_unix": 1791882270.4761343,
+    "sha256": "2e06240f1fbdf1fa1718c7f27128cb7124b9059a113fc10e193ec6898866aca2",
+    "url": "https://api.geckoterminal.com/api/v2/networks/base/pools/0xd0b53d9277642d899df5c87a3966a349a798f224?include=base_token,quote_token,dex"
+  },
+  {
+    "bytes": 63437,
+    "http_status": 200,
+    "observed_unix": 1791882276.910563,
+    "sha256": "baf647d9c13166eaa26156c445418c6d4d0566765a30c99d79db3084f177da0a",
+    "url": "https://api.geckoterminal.com/api/v2/networks/base/pools/0xd0b53d9277642d899df5c87a3966a349a798f224/ohlcv/hour?aggregate=1&limit=1000&currency=usd&token=0x4200000000000000000000000000000000000006&include_empty_intervals=false&before_timestamp=1791849600"
+  },
+  {
+    "bytes": 63574,
+    "http_status": 200,
+    "observed_unix": 1791882283.4906585,
+    "sha256": "a51c1e0aff4d6fa1edc95cb6e294254fa82d0108c3a572073c2bde3cdabb57c5",
+    "url": "https://api.geckoterminal.com/api/v2/networks/base/pools/0xd0b53d9277642d899df5c87a3966a349a798f224/ohlcv/hour?aggregate=1&limit=1000&currency=usd&token=0x4200000000000000000000000000000000000006&include_empty_intervals=false&before_timestamp=1788253199"
+  },
+  {
+    "bytes": 63592,
+    "http_status": 200,
+    "observed_unix": 1791882290.1351871,
+    "sha256": "26fdbe09feeda3bf4c73af045bcb5bb97564e31e2cdf079dced305c9bdb66712",
+    "url": "https://api.geckoterminal.com/api/v2/networks/base/pools/0xd0b53d9277642d899df5c87a3966a349a798f224/ohlcv/hour?aggregate=1&limit=1000&currency=usd&token=0x4200000000000000000000000000000000000006&include_empty_intervals=false&before_timestamp=1784653199"
+  },
+  {
+    "bytes": 63350,
+    "http_status": 200,
+    "observed_unix": 1791882296.8341227,
+    "sha256": "7da34ce56d65b6c20fc463aa96787cbd71728e97167c75cf1eff46d39dc4e493",
+    "url": "https://api.geckoterminal.com/api/v2/networks/base/pools/0xd0b53d9277642d899df5c87a3966a349a798f224/ohlcv/hour?aggregate=1&limit=1000&currency=usd&token=0x4200000000000000000000000000000000000006&include_empty_intervals=false&before_timestamp=1781049599"
+  },
+  {
+    "bytes": 63303,
+    "http_status": 200,
+    "observed_unix": 1791882303.6254628,
+    "sha256": "e0bd076bf843e8c9b3b08784877f3cf8c8c99f177952d67fec4dd7aba91af239",
+    "url": "https://api.geckoterminal.com/api/v2/networks/base/pools/0xd0b53d9277642d899df5c87a3966a349a798f224/ohlcv/hour?aggregate=1&limit=1000&currency=usd&token=0x4200000000000000000000000000000000000006&include_empty_intervals=false&before_timestamp=1777449599"
+  },
+  {
+    "bytes": 2343,
+    "http_status": 200,
+    "observed_unix": 1791882310.390246,
+    "sha256": "a697fcd1c0b9ba80f0a61131a755c84f2af61dd6946f0f97cfcd769afa1b41fa",
+    "url": "https://api.geckoterminal.com/api/v2/networks/solana/pools/Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE?include=base_token,quote_token,dex"
+  },
+  {
+    "bytes": 100973,
+    "http_status": 200,
+    "observed_unix": 1791882316.8448546,
+    "sha256": "c4798005e6a53c5b99a4f2c1b1bf9555d3e9ff09d48291baad76ecd01a76af9b",
+    "url": "https://api.geckoterminal.com/api/v2/networks/solana/pools/Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE/ohlcv/hour?aggregate=1&limit=1000&currency=usd&token=So11111111111111111111111111111111111111112&include_empty_intervals=false&before_timestamp=1791849600"
+  },
+  {
+    "error": "HTTP Error 429: Too Many Requests",
+    "observed_unix": 1791882323.5474539,
+    "url": "https://api.geckoterminal.com/api/v2/networks/solana/pools/Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE/ohlcv/hour?aggregate=1&limit=1000&currency=usd&token=So11111111111111111111111111111111111111112&include_empty_intervals=false&before_timestamp=1788253199"
+  }
+]
