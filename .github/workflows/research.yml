@@ -1,0 +1,21 @@
+name: Research-only checks
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  offline-verification:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Create isolated standard-library environment
+        run: bash scripts/install.sh
+      - name: Test accounting, risk, paper state and static boundaries
+        run: PYTHONPATH=src .venv/bin/python scripts/verify_repository.py

@@ -70,5 +70,6 @@ def parse_ohlcv(payload,config,now=None):
 def fetch_bars(config,before=None,limit=1000,transport=get_json,now=None):
     url=ohlcv_url(config,before,limit);payload,raw=transport(url)
     observed=time.time() if now is None else now
-    bars,quality=parse_ohlcv(payload,config,observed)
-    return bars,{"provider":"GeckoTerminal / CoinGecko","url":url,"observed_at":observed,"raw_sha256":hashlib.sha256(raw).hexdigest(),"quality":quality},raw
+    cutoff=observed if before is None else min(observed,before)
+    bars,quality=parse_ohlcv(payload,config,cutoff)
+    return bars,{"provider":"GeckoTerminal / CoinGecko","url":url,"observed_at":observed,"completed_as_of":cutoff,"raw_sha256":hashlib.sha256(raw).hexdigest(),"quality":quality},raw

@@ -15,7 +15,7 @@
   "daily_loss": 0.03,
   "max_drawdown": 0.1,
   "max_volume_fraction": 0.001,
-  "interval_s": 60,
+  "interval_s": 14400,
   "symbol": "WETH/USDC",
   "network": "base",
   "pool": "0xd0b53d9277642d899df5c87a3966a349a798f224",

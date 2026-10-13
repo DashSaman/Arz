@@ -12,7 +12,9 @@ def summarize(initial,portfolio,equity_curve,fills,closed_trades,events,interval
     pnls=[x["net_pnl"] for x in closed_trades]
     wins=[x for x in pnls if x>0];losses=[x for x in pnls if x<0]
     days={}
-    for x in equity_curve:days[(x["ts"]+interval_s-1)//86400]=x["equity"]
+    for x in equity_curve:
+        clock=x.get("observed_at")
+        days[int((x["ts"]+interval_s-1 if clock is None else clock)//86400)]=x["equity"]
     daily=[];previous=initial
     for _,value in sorted(days.items()):
         if previous>0:daily.append(value/previous-1)

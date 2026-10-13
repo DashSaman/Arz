@@ -1,0 +1,160 @@
+{
+  "changed_strategy_restores": {
+    "accepted": true,
+    "after": {
+      "fast": 2,
+      "slow": 48
+    },
+    "before": {
+      "fast": 12,
+      "slow": 48
+    },
+    "restored_strategy": "trend",
+    "stored_identity_fields": [
+      "version",
+      "config_hash",
+      "strategy"
+    ]
+  },
+  "cli_state_output_collision": {
+    "return_code": 0,
+    "saved_keys": [
+      "continuous_service",
+      "live_trading",
+      "observations"
+    ],
+    "valid_engine_journal_retained": false
+  },
+  "failed_exit_trade_pnl": {
+    "account_net_profit": -0.04999999999998295,
+    "closed_trade_net_pnl": 0.04999999999999716,
+    "failed_attempts": 1,
+    "realized_pnl": -0.05000000000000285,
+    "total_gas": 0.30000000000000004,
+    "win_rate": 1.0
+  },
+  "four_hour_valid_feed_halted": {
+    "first": "WARMED_NO_HISTORICAL_TRADES",
+    "next": "HALTED_DATA_STALE",
+    "next_bar_close": 28800,
+    "observation_time": 14500,
+    "seconds_since_last_close": 100
+  },
+  "halted_valuation": {
+    "actual_mark_at_current_valid_close": 82.0,
+    "last_recorded_equity_ts": 60,
+    "reported_ending_equity": 100.0,
+    "source_last_close": 180,
+    "status": "HALTED_REQUIRES_REVIEW",
+    "units": 2.0
+  },
+  "invalid_restore": {
+    "boolean_state_version": {
+      "accepted": true,
+      "cash": 100.0,
+      "fills": 0,
+      "risk": {
+        "count": 0,
+        "day": 0,
+        "day_start": 100.0,
+        "fees": 0.0,
+        "halt_reason": null,
+        "peak": 100.0
+      },
+      "units": 0.0
+    },
+    "negative_risk_counters": {
+      "accepted": true,
+      "cash": 100.0,
+      "fills": 0,
+      "risk": {
+        "count": -100,
+        "day": 0,
+        "day_start": 100.0,
+        "fees": -100,
+        "halt_reason": null,
+        "peak": 100.0
+      },
+      "units": 0.0
+    },
+    "string_pending_false": {
+      "accepted": true,
+      "cash": 80.0,
+      "fills": 1,
+      "risk": {
+        "count": 1,
+        "day": 0,
+        "day_start": 100.0,
+        "fees": 0.0,
+        "halt_reason": null,
+        "peak": 100.0
+      },
+      "units": 2.0
+    },
+    "unfunded_cash": {
+      "accepted": true,
+      "cash": 101,
+      "fills": 0,
+      "risk": {
+        "count": 0,
+        "day": 0,
+        "day_start": 100.0,
+        "fees": 0.0,
+        "halt_reason": null,
+        "peak": 101.0
+      },
+      "units": 0.0
+    }
+  },
+  "malformed_data_fault_not_sticky": {
+    "fills_after_fault": 1,
+    "initial_error": "Nonfinite candle value",
+    "resumed_fault": null,
+    "resumed_status": "PROCESSED_PROSPECTIVE_BAR"
+  },
+  "observed_day_caps": {
+    "fills": [
+      {
+        "observed_at": 86401,
+        "side": "buy",
+        "ts": 86340
+      },
+      {
+        "observed_at": 86461,
+        "side": "sell",
+        "ts": 86400
+      }
+    ],
+    "fills_on_observed_UTC_day_1": 2,
+    "max_trades_day": 1,
+    "risk_after_first_fill": {
+      "count": 1,
+      "day": 0,
+      "day_start": 100.0,
+      "fees": 0.0,
+      "halt_reason": null,
+      "peak": 100.0
+    }
+  },
+  "older_source_revision": {
+    "fault": null,
+    "incoming_first_close": 11,
+    "journal_first_close": 10,
+    "status": "PROCESSED_PROSPECTIVE_BAR"
+  },
+  "source_hashes": {
+    "src/arz/__init__.py": "85fa79de27b5ef5cbb4cf77827e33e13ff0f58c35a1b5ce7d69654935d8a4ffb",
+    "src/arz/__main__.py": "7668ccb911c9940fb404c833b7005769957bf466cda5f3c7cf8616dc73690003",
+    "src/arz/accounting.py": "8ad66ddc4195a6cbca5b8cd5bd7be172febb226b1ec4f4ce0e8be86287a2f77c",
+    "src/arz/config.py": "dfba26eb55babf03cc28ccce19556126b0fa5ef502b826ce5cb5f92494e7ea15",
+    "src/arz/connectors.py": "af03ab13f2bc5e0da614d29e35fdd9e80ded8541f2c2a9c87bdb34b451a80de5",
+    "src/arz/data.py": "257a516cb5353dc1a30d4f8cbf7e90db277fe55139a4eb189092eccbdbae4747",
+    "src/arz/economics.py": "e4107c54214eb21a5c8a104266487fd5c5dce6509ab520c2618db1d5f0f4f9c6",
+    "src/arz/engine.py": "c2e28a1818b2c774fa718028cdba6d73376779c1d5c4f379052c852aeaf3ee14",
+    "src/arz/metrics.py": "c367cc9bba3ca91e961e216c5de85e7fa88c94b80738610b0766706f39aa663c",
+    "src/arz/paper.py": "013aa5bc6c70323870dbfae14d2e39ba67d03d90c13483e4bbd00ed1739b5119",
+    "src/arz/risk.py": "306eac23ddf960b63b35509868fbe6776cdd8a32ef7824be30717ee99aa46d21",
+    "src/arz/strategies.py": "6bcf3f98845ced3dcec86552bd700860cd7accf607bc66a264d896afd024f1e1",
+    "src/arz/validation.py": "7da84c3a26ee13ddc5b41f2d56d3fb7476c04dd59e47af4b66f0305840e440aa"
+  }
+}

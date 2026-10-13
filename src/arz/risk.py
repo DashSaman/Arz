@@ -12,10 +12,15 @@ class Risk:
     count: int = 0
     fees: float = 0.0
     halt_reason: str | None = None
+    last_ts: float | None = None
 
     def update(self,ts,equity):
+        if isinstance(ts,bool) or not isinstance(ts,(int,float)) or not math.isfinite(ts) or ts<0:
+            raise ValueError("Invalid risk clock")
+        if self.last_ts is not None and ts<self.last_ts:raise ValueError("Risk clock cannot move backwards")
         if not math.isfinite(equity) or equity<0:raise ValueError("Invalid marked equity")
-        day=ts//86400
+        self.last_ts=ts
+        day=int(ts//86400)
         if self.day!=day:
             self.day=day;self.day_start=equity;self.count=0;self.fees=0.0
         self.peak=max(self.peak,equity)

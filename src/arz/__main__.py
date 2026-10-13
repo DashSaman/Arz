@@ -1,6 +1,6 @@
 """CLI commands are all research or simulated. There is no live command."""
 import argparse
-from dataclasses import asdict,replace
+from dataclasses import replace
 import hashlib,json,sys,time
 from pathlib import Path
 from .config import Config
@@ -8,7 +8,7 @@ from .data import read_csv,write_csv
 from .strategies import Strategy,PARAMETERS
 from .engine import run_backtest
 from .connectors import fetch_bars
-from .paper import paper_step,atomic_write,locked,digest
+from .paper import paper_step,atomic_write,record_fault
 
 
 def config_from_file(path):
@@ -18,6 +18,14 @@ def config_from_file(path):
 def output_json(path,data):
     path=Path(path);path.parent.mkdir(parents=True,exist_ok=True)
     atomic_write(path,data)
+
+
+def reject_path_collisions(paths):
+    entries=[Path(p).resolve() for p in paths if p]
+    for i,left in enumerate(entries):
+        for right in entries[i+1:]:
+            if left==right or (left.exists() and right.exists() and left.samefile(right)):
+                raise ValueError("Configuration, input data, journal and output paths must be distinct")
 
 
 def main(argv=None):
@@ -33,6 +41,7 @@ def main(argv=None):
             p.add_argument("--state",required=True);p.add_argument("--strategy",choices=PARAMETERS,default="trend")
             p.add_argument("--samples",type=int,default=1);p.add_argument("--sleep",type=float,default=20)
     args=parser.parse_args(argv)
+    reject_path_collisions([args.config,args.output,getattr(args,"data",None),getattr(args,"state",None)])
     c=config_from_file(args.config)
     if args.command=="fetch":
         bars,meta,raw=fetch_bars(c,before=args.before,limit=args.limit)
@@ -57,14 +66,7 @@ def main(argv=None):
                 record["source"]=meta;records.append(record)
             except Exception as exc:
                 # No retry can silently clear the recorded paper fault.
-                path=Path(args.state)
-                if path.exists():
-                    with locked(path):
-                        state=json.loads(path.read_text())
-                        if digest(state["engine"])!=state["state_sha256"]:raise ValueError("Corrupt journal during fault handling") from exc
-                        state["fault"]="network_or_data_error";state["status"]="HALTED_NETWORK_OR_DATA_ERROR"
-                        state["engine"]["risk"]["halt_reason"]="network_or_data_error"
-                        state["state_sha256"]=digest(state["engine"]);atomic_write(path,state)
+                record_fault(args.state,c,Strategy(args.strategy))
                 records.append({"status":"HALTED_NETWORK_OR_DATA_ERROR","error_type":type(exc).__name__,"observed_at":time.time()})
                 output_json(args.output,{"live_trading":"DISABLED","observations":records,"continuous_service":False})
                 return 1
