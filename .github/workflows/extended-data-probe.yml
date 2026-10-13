@@ -1,0 +1,57 @@
+name: Extended data feasibility probe
+on:
+  push:
+    branches: [research/2026-10-13-extended-validation]
+    paths: [.github/workflows/extended-data-probe.yml]
+permissions:
+  contents: read
+jobs:
+  probe:
+    if: github.event.repository.private == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Preserve and test baseline
+        env:
+          PYTHONPATH: src
+        run: |
+          python3 -m unittest discover -s tests -v
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib, json
+          paths=['README.md','README.fa.md','AGENTS.md','PROJECT_STATUS.md','WORK_LOG.md','DECISIONS.md','research/research_methodology.md','docs/fa/strategy_evaluation.md','docs/fa/final_decision.md','reports/tests/latest.json','reports/security/closure.md']
+          for name in paths:
+              p=Path(name); text=p.read_text()
+              print('CONTINUITY',json.dumps({'path':name,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'bytes':p.stat().st_size,'headings':[s for s in text.splitlines() if s.startswith('#')]}))
+          PY
+      - name: Bounded public metadata and historical availability
+        run: |
+          python3 - <<'PY'
+          import urllib.request,urllib.parse,urllib.error,json,hashlib,datetime,time
+          base='https://tradingstrategy.ai/api/'
+          for chain,slug in [('ethereum','eth-usdc-fee-5'),('base','eth-usdc-fee-5'),('arbitrum','eth-usdc-fee-5'),('arbitrum','wbtc-usdc-fee-30')]:
+              params={'chain_slug':chain,'exchange_slug':'uniswap-v3','pair_slug':slug}
+              url=base+'pair-details?'+urllib.parse.urlencode(params)
+              record={'chain':chain,'slug':slug,'url':url,'observed_at':datetime.datetime.now(datetime.timezone.utc).isoformat()}
+              try:
+                  with urllib.request.urlopen(url,timeout=25) as r:
+                      body=r.read(250001)
+                      if len(body)>250000: raise ValueError('metadata response too large')
+                      record['http_status']=r.status
+                  value=json.loads(body); record['metadata']=value
+                  print('PROBE_METADATA',json.dumps(record))
+                  pair_id=value['summary']['pair_id']
+                  q={'pair_ids':str(pair_id),'time_bucket':'1d','start':'2024-01-01T00:00:00','end':'2024-01-04T00:00:00','max_bytes':100000}
+                  candle_url=base+'candles-jsonl?'+urllib.parse.urlencode(q)
+                  with urllib.request.urlopen(candle_url,timeout=25) as r:
+                      raw=r.read(100001)
+                      if len(raw)>100000: raise ValueError('candle probe too large')
+                      rows=[json.loads(line) for line in raw.splitlines() if line.strip()]
+                  print('PROBE_HISTORY',json.dumps({'url':candle_url,'count':len(rows),'first_ts':rows[0].get('ts') if rows else None,'last_ts':rows[-1].get('ts') if rows else None,'fields':list(rows[0]) if rows else [],'errors':[x for x in rows if 'error' in x],'sha256':hashlib.sha256(raw).hexdigest()}))
+              except Exception as exc:
+                  print('PROBE_FAILURE',json.dumps({'chain':chain,'slug':slug,'error':str(exc),'type':type(exc).__name__}))
+              time.sleep(1)
+          PY
