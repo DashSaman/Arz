@@ -14,6 +14,7 @@ import re
 import subprocess
 import sys
 import tomllib
+from extended_dependency_policy import classify_imports
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -38,28 +39,33 @@ def main():
     whitespace = run(["git", "diff", "--check"])
     result["checks"].update({"unit_and_integration_tests": suite, "dependency_compatibility": dependency,
                              "tracked_whitespace": whitespace})
-    imports = set()
+    origins = {}
     forbidden = []
     source_hashes = {}
     for path in sorted((ROOT/"src").rglob("*.py")):
         raw = path.read_bytes()
-        source_hashes[str(path.relative_to(ROOT))] = hashlib.sha256(raw).hexdigest()
+        relative = str(path.relative_to(ROOT))
+        source_hashes[relative] = hashlib.sha256(raw).hexdigest()
         tree = ast.parse(raw, filename=str(path))
         for node in ast.walk(tree):
             if isinstance(node, ast.Import):
-                imports.update(alias.name.split(".")[0] for alias in node.names)
+                for alias in node.names:
+                    origins.setdefault(alias.name.split(".")[0], set()).add(relative)
             if isinstance(node, ast.ImportFrom) and node.level == 0 and node.module:
-                imports.add(node.module.split(".")[0])
+                origins.setdefault(node.module.split(".")[0], set()).add(relative)
             if isinstance(node, ast.Call):
                 name = node.func.id if isinstance(node.func, ast.Name) else node.func.attr if isinstance(node.func, ast.Attribute) else ""
                 if name in {"eval", "exec", "loads_pickle", "system", "sign_transaction", "send_transaction", "send_raw_transaction"}:
-                    forbidden.append({"file": str(path.relative_to(ROOT)), "line": node.lineno, "call": name})
-    declared = tomllib.loads((ROOT/"pyproject.toml").read_text())["project"].get("dependencies", [])
-    external = sorted(imports - sys.stdlib_module_names - {"arz"})
+                    forbidden.append({"file": relative, "line": node.lineno, "call": name})
+    project = tomllib.loads((ROOT/"pyproject.toml").read_text())["project"]
+    declared = project.get("dependencies", [])
+    optional = project.get("optional-dependencies", {}).get("extended-data", [])
+    external = classify_imports(origins, optional)
     result["checks"]["runtime_ast_boundary"] = {"source_hashes": source_hashes, "external_imports": external,
-        "declared_runtime_dependencies": declared, "forbidden_call_findings": forbidden,
-        "passed": not external and not declared and not forbidden,
-        "limits": "A small explicit AST rule set; does not prove absence of all code vulnerabilities or validate the host/interpreter supply chain."}
+        "declared_runtime_dependencies": declared, "declared_optional_data_dependencies": optional,
+        "optional_import_scope": {k: sorted(v) for k,v in origins.items() if k == "pyarrow"},
+        "forbidden_call_findings": forbidden, "passed": not external and not declared and not forbidden,
+        "limits": "A small explicit AST rule set. Only pinned PyArrow in the isolated historical data reader is permitted; no CVE or host audit is implied."}
     files = run(["git", "ls-files", "--cached", "--others", "--exclude-standard"])["stdout"].splitlines()
     secret_hits = []
     csv_count = 0
