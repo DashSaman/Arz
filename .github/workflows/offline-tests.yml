@@ -1,0 +1,26 @@
+name: Arz offline-only tests
+
+on:
+  push:
+    paths:
+      - 'scripts/**'
+      - 'tests/**'
+      - 'data/**'
+      - '.github/workflows/offline-tests.yml'
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Python offline accounting tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run offline unit tests (no keys, no network APIs)
+        run: python3 -m unittest discover -s tests -v
+      - name: Evaluate labeled synthetic example
+        run: python3 scripts/compound_audit.py --csv data/SYNTHETIC_example_daily_returns.csv --initial 100
