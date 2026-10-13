@@ -1,0 +1,48 @@
+{
+  "source": "Read-only retrieval of completed runtime/phase4/round1 output files from the authorized isolated runtime; numerical transcript, not byte-identical raw RPC journal.",
+  "started_at": "2026-10-13T17:28:52.637026+00:00",
+  "finished_at": "2026-10-13T17:29:24.729315+00:00",
+  "code_commit": "3fdbe90724c4ca134375c9bc4162b69c38fd9d3c",
+  "requests": 84,
+  "response_bytes": 428207,
+  "raw_journal_sha256": "ca25d2721a3cc08f9165959475cd9f182338cab8edeaae0c711129c4402fe7fd",
+  "original_csv_sha256": "4beba72593d5a75a324bdb7bcf1acb386a632c754d1746b2ac99b36f98b97cf5",
+  "original_snapshot_sha256": "ad24620a260ff9ef68adbd3323b87937f13348086e7ecbf8b055cbc739ca3a33",
+  "original_scope_status": "All six marked UNSUPPORTED_INITIALIZED_TICK_CROSSING; no numerical comparison performed by first runner.",
+  "snapshot": {
+    "block": {"number":44732526,"hash":"0x7c32bb1da14febdc7c6744d408afe005852a317e55ec313aa2b042b2e6d02a24","timestamp":1776254399},
+    "token0":"0x4200000000000000000000000000000000000006",
+    "token1":"0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+    "fee_ppm":500,"sqrt_price_x96":"3830260098844831746376465","active_liquidity":"1202316496893574204","tick_spacing":10,
+    "rpc":"https://mainnet.base.org","network":"base","pool":"0xd0b53d9277642d899df5c87a3966a349a798f224","chain_id":8453,
+    "target_time":1776254400,
+    "successor":{"number":44732527,"hash":"0xae7fcc3c39feab9c66bf97e1d8f6de0182dbefd11ad470e263ed680aa630b349","timestamp":1776254401}
+  },
+  "quote_columns":["buy_stable","nominal_usdc","amount_in_atomic","amount_out_atomic","sqrt_after","reported_gas_tick_counter","quoter_internal_gas"],
+  "quotes":[
+    [true,10,"10000000","4276469299898715","3830260757477967344255240",1,86255],
+    [false,10,"4278609339929807","9994998","3830259440211809403869875",1,72887],
+    [true,20,"20000000","8552937129075681","3830261416111102942134015",1,86255],
+    [false,20,"8557218679859614","19989993","3830258781579013572029574",1,72887],
+    [true,25,"25000000","10691170492143746","3830261745427670741073403",1,86255],
+    [false,25,"10696523349824518","24987489","3830258452262700597572767",1,72887]
+  ],
+  "solana": {
+    "pool":"Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE","slot":456524335,"owner":"whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+    "tick_spacing":4,"fee_tier_index_seed":4,"stored_fee_rate_ppm":400,"protocol_share_bps":1300,
+    "liquidity":"741379619459963","sqrt_price_x64":"6043291298621810254","tick_current":-22320,
+    "token_mint_a":"So11111111111111111111111111111111111111112","token_mint_b":"EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "classification":"CURRENT_FINALIZED_ACCOUNT_NOT_HISTORICAL_EXECUTION","historical_quote":null,
+    "fee_limit":"Stored field only; dynamic fee, route and time-specific execution not certified."
+  },
+  "errors":[
+    {"network":"base","target":1776254400,"type":"HTTPError","error":"HTTP Error 429: Too Many Requests"},
+    {"network":"base","target":1784116800,"type":"RuntimeError","error":"Endpoint denied access earlier; no retry"},
+    {"network":"base","target":1791806400,"type":"RuntimeError","error":"Endpoint denied access earlier; no retry"},
+    {"network":"arbitrum","stage":"primary_archive","target":1776254400,"error":"missing trie node eae645444879813a4063fd70c52667dd209b40cc69c3dd9fb9e03785dfccf14e; historical state not available"},
+    {"network":"arbitrum","target":1776254400,"type":"HTTPError","error":"HTTP Error 403: Forbidden"},
+    {"network":"arbitrum","target":1784116800,"type":"RuntimeError","error":"Endpoint denied access earlier; no retry"},
+    {"network":"arbitrum","target":1791806400,"type":"RuntimeError","error":"Endpoint denied access earlier; no retry"}
+  ],
+  "independent_replays":0,"live_trading":"DISABLED"
+}
