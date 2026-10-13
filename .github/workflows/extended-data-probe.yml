@@ -14,44 +14,33 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           persist-credentials: false
-      - name: Preserve and test baseline
-        env:
-          PYTHONPATH: src
-        run: |
-          python3 -m unittest discover -s tests -v
-          python3 - <<'PY'
-          from pathlib import Path
-          import hashlib, json
-          paths=['README.md','README.fa.md','AGENTS.md','PROJECT_STATUS.md','WORK_LOG.md','DECISIONS.md','research/research_methodology.md','docs/fa/strategy_evaluation.md','docs/fa/final_decision.md','reports/tests/latest.json','reports/security/closure.md']
-          for name in paths:
-              p=Path(name); text=p.read_text()
-              print('CONTINUITY',json.dumps({'path':name,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'bytes':p.stat().st_size,'headings':[s for s in text.splitlines() if s.startswith('#')]}))
-          PY
-      - name: Bounded public metadata and historical availability
+      - name: Public alternative data availability only
         run: |
           python3 - <<'PY'
-          import urllib.request,urllib.parse,urllib.error,json,hashlib,datetime,time
-          base='https://tradingstrategy.ai/api/'
-          for chain,slug in [('ethereum','eth-usdc-fee-5'),('base','eth-usdc-fee-5'),('arbitrum','eth-usdc-fee-5'),('arbitrum','wbtc-usdc-fee-30')]:
-              params={'chain_slug':chain,'exchange_slug':'uniswap-v3','pair_slug':slug}
-              url=base+'pair-details?'+urllib.parse.urlencode(params)
-              record={'chain':chain,'slug':slug,'url':url,'observed_at':datetime.datetime.now(datetime.timezone.utc).isoformat()}
+          import urllib.request,urllib.parse,json,hashlib,datetime,time
+          def get(url):
+              time.sleep(6)
+              req=urllib.request.Request(url,headers={'Accept':'application/json;version=20230203','User-Agent':'Arz-Research/0.2 (public data feasibility)'})
+              with urllib.request.urlopen(req,timeout=25) as r:
+                  raw=r.read(2000001)
+                  if len(raw)>2000000: raise ValueError('response size limit')
+              return json.loads(raw),hashlib.sha256(raw).hexdigest()
+          pools=[('base','0xd0b53d9277642d899df5c87a3966a349a798f224'),('eth','0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640'),('solana','Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE')]
+          for network,pool in pools:
+              root=f'https://api.geckoterminal.com/api/v2/networks/{network}/pools/{pool}'
               try:
-                  with urllib.request.urlopen(url,timeout=25) as r:
-                      body=r.read(250001)
-                      if len(body)>250000: raise ValueError('metadata response too large')
-                      record['http_status']=r.status
-                  value=json.loads(body); record['metadata']=value
-                  print('PROBE_METADATA',json.dumps(record))
-                  pair_id=value['summary']['pair_id']
-                  q={'pair_ids':str(pair_id),'time_bucket':'1d','start':'2024-01-01T00:00:00','end':'2024-01-04T00:00:00','max_bytes':100000}
-                  candle_url=base+'candles-jsonl?'+urllib.parse.urlencode(q)
-                  with urllib.request.urlopen(candle_url,timeout=25) as r:
-                      raw=r.read(100001)
-                      if len(raw)>100000: raise ValueError('candle probe too large')
-                      rows=[json.loads(line) for line in raw.splitlines() if line.strip()]
-                  print('PROBE_HISTORY',json.dumps({'url':candle_url,'count':len(rows),'first_ts':rows[0].get('ts') if rows else None,'last_ts':rows[-1].get('ts') if rows else None,'fields':list(rows[0]) if rows else [],'errors':[x for x in rows if 'error' in x],'sha256':hashlib.sha256(raw).hexdigest()}))
-              except Exception as exc:
-                  print('PROBE_FAILURE',json.dumps({'chain':chain,'slug':slug,'error':str(exc),'type':type(exc).__name__}))
-              time.sleep(1)
+                  value,digest=get(root+'?include=base_token,quote_token,dex')
+                  attr=value['data']['attributes']
+                  print('ALT_METADATA',json.dumps({'network':network,'pool':pool,'attributes':{k:attr.get(k) for k in ['name','address','pool_created_at','reserve_in_usd','volume_usd','base_token_price_usd']},'relationships':value['data']['relationships'],'included':value.get('included',[]),'response_sha256':digest}))
+                  value,digest=get(root+'/ohlcv/day?aggregate=1&limit=1000&currency=usd&include_empty_intervals=false&before_timestamp=1791849600')
+                  rows=value['data']['attributes']['ohlcv_list']; timestamps=sorted(x[0] for x in rows)
+                  print('ALT_COVERAGE',json.dumps({'network':network,'pool':pool,'rows':len(rows),'first':timestamps[0] if rows else None,'last':timestamps[-1] if rows else None,'gaps':sum(timestamps[i]-timestamps[i-1]!=86400 for i in range(1,len(timestamps))),'meta':value.get('meta'),'response_sha256':digest}))
+              except Exception as exc: print('ALT_FAILURE',json.dumps({'network':network,'pool':pool,'error':str(exc)}))
+          for symbol in ['ETH-USD','SOL-USD']:
+              url=f'https://api.exchange.coinbase.com/products/{symbol}/candles?granularity=86400&start=2024-01-01T00%3A00%3A00Z&end=2024-01-04T00%3A00%3A00Z'
+              try:
+                  value,digest=get(url)
+                  if not isinstance(value,list): raise ValueError(str(value))
+                  print('PROXY_COVERAGE',json.dumps({'venue':'Coinbase Exchange','symbol':symbol,'url':url,'count':len(value),'first':min(x[0] for x in value),'last':max(x[0] for x in value),'fields':'time,low,high,open,close,base_volume','response_sha256':digest,'classification':'CEX_PRICE_PROXY_NOT_DEX_EXECUTION'}))
+              except Exception as exc: print('PROXY_FAILURE',json.dumps({'symbol':symbol,'error':str(exc)}))
           PY

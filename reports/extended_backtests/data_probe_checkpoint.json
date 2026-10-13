@@ -1,0 +1,17 @@
+{
+  "checked_at": "2026-10-13",
+  "baseline_commit": "d21eb280170a0a27eba5c278a6381879431cf447",
+  "design_commit": "8e78f39969edf1afe66cf6bb45d0cfe5a5f55f65",
+  "ci_run": 38366323217,
+  "ci_job": 115192209389,
+  "baseline_tests_executed": 56,
+  "baseline_tests_passed": 56,
+  "data_requests": 4,
+  "successful_data_requests": 0,
+  "provider": "Trading Strategy public pair-details endpoint",
+  "outcomes": ["ethereum ETH-USDC: HTTP403", "base ETH-USDC: HTTP403", "arbitrum ETH-USDC: HTTP403", "arbitrum WBTC-USDC: HTTP403"],
+  "historical_bars_received": 0,
+  "interpretation": "Workflow success means the probe completed and recorded failures, not that data acquisition succeeded. No authentication or geography bypass attempted.",
+  "next": "Probe a genuinely different public data provider; longer CEX history may only be used as an explicitly separated price proxy, never called a DEX backtest.",
+  "live_trading": "DISABLED"
+}
