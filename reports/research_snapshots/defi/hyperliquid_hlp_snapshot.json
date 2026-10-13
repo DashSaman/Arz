@@ -1,0 +1,212 @@
+{
+  "endpoint": "https://api.hyperliquid.xyz/info",
+  "request": {
+    "type": "vaultDetails",
+    "vaultAddress": "0xdfc24b077bc1425ad1dea75bcb6f8158e10df303"
+  },
+  "observed_at": "2026-10-13T00:46:36.909228+00:00",
+  "http_date": "Tue, 13 Oct 2026 00:46:36 GMT",
+  "raw_response_sha256": "0edc1771b2f565ddefd5b702527835bad3a3b4ee24a472920575eebaf1aae24a",
+  "snapshot_type": "single public API observation; not promised return or independently audited performance",
+  "retained_fields": {
+    "name": "Hyperliquidity Provider (HLP)",
+    "vaultAddress": "0xdfc24b077bc1425ad1dea75bcb6f8158e10df303",
+    "apr": 0.03205345287333033,
+    "leaderCommission": 0.0,
+    "allowDeposits": true,
+    "isClosed": false,
+    "maxDistributable": 41386204.655465,
+    "maxWithdrawable": 0.0,
+    "alwaysCloseOnWithdraw": false,
+    "relationship": {
+      "type": "parent",
+      "data": {
+        "childAddresses": [
+          "0x010461c14e146ac35fe42271bdc1134ee31c703a",
+          "0x2e3d94f0562703b25c83308a05046ddaf9a8dd14",
+          "0x2ed5c4484ea3ff8b57d5f2fb152a40d9f2b68308",
+          "0x31ca8395cf837de08b24da3f660e77761dfb974b",
+          "0x469f690213c467c39a23efacfd2816896009d7d8",
+          "0x5e177e5e39c0f4e421f5865a6d8beed8d921cb70",
+          "0xb0a55f13d22f66e6d495ac98113841b2326e9540"
+        ]
+      }
+    }
+  },
+  "portfolio_coverage": [
+    {
+      "period": "day",
+      "account_value_points": 52,
+      "pnl_points": 52,
+      "first_account_value": [
+        1791765139561,
+        "180230453.6454699934"
+      ],
+      "last_account_value": [
+        1791852396568,
+        "181040794.3207620084"
+      ],
+      "first_pnl": [
+        1791765139561,
+        "0.0"
+      ],
+      "last_pnl": [
+        1791852396568,
+        "17227.885292"
+      ]
+    },
+    {
+      "period": "week",
+      "account_value_points": 63,
+      "pnl_points": 63,
+      "first_account_value": [
+        1791242326969,
+        "181550168.4974260032"
+      ],
+      "last_account_value": [
+        1791852396568,
+        "181040794.3207620084"
+      ],
+      "first_pnl": [
+        1791242326969,
+        "0.0"
+      ],
+      "last_pnl": [
+        1791852396568,
+        "112408.003336"
+      ]
+    },
+    {
+      "period": "month",
+      "account_value_points": 45,
+      "pnl_points": 45,
+      "first_account_value": [
+        1789257473919,
+        "187037298.4133140147"
+      ],
+      "last_account_value": [
+        1791852396568,
+        "181040794.3207620084"
+      ],
+      "first_pnl": [
+        1789257473919,
+        "0.0"
+      ],
+      "last_pnl": [
+        1791852396568,
+        "576878.997448"
+      ]
+    },
+    {
+      "period": "allTime",
+      "account_value_points": 101,
+      "pnl_points": 101,
+      "first_account_value": [
+        1683758700034,
+        "0.0"
+      ],
+      "last_account_value": [
+        1791852396568,
+        "181040794.3207620084"
+      ],
+      "first_pnl": [
+        1683758700034,
+        "0.0"
+      ],
+      "last_pnl": [
+        1791852396568,
+        "138630848.780761987"
+      ]
+    },
+    {
+      "period": "perpDay",
+      "account_value_points": 52,
+      "pnl_points": 52,
+      "first_account_value": [
+        1791765139561,
+        "40572286.5515099987"
+      ],
+      "last_account_value": [
+        1791852396568,
+        "41386682.5228620023"
+      ],
+      "first_pnl": [
+        1791765139561,
+        "0.0"
+      ],
+      "last_pnl": [
+        1791852396568,
+        "21283.181352"
+      ]
+    },
+    {
+      "period": "perpWeek",
+      "account_value_points": 63,
+      "pnl_points": 63,
+      "first_account_value": [
+        1791242326969,
+        "41947030.7420110032"
+      ],
+      "last_account_value": [
+        1791852396568,
+        "41386682.5228620023"
+      ],
+      "first_pnl": [
+        1791242326969,
+        "0.0"
+      ],
+      "last_pnl": [
+        1791852396568,
+        "118167.760851"
+      ]
+    },
+    {
+      "period": "perpMonth",
+      "account_value_points": 45,
+      "pnl_points": 45,
+      "first_account_value": [
+        1789257473919,
+        "47664316.6717780009"
+      ],
+      "last_account_value": [
+        1791852396568,
+        "41386682.5228620023"
+      ],
+      "first_pnl": [
+        1789257473919,
+        "0.0"
+      ],
+      "last_pnl": [
+        1791852396568,
+        "568850.281084"
+      ]
+    },
+    {
+      "period": "perpAllTime",
+      "account_value_points": 78,
+      "pnl_points": 78,
+      "first_account_value": [
+        1714607953536,
+        "0.0"
+      ],
+      "last_account_value": [
+        1791852396568,
+        "41386682.5228620023"
+      ],
+      "first_pnl": [
+        1714607953536,
+        "0.0"
+      ],
+      "last_pnl": [
+        1791852396568,
+        "90220773.7228620052"
+      ]
+    }
+  ],
+  "limitations": [
+    "Anonymous query supplied no user; maxWithdrawable=0 is not a systemwide withdrawal assessment.",
+    "Portfolio arrays are sparse samples and do not establish lifetime maximum drawdown.",
+    "APR is the API field name; methodology and independent reconciliation were not verified.",
+    "Raw response hash identifies the fetched payload; raw follower records were deliberately not retained."
+  ]
+}

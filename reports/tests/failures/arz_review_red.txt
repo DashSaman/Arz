@@ -1,0 +1,165 @@
+test_any_overlapping_source_revision_is_rejected_and_sticky (test_review_regressions.ReviewRegressionTests.test_any_overlapping_source_revision_is_rejected_and_sticky) ... FAIL
+test_changed_strategy_parameters_cannot_resume_a_journal (test_review_regressions.ReviewRegressionTests.test_changed_strategy_parameters_cannot_resume_a_journal) ... FAIL
+test_cli_state_output_collision_is_rejected_before_fetch (test_review_regressions.ReviewRegressionTests.test_cli_state_output_collision_is_rejected_before_fetch) ... FAIL
+test_complete_four_hour_feed_remains_healthy_between_closes (test_review_regressions.ReviewRegressionTests.test_complete_four_hour_feed_remains_healthy_between_closes) ... FAIL
+test_direct_api_validation_failure_persists_a_halt (test_review_regressions.ReviewRegressionTests.test_direct_api_validation_failure_persists_a_halt) ... FAIL
+test_failed_exit_gas_changes_the_closed_trade_from_win_to_loss (test_review_regressions.ReviewRegressionTests.test_failed_exit_gas_changes_the_closed_trade_from_win_to_loss) ... FAIL
+test_halted_open_position_has_a_current_explicit_valuation (test_review_regressions.ReviewRegressionTests.test_halted_open_position_has_a_current_explicit_valuation) ... ERROR
+test_historical_cutoff_never_includes_a_later_completed_bar (test_review_regressions.ReviewRegressionTests.test_historical_cutoff_never_includes_a_later_completed_bar) ... FAIL
+test_late_observation_of_a_new_bar_cannot_claim_a_fresh_fill (test_review_regressions.ReviewRegressionTests.test_late_observation_of_a_new_bar_cannot_claim_a_fresh_fill) ... ok
+test_observed_utc_day_applies_to_paper_trade_cap (test_review_regressions.ReviewRegressionTests.test_observed_utc_day_applies_to_paper_trade_cap) ... FAIL
+test_research_runner_rejects_incomplete_future_input (test_review_regressions.ReviewRegressionTests.test_research_runner_rejects_incomplete_future_input) ... FAIL
+test_restore_rejects_inconsistent_ledger_and_unsafe_types (test_review_regressions.ReviewRegressionTests.test_restore_rejects_inconsistent_ledger_and_unsafe_types) ... 
+  test_restore_rejects_inconsistent_ledger_and_unsafe_types (test_review_regressions.ReviewRegressionTests.test_restore_rejects_inconsistent_ledger_and_unsafe_types) (field='version') ... FAIL
+  test_restore_rejects_inconsistent_ledger_and_unsafe_types (test_review_regressions.ReviewRegressionTests.test_restore_rejects_inconsistent_ledger_and_unsafe_types) (field='pending') ... FAIL
+  test_restore_rejects_inconsistent_ledger_and_unsafe_types (test_review_regressions.ReviewRegressionTests.test_restore_rejects_inconsistent_ledger_and_unsafe_types) (field='portfolio.cash') ... FAIL
+  test_restore_rejects_inconsistent_ledger_and_unsafe_types (test_review_regressions.ReviewRegressionTests.test_restore_rejects_inconsistent_ledger_and_unsafe_types) (field='risk.count') ... FAIL
+  test_restore_rejects_inconsistent_ledger_and_unsafe_types (test_review_regressions.ReviewRegressionTests.test_restore_rejects_inconsistent_ledger_and_unsafe_types) (field='risk.fees') ... FAIL
+test_restore_replays_legitimate_profit_without_a_deposit (test_review_regressions.ReviewRegressionTests.test_restore_replays_legitimate_profit_without_a_deposit) ... ok
+
+======================================================================
+ERROR: test_halted_open_position_has_a_current_explicit_valuation (test_review_regressions.ReviewRegressionTests.test_halted_open_position_has_a_current_explicit_valuation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_review_regressions.py", line 150, in test_halted_open_position_has_a_current_explicit_valuation
+    self.assertAlmostEqual(result["valuation"]["equity"], 82)
+                           ~~~~~~^^^^^^^^^^^^^
+KeyError: 'valuation'
+
+======================================================================
+FAIL: test_any_overlapping_source_revision_is_rejected_and_sticky (test_review_regressions.ReviewRegressionTests.test_any_overlapping_source_revision_is_rejected_and_sticky)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_review_regressions.py", line 121, in test_any_overlapping_source_revision_is_rejected_and_sticky
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_changed_strategy_parameters_cannot_resume_a_journal (test_review_regressions.ReviewRegressionTests.test_changed_strategy_parameters_cannot_resume_a_journal)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_review_regressions.py", line 74, in test_changed_strategy_parameters_cannot_resume_a_journal
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_cli_state_output_collision_is_rejected_before_fetch (test_review_regressions.ReviewRegressionTests.test_cli_state_output_collision_is_rejected_before_fetch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_review_regressions.py", line 158, in test_cli_state_output_collision_is_rejected_before_fetch
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_complete_four_hour_feed_remains_healthy_between_closes (test_review_regressions.ReviewRegressionTests.test_complete_four_hour_feed_remains_healthy_between_closes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_review_regressions.py", line 102, in test_complete_four_hour_feed_remains_healthy_between_closes
+    self.assertEqual(result["status"], "NO_NEW_COMPLETED_BAR")
+AssertionError: 'HALTED_DATA_STALE' != 'NO_NEW_COMPLETED_BAR'
+- HALTED_DATA_STALE
++ NO_NEW_COMPLETED_BAR
+
+
+======================================================================
+FAIL: test_direct_api_validation_failure_persists_a_halt (test_review_regressions.ReviewRegressionTests.test_direct_api_validation_failure_persists_a_halt)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_review_regressions.py", line 137, in test_direct_api_validation_failure_persists_a_halt
+    self.assertEqual(result["status"], "HALTED_REQUIRES_REVIEW")
+AssertionError: 'PROCESSED_PROSPECTIVE_BAR' != 'HALTED_REQUIRES_REVIEW'
+- PROCESSED_PROSPECTIVE_BAR
++ HALTED_REQUIRES_REVIEW
+
+
+======================================================================
+FAIL: test_failed_exit_gas_changes_the_closed_trade_from_win_to_loss (test_review_regressions.ReviewRegressionTests.test_failed_exit_gas_changes_the_closed_trade_from_win_to_loss)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_review_regressions.py", line 92, in test_failed_exit_gas_changes_the_closed_trade_from_win_to_loss
+    self.assertAlmostEqual(r["closed_trades"][0]["net_pnl"], -.05)
+AssertionError: 0.04999999999999716 != -0.05 within 7 places (0.09999999999999716 difference)
+
+======================================================================
+FAIL: test_historical_cutoff_never_includes_a_later_completed_bar (test_review_regressions.ReviewRegressionTests.test_historical_cutoff_never_includes_a_later_completed_bar)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_review_regressions.py", line 171, in test_historical_cutoff_never_includes_a_later_completed_bar
+    self.assertEqual([b.ts for b in bars], [0])
+AssertionError: Lists differ: [0, 14400] != [0]
+
+First list contains 1 additional elements.
+First extra element 1:
+14400
+
+- [0, 14400]
++ [0]
+
+======================================================================
+FAIL: test_observed_utc_day_applies_to_paper_trade_cap (test_review_regressions.ReviewRegressionTests.test_observed_utc_day_applies_to_paper_trade_cap)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_review_regressions.py", line 83, in test_observed_utc_day_applies_to_paper_trade_cap
+    self.assertEqual(len(e.fills), 1)
+AssertionError: 2 != 1
+
+======================================================================
+FAIL: test_research_runner_rejects_incomplete_future_input (test_review_regressions.ReviewRegressionTests.test_research_runner_rejects_incomplete_future_input)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_review_regressions.py", line 181, in test_research_runner_rejects_incomplete_future_input
+    self.assertNotEqual(run.returncode, 0)
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_restore_rejects_inconsistent_ledger_and_unsafe_types (test_review_regressions.ReviewRegressionTests.test_restore_rejects_inconsistent_ledger_and_unsafe_types) (field='version')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_review_regressions.py", line 55, in test_restore_rejects_inconsistent_ledger_and_unsafe_types
+    with self.subTest(field=field), self.assertRaises(ValueError):
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_restore_rejects_inconsistent_ledger_and_unsafe_types (test_review_regressions.ReviewRegressionTests.test_restore_rejects_inconsistent_ledger_and_unsafe_types) (field='pending')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_review_regressions.py", line 55, in test_restore_rejects_inconsistent_ledger_and_unsafe_types
+    with self.subTest(field=field), self.assertRaises(ValueError):
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_restore_rejects_inconsistent_ledger_and_unsafe_types (test_review_regressions.ReviewRegressionTests.test_restore_rejects_inconsistent_ledger_and_unsafe_types) (field='portfolio.cash')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_review_regressions.py", line 55, in test_restore_rejects_inconsistent_ledger_and_unsafe_types
+    with self.subTest(field=field), self.assertRaises(ValueError):
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_restore_rejects_inconsistent_ledger_and_unsafe_types (test_review_regressions.ReviewRegressionTests.test_restore_rejects_inconsistent_ledger_and_unsafe_types) (field='risk.count')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_review_regressions.py", line 55, in test_restore_rejects_inconsistent_ledger_and_unsafe_types
+    with self.subTest(field=field), self.assertRaises(ValueError):
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_restore_rejects_inconsistent_ledger_and_unsafe_types (test_review_regressions.ReviewRegressionTests.test_restore_rejects_inconsistent_ledger_and_unsafe_types) (field='risk.fees')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_review_regressions.py", line 55, in test_restore_rejects_inconsistent_ledger_and_unsafe_types
+    with self.subTest(field=field), self.assertRaises(ValueError):
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.114s
+
+FAILED (failures=14, errors=1)

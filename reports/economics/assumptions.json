@@ -1,0 +1,202 @@
+{
+  "all_return_scenarios_hypothetical": true,
+  "no_probability_estimated": true,
+  "fx": {
+    "eurusd": 1.1181,
+    "date": "2026-10-12",
+    "source": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml",
+    "retrieval_date": "2026-10-13",
+    "type": "ECB reference rate, not an executable personal conversion"
+  },
+  "salary_reference": {
+    "country": "Germany",
+    "statistic": "2025 median gross monthly pay, social-insurance-covered full-time employees",
+    "eur": 4217,
+    "usd_at_reference_fx": 4715.027700000001,
+    "publication_date": "2026-07-20",
+    "source": "https://www.arbeitsagentur.de/en/press/2026-27-salaries-for-full-time-employees-rose-significantly-in-2025",
+    "limitation": "Gross salary is neither take-home income nor a cost-of-living budget; personal taxes, health insurance and expenses differ."
+  },
+  "monthly_paths": {
+    "positive_assumed_2pct": [
+      {
+        "month": 1,
+        "return": 0.02,
+        "capital": 102.0,
+        "halted": false
+      },
+      {
+        "month": 2,
+        "return": 0.02,
+        "capital": 104.04,
+        "halted": false
+      },
+      {
+        "month": 3,
+        "return": 0.02,
+        "capital": 106.1208,
+        "halted": false
+      },
+      {
+        "month": 4,
+        "return": 0.02,
+        "capital": 108.243216,
+        "halted": false
+      },
+      {
+        "month": 5,
+        "return": 0.02,
+        "capital": 110.40808032000001,
+        "halted": false
+      },
+      {
+        "month": 6,
+        "return": 0.02,
+        "capital": 112.61624192640001,
+        "halted": false
+      },
+      {
+        "month": 7,
+        "return": 0.02,
+        "capital": 114.868566764928,
+        "halted": false
+      },
+      {
+        "month": 8,
+        "return": 0.02,
+        "capital": 117.16593810022657,
+        "halted": false
+      },
+      {
+        "month": 9,
+        "return": 0.02,
+        "capital": 119.5092568622311,
+        "halted": false
+      },
+      {
+        "month": 10,
+        "return": 0.02,
+        "capital": 121.89944199947573,
+        "halted": false
+      },
+      {
+        "month": 11,
+        "return": 0.02,
+        "capital": 124.33743083946524,
+        "halted": false
+      },
+      {
+        "month": 12,
+        "return": 0.02,
+        "capital": 126.82417945625456,
+        "halted": false
+      }
+    ],
+    "neutral_less_1usd_cost": [
+      {
+        "month": 1,
+        "return": 0,
+        "capital": 99,
+        "halted": false
+      },
+      {
+        "month": 2,
+        "return": 0,
+        "capital": 98,
+        "halted": false
+      },
+      {
+        "month": 3,
+        "return": 0,
+        "capital": 97,
+        "halted": false
+      },
+      {
+        "month": 4,
+        "return": 0,
+        "capital": 96,
+        "halted": false
+      },
+      {
+        "month": 5,
+        "return": 0,
+        "capital": 95,
+        "halted": false
+      },
+      {
+        "month": 6,
+        "return": 0,
+        "capital": 94,
+        "halted": false
+      },
+      {
+        "month": 7,
+        "return": 0,
+        "capital": 93,
+        "halted": false
+      },
+      {
+        "month": 8,
+        "return": 0,
+        "capital": 92,
+        "halted": false
+      },
+      {
+        "month": 9,
+        "return": 0,
+        "capital": 91,
+        "halted": false
+      },
+      {
+        "month": 10,
+        "return": 0,
+        "capital": 90,
+        "halted": true
+      }
+    ],
+    "negative_5pct": [
+      {
+        "month": 1,
+        "return": -0.05,
+        "capital": 95.0,
+        "halted": false
+      },
+      {
+        "month": 2,
+        "return": -0.05,
+        "capital": 90.25,
+        "halted": false
+      },
+      {
+        "month": 3,
+        "return": -0.05,
+        "capital": 85.7375,
+        "halted": true
+      }
+    ],
+    "crisis_30pct_gap": [
+      {
+        "month": 1,
+        "return": -0.3,
+        "capital": 70.0,
+        "halted": true
+      }
+    ],
+    "total_budget_loss": [
+      {
+        "month": 1,
+        "return": -1,
+        "capital": 0,
+        "halted": true
+      }
+    ]
+  },
+  "formulas": {
+    "capital": "C_n=C_0(1+r)^n; fixed cost version C_next=max(0,C*(1+r)-F)",
+    "target": "C=(monthly income+fixed overhead)/net monthly return",
+    "months": "ceil(log(target/C0)/log(1+r))",
+    "recovery": "loss/(1-loss); total loss cannot recover without new external capital",
+    "roundtrip": "2*(notional*(fee_bps+slippage_bps)/10000+gas) approximate",
+    "yield_month": "capital*((1+APY)^(1/12)-1)"
+  }
+}

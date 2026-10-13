@@ -1,0 +1,161 @@
+{
+  "live_trading": "DISABLED",
+  "continuous_service": false,
+  "evidence_class": "CONNECTIVITY_AND_RESTART_SMOKE_ONLY",
+  "four_hour_observations": [
+    {
+      "status": "WARMED_NO_HISTORICAL_TRADES",
+      "observed_at": 1791854554.5098708,
+      "observed_utc": "2026-10-13T01:22:34.509871+00:00",
+      "source_last_close": 1791849600,
+      "quality": {
+        "bars": 99,
+        "duplicates": 0,
+        "gaps": 0,
+        "incomplete_dropped": 1,
+        "tokens_verified": true
+      },
+      "source_sha256": "0a62f613ca2b150f3135c33e48e989f5c30b5ea31b1f8d3d01de2ead220b7849",
+      "code_hash": "a521de63aa32e24229384c27aa55344abb44c9e66b57a7836bab0e0552d22044",
+      "config_hash": "3c8f0ac0b3cec08e51fb19cbae0fe46738471ebe4447cffe4daf116c77ea1052",
+      "fills": 0,
+      "equity": 100.0,
+      "fault": null
+    },
+    {
+      "status": "NO_NEW_COMPLETED_BAR",
+      "observed_at": 1791854578.4911606,
+      "observed_utc": "2026-10-13T01:22:58.491161+00:00",
+      "source_last_close": 1791849600,
+      "quality": {
+        "bars": 99,
+        "duplicates": 0,
+        "gaps": 0,
+        "incomplete_dropped": 1,
+        "tokens_verified": true
+      },
+      "source_sha256": "0a62f613ca2b150f3135c33e48e989f5c30b5ea31b1f8d3d01de2ead220b7849",
+      "code_hash": "a521de63aa32e24229384c27aa55344abb44c9e66b57a7836bab0e0552d22044",
+      "config_hash": "3c8f0ac0b3cec08e51fb19cbae0fe46738471ebe4447cffe4daf116c77ea1052",
+      "fills": 0,
+      "equity": 100.0,
+      "fault": null
+    },
+    {
+      "status": "NO_NEW_COMPLETED_BAR",
+      "observed_at": 1791854604.8073378,
+      "observed_utc": "2026-10-13T01:23:24.807338+00:00",
+      "source_last_close": 1791849600,
+      "quality": {
+        "bars": 99,
+        "duplicates": 0,
+        "gaps": 0,
+        "incomplete_dropped": 1,
+        "tokens_verified": true
+      },
+      "source_sha256": "0a62f613ca2b150f3135c33e48e989f5c30b5ea31b1f8d3d01de2ead220b7849",
+      "code_hash": "a521de63aa32e24229384c27aa55344abb44c9e66b57a7836bab0e0552d22044",
+      "config_hash": "3c8f0ac0b3cec08e51fb19cbae0fe46738471ebe4447cffe4daf116c77ea1052",
+      "fills": 0,
+      "equity": 100.0,
+      "fault": null
+    },
+    {
+      "status": "NO_NEW_COMPLETED_BAR",
+      "observed_at": 1791854629.5748408,
+      "observed_utc": "2026-10-13T01:23:49.574841+00:00",
+      "source_last_close": 1791849600,
+      "quality": {
+        "bars": 99,
+        "duplicates": 0,
+        "gaps": 0,
+        "incomplete_dropped": 1,
+        "tokens_verified": true
+      },
+      "source_sha256": "17e91f3e61774ce93e05a40f745b0e7bba326f9f0090a6332c3652b91055b8d3",
+      "code_hash": "a521de63aa32e24229384c27aa55344abb44c9e66b57a7836bab0e0552d22044",
+      "config_hash": "3c8f0ac0b3cec08e51fb19cbae0fe46738471ebe4447cffe4daf116c77ea1052",
+      "fills": 0,
+      "equity": 100.0,
+      "fault": null
+    }
+  ],
+  "duration_between_first_and_last_observation_seconds": 75.06497001647949,
+  "prospective_new_completed_bars": 0,
+  "fills": 0,
+  "strategy_profitability_evidence": false,
+  "one_minute_failed_diagnostic": {
+    "continuous_service": false,
+    "live_trading": "DISABLED",
+    "observations": [
+      {
+        "error_type": "ValueError",
+        "observed_at": 1791854478.9130847,
+        "status": "HALTED_NETWORK_OR_DATA_ERROR"
+      }
+    ]
+  },
+  "gap_diagnosis": {
+    "observed_at": 1791854554.4333887,
+    "rows": 100,
+    "interval_s": 60,
+    "gap_count": 2,
+    "gaps": [
+      {
+        "left_ts": 1791848880,
+        "right_ts": 1791849000,
+        "missing_intervals": 1
+      },
+      {
+        "left_ts": 1791854040,
+        "right_ts": 1791854160,
+        "missing_intervals": 1
+      }
+    ],
+    "interpretation": "Empty-trade intervals and/or missing provider observations are not synthesized; strict validator rejects the batch."
+  },
+  "raw_journals": "Ignored runtime only; source retention/redistribution rights unresolved. Hashes and aggregate observations published.",
+  "final_reviewed_code_confirmation": {
+    "purpose": "Repeat a short connection/restart check after metadata-schema fixes; no strategy-selection reset or performance qualification",
+    "observations": [
+      {
+        "status": "WARMED_NO_HISTORICAL_TRADES",
+        "observed_at": 1791854950.2239196,
+        "observed_utc": "2026-10-13T01:29:10.223920+00:00",
+        "source_last_close": 1791849600,
+        "quality": {
+          "bars": 99,
+          "duplicates": 0,
+          "gaps": 0,
+          "incomplete_dropped": 1,
+          "tokens_verified": true
+        },
+        "source_sha256": "9eafa96e94c72480df7b0de1cc17575ba47636a165657b3c3e24f48511a89105",
+        "code_hash": "0b6e150bdc7cf218305f40ba8ce01c6f90cbb310750136b69d6014bbed6939e0",
+        "config_hash": "3c8f0ac0b3cec08e51fb19cbae0fe46738471ebe4447cffe4daf116c77ea1052",
+        "fills": 0,
+        "equity": 100.0,
+        "fault": null
+      },
+      {
+        "status": "NO_NEW_COMPLETED_BAR",
+        "observed_at": 1791854975.1940389,
+        "observed_utc": "2026-10-13T01:29:35.194039+00:00",
+        "source_last_close": 1791849600,
+        "quality": {
+          "bars": 99,
+          "duplicates": 0,
+          "gaps": 0,
+          "incomplete_dropped": 1,
+          "tokens_verified": true
+        },
+        "source_sha256": "9eafa96e94c72480df7b0de1cc17575ba47636a165657b3c3e24f48511a89105",
+        "code_hash": "0b6e150bdc7cf218305f40ba8ce01c6f90cbb310750136b69d6014bbed6939e0",
+        "config_hash": "3c8f0ac0b3cec08e51fb19cbae0fe46738471ebe4447cffe4daf116c77ea1052",
+        "fills": 0,
+        "equity": 100.0,
+        "fault": null
+      }
+    ]
+  }
+}

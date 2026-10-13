@@ -1,0 +1,191 @@
+﻿scope,source_prefix,original_source_id,source_id,origin_registry,origin_row,title,url
+engines,ENG,E01,ENG-E01,arz_research_engines/sources_engines.csv,1,Freqtrade README at captured commit,https://raw.githubusercontent.com/freqtrade/freqtrade/e35b93cbb4cd1f87ae5699d01f7996e569a7a753/README.md
+engines,ENG,E02,ENG-E02,arz_research_engines/sources_engines.csv,2,FreqAI introduction,https://www.freqtrade.io/en/stable/freqai/
+engines,ENG,E03,ENG-E03,arz_research_engines/sources_engines.csv,3,Freqtrade strategies README at captured commit,https://raw.githubusercontent.com/freqtrade/freqtrade-strategies/f3340ce11f5bdf62f598522e64d1f5638eaa13f5/README.md
+engines,ENG,E04,ENG-E04,arz_research_engines/sources_engines.csv,4,Backtesting,https://www.freqtrade.io/en/stable/backtesting/
+engines,ENG,E05,ENG-E05,arz_research_engines/sources_engines.csv,5,Lookahead analysis,https://www.freqtrade.io/en/stable/lookahead-analysis/
+engines,ENG,E06,ENG-E06,arz_research_engines/sources_engines.csv,6,Running FreqAI,https://www.freqtrade.io/en/stable/freqai-running/
+engines,ENG,E07,ENG-E07,arz_research_engines/sources_engines.csv,7,Exchange-specific Notes: Hyperliquid,https://www.freqtrade.io/en/stable/exchanges/
+engines,ENG,E08,ENG-E08,arz_research_engines/sources_engines.csv,8,FreqAI: generalizing adaptive modeling for chaotic time-series market forecasts,https://joss.theoj.org/papers/10.21105/joss.04864
+engines,ENG,E09,ENG-E09,arz_research_engines/sources_engines.csv,9,Hummingbot README at captured commit,https://raw.githubusercontent.com/hummingbot/hummingbot/9af100d6822da7d2d0291a906c730ef172284ee2/README.md
+engines,ENG,E10,ENG-E10,arz_research_engines/sources_engines.csv,10,Paper Trade,https://hummingbot.org/client/global-configs/paper-trade/
+engines,ENG,E11,ENG-E11,arz_research_engines/sources_engines.csv,11,Gateway DEX Middleware,https://hummingbot.org/gateway/
+engines,ENG,E12,ENG-E12,arz_research_engines/sources_engines.csv,12,Gateway DEX Connectors,https://hummingbot.org/gateway/connectors/
+engines,ENG,E13,ENG-E13,arz_research_engines/sources_engines.csv,13,Gateway issue 652: wallet endpoint hardening,https://github.com/hummingbot/gateway/issues/652
+engines,ENG,E14,ENG-E14,arz_research_engines/sources_engines.csv,14,Gateway PR 659: wallet security hardening,https://github.com/hummingbot/gateway/pull/659
+engines,ENG,E15,ENG-E15,arz_research_engines/sources_engines.csv,15,Gateway issue 660: remaining wallet security hardening,https://github.com/hummingbot/gateway/issues/660
+engines,ENG,E16,ENG-E16,arz_research_engines/sources_engines.csv,16,Hummingbot issue 8353: unsafe parsing surfaces,https://github.com/hummingbot/hummingbot/issues/8353
+engines,ENG,E17,ENG-E17,arz_research_engines/sources_engines.csv,17,OctoBot README at captured commit,https://raw.githubusercontent.com/Drakkar-Software/OctoBot/c45fdc2c95c5bd3d649251fa90c327e2e8f86b00/README.md
+engines,ENG,E18,ENG-E18,arz_research_engines/sources_engines.csv,18,OctoBot Backtesting,https://www.octobot.cloud/en/guides/octobot-usage/backtesting
+engines,ENG,E19,ENG-E19,arz_research_engines/sources_engines.csv,19,OctoBot ChatGPT Trading,https://www.octobot.cloud/en/guides/octobot-trading-modes/chatgpt-trading
+engines,ENG,E20,ENG-E20,arz_research_engines/sources_engines.csv,20,Starting your OctoBot,https://www.octobot.cloud/en/guides/octobot
+engines,ENG,E21,ENG-E21,arz_research_engines/sources_engines.csv,21,Jesse README at captured commit,https://raw.githubusercontent.com/jesse-ai/jesse/5e642997f9623d67b63543962eab46caca30e613/README.md
+engines,ENG,E22,ENG-E22,arz_research_engines/sources_engines.csv,22,Jesse Pricing,https://jesse.trade/pricing
+engines,ENG,E23,ENG-E23,arz_research_engines/sources_engines.csv,23,Jesse Machine Learning,https://docs.jesse.trade/docs/research/ml/
+engines,ENG,E24,ENG-E24,arz_research_engines/sources_engines.csv,24,LEAN README at captured commit,https://raw.githubusercontent.com/QuantConnect/Lean/80e7843f645673bcbeaab963049f76f20f6785e1/readme.md
+engines,ENG,E25,ENG-E25,arz_research_engines/sources_engines.csv,25,LEAN CLI Getting Started,https://www.quantconnect.com/docs/v2/lean-cli/key-concepts/getting-started
+engines,ENG,E26,ENG-E26,arz_research_engines/sources_engines.csv,26,LEAN Scikit-Learn integration,https://www.quantconnect.com/docs/v2/writing-algorithms/machine-learning/popular-libraries/scikit-learn
+engines,ENG,E27,ENG-E27,arz_research_engines/sources_engines.csv,27,LEAN dYdX brokerage model,https://www.quantconnect.com/docs/v2/writing-algorithms/reality-modeling/brokerages/supported-models/dydx
+engines,ENG,E28,ENG-E28,arz_research_engines/sources_engines.csv,28,LEAN Coinbase brokerage model,https://www.quantconnect.com/docs/v2/writing-algorithms/reality-modeling/brokerages/supported-models/coinbase
+engines,ENG,E29,ENG-E29,arz_research_engines/sources_engines.csv,29,NautilusTrader README at captured commit,https://raw.githubusercontent.com/nautechsystems/nautilus_trader/fb53ee6a420570a76af04fc4835f2122c3c6d6fb/README.md
+engines,ENG,E30,ENG-E30,arz_research_engines/sources_engines.csv,30,NautilusTrader Hyperliquid integration,https://nautilustrader.io/docs/latest/integrations/hyperliquid/
+engines,ENG,E31,ENG-E31,arz_research_engines/sources_engines.csv,31,NautilusTrader Security Policy,https://raw.githubusercontent.com/nautechsystems/nautilus_trader/fb53ee6a420570a76af04fc4835f2122c3c6d6fb/SECURITY.md
+engines,ENG,E32,ENG-E32,arz_research_engines/sources_engines.csv,32,Trade Executor README at captured commit,https://raw.githubusercontent.com/tradingstrategy-ai/trade-executor/1f544609ac7f5ef61e1068e14c3f4ea9e23a6ecd/README.md
+engines,ENG,E33,ENG-E33,arz_research_engines/sources_engines.csv,33,Trade Executor LICENSE.txt,https://raw.githubusercontent.com/tradingstrategy-ai/trade-executor/1f544609ac7f5ef61e1068e14c3f4ea9e23a6ecd/LICENSE.txt
+engines,ENG,E34,ENG-E34,arz_research_engines/sources_engines.csv,34,Trading Strategy supported markets,https://tradingstrategy.ai/docs/overview/supported-markets.html
+engines,ENG,E35,ENG-E35,arz_research_engines/sources_engines.csv,35,Deploying live trading strategies,https://tradingstrategy.ai/docs/deployment/index.html
+engines,ENG,E36,ENG-E36,arz_research_engines/sources_engines.csv,36,The Probability of Backtest Overfitting,https://www.davidhbailey.com/dhbpapers/backtest-prob.pdf
+engines,ENG,E37,ENG-E37,arz_research_engines/sources_engines.csv,37,The Deflated Sharpe Ratio,https://www.davidhbailey.com/dhbpapers/deflated-sharpe.pdf
+engines,ENG,E38,ENG-E38,arz_research_engines/sources_engines.csv,38,scikit-learn Common pitfalls and recommended practices,https://scikit-learn.org/stable/common_pitfalls.html
+engines,ENG,E39,ENG-E39,arz_research_engines/sources_engines.csv,39,scikit-learn TimeSeriesSplit,https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.TimeSeriesSplit.html
+engines,ENG,E40,ENG-E40,arz_research_engines/sources_engines.csv,40,Risks and Returns of Cryptocurrency,https://www.nber.org/papers/w24877.pdf
+engines,ENG,E41,ENG-E41,arz_research_engines/sources_engines.csv,41,Solana Fees,https://solana.com/docs/core/fees
+engines,ENG,E42,ENG-E42,arz_research_engines/sources_engines.csv,42,Uniswap Fees,https://docs.uniswap.org/concepts/protocol/fees
+engines,ENG,E43,ENG-E43,arz_research_engines/sources_engines.csv,43,Hummingbot pinned Foxbit order-book source,https://raw.githubusercontent.com/hummingbot/hummingbot/9af100d6822da7d2d0291a906c730ef172284ee2/hummingbot/connector/exchange/foxbit/foxbit_api_order_book_data_source.py
+engines,ENG,E44,ENG-E44,arz_research_engines/sources_engines.csv,44,Hummingbot pinned Foxbit utilities,https://raw.githubusercontent.com/hummingbot/hummingbot/9af100d6822da7d2d0291a906c730ef172284ee2/hummingbot/connector/exchange/foxbit/foxbit_utils.py
+engines,ENG,E45,ENG-E45,arz_research_engines/sources_engines.csv,45,Hummingbot pinned remote order-book source,https://raw.githubusercontent.com/hummingbot/hummingbot/9af100d6822da7d2d0291a906c730ef172284ee2/hummingbot/core/data_type/remote_api_order_book_data_source.py
+engines,ENG,E46,ENG-E46,arz_research_engines/sources_engines.csv,46,Gateway pinned security service,https://raw.githubusercontent.com/hummingbot/gateway/f23e91670781fba75eb023edecaf2d992f0918aa/src/services/gateway-security.ts
+engines,ENG,E47,ENG-E47,arz_research_engines/sources_engines.csv,47,Gateway pinned wallet route registry,https://raw.githubusercontent.com/hummingbot/gateway/f23e91670781fba75eb023edecaf2d992f0918aa/src/wallet/wallet.routes.ts
+engines,ENG,E48,ENG-E48,arz_research_engines/sources_engines.csv,48,Trading Strategy Backtesting,https://tradingstrategy.ai/docs/running/backtesting.html
+engines,ENG,E49,ENG-E49,arz_research_engines/sources_engines.csv,49,Apache License Version 2.0,https://www.apache.org/licenses/LICENSE-2.0
+engines,ENG,E50,ENG-E50,arz_research_engines/sources_engines.csv,50,High-Frequency Trading on Decentralized On-Chain Exchanges,https://arxiv.org/abs/2009.14021
+engines,ENG,E51,ENG-E51,arz_research_engines/sources_engines.csv,51,GNU GPLv3 in Freqtrade pinned source,https://raw.githubusercontent.com/freqtrade/freqtrade/e35b93cbb4cd1f87ae5699d01f7996e569a7a753/LICENSE
+engines,ENG,E52,ENG-E52,arz_research_engines/sources_engines.csv,52,GNU LGPLv3 in NautilusTrader pinned source,https://raw.githubusercontent.com/nautechsystems/nautilus_trader/fb53ee6a420570a76af04fc4835f2122c3c6d6fb/LICENSE
+engines,ENG,E53,ENG-E53,arz_research_engines/sources_engines.csv,53,Jesse core MIT License,https://raw.githubusercontent.com/jesse-ai/jesse/5e642997f9623d67b63543962eab46caca30e613/LICENSE
+engines,ENG,E54,ENG-E54,arz_research_engines/sources_engines.csv,54,GNU AGPLv3-or-later license text in SPDX catalog,https://raw.githubusercontent.com/spdx/license-list-data/main/text/AGPL-3.0-or-later.txt
+engines,ENG,G01,ENG-G01,arz_research_engines/sources_engines.csv,55,GitHub repository metadata: freqtrade/freqtrade,https://api.github.com/repos/freqtrade/freqtrade
+engines,ENG,G02,ENG-G02,arz_research_engines/sources_engines.csv,56,GitHub repository metadata: freqtrade/freqtrade-strategies,https://api.github.com/repos/freqtrade/freqtrade-strategies
+engines,ENG,G03,ENG-G03,arz_research_engines/sources_engines.csv,57,GitHub repository metadata: hummingbot/hummingbot,https://api.github.com/repos/hummingbot/hummingbot
+engines,ENG,G04,ENG-G04,arz_research_engines/sources_engines.csv,58,GitHub repository metadata: hummingbot/gateway,https://api.github.com/repos/hummingbot/gateway
+engines,ENG,G05,ENG-G05,arz_research_engines/sources_engines.csv,59,GitHub repository metadata: Drakkar-Software/OctoBot,https://api.github.com/repos/Drakkar-Software/OctoBot
+engines,ENG,G06,ENG-G06,arz_research_engines/sources_engines.csv,60,GitHub repository metadata: jesse-ai/jesse,https://api.github.com/repos/jesse-ai/jesse
+engines,ENG,G07,ENG-G07,arz_research_engines/sources_engines.csv,61,GitHub repository metadata: QuantConnect/Lean,https://api.github.com/repos/QuantConnect/Lean
+engines,ENG,G08,ENG-G08,arz_research_engines/sources_engines.csv,62,GitHub repository metadata: nautechsystems/nautilus_trader,https://api.github.com/repos/nautechsystems/nautilus_trader
+engines,ENG,G09,ENG-G09,arz_research_engines/sources_engines.csv,63,GitHub repository metadata: tradingstrategy-ai/trade-executor,https://api.github.com/repos/tradingstrategy-ai/trade-executor
+engines,ENG,X01,ENG-X01,arz_research_engines/sources_engines.csv,64,GNU license steward pages retrieval limitation,https://www.gnu.org/licenses/gpl-faq.html
+dex,DEX,D01,DEX-D01,arz_research_dex/sources_dex.csv,1,Terms of Use,https://developers.jup.ag/docs/legal/terms-of-use
+dex,DEX,D02,DEX-D02,arz_research_dex/sources_dex.csv,2,Get Started,https://developers.jup.ag/docs/get-started
+dex,DEX,D03,DEX-D03,arz_research_dex/sources_dex.csv,3,Order and Execute,https://developers.jup.ag/docs/swap/order-and-execute
+dex,DEX,D04,DEX-D04,arz_research_dex/sources_dex.csv,4,Developer Documentation Index,https://developers.jup.ag/docs/llms.txt
+dex,DEX,D05,DEX-D05,arz_research_dex/sources_dex.csv,5,Disclaimer,https://v2.raydium.io/docs/disclaimer/
+dex,DEX,D06,DEX-D06,arz_research_dex/sources_dex.csv,6,Fee Comparison,https://docs.raydium.io/reference/fee-comparison
+dex,DEX,D07,DEX-D07,arz_research_dex/sources_dex.csv,7,Admin and Multisig,https://docs.raydium.io/security/admin-and-multisig
+dex,DEX,D08,DEX-D08,arz_research_dex/sources_dex.csv,8,Audits,https://docs.raydium.io/security/audits
+dex,DEX,D09,DEX-D09,arz_research_dex/sources_dex.csv,9,History and Milestones,https://docs.raydium.io/introduction/history-and-milestones
+dex,DEX,D10,DEX-D10,arz_research_dex/sources_dex.csv,10,Raydium Documentation,https://docs.raydium.io/
+dex,DEX,D11,DEX-D11,arz_research_dex/sources_dex.csv,11,Documentation Index,https://docs.raydium.io/llms.txt
+dex,DEX,D12,DEX-D12,arz_research_dex/sources_dex.csv,12,Compliance Disclosure,https://www.orca.so/compliance-disclosure
+dex,DEX,D13,DEX-D13,arz_research_dex/sources_dex.csv,13,Terms of Use,https://www.orca.so/terms-of-use
+dex,DEX,D14,DEX-D14,arz_research_dex/sources_dex.csv,14,Trading Fees,https://docs.orca.so/liquidity/concepts/trading-fees
+dex,DEX,D15,DEX-D15,arz_research_dex/sources_dex.csv,15,Adaptive Fees,https://docs.orca.so/liquidity/concepts/adaptive-fees
+dex,DEX,D16,DEX-D16,arz_research_dex/sources_dex.csv,16,Orca Documentation,https://docs.orca.so/
+dex,DEX,D17,DEX-D17,arz_research_dex/sources_dex.csv,17,Terms of Service,https://docs.meteora.ag/resources/legal/terms-of-service
+dex,DEX,D18,DEX-D18,arz_research_dex/sources_dex.csv,18,Get Started,https://docs.meteora.ag/get-started
+dex,DEX,D19,DEX-D19,arz_research_dex/sources_dex.csv,19,DLMM Formulas,https://docs.meteora.ag/core-products/dlmm/formulas
+dex,DEX,D20,DEX-D20,arz_research_dex/sources_dex.csv,20,DLMM Audits,https://docs.meteora.ag/resources/audits/dlmm
+dex,DEX,D21,DEX-D21,arz_research_dex/sources_dex.csv,21,Uniswap Labs Terms of Service,https://support.uniswap.org/hc/en-us/articles/30935100859661-Uniswap-Labs-Terms-of-Service
+dex,DEX,D22,DEX-D22,arz_research_dex/sources_dex.csv,22,Fees,https://developers.uniswap.org/docs/get-started/concepts/fees
+dex,DEX,D23,DEX-D23,arz_research_dex/sources_dex.csv,23,Uniswap v3 Deployments,https://developers.uniswap.org/docs/protocols/v3/deployments
+dex,DEX,D24,DEX-D24,arz_research_dex/sources_dex.csv,24,PancakeSwap Terms of Service,https://pancakeswap.finance/terms-of-service
+dex,DEX,D25,DEX-D25,arz_research_dex/sources_dex.csv,25,Product Overview,https://docs.pancakeswap.finance/
+dex,DEX,D26,DEX-D26,arz_research_dex/sources_dex.csv,26,Swap,https://docs.pancakeswap.finance/trade/pancakeswap-exchange/trade
+dex,DEX,D27,DEX-D27,arz_research_dex/sources_dex.csv,27,Infinity CLAMM and LBAMM,https://docs.pancakeswap.finance/trade/pancakeswap-infinity/pool-types/infinity-clamm-and-lbamm
+dex,DEX,D28,DEX-D28,arz_research_dex/sources_dex.csv,28,Documentation Index,https://docs.pancakeswap.finance/llms.txt
+dex,DEX,D29,DEX-D29,arz_research_dex/sources_dex.csv,29,Curve Terms,https://www.curve.finance/terms
+dex,DEX,D30,DEX-D30,arz_research_dex/sources_dex.csv,30,Pool Risks,https://docs.curve.finance/user/security/risks/pools
+dex,DEX,D31,DEX-D31,arz_research_dex/sources_dex.csv,31,Security Audits,https://docs.curve.finance/user/security/audits
+dex,DEX,D32,DEX-D32,arz_research_dex/sources_dex.csv,32,Curve Finance StableSwapNG Security Audit Report,https://docs.curve.finance/pdf/audits/Curve%20Finance%20StableSwapNG%20Security%20Audit%20Report.pdf
+dex,DEX,D33,DEX-D33,arz_research_dex/sources_dex.csv,33,curve-api API,https://docs.curve.finance/developer/integration/api/curve-api
+dex,DEX,D34,DEX-D34,arz_research_dex/sources_dex.csv,34,curve-prices API,https://docs.curve.finance/developer/integration/api/curve-prices
+dex,DEX,D35,DEX-D35,arz_research_dex/sources_dex.csv,35,Curve Prices OpenAPI,https://prices.curve.finance/feeds-docs/openapi.json
+dex,DEX,D36,DEX-D36,arz_research_dex/sources_dex.csv,36,Curve Documentation Index,https://docs.curve.finance/llms.txt
+dex,DEX,D37,DEX-D37,arz_research_dex/sources_dex.csv,37,Aerodrome Terms (attempted),https://aerodrome.finance/terms
+dex,DEX,D38,DEX-D38,arz_research_dex/sources_dex.csv,38,Liquidity Documentation,https://github.com/aerodrome-finance/docs/blob/main/content/liquidity.mdx
+dex,DEX,D39,DEX-D39,arz_research_dex/sources_dex.csv,39,Aerodrome Finance Smart Contracts,https://github.com/aerodrome-finance/contracts
+dex,DEX,D40,DEX-D40,arz_research_dex/sources_dex.csv,40,Slipstream,https://github.com/aerodrome-finance/slipstream
+dex,DEX,D41,DEX-D41,arz_research_dex/sources_dex.csv,41,Transaction Fees,https://solana.com/docs/core/fees
+dex,DEX,D42,DEX-D42,arz_research_dex/sources_dex.csv,42,Solana RPC Overview,https://solana.com/docs/rpc
+dex,DEX,D43,DEX-D43,arz_research_dex/sources_dex.csv,43,Network Fees,https://docs.base.org/specifications/transactions/network-fees
+dex,DEX,D44,DEX-D44,arz_research_dex/sources_dex.csv,44,Transaction Finality,https://docs.base.org/specifications/transactions/transaction-finality
+dex,DEX,D45,DEX-D45,arz_research_dex/sources_dex.csv,45,Terms of Service,https://docs.base.org/terms-of-service
+dex,DEX,D46,DEX-D46,arz_research_dex/sources_dex.csv,46,Gas and Fees,https://docs.arbitrum.io/how-arbitrum-works/deep-dives/gas-and-fees
+dex,DEX,D47,DEX-D47,arz_research_dex/sources_dex.csv,47,Transaction Lifecycle,https://docs.arbitrum.io/how-arbitrum-works/deep-dives/transaction-lifecycle
+dex,DEX,D48,DEX-D48,arz_research_dex/sources_dex.csv,48,Gas and Fees,https://ethereum.org/en/developers/docs/gas/
+dex,DEX,D49,DEX-D49,arz_research_dex/sources_dex.csv,49,Maximal Extractable Value,https://ethereum.org/en/developers/docs/mev/
+dex,DEX,D50,DEX-D50,arz_research_dex/sources_dex.csv,50,Low Latency Transaction Send,https://docs.jito.wtf/lowlatencytxnsend/
+dex,DEX,D51,DEX-D51,arz_research_dex/sources_dex.csv,51,Terms of Service,https://www.quicknode.com/terms
+dex,DEX,D52,DEX-D52,arz_research_dex/sources_dex.csv,52,Cloud Services Agreement,https://www.helius.dev/terms
+dex,DEX,D53,DEX-D53,arz_research_dex/sources_dex.csv,53,Terms of Service,https://legal.alchemy.com/
+dex,DEX,D54,DEX-D54,arz_research_dex/sources_dex.csv,54,USDC Terms,https://www.circle.com/legal/usdc-terms
+dex,DEX,D55,DEX-D55,arz_research_dex/sources_dex.csv,55,Legal,https://tether.to/en/legal/
+dex,DEX,D56,DEX-D56,arz_research_dex/sources_dex.csv,56,Iran Sanctions,https://ofac.treasury.gov/sanctions-programs-and-country-information/iran-sanctions
+dex,DEX,D57,DEX-D57,arz_research_dex/sources_dex.csv,57,DEX API,https://www.geckoterminal.com/dex-api
+dex,DEX,D58,DEX-D58,arz_research_dex/sources_dex.csv,58,GeckoTerminal Terms (attempted),https://www.geckoterminal.com/terms
+dex,DEX,D59,DEX-D59,arz_research_dex/sources_dex.csv,59,Pool OHLCV by Pool Address (Demo),https://docs.coingecko.com/demo/reference/pool-ohlcv-contract-address
+dex,DEX,D60,DEX-D60,arz_research_dex/sources_dex.csv,60,Pool OHLCV by Pool Address,https://docs.coingecko.com/reference/pool-ohlcv-contract-address
+dex,DEX,D61,DEX-D61,arz_research_dex/sources_dex.csv,61,API Terms,https://www.coingecko.com/en/api_terms
+dex,DEX,D62,DEX-D62,arz_research_dex/sources_dex.csv,62,Terms and Conditions,https://www.coingecko.com/en/terms
+defi,DEFI,H01,DEFI-H01,arz_research_defi/sources_defi.csv,1,About Hyperliquid,https://hyperliquid.gitbook.io/hyperliquid-docs/about-hyperliquid.md
+defi,DEFI,H02,DEFI-H02,arz_research_defi/sources_defi.csv,2,HyperCore overview,https://hyperliquid.gitbook.io/hyperliquid-docs/hypercore/overview.md
+defi,DEFI,H03,DEFI-H03,arz_research_defi/sources_defi.csv,3,HyperEVM,https://hyperliquid.gitbook.io/hyperliquid-docs/hyperevm
+defi,DEFI,H04,DEFI-H04,arz_research_defi/sources_defi.csv,4,Interacting with HyperCore,https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/hyperevm/interacting-with-hypercore
+defi,DEFI,H05,DEFI-H05,arz_research_defi/sources_defi.csv,5,Vaults,https://hyperliquid.gitbook.io/hyperliquid-docs/hypercore/vaults
+defi,DEFI,H06,DEFI-H06,arz_research_defi/sources_defi.csv,6,HyperCore vaults (legacy),https://hyperliquid.gitbook.io/hyperliquid-docs/hypercore/vaults/hypercore-vaults-legacy.md
+defi,DEFI,H07,DEFI-H07,arz_research_defi/sources_defi.csv,7,For vault leaders (legacy),https://hyperliquid.gitbook.io/hyperliquid-docs/hypercore/vaults/for-vault-leaders-legacy
+defi,DEFI,H08,DEFI-H08,arz_research_defi/sources_defi.csv,8,For vault depositors (legacy),https://hyperliquid.gitbook.io/hyperliquid-docs/hypercore/vaults/for-vault-depositors-legacy.md
+defi,DEFI,H09,DEFI-H09,arz_research_defi/sources_defi.csv,9,Protocol vaults,https://hyperliquid.gitbook.io/hyperliquid-docs/hypercore/vaults/protocol-vaults.md
+defi,DEFI,H10,DEFI-H10,arz_research_defi/sources_defi.csv,10,Info endpoint,https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/info-endpoint
+defi,DEFI,H11,DEFI-H11,arz_research_defi/sources_defi.csv,11,Portfolio graphs,https://hyperliquid.gitbook.io/hyperliquid-docs/trading/portfolio-graphs
+defi,DEFI,H12,DEFI-H12,arz_research_defi/sources_defi.csv,12,Historical data,https://hyperliquid.gitbook.io/hyperliquid-docs/historical-data
+defi,DEFI,H13,DEFI-H13,arz_research_defi/sources_defi.csv,13,Liquidations,https://hyperliquid.gitbook.io/hyperliquid-docs/trading/liquidations.md
+defi,DEFI,H14,DEFI-H14,arz_research_defi/sources_defi.csv,14,Portfolio margin,https://hyperliquid.gitbook.io/hyperliquid-docs/trading/portfolio-margin.md
+defi,DEFI,H15,DEFI-H15,arz_research_defi/sources_defi.csv,15,Fees,https://hyperliquid.gitbook.io/hyperliquid-docs/trading/fees.md
+defi,DEFI,H16,DEFI-H16,arz_research_defi/sources_defi.csv,16,API USDC,https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/usdc
+defi,DEFI,H17,DEFI-H17,arz_research_defi/sources_defi.csv,17,Exchange endpoint: withdrawal,https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/exchange-endpoint
+defi,DEFI,H18,DEFI-H18,arz_research_defi/sources_defi.csv,18,Activation gas fee,https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/activation-gas-fee
+defi,DEFI,H19,DEFI-H19,arz_research_defi/sources_defi.csv,19,Audits,https://hyperliquid.gitbook.io/hyperliquid-docs/audits.md
+defi,DEFI,H20,DEFI-H20,arz_research_defi/sources_defi.csv,20,Foundation non-validating node,https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/nodes/foundation-non-validating-node
+defi,DEFI,H21,DEFI-H21,arz_research_defi/sources_defi.csv,21,Official support links,https://hyperliquid.gitbook.io/hyperliquid-docs/support
+defi,DEFI,H22,DEFI-H22,arz_research_defi/sources_defi.csv,22,"HLP loss statement, March 12 2025",https://t.me/hyperliquid_announcements/324
+defi,DEFI,H23,DEFI-H23,arz_research_defi/sources_defi.csv,23,"JELLY delisting statement, March 26 2025",https://t.me/hyperliquid_announcements/332
+defi,DEFI,H24,DEFI-H24,arz_research_defi/sources_defi.csv,24,Interface Terms of Use,https://app.hyperliquid.xyz/terms
+defi,DEFI,H25,DEFI-H25,arz_research_defi/sources_defi.csv,25,HLP vaultDetails public snapshot,https://api.hyperliquid.xyz/info
+defi,DEFI,L01,DEFI-L01,arz_research_defi/sources_defi.csv,26,Aave Terms of Service,https://aave.com/terms-of-service
+defi,DEFI,L02,DEFI-L02,arz_research_defi/sources_defi.csv,27,Morpho Terms of Use,https://morpho.org/terms-of-use
+defi,DEFI,L03,DEFI-L03,arz_research_defi/sources_defi.csv,28,Kamino Terms of Service,https://kamino.com/terms
+defi,DEFI,L04,DEFI-L04,arz_research_defi/sources_defi.csv,29,Iran Sanctions,https://ofac.treasury.gov/sanctions-programs-and-country-information/iran-sanctions
+defi,DEFI,L05,DEFI-L05,arz_research_defi/sources_defi.csv,30,USDC Terms,https://www.circle.com/legal/usdc-terms
+defi,DEFI,L06,DEFI-L06,arz_research_defi/sources_defi.csv,31,Tether Legal Terms,https://tether.to/en/legal/
+defi,DEFI,D01,DEFI-D01,arz_research_defi/sources_defi.csv,32,Supply Tokens,https://aave.com/help/supplying/supply-tokens
+defi,DEFI,D02,DEFI-D02,arz_research_defi/sources_defi.csv,33,Withdraw Tokens,https://aave.com/help/supplying/withdraw-tokens
+defi,DEFI,D03,DEFI-D03,arz_research_defi/sources_defi.csv,34,Aave risk resources,https://aave.com/docs/resources/risks
+defi,DEFI,D04,DEFI-D04,arz_research_defi/sources_defi.csv,35,Aave Security,https://aave.com/security
+defi,DEFI,D05,DEFI-D05,arz_research_defi/sources_defi.csv,36,Morpho Risks,https://docs.morpho.org/learn/resources/risks/
+defi,DEFI,D06,DEFI-D06,arz_research_defi/sources_defi.csv,37,Morpho Vault V2,https://docs.morpho.org/learn/concepts/vault-v2/
+defi,DEFI,D07,DEFI-D07,arz_research_defi/sources_defi.csv,38,Morpho Vault API,https://docs.morpho.org/developers/api/morpho-vaults/
+defi,DEFI,D08,DEFI-D08,arz_research_defi/sources_defi.csv,39,Morpho Audits,https://docs.morpho.org/get-started/resources/audits/
+defi,DEFI,D09,DEFI-D09,arz_research_defi/sources_defi.csv,40,Steakhouse USDC V1 one-day APY observation,https://api.morpho.org/v0/vaults-v1/1:0xBEEF01735c132Ada46AA9aA4c54623cAA92A64CB/apy-averages?lookback=one_day
+defi,DEFI,D10,DEFI-D10,arz_research_defi/sources_defi.csv,41,Steakhouse USDC V1 configuration observation,https://api.morpho.org/v0/vaults-v1/1:0xBEEF01735c132Ada46AA9aA4c54623cAA92A64CB
+defi,DEFI,D11,DEFI-D11,arz_research_defi/sources_defi.csv,42,Curve Yield overview,https://docs.curve.finance/user/yield/overview
+defi,DEFI,D12,DEFI-D12,arz_research_defi/sources_defi.csv,43,Curve Liquidity Providing,https://docs.curve.finance/user/yield/lp
+defi,DEFI,D13,DEFI-D13,arz_research_defi/sources_defi.csv,44,Curve Pool Risks,https://docs.curve.finance/user/security/risks/pools
+defi,DEFI,D14,DEFI-D14,arz_research_defi/sources_defi.csv,45,Curve Audits,https://docs.curve.finance/user/security/audits
+defi,DEFI,D15,DEFI-D15,arz_research_defi/sources_defi.csv,46,Curve API OpenAPI specification,https://api.curve.finance/v1/openapi.json
+defi,DEFI,D16,DEFI-D16,arz_research_defi/sources_defi.csv,47,Curve 3pool base APY observation,https://api.curve.finance/v1/getVolumes/ethereum
+defi,DEFI,D17,DEFI-D17,arz_research_defi/sources_defi.csv,48,Curve 3pool metadata observation,https://api.curve.finance/v1/getPools/ethereum/main
+defi,DEFI,D18,DEFI-D18,arz_research_defi/sources_defi.csv,49,Kamino Lending Vaults,https://kamino.com/docs/products/lending-vaults
+defi,DEFI,D19,DEFI-D19,arz_research_defi/sources_defi.csv,50,Kamino Lending Vault Risks,https://kamino.com/docs/products/lending-vaults/risks
+defi,DEFI,D20,DEFI-D20,arz_research_defi/sources_defi.csv,51,Kamino Curators and Fees,https://kamino.com/docs/products/lending-vaults/curators
+defi,DEFI,D21,DEFI-D21,arz_research_defi/sources_defi.csv,52,Kamino Yield and Fees,https://kamino.com/docs/curators/vaults/concepts/yield-and-fees
+defi,DEFI,D22,DEFI-D22,arz_research_defi/sources_defi.csv,53,Kamino Market Reserve APYs,https://kamino.com/docs/build/borrow/get-market-reserve-apys
+defi,DEFI,D23,DEFI-D23,arz_research_defi/sources_defi.csv,54,Kamino public API attempt,https://api.kamino.finance/v2/kamino-market
+defi,DEFI,D24,DEFI-D24,arz_research_defi/sources_defi.csv,55,Kamino Liquidity concepts,https://kamino.com/docs/products/liquidity/concepts
+defi,DEFI,D25,DEFI-D25,arz_research_defi/sources_defi.csv,56,Kamino Liquidity features,https://kamino.com/docs/products/liquidity/features
+defi,DEFI,D26,DEFI-D26,arz_research_defi/sources_defi.csv,57,Kamino Daily Caps,https://kamino.com/docs/risk/safeguards/daily-caps
+defi,DEFI,D27,DEFI-D27,arz_research_defi/sources_defi.csv,58,Kamino Audits,https://kamino.com/docs/security/audits
+defi,DEFI,D28,DEFI-D28,arz_research_defi/sources_defi.csv,59,Yearn yVault overview,https://docs.yearn.fi/getting-started/products/yvaults/overview
+defi,DEFI,D29,DEFI-D29,arz_research_defi/sources_defi.csv,60,Yearn V3 overview,https://docs.yearn.fi/developers/v3/overview
+defi,DEFI,D30,DEFI-D30,arz_research_defi/sources_defi.csv,61,Yearn Risks,https://docs.yearn.fi/developers/security/risks
+defi,DEFI,D31,DEFI-D31,arz_research_defi/sources_defi.csv,62,Yearn Security,https://docs.yearn.fi/developers/security
+defi,DEFI,D32,DEFI-D32,arz_research_defi/sources_defi.csv,63,Yearn Vault Risks,https://docs.yearn.fi/developers/security/risks/vault-risks
+defi,DEFI,D33,DEFI-D33,arz_research_defi/sources_defi.csv,64,Yearn APY methodology,https://docs.yearn.fi/getting-started/guides/how-apy-works

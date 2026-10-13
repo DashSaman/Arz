@@ -1,0 +1,25 @@
+{
+  "title": "Hyperliquid Interface Terms of Use — public static asset verification",
+  "canonical_url": "https://app.hyperliquid.xyz/terms",
+  "linked_asset_url": "https://app.hyperliquid.xyz/assets/TermsOfUse-D17UCFbr.js",
+  "linked_from_public_main_asset": "https://app.hyperliquid.xyz/assets/index-BBe39C6L.js",
+  "terms_last_updated": "2026-06-15",
+  "reviewed_at": "2026-10-13T00:57:17Z",
+  "operator": "Hyperliquid Corp.",
+  "method": "Read public HTML and its linked JavaScript assets using anonymous HTTP. The canonical terms page is a SPA and web text extraction was empty. No account, wallet, geolocation spoofing or authenticated session was used.",
+  "terms_asset_bytes": 42599,
+  "terms_asset_sha256": "31ad9477d9f2798a8fa82551051a82c13fa9e1629acec2221338a2099bec9235",
+  "main_asset_sha256": "c2ecab377e065b705c0ee8f193713bfa0149ff2bde6feb270f1ea461428df9e9",
+  "clause_summaries": {
+    "1.6": "Interface eligibility excludes specified restricted jurisdictions, territories subject to applicable sanctions or export controls, and citizens of Restricted Territories regardless of location.",
+    "3.1.5": "Prohibits concealing location by VPN or proxy, misstating citizenship or residency, and circumventing geoblocking."
+  },
+  "iran_assessment": "Iran is not literally enumerated in the verified interface clause. Treating Iran as falling under its sanctions-territory definition is an inference supported by the official OFAC Iran program and the Foundation node policy, which names Iran; this is not an independent legal opinion.",
+  "scope_limitations": [
+    "Interface terms are not proof that every HyperEVM application has identical terms.",
+    "No Iran-IP request or actual enforcement test was performed.",
+    "Asset name is build-specific and may disappear after redeployment.",
+    "Full copyrighted JavaScript text was not retained."
+  ],
+  "decision": "RESEARCH_ONLY; no live authorization or access workaround"
+}

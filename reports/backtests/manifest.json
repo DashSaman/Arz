@@ -1,0 +1,37 @@
+{
+  "ran_at_utc": "2026-10-13T01:31:31.466102+00:00",
+  "data_sha256": "283346087387fac0d312971e8c408c16d184212efe1458e06b692d0daf351e30",
+  "bars": 999,
+  "interval_s": 14400,
+  "first_ts": 1777464000,
+  "last_ts": 1791835200,
+  "full_days": 166.5,
+  "strategy_count": 3,
+  "cases": 8,
+  "runs": 24,
+  "folds_train_start_train_end_test_start_test_end": [
+    [
+      0,
+      399,
+      399,
+      599
+    ],
+    [
+      0,
+      599,
+      599,
+      799
+    ],
+    [
+      0,
+      799,
+      799,
+      999
+    ]
+  ],
+  "tuning": "NONE; expanding historical context with fixed parameters, no learned-model fitting",
+  "final_holdout_warning": "Final holdout is also the last forward fold; not independent extra evidence. Sensitivities reuse holdout and are not new unseen tests.",
+  "bootstrap_warning": "2000 circular moving-block resamples of daily returns, block 7 days, seed 20261013. Conditional uncertainty only; not corrected for asset/pool selection, multiplicity or OHLCV execution errors.",
+  "dataset_redistribution": "PENDING; raw and normalized provider data not included in Git until rights/retention resolved; exact repeat requires authorized input with this checksum.",
+  "readiness": "NO-GO for live use; no prospective performance qualification, no eligible verified execution route, costs not calibrated"
+}

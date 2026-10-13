@@ -1,0 +1,55 @@
+# Work log / گزارش کار
+
+## 2026-10-13 UTC — repository baseline and requirements
+
+- Inspected repository metadata, branches, last commits, contents, issues and pull requests using the authenticated GitHub connector. Repository public and empty; commits returned 409 "Git Repository is empty"; contents returned empty-repository 404; branches/issues/PR arrays were empty. Default branch setting main; connection advertised push/admin permissions.
+- Created and independently cloned baseline commit 919577cc45c672ba1641409e43a047b55eb1ac32 through the contents API. Created local research/2026-10-13-mvp from origin/main, preserving the remote baseline.
+- Delegated independent research: open-source engines; DEX/network/access; Hyperliquid/DeFi. No wallets, trades, paid services or outbound messages to people.
+- Completed requirements and methodology; chose to keep private financial information out of the public project.
+- Public read-only connectivity probes: GeckoTerminal WETH/Base pool metadata HTTP200; Coinbase ETH-USD public daily candles HTTP200; ECB FX XML HTTP200 (rate date 2026-10-12). These probes do not establish data quality, legal eligibility or profitability.
+- Process decision: the user explicitly authorized research, architecture, implementation, testing and ordinary repository writes without repeated approvals. Use that authorization and reserve the separate gate for financial actions.
+
+## فارسی
+
+در ۱۳ اکتبر ۲۰۲۶ اطلاعات واقعی مخزن، شاخه‌ها، Commitها، فایل‌ها، Issueها و PRها بررسی و خالی‌بودن تأیید شد. Commit آغازین بالا با ابزار GitHub ثبت و کلون شد. پژوهش مستقل در سه محور تقسیم شد. نیازمندی و روش ارزیابی نوشته شد. دریافت اولیه داده عمومی موفق بود؛ این موفقیت صرفاً اتصال را نشان می‌دهد. هیچ کیف‌پول، معامله، هزینه یا پیام به اشخاص استفاده نشد. ادامه کار غیرمالی مطابق مجوز صریح کاربر انجام می‌شود.
+
+## 2026-10-13 UTC — experimental core, before market-performance runs
+
+- Direct shell Git push lacked a credential helper; no credential was requested or exposed. Used the already-authorized GitHub connector instead. Remote research branch created at efffb2c01c8bb48566cf813d5a608623ca396859. Local working files preserved while aligning to that remote parent.
+- Implemented standard-library configuration/data/risk/accounting, three fixed strategies, shared simulation engine, metrics, hypothetical economics, analytics-only HTTPS connector, atomic paper state and CLI.
+- RED/GREEN evidence: 10 missing core tests failed then 10 passed; 10 missing engine tests failed then 20 passed; 10 missing operations tests failed then 30 passed; 2 CLI tests failed then complete suite 32 passed. Commands: PYTHONPATH=src python -m unittest discover -s tests -v.
+- Independently derived round-trip accounting: $100 -> $101.38 after $20 purchase at $10 and full exit at $11 with 1% per-side fees and $0.10 gas per side. Synthetic fixtures validate implementation only.
+- Timing ruling: prospective paper execution uses newly observed completed-bar close with an observation timestamp, never a past open retrospectively. This remains an approximate analytics-price simulation, not an executable DEX quote.
+- No historical market strategy-performance run has occurred at this checkpoint. Configs/preregistered_strategies.json records actual pre-performance registration time and fixed parameters.
+
+### فارسی
+
+Push مستقیم خط فرمان اعتبارنامه نداشت؛ مسیر مجاز GitHub استفاده و شاخه پژوهش ثبت شد. فایل‌ها حفظ شدند. هسته و رابط خط فرمان بدون کیف‌پول ساخته شد. آزمون‌ها در چهار گام ابتدا به دلیل نبود قابلیت شکست خوردند و سپس مجموعه کامل ۳۲ آزمون پاس شد. مثال مستقل حسابداری و زیان شکاف، داده مصنوعی آزمون نرم‌افزار است. معامله مجازی به قیمت گذشته نسبت داده نمی‌شود و زمان مشاهده ثبت می‌شود. در این نقطه هنوز هیچ نتیجه استراتژی روی داده واقعی بازار دیده نشده و پارامترها با زمان واقعی پیش‌ثبت شدند.
+
+## 2026-10-13 UTC — measured research, independent correction and preservation
+
+- Before the first market-performance run, registered the three fixed strategies at 2026-10-13T01:02:42.106870+00:00 and published them in eb837d09eaef38dc9cd38a13efcf86d00235e35d. No optimizer or AI was fitted. The selected pool itself remains a disclosed selection/survivorship limitation.
+- Collected primary engine/DEX/DeFi research, dated GitHub statistics and licenses, provider terms, protocol incident/fee/withdrawal evidence and public snapshots. The three source packages preserve 190 records; identifiers were scoped and 1,057 reference occurrences resolved without collisions. This is a dated documentary snapshot, not 190 independent audits.
+- Retrieved and validated 999 complete four-hour Base WETH/USDC bars (166.5 days), with one incomplete bar removed and no remaining gaps/duplicates. Published normalized-input SHA256 and output ledgers, while excluding raw provider data pending retention/redistribution permission. First performance report was produced at 01:07:19 UTC. Twenty-four cases cover three strategies/eight scopes; no parameter changes followed the results.
+- Independent review of the 35-test version reproduced ten state/risk/accounting/data/CLI defects and one classification comment. Wrote failing regressions, corrected the shared engine and paper journal, then addressed two metadata-clock follow-ups. Preserved original findings, eight historical RED logs and final source identities. Corrected core 51 tests and 12 independent closure methods passed. This is bounded code review, not infrastructure or live-financial certification.
+- At 01:22:34–01:23:49 UTC, collected four actual four-hour paper observations spanning 75.064970 seconds; no new completed bar/fill. The preceding one-minute profile failed closed on two missing intervals. At 01:29:10–01:29:35 UTC, collected two separate final-code confirmations spanning 24.970119 seconds, again no new completed bars/fills. No continuous service was installed.
+- Repeated the same 24 historical cases with final reviewed source at 2026-10-13T01:31:31.466102+00:00. Numerical strategy outcomes were unchanged. Final holdout has 6/6/4 closed trades; none meets the economic gate. Mean reversion's $0.142732 simulated gain becomes a $0.177705 loss at doubled costs. Return intervals for all baseline holdout means include zero.
+- Published corrected core commit 73f32d85ba4f2b4764d2138e3746f8ffcefcf5d2 and observed its successful real Actions run 38332647920. Direct Git push was unavailable; authenticated Git object/ref APIs worked. No push failure was described as success.
+- A fresh remote inspection discovered concurrent main history through 9e18c7d5e13ace7b5b55fffdea74725f31c0bfda. Inspected all eight incoming files. Preserved the two roadmaps, synthetic input, daily-accounting helper and five tests byte-for-byte; adapted its workflow for PYTHONPATH=src and source/config triggers, pinned checkout and disabled persisted credentials. Reconciled continuity instructions. The five new tests and synthetic CLI passed independently; root's combined suite executed all 56 successfully at 01:35:11 UTC. True non-force merge and final combined CI were still pending at this entry.
+- Completed bilingual economics, strategy, operations, security and test reports; corrected plot labels after image inspection. Portable registry reconstruction was actually run and primary table rows compared equal. Local limited static/dependency/secret/CSV/JSON checks passed; no external CVE scan or contract audit was claimed.
+
+### فارسی
+
+سه استراتژی پیش از مشاهدهٔ عملکرد بازار در ساعت واقعی بالا پیش‌ثبت و در Commit ثبت شدند؛ بهینه‌ساز یا AI آموزش داده نشد. پژوهش تاریخ‌دار پروژه‌ها، صرافی‌ها، دیفای و دسترسی به ۱۹۰ رکورد منبع رسید و ارجاع‌های بسته‌های مستقل بدون برخورد یکپارچه شدند. دادهٔ واقعی ۹۹۹ کندل کامل چهارساعته اعتبارسنجی شد؛ یک کندل ناتمام حذف شد. دادهٔ خام به علت ابهام مجوز نگهداری/بازنشر وارد Git نشد و هش و نتایج مشتق‌شده ثبت شدند.
+
+با وجود موفقیت ۳۵ آزمون اولیه، بازبینی مستقل ده نقص و یک نکتهٔ طبقه‌بندی را بازتولید کرد. آزمون‌های شکست‌خورده نوشته و اصلاحات اعمال شد؛ دو اشکال فرادادهٔ ساعت نیز اصلاح شدند. هشت گزارش شکست تاریخی حفظ شد. ۵۱ آزمون هسته و ۱۲ روش مستقلِ بازبررسی موفق شدند؛ این نتیجه گواهی امنیت میزبان یا اجرای مالی نیست.
+
+آزمون یک‌دقیقه‌ای به دلیل دو شکاف متوقف شد. چهار مشاهدهٔ واقعیِ چهارساعته بین ۰۱:۲۲:۳۴ و ۰۱:۲۳:۴۹ و دو مشاهدهٔ تأییدیِ جدا پس از اصلاح نهایی بین ۰۱:۲۹:۱۰ و ۰۱:۲۹:۳۵ ثبت شد. هیچ کندل بستهٔ تازه یا معامله‌ای رخ نداد و سرویس پیوسته نصب نشد. آخرین بازاجرای همان ۲۴ حالت در ۰۱:۳۱:۳۱، نتیجه‌های عددی یکسان داشت. هیچ استراتژی معیار ورود واقعی را نگذرانده و سود کوچک بازگشت به میانگین با افزایش هزینه منفی شد.
+
+Commit اصلاح‌شده و موفقیت واقعی Actions تأیید شد. در بررسی تازه، تغییرات هم‌زمان main کشف و هر هشت فایل ورودی خوانده شد. نقشه‌های راه، دادهٔ مصنوعی، ابزار حسابداری و پنج آزمون آن بدون تغییر حفظ شدند؛ workflow برای ساختار ترکیبی اصلاح و فایل‌های تداوم آشتی داده شدند. پنج آزمون جدید جدا اجرا شد و سپس مجموعهٔ کامل ۵۶ آزمون محلی موفق بود. ادغام واقعی بدون اجبار و CI ترکیبی در زمان این مدخل هنوز در انتظار انجام بود. اسناد دو‌زبانه، مدل اقتصادی، نمودارها و بازتولید آفلاین فهرست‌ها تکمیل و حدود آزمون‌ها صریح ثبت شدند.
+
+### Final document gate / کنترل نهایی اسناد
+
+The final combined check executed all 56 tests successfully but initially rejected two trailing-space Markdown line breaks in the newly authored README. Converted them to paragraph separation and reran the gate; the original failure record is retained in reports/tests/failures/document_whitespace_gate.json. This was a documentation whitespace failure, not a strategy or runtime regression. Relative-link inspection found 375 existing local targets and zero missing targets at that checkpoint.
+
+در کنترل نهایی، هر ۵۶ آزمون موفق بود ولی دو فاصلهٔ انتهای خطِ قالب Markdown در README تازه، کنترل قالب‌بندی را رد کرد. به جداسازی پاراگراف تبدیل شد و کنترل دوباره اجرا شد؛ شاهد شکست در فایل بالا حفظ شده است. این خطای قالب سند بود، نه خطای استراتژی یا هسته. ۳۷۵ پیوند نسبی نیز بدون مقصد مفقود بررسی شد.

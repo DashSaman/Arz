@@ -1,0 +1,44 @@
+[
+  {
+    "path": ".github/workflows/offline-tests.yml",
+    "expected_original": "6b47b3bf42a5922e66044e096523a2fad8b52ee2",
+    "current_git_blob": "188a3cbf7c2378da922a8b093df8f650dccb8880",
+    "original_unchanged": false,
+    "intentional_adaptation": "Original staged and hashed before adaptation. Set PYTHONPATH=src, broaden source/config/project path triggers, pin checkout to verified SHA and disable persisted credentials."
+  },
+  {
+    "path": "data/SYNTHETIC_example_daily_returns.csv",
+    "expected_original": "67e0b6329067500ba9d2d8e6d3b6ae919513257a",
+    "current_git_blob": "67e0b6329067500ba9d2d8e6d3b6ae919513257a",
+    "original_unchanged": true,
+    "intentional_adaptation": null
+  },
+  {
+    "path": "docs/en/30-day-roadmap.md",
+    "expected_original": "2c1b0ebd9cb6f91151ce68e36672a9abb4d50928",
+    "current_git_blob": "2c1b0ebd9cb6f91151ce68e36672a9abb4d50928",
+    "original_unchanged": true,
+    "intentional_adaptation": null
+  },
+  {
+    "path": "docs/fa/30-day-roadmap.md",
+    "expected_original": "56dbccc4fadbc2cae7c04c3ec9295168c32c0fca",
+    "current_git_blob": "56dbccc4fadbc2cae7c04c3ec9295168c32c0fca",
+    "original_unchanged": true,
+    "intentional_adaptation": null
+  },
+  {
+    "path": "scripts/compound_audit.py",
+    "expected_original": "e5883baaa2b793e31c4f5c3c22053b7e942e3130",
+    "current_git_blob": "e5883baaa2b793e31c4f5c3c22053b7e942e3130",
+    "original_unchanged": true,
+    "intentional_adaptation": null
+  },
+  {
+    "path": "tests/test_compound_audit.py",
+    "expected_original": "5d9468f2bfb7650ea7e40bb9f5f19fb82234e405",
+    "current_git_blob": "5d9468f2bfb7650ea7e40bb9f5f19fb82234e405",
+    "original_unchanged": true,
+    "intentional_adaptation": null
+  }
+]

@@ -1,0 +1,1168 @@
+{
+  "schema_version": "1.0",
+  "project": "Arz",
+  "real_trading_enabled": false,
+  "experimental_capital_cap_usd": 100,
+  "allowed_market_type": "spot_only",
+  "forbidden": [
+    "leverage",
+    "martingale",
+    "capital_replenishment",
+    "wallet_or_signer_in_MVP"
+  ],
+  "reviewed_at_utc_date": "2026-10-13",
+  "clock_session_start_utc": "2026-10-13T00:42:11Z",
+  "capture_timestamp_precision": "UTC date for individual API responses; no invented per-response timestamps",
+  "collection_method": "Read-only GitHub connector REST fetch; official documentation and primary papers via web retrieval; no upstream bots installed or executed",
+  "activity_window_start": "2026-09-13",
+  "activity_interpretation": "Counts are search results for items updated on or after boundary, not throughput, response quality, closure or merge rates",
+  "arz_license": "MIT; original implementation only; no upstream code imported",
+  "modules": [
+    {
+      "name": "FreqAI",
+      "parent_repository": "freqtrade/freqtrade",
+      "path": "freqtrade/freqai",
+      "independent_repository": false
+    }
+  ],
+  "snapshots": [
+    {
+      "repository": "freqtrade/freqtrade",
+      "reviewed_at": "2026-10-13",
+      "repository_api_url": "https://api.github.com/repos/freqtrade/freqtrade",
+      "repository_api_excerpt": {
+        "id": 91629816,
+        "full_name": "freqtrade/freqtrade",
+        "private": false,
+        "html_url": "https://github.com/freqtrade/freqtrade",
+        "default_branch": "develop",
+        "stargazers_count": 55321,
+        "forks_count": 11431,
+        "open_issues_count": 30,
+        "archived": false,
+        "disabled": false,
+        "created_at": "2017-05-17T23:48:53Z",
+        "updated_at": "2026-10-13T00:22:23Z",
+        "pushed_at": "2026-10-12T18:06:38Z",
+        "license": {
+          "key": "gpl-3.0",
+          "name": "GNU General Public License v3.0",
+          "spdx_id": "GPL-3.0"
+        }
+      },
+      "head_api_url": "https://api.github.com/repos/freqtrade/freqtrade/commits?sha=develop&per_page=1",
+      "head_api_excerpt": {
+        "sha": "e35b93cbb4cd1f87ae5699d01f7996e569a7a753",
+        "html_url": "https://github.com/freqtrade/freqtrade/commit/e35b93cbb4cd1f87ae5699d01f7996e569a7a753",
+        "commit": {
+          "author": {
+            "date": "2026-10-12T18:06:12Z"
+          },
+          "committer": {
+            "date": "2026-10-12T18:06:12Z"
+          }
+        }
+      },
+      "latest_non_prerelease_release_api_url": "https://api.github.com/repos/freqtrade/freqtrade/releases/latest",
+      "latest_non_prerelease_release": {
+        "tag_name": "2026.9",
+        "name": "2026.9",
+        "html_url": "https://github.com/freqtrade/freqtrade/releases/tag/2026.9",
+        "published_at": "2026-09-29T17:06:05Z",
+        "created_at": "2026-09-29T17:05:27Z",
+        "prerelease": false,
+        "draft": false,
+        "target_commitish": "stable"
+      },
+      "latest_release_error": null,
+      "newest_listed_release_api_url": "https://api.github.com/repos/freqtrade/freqtrade/releases?per_page=1",
+      "newest_listed_release": {
+        "tag_name": "2026.9",
+        "name": "2026.9",
+        "html_url": "https://github.com/freqtrade/freqtrade/releases/tag/2026.9",
+        "published_at": "2026-09-29T17:06:05Z",
+        "created_at": "2026-09-29T17:05:27Z",
+        "prerelease": false,
+        "draft": false,
+        "target_commitish": "stable"
+      },
+      "newest_listed_release_list_empty": false,
+      "verified_license": "GPL-3.0 (version-only/or-later not established from license file alone)",
+      "pinned_license_url": "https://raw.githubusercontent.com/freqtrade/freqtrade/e35b93cbb4cd1f87ae5699d01f7996e569a7a753/LICENSE",
+      "pinned_readme_url": "https://raw.githubusercontent.com/freqtrade/freqtrade/e35b93cbb4cd1f87ae5699d01f7996e569a7a753/README.md",
+      "pinned_readme_matches_branch_fetch": true,
+      "pinned_license_matches_branch_fetch": true,
+      "activity": {
+        "open_issues": {
+          "query_url": "https://api.github.com/search/issues?q=repo%3Afreqtrade%2Ffreqtrade%20is%3Aissue%20is%3Aopen&sort=updated&order=desc&per_page=1",
+          "total_count": 21,
+          "incomplete_results": false,
+          "latest_item": {
+            "number": 13632,
+            "title": "Dependency Dashboard",
+            "html_url": "https://github.com/freqtrade/freqtrade/issues/13632",
+            "state": "open",
+            "created_at": "2026-10-04T09:27:14Z",
+            "updated_at": "2026-10-12T19:13:00Z",
+            "closed_at": null
+          },
+          "error": null
+        },
+        "open_prs": {
+          "query_url": "https://api.github.com/search/issues?q=repo%3Afreqtrade%2Ffreqtrade%20is%3Apr%20is%3Aopen&sort=updated&order=desc&per_page=1",
+          "total_count": 9,
+          "incomplete_results": false,
+          "latest_item": {
+            "number": 13663,
+            "title": "Fix percentage aggregation for mixed trade tags",
+            "html_url": "https://github.com/freqtrade/freqtrade/pull/13663",
+            "state": "open",
+            "created_at": "2026-10-12T00:16:39Z",
+            "updated_at": "2026-10-12T19:19:50Z",
+            "closed_at": null
+          },
+          "error": null
+        },
+        "issues_updated_30d": {
+          "query_url": "https://api.github.com/search/issues?q=repo%3Afreqtrade%2Ffreqtrade%20is%3Aissue%20updated%3A%3E%3D2026-09-13&sort=updated&order=desc&per_page=1",
+          "total_count": 24,
+          "incomplete_results": false,
+          "latest_item": {
+            "number": 13632,
+            "title": "Dependency Dashboard",
+            "html_url": "https://github.com/freqtrade/freqtrade/issues/13632",
+            "state": "open",
+            "created_at": "2026-10-04T09:27:14Z",
+            "updated_at": "2026-10-12T19:13:00Z",
+            "closed_at": null
+          },
+          "error": null
+        },
+        "prs_updated_30d": {
+          "query_url": "https://api.github.com/search/issues?q=repo%3Afreqtrade%2Ffreqtrade%20is%3Apr%20updated%3A%3E%3D2026-09-13&sort=updated&order=desc&per_page=1",
+          "total_count": 98,
+          "incomplete_results": false,
+          "latest_item": {
+            "number": 13663,
+            "title": "Fix percentage aggregation for mixed trade tags",
+            "html_url": "https://github.com/freqtrade/freqtrade/pull/13663",
+            "state": "open",
+            "created_at": "2026-10-12T00:16:39Z",
+            "updated_at": "2026-10-12T19:19:50Z",
+            "closed_at": null
+          },
+          "error": null
+        }
+      }
+    },
+    {
+      "repository": "freqtrade/freqtrade-strategies",
+      "reviewed_at": "2026-10-13",
+      "repository_api_url": "https://api.github.com/repos/freqtrade/freqtrade-strategies",
+      "repository_api_excerpt": {
+        "id": 118317539,
+        "full_name": "freqtrade/freqtrade-strategies",
+        "private": false,
+        "html_url": "https://github.com/freqtrade/freqtrade-strategies",
+        "default_branch": "main",
+        "stargazers_count": 5543,
+        "forks_count": 1452,
+        "open_issues_count": 12,
+        "archived": false,
+        "disabled": false,
+        "created_at": "2018-01-21T08:31:17Z",
+        "updated_at": "2026-10-12T13:26:55Z",
+        "pushed_at": "2026-09-08T16:42:47Z",
+        "license": {
+          "key": "gpl-3.0",
+          "name": "GNU General Public License v3.0",
+          "spdx_id": "GPL-3.0"
+        }
+      },
+      "head_api_url": "https://api.github.com/repos/freqtrade/freqtrade-strategies/commits?sha=main&per_page=1",
+      "head_api_excerpt": {
+        "sha": "f3340ce11f5bdf62f598522e64d1f5638eaa13f5",
+        "html_url": "https://github.com/freqtrade/freqtrade-strategies/commit/f3340ce11f5bdf62f598522e64d1f5638eaa13f5",
+        "commit": {
+          "author": {
+            "date": "2026-09-08T16:42:47Z"
+          },
+          "committer": {
+            "date": "2026-09-08T16:42:47Z"
+          }
+        }
+      },
+      "latest_non_prerelease_release_api_url": "https://api.github.com/repos/freqtrade/freqtrade-strategies/releases/latest",
+      "latest_non_prerelease_release": null,
+      "latest_release_error": [
+        {
+          "type": "text",
+          "text": "GitHub API error 404: {\"message\":\"Not Found\",\"documentation_url\":\"https://docs.github.com/rest/releases/releases#get-the-latest-release\",\"status\":\"404\"}"
+        }
+      ],
+      "newest_listed_release_api_url": "https://api.github.com/repos/freqtrade/freqtrade-strategies/releases?per_page=1",
+      "newest_listed_release": null,
+      "newest_listed_release_list_empty": true,
+      "verified_license": "GPL-3.0 (version-only/or-later not established)",
+      "pinned_license_url": "https://raw.githubusercontent.com/freqtrade/freqtrade-strategies/f3340ce11f5bdf62f598522e64d1f5638eaa13f5/LICENSE",
+      "pinned_readme_url": "https://raw.githubusercontent.com/freqtrade/freqtrade-strategies/f3340ce11f5bdf62f598522e64d1f5638eaa13f5/README.md",
+      "pinned_readme_matches_branch_fetch": true,
+      "pinned_license_matches_branch_fetch": true,
+      "activity": {
+        "open_issues": {
+          "query_url": "https://api.github.com/search/issues?q=repo%3Afreqtrade%2Ffreqtrade-strategies%20is%3Aissue%20is%3Aopen&sort=updated&order=desc&per_page=1",
+          "total_count": 12,
+          "incomplete_results": false,
+          "latest_item": {
+            "number": 336,
+            "title": "3 peaks of MFI indicator implementation",
+            "html_url": "https://github.com/freqtrade/freqtrade-strategies/issues/336",
+            "state": "open",
+            "created_at": "2021-02-11T08:25:35Z",
+            "updated_at": "2026-07-20T18:22:43Z",
+            "closed_at": null
+          },
+          "error": null
+        },
+        "open_prs": {
+          "query_url": "https://api.github.com/search/issues?q=repo%3Afreqtrade%2Ffreqtrade-strategies%20is%3Apr%20is%3Aopen&sort=updated&order=desc&per_page=1",
+          "total_count": 0,
+          "incomplete_results": false,
+          "latest_item": null,
+          "error": null
+        },
+        "issues_updated_30d": {
+          "query_url": "https://api.github.com/search/issues?q=repo%3Afreqtrade%2Ffreqtrade-strategies%20is%3Aissue%20updated%3A%3E%3D2026-09-13&sort=updated&order=desc&per_page=1",
+          "total_count": 0,
+          "incomplete_results": false,
+          "latest_item": null,
+          "error": null
+        },
+        "prs_updated_30d": {
+          "query_url": "https://api.github.com/search/issues?q=repo%3Afreqtrade%2Ffreqtrade-strategies%20is%3Apr%20updated%3A%3E%3D2026-09-13&sort=updated&order=desc&per_page=1",
+          "total_count": 1,
+          "incomplete_results": false,
+          "latest_item": {
+            "number": 342,
+            "title": "feat: Add Adverse Selection Protection via followsm-sdk VPIN Telemetry",
+            "html_url": "https://github.com/freqtrade/freqtrade-strategies/pull/342",
+            "state": "closed",
+            "created_at": "2026-09-22T06:21:00Z",
+            "updated_at": "2026-09-22T06:49:08Z",
+            "closed_at": "2026-09-22T06:49:07Z"
+          },
+          "error": null
+        }
+      }
+    },
+    {
+      "repository": "hummingbot/hummingbot",
+      "reviewed_at": "2026-10-13",
+      "repository_api_url": "https://api.github.com/repos/hummingbot/hummingbot",
+      "repository_api_excerpt": {
+        "id": 179163124,
+        "full_name": "hummingbot/hummingbot",
+        "private": false,
+        "html_url": "https://github.com/hummingbot/hummingbot",
+        "default_branch": "master",
+        "stargazers_count": 20423,
+        "forks_count": 4982,
+        "open_issues_count": 175,
+        "archived": false,
+        "disabled": false,
+        "created_at": "2019-04-02T21:41:52Z",
+        "updated_at": "2026-10-13T00:23:51Z",
+        "pushed_at": "2026-10-06T01:12:38Z",
+        "license": {
+          "key": "apache-2.0",
+          "name": "Apache License 2.0",
+          "spdx_id": "Apache-2.0"
+        }
+      },
+      "head_api_url": "https://api.github.com/repos/hummingbot/hummingbot/commits?sha=master&per_page=1",
+      "head_api_excerpt": {
+        "sha": "9af100d6822da7d2d0291a906c730ef172284ee2",
+        "html_url": "https://github.com/hummingbot/hummingbot/commit/9af100d6822da7d2d0291a906c730ef172284ee2",
+        "commit": {
+          "author": {
+            "date": "2026-09-22T08:53:54Z"
+          },
+          "committer": {
+            "date": "2026-09-22T08:53:54Z"
+          }
+        }
+      },
+      "latest_non_prerelease_release_api_url": "https://api.github.com/repos/hummingbot/hummingbot/releases/latest",
+      "latest_non_prerelease_release": {
+        "tag_name": "v2.17.0",
+        "name": "v2.17.0",
+        "html_url": "https://github.com/hummingbot/hummingbot/releases/tag/v2.17.0",
+        "published_at": "2026-09-22T08:55:11Z",
+        "created_at": "2026-09-22T08:53:54Z",
+        "prerelease": false,
+        "draft": false,
+        "target_commitish": "master"
+      },
+      "latest_release_error": null,
+      "newest_listed_release_api_url": "https://api.github.com/repos/hummingbot/hummingbot/releases?per_page=1",
+      "newest_listed_release": {
+        "tag_name": "v2.17.0",
+        "name": "v2.17.0",
+        "html_url": "https://github.com/hummingbot/hummingbot/releases/tag/v2.17.0",
+        "published_at": "2026-09-22T08:55:11Z",
+        "created_at": "2026-09-22T08:53:54Z",
+        "prerelease": false,
+        "draft": false,
+        "target_commitish": "master"
+      },
+      "newest_listed_release_list_empty": false,
+      "verified_license": "Apache-2.0",
+      "pinned_license_url": "https://raw.githubusercontent.com/hummingbot/hummingbot/9af100d6822da7d2d0291a906c730ef172284ee2/LICENSE",
+      "pinned_readme_url": "https://raw.githubusercontent.com/hummingbot/hummingbot/9af100d6822da7d2d0291a906c730ef172284ee2/README.md",
+      "pinned_readme_matches_branch_fetch": true,
+      "pinned_license_matches_branch_fetch": true,
+      "activity": {
+        "open_issues": {
+          "query_url": "https://api.github.com/search/issues?q=repo%3Ahummingbot%2Fhummingbot%20is%3Aissue%20is%3Aopen&sort=updated&order=desc&per_page=1",
+          "total_count": 73,
+          "incomplete_results": false,
+          "latest_item": {
+            "number": 8499,
+            "title": "Feature Request: optional non-price Adanos crypto-sentiment feed",
+            "html_url": "https://github.com/hummingbot/hummingbot/issues/8499",
+            "state": "open",
+            "created_at": "2026-10-12T12:47:10Z",
+            "updated_at": "2026-10-12T12:47:10Z",
+            "closed_at": null
+          },
+          "error": null
+        },
+        "open_prs": {
+          "query_url": "https://api.github.com/search/issues?q=repo%3Ahummingbot%2Fhummingbot%20is%3Apr%20is%3Aopen&sort=updated&order=desc&per_page=1",
+          "total_count": 102,
+          "incomplete_results": false,
+          "latest_item": {
+            "number": 8498,
+            "title": "fix / Ignore position stop-loss crossings before entry",
+            "html_url": "https://github.com/hummingbot/hummingbot/pull/8498",
+            "state": "open",
+            "created_at": "2026-10-07T19:04:38Z",
+            "updated_at": "2026-10-12T05:43:59Z",
+            "closed_at": null
+          },
+          "error": null
+        },
+        "issues_updated_30d": {
+          "query_url": "https://api.github.com/search/issues?q=repo%3Ahummingbot%2Fhummingbot%20is%3Aissue%20updated%3A%3E%3D2026-09-13&sort=updated&order=desc&per_page=1",
+          "total_count": 18,
+          "incomplete_results": false,
+          "latest_item": {
+            "number": 8499,
+            "title": "Feature Request: optional non-price Adanos crypto-sentiment feed",
+            "html_url": "https://github.com/hummingbot/hummingbot/issues/8499",
+            "state": "open",
+            "created_at": "2026-10-12T12:47:10Z",
+            "updated_at": "2026-10-12T12:47:10Z",
+            "closed_at": null
+          },
+          "error": null
+        },
+        "prs_updated_30d": {
+          "query_url": "https://api.github.com/search/issues?q=repo%3Ahummingbot%2Fhummingbot%20is%3Apr%20updated%3A%3E%3D2026-09-13&sort=updated&order=desc&per_page=1",
+          "total_count": 119,
+          "incomplete_results": false,
+          "latest_item": {
+            "number": 8384,
+            "title": "fix / add configurable execution timeout to arbitrage executor",
+            "html_url": "https://github.com/hummingbot/hummingbot/pull/8384",
+            "state": "closed",
+            "created_at": "2026-07-18T09:38:03Z",
+            "updated_at": "2026-10-12T11:08:10Z",
+            "closed_at": "2026-10-12T11:08:09Z"
+          },
+          "error": null
+        }
+      }
+    },
+    {
+      "repository": "hummingbot/gateway",
+      "reviewed_at": "2026-10-13",
+      "repository_api_url": "https://api.github.com/repos/hummingbot/gateway",
+      "repository_api_excerpt": {
+        "id": 593895987,
+        "full_name": "hummingbot/gateway",
+        "private": false,
+        "html_url": "https://github.com/hummingbot/gateway",
+        "default_branch": "main",
+        "stargazers_count": 262,
+        "forks_count": 289,
+        "open_issues_count": 51,
+        "archived": false,
+        "disabled": false,
+        "created_at": "2023-01-27T04:42:53Z",
+        "updated_at": "2026-10-12T11:11:36Z",
+        "pushed_at": "2026-10-08T13:36:39Z",
+        "license": {
+          "key": "apache-2.0",
+          "name": "Apache License 2.0",
+          "spdx_id": "Apache-2.0"
+        }
+      },
+      "head_api_url": "https://api.github.com/repos/hummingbot/gateway/commits?sha=main&per_page=1",
+      "head_api_excerpt": {
+        "sha": "f23e91670781fba75eb023edecaf2d992f0918aa",
+        "html_url": "https://github.com/hummingbot/gateway/commit/f23e91670781fba75eb023edecaf2d992f0918aa",
+        "commit": {
+          "author": {
+            "date": "2026-09-22T08:54:03Z"
+          },
+          "committer": {
+            "date": "2026-09-22T08:54:03Z"
+          }
+        }
+      },
+      "latest_non_prerelease_release_api_url": "https://api.github.com/repos/hummingbot/gateway/releases/latest",
+      "latest_non_prerelease_release": {
+        "tag_name": "v2.17.0",
+        "name": "v2.17.0",
+        "html_url": "https://github.com/hummingbot/gateway/releases/tag/v2.17.0",
+        "published_at": "2026-09-22T08:56:07Z",
+        "created_at": "2026-09-22T08:54:03Z",
+        "prerelease": false,
+        "draft": false,
+        "target_commitish": "main"
+      },
+      "latest_release_error": null,
+      "newest_listed_release_api_url": "https://api.github.com/repos/hummingbot/gateway/releases?per_page=1",
+      "newest_listed_release": {
+        "tag_name": "v2.17.0",
+        "name": "v2.17.0",
+        "html_url": "https://github.com/hummingbot/gateway/releases/tag/v2.17.0",
+        "published_at": "2026-09-22T08:56:07Z",
+        "created_at": "2026-09-22T08:54:03Z",
+        "prerelease": false,
+        "draft": false,
+        "target_commitish": "main"
+      },
+      "newest_listed_release_list_empty": false,
+      "verified_license": "Apache-2.0",
+      "pinned_license_url": "https://raw.githubusercontent.com/hummingbot/gateway/f23e91670781fba75eb023edecaf2d992f0918aa/LICENSE",
+      "pinned_readme_url": "https://raw.githubusercontent.com/hummingbot/gateway/f23e91670781fba75eb023edecaf2d992f0918aa/README.md",
+      "pinned_readme_matches_branch_fetch": true,
+      "pinned_license_matches_branch_fetch": true,
+      "activity": {
+        "open_issues": {
+          "query_url": "https://api.github.com/search/issues?q=repo%3Ahummingbot%2Fgateway%20is%3Aissue%20is%3Aopen&sort=updated&order=desc&per_page=1",
+          "total_count": 30,
+          "incomplete_results": false,
+          "latest_item": {
+            "number": 715,
+            "title": "Meteora / Raydium swaps: optional repair-on-slippage before send (with measured failure rates)",
+            "html_url": "https://github.com/hummingbot/gateway/issues/715",
+            "state": "open",
+            "created_at": "2026-10-03T10:47:26Z",
+            "updated_at": "2026-10-03T10:47:26Z",
+            "closed_at": null
+          },
+          "error": null
+        },
+        "open_prs": {
+          "query_url": "https://api.github.com/search/issues?q=repo%3Ahummingbot%2Fgateway%20is%3Apr%20is%3Aopen&sort=updated&order=desc&per_page=1",
+          "total_count": 21,
+          "incomplete_results": false,
+          "latest_item": {
+            "number": 717,
+            "title": "chore(deps): bump fastify from 4.29.1 to 5.12.5",
+            "html_url": "https://github.com/hummingbot/gateway/pull/717",
+            "state": "open",
+            "created_at": "2026-10-08T13:36:32Z",
+            "updated_at": "2026-10-08T13:36:33Z",
+            "closed_at": null
+          },
+          "error": null
+        },
+        "issues_updated_30d": {
+          "query_url": "https://api.github.com/search/issues?q=repo%3Ahummingbot%2Fgateway%20is%3Aissue%20updated%3A%3E%3D2026-09-13&sort=updated&order=desc&per_page=1",
+          "total_count": 10,
+          "incomplete_results": false,
+          "latest_item": {
+            "number": 718,
+            "title": "feat(solana): expose pool-swap build boundary for external lifecycle-controlled submission",
+            "html_url": "https://github.com/hummingbot/gateway/issues/718",
+            "state": "closed",
+            "created_at": "2026-10-08T16:30:37Z",
+            "updated_at": "2026-10-09T09:16:46Z",
+            "closed_at": "2026-10-09T09:16:46Z"
+          },
+          "error": null
+        },
+        "prs_updated_30d": {
+          "query_url": "https://api.github.com/search/issues?q=repo%3Ahummingbot%2Fgateway%20is%3Apr%20updated%3A%3E%3D2026-09-13&sort=updated&order=desc&per_page=1",
+          "total_count": 24,
+          "incomplete_results": false,
+          "latest_item": {
+            "number": 693,
+            "title": "chore(deps): bump fastify from 4.29.1 to 5.12.1",
+            "html_url": "https://github.com/hummingbot/gateway/pull/693",
+            "state": "closed",
+            "created_at": "2026-09-02T23:27:57Z",
+            "updated_at": "2026-10-08T13:36:39Z",
+            "closed_at": "2026-10-08T13:36:37Z"
+          },
+          "error": null
+        }
+      }
+    },
+    {
+      "repository": "Drakkar-Software/OctoBot",
+      "reviewed_at": "2026-10-13",
+      "repository_api_url": "https://api.github.com/repos/Drakkar-Software/OctoBot",
+      "repository_api_excerpt": {
+        "id": 122682362,
+        "full_name": "Drakkar-Software/OctoBot",
+        "private": false,
+        "html_url": "https://github.com/Drakkar-Software/OctoBot",
+        "default_branch": "master",
+        "stargazers_count": 6758,
+        "forks_count": 1286,
+        "open_issues_count": 168,
+        "archived": false,
+        "disabled": false,
+        "created_at": "2018-02-23T23:13:05Z",
+        "updated_at": "2026-10-13T00:24:38Z",
+        "pushed_at": "2026-10-12T20:10:47Z",
+        "license": {
+          "key": "gpl-3.0",
+          "name": "GNU General Public License v3.0",
+          "spdx_id": "GPL-3.0"
+        }
+      },
+      "head_api_url": "https://api.github.com/repos/Drakkar-Software/OctoBot/commits?sha=master&per_page=1",
+      "head_api_excerpt": {
+        "sha": "c45fdc2c95c5bd3d649251fa90c327e2e8f86b00",
+        "html_url": "https://github.com/Drakkar-Software/OctoBot/commit/c45fdc2c95c5bd3d649251fa90c327e2e8f86b00",
+        "commit": {
+          "author": {
+            "date": "2026-10-07T08:50:21Z"
+          },
+          "committer": {
+            "date": "2026-10-07T08:50:21Z"
+          }
+        }
+      },
+      "latest_non_prerelease_release_api_url": "https://api.github.com/repos/Drakkar-Software/OctoBot/releases/latest",
+      "latest_non_prerelease_release": {
+        "tag_name": "3.0.0-beta3",
+        "name": "Release - 3.0.0-beta3",
+        "html_url": "https://github.com/Drakkar-Software/OctoBot/releases/tag/3.0.0-beta3",
+        "published_at": "2026-10-08T12:45:49Z",
+        "created_at": "2026-10-07T08:50:21Z",
+        "prerelease": false,
+        "draft": false,
+        "target_commitish": "master"
+      },
+      "latest_release_error": null,
+      "newest_listed_release_api_url": "https://api.github.com/repos/Drakkar-Software/OctoBot/releases?per_page=1",
+      "newest_listed_release": {
+        "tag_name": "3.0.0-beta3",
+        "name": "Release - 3.0.0-beta3",
+        "html_url": "https://github.com/Drakkar-Software/OctoBot/releases/tag/3.0.0-beta3",
+        "published_at": "2026-10-08T12:45:49Z",
+        "created_at": "2026-10-07T08:50:21Z",
+        "prerelease": false,
+        "draft": false,
+        "target_commitish": "master"
+      },
+      "newest_listed_release_list_empty": false,
+      "verified_license": "GPL-3.0 (version-only/or-later not established)",
+      "pinned_license_url": "https://raw.githubusercontent.com/Drakkar-Software/OctoBot/c45fdc2c95c5bd3d649251fa90c327e2e8f86b00/LICENSE",
+      "pinned_readme_url": "https://raw.githubusercontent.com/Drakkar-Software/OctoBot/c45fdc2c95c5bd3d649251fa90c327e2e8f86b00/README.md",
+      "pinned_readme_matches_branch_fetch": true,
+      "pinned_license_matches_branch_fetch": true,
+      "activity": {
+        "open_issues": {
+          "query_url": "https://api.github.com/search/issues?q=repo%3ADrakkar-Software%2FOctoBot%20is%3Aissue%20is%3Aopen&sort=updated&order=desc&per_page=1",
+          "total_count": 156,
+          "incomplete_results": false,
+          "latest_item": {
+            "number": 3729,
+            "title": "[dev] Grid automation: name cleared after automation_restart",
+            "html_url": "https://github.com/Drakkar-Software/OctoBot/issues/3729",
+            "state": "open",
+            "created_at": "2026-10-07T03:34:14Z",
+            "updated_at": "2026-10-09T01:08:00Z",
+            "closed_at": null
+          },
+          "error": null
+        },
+        "open_prs": {
+          "query_url": "https://api.github.com/search/issues?q=repo%3ADrakkar-Software%2FOctoBot%20is%3Apr%20is%3Aopen&sort=updated&order=desc&per_page=1",
+          "total_count": 12,
+          "incomplete_results": false,
+          "latest_item": {
+            "number": 3713,
+            "title": " Adds one-click deployment with ZopDay to the cloud deployment section",
+            "html_url": "https://github.com/Drakkar-Software/OctoBot/pull/3713",
+            "state": "open",
+            "created_at": "2026-09-24T06:51:26Z",
+            "updated_at": "2026-09-28T12:36:17Z",
+            "closed_at": null
+          },
+          "error": null
+        },
+        "issues_updated_30d": {
+          "query_url": "https://api.github.com/search/issues?q=repo%3ADrakkar-Software%2FOctoBot%20is%3Aissue%20updated%3A%3E%3D2026-09-13&sort=updated&order=desc&per_page=1",
+          "total_count": 4,
+          "incomplete_results": false,
+          "latest_item": {
+            "number": 3479,
+            "title": "Optional: capital-aware pre-trade /review (advisory) as an MCP tool",
+            "html_url": "https://github.com/Drakkar-Software/OctoBot/issues/3479",
+            "state": "closed",
+            "created_at": "2026-05-30T21:00:26Z",
+            "updated_at": "2026-10-09T02:24:37Z",
+            "closed_at": "2026-10-09T02:24:37Z"
+          },
+          "error": null
+        },
+        "prs_updated_30d": {
+          "query_url": "https://api.github.com/search/issues?q=repo%3ADrakkar-Software%2FOctoBot%20is%3Apr%20updated%3A%3E%3D2026-09-13&sort=updated&order=desc&per_page=1",
+          "total_count": 70,
+          "incomplete_results": false,
+          "latest_item": {
+            "number": 3734,
+            "title": "Keep a single OpenAPI Task schema for the Node UI client.",
+            "html_url": "https://github.com/Drakkar-Software/OctoBot/pull/3734",
+            "state": "closed",
+            "created_at": "2026-10-12T07:26:48Z",
+            "updated_at": "2026-10-12T20:10:47Z",
+            "closed_at": "2026-10-12T20:10:44Z"
+          },
+          "error": null
+        }
+      }
+    },
+    {
+      "repository": "jesse-ai/jesse",
+      "reviewed_at": "2026-10-13",
+      "repository_api_url": "https://api.github.com/repos/jesse-ai/jesse",
+      "repository_api_excerpt": {
+        "id": 156847937,
+        "full_name": "jesse-ai/jesse",
+        "private": false,
+        "html_url": "https://github.com/jesse-ai/jesse",
+        "default_branch": "master",
+        "stargazers_count": 8632,
+        "forks_count": 1253,
+        "open_issues_count": 10,
+        "archived": false,
+        "disabled": false,
+        "created_at": "2018-11-09T10:38:44Z",
+        "updated_at": "2026-10-12T20:15:21Z",
+        "pushed_at": "2026-10-12T15:37:04Z",
+        "license": {
+          "key": "mit",
+          "name": "MIT License",
+          "spdx_id": "MIT"
+        }
+      },
+      "head_api_url": "https://api.github.com/repos/jesse-ai/jesse/commits?sha=master&per_page=1",
+      "head_api_excerpt": {
+        "sha": "5e642997f9623d67b63543962eab46caca30e613",
+        "html_url": "https://github.com/jesse-ai/jesse/commit/5e642997f9623d67b63543962eab46caca30e613",
+        "commit": {
+          "author": {
+            "date": "2026-10-12T15:25:56Z"
+          },
+          "committer": {
+            "date": "2026-10-12T15:25:56Z"
+          }
+        }
+      },
+      "latest_non_prerelease_release_api_url": "https://api.github.com/repos/jesse-ai/jesse/releases/latest",
+      "latest_non_prerelease_release": null,
+      "latest_release_error": [
+        {
+          "type": "text",
+          "text": "GitHub API error 404: {\"message\":\"Not Found\",\"documentation_url\":\"https://docs.github.com/rest/releases/releases#get-the-latest-release\",\"status\":\"404\"}"
+        }
+      ],
+      "newest_listed_release_api_url": "https://api.github.com/repos/jesse-ai/jesse/releases?per_page=1",
+      "newest_listed_release": null,
+      "newest_listed_release_list_empty": true,
+      "verified_license": "MIT core; commercial extension terms separate",
+      "pinned_license_url": "https://raw.githubusercontent.com/jesse-ai/jesse/5e642997f9623d67b63543962eab46caca30e613/LICENSE",
+      "pinned_readme_url": "https://raw.githubusercontent.com/jesse-ai/jesse/5e642997f9623d67b63543962eab46caca30e613/README.md",
+      "pinned_readme_matches_branch_fetch": true,
+      "pinned_license_matches_branch_fetch": true,
+      "activity": {
+        "open_issues": {
+          "query_url": "https://api.github.com/search/issues?q=repo%3Ajesse-ai%2Fjesse%20is%3Aissue%20is%3Aopen&sort=updated&order=desc&per_page=1",
+          "total_count": 5,
+          "incomplete_results": false,
+          "latest_item": {
+            "number": 630,
+            "title": "Candles Monte Carlo: moving_block_bootstrap collapses prices to its 1e-12 floor, and failed scenarios are dropped silently",
+            "html_url": "https://github.com/jesse-ai/jesse/issues/630",
+            "state": "open",
+            "created_at": "2026-10-11T22:03:42Z",
+            "updated_at": "2026-10-11T22:03:42Z",
+            "closed_at": null
+          },
+          "error": null
+        },
+        "open_prs": {
+          "query_url": "https://api.github.com/search/issues?q=repo%3Ajesse-ai%2Fjesse%20is%3Apr%20is%3Aopen&sort=updated&order=desc&per_page=1",
+          "total_count": 5,
+          "incomplete_results": false,
+          "latest_item": {
+            "number": 613,
+            "title": "Align trades Monte Carlo Calmar ratio with CAGR",
+            "html_url": "https://github.com/jesse-ai/jesse/pull/613",
+            "state": "open",
+            "created_at": "2026-08-12T16:13:48Z",
+            "updated_at": "2026-10-11T16:55:45Z",
+            "closed_at": null
+          },
+          "error": null
+        },
+        "issues_updated_30d": {
+          "query_url": "https://api.github.com/search/issues?q=repo%3Ajesse-ai%2Fjesse%20is%3Aissue%20updated%3A%3E%3D2026-09-13&sort=updated&order=desc&per_page=1",
+          "total_count": 8,
+          "incomplete_results": false,
+          "latest_item": {
+            "number": 630,
+            "title": "Candles Monte Carlo: moving_block_bootstrap collapses prices to its 1e-12 floor, and failed scenarios are dropped silently",
+            "html_url": "https://github.com/jesse-ai/jesse/issues/630",
+            "state": "open",
+            "created_at": "2026-10-11T22:03:42Z",
+            "updated_at": "2026-10-11T22:03:42Z",
+            "closed_at": null
+          },
+          "error": null
+        },
+        "prs_updated_30d": {
+          "query_url": "https://api.github.com/search/issues?q=repo%3Ajesse-ai%2Fjesse%20is%3Apr%20updated%3A%3E%3D2026-09-13&sort=updated&order=desc&per_page=1",
+          "total_count": 10,
+          "incomplete_results": false,
+          "latest_item": {
+            "number": 629,
+            "title": "Release 3.3.2",
+            "html_url": "https://github.com/jesse-ai/jesse/pull/629",
+            "state": "closed",
+            "created_at": "2026-10-11T17:31:07Z",
+            "updated_at": "2026-10-11T17:40:42Z",
+            "closed_at": "2026-10-11T17:40:41Z"
+          },
+          "error": null
+        }
+      }
+    },
+    {
+      "repository": "QuantConnect/Lean",
+      "reviewed_at": "2026-10-13",
+      "repository_api_url": "https://api.github.com/repos/QuantConnect/Lean",
+      "repository_api_excerpt": {
+        "id": 27251463,
+        "full_name": "QuantConnect/Lean",
+        "private": false,
+        "html_url": "https://github.com/QuantConnect/Lean",
+        "default_branch": "master",
+        "stargazers_count": 21971,
+        "forks_count": 5296,
+        "open_issues_count": 275,
+        "archived": false,
+        "disabled": false,
+        "created_at": "2014-11-28T04:20:19Z",
+        "updated_at": "2026-10-13T00:32:48Z",
+        "pushed_at": "2026-10-12T18:32:30Z",
+        "license": {
+          "key": "apache-2.0",
+          "name": "Apache License 2.0",
+          "spdx_id": "Apache-2.0"
+        }
+      },
+      "head_api_url": "https://api.github.com/repos/QuantConnect/Lean/commits?sha=master&per_page=1",
+      "head_api_excerpt": {
+        "sha": "80e7843f645673bcbeaab963049f76f20f6785e1",
+        "html_url": "https://github.com/QuantConnect/Lean/commit/80e7843f645673bcbeaab963049f76f20f6785e1",
+        "commit": {
+          "author": {
+            "date": "2026-10-06T17:34:53Z"
+          },
+          "committer": {
+            "date": "2026-10-06T17:34:53Z"
+          }
+        }
+      },
+      "latest_non_prerelease_release_api_url": "https://api.github.com/repos/QuantConnect/Lean/releases/latest",
+      "latest_non_prerelease_release": {
+        "tag_name": "v2.4.0.1",
+        "name": "R-Support, Visual Studio Integration, Python Updates",
+        "html_url": "https://github.com/QuantConnect/Lean/releases/tag/v2.4.0.1",
+        "published_at": "2017-08-08T20:57:57Z",
+        "created_at": "2017-08-08T20:48:29Z",
+        "prerelease": false,
+        "draft": false,
+        "target_commitish": "master"
+      },
+      "latest_release_error": null,
+      "newest_listed_release_api_url": "https://api.github.com/repos/QuantConnect/Lean/releases?per_page=1",
+      "newest_listed_release": {
+        "tag_name": "v2.4.0.1",
+        "name": "R-Support, Visual Studio Integration, Python Updates",
+        "html_url": "https://github.com/QuantConnect/Lean/releases/tag/v2.4.0.1",
+        "published_at": "2017-08-08T20:57:57Z",
+        "created_at": "2017-08-08T20:48:29Z",
+        "prerelease": false,
+        "draft": false,
+        "target_commitish": "master"
+      },
+      "newest_listed_release_list_empty": false,
+      "verified_license": "Apache-2.0",
+      "pinned_license_url": "https://raw.githubusercontent.com/QuantConnect/Lean/80e7843f645673bcbeaab963049f76f20f6785e1/LICENSE",
+      "pinned_readme_url": "https://raw.githubusercontent.com/QuantConnect/Lean/80e7843f645673bcbeaab963049f76f20f6785e1/readme.md",
+      "pinned_readme_matches_branch_fetch": true,
+      "pinned_license_matches_branch_fetch": true,
+      "activity": {
+        "open_issues": {
+          "query_url": "https://api.github.com/search/issues?q=repo%3AQuantConnect%2FLean%20is%3Aissue%20is%3Aopen&sort=updated&order=desc&per_page=1",
+          "total_count": 246,
+          "incomplete_results": false,
+          "latest_item": {
+            "number": 9895,
+            "title": "L1QueueEstimatingFillModel for LimitOrders",
+            "html_url": "https://github.com/QuantConnect/Lean/issues/9895",
+            "state": "open",
+            "created_at": "2026-10-12T21:33:57Z",
+            "updated_at": "2026-10-12T21:33:57Z",
+            "closed_at": null
+          },
+          "error": null
+        },
+        "open_prs": {
+          "query_url": "https://api.github.com/search/issues?q=repo%3AQuantConnect%2FLean%20is%3Apr%20is%3Aopen&sort=updated&order=desc&per_page=1",
+          "total_count": 29,
+          "incomplete_results": false,
+          "latest_item": {
+            "number": 9896,
+            "title": "Add OrderEvent.Tag, Time and OrderType, and OrderFee.Amount",
+            "html_url": "https://github.com/QuantConnect/Lean/pull/9896",
+            "state": "open",
+            "created_at": "2026-10-12T21:38:00Z",
+            "updated_at": "2026-10-12T21:38:00Z",
+            "closed_at": null
+          },
+          "error": null
+        },
+        "issues_updated_30d": {
+          "query_url": "https://api.github.com/search/issues?q=repo%3AQuantConnect%2FLean%20is%3Aissue%20updated%3A%3E%3D2026-09-13&sort=updated&order=desc&per_page=1",
+          "total_count": 52,
+          "incomplete_results": false,
+          "latest_item": {
+            "number": 9895,
+            "title": "L1QueueEstimatingFillModel for LimitOrders",
+            "html_url": "https://github.com/QuantConnect/Lean/issues/9895",
+            "state": "open",
+            "created_at": "2026-10-12T21:33:57Z",
+            "updated_at": "2026-10-12T21:33:57Z",
+            "closed_at": null
+          },
+          "error": null
+        },
+        "prs_updated_30d": {
+          "query_url": "https://api.github.com/search/issues?q=repo%3AQuantConnect%2FLean%20is%3Apr%20updated%3A%3E%3D2026-09-13&sort=updated&order=desc&per_page=1",
+          "total_count": 82,
+          "incomplete_results": false,
+          "latest_item": {
+            "number": 9896,
+            "title": "Add OrderEvent.Tag, Time and OrderType, and OrderFee.Amount",
+            "html_url": "https://github.com/QuantConnect/Lean/pull/9896",
+            "state": "open",
+            "created_at": "2026-10-12T21:38:00Z",
+            "updated_at": "2026-10-12T21:38:00Z",
+            "closed_at": null
+          },
+          "error": null
+        }
+      }
+    },
+    {
+      "repository": "nautechsystems/nautilus_trader",
+      "reviewed_at": "2026-10-13",
+      "repository_api_url": "https://api.github.com/repos/nautechsystems/nautilus_trader",
+      "repository_api_excerpt": {
+        "id": 138552196,
+        "full_name": "nautechsystems/nautilus_trader",
+        "private": false,
+        "html_url": "https://github.com/nautechsystems/nautilus_trader",
+        "default_branch": "develop",
+        "stargazers_count": 29895,
+        "forks_count": 3991,
+        "open_issues_count": 122,
+        "archived": false,
+        "disabled": false,
+        "created_at": "2018-06-25T06:26:16Z",
+        "updated_at": "2026-10-13T00:36:54Z",
+        "pushed_at": "2026-10-12T23:06:37Z",
+        "license": {
+          "key": "lgpl-3.0",
+          "name": "GNU Lesser General Public License v3.0",
+          "spdx_id": "LGPL-3.0"
+        }
+      },
+      "head_api_url": "https://api.github.com/repos/nautechsystems/nautilus_trader/commits?sha=develop&per_page=1",
+      "head_api_excerpt": {
+        "sha": "fb53ee6a420570a76af04fc4835f2122c3c6d6fb",
+        "html_url": "https://github.com/nautechsystems/nautilus_trader/commit/fb53ee6a420570a76af04fc4835f2122c3c6d6fb",
+        "commit": {
+          "author": {
+            "date": "2026-10-12T22:59:21Z"
+          },
+          "committer": {
+            "date": "2026-10-12T23:06:22Z"
+          }
+        }
+      },
+      "latest_non_prerelease_release_api_url": "https://api.github.com/repos/nautechsystems/nautilus_trader/releases/latest",
+      "latest_non_prerelease_release": {
+        "tag_name": "v1.231.0",
+        "name": "NautilusTrader 1.231.0 Beta",
+        "html_url": "https://github.com/nautechsystems/nautilus_trader/releases/tag/v1.231.0",
+        "published_at": "2026-08-02T18:53:49Z",
+        "created_at": "2026-08-02T13:40:13Z",
+        "prerelease": false,
+        "draft": false,
+        "target_commitish": "develop"
+      },
+      "latest_release_error": null,
+      "newest_listed_release_api_url": "https://api.github.com/repos/nautechsystems/nautilus_trader/releases?per_page=1",
+      "newest_listed_release": {
+        "tag_name": "v2.0.0rc6",
+        "name": "NautilusTrader 2.0.0rc6",
+        "html_url": "https://github.com/nautechsystems/nautilus_trader/releases/tag/v2.0.0rc6",
+        "published_at": "2026-10-05T03:03:18Z",
+        "created_at": "2026-10-05T02:33:35Z",
+        "prerelease": true,
+        "draft": false,
+        "target_commitish": "develop"
+      },
+      "newest_listed_release_list_empty": false,
+      "verified_license": "LGPL-3.0-only (explicit project policy); API reports LGPL-3.0",
+      "pinned_license_url": "https://raw.githubusercontent.com/nautechsystems/nautilus_trader/fb53ee6a420570a76af04fc4835f2122c3c6d6fb/LICENSE",
+      "pinned_readme_url": "https://raw.githubusercontent.com/nautechsystems/nautilus_trader/fb53ee6a420570a76af04fc4835f2122c3c6d6fb/README.md",
+      "pinned_readme_matches_branch_fetch": true,
+      "pinned_license_matches_branch_fetch": true,
+      "activity": {
+        "open_issues": {
+          "query_url": "https://api.github.com/search/issues?q=repo%3Anautechsystems%2Fnautilus_trader%20is%3Aissue%20is%3Aopen&sort=updated&order=desc&per_page=1",
+          "total_count": 107,
+          "incomplete_results": false,
+          "latest_item": {
+            "number": 5286,
+            "title": "[RFC][Execution] Binary-option split/merge actions with Hyperliquid HIP-4",
+            "html_url": "https://github.com/nautechsystems/nautilus_trader/issues/5286",
+            "state": "open",
+            "created_at": "2026-10-10T03:21:33Z",
+            "updated_at": "2026-10-12T21:43:09Z",
+            "closed_at": null
+          },
+          "error": null
+        },
+        "open_prs": {
+          "query_url": "https://api.github.com/search/issues?q=repo%3Anautechsystems%2Fnautilus_trader%20is%3Apr%20is%3Aopen&sort=updated&order=desc&per_page=1",
+          "total_count": 15,
+          "incomplete_results": false,
+          "latest_item": {
+            "number": 5294,
+            "title": "Make network ref-count clones explicit",
+            "html_url": "https://github.com/nautechsystems/nautilus_trader/pull/5294",
+            "state": "open",
+            "created_at": "2026-10-11T10:32:04Z",
+            "updated_at": "2026-10-12T23:01:51Z",
+            "closed_at": null
+          },
+          "error": null
+        },
+        "issues_updated_30d": {
+          "query_url": "https://api.github.com/search/issues?q=repo%3Anautechsystems%2Fnautilus_trader%20is%3Aissue%20updated%3A%3E%3D2026-09-13&sort=updated&order=desc&per_page=1",
+          "total_count": 195,
+          "incomplete_results": false,
+          "latest_item": {
+            "number": 5200,
+            "title": "[Databento] Support live subscribe_bars (OHLCV) in the v2 data client",
+            "html_url": "https://github.com/nautechsystems/nautilus_trader/issues/5200",
+            "state": "closed",
+            "created_at": "2026-10-03T14:54:19Z",
+            "updated_at": "2026-10-12T22:17:11Z",
+            "closed_at": "2026-10-09T05:37:52Z"
+          },
+          "error": null
+        },
+        "prs_updated_30d": {
+          "query_url": "https://api.github.com/search/issues?q=repo%3Anautechsystems%2Fnautilus_trader%20is%3Apr%20updated%3A%3E%3D2026-09-13&sort=updated&order=desc&per_page=1",
+          "total_count": 210,
+          "incomplete_results": false,
+          "latest_item": {
+            "number": 5294,
+            "title": "Make network ref-count clones explicit",
+            "html_url": "https://github.com/nautechsystems/nautilus_trader/pull/5294",
+            "state": "open",
+            "created_at": "2026-10-11T10:32:04Z",
+            "updated_at": "2026-10-12T23:01:51Z",
+            "closed_at": null
+          },
+          "error": null
+        }
+      }
+    },
+    {
+      "repository": "tradingstrategy-ai/trade-executor",
+      "reviewed_at": "2026-10-13",
+      "repository_api_url": "https://api.github.com/repos/tradingstrategy-ai/trade-executor",
+      "repository_api_excerpt": {
+        "id": 450780627,
+        "full_name": "tradingstrategy-ai/trade-executor",
+        "private": false,
+        "html_url": "https://github.com/tradingstrategy-ai/trade-executor",
+        "default_branch": "master",
+        "stargazers_count": 160,
+        "forks_count": 34,
+        "open_issues_count": 49,
+        "archived": false,
+        "disabled": false,
+        "created_at": "2022-01-22T10:09:35Z",
+        "updated_at": "2026-10-08T15:58:22Z",
+        "pushed_at": "2026-10-08T15:58:16Z",
+        "license": {
+          "key": "other",
+          "name": "Other",
+          "spdx_id": "NOASSERTION"
+        }
+      },
+      "head_api_url": "https://api.github.com/repos/tradingstrategy-ai/trade-executor/commits?sha=master&per_page=1",
+      "head_api_excerpt": {
+        "sha": "1f544609ac7f5ef61e1068e14c3f4ea9e23a6ecd",
+        "html_url": "https://github.com/tradingstrategy-ai/trade-executor/commit/1f544609ac7f5ef61e1068e14c3f4ea9e23a6ecd",
+        "commit": {
+          "author": {
+            "date": "2026-10-08T15:58:16Z"
+          },
+          "committer": {
+            "date": "2026-10-08T15:58:16Z"
+          }
+        }
+      },
+      "latest_non_prerelease_release_api_url": "https://api.github.com/repos/tradingstrategy-ai/trade-executor/releases/latest",
+      "latest_non_prerelease_release": {
+        "tag_name": "v1242",
+        "name": "v1242",
+        "html_url": "https://github.com/tradingstrategy-ai/trade-executor/releases/tag/v1242",
+        "published_at": "2026-06-05T20:56:20Z",
+        "created_at": "2026-02-24T18:34:27Z",
+        "prerelease": false,
+        "draft": false,
+        "target_commitish": "master"
+      },
+      "latest_release_error": null,
+      "newest_listed_release_api_url": "https://api.github.com/repos/tradingstrategy-ai/trade-executor/releases?per_page=1",
+      "newest_listed_release": {
+        "tag_name": "v1242",
+        "name": "v1242",
+        "html_url": "https://github.com/tradingstrategy-ai/trade-executor/releases/tag/v1242",
+        "published_at": "2026-06-05T20:56:20Z",
+        "created_at": "2026-02-24T18:34:27Z",
+        "prerelease": false,
+        "draft": false,
+        "target_commitish": "master"
+      },
+      "newest_listed_release_list_empty": false,
+      "verified_license": "AGPL-3.0-or-later (LICENSE.txt); API NOASSERTION; commercial dual license offered",
+      "pinned_license_url": "https://raw.githubusercontent.com/tradingstrategy-ai/trade-executor/1f544609ac7f5ef61e1068e14c3f4ea9e23a6ecd/LICENSE.txt",
+      "pinned_readme_url": "https://raw.githubusercontent.com/tradingstrategy-ai/trade-executor/1f544609ac7f5ef61e1068e14c3f4ea9e23a6ecd/README.md",
+      "pinned_readme_matches_branch_fetch": true,
+      "pinned_license_matches_branch_fetch": true,
+      "activity": {
+        "open_issues": {
+          "query_url": "https://api.github.com/search/issues?q=repo%3Atradingstrategy-ai%2Ftrade-executor%20is%3Aissue%20is%3Aopen&sort=updated&order=desc&per_page=1",
+          "total_count": 39,
+          "incomplete_results": false,
+          "latest_item": {
+            "number": 1562,
+            "title": "Phase-aware model should sweep settled CCTP bridge cash into queue vaults",
+            "html_url": "https://github.com/tradingstrategy-ai/trade-executor/issues/1562",
+            "state": "open",
+            "created_at": "2026-07-17T20:14:01Z",
+            "updated_at": "2026-07-17T20:14:01Z",
+            "closed_at": null
+          },
+          "error": null
+        },
+        "open_prs": {
+          "query_url": "https://api.github.com/search/issues?q=repo%3Atradingstrategy-ai%2Ftrade-executor%20is%3Apr%20is%3Aopen&sort=updated&order=desc&per_page=1",
+          "total_count": 10,
+          "incomplete_results": false,
+          "latest_item": {
+            "number": 1655,
+            "title": "feat: claim GMX funding into strategy reserves",
+            "html_url": "https://github.com/tradingstrategy-ai/trade-executor/pull/1655",
+            "state": "open",
+            "created_at": "2026-09-18T09:53:55Z",
+            "updated_at": "2026-09-18T09:54:11Z",
+            "closed_at": null
+          },
+          "error": null
+        },
+        "issues_updated_30d": {
+          "query_url": "https://api.github.com/search/issues?q=repo%3Atradingstrategy-ai%2Ftrade-executor%20is%3Aissue%20updated%3A%3E%3D2026-09-13&sort=updated&order=desc&per_page=1",
+          "total_count": 0,
+          "incomplete_results": false,
+          "latest_item": null,
+          "error": null
+        },
+        "prs_updated_30d": {
+          "query_url": "https://api.github.com/search/issues?q=repo%3Atradingstrategy-ai%2Ftrade-executor%20is%3Apr%20updated%3A%3E%3D2026-09-13&sort=updated&order=desc&per_page=1",
+          "total_count": 32,
+          "incomplete_results": false,
+          "latest_item": {
+            "number": 1675,
+            "title": "fix: speed up live vault universe construction",
+            "html_url": "https://github.com/tradingstrategy-ai/trade-executor/pull/1675",
+            "state": "closed",
+            "created_at": "2026-10-08T13:15:27Z",
+            "updated_at": "2026-10-08T16:13:29Z",
+            "closed_at": "2026-10-08T15:58:16Z"
+          },
+          "error": null
+        }
+      }
+    }
+  ],
+  "security_relations": {
+    "hummingbot_release_tag": "v2.17.0",
+    "hummingbot_release_tag_sha": "9af100d6822da7d2d0291a906c730ef172284ee2",
+    "hummingbot_captured_head_equals_release": true,
+    "gateway_release_tag": "v2.17.0",
+    "gateway_release_tag_sha": "f23e91670781fba75eb023edecaf2d992f0918aa",
+    "gateway_captured_head_equals_release": true,
+    "gateway_659_merge_sha": "eedfe7220f5455f0838a778000f52eaca3c2e5ef",
+    "gateway_659_compare_api_url": "https://api.github.com/repos/hummingbot/gateway/compare/eedfe7220f5455f0838a778000f52eaca3c2e5ef...f23e91670781fba75eb023edecaf2d992f0918aa?per_page=1",
+    "gateway_659_compare_excerpt": {
+      "status": "ahead",
+      "ahead_by": 174,
+      "behind_by": 0,
+      "merge_base_commit_sha": "eedfe7220f5455f0838a778000f52eaca3c2e5ef"
+    },
+    "note": "Static source checks and issue metadata; no exploit execution, dependency audit or full route reachability review."
+  },
+  "interpretation_notes": [
+    "Repository stars/forks are exact connector values at retrieval date, not profit or safety signals.",
+    "FreqAI metrics are not independently counted.",
+    "LEAN latest GitHub release is from 2017; active 2026 default-branch development means release recency alone misclassifies activity.",
+    "OctoBot release name contains beta even though GitHub prerelease flag is false.",
+    "Nautilus latest non-prerelease is v1.231.0; newest listed release is v2.0.0rc6, a prerelease.",
+    "Jesse and freqtrade-strategies returned 404 from releases/latest and empty releases lists; package/tag versions may exist.",
+    "GitHub license NOASSERTION for trade-executor is resolved by the actual pinned LICENSE.txt, which specifies AGPL-3.0-or-later.",
+    "Mutable stable/latest documentation can differ from the captured default branch; source claims are not executed validation."
+  ]
+}

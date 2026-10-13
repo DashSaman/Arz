@@ -1,0 +1,19 @@
+scenario,notional_usd,fee_bps_per_side,slippage_bps_per_side,gas_usd_per_attempt,roundtrips_month,roundtrip_cost_approx_usd,monthly_cost_approx_usd,account_cost_fraction,gross_edge_per_roundtrip_to_break_even,note
+low_cost_assumed,20,5,10,0.01,4,0.08,0.32,0.0032,0.004,Approximation at unchanged notional and no failed transactions; does not assert any chain actual fee.
+low_cost_assumed,20,5,10,0.01,20,0.08,1.6,0.016,0.004,Approximation at unchanged notional and no failed transactions; does not assert any chain actual fee.
+low_cost_assumed,20,5,10,0.01,60,0.08,4.8,0.048,0.004,Approximation at unchanged notional and no failed transactions; does not assert any chain actual fee.
+double_all_costs,20,10,20,0.02,4,0.16,0.64,0.0064,0.008,Approximation at unchanged notional and no failed transactions; does not assert any chain actual fee.
+double_all_costs,20,10,20,0.02,20,0.16,3.2,0.032,0.008,Approximation at unchanged notional and no failed transactions; does not assert any chain actual fee.
+double_all_costs,20,10,20,0.02,60,0.16,9.6,0.096,0.008,Approximation at unchanged notional and no failed transactions; does not assert any chain actual fee.
+higher_pool_fee,20,30,10,0.01,4,0.18,0.72,0.0072,0.009,Approximation at unchanged notional and no failed transactions; does not assert any chain actual fee.
+higher_pool_fee,20,30,10,0.01,20,0.18,3.5999999999999996,0.036,0.009,Approximation at unchanged notional and no failed transactions; does not assert any chain actual fee.
+higher_pool_fee,20,30,10,0.01,60,0.18,10.799999999999999,0.10799999999999998,0.009,Approximation at unchanged notional and no failed transactions; does not assert any chain actual fee.
+network_cost_010,20,5,10,0.1,4,0.26,1.04,0.0104,0.013000000000000001,Approximation at unchanged notional and no failed transactions; does not assert any chain actual fee.
+network_cost_010,20,5,10,0.1,20,0.26,5.2,0.052000000000000005,0.013000000000000001,Approximation at unchanged notional and no failed transactions; does not assert any chain actual fee.
+network_cost_010,20,5,10,0.1,60,0.26,15.600000000000001,0.15600000000000003,0.013000000000000001,Approximation at unchanged notional and no failed transactions; does not assert any chain actual fee.
+network_cost_1,20,5,10,1,4,2.06,8.24,0.0824,0.10300000000000001,Approximation at unchanged notional and no failed transactions; does not assert any chain actual fee.
+network_cost_1,20,5,10,1,20,2.06,41.2,0.41200000000000003,0.10300000000000001,Approximation at unchanged notional and no failed transactions; does not assert any chain actual fee.
+network_cost_1,20,5,10,1,60,2.06,123.60000000000001,1.236,0.10300000000000001,Approximation at unchanged notional and no failed transactions; does not assert any chain actual fee.
+network_cost_5,20,5,10,5,4,10.06,40.24,0.40240000000000004,0.503,Approximation at unchanged notional and no failed transactions; does not assert any chain actual fee.
+network_cost_5,20,5,10,5,20,10.06,201.20000000000002,2.012,0.503,Approximation at unchanged notional and no failed transactions; does not assert any chain actual fee.
+network_cost_5,20,5,10,5,60,10.06,603.6,6.0360000000000005,0.503,Approximation at unchanged notional and no failed transactions; does not assert any chain actual fee.

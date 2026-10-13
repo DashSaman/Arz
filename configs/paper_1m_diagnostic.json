@@ -1,0 +1,23 @@
+{
+  "mode": "paper",
+  "initial_capital": 100.0,
+  "target_order": 20.0,
+  "max_order": 25.0,
+  "min_order": 5.0,
+  "reserve": 10.0,
+  "fee_bps": 5.0,
+  "slippage_bps": 10.0,
+  "gas_usd": 0.01,
+  "max_slippage_bps": 50.0,
+  "max_gas_usd": 0.1,
+  "max_fees_day": 2.0,
+  "max_trades_day": 4,
+  "daily_loss": 0.03,
+  "max_drawdown": 0.1,
+  "max_volume_fraction": 0.001,
+  "interval_s": 60,
+  "symbol": "WETH/USDC",
+  "network": "base",
+  "pool": "0xd0b53d9277642d899df5c87a3966a349a798f224",
+  "token": "0x4200000000000000000000000000000000000006"
+}

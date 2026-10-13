@@ -1,0 +1,35 @@
+test_bootstrap_zero_and_constant_returns (test_validation.ValidationTests.test_bootstrap_zero_and_constant_returns) ... FAIL
+test_costed_capital_matched_buy_hold (test_validation.ValidationTests.test_costed_capital_matched_buy_hold) ... FAIL
+test_folds_never_train_on_their_test_segment (test_validation.ValidationTests.test_folds_never_train_on_their_test_segment) ... FAIL
+
+======================================================================
+FAIL: test_bootstrap_zero_and_constant_returns (test_validation.ValidationTests.test_bootstrap_zero_and_constant_returns)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_validation.py", line 10, in setUp
+    def setUp(self):self.assertIsNotNone(chronological_folds,"Validation module must exist")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : Validation module must exist
+
+======================================================================
+FAIL: test_costed_capital_matched_buy_hold (test_validation.ValidationTests.test_costed_capital_matched_buy_hold)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_validation.py", line 10, in setUp
+    def setUp(self):self.assertIsNotNone(chronological_folds,"Validation module must exist")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : Validation module must exist
+
+======================================================================
+FAIL: test_folds_never_train_on_their_test_segment (test_validation.ValidationTests.test_folds_never_train_on_their_test_segment)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_validation.py", line 10, in setUp
+    def setUp(self):self.assertIsNotNone(chronological_folds,"Validation module must exist")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : Validation module must exist
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (failures=3)

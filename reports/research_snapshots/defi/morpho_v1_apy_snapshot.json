@@ -1,0 +1,19 @@
+{
+  "endpoint": "https://api.morpho.org/v0/vaults-v1/1:0xBEEF01735c132Ada46AA9aA4c54623cAA92A64CB/apy-averages?lookback=one_day",
+  "status": "success",
+  "scope": "public protocol data; not user recommendation or promise",
+  "http_date": "Tue, 13 Oct 2026 00:48:23 GMT",
+  "sha256": "75a38446c81d0a80e92e7ec85e9373982ef63b030a137796f6c30e582879bb84",
+  "response": {
+    "data": {
+      "chain_id": 1,
+      "vault_address": "0xBEEF01735c132Ada46AA9aA4c54623cAA92A64CB",
+      "last_indexed_block": "26180082",
+      "lookback": "one_day",
+      "apy": 0.04306367007561616
+    }
+  },
+  "requested_at": "2026-10-13T00:48:18.481522+00:00",
+  "observed_at": "2026-10-13T00:48:23+00:00",
+  "observation_clock": "HTTP response Date; request clock retained separately"
+}

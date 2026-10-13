@@ -1,0 +1,10 @@
+venue,detail_table,documentation_en,documentation_fa,scope,live_trading
+Jupiter,research/dex_comparison.csv,docs/en/dex_access.md,docs/fa/dex_access.md,"Pool, interface, API and access details by version; not a permission finding",DISABLED
+Raydium,research/dex_comparison.csv,docs/en/dex_access.md,docs/fa/dex_access.md,"Pool, interface, API and access details by version; not a permission finding",DISABLED
+Orca,research/dex_comparison.csv,docs/en/dex_access.md,docs/fa/dex_access.md,"Pool, interface, API and access details by version; not a permission finding",DISABLED
+Meteora,research/dex_comparison.csv,docs/en/dex_access.md,docs/fa/dex_access.md,"Pool, interface, API and access details by version; not a permission finding",DISABLED
+Uniswap,research/dex_comparison.csv,docs/en/dex_access.md,docs/fa/dex_access.md,"Pool, interface, API and access details by version; not a permission finding",DISABLED
+PancakeSwap,research/dex_comparison.csv,docs/en/dex_access.md,docs/fa/dex_access.md,"Pool, interface, API and access details by version; not a permission finding",DISABLED
+Curve,research/dex_comparison.csv,docs/en/dex_access.md,docs/fa/dex_access.md,"Pool, interface, API and access details by version; not a permission finding",DISABLED
+Aerodrome,research/dex_comparison.csv,docs/en/dex_access.md,docs/fa/dex_access.md,"Pool, interface, API and access details by version; not a permission finding",DISABLED
+Hyperliquid,research/hyperliquid_products.csv,docs/en/hyperliquid.md,docs/fa/hyperliquid.md,"Nine separate products/layers; spot, perps, HLP and vault models must not be conflated",DISABLED

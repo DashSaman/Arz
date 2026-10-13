@@ -1,0 +1,95 @@
+test_capital_and_live_mode_rejected (test_core.CoreTests.test_capital_and_live_mode_rejected) ... FAIL
+test_config_rejects_invalid_relations_and_numbers (test_core.CoreTests.test_config_rejects_invalid_relations_and_numbers) ... FAIL
+test_daily_loss_and_cost_caps (test_core.CoreTests.test_daily_loss_and_cost_caps) ... FAIL
+test_data_order_gap_alignment_and_unclosed (test_core.CoreTests.test_data_order_gap_alignment_and_unclosed) ... FAIL
+test_data_rejects_nonfinite_and_ohlc_inconsistency (test_core.CoreTests.test_data_rejects_nonfinite_and_ohlc_inconsistency) ... FAIL
+test_exact_roundtrip_accounting (test_core.CoreTests.test_exact_roundtrip_accounting) ... FAIL
+test_failed_transaction_charges_only_gas (test_core.CoreTests.test_failed_transaction_charges_only_gas) ... FAIL
+test_no_short_or_cash_creation (test_core.CoreTests.test_no_short_or_cash_creation) ... FAIL
+test_partial_exit_preserves_cost_basis (test_core.CoreTests.test_partial_exit_preserves_cost_basis) ... FAIL
+test_risk_stops_at_drawdown_and_persists (test_core.CoreTests.test_risk_stops_at_drawdown_and_persists) ... FAIL
+
+======================================================================
+FAIL: test_capital_and_live_mode_rejected (test_core.CoreTests.test_capital_and_live_mode_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_core.py", line 13, in setUp
+    self.assertIsNotNone(Config, "Configuration, data, accounting and risk modules must exist")
+AssertionError: unexpectedly None : Configuration, data, accounting and risk modules must exist
+
+======================================================================
+FAIL: test_config_rejects_invalid_relations_and_numbers (test_core.CoreTests.test_config_rejects_invalid_relations_and_numbers)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_core.py", line 13, in setUp
+    self.assertIsNotNone(Config, "Configuration, data, accounting and risk modules must exist")
+AssertionError: unexpectedly None : Configuration, data, accounting and risk modules must exist
+
+======================================================================
+FAIL: test_daily_loss_and_cost_caps (test_core.CoreTests.test_daily_loss_and_cost_caps)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_core.py", line 13, in setUp
+    self.assertIsNotNone(Config, "Configuration, data, accounting and risk modules must exist")
+AssertionError: unexpectedly None : Configuration, data, accounting and risk modules must exist
+
+======================================================================
+FAIL: test_data_order_gap_alignment_and_unclosed (test_core.CoreTests.test_data_order_gap_alignment_and_unclosed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_core.py", line 13, in setUp
+    self.assertIsNotNone(Config, "Configuration, data, accounting and risk modules must exist")
+AssertionError: unexpectedly None : Configuration, data, accounting and risk modules must exist
+
+======================================================================
+FAIL: test_data_rejects_nonfinite_and_ohlc_inconsistency (test_core.CoreTests.test_data_rejects_nonfinite_and_ohlc_inconsistency)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_core.py", line 13, in setUp
+    self.assertIsNotNone(Config, "Configuration, data, accounting and risk modules must exist")
+AssertionError: unexpectedly None : Configuration, data, accounting and risk modules must exist
+
+======================================================================
+FAIL: test_exact_roundtrip_accounting (test_core.CoreTests.test_exact_roundtrip_accounting)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_core.py", line 13, in setUp
+    self.assertIsNotNone(Config, "Configuration, data, accounting and risk modules must exist")
+AssertionError: unexpectedly None : Configuration, data, accounting and risk modules must exist
+
+======================================================================
+FAIL: test_failed_transaction_charges_only_gas (test_core.CoreTests.test_failed_transaction_charges_only_gas)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_core.py", line 13, in setUp
+    self.assertIsNotNone(Config, "Configuration, data, accounting and risk modules must exist")
+AssertionError: unexpectedly None : Configuration, data, accounting and risk modules must exist
+
+======================================================================
+FAIL: test_no_short_or_cash_creation (test_core.CoreTests.test_no_short_or_cash_creation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_core.py", line 13, in setUp
+    self.assertIsNotNone(Config, "Configuration, data, accounting and risk modules must exist")
+AssertionError: unexpectedly None : Configuration, data, accounting and risk modules must exist
+
+======================================================================
+FAIL: test_partial_exit_preserves_cost_basis (test_core.CoreTests.test_partial_exit_preserves_cost_basis)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_core.py", line 13, in setUp
+    self.assertIsNotNone(Config, "Configuration, data, accounting and risk modules must exist")
+AssertionError: unexpectedly None : Configuration, data, accounting and risk modules must exist
+
+======================================================================
+FAIL: test_risk_stops_at_drawdown_and_persists (test_core.CoreTests.test_risk_stops_at_drawdown_and_persists)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_core.py", line 13, in setUp
+    self.assertIsNotNone(Config, "Configuration, data, accounting and risk modules must exist")
+AssertionError: unexpectedly None : Configuration, data, accounting and risk modules must exist
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.001s
+
+FAILED (failures=10)

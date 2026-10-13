@@ -1,0 +1,45 @@
+{
+  "observed_at_utc": "2026-10-13T01:35:11.088138+00:00",
+  "main_head": "9e18c7d5e13ace7b5b55fffdea74725f31c0bfda",
+  "common_initial_commit": "919577cc45c672ba1641409e43a047b55eb1ac32",
+  "research_code_checkpoint": "73f32d85ba4f2b4764d2138e3746f8ffcefcf5d2",
+  "preserved_files": [
+    {
+      "path": ".github/workflows/offline-tests.yml",
+      "git_blob": "6b47b3bf42a5922e66044e096523a2fad8b52ee2",
+      "preserved_byte_for_byte": false,
+      "subsequent_integration_change": "Original staged and hashed before adaptation. Set PYTHONPATH=src, broaden source/config/project path triggers, pin checkout to verified SHA and disable persisted credentials."
+    },
+    {
+      "path": "data/SYNTHETIC_example_daily_returns.csv",
+      "git_blob": "67e0b6329067500ba9d2d8e6d3b6ae919513257a",
+      "preserved_byte_for_byte": true
+    },
+    {
+      "path": "docs/en/30-day-roadmap.md",
+      "git_blob": "2c1b0ebd9cb6f91151ce68e36672a9abb4d50928",
+      "preserved_byte_for_byte": true
+    },
+    {
+      "path": "docs/fa/30-day-roadmap.md",
+      "git_blob": "56dbccc4fadbc2cae7c04c3ec9295168c32c0fca",
+      "preserved_byte_for_byte": true
+    },
+    {
+      "path": "scripts/compound_audit.py",
+      "git_blob": "e5883baaa2b793e31c4f5c3c22053b7e942e3130",
+      "preserved_byte_for_byte": true
+    },
+    {
+      "path": "tests/test_compound_audit.py",
+      "git_blob": "5d9468f2bfb7650ea7e40bb9f5f19fb82234e405",
+      "preserved_byte_for_byte": true
+    }
+  ],
+  "overlapping_files_requiring_reconciliation": [
+    "AGENTS.md",
+    "PROJECT_STATUS.md"
+  ],
+  "policy": "Preserve both histories in a true merge; never force-update main.",
+  "reconciliation": "AGENTS and PROJECT_STATUS preserve both work streams; workflow adapted for the combined src layout. Both parent histories retained by planned non-force merge."
+}

@@ -1,0 +1,46 @@
+{
+  "recorded_at_utc": "2026-10-13T01:41:35.594156+00:00",
+  "scope": "Historical failures retained transparently. See reports/tests/latest.json for current results.",
+  "files": [
+    {
+      "path": "reports/tests/failures/arz_cli_red.txt",
+      "sha256": "06afd95f0dd1b1a4020cdcd2f5465de14356bd5ab8cde37090037731fa178e61",
+      "classification": "historical expected RED or independently reproduced pre-fix regression; not the final suite"
+    },
+    {
+      "path": "reports/tests/failures/arz_core_red.txt",
+      "sha256": "e6beb37002df494d27b4bd5c9054965fc3a4bff73528f46baf22c5b8f326e323",
+      "classification": "historical expected RED or independently reproduced pre-fix regression; not the final suite"
+    },
+    {
+      "path": "reports/tests/failures/arz_engine_red.txt",
+      "sha256": "42108fcac9aa731c95cee6a60d0713df489503cf4fc1d202a8338a24c8119c21",
+      "classification": "historical expected RED or independently reproduced pre-fix regression; not the final suite"
+    },
+    {
+      "path": "reports/tests/failures/arz_operations_red.txt",
+      "sha256": "186b8c192bf5ae002d2ed7b3d23519896ac1a6caf6fad96fc8a5dab84e6aff38",
+      "classification": "historical expected RED or independently reproduced pre-fix regression; not the final suite"
+    },
+    {
+      "path": "reports/tests/failures/arz_review_clock_red.txt",
+      "sha256": "ff2dad11fff1b59e92bc9e91982ca845e0ae92dac131b67fd72c79dbe7770d55",
+      "classification": "historical expected RED or independently reproduced pre-fix regression; not the final suite"
+    },
+    {
+      "path": "reports/tests/failures/arz_review_metadata_red.txt",
+      "sha256": "4980752431a4584a14a6e6247c07fc7516aaf11e9276daae592d7def567eeab7",
+      "classification": "historical expected RED or independently reproduced pre-fix regression; not the final suite"
+    },
+    {
+      "path": "reports/tests/failures/arz_review_red.txt",
+      "sha256": "35ed6c097b477a69cbb092bb9e76ee08f513b1af57829318e9f23bd8012945b0",
+      "classification": "historical expected RED or independently reproduced pre-fix regression; not the final suite"
+    },
+    {
+      "path": "reports/tests/failures/arz_validation_red.txt",
+      "sha256": "834c0afd5ffa31cf739637e32df4fca2ffc5ae071f5f768598a2fd0a5d211221",
+      "classification": "historical expected RED or independently reproduced pre-fix regression; not the final suite"
+    }
+  ]
+}

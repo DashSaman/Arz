@@ -1,0 +1,53 @@
+{
+  "endpoint": "https://api.curve.finance/v1/getPools/ethereum/main",
+  "requested_at": "2026-10-13T00:51:51.242056+00:00",
+  "status": "success",
+  "observed_at": "2026-10-13T00:51:56.171715+00:00",
+  "http_date": "Tue, 13 Oct 2026 00:51:56 GMT",
+  "sha256": "a29990710326380bc066b4a8aa686b20d4942549a39afe37cd502f2b02f98fbc",
+  "pool": {
+    "id": "0",
+    "address": "0xbEbc44782C7dB0a1A60Cb6fe97d0b483032FF1C7",
+    "name": "Curve.fi DAI/USDC/USDT",
+    "symbol": "3Crv",
+    "coins": [
+      {
+        "address": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "usdPrice": 0.9998375111054665,
+        "decimals": "18",
+        "isBasePoolLpToken": false,
+        "symbol": "DAI",
+        "name": "Dai Stablecoin",
+        "poolBalance": "23327690593429707655831798"
+      },
+      {
+        "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "usdPrice": 1,
+        "decimals": "6",
+        "isBasePoolLpToken": false,
+        "symbol": "USDC",
+        "name": "USD Coin",
+        "poolBalance": "23752894446666"
+      },
+      {
+        "address": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+        "usdPrice": 1,
+        "decimals": "6",
+        "isBasePoolLpToken": false,
+        "symbol": "USDT",
+        "name": "Tether USD",
+        "poolBalance": "112717100100975"
+      }
+    ],
+    "usdTotal": 159793894.65041417,
+    "isMetaPool": false,
+    "isBroken": false,
+    "isHidden": null,
+    "gaugeAddress": "0xbfcf63294ad7105dea65aa58f8ae5be2d9d0952a",
+    "gaugeCrvApy": [
+      1.7520105227529217e-05,
+      4.380026306882304e-05
+    ],
+    "gaugeRewards": []
+  }
+}

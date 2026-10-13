@@ -1,0 +1,258 @@
+{
+  "H01": {
+    "title": "About Hyperliquid",
+    "url": "https://hyperliquid.gitbook.io/hyperliquid-docs/about-hyperliquid.md"
+  },
+  "H02": {
+    "title": "HyperCore overview",
+    "url": "https://hyperliquid.gitbook.io/hyperliquid-docs/hypercore/overview.md"
+  },
+  "H03": {
+    "title": "HyperEVM",
+    "url": "https://hyperliquid.gitbook.io/hyperliquid-docs/hyperevm"
+  },
+  "H04": {
+    "title": "Interacting with HyperCore",
+    "url": "https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/hyperevm/interacting-with-hypercore"
+  },
+  "H05": {
+    "title": "Vaults",
+    "url": "https://hyperliquid.gitbook.io/hyperliquid-docs/hypercore/vaults"
+  },
+  "H06": {
+    "title": "HyperCore vaults (legacy)",
+    "url": "https://hyperliquid.gitbook.io/hyperliquid-docs/hypercore/vaults/hypercore-vaults-legacy.md"
+  },
+  "H07": {
+    "title": "For vault leaders (legacy)",
+    "url": "https://hyperliquid.gitbook.io/hyperliquid-docs/hypercore/vaults/for-vault-leaders-legacy"
+  },
+  "H08": {
+    "title": "For vault depositors (legacy)",
+    "url": "https://hyperliquid.gitbook.io/hyperliquid-docs/hypercore/vaults/for-vault-depositors-legacy.md"
+  },
+  "H09": {
+    "title": "Protocol vaults",
+    "url": "https://hyperliquid.gitbook.io/hyperliquid-docs/hypercore/vaults/protocol-vaults.md"
+  },
+  "H10": {
+    "title": "Info endpoint",
+    "url": "https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/info-endpoint"
+  },
+  "H11": {
+    "title": "Portfolio graphs",
+    "url": "https://hyperliquid.gitbook.io/hyperliquid-docs/trading/portfolio-graphs"
+  },
+  "H12": {
+    "title": "Historical data",
+    "url": "https://hyperliquid.gitbook.io/hyperliquid-docs/historical-data"
+  },
+  "H13": {
+    "title": "Liquidations",
+    "url": "https://hyperliquid.gitbook.io/hyperliquid-docs/trading/liquidations.md"
+  },
+  "H14": {
+    "title": "Portfolio margin",
+    "url": "https://hyperliquid.gitbook.io/hyperliquid-docs/trading/portfolio-margin.md"
+  },
+  "H15": {
+    "title": "Fees",
+    "url": "https://hyperliquid.gitbook.io/hyperliquid-docs/trading/fees.md"
+  },
+  "H16": {
+    "title": "API USDC",
+    "url": "https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/usdc"
+  },
+  "H17": {
+    "title": "Exchange endpoint: withdrawal",
+    "url": "https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/exchange-endpoint"
+  },
+  "H18": {
+    "title": "Activation gas fee",
+    "url": "https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/activation-gas-fee"
+  },
+  "H19": {
+    "title": "Audits",
+    "url": "https://hyperliquid.gitbook.io/hyperliquid-docs/audits.md"
+  },
+  "H20": {
+    "title": "Foundation non-validating node",
+    "url": "https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/nodes/foundation-non-validating-node"
+  },
+  "H21": {
+    "title": "Official support links",
+    "url": "https://hyperliquid.gitbook.io/hyperliquid-docs/support"
+  },
+  "H22": {
+    "title": "HLP loss statement, March 12 2025",
+    "url": "https://t.me/hyperliquid_announcements/324"
+  },
+  "H23": {
+    "title": "JELLY delisting statement, March 26 2025",
+    "url": "https://t.me/hyperliquid_announcements/332"
+  },
+  "H24": {
+    "title": "Interface Terms of Use",
+    "url": "https://app.hyperliquid.xyz/terms"
+  },
+  "H25": {
+    "title": "HLP vaultDetails public snapshot",
+    "url": "https://api.hyperliquid.xyz/info"
+  },
+  "L01": {
+    "title": "Aave Terms of Service",
+    "url": "https://aave.com/terms-of-service"
+  },
+  "L02": {
+    "title": "Morpho Terms of Use",
+    "url": "https://morpho.org/terms-of-use"
+  },
+  "L03": {
+    "title": "Kamino Terms of Service",
+    "url": "https://kamino.com/terms"
+  },
+  "L04": {
+    "title": "Iran Sanctions",
+    "url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/iran-sanctions"
+  },
+  "L05": {
+    "title": "USDC Terms",
+    "url": "https://www.circle.com/legal/usdc-terms"
+  },
+  "L06": {
+    "title": "Tether Legal Terms",
+    "url": "https://tether.to/en/legal/"
+  },
+  "D01": {
+    "title": "Supply Tokens",
+    "url": "https://aave.com/help/supplying/supply-tokens"
+  },
+  "D02": {
+    "title": "Withdraw Tokens",
+    "url": "https://aave.com/help/supplying/withdraw-tokens"
+  },
+  "D03": {
+    "title": "Aave risk resources",
+    "url": "https://aave.com/docs/resources/risks"
+  },
+  "D04": {
+    "title": "Aave Security",
+    "url": "https://aave.com/security"
+  },
+  "D05": {
+    "title": "Morpho Risks",
+    "url": "https://docs.morpho.org/learn/resources/risks/"
+  },
+  "D06": {
+    "title": "Morpho Vault V2",
+    "url": "https://docs.morpho.org/learn/concepts/vault-v2/"
+  },
+  "D07": {
+    "title": "Morpho Vault API",
+    "url": "https://docs.morpho.org/developers/api/morpho-vaults/"
+  },
+  "D08": {
+    "title": "Morpho Audits",
+    "url": "https://docs.morpho.org/get-started/resources/audits/"
+  },
+  "D09": {
+    "title": "Steakhouse USDC V1 one-day APY observation",
+    "url": "https://api.morpho.org/v0/vaults-v1/1:0xBEEF01735c132Ada46AA9aA4c54623cAA92A64CB/apy-averages?lookback=one_day"
+  },
+  "D10": {
+    "title": "Steakhouse USDC V1 configuration observation",
+    "url": "https://api.morpho.org/v0/vaults-v1/1:0xBEEF01735c132Ada46AA9aA4c54623cAA92A64CB"
+  },
+  "D11": {
+    "title": "Curve Yield overview",
+    "url": "https://docs.curve.finance/user/yield/overview"
+  },
+  "D12": {
+    "title": "Curve Liquidity Providing",
+    "url": "https://docs.curve.finance/user/yield/lp"
+  },
+  "D13": {
+    "title": "Curve Pool Risks",
+    "url": "https://docs.curve.finance/user/security/risks/pools"
+  },
+  "D14": {
+    "title": "Curve Audits",
+    "url": "https://docs.curve.finance/user/security/audits"
+  },
+  "D15": {
+    "title": "Curve API OpenAPI specification",
+    "url": "https://api.curve.finance/v1/openapi.json"
+  },
+  "D16": {
+    "title": "Curve 3pool base APY observation",
+    "url": "https://api.curve.finance/v1/getVolumes/ethereum"
+  },
+  "D17": {
+    "title": "Curve 3pool metadata observation",
+    "url": "https://api.curve.finance/v1/getPools/ethereum/main"
+  },
+  "D18": {
+    "title": "Kamino Lending Vaults",
+    "url": "https://kamino.com/docs/products/lending-vaults"
+  },
+  "D19": {
+    "title": "Kamino Lending Vault Risks",
+    "url": "https://kamino.com/docs/products/lending-vaults/risks"
+  },
+  "D20": {
+    "title": "Kamino Curators and Fees",
+    "url": "https://kamino.com/docs/products/lending-vaults/curators"
+  },
+  "D21": {
+    "title": "Kamino Yield and Fees",
+    "url": "https://kamino.com/docs/curators/vaults/concepts/yield-and-fees"
+  },
+  "D22": {
+    "title": "Kamino Market Reserve APYs",
+    "url": "https://kamino.com/docs/build/borrow/get-market-reserve-apys"
+  },
+  "D23": {
+    "title": "Kamino public API attempt",
+    "url": "https://api.kamino.finance/v2/kamino-market"
+  },
+  "D24": {
+    "title": "Kamino Liquidity concepts",
+    "url": "https://kamino.com/docs/products/liquidity/concepts"
+  },
+  "D25": {
+    "title": "Kamino Liquidity features",
+    "url": "https://kamino.com/docs/products/liquidity/features"
+  },
+  "D26": {
+    "title": "Kamino Daily Caps",
+    "url": "https://kamino.com/docs/risk/safeguards/daily-caps"
+  },
+  "D27": {
+    "title": "Kamino Audits",
+    "url": "https://kamino.com/docs/security/audits"
+  },
+  "D28": {
+    "title": "Yearn yVault overview",
+    "url": "https://docs.yearn.fi/getting-started/products/yvaults/overview"
+  },
+  "D29": {
+    "title": "Yearn V3 overview",
+    "url": "https://docs.yearn.fi/developers/v3/overview"
+  },
+  "D30": {
+    "title": "Yearn Risks",
+    "url": "https://docs.yearn.fi/developers/security/risks"
+  },
+  "D31": {
+    "title": "Yearn Security",
+    "url": "https://docs.yearn.fi/developers/security"
+  },
+  "D32": {
+    "title": "Yearn Vault Risks",
+    "url": "https://docs.yearn.fi/developers/security/risks/vault-risks"
+  },
+  "D33": {
+    "title": "Yearn APY methodology",
+    "url": "https://docs.yearn.fi/getting-started/guides/how-apy-works"
+  }
+}

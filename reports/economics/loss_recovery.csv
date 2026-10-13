@@ -1,0 +1,25 @@
+loss_fraction,remaining_usd,recovery_return_required,hypothetical_monthly_recovery_rate,recovery_months_if_trading_were_resumed,policy
+0.1,90.0,0.11111111111111112,0.01,11,Risk halt is sticky; hypothetical recovery is not permission to resume or replenish.
+0.1,90.0,0.11111111111111112,0.02,6,Risk halt is sticky; hypothetical recovery is not permission to resume or replenish.
+0.1,90.0,0.11111111111111112,0.03,4,Risk halt is sticky; hypothetical recovery is not permission to resume or replenish.
+0.1,90.0,0.11111111111111112,0.05,3,Risk halt is sticky; hypothetical recovery is not permission to resume or replenish.
+0.1,90.0,0.11111111111111112,0.1,2,Risk halt is sticky; hypothetical recovery is not permission to resume or replenish.
+0.1,90.0,0.11111111111111112,0.2,1,Risk halt is sticky; hypothetical recovery is not permission to resume or replenish.
+0.3,70.0,0.4285714285714286,0.01,36,Risk halt is sticky; hypothetical recovery is not permission to resume or replenish.
+0.3,70.0,0.4285714285714286,0.02,19,Risk halt is sticky; hypothetical recovery is not permission to resume or replenish.
+0.3,70.0,0.4285714285714286,0.03,13,Risk halt is sticky; hypothetical recovery is not permission to resume or replenish.
+0.3,70.0,0.4285714285714286,0.05,8,Risk halt is sticky; hypothetical recovery is not permission to resume or replenish.
+0.3,70.0,0.4285714285714286,0.1,4,Risk halt is sticky; hypothetical recovery is not permission to resume or replenish.
+0.3,70.0,0.4285714285714286,0.2,2,Risk halt is sticky; hypothetical recovery is not permission to resume or replenish.
+0.5,50.0,1.0,0.01,70,Risk halt is sticky; hypothetical recovery is not permission to resume or replenish.
+0.5,50.0,1.0,0.02,36,Risk halt is sticky; hypothetical recovery is not permission to resume or replenish.
+0.5,50.0,1.0,0.03,24,Risk halt is sticky; hypothetical recovery is not permission to resume or replenish.
+0.5,50.0,1.0,0.05,15,Risk halt is sticky; hypothetical recovery is not permission to resume or replenish.
+0.5,50.0,1.0,0.1,8,Risk halt is sticky; hypothetical recovery is not permission to resume or replenish.
+0.5,50.0,1.0,0.2,4,Risk halt is sticky; hypothetical recovery is not permission to resume or replenish.
+1,0,,0.01,,Risk halt is sticky; hypothetical recovery is not permission to resume or replenish.
+1,0,,0.02,,Risk halt is sticky; hypothetical recovery is not permission to resume or replenish.
+1,0,,0.03,,Risk halt is sticky; hypothetical recovery is not permission to resume or replenish.
+1,0,,0.05,,Risk halt is sticky; hypothetical recovery is not permission to resume or replenish.
+1,0,,0.1,,Risk halt is sticky; hypothetical recovery is not permission to resume or replenish.
+1,0,,0.2,,Risk halt is sticky; hypothetical recovery is not permission to resume or replenish.

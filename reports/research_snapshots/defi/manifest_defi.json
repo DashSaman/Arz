@@ -1,0 +1,142 @@
+{
+  "project": "Arz — independent Hyperliquid and DeFi research package",
+  "completed_at_utc": "2026-10-13T01:10:56Z",
+  "review_window_utc": "2026-10-13 00:42–01:11",
+  "live_enabled": false,
+  "experiment_ceiling_usd": 100,
+  "financial_actions_performed": [],
+  "scope": "Primary-source research and public anonymous API observations only. No repository edits, credentials, wallet connection, signatures or financial transactions.",
+  "reports": {
+    "hyperliquid": [
+      "hyperliquid.en.md",
+      "hyperliquid.fa.md"
+    ],
+    "defi_yield": [
+      "defi_yield.en.md",
+      "defi_yield.fa.md"
+    ]
+  },
+  "counts": {
+    "sources": 64,
+    "hyperliquid_products": 9,
+    "defi_comparison_rows": 11,
+    "access_rows": 11,
+    "security_findings": 32
+  },
+  "format_notes": [
+    "CSV files use UTF-8 with BOM for spreadsheet interoperability.",
+    "Source IDs map to sources_defi.csv and source_index.json.",
+    "publication_or_update_date is unknown where not available; reviewed_at records review consolidation, not the web crawler clock.",
+    "Security decision severity describes project screening consequences; entries are not newly discovered exploitable vulnerabilities.",
+    "The English and Persian reports are substantively equivalent, not selectively abbreviated translations."
+  ],
+  "material_unknowns": [
+    "Full independently verified historical HLP performance and maximum drawdown.",
+    "Event-specific realized JELLY settlement and complete compensation cash flows.",
+    "Exact currently enforced HLP depositor minimum; successful legacy vault creation not tested.",
+    "Actual user withdrawal and account-specific limits; no financial test permitted.",
+    "Complete current Curve and Yearn country-eligibility terms.",
+    "Current Aave and Yearn APY observations not collected; Kamino API returned HTTP 403.",
+    "Curve sample returned zero base APY despite positive volume; total yield not inferred.",
+    "Complete round-trip gas/bridge/swap/exit cost for a $100 experiment.",
+    "Exact deployed per-vault roles, gates, allocations, leverage and audit-revision matches."
+  ],
+  "screening_inference": "Pooled derivative strategies are conservatively excluded from the initial nonleveraged experiment because absence of underlying leverage has not been established; this is not a separate claim that the user explicitly prohibited every derivative by name.",
+  "files": [
+    {
+      "filename": "access_matrix_defi.csv",
+      "bytes": 5247,
+      "sha256": "c33f6a1b48e210866b311c016886e7afcf123ed94ba2bcab46c6d08628dcfcdf"
+    },
+    {
+      "filename": "curve_3pool_metadata_snapshot.json",
+      "bytes": 1602,
+      "sha256": "91d94040ba78dc7f0f310d29d980324f1df67f74e8c4baaee151a087b6b548e2"
+    },
+    {
+      "filename": "curve_3pool_snapshot.json",
+      "bytes": 1048,
+      "sha256": "36f1cb32926037847a923f303e0d345882cbdbe2eaa723fb8aa644aa4a252bb6"
+    },
+    {
+      "filename": "defi_comparison.csv",
+      "bytes": 6167,
+      "sha256": "ab43be2a09574d4234366c57b0f46e0bbb8baab27432fb25691b4d198d244e32"
+    },
+    {
+      "filename": "defi_yield.en.md",
+      "bytes": 17016,
+      "sha256": "d948af891081e7641ec54b2a08db2bc11a754c89c2d2297ce9e37b597066ece5"
+    },
+    {
+      "filename": "defi_yield.fa.md",
+      "bytes": 24372,
+      "sha256": "dd48fc0616a2eefc804d6899bebd1c5a738e77ade367b0c96ac8c6070258258a"
+    },
+    {
+      "filename": "hyperliquid.en.md",
+      "bytes": 15572,
+      "sha256": "d0b03df909ce28427e16429c80e321d5de7f77a6a1ef3ca624281e75fb60d701"
+    },
+    {
+      "filename": "hyperliquid.fa.md",
+      "bytes": 22165,
+      "sha256": "3db26b61c37b74a0dd322f7772fae230afb1c0db8dfb8ee1ec296210687f8df5"
+    },
+    {
+      "filename": "hyperliquid_hlp_snapshot.json",
+      "bytes": 5167,
+      "sha256": "7eb6c7aece1ed94530125c2868b4956d23797371f2ca40c0af4f68bd7fb65389"
+    },
+    {
+      "filename": "hyperliquid_products.csv",
+      "bytes": 4745,
+      "sha256": "92c5eb92d9f5757169c9d4743cd063b80353872eea933b4576fe5ea8f05339e7"
+    },
+    {
+      "filename": "hyperliquid_terms_verification.json",
+      "bytes": 1948,
+      "sha256": "0d0a694c339a06e7f26ed9f297d7a3b19cf592e90bba2964da17d618325225b7"
+    },
+    {
+      "filename": "hypothetical_100usd_economics.csv",
+      "bytes": 469,
+      "sha256": "eeaa5bc8c3bd3ed64221e55ea19cbb75c4326f6f2fee1511e0dff63ad4d5e9d8"
+    },
+    {
+      "filename": "kamino_markets_snapshot.json",
+      "bytes": 178,
+      "sha256": "042c475ed9261a05ae6a80326fa3d6464e6400abf8f455e635341da95f544019"
+    },
+    {
+      "filename": "morpho_v1_apy_snapshot.json",
+      "bytes": 766,
+      "sha256": "a3813f67689c99a845fce4035043f745b57fad90c75eddb1f50ceef70f67ba9e"
+    },
+    {
+      "filename": "morpho_v1_config_snapshot.json",
+      "bytes": 1392,
+      "sha256": "97895fb6e3d9d603a8f9bd0f1c34f7f22d072e5b593fef0be8c30f7f8e9fb03f"
+    },
+    {
+      "filename": "security_findings_defi.csv",
+      "bytes": 9869,
+      "sha256": "d0dc320a529555ecfd16fc271522eb6eda40f9681a2d9b02373e54bf0f2d4e2a"
+    },
+    {
+      "filename": "source_index.json",
+      "bytes": 7964,
+      "sha256": "555ede2fd1c441492ec78f810b78bdbce49bde473614f41ea5eaa726583bc964"
+    },
+    {
+      "filename": "sources_defi.csv",
+      "bytes": 26233,
+      "sha256": "c2c466e13bdbc5db9a8809a7f534e357ba91e4b4fb6c8390b26c45c51cca76a0"
+    },
+    {
+      "filename": "validation_defi.json",
+      "bytes": 2772,
+      "sha256": "a0da6c66c1914d274287f45a3d2a90f8c75df2289863c4cae16bf5435f6c4e6a"
+    }
+  ]
+}

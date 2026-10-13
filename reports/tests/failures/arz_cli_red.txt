@@ -1,0 +1,25 @@
+test_backtest_cli_with_known_flat_synthetic_fixture (test_cli.CLITests.test_backtest_cli_with_known_flat_synthetic_fixture) ... FAIL
+test_help_and_live_rejection (test_cli.CLITests.test_help_and_live_rejection) ... FAIL
+
+======================================================================
+FAIL: test_backtest_cli_with_known_flat_synthetic_fixture (test_cli.CLITests.test_backtest_cli_with_known_flat_synthetic_fixture)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_cli.py", line 16, in test_backtest_cli_with_known_flat_synthetic_fixture
+    self.assertEqual(run.returncode,0,run.stderr)
+AssertionError: 1 != 0 : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: No module named arz.__main__; 'arz' is a package and cannot be directly executed
+
+
+======================================================================
+FAIL: test_help_and_live_rejection (test_cli.CLITests.test_help_and_live_rejection)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_cli.py", line 7, in test_help_and_live_rejection
+    self.assertEqual(help_run.returncode,0,help_run.stderr)
+AssertionError: 1 != 0 : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: No module named arz.__main__; 'arz' is a package and cannot be directly executed
+
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.026s
+
+FAILED (failures=2)

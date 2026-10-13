@@ -1,0 +1,36 @@
+test_any_overlapping_source_revision_is_rejected_and_sticky (test_review_regressions.ReviewRegressionTests.test_any_overlapping_source_revision_is_rejected_and_sticky) ... ok
+test_changed_strategy_parameters_cannot_resume_a_journal (test_review_regressions.ReviewRegressionTests.test_changed_strategy_parameters_cannot_resume_a_journal) ... ok
+test_cli_state_output_collision_is_rejected_before_fetch (test_review_regressions.ReviewRegressionTests.test_cli_state_output_collision_is_rejected_before_fetch) ... ok
+test_complete_four_hour_feed_remains_healthy_between_closes (test_review_regressions.ReviewRegressionTests.test_complete_four_hour_feed_remains_healthy_between_closes) ... ok
+test_direct_api_validation_failure_persists_a_halt (test_review_regressions.ReviewRegressionTests.test_direct_api_validation_failure_persists_a_halt) ... ok
+test_failed_exit_gas_changes_the_closed_trade_from_win_to_loss (test_review_regressions.ReviewRegressionTests.test_failed_exit_gas_changes_the_closed_trade_from_win_to_loss) ... ok
+test_halted_open_position_has_a_current_explicit_valuation (test_review_regressions.ReviewRegressionTests.test_halted_open_position_has_a_current_explicit_valuation) ... ok
+test_historical_api_rejects_future_candles (test_review_regressions.ReviewRegressionTests.test_historical_api_rejects_future_candles) ... FAIL
+test_historical_cutoff_never_includes_a_later_completed_bar (test_review_regressions.ReviewRegressionTests.test_historical_cutoff_never_includes_a_later_completed_bar) ... ok
+test_late_observation_of_a_new_bar_cannot_claim_a_fresh_fill (test_review_regressions.ReviewRegressionTests.test_late_observation_of_a_new_bar_cannot_claim_a_fresh_fill) ... ok
+test_observed_utc_day_applies_to_paper_trade_cap (test_review_regressions.ReviewRegressionTests.test_observed_utc_day_applies_to_paper_trade_cap) ... FAIL
+test_research_runner_rejects_incomplete_future_input (test_review_regressions.ReviewRegressionTests.test_research_runner_rejects_incomplete_future_input) ... ok
+test_restore_rejects_inconsistent_ledger_and_unsafe_types (test_review_regressions.ReviewRegressionTests.test_restore_rejects_inconsistent_ledger_and_unsafe_types) ... ok
+test_restore_replays_legitimate_profit_without_a_deposit (test_review_regressions.ReviewRegressionTests.test_restore_replays_legitimate_profit_without_a_deposit) ... ok
+
+======================================================================
+FAIL: test_historical_api_rejects_future_candles (test_review_regressions.ReviewRegressionTests.test_historical_api_rejects_future_candles)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_review_regressions.py", line 89, in test_historical_api_rejects_future_candles
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_observed_utc_day_applies_to_paper_trade_cap (test_review_regressions.ReviewRegressionTests.test_observed_utc_day_applies_to_paper_trade_cap)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_review_regressions.py", line 86, in test_observed_utc_day_applies_to_paper_trade_cap
+    self.assertEqual(e.result()["metrics"]["daily_return_count"], 1)
+AssertionError: 2 != 1
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.104s
+
+FAILED (failures=2)

@@ -1,0 +1,6 @@
+{
+  "endpoint": "https://api.kamino.finance/v2/kamino-market",
+  "observed_at": "2026-10-13T00:49:03.771795+00:00",
+  "status": "failed",
+  "error": "HTTP Error 403: Forbidden"
+}

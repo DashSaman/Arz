@@ -4,6 +4,9 @@ on:
   push:
     paths:
       - 'scripts/**'
+      - 'src/**'
+      - 'configs/**'
+      - 'pyproject.toml'
       - 'tests/**'
       - 'data/**'
       - '.github/workflows/offline-tests.yml'
@@ -18,8 +21,12 @@ jobs:
     name: Python offline accounting tests
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    env:
+      PYTHONPATH: src
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
       - name: Run offline unit tests (no keys, no network APIs)
         run: python3 -m unittest discover -s tests -v
       - name: Evaluate labeled synthetic example

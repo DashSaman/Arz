@@ -1,0 +1,125 @@
+test_capital_and_live_mode_rejected (test_core.CoreTests.test_capital_and_live_mode_rejected) ... ok
+test_config_rejects_invalid_relations_and_numbers (test_core.CoreTests.test_config_rejects_invalid_relations_and_numbers) ... ok
+test_daily_loss_and_cost_caps (test_core.CoreTests.test_daily_loss_and_cost_caps) ... ok
+test_data_order_gap_alignment_and_unclosed (test_core.CoreTests.test_data_order_gap_alignment_and_unclosed) ... ok
+test_data_rejects_nonfinite_and_ohlc_inconsistency (test_core.CoreTests.test_data_rejects_nonfinite_and_ohlc_inconsistency) ... ok
+test_exact_roundtrip_accounting (test_core.CoreTests.test_exact_roundtrip_accounting) ... ok
+test_failed_transaction_charges_only_gas (test_core.CoreTests.test_failed_transaction_charges_only_gas) ... ok
+test_no_short_or_cash_creation (test_core.CoreTests.test_no_short_or_cash_creation) ... ok
+test_partial_exit_preserves_cost_basis (test_core.CoreTests.test_partial_exit_preserves_cost_basis) ... ok
+test_risk_stops_at_drawdown_and_persists (test_core.CoreTests.test_risk_stops_at_drawdown_and_persists) ... ok
+test_cash_benchmark_is_zero_return_and_no_ratio_claim (test_engine.EngineTests.test_cash_benchmark_is_zero_return_and_no_ratio_claim) ... ok
+test_costed_flat_market_roundtrip_loses_money (test_engine.EngineTests.test_costed_flat_market_roundtrip_loses_money) ... ok
+test_duplicate_bar_is_idempotent_and_conflict_rejected (test_engine.EngineTests.test_duplicate_bar_is_idempotent_and_conflict_rejected) ... ok
+test_execution_uses_previous_liquidity_not_future_volume (test_engine.EngineTests.test_execution_uses_previous_liquidity_not_future_volume) ... ok
+test_failed_tx_cost_without_fake_fill (test_engine.EngineTests.test_failed_tx_cost_without_fake_fill) ... ok
+test_fixed_strategies_warm_up_and_have_no_short_targets (test_engine.EngineTests.test_fixed_strategies_warm_up_and_have_no_short_targets) ... ok
+test_future_perturbation_cannot_change_earlier_fills (test_engine.EngineTests.test_future_perturbation_cannot_change_earlier_fills) ... ok
+test_gap_loss_can_exceed_stop_limit (test_engine.EngineTests.test_gap_loss_can_exceed_stop_limit) ... ok
+test_open_position_not_counted_as_closed_winner (test_engine.EngineTests.test_open_position_not_counted_as_closed_winner) ... ok
+test_signal_executes_at_next_open_not_known_close (test_engine.EngineTests.test_signal_executes_at_next_open_not_known_close) ... ok
+test_hypothetical_growth_literal_periods (test_operations.OperationsTests.test_hypothetical_growth_literal_periods) ... FAIL
+test_loss_recovery_and_total_loss (test_operations.OperationsTests.test_loss_recovery_and_total_loss) ... FAIL
+test_paper_fill_uses_newly_observed_price_not_retrospective_open (test_operations.OperationsTests.test_paper_fill_uses_newly_observed_price_not_retrospective_open) ... FAIL
+test_paper_missing_one_or_more_observed_bars_halts (test_operations.OperationsTests.test_paper_missing_one_or_more_observed_bars_halts) ... FAIL
+test_paper_stale_fault_is_persistent_and_no_fake_gap_fills (test_operations.OperationsTests.test_paper_stale_fault_is_persistent_and_no_fake_gap_fills) ... FAIL
+test_paper_warms_without_historical_fills_and_restarts_idempotently (test_operations.OperationsTests.test_paper_warms_without_historical_fills_and_restarts_idempotently) ... FAIL
+test_parse_rejects_wrong_market_duplicates_gaps (test_operations.OperationsTests.test_parse_rejects_wrong_market_duplicates_gaps) ... FAIL
+test_parse_sorts_completed_candles_and_removes_current (test_operations.OperationsTests.test_parse_sorts_completed_candles_and_removes_current) ... FAIL
+test_target_income_and_withdrawal (test_operations.OperationsTests.test_target_income_and_withdrawal) ... FAIL
+test_transport_rejects_arbitrary_hosts_before_network (test_operations.OperationsTests.test_transport_rejects_arbitrary_hosts_before_network) ... FAIL
+
+======================================================================
+FAIL: test_hypothetical_growth_literal_periods (test_operations.OperationsTests.test_hypothetical_growth_literal_periods)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_operations.py", line 20, in setUp
+    def setUp(self):self.assertIsNotNone(paper_step,"Economic, connector and paper modules must exist")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : Economic, connector and paper modules must exist
+
+======================================================================
+FAIL: test_loss_recovery_and_total_loss (test_operations.OperationsTests.test_loss_recovery_and_total_loss)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_operations.py", line 20, in setUp
+    def setUp(self):self.assertIsNotNone(paper_step,"Economic, connector and paper modules must exist")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : Economic, connector and paper modules must exist
+
+======================================================================
+FAIL: test_paper_fill_uses_newly_observed_price_not_retrospective_open (test_operations.OperationsTests.test_paper_fill_uses_newly_observed_price_not_retrospective_open)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_operations.py", line 20, in setUp
+    def setUp(self):self.assertIsNotNone(paper_step,"Economic, connector and paper modules must exist")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : Economic, connector and paper modules must exist
+
+======================================================================
+FAIL: test_paper_missing_one_or_more_observed_bars_halts (test_operations.OperationsTests.test_paper_missing_one_or_more_observed_bars_halts)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_operations.py", line 20, in setUp
+    def setUp(self):self.assertIsNotNone(paper_step,"Economic, connector and paper modules must exist")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : Economic, connector and paper modules must exist
+
+======================================================================
+FAIL: test_paper_stale_fault_is_persistent_and_no_fake_gap_fills (test_operations.OperationsTests.test_paper_stale_fault_is_persistent_and_no_fake_gap_fills)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_operations.py", line 20, in setUp
+    def setUp(self):self.assertIsNotNone(paper_step,"Economic, connector and paper modules must exist")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : Economic, connector and paper modules must exist
+
+======================================================================
+FAIL: test_paper_warms_without_historical_fills_and_restarts_idempotently (test_operations.OperationsTests.test_paper_warms_without_historical_fills_and_restarts_idempotently)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_operations.py", line 20, in setUp
+    def setUp(self):self.assertIsNotNone(paper_step,"Economic, connector and paper modules must exist")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : Economic, connector and paper modules must exist
+
+======================================================================
+FAIL: test_parse_rejects_wrong_market_duplicates_gaps (test_operations.OperationsTests.test_parse_rejects_wrong_market_duplicates_gaps)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_operations.py", line 20, in setUp
+    def setUp(self):self.assertIsNotNone(paper_step,"Economic, connector and paper modules must exist")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : Economic, connector and paper modules must exist
+
+======================================================================
+FAIL: test_parse_sorts_completed_candles_and_removes_current (test_operations.OperationsTests.test_parse_sorts_completed_candles_and_removes_current)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_operations.py", line 20, in setUp
+    def setUp(self):self.assertIsNotNone(paper_step,"Economic, connector and paper modules must exist")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : Economic, connector and paper modules must exist
+
+======================================================================
+FAIL: test_target_income_and_withdrawal (test_operations.OperationsTests.test_target_income_and_withdrawal)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_operations.py", line 20, in setUp
+    def setUp(self):self.assertIsNotNone(paper_step,"Economic, connector and paper modules must exist")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : Economic, connector and paper modules must exist
+
+======================================================================
+FAIL: test_transport_rejects_arbitrary_hosts_before_network (test_operations.OperationsTests.test_transport_rejects_arbitrary_hosts_before_network)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_operations.py", line 20, in setUp
+    def setUp(self):self.assertIsNotNone(paper_step,"Economic, connector and paper modules must exist")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : Economic, connector and paper modules must exist
+
+----------------------------------------------------------------------
+Ran 30 tests in 0.003s
+
+FAILED (failures=10)

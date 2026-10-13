@@ -1,0 +1,47 @@
+{
+  "started_at_utc": "2026-10-13T01:26:47.070885+00:00",
+  "source_hashes": {
+    "scripts/run_research.py": "dcab65c01fd3cdc3aa38ffb2627ba103d8e960448643963bc361c87827c7afa4",
+    "src/arz/__init__.py": "85fa79de27b5ef5cbb4cf77827e33e13ff0f58c35a1b5ce7d69654935d8a4ffb",
+    "src/arz/__main__.py": "c870bbaf045fbab1df35aa66f0af496eba2ad3712d83c89c64691d4072153d95",
+    "src/arz/accounting.py": "8ad66ddc4195a6cbca5b8cd5bd7be172febb226b1ec4f4ce0e8be86287a2f77c",
+    "src/arz/config.py": "dfba26eb55babf03cc28ccce19556126b0fa5ef502b826ce5cb5f92494e7ea15",
+    "src/arz/connectors.py": "3168e3cbfad2373515c8c97df5b885df7f60a924621dca903b09c3a4656b79c3",
+    "src/arz/data.py": "257a516cb5353dc1a30d4f8cbf7e90db277fe55139a4eb189092eccbdbae4747",
+    "src/arz/economics.py": "e4107c54214eb21a5c8a104266487fd5c5dce6509ab520c2618db1d5f0f4f9c6",
+    "src/arz/engine.py": "133cbda822fc897ba9e9d3fc1d4d55ea82a0d99e0690ced12c501c10dddcb9bd",
+    "src/arz/metrics.py": "430245d5857780453e192130104a135237c3ee3a61762bab740fe1fefa899c90",
+    "src/arz/paper.py": "490863bcde8fc0b193f1a6dcaf8212265f3473bcc3db5e72760498012c428a44",
+    "src/arz/provenance.py": "364963f6661fa40f8d24018942787e2eb80821a7c7ccc5a6cad4e747001b3b8b",
+    "src/arz/risk.py": "f78086d042b0ca4e7999c7639e8ccb2a16210042f39f5cb72c1f0b6e627582e9",
+    "src/arz/strategies.py": "6bcf3f98845ced3dcec86552bd700860cd7accf607bc66a264d896afd024f1e1",
+    "src/arz/validation.py": "7da84c3a26ee13ddc5b41f2d56d3fb7476c04dd59e47af4b66f0305840e440aa",
+    "tests/test_review_regressions.py": "4f0c80864bd387cc9d3f8377aa96675e65f9ef4ef9d0ea3d3f120e9cf97e2eb1"
+  },
+  "runs": [
+    {
+      "name": "closure_probes_final",
+      "args": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/scratch/5b4a2cf83fbf/arz_review/closure_probes.py"
+      ],
+      "cwd": "/workspace/scratch/5b4a2cf83fbf/arz_review",
+      "exit_code": 0
+    },
+    {
+      "name": "closure_suite_final",
+      "args": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "cwd": "/workspace/scratch/5b4a2cf83fbf/Arz",
+      "exit_code": 0
+    }
+  ],
+  "sources_unchanged_through_tests": true
+}

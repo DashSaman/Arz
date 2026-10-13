@@ -1,0 +1,15 @@
+{
+  "ran_at_utc": "2026-10-13T01:48:59.271082+00:00",
+  "unit_tests_exit_code": 0,
+  "failure": {
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "exit_code": 2,
+    "stdout": "README.md:5: trailing whitespace.\n+**Research / Simulation Only \u00b7 Live Trading: DISABLED**  \nREADME.md:6: trailing whitespace.\n+**Current investment decision: NO-GO**  \n",
+    "stderr": ""
+  },
+  "resolution": "Replaced the newly authored README Markdown two-space line breaks with paragraph separation. No runtime code change."
+}

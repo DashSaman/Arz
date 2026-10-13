@@ -1,0 +1,75 @@
+{
+  "source_commit": "9e18c7d5e13ace7b5b55fffdea74725f31c0bfda",
+  "observed_at_utc": "2026-10-13T01:36:32.388101+00:00",
+  "preserved_files": [
+    {
+      "path": "scripts/compound_audit.py",
+      "git_blob": "e5883baaa2b793e31c4f5c3c22053b7e942e3130",
+      "sha256": "4eaaedc6e1446db9a5b74bd7f19b044fc5f04d4a1856e33efbad48f979f74e6d",
+      "bytes": 4259
+    },
+    {
+      "path": "tests/test_compound_audit.py",
+      "git_blob": "5d9468f2bfb7650ea7e40bb9f5f19fb82234e405",
+      "sha256": "97d5a2a6fa9e59e5c4d93e39a9946315484ed6dd10cb7437b4ce31a2138f83a7",
+      "bytes": 2315
+    },
+    {
+      "path": "data/SYNTHETIC_example_daily_returns.csv",
+      "git_blob": "67e0b6329067500ba9d2d8e6d3b6ae919513257a",
+      "sha256": "fd02c2cdd690d807fb7184d4820e77fbbf6a948205c3086eb51a0b65e2349513",
+      "bytes": 127
+    },
+    {
+      "path": ".github/workflows/offline-tests.yml",
+      "git_blob": "6b47b3bf42a5922e66044e096523a2fad8b52ee2",
+      "sha256": "3230f7dd1b31a816901c6e2768ec4ac6b0a7e515175ffab8216805482d1f43b3",
+      "bytes": 652
+    },
+    {
+      "path": "docs/en/30-day-roadmap.md",
+      "git_blob": "2c1b0ebd9cb6f91151ce68e36672a9abb4d50928",
+      "sha256": "55f750906bff499cea446dc4113803c6ff2af3891ae71b55a2ccb9915ba6c5d3",
+      "bytes": 3545
+    },
+    {
+      "path": "docs/fa/30-day-roadmap.md",
+      "git_blob": "56dbccc4fadbc2cae7c04c3ec9295168c32c0fca",
+      "sha256": "d793adb4ca0892e6660f758f7d9cc757a82beb3422d73f6b641e717f4269a6dd",
+      "bytes": 5465
+    },
+    {
+      "path": "AGENTS.md",
+      "git_blob": "2e563090bd27decae8f4505ffb0dff3bca49a5f2",
+      "sha256": "d6e2a939b1bcb8e5f1a4122b785b11e15976f90c7589ac96489d5c25d2a6a18c",
+      "bytes": 1866
+    },
+    {
+      "path": "PROJECT_STATUS.md",
+      "git_blob": "1d4e25700211c959a3e42f4b7b9a57bd50505c39",
+      "sha256": "0c3b20cdc91c98702fb75490363e7287a25db5ff957d2f5157d9c02325ef4571",
+      "bytes": 2667
+    }
+  ],
+  "test_discovery_and_new_tests": {
+    "exit_code": 0,
+    "command": "unittest discovery of combined staged tests; execute only test_compound_audit.*",
+    "output": "integration_new_tests.txt"
+  },
+  "synthetic_example_exit_code": 0,
+  "synthetic_example_result": {
+    "mode": "offline_research_only",
+    "initial_usd": 100.0,
+    "final_usd": 100.56587809,
+    "net_profit_usd": 0.56587809,
+    "net_total_return_pct": 0.56587809,
+    "net_geometric_daily_pct": 0.11292031,
+    "max_drawdown_pct": 2.1,
+    "total_costs_usd_approx": 0.69809856,
+    "first_observation": "2026-10-13",
+    "last_observation": "2026-10-17",
+    "calendar_days": 5,
+    "observed_days": 5,
+    "warning": "Accounting only; not a backtest, live trade, or future return forecast."
+  }
+}

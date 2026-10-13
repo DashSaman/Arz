@@ -1,0 +1,11 @@
+{"combined_discovery_count": 56, "discovery_errors": [], "selected_new_tests": 5, "test_ids": ["test_compound_audit.CompoundAuditTests.test_compounding_and_fees", "test_compound_audit.CompoundAuditTests.test_drawdown", "test_compound_audit.CompoundAuditTests.test_missing_days_count_as_flat", "test_compound_audit.CompoundAuditTests.test_rejects_duplicates_and_negative_costs", "test_compound_audit.CompoundAuditTests.test_total_loss_cannot_recover_without_new_deposit"]}
+test_compounding_and_fees (test_compound_audit.CompoundAuditTests.test_compounding_and_fees) ... ok
+test_drawdown (test_compound_audit.CompoundAuditTests.test_drawdown) ... ok
+test_missing_days_count_as_flat (test_compound_audit.CompoundAuditTests.test_missing_days_count_as_flat) ... ok
+test_rejects_duplicates_and_negative_costs (test_compound_audit.CompoundAuditTests.test_rejects_duplicates_and_negative_costs) ... ok
+test_total_loss_cannot_recover_without_new_deposit (test_compound_audit.CompoundAuditTests.test_total_loss_cannot_recover_without_new_deposit) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.000s
+
+OK

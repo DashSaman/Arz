@@ -1,0 +1,76 @@
+{
+  "ran_at_utc": "2026-10-13T01:49:33.145146+00:00",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "live_trading": "DISABLED",
+  "checks": {
+    "unit_and_integration_tests": {
+      "command": [
+        "/workspace/scratch/5b4a2cf83fbf/Arz/.venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_backtest_cli_with_known_flat_synthetic_fixture (test_cli.CLITests.test_backtest_cli_with_known_flat_synthetic_fixture) ... ok\ntest_help_and_live_rejection (test_cli.CLITests.test_help_and_live_rejection) ... ok\ntest_compounding_and_fees (test_compound_audit.CompoundAuditTests.test_compounding_and_fees) ... ok\ntest_drawdown (test_compound_audit.CompoundAuditTests.test_drawdown) ... ok\ntest_missing_days_count_as_flat (test_compound_audit.CompoundAuditTests.test_missing_days_count_as_flat) ... ok\ntest_rejects_duplicates_and_negative_costs (test_compound_audit.CompoundAuditTests.test_rejects_duplicates_and_negative_costs) ... ok\ntest_total_loss_cannot_recover_without_new_deposit (test_compound_audit.CompoundAuditTests.test_total_loss_cannot_recover_without_new_deposit) ... ok\ntest_capital_and_live_mode_rejected (test_core.CoreTests.test_capital_and_live_mode_rejected) ... ok\ntest_config_rejects_invalid_relations_and_numbers (test_core.CoreTests.test_config_rejects_invalid_relations_and_numbers) ... ok\ntest_daily_loss_and_cost_caps (test_core.CoreTests.test_daily_loss_and_cost_caps) ... ok\ntest_data_order_gap_alignment_and_unclosed (test_core.CoreTests.test_data_order_gap_alignment_and_unclosed) ... ok\ntest_data_rejects_nonfinite_and_ohlc_inconsistency (test_core.CoreTests.test_data_rejects_nonfinite_and_ohlc_inconsistency) ... ok\ntest_exact_roundtrip_accounting (test_core.CoreTests.test_exact_roundtrip_accounting) ... ok\ntest_failed_transaction_charges_only_gas (test_core.CoreTests.test_failed_transaction_charges_only_gas) ... ok\ntest_no_short_or_cash_creation (test_core.CoreTests.test_no_short_or_cash_creation) ... ok\ntest_partial_exit_preserves_cost_basis (test_core.CoreTests.test_partial_exit_preserves_cost_basis) ... ok\ntest_risk_stops_at_drawdown_and_persists (test_core.CoreTests.test_risk_stops_at_drawdown_and_persists) ... ok\ntest_cash_benchmark_is_zero_return_and_no_ratio_claim (test_engine.EngineTests.test_cash_benchmark_is_zero_return_and_no_ratio_claim) ... ok\ntest_costed_flat_market_roundtrip_loses_money (test_engine.EngineTests.test_costed_flat_market_roundtrip_loses_money) ... ok\ntest_duplicate_bar_is_idempotent_and_conflict_rejected (test_engine.EngineTests.test_duplicate_bar_is_idempotent_and_conflict_rejected) ... ok\ntest_execution_uses_previous_liquidity_not_future_volume (test_engine.EngineTests.test_execution_uses_previous_liquidity_not_future_volume) ... ok\ntest_failed_tx_cost_without_fake_fill (test_engine.EngineTests.test_failed_tx_cost_without_fake_fill) ... ok\ntest_fixed_strategies_warm_up_and_have_no_short_targets (test_engine.EngineTests.test_fixed_strategies_warm_up_and_have_no_short_targets) ... ok\ntest_future_perturbation_cannot_change_earlier_fills (test_engine.EngineTests.test_future_perturbation_cannot_change_earlier_fills) ... ok\ntest_gap_loss_can_exceed_stop_limit (test_engine.EngineTests.test_gap_loss_can_exceed_stop_limit) ... ok\ntest_open_position_not_counted_as_closed_winner (test_engine.EngineTests.test_open_position_not_counted_as_closed_winner) ... ok\ntest_signal_executes_at_next_open_not_known_close (test_engine.EngineTests.test_signal_executes_at_next_open_not_known_close) ... ok\ntest_hypothetical_growth_literal_periods (test_operations.OperationsTests.test_hypothetical_growth_literal_periods) ... ok\ntest_loss_recovery_and_total_loss (test_operations.OperationsTests.test_loss_recovery_and_total_loss) ... ok\ntest_paper_fill_uses_newly_observed_price_not_retrospective_open (test_operations.OperationsTests.test_paper_fill_uses_newly_observed_price_not_retrospective_open) ... ok\ntest_paper_missing_one_or_more_observed_bars_halts (test_operations.OperationsTests.test_paper_missing_one_or_more_observed_bars_halts) ... ok\ntest_paper_stale_fault_is_persistent_and_no_fake_gap_fills (test_operations.OperationsTests.test_paper_stale_fault_is_persistent_and_no_fake_gap_fills) ... ok\ntest_paper_warms_without_historical_fills_and_restarts_idempotently (test_operations.OperationsTests.test_paper_warms_without_historical_fills_and_restarts_idempotently) ... ok\ntest_parse_rejects_wrong_market_duplicates_gaps (test_operations.OperationsTests.test_parse_rejects_wrong_market_duplicates_gaps) ... ok\ntest_parse_sorts_completed_candles_and_removes_current (test_operations.OperationsTests.test_parse_sorts_completed_candles_and_removes_current) ... ok\ntest_target_income_and_withdrawal (test_operations.OperationsTests.test_target_income_and_withdrawal) ... ok\ntest_transport_rejects_arbitrary_hosts_before_network (test_operations.OperationsTests.test_transport_rejects_arbitrary_hosts_before_network) ... ok\ntest_any_overlapping_source_revision_is_rejected_and_sticky (test_review_regressions.ReviewRegressionTests.test_any_overlapping_source_revision_is_rejected_and_sticky) ... ok\ntest_changed_strategy_parameters_cannot_resume_a_journal (test_review_regressions.ReviewRegressionTests.test_changed_strategy_parameters_cannot_resume_a_journal) ... ok\ntest_cli_state_output_collision_is_rejected_before_fetch (test_review_regressions.ReviewRegressionTests.test_cli_state_output_collision_is_rejected_before_fetch) ... ok\ntest_complete_four_hour_feed_remains_healthy_between_closes (test_review_regressions.ReviewRegressionTests.test_complete_four_hour_feed_remains_healthy_between_closes) ... ok\ntest_direct_api_validation_failure_persists_a_halt (test_review_regressions.ReviewRegressionTests.test_direct_api_validation_failure_persists_a_halt) ... ok\ntest_failed_exit_gas_changes_the_closed_trade_from_win_to_loss (test_review_regressions.ReviewRegressionTests.test_failed_exit_gas_changes_the_closed_trade_from_win_to_loss) ... ok\ntest_first_invalid_candle_keeps_the_explicit_observation_clock (test_review_regressions.ReviewRegressionTests.test_first_invalid_candle_keeps_the_explicit_observation_clock) ... ok\ntest_halted_open_position_has_a_current_explicit_valuation (test_review_regressions.ReviewRegressionTests.test_halted_open_position_has_a_current_explicit_valuation) ... ok\ntest_historical_api_rejects_future_candles (test_review_regressions.ReviewRegressionTests.test_historical_api_rejects_future_candles) ... ok\ntest_historical_cutoff_never_includes_a_later_completed_bar (test_review_regressions.ReviewRegressionTests.test_historical_cutoff_never_includes_a_later_completed_bar) ... ok\ntest_journal_metadata_requires_finite_ordered_observation_times (test_review_regressions.ReviewRegressionTests.test_journal_metadata_requires_finite_ordered_observation_times) ... ok\ntest_late_observation_of_a_new_bar_cannot_claim_a_fresh_fill (test_review_regressions.ReviewRegressionTests.test_late_observation_of_a_new_bar_cannot_claim_a_fresh_fill) ... ok\ntest_observed_utc_day_applies_to_paper_trade_cap (test_review_regressions.ReviewRegressionTests.test_observed_utc_day_applies_to_paper_trade_cap) ... ok\ntest_research_runner_rejects_incomplete_future_input (test_review_regressions.ReviewRegressionTests.test_research_runner_rejects_incomplete_future_input) ... ok\ntest_restore_rejects_inconsistent_ledger_and_unsafe_types (test_review_regressions.ReviewRegressionTests.test_restore_rejects_inconsistent_ledger_and_unsafe_types) ... ok\ntest_restore_replays_legitimate_profit_without_a_deposit (test_review_regressions.ReviewRegressionTests.test_restore_replays_legitimate_profit_without_a_deposit) ... ok\ntest_bootstrap_zero_and_constant_returns (test_validation.ValidationTests.test_bootstrap_zero_and_constant_returns) ... ok\ntest_costed_capital_matched_buy_hold (test_validation.ValidationTests.test_costed_capital_matched_buy_hold) ... ok\ntest_folds_never_train_on_their_test_segment (test_validation.ValidationTests.test_folds_never_train_on_their_test_segment) ... ok\n\n----------------------------------------------------------------------\nRan 56 tests in 0.373s\n\nOK\n"
+    },
+    "dependency_compatibility": {
+      "command": [
+        "/workspace/scratch/5b4a2cf83fbf/Arz/.venv/bin/python",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0,
+      "stdout": "No broken requirements found.\n",
+      "stderr": ""
+    },
+    "tracked_whitespace": {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "runtime_ast_boundary": {
+      "source_hashes": {
+        "src/arz/__init__.py": "85fa79de27b5ef5cbb4cf77827e33e13ff0f58c35a1b5ce7d69654935d8a4ffb",
+        "src/arz/__main__.py": "c870bbaf045fbab1df35aa66f0af496eba2ad3712d83c89c64691d4072153d95",
+        "src/arz/accounting.py": "8ad66ddc4195a6cbca5b8cd5bd7be172febb226b1ec4f4ce0e8be86287a2f77c",
+        "src/arz/config.py": "dfba26eb55babf03cc28ccce19556126b0fa5ef502b826ce5cb5f92494e7ea15",
+        "src/arz/connectors.py": "3168e3cbfad2373515c8c97df5b885df7f60a924621dca903b09c3a4656b79c3",
+        "src/arz/data.py": "257a516cb5353dc1a30d4f8cbf7e90db277fe55139a4eb189092eccbdbae4747",
+        "src/arz/economics.py": "e4107c54214eb21a5c8a104266487fd5c5dce6509ab520c2618db1d5f0f4f9c6",
+        "src/arz/engine.py": "133cbda822fc897ba9e9d3fc1d4d55ea82a0d99e0690ced12c501c10dddcb9bd",
+        "src/arz/metrics.py": "430245d5857780453e192130104a135237c3ee3a61762bab740fe1fefa899c90",
+        "src/arz/paper.py": "490863bcde8fc0b193f1a6dcaf8212265f3473bcc3db5e72760498012c428a44",
+        "src/arz/provenance.py": "364963f6661fa40f8d24018942787e2eb80821a7c7ccc5a6cad4e747001b3b8b",
+        "src/arz/risk.py": "f78086d042b0ca4e7999c7639e8ccb2a16210042f39f5cb72c1f0b6e627582e9",
+        "src/arz/strategies.py": "6bcf3f98845ced3dcec86552bd700860cd7accf607bc66a264d896afd024f1e1",
+        "src/arz/validation.py": "7da84c3a26ee13ddc5b41f2d56d3fb7476c04dd59e47af4b66f0305840e440aa"
+      },
+      "external_imports": [],
+      "declared_runtime_dependencies": [],
+      "forbidden_call_findings": [],
+      "passed": true,
+      "limits": "A small explicit AST rule set; does not prove absence of all code vulnerabilities or validate the host/interpreter supply chain."
+    },
+    "artifact_parsing": {
+      "csv_files": 145,
+      "json_files": 58,
+      "passed": true
+    },
+    "limited_secret_scan": {
+      "hits": [],
+      "passed": true,
+      "limits": "Pattern scan plus manual privacy review; not complete secret detection."
+    }
+  },
+  "all_checks_passed": true
+}

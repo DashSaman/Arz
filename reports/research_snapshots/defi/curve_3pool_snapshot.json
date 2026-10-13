@@ -1,0 +1,29 @@
+{
+  "endpoint": "https://api.curve.finance/v1/getVolumes/ethereum",
+  "requested_at": "2026-10-13T00:50:48.589188+00:00",
+  "status": "success",
+  "methodology": "official API 24h volume and base APY; incentives excluded; one observation",
+  "observed_at": "2026-10-13T00:50:52.061387+00:00",
+  "http_date": "Tue, 13 Oct 2026 00:50:52 GMT",
+  "sha256": "e71c55ff308d83475213a3e7ebbd043d87732cb7b4544892d6ce64bb8fc10865",
+  "selection": {
+    "pool": "Ethereum 3pool",
+    "address": "0xbebc44782c7db0a1a60cb6fe97d0b483032ff1c7",
+    "selection_basis": "recognizable legacy stablecoin pool for method illustration; not recommended or screened for deposits"
+  },
+  "selected_rows": [
+    {
+      "address": "0xbEbc44782C7dB0a1A60Cb6fe97d0b483032FF1C7",
+      "type": "main",
+      "volumeUSD": 6646020.07,
+      "latestDailyApyPcent": 0,
+      "latestWeeklyApyPcent": 0,
+      "includedApyPcentFromLsts": 0,
+      "virtualPrice": 1039823717421695500
+    }
+  ],
+  "top_level_metadata": {
+    "success": true,
+    "generatedTimeMs": 1791852545501
+  }
+}

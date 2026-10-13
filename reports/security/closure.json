@@ -1,0 +1,180 @@
+{
+  "review_type": "Targeted closure of the original independent review",
+  "assessment": "CLOSED_FOR_REVIEWED_SOURCE",
+  "remaining_important_findings_in_requested_scope": [],
+  "date_utc": "2026-10-13T01:26:47.070885+00:00",
+  "repository": "/workspace/scratch/5b4a2cf83fbf/Arz",
+  "runtime_fingerprint": "0b6e150bdc7cf218305f40ba8ce01c6f90cbb310750136b69d6014bbed6939e0",
+  "strategy_fingerprints": {
+    "trend": "3fb05cda38663d3b1be72141f8126523cc06c44c6c750919bb8447ac614f3afa",
+    "momentum": "94bb15df26821aac657f1c41764aa1cd5d7463795e00652f271aa468ad62ba4a",
+    "mean_reversion": "ae0f3037ff10f8beac901e6d3c16e1295a2fc1aebbd8de5292d193fd7b793fde"
+  },
+  "source_hashes": {
+    "scripts/run_research.py": "dcab65c01fd3cdc3aa38ffb2627ba103d8e960448643963bc361c87827c7afa4",
+    "src/arz/__init__.py": "85fa79de27b5ef5cbb4cf77827e33e13ff0f58c35a1b5ce7d69654935d8a4ffb",
+    "src/arz/__main__.py": "c870bbaf045fbab1df35aa66f0af496eba2ad3712d83c89c64691d4072153d95",
+    "src/arz/accounting.py": "8ad66ddc4195a6cbca5b8cd5bd7be172febb226b1ec4f4ce0e8be86287a2f77c",
+    "src/arz/config.py": "dfba26eb55babf03cc28ccce19556126b0fa5ef502b826ce5cb5f92494e7ea15",
+    "src/arz/connectors.py": "3168e3cbfad2373515c8c97df5b885df7f60a924621dca903b09c3a4656b79c3",
+    "src/arz/data.py": "257a516cb5353dc1a30d4f8cbf7e90db277fe55139a4eb189092eccbdbae4747",
+    "src/arz/economics.py": "e4107c54214eb21a5c8a104266487fd5c5dce6509ab520c2618db1d5f0f4f9c6",
+    "src/arz/engine.py": "133cbda822fc897ba9e9d3fc1d4d55ea82a0d99e0690ced12c501c10dddcb9bd",
+    "src/arz/metrics.py": "430245d5857780453e192130104a135237c3ee3a61762bab740fe1fefa899c90",
+    "src/arz/paper.py": "490863bcde8fc0b193f1a6dcaf8212265f3473bcc3db5e72760498012c428a44",
+    "src/arz/provenance.py": "364963f6661fa40f8d24018942787e2eb80821a7c7ccc5a6cad4e747001b3b8b",
+    "src/arz/risk.py": "f78086d042b0ca4e7999c7639e8ccb2a16210042f39f5cb72c1f0b6e627582e9",
+    "src/arz/strategies.py": "6bcf3f98845ced3dcec86552bd700860cd7accf607bc66a264d896afd024f1e1",
+    "src/arz/validation.py": "7da84c3a26ee13ddc5b41f2d56d3fb7476c04dd59e47af4b66f0305840e440aa",
+    "tests/test_review_regressions.py": "4f0c80864bd387cc9d3f8377aa96675e65f9ef4ef9d0ea3d3f120e9cf97e2eb1"
+  },
+  "verification": {
+    "repository_suite": {
+      "tests": 51,
+      "exit_code": 0,
+      "output": "closure_suite_final.txt"
+    },
+    "independent_closure_probes": {
+      "methods": 12,
+      "exit_code": 0,
+      "output": "closure_probes_final.txt"
+    },
+    "source_stability_verified": true
+  },
+  "findings": [
+    {
+      "id": "ARZ-R01",
+      "status": "CLOSED_FOR_REVIEWED_SOURCE",
+      "title": "Funding, schema and risk invariants on restart",
+      "implementation": "Engine.restore validates schema 2 and immutable identities, then reconstructs the state by replay and requires canonical equality. paper._load also validates both hashes, exact envelope version, finite nonboolean ordered timestamps, completion/execution-clock bounds and fault/control-history reconciliation.",
+      "verified_evidence": "Correctly rehashed envelopes containing cash=101, negative risk counters, a string pending flag, altered cached history or boolean schema version are rejected without rewriting the invalid journal. Legitimate profit survives replay: a $20 buy, partial $25 exit, failed exit and final $15 exit with $0.10 gas per attempt restore $119.60 cash and $19.60 closed-trade net P&L. Eight malformed or unordered outer timestamp variants are rejected.",
+      "independent_test_methods": [
+        "test_replay_rejects_tampering_even_when_both_envelope_hashes_are_recomputed",
+        "test_replayed_partial_failed_and_final_exit_reconciles_legitimate_profit",
+        "test_outer_journal_timestamps_are_validated_as_part_of_schema"
+      ]
+    },
+    {
+      "id": "ARZ-R02",
+      "status": "CLOSED_FOR_REVIEWED_SOURCE",
+      "title": "Observed UTC clock for paper risk and daily reporting",
+      "implementation": "Engine.step uses observed_at as paper execution/risk time and retains bar_ts separately. The post-fill risk update uses the same clock, Risk rejects backward clocks, and metrics assigns paper daily returns by observed_at.",
+      "verified_evidence": "Two attempted actions observed on the same UTC day cannot evade a $0.15 daily fee cap through the candle-start date: the first $0.10-gas fill executes, the second is rejected by daily_fee_cap. The fill timestamp is 86401, source bar timestamp is 86340, daily_return_count is 1, and a duplicate observation leaves the engine state hash unchanged. The repository additionally verifies the one-fill-per-day case.",
+      "independent_test_methods": [
+        "test_observed_day_fee_cap_and_daily_returns_use_the_same_clock"
+      ]
+    },
+    {
+      "id": "ARZ-R03",
+      "status": "CLOSED_FOR_REVIEWED_SOURCE",
+      "title": "Failed-exit gas in closed-trade outcomes",
+      "implementation": "A failed attempt while a trade is active reduces current_trade.net_pnl. The event retains its side and gas; portfolio gas and realized account P&L remain accounted for separately.",
+      "verified_evidence": "The original losing example now reports both account and closed-trade P&L of -$0.05 and win_rate=0. A partial-exit/failure/final-exit example also reconciles to $19.60 profit and $0.40 gas, including after replay.",
+      "independent_test_methods": [
+        "test_failed_exit_is_a_losing_closed_trade",
+        "test_replayed_partial_failed_and_final_exit_reconciles_legitimate_profit"
+      ]
+    },
+    {
+      "id": "ARZ-R04",
+      "status": "CLOSED_FOR_REVIEWED_SOURCE",
+      "title": "Interval-aware source freshness and execution age",
+      "implementation": "Source staleness uses interval plus bounded grace. A separate new-bar execution-age check produces execution_late without filling an old observed price.",
+      "verified_evidence": "The healthy four-hour feed remains NO_NEW_COMPLETED_BAR at time 14500 after a close at 14400. A newly seen bar observed 91 seconds after its close is halted by the separate 90-second execution grace, with zero fills.",
+      "independent_test_methods": [
+        "test_interval_freshness_and_late_execution_are_distinct"
+      ]
+    },
+    {
+      "id": "ARZ-R05",
+      "status": "CLOSED_FOR_REVIEWED_SOURCE",
+      "title": "All-overlap revision checking",
+      "implementation": "paper_step compares every stored bar that overlaps the incoming feed and durably records source_revision before re-raising a revision error.",
+      "verified_evidence": "Changing an older overlapping bar's volume, keeping the latest cached bar unchanged and adding a new bar cannot produce a fill. A later corrected feed remains halted with source_revision.",
+      "independent_test_methods": [
+        "test_old_volume_revision_is_durable_and_cannot_create_a_fill"
+      ]
+    },
+    {
+      "id": "ARZ-R06",
+      "status": "CLOSED_FOR_REVIEWED_SOURCE",
+      "title": "Explicit current valuation after a halt",
+      "implementation": "Paper responses separate valuation from the historical processed-ledger metrics. They supply valuation.as_of_close, observation time, age/staleness, executable_quote=false, and ending_equity_as_of_close/equity_scope for the historical metrics.",
+      "verified_evidence": "After a network halt with $80 cash and two units, a fresh close at $1 reports current valuation=$82 as of close 180. Historical ending equity remains $100 explicitly as of processed close 120. Fills remain one; the valuation neither fabricates a liquidation nor extends the processed trading performance curve.",
+      "independent_test_methods": [
+        "test_halted_valuation_is_current_without_extending_trade_performance"
+      ]
+    },
+    {
+      "id": "ARZ-R07",
+      "status": "CLOSED_FOR_REVIEWED_SOURCE",
+      "title": "Code, interpreter and strategy restart identity",
+      "implementation": "The runtime fingerprint covers every runtime *.py file and Python sys.version. The strategy fingerprint covers its class identity/source, instance settings and fixed strategy parameters. Both are stored and checked on restore.",
+      "verified_evidence": "Changing Python's recorded runtime version or trend fast=12 to fast=2 rejects restart. Schema-1 state is rejected. Old journals are intentionally not migrated or silently re-fingerprinted.",
+      "independent_test_methods": [
+        "test_runtime_and_strategy_changes_and_old_schema_require_review"
+      ]
+    },
+    {
+      "id": "ARZ-R08",
+      "status": "CLOSED_FOR_REVIEWED_SOURCE",
+      "title": "Sticky faults at the paper abstraction boundary",
+      "implementation": "Data validation/revision faults are journaled inside the locked paper operation. record_fault persists initial network failure before any usable bar. The first invalid-data transition preserves a valid caller-supplied observation time; only an invalid clock is replaced with a valid wall-clock stamp.",
+      "verified_evidence": "Both an initial network failure and an initial NaN bar survive the first subsequent valid observation with HALTED_REQUIRES_REVIEW and zero fills. The explicit clock sequence 61 then 62 now works without injecting the wall clock into the journal. Existing-journal NaN/revision persistence is also covered by the repository suite.",
+      "independent_test_methods": [
+        "test_initial_network_or_nan_bar_fault_survives_first_valid_observation"
+      ]
+    },
+    {
+      "id": "ARZ-R09",
+      "status": "CLOSED_FOR_REVIEWED_SOURCE",
+      "title": "State/report path separation",
+      "implementation": "The CLI rejects canonical and same-file collisions between configured input, config, journal and report paths before fetching or writing.",
+      "verified_evidence": "Identical paths, a symlink alias and a hardlink alias all fail before the mocked fetch is called; the original file content remains unchanged.",
+      "independent_test_methods": [
+        "test_output_symlink_and_hardlink_aliases_are_rejected_before_fetch"
+      ]
+    },
+    {
+      "id": "ARZ-R10",
+      "status": "CLOSED_FOR_REVIEWED_SOURCE",
+      "title": "Historical completion boundaries",
+      "implementation": "fetch_bars parses against min(observed_at, before) and records completed_as_of separately. The research CSV runner and run_backtest API reject incomplete/future input against the current time.",
+      "verified_evidence": "With one-minute rows at 0, 60 and 120, before=120 and observed_at=180 return only starts 0 and 60, with completed_as_of=120. Direct year-2100 historical input is rejected. The full suite also exercises the future-CSV reporting-script rejection.",
+      "independent_test_methods": [
+        "test_cutoff_future_api_and_historical_evidence_label"
+      ]
+    },
+    {
+      "id": "ARZ-C01",
+      "status": "CLOSED_FOR_REVIEWED_SOURCE",
+      "title": "Historical versus prospective evidence classification",
+      "implementation": "run_backtest explicitly reports execution_class=HISTORICAL_SIMULATION and prospective_observation=false, even if the supplied config mode is paper. The paper observer uses a separate prospective execution class.",
+      "verified_evidence": "A historical call with a paper config retains the explicit historical classification and false prospective flag. These fields do not assert qualified L4 performance or sustained operation.",
+      "independent_test_methods": [
+        "test_cutoff_future_api_and_historical_evidence_label"
+      ]
+    }
+  ],
+  "residuals_discovered_and_closed_during_this_pass": [
+    {
+      "area": "R01 outer metadata",
+      "original_observation": "Correctly rehashed schema-2 envelopes accepted malformed or unordered started_at/observed_at values.",
+      "fix_verified": "Finite nonboolean time validation, ordering and processed-source/execution-clock bounds now reject all eight independent cases."
+    },
+    {
+      "area": "R08 first fault clock",
+      "original_observation": "An initial NaN-bar error at explicit now=61 persisted the actual wall clock, making a subsequent now=62 call fail as backward time.",
+      "fix_verified": "The valid supplied first-fault clock is now retained; the next valid observation reports the sticky halt."
+    }
+  ],
+  "limits": [
+    "This is closure of the listed code defects, not a new full audit or a certification of all possible inputs.",
+    "No new public-network, wallet, live DEX, custody, signing, paid-service or legal/access test was performed.",
+    "Market results and prospective observations rerun by the implementer were not independently replicated in this closure.",
+    "Checksums/replay establish internal consistency and version identity, not authenticity against a writer who controls the full command log, source data and program.",
+    "The source intentionally rejects old schema/runtime/strategy journals rather than auto-migrating them.",
+    "The bounded command/file limits and lack of a continuous-service deployment remain operational scope limits; this review establishes no 90-day/100-trade qualification.",
+    "A halt remains an operational trigger rather than a guaranteed financial loss cap. Live remains DISABLED."
+  ]
+}

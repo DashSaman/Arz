@@ -1,0 +1,109 @@
+test_any_overlapping_source_revision_is_rejected_and_sticky (test_review_regressions.ReviewRegressionTests.test_any_overlapping_source_revision_is_rejected_and_sticky) ... ok
+test_changed_strategy_parameters_cannot_resume_a_journal (test_review_regressions.ReviewRegressionTests.test_changed_strategy_parameters_cannot_resume_a_journal) ... ok
+test_cli_state_output_collision_is_rejected_before_fetch (test_review_regressions.ReviewRegressionTests.test_cli_state_output_collision_is_rejected_before_fetch) ... ok
+test_complete_four_hour_feed_remains_healthy_between_closes (test_review_regressions.ReviewRegressionTests.test_complete_four_hour_feed_remains_healthy_between_closes) ... ok
+test_direct_api_validation_failure_persists_a_halt (test_review_regressions.ReviewRegressionTests.test_direct_api_validation_failure_persists_a_halt) ... ok
+test_failed_exit_gas_changes_the_closed_trade_from_win_to_loss (test_review_regressions.ReviewRegressionTests.test_failed_exit_gas_changes_the_closed_trade_from_win_to_loss) ... ok
+test_first_invalid_candle_keeps_the_explicit_observation_clock (test_review_regressions.ReviewRegressionTests.test_first_invalid_candle_keeps_the_explicit_observation_clock) ... FAIL
+test_halted_open_position_has_a_current_explicit_valuation (test_review_regressions.ReviewRegressionTests.test_halted_open_position_has_a_current_explicit_valuation) ... ok
+test_historical_api_rejects_future_candles (test_review_regressions.ReviewRegressionTests.test_historical_api_rejects_future_candles) ... ok
+test_historical_cutoff_never_includes_a_later_completed_bar (test_review_regressions.ReviewRegressionTests.test_historical_cutoff_never_includes_a_later_completed_bar) ... ok
+test_journal_metadata_requires_finite_ordered_observation_times (test_review_regressions.ReviewRegressionTests.test_journal_metadata_requires_finite_ordered_observation_times) ... 
+  test_journal_metadata_requires_finite_ordered_observation_times (test_review_regressions.ReviewRegressionTests.test_journal_metadata_requires_finite_ordered_observation_times) (field='started_at', value='yesterday') ... FAIL
+  test_journal_metadata_requires_finite_ordered_observation_times (test_review_regressions.ReviewRegressionTests.test_journal_metadata_requires_finite_ordered_observation_times) (field='started_at', value=None) ... FAIL
+  test_journal_metadata_requires_finite_ordered_observation_times (test_review_regressions.ReviewRegressionTests.test_journal_metadata_requires_finite_ordered_observation_times) (field='started_at', value=-1) ... FAIL
+  test_journal_metadata_requires_finite_ordered_observation_times (test_review_regressions.ReviewRegressionTests.test_journal_metadata_requires_finite_ordered_observation_times) (field='started_at', value=True) ... FAIL
+  test_journal_metadata_requires_finite_ordered_observation_times (test_review_regressions.ReviewRegressionTests.test_journal_metadata_requires_finite_ordered_observation_times) (field='started_at', value=63) ... FAIL
+  test_journal_metadata_requires_finite_ordered_observation_times (test_review_regressions.ReviewRegressionTests.test_journal_metadata_requires_finite_ordered_observation_times) (field='observed_at', value=None) ... FAIL
+  test_journal_metadata_requires_finite_ordered_observation_times (test_review_regressions.ReviewRegressionTests.test_journal_metadata_requires_finite_ordered_observation_times) (field='observed_at', value=True) ... FAIL
+  test_journal_metadata_requires_finite_ordered_observation_times (test_review_regressions.ReviewRegressionTests.test_journal_metadata_requires_finite_ordered_observation_times) (field='observed_at', value=60) ... FAIL
+test_late_observation_of_a_new_bar_cannot_claim_a_fresh_fill (test_review_regressions.ReviewRegressionTests.test_late_observation_of_a_new_bar_cannot_claim_a_fresh_fill) ... ok
+test_observed_utc_day_applies_to_paper_trade_cap (test_review_regressions.ReviewRegressionTests.test_observed_utc_day_applies_to_paper_trade_cap) ... ok
+test_research_runner_rejects_incomplete_future_input (test_review_regressions.ReviewRegressionTests.test_research_runner_rejects_incomplete_future_input) ... ok
+test_restore_rejects_inconsistent_ledger_and_unsafe_types (test_review_regressions.ReviewRegressionTests.test_restore_rejects_inconsistent_ledger_and_unsafe_types) ... ok
+test_restore_replays_legitimate_profit_without_a_deposit (test_review_regressions.ReviewRegressionTests.test_restore_replays_legitimate_profit_without_a_deposit) ... ok
+
+======================================================================
+FAIL: test_first_invalid_candle_keeps_the_explicit_observation_clock (test_review_regressions.ReviewRegressionTests.test_first_invalid_candle_keeps_the_explicit_observation_clock)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_review_regressions.py", line 64, in test_first_invalid_candle_keeps_the_explicit_observation_clock
+    self.assertEqual(json.loads(p.read_text())["observed_at"], 61)
+AssertionError: 1791854775.6766095 != 61
+
+======================================================================
+FAIL: test_journal_metadata_requires_finite_ordered_observation_times (test_review_regressions.ReviewRegressionTests.test_journal_metadata_requires_finite_ordered_observation_times) (field='started_at', value='yesterday')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_review_regressions.py", line 55, in test_journal_metadata_requires_finite_ordered_observation_times
+    with self.subTest(field=field, value=value), self.assertRaises(ValueError):
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_journal_metadata_requires_finite_ordered_observation_times (test_review_regressions.ReviewRegressionTests.test_journal_metadata_requires_finite_ordered_observation_times) (field='started_at', value=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_review_regressions.py", line 55, in test_journal_metadata_requires_finite_ordered_observation_times
+    with self.subTest(field=field, value=value), self.assertRaises(ValueError):
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_journal_metadata_requires_finite_ordered_observation_times (test_review_regressions.ReviewRegressionTests.test_journal_metadata_requires_finite_ordered_observation_times) (field='started_at', value=-1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_review_regressions.py", line 55, in test_journal_metadata_requires_finite_ordered_observation_times
+    with self.subTest(field=field, value=value), self.assertRaises(ValueError):
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_journal_metadata_requires_finite_ordered_observation_times (test_review_regressions.ReviewRegressionTests.test_journal_metadata_requires_finite_ordered_observation_times) (field='started_at', value=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_review_regressions.py", line 55, in test_journal_metadata_requires_finite_ordered_observation_times
+    with self.subTest(field=field, value=value), self.assertRaises(ValueError):
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_journal_metadata_requires_finite_ordered_observation_times (test_review_regressions.ReviewRegressionTests.test_journal_metadata_requires_finite_ordered_observation_times) (field='started_at', value=63)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_review_regressions.py", line 55, in test_journal_metadata_requires_finite_ordered_observation_times
+    with self.subTest(field=field, value=value), self.assertRaises(ValueError):
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_journal_metadata_requires_finite_ordered_observation_times (test_review_regressions.ReviewRegressionTests.test_journal_metadata_requires_finite_ordered_observation_times) (field='observed_at', value=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_review_regressions.py", line 55, in test_journal_metadata_requires_finite_ordered_observation_times
+    with self.subTest(field=field, value=value), self.assertRaises(ValueError):
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_journal_metadata_requires_finite_ordered_observation_times (test_review_regressions.ReviewRegressionTests.test_journal_metadata_requires_finite_ordered_observation_times) (field='observed_at', value=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_review_regressions.py", line 55, in test_journal_metadata_requires_finite_ordered_observation_times
+    with self.subTest(field=field, value=value), self.assertRaises(ValueError):
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_journal_metadata_requires_finite_ordered_observation_times (test_review_regressions.ReviewRegressionTests.test_journal_metadata_requires_finite_ordered_observation_times) (field='observed_at', value=60)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_review_regressions.py", line 55, in test_journal_metadata_requires_finite_ordered_observation_times
+    with self.subTest(field=field, value=value), self.assertRaises(ValueError):
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.126s
+
+FAILED (failures=9)

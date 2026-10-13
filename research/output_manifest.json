@@ -1,0 +1,130 @@
+{
+  "files": [
+    {
+      "file": "research/README.md",
+      "bytes": 11472,
+      "sha256": "244f5aabadf5cc2c912f23d6b6198e2070b8338f6add33fd701761c4973ead7a"
+    },
+    {
+      "file": "research/access_matrix.csv",
+      "bytes": 42227,
+      "sha256": "e96f27b53289281c2f4a21cb4c3be1564d044fb65eb263b9b1db6831573dff20"
+    },
+    {
+      "file": "research/non_source_references.csv",
+      "bytes": 313,
+      "sha256": "3d1ce63c1246496e51905dca202a06eb16a0d7dc087e9400be3d199d019f8a18"
+    },
+    {
+      "file": "research/original_registries/defi/access_matrix_defi.csv",
+      "bytes": 5247,
+      "sha256": "c33f6a1b48e210866b311c016886e7afcf123ed94ba2bcab46c6d08628dcfcdf"
+    },
+    {
+      "file": "research/original_registries/defi/security_findings_defi.csv",
+      "bytes": 9869,
+      "sha256": "d0dc320a529555ecfd16fc271522eb6eda40f9681a2d9b02373e54bf0f2d4e2a"
+    },
+    {
+      "file": "research/original_registries/defi/sources_defi.csv",
+      "bytes": 26233,
+      "sha256": "c2c466e13bdbc5db9a8809a7f534e357ba91e4b4fb6c8390b26c45c51cca76a0"
+    },
+    {
+      "file": "research/original_registries/dex/access_matrix.csv",
+      "bytes": 7641,
+      "sha256": "fde8feabff1587d1ed957d5fe01b619ef5aa29c08e4eb531b9793152e50fb4de"
+    },
+    {
+      "file": "research/original_registries/dex/security_findings_dex.csv",
+      "bytes": 5213,
+      "sha256": "66106205eb30becb30a811373165dae8579eccc8c414470d469ac0f6b49d6fce"
+    },
+    {
+      "file": "research/original_registries/dex/sources_dex.csv",
+      "bytes": 22250,
+      "sha256": "7c7c1587ac38d92f6832391d6e8a489e37881e06c346670970d7a53ce13bfae7"
+    },
+    {
+      "file": "research/original_registries/engines/security_findings_engines.csv",
+      "bytes": 6298,
+      "sha256": "77ed2a6de729d8cc8c3232905e71fb3f42a9f69db8e59103f9608338fcafdcf7"
+    },
+    {
+      "file": "research/original_registries/engines/sources_engines.csv",
+      "bytes": 36547,
+      "sha256": "f7add1ad566caf7e316d49e24c4c2c1eeaa7c7f0f4c9445d7e47b6454e0673fb"
+    },
+    {
+      "file": "research/reference_map.csv",
+      "bytes": 141981,
+      "sha256": "3b7842f8c752616dd9bd8f14f2dc5852f54ab105c97605d450997c07446eed6f"
+    },
+    {
+      "file": "research/registry_manifest.json",
+      "bytes": 9587,
+      "sha256": "670c53be2e6f845c47142454585ce757b355079f1a438a8cd5336b54543fb6b5"
+    },
+    {
+      "file": "research/report_scope_map.csv",
+      "bytes": 5581,
+      "sha256": "e83d44beab22879a149b1bc6bb1626b8f8f1ad78b0de23aefc46d8d4251c113a"
+    },
+    {
+      "file": "research/scoped_tables/defi/defi_comparison.csv",
+      "bytes": 7292,
+      "sha256": "bf572f30ee98c0f009ef9d372c16221b7852c286865ab4ed35b71ab89fb053cd"
+    },
+    {
+      "file": "research/scoped_tables/defi/hyperliquid_products.csv",
+      "bytes": 5540,
+      "sha256": "7b2c1dda86a0087f57a06e563261bc7578f81bc47440b770dfb623b56bc9046c"
+    },
+    {
+      "file": "research/scoped_tables/defi/hypothetical_100usd_economics.csv",
+      "bytes": 652,
+      "sha256": "62cac97dd306ef073ba9021afa4a8d43dbb2513f53902f7d9148d89af3d682f1"
+    },
+    {
+      "file": "research/scoped_tables/dex/dex_comparison.csv",
+      "bytes": 9132,
+      "sha256": "5e12d60faca3dc45f85445594412133ad06c85d53e3c63b613575f4a3a98b3b4"
+    },
+    {
+      "file": "research/scoped_tables/dex/networks.csv",
+      "bytes": 2984,
+      "sha256": "56234d8c13de2146900dee569d6f8a86238a8a6de77cc16b510ebf8a96a0ac84"
+    },
+    {
+      "file": "research/scoped_tables/engines/performance_evidence.csv",
+      "bytes": 14383,
+      "sha256": "4c9f225a45b8274efb0d54c66a74ce3dece9ddd5eb135cf1d617bb6c6fbc42cb"
+    },
+    {
+      "file": "research/scoped_tables/engines/projects.csv",
+      "bytes": 14773,
+      "sha256": "c0839faa4f8b1ac71afe7597fcc48f3cfb7c1abb698e8665f0e745bc34895522"
+    },
+    {
+      "file": "research/security_findings.csv",
+      "bytes": 70246,
+      "sha256": "a0980beda82921a5d7392c25157fa3d6df81a4f1da52e609c83e5ec4cef8da21"
+    },
+    {
+      "file": "research/source_id_map.csv",
+      "bytes": 28316,
+      "sha256": "b5f32cf7a6d9ca83c043e30d01ac011233274b1fff9c27e513dc4df074db644c"
+    },
+    {
+      "file": "research/sources.csv",
+      "bytes": 247521,
+      "sha256": "2f7cb96c1a285038dfacfb67bb0468f25e295a600ca2a3f424e6962f111735b5"
+    },
+    {
+      "file": "research/validation.json",
+      "bytes": 17367,
+      "sha256": "43bf8aabbcafc128cff3749898f76bb2adc99e347337ab9ec947334f754b1975"
+    }
+  ],
+  "note": "Hashes cover the finalized research package except this self-referential output manifest; original input hashes are recorded separately."
+}

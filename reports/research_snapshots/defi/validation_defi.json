@@ -1,0 +1,114 @@
+{
+  "validation_completed_at": "2026-10-13T01:10:56Z",
+  "scope": "File integrity and citation consistency only; no financial transaction or security exploit test",
+  "checks": [
+    {
+      "file": "access_matrix_defi.csv",
+      "check": "CSV parses; source IDs valid",
+      "rows": 11,
+      "ok": true
+    },
+    {
+      "file": "curve_3pool_metadata_snapshot.json",
+      "check": "JSON parses",
+      "ok": true
+    },
+    {
+      "file": "curve_3pool_snapshot.json",
+      "check": "JSON parses",
+      "ok": true
+    },
+    {
+      "file": "defi_comparison.csv",
+      "check": "CSV parses; source IDs valid",
+      "rows": 11,
+      "ok": true
+    },
+    {
+      "file": "defi_yield.en.md",
+      "check": "UTF-8; source references resolve; execution status explicit",
+      "words_approx": 2212,
+      "ok": true
+    },
+    {
+      "file": "defi_yield.fa.md",
+      "check": "UTF-8; source references resolve; execution status explicit",
+      "words_approx": 2343,
+      "ok": true
+    },
+    {
+      "file": "hyperliquid.en.md",
+      "check": "UTF-8; source references resolve; execution status explicit",
+      "words_approx": 1957,
+      "ok": true
+    },
+    {
+      "file": "hyperliquid.fa.md",
+      "check": "UTF-8; source references resolve; execution status explicit",
+      "words_approx": 2074,
+      "ok": true
+    },
+    {
+      "file": "hyperliquid_hlp_snapshot.json",
+      "check": "JSON parses",
+      "ok": true
+    },
+    {
+      "file": "hyperliquid_products.csv",
+      "check": "CSV parses; source IDs valid",
+      "rows": 9,
+      "ok": true
+    },
+    {
+      "file": "hyperliquid_terms_verification.json",
+      "check": "JSON parses",
+      "ok": true
+    },
+    {
+      "file": "hypothetical_100usd_economics.csv",
+      "check": "CSV parses; source IDs valid",
+      "rows": 2,
+      "ok": true
+    },
+    {
+      "file": "kamino_markets_snapshot.json",
+      "check": "JSON parses",
+      "ok": true
+    },
+    {
+      "file": "morpho_v1_apy_snapshot.json",
+      "check": "JSON parses",
+      "ok": true
+    },
+    {
+      "file": "morpho_v1_config_snapshot.json",
+      "check": "JSON parses",
+      "ok": true
+    },
+    {
+      "file": "security_findings_defi.csv",
+      "check": "CSV parses; source IDs valid",
+      "rows": 32,
+      "ok": true
+    },
+    {
+      "file": "source_index.json",
+      "check": "JSON parses",
+      "ok": true
+    },
+    {
+      "file": "sources_defi.csv",
+      "check": "CSV parses; source IDs valid",
+      "rows": 64,
+      "ok": true
+    },
+    {
+      "check": "Equivalent EN/FA numeric snapshots and decisions manually reviewed",
+      "ok": true
+    },
+    {
+      "check": "Adjacent Markdown reference links separated to preserve one target per source",
+      "ok": true
+    }
+  ]
+}

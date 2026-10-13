@@ -1,0 +1,115 @@
+test_capital_and_live_mode_rejected (test_core.CoreTests.test_capital_and_live_mode_rejected) ... ok
+test_config_rejects_invalid_relations_and_numbers (test_core.CoreTests.test_config_rejects_invalid_relations_and_numbers) ... ok
+test_daily_loss_and_cost_caps (test_core.CoreTests.test_daily_loss_and_cost_caps) ... ok
+test_data_order_gap_alignment_and_unclosed (test_core.CoreTests.test_data_order_gap_alignment_and_unclosed) ... ok
+test_data_rejects_nonfinite_and_ohlc_inconsistency (test_core.CoreTests.test_data_rejects_nonfinite_and_ohlc_inconsistency) ... ok
+test_exact_roundtrip_accounting (test_core.CoreTests.test_exact_roundtrip_accounting) ... ok
+test_failed_transaction_charges_only_gas (test_core.CoreTests.test_failed_transaction_charges_only_gas) ... ok
+test_no_short_or_cash_creation (test_core.CoreTests.test_no_short_or_cash_creation) ... ok
+test_partial_exit_preserves_cost_basis (test_core.CoreTests.test_partial_exit_preserves_cost_basis) ... ok
+test_risk_stops_at_drawdown_and_persists (test_core.CoreTests.test_risk_stops_at_drawdown_and_persists) ... ok
+test_cash_benchmark_is_zero_return_and_no_ratio_claim (test_engine.EngineTests.test_cash_benchmark_is_zero_return_and_no_ratio_claim) ... FAIL
+test_costed_flat_market_roundtrip_loses_money (test_engine.EngineTests.test_costed_flat_market_roundtrip_loses_money) ... FAIL
+test_duplicate_bar_is_idempotent_and_conflict_rejected (test_engine.EngineTests.test_duplicate_bar_is_idempotent_and_conflict_rejected) ... FAIL
+test_execution_uses_previous_liquidity_not_future_volume (test_engine.EngineTests.test_execution_uses_previous_liquidity_not_future_volume) ... FAIL
+test_failed_tx_cost_without_fake_fill (test_engine.EngineTests.test_failed_tx_cost_without_fake_fill) ... FAIL
+test_fixed_strategies_warm_up_and_have_no_short_targets (test_engine.EngineTests.test_fixed_strategies_warm_up_and_have_no_short_targets) ... FAIL
+test_future_perturbation_cannot_change_earlier_fills (test_engine.EngineTests.test_future_perturbation_cannot_change_earlier_fills) ... FAIL
+test_gap_loss_can_exceed_stop_limit (test_engine.EngineTests.test_gap_loss_can_exceed_stop_limit) ... FAIL
+test_open_position_not_counted_as_closed_winner (test_engine.EngineTests.test_open_position_not_counted_as_closed_winner) ... FAIL
+test_signal_executes_at_next_open_not_known_close (test_engine.EngineTests.test_signal_executes_at_next_open_not_known_close) ... FAIL
+
+======================================================================
+FAIL: test_cash_benchmark_is_zero_return_and_no_ratio_claim (test_engine.EngineTests.test_cash_benchmark_is_zero_return_and_no_ratio_claim)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_engine.py", line 21, in setUp
+    def setUp(self):self.assertIsNotNone(Engine,"Shared engine and metrics must be implemented")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : Shared engine and metrics must be implemented
+
+======================================================================
+FAIL: test_costed_flat_market_roundtrip_loses_money (test_engine.EngineTests.test_costed_flat_market_roundtrip_loses_money)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_engine.py", line 21, in setUp
+    def setUp(self):self.assertIsNotNone(Engine,"Shared engine and metrics must be implemented")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : Shared engine and metrics must be implemented
+
+======================================================================
+FAIL: test_duplicate_bar_is_idempotent_and_conflict_rejected (test_engine.EngineTests.test_duplicate_bar_is_idempotent_and_conflict_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_engine.py", line 21, in setUp
+    def setUp(self):self.assertIsNotNone(Engine,"Shared engine and metrics must be implemented")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : Shared engine and metrics must be implemented
+
+======================================================================
+FAIL: test_execution_uses_previous_liquidity_not_future_volume (test_engine.EngineTests.test_execution_uses_previous_liquidity_not_future_volume)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_engine.py", line 21, in setUp
+    def setUp(self):self.assertIsNotNone(Engine,"Shared engine and metrics must be implemented")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : Shared engine and metrics must be implemented
+
+======================================================================
+FAIL: test_failed_tx_cost_without_fake_fill (test_engine.EngineTests.test_failed_tx_cost_without_fake_fill)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_engine.py", line 21, in setUp
+    def setUp(self):self.assertIsNotNone(Engine,"Shared engine and metrics must be implemented")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : Shared engine and metrics must be implemented
+
+======================================================================
+FAIL: test_fixed_strategies_warm_up_and_have_no_short_targets (test_engine.EngineTests.test_fixed_strategies_warm_up_and_have_no_short_targets)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_engine.py", line 21, in setUp
+    def setUp(self):self.assertIsNotNone(Engine,"Shared engine and metrics must be implemented")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : Shared engine and metrics must be implemented
+
+======================================================================
+FAIL: test_future_perturbation_cannot_change_earlier_fills (test_engine.EngineTests.test_future_perturbation_cannot_change_earlier_fills)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_engine.py", line 21, in setUp
+    def setUp(self):self.assertIsNotNone(Engine,"Shared engine and metrics must be implemented")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : Shared engine and metrics must be implemented
+
+======================================================================
+FAIL: test_gap_loss_can_exceed_stop_limit (test_engine.EngineTests.test_gap_loss_can_exceed_stop_limit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_engine.py", line 21, in setUp
+    def setUp(self):self.assertIsNotNone(Engine,"Shared engine and metrics must be implemented")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : Shared engine and metrics must be implemented
+
+======================================================================
+FAIL: test_open_position_not_counted_as_closed_winner (test_engine.EngineTests.test_open_position_not_counted_as_closed_winner)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_engine.py", line 21, in setUp
+    def setUp(self):self.assertIsNotNone(Engine,"Shared engine and metrics must be implemented")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : Shared engine and metrics must be implemented
+
+======================================================================
+FAIL: test_signal_executes_at_next_open_not_known_close (test_engine.EngineTests.test_signal_executes_at_next_open_not_known_close)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5b4a2cf83fbf/Arz/tests/test_engine.py", line 21, in setUp
+    def setUp(self):self.assertIsNotNone(Engine,"Shared engine and metrics must be implemented")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : Shared engine and metrics must be implemented
+
+----------------------------------------------------------------------
+Ran 20 tests in 0.001s
+
+FAILED (failures=10)

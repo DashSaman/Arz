@@ -1,0 +1,27 @@
+{
+  "registered_at_utc": "2026-10-13T01:02:42.106870+00:00",
+  "status": "fixed before first strategy-performance run; connectivity probes preceded registration",
+  "candidate_count": 3,
+  "strategies": {
+    "trend": {
+      "fast": 12,
+      "slow": 48
+    },
+    "momentum": {
+      "lookback": 12,
+      "entry_return": 0.02,
+      "exit_return": 0.0
+    },
+    "mean_reversion": {
+      "window": 24,
+      "entry_z": -1.5,
+      "exit_z": 0.0
+    }
+  },
+  "optimization": "NONE",
+  "initial_fraction": 0.4,
+  "forward_test_fraction": 0.2,
+  "final_holdout_fraction": 0.2,
+  "source": "Base WETH/USDC pool, selected by established assets and fee tier, not backtest return",
+  "limitations": "Current pool selection and global asset selection induce selection/survivorship bias; no performance-qualified selection"
+}

@@ -1,0 +1,740 @@
+{
+  "status": "passed",
+  "completed_at": "2026-10-13T01:18:06.286081+00:00",
+  "counts": {
+    "sources": 190,
+    "source_counts_by_scope": {
+      "engines": 64,
+      "dex": 62,
+      "defi": 64
+    },
+    "access_records": 27,
+    "access_counts_by_scope": {
+      "engines": 0,
+      "dex": 16,
+      "defi": 11
+    },
+    "security_findings": 58,
+    "security_counts_by_scope": {
+      "engines": 10,
+      "dex": 16,
+      "defi": 32
+    },
+    "source_id_mappings": 190,
+    "reference_map_rows": 1062,
+    "source_reference_occurrences": 1057,
+    "internal_non_source_reference_occurrences": 7,
+    "reports_checked_without_modification": 8,
+    "original_id_collision_groups_safely_scoped": 33,
+    "duplicate_url_groups_retained_without_deduplication": 6
+  },
+  "unresolved_source_references": [],
+  "unresolved_internal_references": [],
+  "canonical_source_id_collisions": [],
+  "original_id_collision_groups": {
+    "D01": [
+      "DEX-D01",
+      "DEFI-D01"
+    ],
+    "D02": [
+      "DEX-D02",
+      "DEFI-D02"
+    ],
+    "D03": [
+      "DEX-D03",
+      "DEFI-D03"
+    ],
+    "D04": [
+      "DEX-D04",
+      "DEFI-D04"
+    ],
+    "D05": [
+      "DEX-D05",
+      "DEFI-D05"
+    ],
+    "D06": [
+      "DEX-D06",
+      "DEFI-D06"
+    ],
+    "D07": [
+      "DEX-D07",
+      "DEFI-D07"
+    ],
+    "D08": [
+      "DEX-D08",
+      "DEFI-D08"
+    ],
+    "D09": [
+      "DEX-D09",
+      "DEFI-D09"
+    ],
+    "D10": [
+      "DEX-D10",
+      "DEFI-D10"
+    ],
+    "D11": [
+      "DEX-D11",
+      "DEFI-D11"
+    ],
+    "D12": [
+      "DEX-D12",
+      "DEFI-D12"
+    ],
+    "D13": [
+      "DEX-D13",
+      "DEFI-D13"
+    ],
+    "D14": [
+      "DEX-D14",
+      "DEFI-D14"
+    ],
+    "D15": [
+      "DEX-D15",
+      "DEFI-D15"
+    ],
+    "D16": [
+      "DEX-D16",
+      "DEFI-D16"
+    ],
+    "D17": [
+      "DEX-D17",
+      "DEFI-D17"
+    ],
+    "D18": [
+      "DEX-D18",
+      "DEFI-D18"
+    ],
+    "D19": [
+      "DEX-D19",
+      "DEFI-D19"
+    ],
+    "D20": [
+      "DEX-D20",
+      "DEFI-D20"
+    ],
+    "D21": [
+      "DEX-D21",
+      "DEFI-D21"
+    ],
+    "D22": [
+      "DEX-D22",
+      "DEFI-D22"
+    ],
+    "D23": [
+      "DEX-D23",
+      "DEFI-D23"
+    ],
+    "D24": [
+      "DEX-D24",
+      "DEFI-D24"
+    ],
+    "D25": [
+      "DEX-D25",
+      "DEFI-D25"
+    ],
+    "D26": [
+      "DEX-D26",
+      "DEFI-D26"
+    ],
+    "D27": [
+      "DEX-D27",
+      "DEFI-D27"
+    ],
+    "D28": [
+      "DEX-D28",
+      "DEFI-D28"
+    ],
+    "D29": [
+      "DEX-D29",
+      "DEFI-D29"
+    ],
+    "D30": [
+      "DEX-D30",
+      "DEFI-D30"
+    ],
+    "D31": [
+      "DEX-D31",
+      "DEFI-D31"
+    ],
+    "D32": [
+      "DEX-D32",
+      "DEFI-D32"
+    ],
+    "D33": [
+      "DEX-D33",
+      "DEFI-D33"
+    ]
+  },
+  "duplicate_urls_preserved": {
+    "https://solana.com/docs/core/fees": [
+      "ENG-E41",
+      "DEX-D41"
+    ],
+    "https://docs.curve.finance/user/security/risks/pools": [
+      "DEX-D30",
+      "DEFI-D13"
+    ],
+    "https://docs.curve.finance/user/security/audits": [
+      "DEX-D31",
+      "DEFI-D14"
+    ],
+    "https://www.circle.com/legal/usdc-terms": [
+      "DEX-D54",
+      "DEFI-L05"
+    ],
+    "https://tether.to/en/legal/": [
+      "DEX-D55",
+      "DEFI-L06"
+    ],
+    "https://ofac.treasury.gov/sanctions-programs-and-country-information/iran-sanctions": [
+      "DEX-D56",
+      "DEFI-L04"
+    ]
+  },
+  "original_files_unchanged": true,
+  "original_registries_preserved_byte_for_byte": true,
+  "source_union_is_lossless": true,
+  "access_and_security_original_rows_preserved": true,
+  "live_enabled_in_canonical_access_and_security": false,
+  "source_access_status_is_retrieval_not_venue_eligibility": true,
+  "source_dates_keep_original_precision": true,
+  "no_external_research_performed_during_consolidation": true,
+  "parsed_csv_outputs": [
+    {
+      "file": "research/access_matrix.csv",
+      "rows": 27,
+      "headers": [
+        "access_id",
+        "original_access_id",
+        "scope",
+        "origin_registry",
+        "origin_row",
+        "entity",
+        "surface_scope",
+        "citizenship",
+        "residency",
+        "location_or_ip",
+        "kyc",
+        "api_and_automation",
+        "protocol_scope",
+        "rpc_host_scope",
+        "issuer_layer",
+        "freeze_or_denial_risk",
+        "research_status",
+        "live_status",
+        "live_enabled",
+        "live_enabled_basis",
+        "decision_basis",
+        "certainty",
+        "limitations",
+        "source_ids",
+        "original_source_ids",
+        "reviewed_at",
+        "original_fields_json"
+      ]
+    },
+    {
+      "file": "research/non_source_references.csv",
+      "rows": 1,
+      "headers": [
+        "reference_id",
+        "original_reference_id",
+        "scope",
+        "reference_kind",
+        "description",
+        "external_url",
+        "included_in_sources_csv"
+      ]
+    },
+    {
+      "file": "research/original_registries/defi/access_matrix_defi.csv",
+      "rows": 11,
+      "headers": [
+        "service_or_layer",
+        "scope",
+        "citizenship_rule",
+        "residency_or_location_rule",
+        "ip_or_circumvention_evidence",
+        "issuer_layer",
+        "decision",
+        "live_enabled",
+        "rationale",
+        "source_ids",
+        "limitations",
+        "reviewed_at_utc"
+      ]
+    },
+    {
+      "file": "research/original_registries/defi/security_findings_defi.csv",
+      "rows": 32,
+      "headers": [
+        "finding_id",
+        "scope",
+        "category",
+        "decision_severity",
+        "finding",
+        "project_action",
+        "evidence_source_ids",
+        "status",
+        "live_enabled",
+        "limitations",
+        "reviewed_at_utc"
+      ]
+    },
+    {
+      "file": "research/original_registries/defi/sources_defi.csv",
+      "rows": 64,
+      "headers": [
+        "source_id",
+        "title",
+        "url",
+        "organization",
+        "publication_or_update_date",
+        "reviewed_at_utc",
+        "source_type",
+        "supported_claim",
+        "limitations",
+        "conflict",
+        "implication",
+        "web_ref"
+      ]
+    },
+    {
+      "file": "research/original_registries/dex/access_matrix.csv",
+      "rows": 16,
+      "headers": [
+        "entity",
+        "surface_scope",
+        "citizenship",
+        "residency",
+        "location_or_ip",
+        "kyc",
+        "api_and_automation",
+        "protocol_scope",
+        "rpc_host_scope",
+        "freeze_or_denial_risk",
+        "research_status",
+        "live_status",
+        "decision_basis",
+        "certainty",
+        "source_ids",
+        "reviewed_at"
+      ]
+    },
+    {
+      "file": "research/original_registries/dex/security_findings_dex.csv",
+      "rows": 16,
+      "headers": [
+        "finding_id",
+        "category",
+        "affected_surface",
+        "finding",
+        "scope_and_version",
+        "evidence_strength",
+        "risk_implication",
+        "required_resolution",
+        "status",
+        "source_ids",
+        "reviewed_at"
+      ]
+    },
+    {
+      "file": "research/original_registries/dex/sources_dex.csv",
+      "rows": 62,
+      "headers": [
+        "source_id",
+        "title",
+        "url",
+        "organization",
+        "publication_or_update_date",
+        "reviewed_at",
+        "source_type",
+        "claim",
+        "exact_short_clause",
+        "limitations",
+        "conflict_or_version_note",
+        "implication",
+        "retrieval_reference"
+      ]
+    },
+    {
+      "file": "research/original_registries/engines/security_findings_engines.csv",
+      "rows": 10,
+      "headers": [
+        "finding_id",
+        "project",
+        "source_ids",
+        "primary_url",
+        "evidence_type",
+        "reported_at",
+        "issue_status_at_review",
+        "head_sha",
+        "release_tag",
+        "release_head_relation",
+        "verified_observation",
+        "limitations",
+        "action_for_arz",
+        "reviewed_at"
+      ]
+    },
+    {
+      "file": "research/original_registries/engines/sources_engines.csv",
+      "rows": 64,
+      "headers": [
+        "source_id",
+        "title",
+        "url",
+        "organization",
+        "publication_date",
+        "reviewed_at",
+        "evidence_type",
+        "claim",
+        "limitations",
+        "conflict",
+        "conflicting_evidence",
+        "project_implication",
+        "access_status"
+      ]
+    },
+    {
+      "file": "research/reference_map.csv",
+      "rows": 1062,
+      "headers": [
+        "scope",
+        "origin_file",
+        "location_type",
+        "row_or_line",
+        "column_or_context",
+        "original_reference_id",
+        "canonical_reference_id",
+        "reference_kind",
+        "occurrences",
+        "resolution"
+      ]
+    },
+    {
+      "file": "research/report_scope_map.csv",
+      "rows": 8,
+      "headers": [
+        "scope",
+        "source_prefix",
+        "original_report",
+        "source_registry",
+        "original_source_labels",
+        "canonical_source_ids",
+        "unique_source_labels",
+        "original_sha256",
+        "modified_by_consolidation"
+      ]
+    },
+    {
+      "file": "research/scoped_tables/defi/defi_comparison.csv",
+      "rows": 11,
+      "headers": [
+        "product_id",
+        "product",
+        "category",
+        "primary_return_source",
+        "leverage_screen",
+        "fee_model",
+        "withdrawal_constraints",
+        "observed_rate_percent",
+        "rate_type",
+        "lookback",
+        "incentive_treatment",
+        "access_for_scenario",
+        "project_fit",
+        "live_enabled",
+        "source_ids",
+        "unresolved",
+        "reviewed_at_utc",
+        "original_source_ids",
+        "research_scope",
+        "origin_file",
+        "origin_row",
+        "non_source_reference_ids"
+      ]
+    },
+    {
+      "file": "research/scoped_tables/defi/hyperliquid_products.csv",
+      "rows": 9,
+      "headers": [
+        "product_id",
+        "name_en",
+        "name_fa",
+        "layer",
+        "economic_mechanism",
+        "deposit_or_creation_status",
+        "deposit_minimum",
+        "creation_requirements",
+        "fees_or_profit_share",
+        "lock_and_exit",
+        "derivative_or_borrowing_exposure",
+        "project_decision",
+        "live_enabled",
+        "source_ids",
+        "limitations",
+        "reviewed_at_utc",
+        "original_source_ids",
+        "research_scope",
+        "origin_file",
+        "origin_row",
+        "non_source_reference_ids"
+      ]
+    },
+    {
+      "file": "research/scoped_tables/defi/hypothetical_100usd_economics.csv",
+      "rows": 2,
+      "headers": [
+        "principal_usd",
+        "hypothetical_apy",
+        "annual_gross_growth_usd",
+        "monthly_equivalent_gross_growth_usd",
+        "one_dollar_cost_months_of_monthly_growth",
+        "formula",
+        "assumptions",
+        "research_scope",
+        "origin_file",
+        "origin_row",
+        "non_source_reference_ids"
+      ]
+    },
+    {
+      "file": "research/scoped_tables/dex/dex_comparison.csv",
+      "rows": 8,
+      "headers": [
+        "dex",
+        "chains",
+        "spot_structure",
+        "custody",
+        "documented_pool_or_platform_fees",
+        "other_costs",
+        "minimum_trade",
+        "liquidity_limitations",
+        "slippage",
+        "api_sdk",
+        "bot_access_technical",
+        "automation_permission",
+        "lp_model",
+        "freeze_and_admin_risk",
+        "usd100_economic_feasibility",
+        "research_status",
+        "live_ui_status",
+        "live_protocol_status",
+        "unknowns",
+        "source_ids",
+        "original_source_ids",
+        "research_scope",
+        "origin_file",
+        "origin_row",
+        "non_source_reference_ids"
+      ]
+    },
+    {
+      "file": "research/scoped_tables/dex/networks.csv",
+      "rows": 4,
+      "headers": [
+        "network",
+        "execution_model",
+        "native_gas_asset",
+        "fee_model",
+        "documented_units",
+        "hidden_or_extra_costs",
+        "security_and_finality",
+        "infrastructure_access",
+        "usd100_implication",
+        "research_rank",
+        "live_status",
+        "source_ids",
+        "reviewed_at",
+        "original_source_ids",
+        "research_scope",
+        "origin_file",
+        "origin_row",
+        "non_source_reference_ids"
+      ]
+    },
+    {
+      "file": "research/scoped_tables/engines/performance_evidence.csv",
+      "rows": 23,
+      "headers": [
+        "record_id",
+        "record_type",
+        "project_or_study",
+        "claim",
+        "evidence_level",
+        "observed_metric",
+        "period",
+        "cost_coverage",
+        "reproducibility",
+        "out_of_sample",
+        "walk_forward",
+        "live_or_paper",
+        "source_ids",
+        "source_url",
+        "limitations",
+        "implication",
+        "reviewed_at",
+        "original_source_ids",
+        "research_scope",
+        "origin_file",
+        "origin_row",
+        "non_source_reference_ids"
+      ]
+    },
+    {
+      "file": "research/scoped_tables/engines/projects.csv",
+      "rows": 10,
+      "headers": [
+        "project_id",
+        "name",
+        "kind",
+        "spot",
+        "dex",
+        "ai",
+        "backtest",
+        "paper",
+        "cost",
+        "fit",
+        "autonomy",
+        "security",
+        "license",
+        "selection",
+        "sources",
+        "repository",
+        "repository_url",
+        "reviewed_at",
+        "metric_scope",
+        "stars",
+        "forks",
+        "default_branch",
+        "head_sha",
+        "head_author_date",
+        "head_committer_date",
+        "pushed_at",
+        "latest_github_non_prerelease_tag",
+        "latest_github_non_prerelease_published_at",
+        "latest_github_non_prerelease_status",
+        "newest_listed_release_tag",
+        "newest_listed_release_published_at",
+        "newest_listed_release_prerelease",
+        "license_api",
+        "license_url",
+        "archived",
+        "open_issues",
+        "open_prs",
+        "issues_updated_since_2026_09_13",
+        "prs_updated_since_2026_09_13",
+        "activity_definition",
+        "strategy_evidence_level",
+        "profitability_conclusion",
+        "original_sources",
+        "research_scope",
+        "origin_file",
+        "origin_row",
+        "non_source_reference_ids"
+      ]
+    },
+    {
+      "file": "research/security_findings.csv",
+      "rows": 58,
+      "headers": [
+        "finding_id",
+        "original_finding_id",
+        "scope",
+        "origin_registry",
+        "origin_row",
+        "affected_surface",
+        "category",
+        "decision_severity",
+        "finding",
+        "scope_and_version",
+        "evidence_type",
+        "evidence_strength",
+        "reported_at",
+        "status",
+        "risk_implication",
+        "required_resolution",
+        "limitations",
+        "primary_url",
+        "head_sha",
+        "release_tag",
+        "release_head_relation",
+        "source_ids",
+        "original_source_ids",
+        "live_enabled",
+        "reviewed_at",
+        "original_fields_json"
+      ]
+    },
+    {
+      "file": "research/source_id_map.csv",
+      "rows": 190,
+      "headers": [
+        "scope",
+        "source_prefix",
+        "original_source_id",
+        "source_id",
+        "origin_registry",
+        "origin_row",
+        "title",
+        "url"
+      ]
+    },
+    {
+      "file": "research/sources.csv",
+      "rows": 190,
+      "headers": [
+        "source_id",
+        "original_source_id",
+        "scope",
+        "source_prefix",
+        "original_scope",
+        "origin_registry",
+        "origin_row",
+        "title",
+        "url",
+        "organization",
+        "publication_date",
+        "reviewed_at",
+        "evidence_type",
+        "claim",
+        "limitations",
+        "conflict",
+        "implication",
+        "access_status",
+        "access_status_basis",
+        "original_conflicting_evidence",
+        "original_exact_short_clause",
+        "original_retrieval_reference",
+        "original_fields_json"
+      ]
+    }
+  ],
+  "notes": [
+    "The engines package supplied no access matrix; zero engine access rows were synthesized.",
+    "USER_REQUIREMENT is an internal rubric reference. It has a scoped non-source ID and is intentionally excluded from the exact source union.",
+    "Original report citations remain unchanged and scoped by report; report_scope_map.csv and reference_map.csv resolve them to canonical IDs.",
+    "Raw original_fields_json and original_* columns intentionally retain original unprefixed identifiers for provenance; canonical source_ids use prefixes.",
+    "No URL-based or entity-based deduplication was performed; different service scopes or independent observations are retained.",
+    "Reference validation checks identifiers and parsing, not the substantive truth or current accessibility of source claims."
+  ],
+  "final_integration_checks": {
+    "canonical_tables": {
+      "access_matrix.csv": {
+        "rows": 27,
+        "canonical_references_valid": true,
+        "live_disabled": true
+      },
+      "security_findings.csv": {
+        "rows": 58,
+        "canonical_references_valid": true,
+        "live_disabled": true
+      }
+    },
+    "scoped_auxiliary_tables_checked": 7,
+    "scoped_auxiliary_source_refs_valid": true,
+    "D01_collision_examples_verified": true,
+    "README_file_links_exist": true
+  }
+}

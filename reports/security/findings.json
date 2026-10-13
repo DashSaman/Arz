@@ -1,0 +1,248 @@
+{
+  "metadata": {
+    "review_type": "Independent offline code/security/quant review",
+    "date_utc": "2026-10-13",
+    "repository": "/workspace/scratch/5b4a2cf83fbf/Arz",
+    "baseline_remote_commit": "919577cc45c672ba1641409e43a047b55eb1ac32",
+    "requested_core_commit": "eb837d09eaef38dc9cd38a13efcf86d00235e35d",
+    "local_head_observed": "efffb2c01c8bb48566cf813d5a608623ca396859",
+    "reviewed_source": "Actual working files; SHA-256 per source captured in baseline_repro_results.json. Local HEAD lagged the requested core commit.",
+    "suite": {
+      "tests": 35,
+      "failures": 0,
+      "exit_code": 0,
+      "evidence": "suite_review_snapshot.txt"
+    },
+    "independent_guards": {
+      "tests": 7,
+      "failures": 0,
+      "exit_code": 0,
+      "script": "verified_guards.py"
+    },
+    "live_trading": "DISABLED; no live order, wallet or signing action performed",
+    "integration_assessment": "Changes requested: resolve the identified accounting/state/risk/operations defects before claiming the corresponding guarantees. This is not financial authorization or an execution audit."
+  },
+  "findings": [
+    {
+      "id": "ARZ-R01",
+      "priority": "P1",
+      "title": "Restore accepts states that violate funding, type, and risk invariants",
+      "locations": [
+        {
+          "path": "/workspace/scratch/5b4a2cf83fbf/Arz/src/arz/engine.py",
+          "lines_at_review": "74-81"
+        },
+        {
+          "path": "/workspace/scratch/5b4a2cf83fbf/Arz/src/arz/risk.py",
+          "lines_at_review": "6-14"
+        },
+        {
+          "path": "/workspace/scratch/5b4a2cf83fbf/Arz/src/arz/accounting.py",
+          "lines_at_review": "19-21"
+        }
+      ],
+      "repro_function": "invalid_restore",
+      "observed": "With an unchanged legitimate config hash and no fills, changing saved cash from 100 to 101 is accepted. Negative risk count=-100 and fees=-100 are accepted. pending='false' is accepted as truthy and buys on otherwise flat trend data. version=True is accepted as version 1.",
+      "effect": "An invalid export or edited, correctly digested journal can introduce unsupported capital, waive daily limits, or create a signal that the strategy never generated. The outer digest only proves byte consistency; it does not establish a valid ledger. This is a state-validation defect, not a claim that local users with code-write access can be sandboxed.",
+      "expected": "Strict schema/types and finite bounds; ledger and position reconciliation back to initial external capital; risk counters and pending signal consistent with recorded activity/history. Reject inconsistent state before mutating an engine.",
+      "fix": "Validate the complete restore schema, including exact integer versions, boolean pending, nonnegative finite risk fields and allowed halt reasons. Reconcile cash + cost_basis = initial_capital + realized_pnl, units, fees, fills and failed-attempt records; do not merely cap current cash at 100 because earned gains are permitted. Validate active/closed trade records and immutable experiment identity."
+    },
+    {
+      "id": "ARZ-R02",
+      "priority": "P1",
+      "title": "Paper fills use candle-start UTC days for caps despite occurring on observation days",
+      "locations": [
+        {
+          "path": "/workspace/scratch/5b4a2cf83fbf/Arz/src/arz/engine.py",
+          "lines_at_review": "26, 43, 52, 56"
+        },
+        {
+          "path": "/workspace/scratch/5b4a2cf83fbf/Arz/src/arz/paper.py",
+          "lines_at_review": "63"
+        }
+      ],
+      "repro_function": "observed_day_caps",
+      "observed": "With interval=60 and max_trades_day=1: warm candle ts=86280 at 86341; buy candle ts=86340 at observed_at=86401; sell candle ts=86400 at observed_at=86461. Both fills occurred on observed UTC day 1, yet both pass the one-fill cap. The first fill was charged to risk day 0.",
+      "effect": "Prospective daily fill and fee limits, day-loss accounting, timestamps and holding periods can describe the wrong execution day. The default cap can likewise gain an extra fill around midnight.",
+      "expected": "Paper risk, fill time and execution accounting use the validated observation/execution time, while candle identity remains a separate source timestamp. Historical next-open execution retains its actual modeled bar-open time.",
+      "fix": "Introduce a single explicit execution timestamp: bar.ts for historical next-open fills, observed_at for prospective fills. Use it for daily risk checks/records and trade entry/exit timing; retain source_bar_ts separately. Do not update risk backwards to bar.ts + interval - 1 after a later observed execution."
+    },
+    {
+      "id": "ARZ-R03",
+      "priority": "P1",
+      "title": "Failed-exit gas is omitted from closed-trade outcomes",
+      "locations": [
+        {
+          "path": "/workspace/scratch/5b4a2cf83fbf/Arz/src/arz/engine.py",
+          "lines_at_review": "38-40, 46-53"
+        },
+        {
+          "path": "/workspace/scratch/5b4a2cf83fbf/Arz/src/arz/metrics.py",
+          "lines_at_review": "12-14, 29-34"
+        }
+      ],
+      "repro_function": "failed_exit_trade_pnl",
+      "observed": "Buy 20 USD at price 10; fail one exit; exit at 10.125; fee/slippage zero and gas 0.10 for each attempt. Account ending equity is 99.95 and realized P&L is -0.05, but closed_trade.net_pnl is +0.05 and win_rate is 1.0. Total gas correctly includes all three attempts.",
+      "effect": "Closed-trade wins, average win/loss and profit factor can report a winning trade whose actual net effect was a loss. Overall account net P&L is correct, which limits but does not remove the misleading trade statistics.",
+      "expected": "Gas attributable to failed exits of an open trade reduces that trade's net P&L. Failed entries must have an explicit, reconciled treatment as attempt overhead or trade-attributed costs.",
+      "fix": "Accumulate failed-attempt costs into current_trade when a position is open and keep separate unattributed entry-attempt overhead where appropriate. Assert closed/open trade P&L plus explicit overhead reconciles to portfolio realized/unrealized totals; cover partial exits followed by failure and final exit."
+    },
+    {
+      "id": "ARZ-R04",
+      "priority": "P2",
+      "title": "Healthy non-minute feeds are halted before another completed candle is due",
+      "locations": [
+        {
+          "path": "/workspace/scratch/5b4a2cf83fbf/Arz/src/arz/paper.py",
+          "lines_at_review": "48-49"
+        },
+        {
+          "path": "/workspace/scratch/5b4a2cf83fbf/Arz/src/arz/__main__.py",
+          "lines_at_review": "36, 51"
+        }
+      ],
+      "repro_function": "four_hour_valid_feed_halted",
+      "observed": "A four-hour candle ending at 14400 warms at now=14401. Polling exactly the same healthy completed feed at now=14500 returns HALTED_DATA_STALE, although the next four-hour candle will not close until 28800. The CLI defaults to this four-hour interval when no config is supplied.",
+      "effect": "Most normal observation times immediately halt the default paper command. A healthy source is mistaken for an outage, and the halt is sticky.",
+      "expected": "Staleness reflects when the next completed bar is expected plus an explicit source-delay allowance, independently of maximum allowed execution-price age.",
+      "fix": "Derive freshness from interval cadence and expected next completion, with bounded provider grace. If a separate 90-second execution-price-age rule is intended, apply and label it separately rather than calling a still-current completed-bar feed stale."
+    },
+    {
+      "id": "ARZ-R05",
+      "priority": "P2",
+      "title": "Older overlapping source revisions are silently accepted",
+      "locations": [
+        {
+          "path": "/workspace/scratch/5b4a2cf83fbf/Arz/src/arz/paper.py",
+          "lines_at_review": "54-57"
+        }
+      ],
+      "repro_function": "older_source_revision",
+      "observed": "Warm bars at ts 0, 60, 120 with close 10. The next feed changes ts 0 close to 11, keeps ts 120 identical, and adds ts 180. paper_step returns PROCESSED_PROSPECTIVE_BAR and fault=None while its journal still retains the old close 10 for ts 0.",
+      "effect": "One run can silently mix different versions of the same source history. Recomputing the strategy from the newly returned history can differ from the continued journal; the promised conflicting-bar halt only covers the latest cached candle.",
+      "expected": "All overlapping stored source bars are compared, and any revision becomes a durable data fault without a new fill.",
+      "fix": "Validate the full overlap by timestamp (or persist sufficient per-bar hashes for retained decision context), not only the most recent bar. Keep source observation identity and the revision reason in the journal."
+    },
+    {
+      "id": "ARZ-R06",
+      "priority": "P2",
+      "title": "A halted paper result presents old equity alongside a fresh source timestamp",
+      "locations": [
+        {
+          "path": "/workspace/scratch/5b4a2cf83fbf/Arz/src/arz/paper.py",
+          "lines_at_review": "47, 65-68"
+        },
+        {
+          "path": "/workspace/scratch/5b4a2cf83fbf/Arz/src/arz/engine.py",
+          "lines_at_review": "62-65"
+        }
+      ],
+      "repro_function": "halted_valuation",
+      "observed": "Paper buys 2 units at price 10 with cash 80, then a stale-data fault is set. A subsequent fully validated new close of 1 returns source_last_close=180 and HALTED_REQUIRES_REVIEW, but ending_equity remains 100 rather than the current mark of 82. The open 2 units remain recorded.",
+      "effect": "The system correctly retains exposure and does not fake a liquidation, but its headline ending-equity/drawdown metrics can hide losses after a halt unless a consumer inspects the old equity-curve timestamp.",
+      "expected": "Halting trading does not imply frozen economic value. Mark retained exposure using valid subsequent observations without trading, or explicitly identify the mark as stale with valuation_as_of and unavailable-current-equity semantics.",
+      "fix": "Separate observation/valuation from order eligibility. Preserve the sticky halt while recording fresh marks, or mark all returned performance figures as stale/as-of. Do not fabricate fills or clear the fault to update valuation."
+    },
+    {
+      "id": "ARZ-R07",
+      "priority": "P2",
+      "title": "Strategy or implementation changes do not invalidate an existing experiment",
+      "locations": [
+        {
+          "path": "/workspace/scratch/5b4a2cf83fbf/Arz/src/arz/engine.py",
+          "lines_at_review": "67-81"
+        },
+        {
+          "path": "/workspace/scratch/5b4a2cf83fbf/Arz/src/arz/strategies.py",
+          "lines_at_review": "4-8, 17"
+        }
+      ],
+      "repro_function": "changed_strategy_restores",
+      "observed": "Create a trend state with fast=12/slow=48, change the registered trend fast parameter to 2, then restore the state with the same strategy name. Restore succeeds; saved identity includes only schema version, config hash and the name 'trend'.",
+      "effect": "A changed strategy or engine implementation can continue the same paper journal without an explicit migration/new experiment. The full-period evidence may then combine different rules, violating preregistration and restart reproducibility.",
+      "expected": "The journal records and verifies immutable strategy parameters and a meaningful engine/build/semantics version, plus the relevant source identity.",
+      "fix": "Fingerprint the actual frozen strategy specification and engine semantic version/build identity; reject mismatches before any action. Record source provider/request provenance in the durable journal, not only the per-invocation output. A schema version alone cannot substitute for strategy identity."
+    },
+    {
+      "id": "ARZ-R08",
+      "priority": "P2",
+      "title": "Direct paper API data faults do not persist a halt",
+      "locations": [
+        {
+          "path": "/workspace/scratch/5b4a2cf83fbf/Arz/src/arz/paper.py",
+          "lines_at_review": "35-37, 56"
+        },
+        {
+          "path": "/workspace/scratch/5b4a2cf83fbf/Arz/src/arz/__main__.py",
+          "lines_at_review": "58-68"
+        }
+      ],
+      "repro_function": "malformed_data_fault_not_sticky",
+      "observed": "Warm a journal whose pending signal is long. A new NaN candle raises ValueError before the journal is locked or updated. Calling paper_step again with the corrected next bar produces a buy and fault=None.",
+      "effect": "The fail-closed guarantee depends on using the CLI wrapper. A script that uses the public paper_step API and catches an input error can silently resume a previously faulted experiment. The current CLI handler does persist a fault for this case, so this finding does not claim the same bypass through that wrapper.",
+      "expected": "The persistent paper abstraction itself owns durable fault transitions, and each exposed caller receives the same restart behavior.",
+      "fix": "Centralize existing-journal fault recording inside the locked paper operation or a shared wrapper used by every entry point. Preserve state integrity/config checks before writing faults; do not handle a concurrent writer's lock denial by overwriting its journal."
+    },
+    {
+      "id": "ARZ-R09",
+      "priority": "P2",
+      "title": "The paper output path can overwrite its own restart state",
+      "locations": [
+        {
+          "path": "/workspace/scratch/5b4a2cf83fbf/Arz/src/arz/__main__.py",
+          "lines_at_review": "33, 56-57, 69-71"
+        }
+      ],
+      "repro_function": "cli_state_output_collision",
+      "observed": "Pass the same path to --state and --output. The first mocked-data paper run returns code 0, but the path now contains only continuous_service/live_trading/observations; its engine envelope is gone.",
+      "effect": "An ordinary argument mistake destroys the authoritative restart journal after a reported successful run. The next invocation cannot restore it.",
+      "expected": "State and report destinations must be distinct before any writes.",
+      "fix": "Reject canonical-path collisions before fetching or writing, including equivalent relative paths and existing symlink/hardlink aliases where practical. Keep report writes outside the journal namespace."
+    },
+    {
+      "id": "ARZ-R10",
+      "priority": "P2",
+      "title": "Historical completion is checked against the wrong or no cutoff",
+      "locations": [
+        {
+          "path": "/workspace/scratch/5b4a2cf83fbf/Arz/src/arz/connectors.py",
+          "lines_at_review": "70-74"
+        },
+        {
+          "path": "/workspace/scratch/5b4a2cf83fbf/Arz/src/arz/engine.py",
+          "lines_at_review": "85-86"
+        },
+        {
+          "path": "/workspace/scratch/5b4a2cf83fbf/Arz/scripts/run_research.py",
+          "lines_at_review": "26"
+        }
+      ],
+      "repro_function": "historical_completion_boundaries",
+      "observed": "With one-minute rows at 0, 60, 120, fetch_bars(before=120, now=180) returns all three; the last row only became complete at 180, after the intended frozen cutoff 120. Separately, run_backtest accepts year-2100 bars, and the new research runner reads CSV without a now/as-of completion bound. The backtest CLI's read_csv(..., now=time.time()) already demonstrates the correct boundary enforcement pattern.",
+      "effect": "A frozen historical rerun can admit information unavailable at its cutoff, and the reporting script can produce accepted results from future or incomplete CSV candles.",
+      "expected": "Dataset completion is validated against the experiment's explicit as-of bound at production entry points; synthetic timeless fixtures are an explicit separate testing mode.",
+      "fix": "For a frozen as-of request, parse at min(observed_at, requested_cutoff) and record that cutoff in provenance. Pass a current or frozen as-of into research CSV validation and the historical runner contract. Root independently identified the before-cutoff issue during this review; this finding confirms it rather than claiming novel discovery."
+    }
+  ],
+  "nonblocking_notes": [
+    {
+      "id": "ARZ-C01",
+      "priority": "P3",
+      "title": "Historical backtest can be labelled mode=paper",
+      "locations": [
+        {
+          "path": "/workspace/scratch/5b4a2cf83fbf/Arz/src/arz/engine.py",
+          "lines_at_review": "63, 85-90"
+        },
+        {
+          "path": "/workspace/scratch/5b4a2cf83fbf/Arz/src/arz/__main__.py",
+          "lines_at_review": "45-48"
+        }
+      ],
+      "repro_function": "historical_mode_mislabeled",
+      "observed": "run_backtest(..., Config(mode='paper'), Strategy('trend')) succeeds and reports mode='paper'.",
+      "effect": "The command remains a historical simulation, but downstream readers should not infer prospective observations from this mode field.",
+      "fix": "Reject incompatible command/config modes or add an explicit execution_kind='historical_backtest' and separate prospective evidence classification. A 'paper' label alone is never qualified L4 evidence."
+    }
+  ]
+}
