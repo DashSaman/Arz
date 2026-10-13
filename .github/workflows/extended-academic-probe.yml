@@ -1,0 +1,62 @@
+name: Academic DEX data schema probe
+on:
+  push:
+    branches: [research/2026-10-13-extended-validation]
+    paths: [.github/workflows/extended-academic-probe.yml]
+permissions:
+  contents: read
+jobs:
+  schema:
+    if: github.event.repository.private == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - name: Read academic dataset rights and bounded hourly file
+        run: |
+          python3 - <<'PY'
+          import urllib.request,json,hashlib,pathlib,re
+          def read(url,limit):
+              req=urllib.request.Request(url,headers={'User-Agent':'Arz-Research/0.2','Accept':'application/json'})
+              with urllib.request.urlopen(req,timeout=50) as r:
+                  b=r.read(limit+1)
+                  if len(b)>limit: raise ValueError('size bound exceeded')
+                  return b
+          try:
+              meta=json.loads(read('https://zenodo.org/api/records/17302324',1000000))
+              print('ACADEMIC_METADATA',json.dumps(meta.get('metadata',{})))
+              print('ACADEMIC_FILES',json.dumps(meta.get('files',[])))
+              licence=meta.get('metadata',{}).get('license',{})
+              ident=licence.get('id','')
+              if ident not in ('cc-by-4.0','cc0-1.0','cc-by-sa-4.0','cc-by-nc-4.0','cc-by-nc-sa-4.0'):
+                  print('ACADEMIC_GATE','Unresolved license; no dataset downloaded',json.dumps(licence))
+              else:
+                  selected=[f for f in meta['files'] if f.get('key')=='pool_hourly_data.parquet'][0]
+                  if selected.get('size',0)>20000000: raise ValueError('unexpected large file')
+                  raw=read('https://zenodo.org/records/17302324/files/pool_hourly_data.parquet?download=1',20000000)
+                  md5=hashlib.md5(raw).hexdigest()
+                  if md5!='650ae23ed014b819b843a537c7d79048': raise ValueError('published MD5 mismatch')
+                  pathlib.Path('pool_hourly_data.parquet').write_bytes(raw)
+                  print('ACADEMIC_DOWNLOAD',json.dumps({'bytes':len(raw),'md5':md5,'sha256':hashlib.sha256(raw).hexdigest(),'license':ident}))
+          except Exception as exc:
+              print('ACADEMIC_FAILURE',type(exc).__name__,str(exc))
+          PY
+      - name: Inspect only schema and temporal coverage
+        run: |
+          if [ -f pool_hourly_data.parquet ]; then
+            python3 -m venv /tmp/arz-parquet-reader
+            /tmp/arz-parquet-reader/bin/python -m pip install --only-binary=:all: --no-deps pyarrow==21.0.0
+            /tmp/arz-parquet-reader/bin/python - <<'PY'
+          import pyarrow.parquet as pq,pyarrow.compute as pc,json
+          p=pq.ParquetFile('pool_hourly_data.parquet')
+          print('ACADEMIC_SCHEMA',str(p.schema_arrow),'rows',p.metadata.num_rows,'rowgroups',p.metadata.num_row_groups)
+          table=p.read()
+          for name in table.column_names:
+              a=table[name]
+              if any(x in name.lower() for x in ('date','time','hour','pool','address','token')):
+                  try:
+                      unique=pc.unique(a)
+                      print('COLUMN_COVERAGE',json.dumps({'column':name,'type':str(a.type),'nulls':a.null_count,'distinct':len(unique),'min':str(pc.min(a).as_py()),'max':str(pc.max(a).as_py()),'values':unique.to_pylist() if len(unique)<80 else 'omitted'},default=str))
+                  except Exception as exc: print('COLUMN_INSPECTION',name,str(exc))
+          print('NO_STRATEGY_PERFORMANCE_COMPUTED')
+          PY
+          fi
