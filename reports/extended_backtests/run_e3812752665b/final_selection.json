@@ -1,0 +1,35 @@
+{
+  "diagnostic_candidates": [
+    {
+      "cap": 1,
+      "interval": 86400,
+      "strategy": "adaptive_sizing_v2"
+    },
+    {
+      "cap": 1,
+      "interval": 86400,
+      "strategy": "mean_reversion_v2"
+    },
+    {
+      "cap": 1,
+      "interval": 86400,
+      "strategy": "bollinger_v2"
+    }
+  ],
+  "live_trading": "DISABLED",
+  "qualified_paper_candidates": [],
+  "reasons": [
+    "Historical L1 discovery uses optimistic gas and unverified volume",
+    "No independently calibrated executable DEX quotes",
+    "Incomplete eligibility for user route",
+    "No sustained prospective observations"
+  ],
+  "status": "NO_GO_FOR_LIVE; QUALIFICATION_PENDING",
+  "unperformed": [
+    "1m/5m/15m history and >10 cap not justified by data/compute scope",
+    "statistical arbitrage multileg engine",
+    "upstream-engine equivalence benchmark",
+    "DSR and PBO: effective trial count and dependent return assumptions not established",
+    "future market probabilities not estimated as facts"
+  ]
+}

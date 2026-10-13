@@ -1,0 +1,56 @@
+[
+  {
+    "closed_trades": 2,
+    "days": 185,
+    "market": "academic_usdc",
+    "probabilities": null,
+    "reason": "At least 60 daily observations and 5 closed cycles required even for descriptive intervals",
+    "status": "INSUFFICIENT_SAMPLE",
+    "strategy": "adaptive_sizing_v2"
+  },
+  {
+    "closed_trades": 2,
+    "days": 185,
+    "market": "academic_usdt",
+    "probabilities": null,
+    "reason": "At least 60 daily observations and 5 closed cycles required even for descriptive intervals",
+    "status": "INSUFFICIENT_SAMPLE",
+    "strategy": "adaptive_sizing_v2"
+  },
+  {
+    "closed_trades": 1,
+    "days": 185,
+    "market": "academic_usdc",
+    "probabilities": null,
+    "reason": "At least 60 daily observations and 5 closed cycles required even for descriptive intervals",
+    "status": "INSUFFICIENT_SAMPLE",
+    "strategy": "mean_reversion_v2"
+  },
+  {
+    "closed_trades": 1,
+    "days": 185,
+    "market": "academic_usdt",
+    "probabilities": null,
+    "reason": "At least 60 daily observations and 5 closed cycles required even for descriptive intervals",
+    "status": "INSUFFICIENT_SAMPLE",
+    "strategy": "mean_reversion_v2"
+  },
+  {
+    "closed_trades": 0,
+    "days": 185,
+    "market": "academic_usdc",
+    "probabilities": null,
+    "reason": "At least 60 daily observations and 5 closed cycles required even for descriptive intervals",
+    "status": "INSUFFICIENT_SAMPLE",
+    "strategy": "bollinger_v2"
+  },
+  {
+    "closed_trades": 0,
+    "days": 185,
+    "market": "academic_usdt",
+    "probabilities": null,
+    "reason": "At least 60 daily observations and 5 closed cycles required even for descriptive intervals",
+    "status": "INSUFFICIENT_SAMPLE",
+    "strategy": "bollinger_v2"
+  }
+]

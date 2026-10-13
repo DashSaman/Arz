@@ -1,0 +1,27 @@
+id,family,version,fast,slow,lookback,momentum_bars,momentum_threshold,z_entry,tranches,atr_multiplier,ml_probability,allocation,warmup_bars,interpretation
+trend_v1,trend,1,12,48,24,12,0.02,1.5,2,2.0,0.55,0.2,72,fixed research hypothesis; not a proven strategy
+trend_v2,trend,2,24,72,48,24,0.03,2.0,4,3.0,0.6,0.2,72,fixed research hypothesis; not a proven strategy
+momentum_v1,momentum,1,12,48,24,12,0.02,1.5,2,2.0,0.55,0.2,72,fixed research hypothesis; not a proven strategy
+momentum_v2,momentum,2,24,72,48,24,0.03,2.0,4,3.0,0.6,0.2,72,fixed research hypothesis; not a proven strategy
+mean_reversion_v1,mean_reversion,1,12,48,24,12,0.02,1.5,2,2.0,0.55,0.2,72,fixed research hypothesis; not a proven strategy
+mean_reversion_v2,mean_reversion,2,24,72,48,24,0.03,2.0,4,3.0,0.6,0.2,72,fixed research hypothesis; not a proven strategy
+grid_v1,grid,1,12,48,24,12,0.02,1.5,2,2.0,0.55,0.2,72,fixed research hypothesis; not a proven strategy
+grid_v2,grid,2,24,72,48,24,0.03,2.0,4,3.0,0.6,0.2,72,fixed research hypothesis; not a proven strategy
+volatility_breakout_v1,volatility_breakout,1,12,48,24,12,0.02,1.5,2,2.0,0.55,0.2,72,fixed research hypothesis; not a proven strategy
+volatility_breakout_v2,volatility_breakout,2,24,72,48,24,0.03,2.0,4,3.0,0.6,0.2,72,fixed research hypothesis; not a proven strategy
+adaptive_sizing_v1,adaptive_sizing,1,12,48,24,12,0.02,1.5,2,2.0,0.55,0.2,72,fixed research hypothesis; not a proven strategy
+adaptive_sizing_v2,adaptive_sizing,2,24,72,48,24,0.03,2.0,4,3.0,0.6,0.2,72,fixed research hypothesis; not a proven strategy
+multi_timeframe_v1,multi_timeframe,1,12,48,24,12,0.02,1.5,2,2.0,0.55,0.2,72,fixed research hypothesis; not a proven strategy
+multi_timeframe_v2,multi_timeframe,2,24,72,48,24,0.03,2.0,4,3.0,0.6,0.2,72,fixed research hypothesis; not a proven strategy
+ema_rsi_macd_v1,ema_rsi_macd,1,12,48,24,12,0.02,1.5,2,2.0,0.55,0.2,72,fixed research hypothesis; not a proven strategy
+ema_rsi_macd_v2,ema_rsi_macd,2,24,72,48,24,0.03,2.0,4,3.0,0.6,0.2,72,fixed research hypothesis; not a proven strategy
+bollinger_v1,bollinger,1,12,48,24,12,0.02,1.5,2,2.0,0.55,0.2,72,fixed research hypothesis; not a proven strategy
+bollinger_v2,bollinger,2,24,72,48,24,0.03,2.0,4,3.0,0.6,0.2,72,fixed research hypothesis; not a proven strategy
+atr_channel_v1,atr_channel,1,12,48,24,12,0.02,1.5,2,2.0,0.55,0.2,72,fixed research hypothesis; not a proven strategy
+atr_channel_v2,atr_channel,2,24,72,48,24,0.03,2.0,4,3.0,0.6,0.2,72,fixed research hypothesis; not a proven strategy
+volatility_regime_v1,volatility_regime,1,12,48,24,12,0.02,1.5,2,2.0,0.55,0.2,72,fixed research hypothesis; not a proven strategy
+volatility_regime_v2,volatility_regime,2,24,72,48,24,0.03,2.0,4,3.0,0.6,0.2,72,fixed research hypothesis; not a proven strategy
+ml_filter_v1,ml_filter,1,12,48,24,12,0.02,1.5,2,2.0,0.55,0.2,72,fixed research hypothesis; not a proven strategy
+ml_filter_v2,ml_filter,2,24,72,48,24,0.03,2.0,4,3.0,0.6,0.2,72,fixed research hypothesis; not a proven strategy
+ensemble_v1,ensemble,1,12,48,24,12,0.02,1.5,2,2.0,0.55,0.2,72,fixed research hypothesis; not a proven strategy
+ensemble_v2,ensemble,2,24,72,48,24,0.03,2.0,4,3.0,0.6,0.2,72,fixed research hypothesis; not a proven strategy

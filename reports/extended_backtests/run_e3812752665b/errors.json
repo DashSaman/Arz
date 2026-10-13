@@ -1,0 +1,12 @@
+[
+  {
+    "error": "Gap, duplicate, or unordered candle",
+    "market": "base_weth",
+    "stage": "recent_acquisition"
+  },
+  {
+    "error": "HTTP Error 429: Too Many Requests",
+    "market": "solana_sol",
+    "stage": "recent_acquisition"
+  }
+]
