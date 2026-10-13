@@ -1,0 +1,839 @@
+{
+  "source": "https://zenodo.org/records/17302324/files/pool_hourly_data.parquet?download=1",
+  "sha256": "ed88166e388b3acf000783c354ba5888434f4c22a50c8e120cd8a6bb3dbdc58f",
+  "source_rows": 276869,
+  "columns": [
+    "periodStartUnix",
+    "close",
+    "open",
+    "high",
+    "low",
+    "feesUSD",
+    "tvlUSD",
+    "txCount",
+    "volumeToken0",
+    "volumeToken1",
+    "feeTier",
+    "poolId",
+    "token0_id",
+    "token0_symbol",
+    "token1_id",
+    "token1_symbol",
+    "pool_name",
+    "missing"
+  ],
+  "pools": [
+    {
+      "rows": 27668,
+      "zero_token_volume_rows": 25156,
+      "zero_token_volume_price_change_rows": 25119,
+      "zero_token_volume_positive_event_count_rows": 25156,
+      "event_count_unknown_rows": 0,
+      "positive_token_volume_rows": 2512,
+      "usd_volume_unknown_rows": 27668,
+      "zero_usd_but_positive_token_volume_rows": 0,
+      "first_positive_token_volume_ts": 1710864000,
+      "last_positive_token_volume_ts": 1719903600,
+      "zero_means_no_trades": false,
+      "contradiction_examples": [
+        {
+          "ts": 1620255600,
+          "open": 0.0002852654570726216,
+          "high": 0.00028596110469325596,
+          "low": 0.00028369621770358845,
+          "close": 0.0002838254708979646,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 15.0
+        },
+        {
+          "ts": 1620259200,
+          "open": 0.000283922832074478,
+          "high": 0.0002879730983003829,
+          "low": 0.000283922832074478,
+          "close": 0.0002879730983003829,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 8.0
+        },
+        {
+          "ts": 1620262800,
+          "open": 0.0002873037492906544,
+          "high": 0.0002900174864286304,
+          "low": 0.0002873037492906544,
+          "close": 0.00028796012426942616,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 11.0
+        },
+        {
+          "ts": 1620266400,
+          "open": 0.00028796012426942616,
+          "high": 0.0002891423001418616,
+          "low": 0.0002840759177302418,
+          "close": 0.00028484476107557927,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 20.0
+        },
+        {
+          "ts": 1620270000,
+          "open": 0.00028521517237726916,
+          "high": 0.00029084573305082634,
+          "low": 0.00028521517237726916,
+          "close": 0.0002875415426684428,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 27.0
+        }
+      ],
+      "interpretation": "Nonzero event count is not necessarily a swap. Price movement with zero token volume is inconsistent with treating the record as a certified no-trade interval.",
+      "pool": "0x11b815efb8f581194ae79006d24e0d814b7697f6",
+      "source_rows": 27683,
+      "invalid_rows": {
+        "nonpositive_or_inconsistent_ohlc": 2,
+        "provider_marked_missing": 13
+      },
+      "symbols": [
+        "WETH",
+        "USDT"
+      ]
+    },
+    {
+      "rows": 27351,
+      "zero_token_volume_rows": 24884,
+      "zero_token_volume_price_change_rows": 24072,
+      "zero_token_volume_positive_event_count_rows": 24884,
+      "event_count_unknown_rows": 0,
+      "positive_token_volume_rows": 2467,
+      "usd_volume_unknown_rows": 27351,
+      "zero_usd_but_positive_token_volume_rows": 0,
+      "first_positive_token_volume_ts": 1710864000,
+      "last_positive_token_volume_ts": 1719903600,
+      "zero_means_no_trades": false,
+      "contradiction_examples": [
+        {
+          "ts": 1620248400,
+          "open": 4389.605800861695,
+          "high": 4389.605800861695,
+          "low": 4275.033305729328,
+          "close": 4275.033305729328,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 19.0
+        },
+        {
+          "ts": 1620252000,
+          "open": 4306.0151589851885,
+          "high": 4306.0151589851885,
+          "low": 4175.033304211435,
+          "close": 4194.76393724297,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 17.0
+        },
+        {
+          "ts": 1620255600,
+          "open": 4190.325843285683,
+          "high": 4310.273799083561,
+          "low": 4188.900760797274,
+          "close": 4309.020629767363,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 10.0
+        },
+        {
+          "ts": 1620259200,
+          "open": 4310.213125428306,
+          "high": 4310.213125428306,
+          "low": 4225.3365072266815,
+          "close": 4268.379958171668,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 6.0
+        },
+        {
+          "ts": 1620262800,
+          "open": 4292.148489299058,
+          "high": 4448.860176431134,
+          "low": 4267.951443737963,
+          "close": 4447.081195091445,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 13.0
+        }
+      ],
+      "interpretation": "Nonzero event count is not necessarily a swap. Price movement with zero token volume is inconsistent with treating the record as a certified no-trade interval.",
+      "pool": "0x290a6a7460b308ee3f19023d2d00de604bcf5b42",
+      "source_rows": 27684,
+      "invalid_rows": {
+        "nonpositive_or_inconsistent_ohlc": 1,
+        "provider_marked_missing": 332
+      },
+      "symbols": [
+        "MATIC",
+        "WETH"
+      ]
+    },
+    {
+      "rows": 27403,
+      "zero_token_volume_rows": 24906,
+      "zero_token_volume_price_change_rows": 24224,
+      "zero_token_volume_positive_event_count_rows": 24906,
+      "event_count_unknown_rows": 0,
+      "positive_token_volume_rows": 2497,
+      "usd_volume_unknown_rows": 27403,
+      "zero_usd_but_positive_token_volume_rows": 0,
+      "first_positive_token_volume_ts": 1710864000,
+      "last_positive_token_volume_ts": 1719900000,
+      "zero_means_no_trades": false,
+      "contradiction_examples": [
+        {
+          "ts": 1620385200,
+          "open": 3.4025678654032522e+38,
+          "high": 3.4025678654032522e+38,
+          "low": 1436654051.7431376,
+          "close": 1436654051.7431376,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 4.0
+        },
+        {
+          "ts": 1620396000,
+          "open": 1436414664.8655508,
+          "high": 1436414664.8655508,
+          "low": 1436315361.5867553,
+          "close": 1436315361.5867553,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 4.0
+        },
+        {
+          "ts": 1620399600,
+          "open": 1413733350.2773292,
+          "high": 1413733350.2773292,
+          "low": 1411404310.1105888,
+          "close": 1411404310.1105888,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 4.0
+        },
+        {
+          "ts": 1620403200,
+          "open": 1294960808.0655246,
+          "high": 1294960808.0655246,
+          "low": 1118302168.762892,
+          "close": 1168786536.6256673,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 9.0
+        },
+        {
+          "ts": 1620406800,
+          "open": 1345437433.1994174,
+          "high": 1370825186.013425,
+          "low": 1174820281.250782,
+          "close": 1232864778.8631623,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 45.0
+        }
+      ],
+      "interpretation": "Nonzero event count is not necessarily a swap. Price movement with zero token volume is inconsistent with treating the record as a certified no-trade interval.",
+      "pool": "0x2f62f2b4c5fcd7570a709dec05d68ea19c82a9ec",
+      "source_rows": 27684,
+      "invalid_rows": {
+        "nonpositive_or_inconsistent_ohlc": 2,
+        "provider_marked_missing": 279
+      },
+      "symbols": [
+        "SHIB",
+        "WETH"
+      ]
+    },
+    {
+      "rows": 27464,
+      "zero_token_volume_rows": 24952,
+      "zero_token_volume_price_change_rows": 24819,
+      "zero_token_volume_positive_event_count_rows": 24952,
+      "event_count_unknown_rows": 0,
+      "positive_token_volume_rows": 2512,
+      "usd_volume_unknown_rows": 27464,
+      "zero_usd_but_positive_token_volume_rows": 0,
+      "first_positive_token_volume_ts": 1710864000,
+      "last_positive_token_volume_ts": 1719903600,
+      "zero_means_no_trades": false,
+      "contradiction_examples": [
+        {
+          "ts": 1620313200,
+          "open": 0.06006588566766787,
+          "high": 0.060942289670801834,
+          "low": 0.06006588566766787,
+          "close": 0.060942289670801834,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 5.0
+        },
+        {
+          "ts": 1620342000,
+          "open": 0.06217639745133971,
+          "high": 0.06217639745133971,
+          "low": 0.06203743019377816,
+          "close": 0.06203743019377816,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 2.0
+        },
+        {
+          "ts": 1620349200,
+          "open": 0.06203743019377816,
+          "high": 0.06203743019377816,
+          "low": 0.06198576955891866,
+          "close": 0.06198576955891866,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 2.0
+        },
+        {
+          "ts": 1620352800,
+          "open": 0.061921284459316946,
+          "high": 0.061921284459316946,
+          "low": 0.06153647864941951,
+          "close": 0.06153647864941951,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 3.0
+        },
+        {
+          "ts": 1620356400,
+          "open": 0.061744124192286684,
+          "high": 0.061744124192286684,
+          "low": 0.06168001571046421,
+          "close": 0.06168001571046421,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 2.0
+        }
+      ],
+      "interpretation": "Nonzero event count is not necessarily a swap. Price movement with zero token volume is inconsistent with treating the record as a certified no-trade interval.",
+      "pool": "0x4585fe77225b41b697c938b018e2ac67ac5a20c0",
+      "source_rows": 27684,
+      "invalid_rows": {
+        "nonpositive_or_inconsistent_ohlc": 1,
+        "provider_marked_missing": 219
+      },
+      "symbols": [
+        "WBTC",
+        "WETH"
+      ]
+    },
+    {
+      "rows": 27591,
+      "zero_token_volume_rows": 25084,
+      "zero_token_volume_price_change_rows": 24738,
+      "zero_token_volume_positive_event_count_rows": 25084,
+      "event_count_unknown_rows": 0,
+      "positive_token_volume_rows": 2507,
+      "usd_volume_unknown_rows": 27591,
+      "zero_usd_but_positive_token_volume_rows": 0,
+      "first_positive_token_volume_ts": 1710864000,
+      "last_positive_token_volume_ts": 1719903600,
+      "zero_means_no_trades": false,
+      "contradiction_examples": [
+        {
+          "ts": 1620237600,
+          "open": 0.00029851338527026895,
+          "high": 0.0002985543653452788,
+          "low": 0.0002847714331908359,
+          "close": 0.00029230747163280806,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 14.0
+        },
+        {
+          "ts": 1620241200,
+          "open": 0.0002932237860680583,
+          "high": 0.0002941415344705772,
+          "low": 0.0002857756766796495,
+          "close": 0.00028868791171133434,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 32.0
+        },
+        {
+          "ts": 1620244800,
+          "open": 0.00028882013992492637,
+          "high": 0.000290564140205389,
+          "low": 0.0002883962198885244,
+          "close": 0.00028912077269710034,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 36.0
+        },
+        {
+          "ts": 1620248400,
+          "open": 0.0002885248621914809,
+          "high": 0.0002912289001863756,
+          "low": 0.0002881592807900437,
+          "close": 0.00029120357646270594,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 56.0
+        },
+        {
+          "ts": 1620252000,
+          "open": 0.00029112146812245376,
+          "high": 0.00029331227485700597,
+          "low": 0.00028402178593647,
+          "close": 0.0002849464474640665,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 43.0
+        }
+      ],
+      "interpretation": "Nonzero event count is not necessarily a swap. Price movement with zero token volume is inconsistent with treating the record as a certified no-trade interval.",
+      "pool": "0x4e68ccd3e89f51c3074ca5072bbac773960dfa36",
+      "source_rows": 27688,
+      "invalid_rows": {
+        "nonpositive_or_inconsistent_ohlc": 2,
+        "provider_marked_missing": 95
+      },
+      "symbols": [
+        "WETH",
+        "USDT"
+      ]
+    },
+    {
+      "rows": 27612,
+      "zero_token_volume_rows": 25100,
+      "zero_token_volume_price_change_rows": 25049,
+      "zero_token_volume_positive_event_count_rows": 25100,
+      "event_count_unknown_rows": 0,
+      "positive_token_volume_rows": 2512,
+      "usd_volume_unknown_rows": 27612,
+      "zero_usd_but_positive_token_volume_rows": 0,
+      "first_positive_token_volume_ts": 1710864000,
+      "last_positive_token_volume_ts": 1719903600,
+      "zero_means_no_trades": false,
+      "contradiction_examples": [
+        {
+          "ts": 1620241200,
+          "open": 3396.0620256516027,
+          "high": 3451.9937998154164,
+          "low": 3396.0620256516027,
+          "close": 3451.9937998154164,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 3.0
+        },
+        {
+          "ts": 1620244800,
+          "open": 3235.400770795069,
+          "high": 3423.207704177051,
+          "low": 3235.400770795069,
+          "close": 3423.207704177051,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 3.0
+        },
+        {
+          "ts": 1620248400,
+          "open": 3479.5108757687117,
+          "high": 3479.5108757687117,
+          "low": 3478.335726642514,
+          "close": 3478.335726642514,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 4.0
+        },
+        {
+          "ts": 1620252000,
+          "open": 3419.7120534069977,
+          "high": 3508.725236380792,
+          "low": 3419.7120534069977,
+          "close": 3508.725236380792,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 11.0
+        },
+        {
+          "ts": 1620255600,
+          "open": 3508.0272387548193,
+          "high": 3534.6000103969627,
+          "low": 3420.4490300641523,
+          "close": 3513.794261842188,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 40.0
+        }
+      ],
+      "interpretation": "Nonzero event count is not necessarily a swap. Price movement with zero token volume is inconsistent with treating the record as a certified no-trade interval.",
+      "pool": "0x60594a405d53811d3bc4766596efd80fd545a270",
+      "source_rows": 27686,
+      "invalid_rows": {
+        "nonpositive_or_inconsistent_ohlc": 1,
+        "provider_marked_missing": 73
+      },
+      "symbols": [
+        "DAI",
+        "WETH"
+      ]
+    },
+    {
+      "rows": 27682,
+      "zero_token_volume_rows": 25170,
+      "zero_token_volume_price_change_rows": 25165,
+      "zero_token_volume_positive_event_count_rows": 25170,
+      "event_count_unknown_rows": 0,
+      "positive_token_volume_rows": 2512,
+      "usd_volume_unknown_rows": 27682,
+      "zero_usd_but_positive_token_volume_rows": 0,
+      "first_positive_token_volume_ts": 1710864000,
+      "last_positive_token_volume_ts": 1719903600,
+      "zero_means_no_trades": false,
+      "contradiction_examples": [
+        {
+          "ts": 1620255600,
+          "open": 3402.7291891218792,
+          "high": 3525.67309786757,
+          "low": 3402.7291891218792,
+          "close": 3496.203173435439,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 8.0
+        },
+        {
+          "ts": 1620259200,
+          "open": 3519.716693090278,
+          "high": 3542.6081140620886,
+          "low": 3480.198578839455,
+          "close": 3480.198578839455,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 10.0
+        },
+        {
+          "ts": 1620262800,
+          "open": 3467.204859342912,
+          "high": 3503.4868774733022,
+          "low": 3454.7349857158047,
+          "close": 3503.4868774733022,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 33.0
+        },
+        {
+          "ts": 1620266400,
+          "open": 3497.480495786044,
+          "high": 3497.480495786044,
+          "low": 3462.319576603848,
+          "close": 3487.077996950475,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 23.0
+        },
+        {
+          "ts": 1620270000,
+          "open": 3487.077996950475,
+          "high": 3498.5360288136344,
+          "low": 3462.020686336134,
+          "close": 3471.2345984564768,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 18.0
+        }
+      ],
+      "interpretation": "Nonzero event count is not necessarily a swap. Price movement with zero token volume is inconsistent with treating the record as a certified no-trade interval.",
+      "pool": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
+      "source_rows": 27683,
+      "invalid_rows": {
+        "nonpositive_or_inconsistent_ohlc": 1
+      },
+      "symbols": [
+        "USDC",
+        "WETH"
+      ]
+    },
+    {
+      "rows": 27347,
+      "zero_token_volume_rows": 24901,
+      "zero_token_volume_price_change_rows": 23814,
+      "zero_token_volume_positive_event_count_rows": 24901,
+      "event_count_unknown_rows": 0,
+      "positive_token_volume_rows": 2446,
+      "usd_volume_unknown_rows": 27347,
+      "zero_usd_but_positive_token_volume_rows": 0,
+      "first_positive_token_volume_ts": 1710864000,
+      "last_positive_token_volume_ts": 1719903600,
+      "zero_means_no_trades": false,
+      "contradiction_examples": [
+        {
+          "ts": 1620237600,
+          "open": 3343.2195612403298,
+          "high": 3430.038479353269,
+          "low": 3343.21737846675,
+          "close": 3405.6810048057782,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 24.0
+        },
+        {
+          "ts": 1620241200,
+          "open": 3402.760456324859,
+          "high": 3476.818114418331,
+          "low": 3396.9102812866977,
+          "close": 3430.298756668493,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 72.0
+        },
+        {
+          "ts": 1620244800,
+          "open": 3433.766234958909,
+          "high": 3481.5299242220235,
+          "low": 3424.2127486423915,
+          "close": 3459.168469356895,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 54.0
+        },
+        {
+          "ts": 1620248400,
+          "open": 3457.640120246893,
+          "high": 3465.6710531267563,
+          "low": 3422.669713626441,
+          "close": 3422.669713626441,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 69.0
+        },
+        {
+          "ts": 1620252000,
+          "open": 3422.605954952646,
+          "high": 3528.6965846109615,
+          "low": 3422.060536894076,
+          "close": 3507.6067432610052,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 57.0
+        }
+      ],
+      "interpretation": "Nonzero event count is not necessarily a swap. Price movement with zero token volume is inconsistent with treating the record as a certified no-trade interval.",
+      "pool": "0x8ad599c3a0ff1de082011efddc58f1908eb6e6d8",
+      "source_rows": 27705,
+      "invalid_rows": {
+        "nonpositive_or_inconsistent_ohlc": 1,
+        "provider_marked_missing": 357
+      },
+      "symbols": [
+        "USDC",
+        "WETH"
+      ]
+    },
+    {
+      "rows": 27125,
+      "zero_token_volume_rows": 25027,
+      "zero_token_volume_price_change_rows": 24616,
+      "zero_token_volume_positive_event_count_rows": 25027,
+      "event_count_unknown_rows": 0,
+      "positive_token_volume_rows": 2098,
+      "usd_volume_unknown_rows": 27125,
+      "zero_usd_but_positive_token_volume_rows": 0,
+      "first_positive_token_volume_ts": 1710864000,
+      "last_positive_token_volume_ts": 1719903600,
+      "zero_means_no_trades": false,
+      "contradiction_examples": [
+        {
+          "ts": 1620244800,
+          "open": 118872.49562556113,
+          "high": 118872.49562556113,
+          "low": 116249.0032378722,
+          "close": 116249.0032378722,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 11.0
+        },
+        {
+          "ts": 1620248400,
+          "open": 116249.0032378722,
+          "high": 118131.92994542498,
+          "low": 114675.93036776957,
+          "close": 118131.92994542498,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 17.0
+        },
+        {
+          "ts": 1620252000,
+          "open": 118131.92994542498,
+          "high": 121111.76054424816,
+          "low": 118131.92994542498,
+          "close": 121111.76054424816,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 8.0
+        },
+        {
+          "ts": 1620255600,
+          "open": 121515.91874906147,
+          "high": 121515.91874906147,
+          "low": 121201.46246857569,
+          "close": 121250.95398071708,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 5.0
+        },
+        {
+          "ts": 1620259200,
+          "open": 121250.95398071708,
+          "high": 121250.95398071708,
+          "low": 120905.39871406241,
+          "close": 120905.39871406241,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 4.0
+        }
+      ],
+      "interpretation": "Nonzero event count is not necessarily a swap. Price movement with zero token volume is inconsistent with treating the record as a certified no-trade interval.",
+      "pool": "0x9e0905249ceefffb9605e034b534544684a58be6",
+      "source_rows": 27685,
+      "invalid_rows": {
+        "nonpositive_or_inconsistent_ohlc": 1,
+        "provider_marked_missing": 559
+      },
+      "symbols": [
+        "HEX",
+        "WETH"
+      ]
+    },
+    {
+      "rows": 27359,
+      "zero_token_volume_rows": 24887,
+      "zero_token_volume_price_change_rows": 23949,
+      "zero_token_volume_positive_event_count_rows": 24887,
+      "event_count_unknown_rows": 0,
+      "positive_token_volume_rows": 2472,
+      "usd_volume_unknown_rows": 27359,
+      "zero_usd_but_positive_token_volume_rows": 0,
+      "first_positive_token_volume_ts": 1710864000,
+      "last_positive_token_volume_ts": 1719903600,
+      "zero_means_no_trades": false,
+      "contradiction_examples": [
+        {
+          "ts": 1620255600,
+          "open": 3.4025678654032522e+38,
+          "high": 3.4025678654032522e+38,
+          "low": 69.07223509245925,
+          "close": 69.33020890763449,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 6.0
+        },
+        {
+          "ts": 1620259200,
+          "open": 69.33020890763449,
+          "high": 72.20152946686409,
+          "low": 69.33020890763449,
+          "close": 72.10546862773928,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 8.0
+        },
+        {
+          "ts": 1620266400,
+          "open": 72.10546862773928,
+          "high": 73.7516150746988,
+          "low": 72.10546862773928,
+          "close": 72.59629435963802,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 8.0
+        },
+        {
+          "ts": 1620270000,
+          "open": 72.59629435963802,
+          "high": 72.59629435963802,
+          "low": 72.58368305047675,
+          "close": 72.58368305047675,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 9.0
+        },
+        {
+          "ts": 1620273600,
+          "open": 72.76440901735947,
+          "high": 73.23000424496973,
+          "low": 72.73893079863458,
+          "close": 72.99152747031465,
+          "volume0": 0.0,
+          "volume1": 0.0,
+          "volume_usd": null,
+          "tx_count": 6.0
+        }
+      ],
+      "interpretation": "Nonzero event count is not necessarily a swap. Price movement with zero token volume is inconsistent with treating the record as a certified no-trade interval.",
+      "pool": "0xa6cc3c2531fdaa6ae1a3ca84c2855806728693e8",
+      "source_rows": 27687,
+      "invalid_rows": {
+        "nonpositive_or_inconsistent_ohlc": 2,
+        "provider_marked_missing": 326
+      },
+      "symbols": [
+        "LINK",
+        "WETH"
+      ]
+    }
+  ],
+  "license": "CC-BY-4.0",
+  "attribution": "Zhou, Liu & Brini (2025), doi:10.5281/zenodo.17302324",
+  "correction": "Prior diagnostic assumed absent volumeUSD; unknown is now preserved. Do not use prior zero-row profiles."
+}

@@ -1,0 +1,28 @@
+{
+  "started_at": "2026-10-13T12:48:54.128063+00:00",
+  "finished_at": "2026-10-13T12:49:41.238028+00:00",
+  "code_commit": "ba0874428e9ba1eee9914afef58437097bf69f4b",
+  "github_run_id": "38400053488",
+  "unique_cases": 464,
+  "new_simulations": 232,
+  "reused_completed_simulations": 232,
+  "network_bytes": 14313055,
+  "file_sha256": {
+    "summary.csv": "b0e7c13ede5af0de434088d95accc52121e8c14d8fc41615a7196784c25ef132",
+    "software_tests.json": "0c6360190dc0c61663317275ecde9ac168481de8db37e2a84a432dd154a4e557",
+    "data_forensics.json": "aa760aa7d6fb9cb8d679de98a2d938499b6ff8abf35dce107db8342f0a16aa2b",
+    "ledgers.jsonl.gz": "45515d4ac32759a83b302e1685577e9babacfe137079264f9bb72333085773ab",
+    "onchain_crosscheck.json": "e5322e74e80fa3cf9b4e4618392f1942bedc29dbe0d8f5fb359b3e1d552362c0",
+    "source_requests.json": "b8b11d0aee9055a1cd47813a601998b8c4c21398308c4b142ee13474a4f231bb",
+    "software_tests.txt": "8c235dbb787e4e8a0c6df8972c1cee48a00745d874bd251a300f1c66b73c766e",
+    "recovery_scope.json": "932b790b0038a9869068ba8ebee9c1407c568b7a6f529a8d28d41afd27b96cb7",
+    "skipped.json": "793af3fbd7a9da5f71f2a1b326db9fc2b506c641452e4e47c6dcbbde9681401f",
+    "errors.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "brief.json": "869b56e55b35005e38e6dde6f963b93fff54fe32160425a4cda264b68491323e",
+    "digest.json": "d8098c563556b16a770348824e0caef283d8f85808af8b1d7b295291b9b948cf",
+    "coverage.json": "fcb71c66e587f4931e65d743be93f165446194f6caf72bf4d1204dc40014cf75",
+    "frequency_effect.json": "a7ba84c2f1a22d6543bf4e09d66114d839186a01b4e046b3ab08ec142a3cb127"
+  },
+  "errors": [],
+  "live_trading": "DISABLED"
+}
