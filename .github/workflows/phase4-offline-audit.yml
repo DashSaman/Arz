@@ -1,0 +1,40 @@
+name: Phase 4 offline final evidence audit
+on:
+  push:
+    branches: [research/2026-10-13-phase4-exact-quotes]
+    paths: [.github/workflows/phase4-offline-audit.yml]
+permissions:
+  contents: write
+jobs:
+  audit:
+    if: github.repository == 'DashSaman/Arz' && github.event.repository.private == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      PYTHONPATH: src
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Isolated full software verification without market requests
+        run: |
+          root="reports/extended_backtests/run_phase4audit_${GITHUB_SHA:0:12}"
+          mkdir -p "$root"
+          python3 -m venv .phase4-audit-venv
+          .phase4-audit-venv/bin/python scripts/verify_repository.py --output-dir "$root/verification"
+          cat "$root/verification/latest.json"
+      - name: Recompute saved quote evidence and all recorded file hashes
+        run: |
+          root="reports/extended_backtests/run_phase4audit_${GITHUB_SHA:0:12}"
+          .phase4-audit-venv/bin/python -m arz_phase4_audit reports/extended_backtests/run_phase4_933b688aec3d --output "$root/offline_quote_audit.json"
+      - name: Publish bounded offline evidence with concurrency lease
+        if: always()
+        env:
+          GH_RESEARCH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          root="reports/extended_backtests/run_phase4audit_${GITHUB_SHA:0:12}"
+          if [ -f "$root/verification/latest.json" ]; then
+            python3 -c "import sys;sys.path.insert(0,'scripts');import publish_extended as p;p.BRANCH='research/2026-10-13-phase4-exact-quotes';p.main()" --reports "$root"
+          fi
