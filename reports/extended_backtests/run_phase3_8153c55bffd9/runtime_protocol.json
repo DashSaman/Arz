@@ -1,0 +1,17 @@
+{
+  "recorded_before_data_and_results": "2026-10-13T12:35:02.245202+00:00",
+  "code_commit": "8153c55bffd99e6bac52ffcc12d55e31d9ea6583",
+  "parent_preregistration": "1fa32deae33a57b280f20cf07983048fc4c03bc3",
+  "window": [
+    1625097600,
+    1640995200
+  ],
+  "max_variants": 4,
+  "max_runs": 700,
+  "no_selection_or_optimization": true,
+  "primary_scope": "Previously unused 2021 fixed-rule backward transfer; not future OOS",
+  "matrix": "4 variants x 2 markets x up to3 timeframes x 4 attempt caps x4 costs; no ranking-based selection",
+  "extra_cases": "9 explicit stresses at cap5, nested 180d descriptive, four withdrawals at 4h, costed B&H",
+  "live_trading": "DISABLED",
+  "execution_validated_result_requires_independent_quotes": true
+}

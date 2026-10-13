@@ -1,0 +1,6 @@
+[
+  {
+    "type": "ValueError",
+    "message": "Gap, duplicate, or unordered candle"
+  }
+]

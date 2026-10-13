@@ -1,0 +1,269 @@
+{
+  "source_rows": 276869,
+  "columns": [
+    "periodStartUnix",
+    "close",
+    "open",
+    "high",
+    "low",
+    "feesUSD",
+    "tvlUSD",
+    "txCount",
+    "volumeToken0",
+    "volumeToken1",
+    "feeTier",
+    "poolId",
+    "token0_id",
+    "token0_symbol",
+    "token1_id",
+    "token1_symbol",
+    "pool_name",
+    "missing"
+  ],
+  "pools": [
+    {
+      "rows": 0,
+      "zero_token_volume_rows": 0,
+      "zero_token_volume_price_change_rows": 0,
+      "zero_token_volume_positive_event_count_rows": 0,
+      "event_count_unknown_rows": 0,
+      "positive_token_volume_rows": 0,
+      "zero_usd_but_positive_token_volume_rows": 0,
+      "first_positive_token_volume_ts": null,
+      "last_positive_token_volume_ts": null,
+      "zero_means_no_trades": false,
+      "contradiction_examples": [],
+      "interpretation": "Nonzero event count is not necessarily a swap. Price movement with zero token volume is inconsistent with treating the record as a certified no-trade interval.",
+      "pool": "0x11b815efb8f581194ae79006d24e0d814b7697f6",
+      "source_rows": 27683,
+      "invalid_rows": {
+        "KeyError:'volumeUSD'": 27670,
+        "provider_marked_missing": 13
+      },
+      "symbols": [
+        "WETH",
+        "USDT"
+      ]
+    },
+    {
+      "rows": 0,
+      "zero_token_volume_rows": 0,
+      "zero_token_volume_price_change_rows": 0,
+      "zero_token_volume_positive_event_count_rows": 0,
+      "event_count_unknown_rows": 0,
+      "positive_token_volume_rows": 0,
+      "zero_usd_but_positive_token_volume_rows": 0,
+      "first_positive_token_volume_ts": null,
+      "last_positive_token_volume_ts": null,
+      "zero_means_no_trades": false,
+      "contradiction_examples": [],
+      "interpretation": "Nonzero event count is not necessarily a swap. Price movement with zero token volume is inconsistent with treating the record as a certified no-trade interval.",
+      "pool": "0x290a6a7460b308ee3f19023d2d00de604bcf5b42",
+      "source_rows": 27684,
+      "invalid_rows": {
+        "KeyError:'volumeUSD'": 27352,
+        "provider_marked_missing": 332
+      },
+      "symbols": [
+        "MATIC",
+        "WETH"
+      ]
+    },
+    {
+      "rows": 0,
+      "zero_token_volume_rows": 0,
+      "zero_token_volume_price_change_rows": 0,
+      "zero_token_volume_positive_event_count_rows": 0,
+      "event_count_unknown_rows": 0,
+      "positive_token_volume_rows": 0,
+      "zero_usd_but_positive_token_volume_rows": 0,
+      "first_positive_token_volume_ts": null,
+      "last_positive_token_volume_ts": null,
+      "zero_means_no_trades": false,
+      "contradiction_examples": [],
+      "interpretation": "Nonzero event count is not necessarily a swap. Price movement with zero token volume is inconsistent with treating the record as a certified no-trade interval.",
+      "pool": "0x2f62f2b4c5fcd7570a709dec05d68ea19c82a9ec",
+      "source_rows": 27684,
+      "invalid_rows": {
+        "KeyError:'volumeUSD'": 27405,
+        "provider_marked_missing": 279
+      },
+      "symbols": [
+        "SHIB",
+        "WETH"
+      ]
+    },
+    {
+      "rows": 0,
+      "zero_token_volume_rows": 0,
+      "zero_token_volume_price_change_rows": 0,
+      "zero_token_volume_positive_event_count_rows": 0,
+      "event_count_unknown_rows": 0,
+      "positive_token_volume_rows": 0,
+      "zero_usd_but_positive_token_volume_rows": 0,
+      "first_positive_token_volume_ts": null,
+      "last_positive_token_volume_ts": null,
+      "zero_means_no_trades": false,
+      "contradiction_examples": [],
+      "interpretation": "Nonzero event count is not necessarily a swap. Price movement with zero token volume is inconsistent with treating the record as a certified no-trade interval.",
+      "pool": "0x4585fe77225b41b697c938b018e2ac67ac5a20c0",
+      "source_rows": 27684,
+      "invalid_rows": {
+        "KeyError:'volumeUSD'": 27465,
+        "provider_marked_missing": 219
+      },
+      "symbols": [
+        "WBTC",
+        "WETH"
+      ]
+    },
+    {
+      "rows": 0,
+      "zero_token_volume_rows": 0,
+      "zero_token_volume_price_change_rows": 0,
+      "zero_token_volume_positive_event_count_rows": 0,
+      "event_count_unknown_rows": 0,
+      "positive_token_volume_rows": 0,
+      "zero_usd_but_positive_token_volume_rows": 0,
+      "first_positive_token_volume_ts": null,
+      "last_positive_token_volume_ts": null,
+      "zero_means_no_trades": false,
+      "contradiction_examples": [],
+      "interpretation": "Nonzero event count is not necessarily a swap. Price movement with zero token volume is inconsistent with treating the record as a certified no-trade interval.",
+      "pool": "0x4e68ccd3e89f51c3074ca5072bbac773960dfa36",
+      "source_rows": 27688,
+      "invalid_rows": {
+        "KeyError:'volumeUSD'": 27593,
+        "provider_marked_missing": 95
+      },
+      "symbols": [
+        "WETH",
+        "USDT"
+      ]
+    },
+    {
+      "rows": 0,
+      "zero_token_volume_rows": 0,
+      "zero_token_volume_price_change_rows": 0,
+      "zero_token_volume_positive_event_count_rows": 0,
+      "event_count_unknown_rows": 0,
+      "positive_token_volume_rows": 0,
+      "zero_usd_but_positive_token_volume_rows": 0,
+      "first_positive_token_volume_ts": null,
+      "last_positive_token_volume_ts": null,
+      "zero_means_no_trades": false,
+      "contradiction_examples": [],
+      "interpretation": "Nonzero event count is not necessarily a swap. Price movement with zero token volume is inconsistent with treating the record as a certified no-trade interval.",
+      "pool": "0x60594a405d53811d3bc4766596efd80fd545a270",
+      "source_rows": 27686,
+      "invalid_rows": {
+        "KeyError:'volumeUSD'": 27613,
+        "provider_marked_missing": 73
+      },
+      "symbols": [
+        "DAI",
+        "WETH"
+      ]
+    },
+    {
+      "rows": 0,
+      "zero_token_volume_rows": 0,
+      "zero_token_volume_price_change_rows": 0,
+      "zero_token_volume_positive_event_count_rows": 0,
+      "event_count_unknown_rows": 0,
+      "positive_token_volume_rows": 0,
+      "zero_usd_but_positive_token_volume_rows": 0,
+      "first_positive_token_volume_ts": null,
+      "last_positive_token_volume_ts": null,
+      "zero_means_no_trades": false,
+      "contradiction_examples": [],
+      "interpretation": "Nonzero event count is not necessarily a swap. Price movement with zero token volume is inconsistent with treating the record as a certified no-trade interval.",
+      "pool": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
+      "source_rows": 27683,
+      "invalid_rows": {
+        "KeyError:'volumeUSD'": 27683
+      },
+      "symbols": [
+        "USDC",
+        "WETH"
+      ]
+    },
+    {
+      "rows": 0,
+      "zero_token_volume_rows": 0,
+      "zero_token_volume_price_change_rows": 0,
+      "zero_token_volume_positive_event_count_rows": 0,
+      "event_count_unknown_rows": 0,
+      "positive_token_volume_rows": 0,
+      "zero_usd_but_positive_token_volume_rows": 0,
+      "first_positive_token_volume_ts": null,
+      "last_positive_token_volume_ts": null,
+      "zero_means_no_trades": false,
+      "contradiction_examples": [],
+      "interpretation": "Nonzero event count is not necessarily a swap. Price movement with zero token volume is inconsistent with treating the record as a certified no-trade interval.",
+      "pool": "0x8ad599c3a0ff1de082011efddc58f1908eb6e6d8",
+      "source_rows": 27705,
+      "invalid_rows": {
+        "KeyError:'volumeUSD'": 27348,
+        "provider_marked_missing": 357
+      },
+      "symbols": [
+        "USDC",
+        "WETH"
+      ]
+    },
+    {
+      "rows": 0,
+      "zero_token_volume_rows": 0,
+      "zero_token_volume_price_change_rows": 0,
+      "zero_token_volume_positive_event_count_rows": 0,
+      "event_count_unknown_rows": 0,
+      "positive_token_volume_rows": 0,
+      "zero_usd_but_positive_token_volume_rows": 0,
+      "first_positive_token_volume_ts": null,
+      "last_positive_token_volume_ts": null,
+      "zero_means_no_trades": false,
+      "contradiction_examples": [],
+      "interpretation": "Nonzero event count is not necessarily a swap. Price movement with zero token volume is inconsistent with treating the record as a certified no-trade interval.",
+      "pool": "0x9e0905249ceefffb9605e034b534544684a58be6",
+      "source_rows": 27685,
+      "invalid_rows": {
+        "KeyError:'volumeUSD'": 27126,
+        "provider_marked_missing": 559
+      },
+      "symbols": [
+        "HEX",
+        "WETH"
+      ]
+    },
+    {
+      "rows": 0,
+      "zero_token_volume_rows": 0,
+      "zero_token_volume_price_change_rows": 0,
+      "zero_token_volume_positive_event_count_rows": 0,
+      "event_count_unknown_rows": 0,
+      "positive_token_volume_rows": 0,
+      "zero_usd_but_positive_token_volume_rows": 0,
+      "first_positive_token_volume_ts": null,
+      "last_positive_token_volume_ts": null,
+      "zero_means_no_trades": false,
+      "contradiction_examples": [],
+      "interpretation": "Nonzero event count is not necessarily a swap. Price movement with zero token volume is inconsistent with treating the record as a certified no-trade interval.",
+      "pool": "0xa6cc3c2531fdaa6ae1a3ca84c2855806728693e8",
+      "source_rows": 27687,
+      "invalid_rows": {
+        "KeyError:'volumeUSD'": 27361,
+        "provider_marked_missing": 326
+      },
+      "symbols": [
+        "LINK",
+        "WETH"
+      ]
+    }
+  ],
+  "causal_limit": "Contradictions locate uncertified volume; exact source deployment/ETL cause requires corroboration.",
+  "source": "https://zenodo.org/records/17302324/files/pool_hourly_data.parquet?download=1",
+  "sha256": "ed88166e388b3acf000783c354ba5888434f4c22a50c8e120cd8a6bb3dbdc58f",
+  "license": "CC-BY-4.0",
+  "attribution": "Zhou, Liu & Brini (2025), doi:10.5281/zenodo.17302324"
+}

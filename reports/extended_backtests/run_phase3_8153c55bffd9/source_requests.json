@@ -1,0 +1,65 @@
+[
+  {
+    "url": "https://zenodo.org/records/17302324/files/pool_hourly_data.parquet?download=1",
+    "observed_at": "2026-10-13T12:35:02.273652+00:00",
+    "http_status": 200,
+    "bytes": 14313055,
+    "sha256": "ed88166e388b3acf000783c354ba5888434f4c22a50c8e120cd8a6bb3dbdc58f"
+  },
+  {
+    "url": "https://api.github.com/repos/Uniswap/v3-subgraph/commits?until=2023-12-01T00%3A00%3A00Z&per_page=1",
+    "observed_at": "2026-10-13T12:36:45.515820+00:00",
+    "http_status": 200,
+    "bytes": 4482,
+    "sha256": "20c1f4dcc164e3866efcbac03507c380e7108b422eeed4da59e38516f71f6f91"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/Uniswap/v3-subgraph/bf03f940f17c3d32ee58bd37386f26713cff21e2/src/mappings/core.ts",
+    "observed_at": "2026-10-13T12:36:45.862288+00:00",
+    "http_status": 200,
+    "bytes": 21309,
+    "sha256": "f046d33b1e75cbfa59268f8cb55b6ff6ec2f1321ff1058574b495056aa466d49"
+  },
+  {
+    "url": "https://api.github.com/repos/Uniswap/v3-subgraph/commits?until=2024-03-21T00%3A00%3A00Z&per_page=1",
+    "observed_at": "2026-10-13T12:36:46.071528+00:00",
+    "http_status": 200,
+    "bytes": 3296,
+    "sha256": "c9e36af161647947b36667d0263c08fe407de835979220a9c19b4ca92b940499"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/Uniswap/v3-subgraph/68cad02419d0e892c10b78177611651d1cf15a5d/src/mappings/core.ts",
+    "observed_at": "2026-10-13T12:36:46.358316+00:00",
+    "http_status": 200,
+    "bytes": 22309,
+    "sha256": "52e8148229b55bbded355f744768917f0cbdd645ac3343b808f9100ceab69e18"
+  },
+  {
+    "url": "https://eth.blockscout.com/api?module=logs&action=getLogs&address=0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640&fromBlock=13100000&toBlock=13100030&topic0=0xc42079f94a6350d7e6235f29174924f928cc2ac818eb64fed8004e115fbcca67",
+    "observed_at": "2026-10-13T12:36:46.719322+00:00",
+    "http_status": 200,
+    "bytes": 16816,
+    "sha256": "77760ce70aa5f228aeadfe3030b4503731a59c0e0e9194a857a001849e703feb"
+  },
+  {
+    "url": "https://eth.blockscout.com/api/v2/transactions/0xfec476fa048ab7a0d4cd2a93d72ca9092e40328e040c1dbf6d43c8aaec4d745d",
+    "observed_at": "2026-10-13T12:36:47.130458+00:00",
+    "http_status": 200,
+    "bytes": 15227,
+    "sha256": "ab84956ffed716683a093dd89aaf976f00d13060275c46a622603bfddc3a154c"
+  },
+  {
+    "url": "https://eth.blockscout.com/api?module=logs&action=getLogs&address=0x11b815efb8f581194ae79006d24e0d814b7697f6&fromBlock=13100000&toBlock=13100030&topic0=0xc42079f94a6350d7e6235f29174924f928cc2ac818eb64fed8004e115fbcca67",
+    "observed_at": "2026-10-13T12:36:48.559173+00:00",
+    "http_status": 200,
+    "bytes": 13459,
+    "sha256": "1cb5f00ec28aeedbb7447a1a5af6c1e7c09fccfc58dc4380857dddc4f26b5e63"
+  },
+  {
+    "url": "https://eth.blockscout.com/api/v2/transactions/0x37b7e9ba4d3a2f45cf599a58ec564f7ef9173639523d9c9e353bbb61e99e71d4",
+    "observed_at": "2026-10-13T12:36:48.888391+00:00",
+    "http_status": 200,
+    "bytes": 9811,
+    "sha256": "d3ac8db8fd6ec4742ef85e24d9be6acb0474b91c7c3b3d8af9a32c80f53b9b27"
+  }
+]

@@ -1,0 +1,27 @@
+{
+  "started_at": "2026-10-13T12:35:02.245202+00:00",
+  "finished_at": "2026-10-13T12:36:57.968794+00:00",
+  "code_commit": "8153c55bffd99e6bac52ffcc12d55e31d9ea6583",
+  "github_run_id": "38398327863",
+  "network_bytes": 14419764,
+  "file_sha256": {
+    "software_tests.json": "a30d49f120cb5ae90d2812b9b3608292f8d84854226e1d4e0c2aee12bc9c797b",
+    "data_forensics.json": "73ab2786999fd2baec9efc85c796308a6332117cc110ac4ad25964ffdd621cd7",
+    "ledgers.jsonl.gz": "500c943dff196c65fdd4c525a47d5e381d49a19b48102adcead9a786f084954b",
+    "upstream_history.json": "2a18e57c107730083efbaf8b27133efab2ccf51982d5038308f5af30ae5a8bd7",
+    "source_requests.json": "cd5100d3981b1f682dbce35c1d5ba9f4caf48bb3b3bfd5ee9f03da4009421cf6",
+    "software_tests.txt": "02faabc942c1fbe90bf0e000b292ab08cd46a2d325ace8d7bb9b23dd8404977d",
+    "runtime_protocol.json": "c8e4cb8c362ad2af4680288f35f1cd7e2f45069632e3fd86610d08c7fdf4e715",
+    "errors.json": "31a0823ae2edd74a3d561cbdc8f9cbd583534c5c99d7ebfeb65fbbd7cd49d395",
+    "independent_swaps.json": "0cc6e5b85bbabb3c830306d9d5c71cb572a6c130826dce52fbd548dc99994ed0"
+  },
+  "errors": [
+    {
+      "type": "ValueError",
+      "message": "Gap, duplicate, or unordered candle"
+    }
+  ],
+  "live_trading": "DISABLED",
+  "qualified_for_capital": false,
+  "scope": "Finite data forensic and price-only transfer. No recovered synthetic volume, archive-quote profit, or continuous paper history."
+}

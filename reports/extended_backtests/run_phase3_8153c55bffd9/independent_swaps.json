@@ -1,0 +1,108 @@
+[
+  {
+    "pool": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
+    "sample_blocks": [
+      13100000,
+      13100030
+    ],
+    "swap_count_returned": 20,
+    "samples": [
+      {
+        "transaction_hash": "0xfec476fa048ab7a0d4cd2a93d72ca9092e40328e040c1dbf6d43c8aaec4d745d",
+        "block_number": 13100000,
+        "log_index": 495,
+        "amount0_atomic": "-6365589899",
+        "amount1_atomic": "2050000000000000000",
+        "sqrt_price_x96": "1421446979965833507679198932912665",
+        "active_liquidity_after": "11925103942590616749"
+      },
+      {
+        "transaction_hash": "0xf282221c56e28e435fb34d4bb533541602aedadea15471f21fe98cdb22f7299b",
+        "block_number": 13100002,
+        "log_index": 67,
+        "amount0_atomic": "-1000000000",
+        "amount1_atomic": "322047563441362903",
+        "sqrt_price_x96": "1421449118519861890273984586589117",
+        "active_liquidity_after": "11925103942590616749"
+      },
+      {
+        "transaction_hash": "0x0a06d4df4595b8d28688a933c1e43b904232790961a8f9f8c2ae6940474b460d",
+        "block_number": 13100003,
+        "log_index": 472,
+        "amount0_atomic": "-589973553",
+        "amount1_atomic": "190000000000000000",
+        "sqrt_price_x96": "1421450380213200137420963880522434",
+        "active_liquidity_after": "11925103942590616749"
+      }
+    ],
+    "source": "https://eth.blockscout.com/api?module=logs&action=getLogs&address=0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640&fromBlock=13100000&toBlock=13100030&topic0=0xc42079f94a6350d7e6235f29174924f928cc2ac818eb64fed8004e115fbcca67",
+    "classification": "OBSERVED_OTHER_TRANSACTIONS_NOT_BOT_QUOTES",
+    "receipt_fields": {
+      "hash": "0xfec476fa048ab7a0d4cd2a93d72ca9092e40328e040c1dbf6d43c8aaec4d745d",
+      "block_number": 13100000,
+      "timestamp": "2021-08-26T08:55:46.000000Z",
+      "gas_used": "118216",
+      "gas_price": "59395118969",
+      "fee": {
+        "type": "actual",
+        "value": "7021453384039304"
+      },
+      "status": "ok"
+    },
+    "whole_transaction_gas_usd_proxy": 21.802776945239007,
+    "valuation_limit": "Stablecoin peg and swap-implied ETH price; total gas of another transaction, not exact $20 order gas."
+  },
+  {
+    "pool": "0x11b815efb8f581194ae79006d24e0d814b7697f6",
+    "sample_blocks": [
+      13100000,
+      13100030
+    ],
+    "swap_count_returned": 16,
+    "samples": [
+      {
+        "transaction_hash": "0x37b7e9ba4d3a2f45cf599a58ec564f7ef9173639523d9c9e353bbb61e99e71d4",
+        "block_number": 13100000,
+        "log_index": 536,
+        "amount0_atomic": "2670431220000000000",
+        "amount1_atomic": "-8293518042",
+        "sqrt_price_x96": "4416335821831891259819833",
+        "active_liquidity_after": "6740617703215917536"
+      },
+      {
+        "transaction_hash": "0x4fe1b80670a9c3991889a3ac26fbabde71725ea3e5bb28f6efb09f5f5545c528",
+        "block_number": 13100003,
+        "log_index": 341,
+        "amount0_atomic": "1101740327525665728",
+        "amount1_atomic": "-3421551669",
+        "sqrt_price_x96": "4416295605450596463775231",
+        "active_liquidity_after": "6740617703215917536"
+      },
+      {
+        "transaction_hash": "0x8a1fd9dd08b2cf8dd7644953b35c22126f332adbade56c42f34fbff82e4a3937",
+        "block_number": 13100004,
+        "log_index": 356,
+        "amount0_atomic": "1600000000000000000",
+        "amount1_atomic": "-4968830028",
+        "sqrt_price_x96": "4416237202602323128244497",
+        "active_liquidity_after": "6740617703215917536"
+      }
+    ],
+    "source": "https://eth.blockscout.com/api?module=logs&action=getLogs&address=0x11b815efb8f581194ae79006d24e0d814b7697f6&fromBlock=13100000&toBlock=13100030&topic0=0xc42079f94a6350d7e6235f29174924f928cc2ac818eb64fed8004e115fbcca67",
+    "classification": "OBSERVED_OTHER_TRANSACTIONS_NOT_BOT_QUOTES",
+    "receipt_fields": {
+      "hash": "0x37b7e9ba4d3a2f45cf599a58ec564f7ef9173639523d9c9e353bbb61e99e71d4",
+      "block_number": 13100000,
+      "timestamp": "2021-08-26T08:55:46.000000Z",
+      "gas_used": "174538",
+      "gas_price": "58794238176",
+      "fee": {
+        "type": "actual",
+        "value": "10261828742762688"
+      },
+      "status": "ok"
+    },
+    "whole_transaction_gas_usd_proxy": 31.870007055271216,
+    "valuation_limit": "Stablecoin peg and swap-implied ETH price; total gas of another transaction, not exact $20 order gas."
+  }
+]
