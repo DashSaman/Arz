@@ -1,48 +1,69 @@
-# Project status / وضعیت پروژه
+# Arz project status / وضعیت پروژه
 
-Updated: 2026-10-13T01:54:56.802965+00:00. This is the initial research/MVP delivery checkpoint, not completion of prospective qualification.
+Reviewed: 2026-10-13 UTC. Scope: reporting review of already published extended experiments; no new strategy fitting, market backtest, wallet action or financial authorization in this reporting checkpoint.
 
-- **Current Phase:** Phase 9 initial delivery completed with current investment decision **NO-GO**. Bounded software review, real main integration and both merged CI workflows completed. Prospective qualification remains pending.
-- **Completed Tasks:** Real repository inspection and initialization; requirements and predeclared acceptance gates; primary-source research snapshot; ten engine/module entries; eight DEX entries plus separate Hyperliquid products; four network comparisons; eleven DeFi models; 190 preserved source records; $100 economic model; three pre-registered strategies; original wallet-free Python MVP; 24 historical runs; independent defect correction; equivalent EN/FA reports and installation guide.
-- **Verified Results:** 999 complete four-hour bars / 166.5 days / 24 historical cases. Final holdout returns: trend −2.444309%, momentum −1.846313%, mean reversion +0.142732%; mean reversion at doubled costs −0.177705%. Only 6/6/4 closed trades respectively; all three baseline holdout mean-return uncertainty intervals include zero. Current full local suite: **56 tests passed**. Corrected core: 51 tests plus **12 independent closure methods** passed. Real GitHub Actions passed at code checkpoint 73f32d8 and both workflows at merged commit 818c3f0. Run IDs 38334222724 and 38334222714 independently read as completed/success; reports/tests/ci_merged.json records their scope.
-- **Failed Tests:** Ten independently reproduced pre-fix defects and historical RED tests are retained under reports/security and reports/tests/failures; their bounded closure passed. The real one-minute paper feed had two missing intervals and halted. No strategy passed the economic qualification gate. Failure of the first static CSV check was a checker blank-line handling issue, corrected and rerun; it was not a missing market observation.
-- **Open Questions:** Authorized durable/redistributable historical data; multiple market regimes and independent exact replay; calibrated executable quotes/gas/slippage; sufficient untouched OOS and genuinely prospective performance; legally eligible complete execution route; sustainable operations without added paid cost.
-- **Security Blockers:** No live executor, wallet, signer, approval or funded-key integration. Host/CVE/supply-chain/contract/live-execution audits not completed. Loss stops cannot guarantee a maximum loss. Current code is a research simulator; checksums and replay are consistency checks, not authentication against a malicious host.
-- **Access Blockers:** Official service-specific Iran restrictions apply to covered interfaces/APIs/products. Other protocol/RPC/issuer scopes remain unresolved. Citizenship, residence and IP are not interchangeable. Raw OHLCV retention/redistribution permission unresolved. Technical reachability is not eligibility.
-- **Active Branch:** main is the publication branch. The research/2026-10-13-mvp ref is retained; inspect the real refs for their current exact tips. Concurrent main work at 9e18c7d5e13ace7b5b55fffdea74725f31c0bfda and research core 73f32d8 are both ancestors of the verified merge; no force update was used.
-- **Latest Verified Commit:** 818c3f02aba5fa5064e14b56612341e003a3684c, actual main merge with two successful CI workflows and all 297 file blobs verified against local artifacts. This identifies the tested implementation; a following documentation-only checkpoint records its evidence. Use git rev-parse HEAD for the exact latest tip. Pre-performance registration remains eb837d09eaef38dc9cd38a13efcf86d00235e35d.
-- **Next Actions:** Continue only bounded research toward the unresolved gates below. Resolve data rights and suitable historical breadth, pre-register a genuinely new experiment if justified, calibrate permitted quote costs, and acquire real prospective observations with an actually available runtime before qualification. Do not repeat completed engine/source surveys without a dated reason. Do not tune repeatedly against this now-seen holdout.
-- **Live Trading Authorization Status:** **DISABLED**. Current investment recommendation: **NO-GO**. Research/prospective qualification: **PENDING**. No request for a financial action is being made.
+**Live Trading Authorization Status: DISABLED. Current live-capital decision: NO-GO. Full extended mission: PARTIALLY COMPLETED; research qualification remains PENDING.**
 
-## Phase completion boundaries
+The earlier complete MVP status is preserved byte-for-byte at [mvp_status_snapshot.md](reports/extended_backtests/mvp_status_snapshot.md). It described 24 initial runs and 56 tests; those are not the latest extended counts. The historical WORK_LOG.md and all prior source, test and result files are unchanged.
 
-| Phase | Status at this checkpoint | Exit evidence / remaining limit |
-|---|---|---|
-| 0 — Repository | Completed | Real metadata, empty initial refs/contents/issues/PRs, actual commits and later concurrent-main inspection |
-| 1 — Requirements | Completed | docs/en/requirements.md; methodology; privacy and rejection gates |
-| 2 — Deep research | Snapshot delivered; unresolved fields remain open | Traceable matrices and bilingual reports; unavailable terms, minima, rates, deployment audits explicitly unknown |
-| 3 — Quantitative evaluation | Initial evaluation completed | Hypothetical economics, three fixed candidates, all current live candidates rejected |
-| 4 — Architecture | Completed for MVP | Shared simulation state machine; original standard-library core; no wallet |
-| 5 — Implementation | Completed for bounded research scope | Executable CLI, strict config/data/risk, accounting, journal, reports, tests |
-| 6 — Historical testing | Initial experiments completed; qualification pending | 24 runs, forward splits and cost sensitivity; selected single pool/short holdout/limited fill realism |
-| 7 — Paper trading | Connectivity checks completed; sustained performance pending | Four observations over 75s plus two confirmations over 25s; zero new completed bars/fills; no daemon |
-| 8 — Security review | Bounded software review completed; live readiness blocked | 56 local tests and targeted independent closure; no comprehensive infrastructure/contract audit |
-| 9 — Decision | Current NO-GO decision and actual repository integration completed | docs/en/final_decision.md; no financial authorization |
+## Current Phase
 
-## Preserved concurrent work
+Extended backtesting and compound-accounting implementation have executed. The current checkpoint reconciles measured outputs with the requested scope and supplies equivalent [Persian](docs/fa/extended_backtesting.md) and [English](docs/en/extended_backtesting.md) result reports. It does not declare that every requested experiment has been completed.
 
-The original main history contributed the bilingual 30-day roadmap, whole-account daily-return audit helper, labeled synthetic input and five tests. The helper and roadmaps are preserved unchanged. Its CI workflow was adapted to the combined src layout, and AGENTS/status were reconciled. See reports/integration. Hypothetical 1–2% geometric daily returns and exploration of 2–10 daily trades are not forecasts or quotas and do not override the active four-attempt/fill daily cap. Thirty planned days are not elapsed paper evidence. Current planning minima are 90 prospective days and 100 closed trades, still insufficient on their own.
+## Completed Tasks
 
-## وضعیت فارسی
+- Preserved the original src/arz core and its 56 tests; added a separate src/arz_extended research implementation and tests.
+- Executed 516 archived-data simulation cases covering 26 fixed variants from 13 families, chronological selection, cost/frequency sensitivity, historical horizons and diagnostic comparisons.
+- Audited the accounting of those 516 saved ledgers with no reported audit failures; this is not an independent verification of input prices or executable fills.
+- Executed 174 additional native-daily transfer/benchmark/sensitivity cases on Base WETH/USDC and Solana SOL/USDC. These include repeated scenarios, not 174 independent strategies.
+- Total extended cases reported: 690, excluding the 24 earlier MVP cases. Cases overlap and two archival pools share ETH exposure.
+- Implemented dynamic sizing after gains/losses, gas/fees/impact/failure scenarios and one-time withdrawal accounting. No live executor or wallet integration was added.
 
-این تحویل، نخستین بستهٔ پژوهش و MVP است و تکمیل آزمون آینده‌نگر محسوب نمی‌شود. بررسی واقعی مخزن، نیازمندی، پژوهش منابع، مدل اقتصادی، سه استراتژی پیش‌ثبت‌شده، نرم‌افزار بدون کیف‌پول، ۲۴ اجرای تاریخی و اصلاحات بازبینی مستقل انجام شده‌اند. ۵۶ آزمون کامل محلی موفق است؛ ۵۱ آزمون هسته و ۱۲ روش آزمون مستقل نیز بسته‌شدن یافته‌های محدودِ بررسی‌شده را تأیید می‌کنند. CI واقعی هسته و هر دو workflow نسخهٔ ادغام‌شده موفق بوده‌اند؛ شناسه‌های اجرا و شاهد فراداده در reports/tests/ci_merged.json ثبت است.
+## Verified Results
 
-در آزمون نهایی، بازده روند ‎−۲٫۴۴۴۳۰۹٪، مومنتوم ‎−۱٫۸۴۶۳۱۳٪ و بازگشت به میانگین ‎+۰٫۱۴۲۷۳۲٪ بود؛ مورد آخر با دوبرابر هزینه به ‎−۰٫۱۷۷۷۰۵٪ رسید. تنها ۶، ۶ و ۴ معامله بسته وجود دارد و فاصلهٔ عدم‌قطعیت هر سه حالت پایه صفر را شامل می‌شود. هیچ استراتژی معیار اقتصادی ورود واقعی را نگذرانده است. خطاهای پیش از اصلاح، شکست‌های اولیه و توقف واقعی دادهٔ یک‌دقیقه‌ای حفظ شده‌اند.
+Source outputs commit: a57632d1b7f63fd6a48c600c5e251deef0878381. Initial extended runtime: e3812752665bf1856d84c6b2521cd0d0d43bb484. Follow-up/test runtime: 60aeec0028f2994f373c96f784c6feba9fc6dd04.
 
-چهار مشاهدهٔ مجازی طی ۷۵ ثانیه و دو مشاهدهٔ تأییدی طی ۲۵ ثانیه انجام شد؛ کندل بستهٔ تازه یا معامله‌ای رخ نداد. هیچ سرویس پیوسته، پیام‌رسان، کیف‌پول، امضا یا معاملهٔ واقعی فعال نشده است. زمان واقعی لازم برای ۹۰ روز مشاهده و دست‌کم ۱۰۰ معامله هنوز سپری نشده و این حداقل‌ها نیز به‌تنهایی اثبات سود نیستند.
+- Stored combined test record: 107 tests, exit 0, at 2026-10-13T09:17:32.732337+00:00. The GitHub workflow job and relevant steps for run 38375233964 were read as completed/success during this review. This review did not rerun the 107 tests locally.
+- Prespecified diagnostic finalists: adaptive_sizing_v2, mean_reversion_v2 and bollinger_v2; each selected daily candles and ordinary-attempt cap 1. Qualified paper candidates: 0. These are diagnostic selections, not approved investments.
+- Highest baseline final-holdout result among the selected finalists: adaptive_sizing_v2 / academic_usdt, ending $105.008115 from $100 over 185 days; +5.008115%, geometric daily +0.026418%, maximum drawdown 6.998741%, only 2 closed cycles.
+- Secondary paired comparison, not promoted after seeing holdout: trend_v1 / academic_usdt returned +5.606492%, geometric daily +0.029491%, drawdown 9.412741%, 14 closed cycles.
+- Descriptive one-year adaptive_sizing_v2 / academic_usdc: $111.502600, +11.502600%, 3 closed cycles, 8.473609% drawdown. Earlier separate one-year window: -0.575016%.
+- Descriptive two-year mean_reversion_v2 / academic_usdt: $122.215725, +22.215725%, 8 closed cycles, 3.660291% drawdown. This window includes development/validation data and is not independent OOS proof.
+- Daily transfer, 180 calendar days: adaptive_sizing_v2 ended $103.273664 on Base and $105.289777 on Solana; one closed cycle each. Initial warm-up is included in the 180-day denominator.
+- Recorded archival withdrawal triggers: 0 of 24 cases; recorded recent withdrawal triggers: 0. No historical recovery of the initial $100 was demonstrated.
 
-مجوز نگهداری/بازنشر داده، بازتولید مستقل دقیق، دادهٔ متنوع، هزینهٔ اجرایی کالیبره‌شده، مسیر کامل و مجاز استفاده و حسابرسی زیرساخت/قرارداد حل نشده‌اند. محدودیت‌های تابعیت، اقامت، IP، API، رابط، پروتکل، RPC و ناشر استیبل‌کوین جدا هستند؛ دسترسی فنی مجوز استفاده نیست. آستانهٔ توقف، سقف زیان را تضمین نمی‌کند.
+## Failed Tests and Limitations
 
-کار هم‌زمان شاخهٔ اصلی شامل نقشهٔ راه دو‌زبانه و ابزار حسابداری روزانه و پنج آزمون آن حفظ شده است. بازده‌های فرضی روزانه وعده یا سهمیهٔ معامله نیستند و محدودیت فعلی را تغییر نمی‌دهند. ادغام واقعی بدون اجبار انجام و هر دو والد، مرجع main، هویت ۲۹۷ فایل و موفقیت هر دو workflow تأیید شد. Commit آزموده‌شده بالاتر آمده است؛ Commit بعدی فقط شاهد انتشار را ثبت می‌کند و HEAD نوک دقیق شاخه را نشان می‌دهد. پس از تحویل، ادامه از همین شواهد و پرسش‌های باز انجام شود؛ آزمون دیده‌شده دوباره برای انتخاب پارامتر استفاده نشود.
+The initial 99-test stage encountered a blanket static dependency-policy failure despite the unit suite passing; the follow-up declared a narrowly scoped pinned optional PyArrow data reader and added boundary tests. The latest stored test run has 107 successful tests. Earlier historical failures remain preserved.
 
-**معاملهٔ واقعی: DISABLED. تصمیم سرمایه‌گذاری فعلی: NO-GO. تأیید عملکرد آینده‌نگر: PENDING. هیچ اقدام مالی از کاربر درخواست نشده است.**
+Hourly Base acquisition failed on a gap and Solana acquisition returned HTTP 429. A separately declared native-daily fallback produced two 183-bar continuous series. No missing intraday history was synthesized.
+
+The archival dataset contains long price series but very sparse positive-volume observations. Its discovery runs explicitly disable uncertified-volume blocking and use optimistic $0.01 gas: OPTIMISTIC_PRICE_ONLY_NO_VOLUME_CERTIFICATION. These returns are not demonstrated Ethereum-executable profits. Actual historical active liquidity and executable quotes remain uncalibrated. The recent SOL fee input is a scenario, not a verified historical fee schedule. The 180-day native-daily transfer can contain up to 72 warm-up days. Neither asset selection nor multiple testing is solved by increasing the run count.
+
+## Data Reviewed
+
+Zenodo record 17302324, authors Zhou, Liu and Brini, published 2025-10-09, hourly Uniswap v3 pool data. Two ETH/stablecoin series support a 730-day experiment from 2022-07-02 to 2024-07-01 exclusive, with prior warm-up. Split: 365 development / 180 validation / 185 final holdout days. The two pools are correlated, not independent assets. Source license and checksums are recorded in the preserved provenance.
+
+GeckoTerminal native daily transfer data: Base WETH/USDC and Orca SOL/USDC, 183 complete daily observations from 2026-04-13 to 2026-10-13 exclusive; transfer windows are 30/90/180 days. Recent raw provider data are not redistributed. Powered by CoinGecko / GeckoTerminal. Earlier 2026 ETH market context was already observed, so this is transfer evaluation, not a wholly untouched chronological holdout.
+
+## Open Questions / Next Actions
+
+First resolve executable-cost and historical-liquidity quality. Retain frozen diagnostic candidates and acquire justified untouched data before another selection exercise. Establish prospective paper operation only with an actual runtime and honestly accumulated observations. Do not tune to the now-seen 185-day holdout. Do not treat a daily cap of 1 as evidence that one daily trade is optimal: most days had no valid action and raising the cap did not create opportunities.
+
+Still not performed or not qualified: 1m/5m/15m long histories, >10 daily capacity, multileg statistical arbitrage, equivalent upstream-engine replay, DSR/PBO, a sufficient multi-regime rolling walk-forward campaign, calibrated historical execution, defensible future probabilities, sustained paper performance, and final main integration.
+
+## Security Blockers / Access Blockers
+
+No eligible complete live execution route is approved. The earlier service/API/protocol/RPC/issuer eligibility blockers remain. This reporting review makes no new legal eligibility determination. No wallet, signer, approval, borrowing, live service or replenishment was enabled. Stop rules are not maximum-loss guarantees. No claim of a comprehensive contract/host/CVE audit is made.
+
+## Active Branch / Latest Verified Commit
+
+Publication review branch: research/2026-10-13-extended-results-review, based on a57632d1b7f63fd6a48c600c5e251deef0878381. At inspection main remained d21eb280170a0a27eba5c278a6381879431cf447 and the extended branch was eight commits ahead. Inspect current refs before any write; no force push is authorized. This documentation-only checkpoint points to the measured source commits above; git HEAD identifies its own later reporting commit.
+
+## فارسی
+
+مرحلهٔ اصلی توسعه و آزمایش تکمیلی واقعاً انجام شده است: ۵۱۶ اجرای دادهٔ آرشیوی، حسابرسی همان ۵۱۶ دفتر و ۱۷۴ اجرای انتقال/مقایسه/تنش، در مجموع ۶۹۰ حالت تکمیلی. شمار ثبت‌شدهٔ آزمون‌های نرم‌افزاری ۱۰۷ است؛ این بازبینی خروجی و موفقیت workflow را خوانده و آزمون‌ها را دوباره محلی اجرا نکرده است. کار اولیه و ۵۶ آزمون آن حفظ شده‌اند.
+
+نتایج مثبت تاریخی وجود دارد، اما مدل آرشیوی گس خوش‌بینانه و حجم تأییدنشده دارد. بهترین نتیجهٔ holdout در میان سه نامزد ثابت حدود ۵٫۰۰۸٪ طی ۱۸۵ روز، با تنها دو چرخهٔ بسته است. مثال دوسالهٔ بازگشت به میانگین حدود ۲۲٫۲۱۶٪ سود حساب دارد، نه سود روزانه، و توصیفی است نه شاهد مستقل خارج از نمونه. هیچ نامزدی واجد تأیید نهایی Paper Trading نیست؛ برداشت اصل سرمایه نیز در مسیرهای ثبت‌شده فعال نشده است.
+
+گزارش کامل و هم‌ارز فارسی/انگلیسی در پیوندهای بالا، داده، هزینه، بسامد معامله، AI و کارهای انجام‌نشده را تفکیک می‌کند. این Commit فقط وضعیت و گزارش را تکمیل می‌کند؛ کد، تنظیمات، نتایج و سابقهٔ قبلی را تغییر نمی‌دهد. معاملهٔ واقعی DISABLED و تصمیم فعلی NO-GO است.
