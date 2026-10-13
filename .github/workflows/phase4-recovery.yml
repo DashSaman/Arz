@@ -1,0 +1,50 @@
+name: Phase 4 exact quote evidence and bounded recovery
+on:
+  push:
+    branches: [research/2026-10-13-phase4-exact-quotes]
+    paths: [.github/workflows/phase4-recovery.yml]
+permissions:
+  contents: write
+concurrency:
+  group: arz-phase4-exact-quote-evidence
+  cancel-in-progress: false
+jobs:
+  validate:
+    if: github.repository == 'DashSaman/Arz' && github.event.repository.private == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PYTHONPATH: src
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Verify preservation and full offline suite
+        run: |
+          export RESULT_DIR="reports/extended_backtests/run_phase4_${GITHUB_SHA:0:12}"
+          python3 - <<'PY'
+          import datetime,json,os,pathlib,subprocess,unittest
+          paths=['src/arz','src/arz_extended','src/arz_phase3.py','configs','reports/backtests','reports/extended_backtests/run_e3812752665b','reports/extended_backtests/run_60aeec0028f2','reports/extended_backtests/run_phase3_ba0874428e9b']
+          changed=subprocess.check_output(['git','diff','--name-only','7c61ca1e83ba46e2b3ff8b8337e6c51c195fe323','HEAD','--',*paths]).decode().strip()
+          assert not changed,changed
+          root=pathlib.Path(os.environ['RESULT_DIR']);root.mkdir(parents=True,exist_ok=True)
+          with (root/'software_tests.txt').open('w') as f:
+              r=unittest.TextTestRunner(stream=f,verbosity=2).run(unittest.defaultTestLoader.discover('tests'))
+          record={'observed_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'commit':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'tests':r.testsRun,'failures':len(r.failures),'errors':len(r.errors),'skipped':len(r.skipped),'passed':r.wasSuccessful(),'previous_runtime_and_results_unchanged':True}
+          (root/'software_tests.json').write_text(json.dumps(record,indent=2)+'\n')
+          print(json.dumps(record));print((root/'software_tests.txt').read_text())
+          if not r.wasSuccessful():raise SystemExit(1)
+          PY
+      - name: Finish missing read-only Base samples with reduced request rate
+        run: python3 scripts/run_phase4_recovery.py --output "reports/extended_backtests/run_phase4_${GITHUB_SHA:0:12}"
+      - name: Publish bounded evidence to the independent research branch
+        if: always()
+        env:
+          GH_RESEARCH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          root="reports/extended_backtests/run_phase4_${GITHUB_SHA:0:12}"
+          if [ -f "$root/software_tests.json" ]; then
+            python3 -c "import sys;sys.path.insert(0,'scripts');import publish_extended as p;p.BRANCH='research/2026-10-13-phase4-exact-quotes';p.main()" --reports "$root"
+          fi

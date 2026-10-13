@@ -1,0 +1,50 @@
+{
+  "live_trading": "DISABLED",
+  "paper_candidate": false,
+  "execution_validated_geometric_daily": null,
+  "decision": "NO VALIDATED TRADING EDGE FOUND",
+  "quote_does_not_prove_inclusion_or_total_cost": true,
+  "quotes_total": 6,
+  "quotes_retained": 6,
+  "quotes_new": 0,
+  "numerical_matches": 6,
+  "observed_swap_replays": 0,
+  "observed_swap_quote_matches": 0,
+  "sample_times": [
+    1776254400
+  ],
+  "evm_networks_with_exact_quotes": [
+    "base"
+  ],
+  "prespecified_coverage_gate_passed": false,
+  "coverage_failures": [
+    "Less than two EVM networks",
+    "Fewer than twelve independent qualifying replay samples"
+  ],
+  "new_strategy_backtests": 0,
+  "validated_withdrawals": 0,
+  "cost_qualification": "Exact hypothetical route fee/gas/inclusion still unverified",
+  "arbitrum": "Earlier primary archive failure and fallback403 retained; not retried",
+  "solana": "Earlier finalized account observation retained, not historical execution",
+  "errors": [
+    {
+      "network": "base",
+      "target": 1776254400,
+      "type": "HTTPError",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "network": "base",
+      "target": 1784116800,
+      "type": "RuntimeError",
+      "error": "Endpoint denied access earlier; no retry"
+    },
+    {
+      "network": "base",
+      "target": 1791806400,
+      "type": "RuntimeError",
+      "error": "Endpoint denied access earlier; no retry"
+    }
+  ],
+  "skips": 0
+}

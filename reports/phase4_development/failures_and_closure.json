@@ -1,0 +1,10 @@
+{
+  "date_utc": "2026-10-13",
+  "research_workflow_failure": {"run_id":38440418768,"job_id":115445244418,"commit":"933b688aec3d7fccbc09e85178f13492b7ed9c71","observed":"153 tests passed but repository static gate returned all_checks_passed=false","root_cause":"The hard-coded import classifier treated owned arz_phase4 imports from the new scope module as external dependencies.","local_reproduction":"Two positive scoped-import tests failed; unknown-import negative test passed before correction."},
+  "correction":"Allow only explicit owned module/origin pairs. Unknown imports and the original pinned-PyArrow policy remain unchanged.",
+  "local_red_green": {"initial_phase4_red":20,"initial_phase4_green":20,"scope_red":5,"scope_green":5,"auditor_red":6,"auditor_green":6,"dependency_red_failures":2,"dependency_tests":3,"final_phase4_only_green":34},
+  "full_combined_test_result":"Not yet rerun at this code checkpoint; separate offline workflow records actual outcome.",
+  "network_failures":"Base returned429 both initially and after a reduced-rate cooldown resume; requests stopped. Arbitrum primary lacks sampled historical state; official-listed fallback returned403 and was not retried.",
+  "no_new_strategy_or_financial_actions":true,
+  "live_trading":"DISABLED"
+}

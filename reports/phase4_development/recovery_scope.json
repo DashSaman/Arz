@@ -1,0 +1,13 @@
+{
+  "date_utc": "2026-10-13",
+  "frozen_parent": "a70da79034f0db5a1a9a8c72271fb9f3a9636f1c",
+  "scope": "Complete only missing Base snapshots and original fixed sampled swaps. Preserve first six quotes and independent failures.",
+  "root_cause": "PoolTicksCounter counts gas-related bitmap buckets. A positive counter can occur with no price movement across an initializable tick. Independent exact squared-price inequalities certify a single cell; no amount-error tolerance or performance gate is relaxed.",
+  "reference_blob": "fb0682fb7d037b10a1c9b3e188e5faac7c06c938",
+  "tests": {"new_red": 5, "new_green": 5, "complete_phase4_local_green": 25},
+  "transport": "After the stopped rate-limited session, resume missing Base reads at >=3.1 seconds between requests. Stop again on 429. Arbitrum primary archive unavailable and fallback403 are not retried. Do not change IP or identity to circumvent service restrictions.",
+  "network_budget": "Original 84 requests plus at most 300 recovery requests, within original500 ceiling. Public prior samples and Solana snapshot are retained, not fetched again.",
+  "temporal_search": "Use observed Base block/time pair only to propose a block; accept only if that block and immediate successor bracket the frozen requested time exactly.",
+  "qualification": "Original >=12 independent matching replays, >=2 EVM networks, >=3 times remain required. Base-only coverage cannot pass. No strategy selection/backtest or financial action.",
+  "live_trading": "DISABLED"
+}

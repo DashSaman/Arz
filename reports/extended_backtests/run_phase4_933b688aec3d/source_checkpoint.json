@@ -1,0 +1,6 @@
+{
+  "source_commit": "3fdbe90724c4ca134375c9bc4162b69c38fd9d3c",
+  "first_attempt_sha256": "8aef2e15310e020d85d5c8450e184122de0812e8d89776b720b6acf5901b11da",
+  "retained_six_quotes": true,
+  "no_strategy_reselection": true
+}
