@@ -1,0 +1,9 @@
+{
+  "date_utc": "2026-10-13",
+  "scope": "New Phase 4 numerical module only; synthetic fixtures, not market evidence",
+  "command": "PYTHONPATH=src python -m unittest discover -s tests -v",
+  "red": {"tests": 20, "failures": 20, "reason": "Phase4 evidence module absent"},
+  "green": {"tests": 20, "failures": 0, "errors": 0},
+  "full_inherited_suite": "Not yet rerun at this checkpoint",
+  "live_trading": "DISABLED"
+}
