@@ -29,11 +29,12 @@ def integer(value, minimum=0):
 
 
 def evm_fee_usd(network, gas_used, effective_gas_price, eth_usd,
-                *, l1_fee_wei=None, operator_fee_wei=None):
+                *, l1_fee_wei=None, operator_fee_wei=None, arbitrum_era="nitro"):
     """Receipt arithmetic, not a forecast of a different transaction's gas.
 
     Base needs separate L1 and operator fields (explicit zero is permissible).
-    Arbitrum's receipt gasUsed already includes its charged L1 component.
+    Arbitrum Nitro receipt gasUsed includes its charged L1 component. Classic
+    receipts require feeStats and are explicitly unsupported here.
     Blob transactions, bridge fees and approvals are outside this function.
     """
     gas = integer(gas_used, 1)
@@ -41,6 +42,8 @@ def evm_fee_usd(network, gas_used, effective_gas_price, eth_usd,
     usd = number(eth_usd)
     if usd <= 0 or network not in ('ethereum', 'base', 'arbitrum'):
         raise ValueError('Unsupported network or invalid native-asset valuation')
+    if network == "arbitrum" and arbitrum_era != "nitro":
+        raise ValueError("Arbitrum Classic requires feeStats; Nitro arithmetic only")
     total = gas * price
     if network == 'base':
         total += integer(l1_fee_wei) + integer(operator_fee_wei)
@@ -68,16 +71,18 @@ def volume_profile(rows):
     result = dict(rows=0, zero_token_volume_rows=0,
                   zero_token_volume_price_change_rows=0,
                   zero_token_volume_positive_event_count_rows=0,
-                  event_count_unknown_rows=0, positive_token_volume_rows=0,
+                  event_count_unknown_rows=0, positive_token_volume_rows=0, usd_volume_unknown_rows=0,
                   zero_usd_but_positive_token_volume_rows=0,
                   first_positive_token_volume_ts=None, last_positive_token_volume_ts=None,
                   zero_means_no_trades=False)
     examples = []
     for row in rows:
         ts = integer(row['ts'])
-        v0, v1, vu = (number(row[k]) for k in ('volume0', 'volume1', 'volume_usd'))
+        v0, v1 = (number(row[k]) for k in ('volume0', 'volume1'))
+        vu = None if row.get('volume_usd') is None else number(row['volume_usd'])
+        result['usd_volume_unknown_rows'] += int(vu is None)
         o, h, l, c = (number(row[k]) for k in ('open', 'high', 'low', 'close'))
-        if min(v0, v1, vu) < 0 or min(o, h, l, c) <= 0 or not l <= min(o, c) <= max(o, c) <= h:
+        if min(v0, v1) < 0 or (vu is not None and vu < 0) or min(o, h, l, c) <= 0 or not l <= min(o, c) <= max(o, c) <= h:
             raise ValueError('Invalid raw volume/OHLC observation')
         count = row.get('tx_count')
         if count is None:
@@ -188,3 +193,34 @@ def classify_price_only(result):
             'unsupported_fills': len(result['fills']),
             'qualified_paper_candidate': False,
             'decision': 'REJECT_EXECUTABLE_PROFIT_CLAIM', 'live_trading': 'DISABLED'}
+
+
+def history_segment(bars, interval, start, end, *, min_warmup=72):
+    """Keep the contiguous observed segment covering the frozen period.
+
+    Only gaps strictly before evaluation may delimit the available prefix.
+    No timestamps/prices are inserted, sorted, altered, or interpolated.
+    """
+    integer(interval, 1); integer(start); integer(end, 1); integer(min_warmup)
+    if end <= start or start % interval or end % interval or not bars:
+        raise ValueError('Invalid historical coverage request')
+    cut = 0
+    for i, bar in enumerate(bars):
+        integer(bar.ts)
+        if bar.ts % interval:
+            raise ValueError('Unaligned observed timestamp')
+        if i:
+            delta = bar.ts - bars[i-1].ts
+            if delta <= 0:
+                raise ValueError('Duplicate or unordered data')
+            if delta != interval:
+                if bar.ts <= start:
+                    cut = i
+                elif bars[i-1].ts < end:
+                    raise ValueError('Gap intersects frozen evaluation period')
+    result = [b for b in bars[cut:] if b.ts < end]
+    if not result or result[0].ts > start or result[-1].ts + interval < end:
+        raise ValueError('Incomplete frozen period')
+    if sum(b.ts < start for b in result) < min_warmup:
+        raise ValueError('Insufficient observed warm-up')
+    return result

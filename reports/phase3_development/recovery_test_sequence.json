@@ -1,0 +1,15 @@
+{
+  "date_utc": "2026-10-13",
+  "old_run": 38398327863,
+  "old_full_tests": 124,
+  "old_full_test_failures": 0,
+  "old_workflow_status": "failure",
+  "source_diagnostic_defect": "Assumed missing column volumeUSD caused valid token-volume rows to be excluded. This is our forensic reader defect, not 276869 missing source observations.",
+  "coverage_defect": "Validated entire prehistory rather than the contiguous segment covering frozen evaluation plus mandatory warm-up. No internal evaluation gap may be removed.",
+  "new_synthetic_red": {"tests": 4, "failures": 2, "errors": 2, "exit_code": 1},
+  "new_synthetic_green": {"tests": 21, "failures": 0, "errors": 0, "exit_code": 0},
+  "prior_results_reused": "Checksum-bound completed cases will be reused unchanged; no re-optimization.",
+  "historical_receipts": "Read-only Blockscout samples: 20 and 16 Swap events in 31 historical blocks; these are not quotes for our own orders.",
+  "arbitrum_limit": "Nitro cost arithmetic only; Classic requires feeStats.",
+  "live_trading": "DISABLED"
+}

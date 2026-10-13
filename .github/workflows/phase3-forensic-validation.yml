@@ -7,6 +7,8 @@ on:
       - src/arz_phase3.py
       - scripts/run_phase3.py
       - tests/test_phase3_evidence.py
+      - tests/test_phase3_recovery.py
+      - scripts/run_phase3_recovery.py
 permissions:
   contents: write
 concurrency:
@@ -53,7 +55,7 @@ jobs:
           .phase3-venv/bin/python -m pip install --only-binary=:all: --no-deps pyarrow==21.0.0
           .phase3-venv/bin/python -m pip check
       - name: Execute one pre-registered data and price-only round
-        run: .phase3-venv/bin/python scripts/run_phase3.py --output "reports/extended_backtests/run_phase3_${GITHUB_SHA:0:12}"
+        run: .phase3-venv/bin/python scripts/run_phase3_recovery.py --output "reports/extended_backtests/run_phase3_${GITHUB_SHA:0:12}"
       - name: Publish bounded evidence to this research branch only
         if: always()
         env:
