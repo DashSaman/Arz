@@ -53,7 +53,7 @@ The [operations guide](docs/en/operations.md) covers data retrieval, historical 
 
 **56 local repository tests passed:** 51 core/regression tests plus five preserved daily-accounting tests. An independent review found ten defects despite 35 earlier passing tests; corrections passed 12 additional independent closure methods. Original failures and closure evidence are retained. [Executed tests](reports/tests/latest.json), [independent closure](reports/security/closure.md).
 
-GitHub Actions succeeded for corrected core commit [`73f32d8`](https://github.com/DashSaman/Arz/commit/73f32d85ba4f2b4764d2138e3746f8ffcefcf5d2): [observed run](https://github.com/DashSaman/Arz/actions/runs/38332647920). That run predates the five-test integration. Consult the [test report](docs/en/test_results.md) for the separate latest merged CI record.
+GitHub Actions succeeded for corrected core commit [`73f32d8`](https://github.com/DashSaman/Arz/commit/73f32d85ba4f2b4764d2138e3746f8ffcefcf5d2): [observed run](https://github.com/DashSaman/Arz/actions/runs/38332647920). That run predates the five-test integration. **Both workflows on merged commit `818c3f0` also passed**: [research checks](https://github.com/DashSaman/Arz/actions/runs/38334222724) and [offline tests](https://github.com/DashSaman/Arz/actions/runs/38334222714). [Test report](docs/en/test_results.md).
 
 Real public-data paper checks comprise four observations over 75 seconds, then two confirmation observations over 25 seconds. No new completed bar and no fill occurred. A one-minute data-gap diagnostic halted. This is connectivity/restart evidence, not a trading track record. [Paper evidence](reports/paper/connectivity_smoke.json).
 

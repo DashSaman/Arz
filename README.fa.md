@@ -53,7 +53,7 @@ PYTHONPATH=src .venv/bin/python -m arz --help
 
 **۵۶ آزمون محلی مخزن موفق بوده‌اند:** ۵۱ آزمون هسته/بازگشت و پنج آزمون حفظ‌شدهٔ حسابداری روزانه. بازبینی مستقل، با وجود ۳۵ آزمون موفقِ قبلی، ده نقص یافت؛ اصلاحات ۱۲ روش آزمون مستقلِ بازبررسی را گذراندند. شکست‌های اولیه و شواهد اصلاح حفظ شده‌اند. [آزمون‌های اجراشده](reports/tests/latest.json)، [بازبررسی مستقل](reports/security/closure.md).
 
-GitHub Actions برای Commit اصلاح‌شدهٔ هسته، [`73f32d8`](https://github.com/DashSaman/Arz/commit/73f32d85ba4f2b4764d2138e3746f8ffcefcf5d2)، موفق بود: [اجرای مشاهده‌شده](https://github.com/DashSaman/Arz/actions/runs/38332647920). این اجرا پیش از ادغام پنج آزمون است. نتیجهٔ مستقل و جدید CI نسخهٔ ترکیبی را در [گزارش آزمون](docs/fa/test_results.md) بخوانید.
+GitHub Actions برای Commit اصلاح‌شدهٔ هسته، [`73f32d8`](https://github.com/DashSaman/Arz/commit/73f32d85ba4f2b4764d2138e3746f8ffcefcf5d2)، موفق بود: [اجرای مشاهده‌شده](https://github.com/DashSaman/Arz/actions/runs/38332647920). این اجرا پیش از ادغام پنج آزمون است. **هر دو workflow روی Commit ترکیبی `818c3f0` نیز موفق شدند**: [کنترل پژوهش](https://github.com/DashSaman/Arz/actions/runs/38334222724) و [آزمون آفلاین](https://github.com/DashSaman/Arz/actions/runs/38334222714). [گزارش آزمون](docs/fa/test_results.md).
 
 آزمون واقعیِ دادهٔ عمومی شامل چهار مشاهده طی ۷۵ ثانیه و دو مشاهدهٔ تأییدی طی ۲۵ ثانیه است. کندل بستهٔ جدید یا اجرای سفارش رخ نداد. آزمایش تشخیصی یک‌دقیقه‌ای به دلیل شکاف داده متوقف شد. این شواهد اتصال و بازیابی وضعیت است، نه سابقهٔ معامله. [شواهد مجازی](reports/paper/connectivity_smoke.json).
 

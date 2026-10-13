@@ -1,0 +1,20 @@
+{
+  "verified_at_utc": "2026-10-13 01:53:43 UTC",
+  "branch": "main",
+  "commit": "818c3f02aba5fa5064e14b56612341e003a3684c",
+  "parents": [
+    "9e18c7d5e13ace7b5b55fffdea74725f31c0bfda",
+    "73f32d85ba4f2b4764d2138e3746f8ffcefcf5d2"
+  ],
+  "tree": "7c4bb1420c197e3455e2fe3763b5bdd5bc9e843f",
+  "ref_update_force": false,
+  "remote_tree_matches_local_artifacts": {
+    "tree_sha": "7c4bb1420c197e3455e2fe3763b5bdd5bc9e843f",
+    "expected_files": 297,
+    "actual_files": 297,
+    "mismatches": [],
+    "extras": []
+  },
+  "live_trading": "DISABLED",
+  "following_changes": "A documentation-only evidence checkpoint may follow this verified merge. Inspect git HEAD for current branch tip; this commit identifies the tested merged implementation."
+}

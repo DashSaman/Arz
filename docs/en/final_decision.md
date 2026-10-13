@@ -32,7 +32,7 @@ The combined local suite records **56 passing tests** after preserving the concu
 
 The preserved synthetic accounting example verifies arithmetic, not market performance. Review closure likewise does not certify every input, live execution, custody, provider truth or legal eligibility. [Security assessment](security.md).
 
-CI run [38332647920](https://github.com/DashSaman/Arz/actions/runs/38332647920) passed for core checkpoint `73f32d85ba4f2b4764d2138e3746f8ffcefcf5d2`. That success applies to that checkpoint. Consult [test results](test_results.md) for the latest combined remote CI and integration evidence, and the [repository](https://github.com/DashSaman/Arz/tree/main) for its current contents. Local success or an earlier CI pass does not establish that a later combined run or main integration is complete.
+CI run [38332647920](https://github.com/DashSaman/Arz/actions/runs/38332647920) passed for core checkpoint `73f32d85ba4f2b4764d2138e3746f8ffcefcf5d2`. That success applies to that checkpoint. Consult [test results](test_results.md) for the latest combined remote CI and integration evidence, and the [repository](https://github.com/DashSaman/Arz/tree/main) for its current contents. The later main merge `818c3f0` and both successful combined workflows have now been independently observed; [published evidence](../../reports/integration/published_merge.json) records the exact scope. This changes delivery status, not investment readiness.
 
 ## 4. Actual phase completion and limits
 
@@ -43,7 +43,7 @@ CI run [38332647920](https://github.com/DashSaman/Arz/actions/runs/38332647920) 
 | Research MVP | Three-command CLI, validation, simulated accounting, risk and schema 2 replay; reviewed corrections | No wallet, live executor, continuous service or certified recovery process |
 | Historical evaluation | Initial predeclared hypotheses, forward windows, holdout, stresses and benchmarks executed | All candidates fail current qualification; one pool and provisional execution costs |
 | Prospective observation | Short public-data connection/restart checks | No performance qualification, multiweek operation or sufficient trades |
-| Repository integration | Concurrent files preserved and combined suite tested locally | Combined remote CI and integration status require the separate test-results record |
+| Repository integration | Both histories preserved; actual main merge and both combined CI workflows verified | Documentation-only evidence checkpoint follows; no change to investment authorization |
 
 The [paper record](../../reports/paper/connectivity_smoke.json) contains **four observations over about 75 seconds**, followed by **two observations over about 25 seconds on corrected code**. Both groups have **zero new completed bars and zero fills**, with $100 simulated equity. Different code identities and brief windows must not be joined into an implied continuous experiment. The earlier one-minute diagnostic rejected two missing intervals in 100 rows. These records are connection/restart evidence, **not qualified Level 4 performance**. [Operations](operations.md).
 

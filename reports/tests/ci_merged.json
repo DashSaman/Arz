@@ -1,0 +1,114 @@
+{
+  "observed_at_utc": "2026-10-13 01:53:43 UTC",
+  "commit": "818c3f02aba5fa5064e14b56612341e003a3684c",
+  "tree": "7c4bb1420c197e3455e2fe3763b5bdd5bc9e843f",
+  "local_suite_tests": 56,
+  "local_evidence": "reports/tests/latest.json",
+  "scope": "Two actual GitHub Actions workflows on the merged code and combined test tree; run and job/step metadata read independently. This is not a financial or contract audit.",
+  "runs": [
+    {
+      "id": 38334222714,
+      "name": "Arz offline-only tests",
+      "head_sha": "818c3f02aba5fa5064e14b56612341e003a3684c",
+      "head_branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/DashSaman/Arz/actions/runs/38334222714",
+      "created_at": "2026-10-13T01:52:46Z",
+      "updated_at": "2026-10-13T01:52:56Z",
+      "jobs": [
+        {
+          "id": 115090577042,
+          "name": "Python offline accounting tests",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/DashSaman/Arz/actions/runs/38334222714/job/115090577042",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run offline unit tests (no keys, no network APIs)",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Evaluate labeled synthetic example",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 38334222724,
+      "name": "Research-only checks",
+      "head_sha": "818c3f02aba5fa5064e14b56612341e003a3684c",
+      "head_branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/DashSaman/Arz/actions/runs/38334222724",
+      "created_at": "2026-10-13T01:52:46Z",
+      "updated_at": "2026-10-13T01:52:56Z",
+      "jobs": [
+        {
+          "id": 115090576904,
+          "name": "offline-verification",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/DashSaman/Arz/actions/runs/38334222724/job/115090576904",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Create isolated standard-library environment",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Test accounting, risk, paper state and static boundaries",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

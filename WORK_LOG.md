@@ -53,3 +53,14 @@ Commit اصلاح‌شده و موفقیت واقعی Actions تأیید شد. �
 The final combined check executed all 56 tests successfully but initially rejected two trailing-space Markdown line breaks in the newly authored README. Converted them to paragraph separation and reran the gate; the original failure record is retained in reports/tests/failures/document_whitespace_gate.json. This was a documentation whitespace failure, not a strategy or runtime regression. Relative-link inspection found 375 existing local targets and zero missing targets at that checkpoint.
 
 در کنترل نهایی، هر ۵۶ آزمون موفق بود ولی دو فاصلهٔ انتهای خطِ قالب Markdown در README تازه، کنترل قالب‌بندی را رد کرد. به جداسازی پاراگراف تبدیل شد و کنترل دوباره اجرا شد؛ شاهد شکست در فایل بالا حفظ شده است. این خطای قالب سند بود، نه خطای استراتژی یا هسته. ۳۷۵ پیوند نسبی نیز بدون مقصد مفقود بررسی شد.
+
+## 2026-10-13T01:54:56.802965+00:00 — actual merged delivery and observed CI
+
+- Created actual two-parent merge 818c3f02aba5fa5064e14b56612341e003a3684c; parents are 9e18c7d5e13ace7b5b55fffdea74725f31c0bfda and 73f32d85ba4f2b4764d2138e3746f8ffcefcf5d2. Updated main with expected-head checking and force=false, then independently fetched its ref and commit.
+- Compared all 297 remote blob identities/modes with the local delivery inventory: zero mismatches, zero extra or missing files. Both scientific PNGs also matched their byte-level Git object hashes.
+- Both real Actions workflows on that merge completed successfully: Research-only checks 38334222724 and Arz offline-only tests 38334222714. Fetched run and job/step metadata, including successful verification steps. Evidence is in reports/tests/ci_merged.json and reports/integration/published_merge.json.
+- This following documentation-only checkpoint updates status and reports to those observed facts. Tested runtime/strategy/configuration files are unchanged. Live trading remains DISABLED; current real-capital decision remains NO-GO.
+
+### فارسی
+
+ادغام دووالدی واقعی با شناسهٔ 818c3f02aba5fa5064e14b56612341e003a3684c ساخته شد؛ هر دو سابقه حفظ و main با کنترل مقدار قبلی و بدون Force به‌روز و دوباره خوانده شد. هویت و حالت هر ۲۹۷ فایل دوردست با تحویل محلی یکسان بود؛ فایل اضافه، مفقود یا متفاوت وجود نداشت. هر دو نمودار نیز از نظر بایت تطبیق داشتند. دو workflow واقعی با شناسه‌های بالا موفق شدند و فرادادهٔ اجرا و گام‌ها جدا خوانده و ثبت شد. این Commit بعدی صرفاً شواهد مشاهده‌شده را در اسناد ثبت می‌کند؛ هسته، استراتژی و تنظیمِ آزموده‌شده تغییر نکرده‌اند. معاملهٔ واقعی غیرفعال و تصمیم NO-GO باقی است.

@@ -4,7 +4,7 @@
 
 ## 1. Local verification and CI are distinct records
 
-`reports/tests/latest.json` and `latest.txt` record the run at **01:35:11 UTC**, using Python **3.12.14**: **56 tests, zero failures, exit 0**. These comprise the unchanged **51 core tests plus five preserved concurrent-main accounting tests**. They cover ledger reconciliation, costs, risk limits, input validation, execution timing, restart behavior, CLI integration and evidence classification.
+`reports/tests/latest.json` and `latest.txt` record the latest local run at **2026-10-13T01:49:33.145146+00:00**, using Python **3.12.14**: **56 tests, zero failures, exit 0**. These comprise the unchanged **51 core tests plus five preserved concurrent-main accounting tests**. They cover ledger reconciliation, costs, risk limits, input validation, execution timing, restart behavior, CLI integration and evidence classification.
 
 The same verification recorded successful `pip check`, whitespace checking, parsing of 143 CSV and 53 JSON artifacts, and limited static/secret checks. Counts describe that snapshot and can change as documents are added. All 14 runtime source-file hashes still matched the independent closure's reviewed code when this document was prepared.
 
@@ -12,9 +12,9 @@ The same verification recorded successful `pip check`, whitespace checking, pars
 |---|---|
 | [Research checkpoint run](https://github.com/DashSaman/Arz/actions/runs/38332647920), commit `73f32d85ba4f2b4764d2138e3746f8ffcefcf5d2` | Successful; evidence for that checkpoint |
 | [Earlier main run](https://github.com/DashSaman/Arz/actions/runs/38330760053) | Successful five-test accounting workflow; separate history |
-| Combined final revision | **Not yet observed at this writing**; neither earlier success establishes its CI result |
+| Merged revision `818c3f02aba5fa5064e14b56612341e003a3684c` | **Both workflows succeeded**: [Research checks](https://github.com/DashSaman/Arz/actions/runs/38334222724) and [offline tests](https://github.com/DashSaman/Arz/actions/runs/38334222714); actual run/job/step metadata recorded in [ci_merged.json](../../reports/tests/ci_merged.json) |
 
-`reports/integration/concurrent_main.json` and `integration_preservation_manifest.json` record the incoming artifacts and history. The earlier `integration_review.md` discovered 56 tests but executed only the five new tests, as recorded in `integration_new_tests.txt`; the later `reports/tests/latest.json` records execution of all 56. The integration preserves that accounting work and synthetic data. Its workflow adjustment sets `PYTHONPATH=src`, includes `src/**`, `configs/**` and `pyproject.toml` in path triggers, and retains pinned checkout. The 51-test core implementation did not change during this compatibility integration. The final combined CI link/status must be added only after its actual result is observed.
+`reports/integration/concurrent_main.json` and `integration_preservation_manifest.json` record the incoming artifacts and history. The earlier `integration_review.md` discovered 56 tests but executed only the five new tests, as recorded in `integration_new_tests.txt`; the later `reports/tests/latest.json` records execution of all 56. The integration preserves that accounting work and synthetic data. Its workflow adjustment sets `PYTHONPATH=src`, includes `src/**`, `configs/**` and `pyproject.toml` in path triggers, and retains pinned checkout. The 51-test core implementation did not change during this compatibility integration. The main ref, both merge parents and all 297 file blob identities were independently read and matched. Both combined CI workflows then completed successfully; see [published merge evidence](../../reports/integration/published_merge.json). A following documentation-only checkpoint records these observations; it does not change the tested runtime or strategy.
 
 ## 2. Independent review and targeted closure
 
