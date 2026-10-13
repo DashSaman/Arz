@@ -1,0 +1,17 @@
+{
+  "pool": "Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE",
+  "slot": 456524335,
+  "owner": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+  "tick_spacing": 4,
+  "fee_tier_index_seed": 4,
+  "stored_fee_rate_ppm": 400,
+  "protocol_share_bps": 1300,
+  "liquidity": "741379619459963",
+  "sqrt_price_x64": "6043291298621810254",
+  "tick_current": -22320,
+  "token_mint_a": "So11111111111111111111111111111111111111112",
+  "token_mint_b": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+  "classification": "CURRENT_FINALIZED_ACCOUNT_NOT_HISTORICAL_EXECUTION",
+  "historical_quote": null,
+  "fee_limit": "Stored field only; dynamic fee, route and time-specific execution not certified."
+}

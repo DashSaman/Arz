@@ -1,0 +1,20 @@
+[
+  {
+    "network": "base",
+    "target": 1776254400,
+    "type": "HTTPError",
+    "error": "HTTP Error 429: Too Many Requests"
+  },
+  {
+    "network": "base",
+    "target": 1784116800,
+    "type": "RuntimeError",
+    "error": "Endpoint denied access earlier; no retry"
+  },
+  {
+    "network": "base",
+    "target": 1791806400,
+    "type": "RuntimeError",
+    "error": "Endpoint denied access earlier; no retry"
+  }
+]

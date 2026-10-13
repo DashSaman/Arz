@@ -1,0 +1,25 @@
+[
+  {
+    "block": {
+      "number": 44732526,
+      "hash": "0x7c32bb1da14febdc7c6744d408afe005852a317e55ec313aa2b042b2e6d02a24",
+      "timestamp": 1776254399
+    },
+    "token0": "0x4200000000000000000000000000000000000006",
+    "token1": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+    "fee_ppm": 500,
+    "sqrt_price_x96": "3830260098844831746376465",
+    "active_liquidity": "1202316496893574204",
+    "tick_spacing": 10,
+    "rpc": "https://mainnet.base.org",
+    "network": "base",
+    "pool": "0xd0b53d9277642d899df5c87a3966a349a798f224",
+    "chain_id": 8453,
+    "target_time": 1776254400,
+    "successor": {
+      "number": 44732527,
+      "hash": "0xae7fcc3c39feab9c66bf97e1d8f6de0182dbefd11ad470e263ed680aa630b349",
+      "timestamp": 1776254401
+    }
+  }
+]

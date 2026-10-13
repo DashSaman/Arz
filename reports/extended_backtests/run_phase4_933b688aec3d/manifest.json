@@ -1,0 +1,24 @@
+{
+  "started_at": "2026-10-13T17:39:38.363666+00:00",
+  "finished_at": "2026-10-13T17:39:50.028592+00:00",
+  "code_commit": "933b688aec3d7fccbc09e85178f13492b7ed9c71",
+  "run_id": "38440419124",
+  "requests_this_recovery": 3,
+  "requests_including_first_attempt": 87,
+  "response_bytes_this_recovery": 25780,
+  "files_sha256": {
+    "source_checkpoint.json": "9a5178941404338b4bd3452aa70d85d17f1e1ef75b7d6e7c5c8e313d66b1e82f",
+    "rpc_journal.jsonl.gz": "bb410b26a7d37092c0149b09a18728d42c927eacbaba00313f85a01b451ae664",
+    "software_tests.json": "f2fc4dd26b8b1f96cf2b278da350dc17a39c422961de9c85d8a4b7ab61e80d4f",
+    "independent_swap_replays.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "skipped_replays.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "solana_account.json": "6602bb5597a800fb6476672723d5292fdb9fe88a0f636b64773b9626d24ce2b5",
+    "software_tests.txt": "3d6f946dc23894e38bac89f9bb8916c09a281777e8aea2101ddf363a46b059de",
+    "errors.json": "8642fe8e6eb26be40445d1c697c14790b20c470efe32b3d6fc79d723ddb2fac9",
+    "summary.json": "1ab03c403907ea8b4d0a54a8afe4d2744c6ff67cb814576ca17554840858fb17",
+    "pool_snapshots.json": "ad24620a260ff9ef68adbd3323b87937f13348086e7ecbf8b055cbc739ca3a33",
+    "exact_quotes.csv": "e7055e3498e9fbf00ab36567fdf9dee95fcb3f438ddec73f21a9221378fe4b33"
+  },
+  "live_trading": "DISABLED",
+  "scope": "Completion of frozen quote and observed-swap samples, not a new profitability search"
+}
