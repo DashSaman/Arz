@@ -1,0 +1,24 @@
+{
+  "date_utc": "2026-10-15",
+  "parent_commit": "fdbf4c54bb7cf6bb694d39f9364f67483aedf51c",
+  "question": "Has the 1-2% geometric net daily account objective been evidenced, and can we obtain more useful execution-cost evidence without funds?",
+  "scope": "Continue the user-approved Phase 5 data/quote/economic tasks. No new strategy fitting; preserve all previous returns and holdouts. Add a finite source-preserving quote collector and an independent audit of saved results.",
+  "tasks": [
+    "Read real branch/status/AGENTS and frozen source results; reconcile economic evidence rather than counting software tests as profit",
+    "Write tests before implementing a bounded read-only Base quote collector; no wallet, signer, private key, approval, state overrides or transaction broadcast",
+    "Collect up to three current observation snapshots using explicit Base blocks at least 32 blocks behind the observed head, with a minimum 30-second pause between completed snapshots; identical blocks are not new coverage",
+    "For each successful snapshot quote inputs of 10, 20 and 25 USDC; quote the exact resulting WETH quantity back at the same unmodified block state, clearly NOT a sequential executed round trip; retain block identity, amounts, output and unknown costs",
+    "Where possible read up to three recent public swap receipts as cost-reference samples, NOT as gas estimates for our orders or independent profitability evidence",
+    "Audit saved Phase 3 returns, fees, frequency and target scaling without selecting a new winner or tuning seen holdouts",
+    "Publish equivalent EN/FA findings, code, tests, raw permitted observations/provenance and explicit remaining gates in an isolated branch"
+  ],
+  "network_limits": {"endpoint": "https://mainnet.base.org", "minimum_seconds_between_requests": 3.2, "maximum_requests": 96, "maximum_response_bytes": 2000000, "maximum_total_bytes": 20000000, "maximum_receipts": 3, "stop_on": [401,403,429], "redirects": "deny", "endpoint_rotation": false, "paid_services": false},
+  "fixed_market": {"chain_id": 8453, "pool": "0xd0b53d9277642d899df5c87a3966a349a798f224", "quoter": "0x3d4e44eb1374240ce5f1b871ab261cd16335b76a", "fee_ppm": 500, "stable": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913", "weth": "0x4200000000000000000000000000000000000006"},
+  "evidence_rules": ["No sampled quote is a fill or strategy return", "USDC numbers are not certified USD values; parity is an explicit scenario", "Quoted pool fees/price impact must not be subtracted twice", "Quoter gas is not complete router transaction gas", "Absent cost components remain null", "Public receipts belong to other transactions and do not calibrate our whole strategy", "New short observations cannot constitute a 90-day paper trial", "Earlier cross-network/historical-replay gates remain failed; this narrower collection is not a retrospective gate relaxation"],
+  "acceptance": ["Tests cover input amounts, response IDs, failed transport, duplicates, wrong block/token identity, incomplete fees and exclusive output", "Collector exits after finite work and records any failed request; no daemon", "All source records are traceable to request/time/block", "Final economic decision remains NO-GO unless genuinely new independently qualified evidence warrants otherwise; this study alone cannot qualify live trading"],
+  "execution_plan": "Use an isolated temporary checkout on the connected authorized device for bounded computation; do not install dependencies or change system services. It has Python 3.10, so standalone modules may be tested there; full repository tests require its supported Python version and are only claimed if actually run, including GitHub CI.",
+  "financial_authorization": {"live_trading": "DISABLED", "future_external_capital_ceiling_usd": 100, "signatures": false, "transfers": false, "leverage": false, "automatic_topups": false},
+  "sources_reviewed": ["https://docs.base.org/get-started/connect-to-base", "https://docs.base.org/specifications/transactions/network-fees", "https://developers.uniswap.org/docs/protocols/v3/deployments/v3-base-deployments"],
+  "access_scope": "Read-only research observation; no claim of a legally eligible end-to-end live route for the user. Do not retry explicit denials or bypass provider restrictions.",
+  "fa": "این دور محدود روی حسابداری اقتصادی نتایج قبلی و ثبت مظنه تازه بدون دارایی متمرکز است؛ نه افزایش تعداد تست برای نمایش پیشرفت و نه جست‌وجوی پارامتر تا پیدا شدن سود. معیارهای قبلی پابرجا می‌مانند. هزینه نامعلوم صفر نیست و هیچ مظنه‌ای سود واقعی محسوب نمی‌شود."
+}
