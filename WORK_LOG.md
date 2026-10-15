@@ -1,31 +1,19 @@
 # Work log / گزارش کار
 
-All earlier entries are preserved by exact blob identity at [WORK_LOG.pre-phase4.md](WORK_LOG.pre-phase4.md), which links the earlier preserved history. This file continues the record; it does not erase or revise former results.
+Prior complete log preserved byte-for-byte in WORK_LOG.pre-phase5.md; no former numerical result is revised.
 
-## 2026-10-13 UTC — Phase4 inspection and preregistration
+## 2026-10-15 — bounded Phase5 increment
 
-Verified actual main d21eb28, Phase3 branch7c61ca1 and open PR2. Read status, AGENTS, prior reports, decisions and work log. Created independent research/2026-10-13-phase4-exact-quotes. Registered one finite study at a70da79034f0db5a1a9a8c72271fb9f3a9636f1c: three dates, nominal10/20/25USDC, up to three markets and no strategy tuning. Public RPC feasibility probes performed without keys or funded wallets. An isolated authorized-device clone worked in this session; direct Git push had no credentials, so repository writes used the authorized GitHub connector. This does not revise prior sessions' recorded clone failures.
+Read actual branches, PR3, AGENTS, status, README, methodology, decisions, roadmaps and security closure. Latest prior branch was Phase4 e5994a1. Created research/2026-10-15-phase5-wallet-policy and preregistered its limited no-financial-authority scope at 17d73f2. Main, earlier research refs and existing PRs are untouched.
 
-## 2026-10-13 UTC — implementation and measured attempt
+Reviewed official wallet/delegation/hardware/issuer documents. Important distinctions: MetaMask server outflow policies versus contract restrictions and excluded Permit2 signatures; Safe module paths versus ordinary threshold confirmations; Solana token delegation permits transfer/burn and is not inherently trade-only. Exact versions/licenses/fees and complete legal eligibility are not all established. No wallet or vendor SDK was installed.
 
-Twenty Phase4 tests failed before the module existed, then passed after original integer arithmetic/RPC guard implementation. Published2b09dde0 and runner3fdbe907. First measured source run17:28:52.637026–17:29:24.729315UTC made84requests/428207responsebytes. Six historical Base quotes completed. No independent observed-swap replay completed. Base429 stopped the endpoint; Arbitrum sampled archive state unavailable and listed fallback403 stopped further fallback use. Current finalized Orca account decoded. Numerical transcript and original file hashes retained in reports/phase4_development/first_attempt.json.
+Local clone failed DNS; the authenticated GitHub connector remained usable. In isolated local files, 38 tests failed before implementation. Added policy.py and evidence.py with no network or signing. The first implementation run had 37 passes and one error: rolling notional <= lifetime was unnecessarily required. Both are independent ceilings; requiring positive ceilings and enforcing both per attempt fixed that error without changing tests to accept it. Final recorded local run on Python3.13.5 passed38 at 2026-10-15T14:27:18.401261+00:00. This is only the new suite, not the inherited complete checkout.
 
-## 2026-10-13 UTC — scope correction and bounded recovery
-
-All six first quotes were initially rejected as outside single-range scope because the Quoter gas counter reported1. Reviewed official PoolTicksCounter blobfb0682fb7d037b10a1c9b3e188e5faac7c06c938; independently proved strict same-cell geometry rather than deleting the counter. Five new regressions were red then green, including boundary/crossing rejection and changed-output detection. Original integer quote formula and <=1atomic tolerance did not change. Published933b688a and explicit recovery limits.
-
-The later cooldown attempt paced missing Base reads at>=3.1seconds and stopped on429 without new quotes. It did not retry Arbitrum fallback403. Workflow38440419124 completed its bounded measurement/reporting job, but this does not mean market coverage passed. Results under reports/extended_backtests/run_phase4_933b688aec3d show6retained/0newquotes and0observedreplays. The153-test source version separately failed Research-only checks38440418768; all153unit tests passed, but the owned-module import classifier failed.
-
-## 2026-10-13 UTC — offline closure and delivery
-
-Reproduced the import problem with two failing scoped-import tests; kept unknown-import rejection. Added a no-network saved-quote auditor with six initial failures then passes. Scoped local module/origin exceptions preserve the previous optional-PyArrow and unknown-dependency rules. All34Phase4-only local tests passed. Published3f319702e8f38af175a8e08e03ca29a33a8aee73. The full isolated workflow38441159779 ran162tests successfully, dependency/static checks and a six-record numerical/file-integrity audit with0hash/recorderrors. Its evidence was published in23606491de38e05712b1a4580763ccb47f37e770.
-
-Reviewed current official fee/ABI/account-schema/access documentation, including the difference between standard Solana account reads and paid historical archive extensions. No subscription or paid resource used. Created equivalent EN/FA findings, source/market matrices and current status. The original128test implementation, strategy settings and prior numerical results remain unchanged. No newly qualified strategy, account return, withdrawal, wallet, signature, approval or continuous paper service. Financial status remainsDISABLED/NO-GO. Stacked-PR preparation preserves PR2 and main.
+Prepared paired EN/FA research/architecture/findings, 20-source registry, wallet/access comparison, conditional fee examples, self-review and separate CI workflow. Review is single-agent; memory-only policy/quote storage is not a malicious-host, on-chain or durable production guarantee. Unknown cost stays unknown; no new market data/backtest/quote or profitability claim. Full Phase5 scope remains partial. Future evidence acquisition and funded execution gates remain unchanged.
 
 ## فارسی
 
-تمام گزارش‌های کار قبلی در WORK_LOG.pre-phase4.md با هویت بایت‌به‌بایت حفظ شده‌اند. در۱۳اکتبر۲۰۲۶ مخزن و PR2 واقعاً بررسی و شاخهٔ مستقل ساخته شد؛ طرح محدود قبل از دریافت عملکرد ثبت شد. بیست آزمون اولیه شکست خوردند و پس از ساخت مدل عددصحیح و کنترل فقط‌خواندنی موفق شدند. اجرای واقعی۱۷:۲۸:۵۲تا۱۷:۲۹:۲۴، شش مظنهٔ تاریخی Base گرفت؛429 ادامه را متوقف کرد. آرشیو منبع اصلی Arbitrum موجود نبود و جایگزین403داد. حساب فعلی اورکا خوانده شد، نه تاریخچهٔ آن.
+در۱۵اکتبر مخزن و PR3 واقعاً خوانده شد و شاخه مستقل فاز۵ از e5994a1 ساخته و پیش‌ثبت شد. منابع رسمی کیف‌پول و تفاوت مجوزها بررسی شدند؛ محدودیت‌های حقوقی/نسخه/تعرفه حل‌نشده حفظ‌اند. کلون محلی به علت DNS شکست خورد و ابزار مجاز گیت‌هاب استفاده شد. ۳۸ تست ابتدا بدون پیاده‌سازی شکست خوردند؛ یک خطای رابطه ناموجه سقف گردش در اجرای بعدی اصلاح شد و همان تست‌ها همگی موفق شدند. این شمار فقط تست جدید محلی است، نه کل مخزن.
 
-رد اولیهٔ هر شش مظنه به‌دلیل برداشت نامناسب از شمارندهٔ گس بررسی شد. پنج آزمون شکست‌خورده نوشته و اثبات دقیق قرارداشتن قیمت‌ها در یک خانه افزوده شد؛ فرمول خروجی، اعداد منبع و آستانهٔ خطا تغییر نکردند. شش نمونه دقیقاً برابر شدند. بازیابی پس از فاصلهٔ زمانی با نرخ کمتر نیز429گرفت و متوقف شد؛ مظنهٔ تازه صفر بود. نسخهٔ153تستی در کنترل import ماژول داخلی شکست خورد؛ دو آزمون این مشکل را بازتولید و اصلاح محدود شد.
-
-حسابرسی آفلاین با شش آزمون جدید ساخته شد. ۳۴تست محلی فاز۴ و سپس۱۶۲تست کامل در CI همراه کنترل وابستگی/ایستا و تطبیق شش رکورد/هش موفق‌اند. شکست‌ها و محدودیت‌ها حفظ شده‌اند. گزارش دوزبانه و وضعیت تازه، به‌جای فرض سود، نبود پوشش مستقل کافی و هزینهٔ کامل را ثبت می‌کند. بک‌تست استراتژی تازه یا عملیات مالی انجام نشد. main و PR2 دست‌نخورده‌اند و ادغام خودکار فعال نیست.
+اسناد دوزبانه، جدول مقایسه و دسترسی، بیست منبع، مدل ساختگی بدون کلید/شبکه و کنترل رکورد مظنه آماده انتشار شدند. هیچ داده بازار یا بک‌تست تازه و هیچ عملیات مالی انجام نشد. گیت‌های قبلی سودآوری، هزینه و مشاهده آینده‌نگر باز هستند؛ تغییر main، ادغام اجباری، خرید سرویس یا فعال‌سازی پایش دائمی انجام نشد.

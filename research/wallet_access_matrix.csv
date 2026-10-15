@@ -1,0 +1,10 @@
+scope,source_ids,evidence,finding,limit,status
+Phantom wallet service,W18,Product terms read,Applicable sanctions/authorization clauses; no blanket citizenship conclusion,Separate from location/IP and AI-access mechanism,PENDING
+MetaMask kit and Agent Wallet,W01;W02;W03,Technical docs read; full service eligibility unresolved,Product-specific assessment required,Consensys footer redirected to general site; not legal clearance,PENDING
+Safe software/modules/services,W04;W05,Technical docs read; complete current service terms not established,Open source and hosted service are separate,No permission inferred from contract reachability,PENDING
+Rabby/Frame wallet and RPC,W12;W13;W14,Technical scope only,No nationality/location eligibility adjudication,Selected RPC and token issuer remain separate,PENDING
+Solflare/Backpack wallet services,W15;W16,Technical docs read; complete legal scope unresolved,No blanket allowed or blocked decision,Candidate terms URL failures are not evidence of a prohibition,PENDING
+Hardware Ledger/Trezor/Keystone,W08;W09;W10;W11,Technical signing flow only,Hardware purchase/services/firmware jurisdiction not evaluated,No device purchased or recommended as necessary for research,PENDING
+USDC / Circle,W19,Official terms read,Iran-related location/residence restrictions and blocklisting risk,Do not substitute Iranian citizenship for location/residence,PENDING_COMPLETE_ROUTE; RESTRICTIONS_APPLY_TO_COVERED_SCOPE
+USDT / Tether,W20,Official legal page read,Covered-service restrictions and freeze powers,Secondary holding and direct-customer terms not conflated,PENDING_COMPLETE_ROUTE; FREEZE_RISK
+Arz offline synthetic test,internal,"No wallet, network or financial key",No financial service used by the test itself,Not a ruling on future DEX/RPC eligibility,OFFLINE_ONLY

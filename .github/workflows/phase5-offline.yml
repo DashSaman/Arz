@@ -1,0 +1,25 @@
+name: Phase 5 offline wallet-policy research
+on:
+  push:
+    paths:
+      - 'phase5/**'
+      - '.github/workflows/phase5-offline.yml'
+  pull_request:
+    paths:
+      - 'phase5/**'
+      - '.github/workflows/phase5-offline.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  synthetic-policy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: No-network synthetic policy and evidence tests
+        run: PYTHONPATH=phase5 python3 -m unittest discover -s phase5/tests -v
+      - name: Parse research modules
+        run: python3 -m py_compile phase5/policy.py phase5/evidence.py
