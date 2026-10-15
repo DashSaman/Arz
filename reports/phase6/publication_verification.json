@@ -1,0 +1,29 @@
+{
+  "review_date_utc":"2026-10-15",
+  "tested_published_commit":"189db1f1e2fceecd17e922a7a83a34d82f396099",
+  "base_commit":"fdbf4c54bb7cf6bb694d39f9364f67483aedf51c",
+  "method":"Fetched the published Git commit into an isolated checkout; compared all three Python files byte-for-byte and by AST against locally executed files; compared published measurements JSON with the original normalized observed object; independently reran the 31 standalone tests and all 18 numerical quote comparisons using published bytes.",
+  "source_byte_matches":{
+    "phase6/economic_audit.py":{"matched":true,"sha256":"67c9544d98cec1e075deda41bb15278280fab7f546d9a5e5e51d49a260272782"},
+    "phase6/quote_recorder.py":{"matched":true,"sha256":"b537bb1bd2457fde9b78dec10eabff3bc5fd31060ef80e146ac3af8954209143"},
+    "phase6/test_research.py":{"matched":true,"sha256":"e46458a76287be8377847aa1c1bd7d1faf7cb39fccb8448706b18dddd014f501"}
+  },
+  "published_numeric_transcript_matches_original_object":true,
+  "published_quote_legs_recomputed_successfully":18,
+  "published_standalone_test_run":{"python":"3.10.12","tests":31,"failures":0,"errors":0,"exit_code":0,"reported_seconds":0.076},
+  "ci":[
+    {"run_id":38788898505,"job_id":116608000506,"name":"Phase 6 offline economic and quote research tests","status":"completed","conclusion":"success","checked_steps":["Test new offline functions without market access","Preserve separate Phase 5 suite","Reproduce fixed saved economic diagnostics"],"url":"https://github.com/DashSaman/Arz/actions/runs/38788898505"},
+    {"run_id":38788897921,"job_id":116607997371,"name":"Research-only checks","status":"completed","conclusion":"success","checked_steps":["Create isolated standard-library environment","Test accounting, risk, paper state and static boundaries"],"url":"https://github.com/DashSaman/Arz/actions/runs/38788897921"}
+  ],
+  "ci_evidence_scope":"Actual workflow metadata and job/step success were read. This record does not claim independently parsed full inherited test counts or a complete security audit.",
+  "preservation":"GitHub compare: two commits ahead, zero behind at the tested checkpoint; no old src, tests, configuration or previous numerical result files changed. Prior status/log preserved as exact pre-phase6 blobs.",
+  "data_limits":["Raw full RPC transcript retained in isolated workspace; published normalized numeric transcription is not raw-provider authentication","Only three short-time states from one provider","No actual swaps or receipt cost samples","HTTP429 terminated further collection","All strategy profit claims remain unqualified"],
+  "new_strategy_backtests":0,
+  "financial_actions":0,
+  "persistent_service_running":false,
+  "target_profitability_established":false,
+  "execution_validated_net_daily_return":null,
+  "live_trading":"DISABLED",
+  "decision":"NO-GO",
+  "note":"This subsequent evidence-only commit supersedes pending-publication fields without changing tested code or measured observations."
+}

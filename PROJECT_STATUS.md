@@ -1,32 +1,27 @@
-# Arz project status / وضعیت پروژه
+# Arz status / وضعیت پروژه
 
-Reviewed 2026-10-15 UTC. **Phase 5 partial: wallet authority research and offline policy/evidence increment. Live trading DISABLED. Real-capital decision NO-GO. No validated trading edge.**
+Reviewed 2026-10-15 UTC. **Phase 6 bounded economic/data continuation. Target net geometric daily 1–2%: NOT ESTABLISHED. Live trading DISABLED. Real-capital NO-GO.**
 
-## Continuity and actual scope
+Current branch: `research/2026-10-15-phase6-economic-evidence`, starting Phase5 `fdbf4c54bb7cf6bb694d39f9364f67483aedf51c`. Preregistration: `b7ebe7d3c42d0507f3a58fe9f4c4509c6ec791e1`. Main and earlier branches/PRs remain unchanged. Exact prior status/log preserved as PROJECT_STATUS.pre-phase6.md and WORK_LOG.pre-phase6.md.
 
-Branch `research/2026-10-15-phase5-wallet-policy` is based on Phase4 `e5994a1374d22403921d9839cc1473afe48afd3b`. Its preregistration commit is `17d73f25c3ffb6ac78b91d43f1c4c91e755f55cd`. Main and the Phase3/4 branches are not updated or merged. Exact prior status and work log are preserved in `PROJECT_STATUS.pre-phase5.md` and `WORK_LOG.pre-phase5.md`. Read those for the previous 162-test, six-quote evidence and unmet coverage gates.
+## Actual new work
 
-## New delivered scope
+- Implemented a finite explicit-opt-in public Base quote collector, with fixed read-only methods/contracts, explicit blocks, request/byte limits and sticky error halt; no wallet/signing/approval/broadcast.
+- Executed it on an isolated authorized-device checkout: 18 quote responses (nine pairs), three distinct Base blocks/times, 64 requests, 265-second bounded run. All 18 numeric outputs agree with existing single-cell model. Subsequent Swap-log retrieval returned HTTP429 and stopped. No receipt cost samples or retry/rotation.
+- Published normalized exact quote inputs/outputs and the original local raw-journal hash in reports/phase6/measurements.json. This is not an authenticated full raw-transcript publication or long-duration record.
+- Audited the fixed previously reported Phase3 strategy and its 12 cap/cost rows; no refitting or new backtest. Its +4.914184%/184days becomes -2.864434% at doubled modeled costs; base geometric daily 0.0260754%. Additional equal cost of about 0.050145USDC per fill erases the stored profit only under frozen-path arithmetic.
+- Added 31 standalone offline tests, observed red/green including two regression tests for empty historical selection. Supported full-repository tests and publication identity/CI must be verified separately.
 
-- Ten named wallet brands and separate authority models compared in `research/wallet_comparison.csv`; twenty official source records and a scope-aware access matrix.
-- Equivalent EN/FA wallet research, architecture and partial-delivery reports in docs.
-- Additive `phase5/policy.py`: no-key, no-network synthetic intent restrictions. Memory-only and not on-chain enforcement or a safe production restart design.
-- Additive `phase5/evidence.py`: quote-only record validation, exclusive batch storage and conditional fee arithmetic. Unknown costs remain null; no quote is promoted to a fill or return.
-- 38 added local tests passed after observed RED tests and correction of one over-restrictive policy relation. Full test scope, failure hashes and self-review limits: `reports/phase5/local_verification.json`.
-- Separate offline GitHub workflow added; publication CI must be checked and recorded separately. Complete prior repository suite was not executed locally because local git clone failed DNS. No independent reviewer was available; this is not a third-party audit.
+## Economic decision
 
-## Economic and operational result
+No qualified profitable strategy, actual trade, new strategy backtest, capital withdrawal or sustained paper service. Execution-validated daily account return remains null, not measured zero. Three short states from one provider do not satisfy old historical/cross-network replay or prospective gates. Full own-order network cost and legally eligible end-to-end live route remain unresolved. No financial action or paid service occurred.
 
-New market quotes: 0. New strategy backtests: 0. New prospective observations: 0. Financial signatures: 0. Validated geometric daily return: null, not a measured zero. Qualified operational paper candidates: 0. No wallet, approval, funded account, live recorder or persistent service was activated. No hardware/service purchase.
+## Next useful work
 
-The $100 limit remains a future externally funded experiment ceiling, not a deposit request. The 1–2% geometric daily goal remains unproven. Wallet research does not change prior negative/uncalibrated strategy results. Conditional pool-fee examples do not establish complete DEX execution cost.
+Preserve this bounded collection and source data. Improve permitted rate-aware data access and full-cost uncertainty without bypass. Add actual elapsed prospective observations before strategy validation; do not repeat price-only searches to force a positive result. Keep old strategies/holdouts fixed. No funded deployment, persistent service or merge is authorized by this checkpoint.
 
-## Next meaningful work
-
-Obtain a permitted and source-preserving historical replay route or implement a genuinely prospective, read-only quote recorder with complete fee uncertainty. Do not repeat price-only parameter searches. Freeze a new strategy protocol only after data quality improves; preserve all earlier seen holdouts and negative results. Hardware or session-key deployment remains separately reviewable, not authorized. Missing service eligibility is PENDING, not a blanket worldwide nationality ban or permission.
+Read docs/en/phase6_economic_evidence.md or docs/fa/phase6_economic_evidence.md and reports/phase6/verification.json. A later CI evidence checkpoint may supersede the pending-publication field without changing code.
 
 ## فارسی
 
-فاز ۵ فقط در محدوده پژوهش کیف‌پول و مدل آفلاین جزئی تحویل شده است. ده برند و مدل‌های جدا، بیست منبع رسمی، جدول دسترسی و گزارش‌های هم‌ارز فارسی/انگلیسی ثبت شدند. ۳۸ تست جدید محلی موفق است؛ CI و آزمون‌های قبلی باید جداگانه با اجرای واقعی گیت‌هاب ثبت شوند. مدل مجوز فقط ساختگی و در حافظه است و امنیت قراردادی/میزبان را تضمین نمی‌کند. اعتبارسنجی مظنه، گردآورنده زنده یا معامله نیست.
-
-داده بازار، بک‌تست، مشاهده آینده‌نگر و امضای مالی تازه صفر است. بازده تأییدشده نامعلوم و نامزد paper صفر است. main و شاخه‌های قبلی تغییر نکرده‌اند؛ تاریخچه وضعیت/گزارش قبلی به‌صورت دقیق حفظ شده است. **معامله واقعی DISABLED، تصمیم مالی NO-GO و کل مأموریت فاز ۵ PARTIAL است.**
+هنوز به سود هدف نرسیده‌ایم. این بار جمع‌آورنده محدود واقعاً ساخته و اجرا شد: ۱۸ مظنه در سه بلوک، ۶۴ درخواست و حدود ۲۶۵ ثانیه. دریافت بعدی رسیدها به429خورد و متوقف شد؛ هزینه کامل نامعلوم است. عددهای مظنه با مدل تطبیق دارند ولی معامله یا سود نیستند. ۳۱ تست تازه مستقل موفق و خطای انتخاب خالی گزارش با تست بازگشت اصلاح شد. هیچ راهبرد قبلی عوض یا بک‌تست جدیدی اجرا نشد. حسابرسی نتایج قبلی حساسیت شدید سود به هزینه را تأیید می‌کند. main و شاخه‌های دیگر دست‌نخورده‌اند؛ اصل سرمایه مصرف نشد. ادامه فقط با داده و هزینه بهتر، نه ساخت نتیجه مطلوب؛ معامله DISABLED و تصمیم مالی NO-GO.

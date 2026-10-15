@@ -1,0 +1,18 @@
+{
+  "date_utc":"2026-10-15",
+  "scope":"Standalone offline new-module tests on an isolated authorized-device checkout; actual finite public read-only RPC collection separately recorded",
+  "python":"3.10.12",
+  "new_test_methods":31,
+  "new_test_exit_code":0,
+  "inherited_full_suite_run_locally":false,
+  "github_ci":"PENDING_PUBLICATION",
+  "commands":["PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=phase6:src python3 -m unittest discover -s phase6 -p 'test_*.py' -v","PYTHONPATH=phase6:src python3 phase6/economic_audit.py --output runtime/phase6-economics-verified","PYTHONPATH=phase6:src python3 phase6/quote_recorder.py --collect --snapshots 3 --output runtime/phase6-observations"],
+  "test_sequence":[{"stage":"RED","tests":29,"failures":29,"reason":"Modules absent"},{"stage":"GREEN","tests":29,"passed":29},{"stage":"SCHEMA_REGRESSION_RED","tests":31,"failures":2,"reason":"Old result scenario named fixed_grid_price_only, not base; empty selection was not rejected"},{"stage":"SCHEMA_GREEN","tests":31,"passed":31,"seconds":0.074,"fix":"Correct explicit historical label and require exactly 12 unique predeclared cap/cost combinations"}],
+  "tested_source_sha256":{"phase6/economic_audit.py":"67c9544d98cec1e075deda41bb15278280fab7f546d9a5e5e51d49a260272782","phase6/quote_recorder.py":"b537bb1bd2457fde9b78dec10eabff3bc5fd31060ef80e146ac3af8954209143","phase6/test_research.py":"e46458a76287be8377847aa1c1bd7d1faf7cb39fccb8448706b18dddd014f501"},
+  "test_scope_limit":"Python 3.10 for additive standalone functions only. Repository-wide requirement remains Python 3.11+. Published-source identity and CI must be verified separately.",
+  "review":"Single-agent self-review, not independent security or financial audit",
+  "known_limits":["No network mock test proves honest external data","Three states from one provider are not independent market regimes","Same-state reverse quotes are not executed round trips","Receipt acquisition stopped on 429; full costs remain unknown","CLI exits after writing partial summary; callers must inspect errors, not just exit code","No persistent service or wallet"],
+  "network_result":{"requests":64,"successful_quote_legs":18,"distinct_blocks":3,"reference_receipts":0,"error":"HTTP 429 during subsequent log retrieval; no retry","financial_actions":0},
+  "live_trading":"DISABLED",
+  "validated_profitability":false
+}
