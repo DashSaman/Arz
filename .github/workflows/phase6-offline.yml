@@ -1,0 +1,26 @@
+name: Phase 6 offline economic and quote research tests
+on:
+  push:
+    paths:
+      - 'phase6/**'
+      - '.github/workflows/phase6-offline.yml'
+  pull_request:
+    paths:
+      - 'phase6/**'
+      - '.github/workflows/phase6-offline.yml'
+permissions:
+  contents: read
+jobs:
+  offline-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Test new offline functions without market access
+        run: PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=phase6:src python3 -m unittest discover -s phase6 -p 'test_*.py' -v
+      - name: Preserve separate Phase 5 suite
+        run: PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=phase5 python3 -m unittest discover -s phase5/tests -v
+      - name: Reproduce fixed saved economic diagnostics
+        run: PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=phase6:src python3 phase6/economic_audit.py --output runtime/phase6-ci-economics

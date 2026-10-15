@@ -1,0 +1,80 @@
+{
+  "summary": {
+    "snapshots": 3,
+    "unique_blocks": 3,
+    "unique_block_times": 3,
+    "unique_quote_pairs": 9,
+    "qualified_strategy": false,
+    "execution_validated_return": null,
+    "live_trading": "DISABLED",
+    "started_at": "2026-10-15T18:33:01.644188+00:00",
+    "finished_at": "2026-10-15T18:37:26.482659+00:00",
+    "requests": 64,
+    "response_bytes": 98643,
+    "errors": [{"type": "HTTPError", "error": "HTTP Error 429: Too Many Requests", "observed_at": "2026-10-15T18:37:26.482370+00:00"}],
+    "reference_receipts": [],
+    "new_strategy_backtests": 0,
+    "prior_coverage_gate_passed": false,
+    "decision": "NO_GO_FOR_FUNDS; OBSERVATION_ONLY",
+    "continuous_service": false,
+    "limits": ["Same-state quotes are not sequential fills", "Receipts do not prove own-order gas", "No new strategy performance or qualified paper evidence"]
+  },
+  "full_raw_journal_sha256": "cc461a695d095ab3e5f5b0608cada4eb9be3fb93df8afd26cc8c85a693198854",
+  "transcript_scope": "Normalized original numeric outputs; raw RPC journal retained in the isolated workspace, not represented as published raw bytes",
+  "snapshots": [
+    {
+      "block_number": 52649886,
+      "block_hash": "0x745e32d82d0d3eb0d2bf196fd8b85690064a6678a3df0a1196f583de125f99fb",
+      "block_time": 1792089119,
+      "observed_start": "2026-10-15T18:33:01.644336+00:00",
+      "observed_end": "2026-10-15T18:34:08.790319+00:00",
+      "sqrt_price_x96": "3913262748270505800173188",
+      "active_liquidity": "1075085757041328404",
+      "tick_spacing": 10,
+      "fee_ppm": 500,
+      "token0": "0x4200000000000000000000000000000000000006",
+      "token1": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+      "quotes": [
+        {"amount_in_usdc_atomic": "10000000", "buy_quoter_output": ["4096980215674303", "3913263484849405802873552", "1", "86311"], "reverse_quoter_output": ["9989998", "3913262012060172326455900", "1", "72974"]},
+        {"amount_in_usdc_atomic": "20000000", "buy_quoter_output": ["8193958889030475", "3913264221428305805573917", "1", "86311"], "reverse_quoter_output": ["19979989", "3913261275850393010284306", "1", "72974"]},
+        {"amount_in_usdc_atomic": "25000000", "buy_quoter_output": ["10242447647339534", "3913264589717755806924100", "1", "86311"], "reverse_quoter_output": ["24974982", "3913260907745711161082599", "1", "72974"]}
+      ]
+    },
+    {
+      "block_number": 52649935,
+      "block_hash": "0x593441c5b3f9eb3c16a636b9fc37a67ffe5171c020ddda3e06234627734600e9",
+      "block_time": 1792089217,
+      "observed_start": "2026-10-15T18:34:38.820527+00:00",
+      "observed_end": "2026-10-15T18:35:46.019753+00:00",
+      "sqrt_price_x96": "3914270769371438175250220",
+      "active_liquidity": "1068339143302857189",
+      "tick_spacing": 10,
+      "fee_ppm": 500,
+      "token0": "0x4200000000000000000000000000000000000006",
+      "token1": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+      "quotes": [
+        {"amount_in_usdc_atomic": "10000000", "buy_quoter_output": ["4094870336149880", "3914271510601869816923288", "1", "86306"], "reverse_quoter_output": ["9989998", "3914270028511902266704629", "1", "72912"]},
+        {"amount_in_usdc_atomic": "20000000", "buy_quoter_output": ["8189739121440591", "3914272251832301458596357", "1", "86306"], "reverse_quoter_output": ["19979989", "3914269287652927392347314", "1", "72912"]},
+        {"amount_in_usdc_atomic": "25000000", "buy_quoter_output": ["10237172932514033", "3914272622447517279432891", "1", "86306"], "reverse_quoter_output": ["24974982", "3914268917223650342790142", "1", "72912"]}
+      ]
+    },
+    {
+      "block_number": 52649984,
+      "block_hash": "0x549e6afb6d91b6481d2779b2e23ab05cd6f2dc4103c867e8e10986cc7aa862b0",
+      "block_time": 1792089315,
+      "observed_start": "2026-10-15T18:36:16.051254+00:00",
+      "observed_end": "2026-10-15T18:37:23.126872+00:00",
+      "sqrt_price_x96": "3914756565105379941010281",
+      "active_liquidity": "1068339143302857189",
+      "tick_spacing": 10,
+      "fee_ppm": 500,
+      "token0": "0x4200000000000000000000000000000000000006",
+      "token1": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+      "quotes": [
+        {"amount_in_usdc_atomic": "10000000", "buy_quoter_output": ["4093854105949499", "3914757306335811582683349", "1", "86317"], "reverse_quoter_output": ["9989998", "3914755824245843997654474", "1", "72923"]},
+        {"amount_in_usdc_atomic": "20000000", "buy_quoter_output": ["8187706661617113", "3914758047566243224356418", "1", "86317"], "reverse_quoter_output": ["19979989", "3914755083386869018865998", "1", "72923"]},
+        {"amount_in_usdc_atomic": "25000000", "buy_quoter_output": ["10234632358095487", "3914758418181459045192952", "1", "86317"], "reverse_quoter_output": ["24974982", "3914754712957591890985597", "1", "72923"]}
+      ]
+    }
+  ]
+}

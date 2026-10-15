@@ -1,19 +1,19 @@
 # Work log / گزارش کار
 
-Prior complete log preserved byte-for-byte in WORK_LOG.pre-phase5.md; no former numerical result is revised.
+Prior complete log preserved by exact blob identity in WORK_LOG.pre-phase6.md.
 
-## 2026-10-15 — bounded Phase5 increment
+## 2026-10-15 — bounded economic continuation
 
-Read actual branches, PR3, AGENTS, status, README, methodology, decisions, roadmaps and security closure. Latest prior branch was Phase4 e5994a1. Created research/2026-10-15-phase5-wallet-policy and preregistered its limited no-financial-authority scope at 17d73f2. Main, earlier research refs and existing PRs are untouched.
+Read current GitHub refs and Phase5 status; no target profit evidence. Created independent Phase6 branch from fdbf4c5 and preregistered at b7ebe7d. An authorized-device temporary clone succeeded; direct git push dry-run had no credentials. Connector publication is used without copying or requesting credentials. No system services/dependencies changed.
 
-Reviewed official wallet/delegation/hardware/issuer documents. Important distinctions: MetaMask server outflow policies versus contract restrictions and excluded Permit2 signatures; Safe module paths versus ordinary threshold confirmations; Solana token delegation permits transfer/burn and is not inherently trade-only. Exact versions/licenses/fees and complete legal eligibility are not all established. No wallet or vendor SDK was installed.
+Implemented additive phase6/economic_audit.py and quote_recorder.py after 29 failing tests. Initial tests passed but an actual historical audit selected zero rows: old scenario name was fixed_grid_price_only, not base. Two additional regression tests failed; corrected the explicit label and added a required complete 12-row grid. All31 standalone tests then passed on Python3.10.12. Preserve the invalid first audit separately; do not call it a result. No prior runtime or strategy code changed.
 
-Local clone failed DNS; the authenticated GitHub connector remained usable. In isolated local files, 38 tests failed before implementation. Added policy.py and evidence.py with no network or signing. The first implementation run had 37 passes and one error: rolling notional <= lifetime was unnecessarily required. Both are independent ceilings; requiring positive ceilings and enforcing both per attempt fixed that error without changing tests to accept it. Final recorded local run on Python3.13.5 passed38 at 2026-10-15T14:27:18.401261+00:00. This is only the new suite, not the inherited complete checkout.
+Executed finite collection 18:33:01.644188–18:37:26.482659UTC. Three explicit Base blocks (52649886/52649935/52649984), 18 exact quote legs, 64 public read-only requests and98643 response bytes. All quote numerical comparisons passed. Subsequent log request hit429; no retry, paid service or alternate endpoint. No reference receipts, full gas calibration or financial actions. The process ended after writing its partial summary; no collector remains running.
 
-Prepared paired EN/FA research/architecture/findings, 20-source registry, wallet/access comparison, conditional fee examples, self-review and separate CI workflow. Review is single-agent; memory-only policy/quote storage is not a malicious-host, on-chain or durable production guarantee. Unknown cost stays unknown; no new market data/backtest/quote or profitability claim. Full Phase5 scope remains partial. Future evidence acquisition and funded execution gates remain unchanged.
+Audited saved Phase3 mean_reversion_v2/academic_usdc/1h with caps1/2/5/10 and costs1/2/3. New report is arithmetic over existing results, not another backtest. Published normalized observation transcript, full local raw-journal hash, source/test identities, bilingual findings and a separate offline-only CI workflow. Code/transcription comparison and CI are checked after publication. No independent external reviewer is claimed.
 
 ## فارسی
 
-در۱۵اکتبر مخزن و PR3 واقعاً خوانده شد و شاخه مستقل فاز۵ از e5994a1 ساخته و پیش‌ثبت شد. منابع رسمی کیف‌پول و تفاوت مجوزها بررسی شدند؛ محدودیت‌های حقوقی/نسخه/تعرفه حل‌نشده حفظ‌اند. کلون محلی به علت DNS شکست خورد و ابزار مجاز گیت‌هاب استفاده شد. ۳۸ تست ابتدا بدون پیاده‌سازی شکست خوردند؛ یک خطای رابطه ناموجه سقف گردش در اجرای بعدی اصلاح شد و همان تست‌ها همگی موفق شدند. این شمار فقط تست جدید محلی است، نه کل مخزن.
+پس از خواندن وضعیت واقعی، شاخه مستقل فاز۶ ساخته و قبل از دریافت داده پیش‌ثبت شد. کلون در فضای موقت دستگاه مجاز موفق بود؛ ارسال مستقیم گیت مجوز نداشت و از اتصال مجاز GitHub برای انتشار استفاده شد. ۲۹ تست اولیه شکست خوردند و سپس موفق شدند؛ دو تست تازه خطای انتخاب خالی ردیف تاریخی را بازتولید کردند و پس از اصلاح نام سناریو و الزام ۱۲ ترکیب، هر۳۱ تست موفق شد.
 
-اسناد دوزبانه، جدول مقایسه و دسترسی، بیست منبع، مدل ساختگی بدون کلید/شبکه و کنترل رکورد مظنه آماده انتشار شدند. هیچ داده بازار یا بک‌تست تازه و هیچ عملیات مالی انجام نشد. گیت‌های قبلی سودآوری، هزینه و مشاهده آینده‌نگر باز هستند؛ تغییر main، ادغام اجباری، خرید سرویس یا فعال‌سازی پایش دائمی انجام نشد.
+دریافت محدود واقعی ۱۸ مظنه تازه در سه بلوک Base ثبت کرد؛ درخواست۶۴ برای لاگ‌ها429گرفت و توقف انجام شد. هیچ رسید تازه، هزینه کامل یا سود راهبردی احراز نشد. فرایند پایان یافت و سرویس پس‌زمینه فعال نماند. نتایج قدیمی و شاخه‌های دیگر حفظ‌اند؛ هیچ پول، کلید، امضا یا Approval مصرف نشد. گزارش‌های هم‌ارز دو زبان و شواهد عددی برای ادامه قابل‌بازیابی ثبت می‌شوند؛ هدف سود۱تا۲درصد همچنان تأیید نشده است.

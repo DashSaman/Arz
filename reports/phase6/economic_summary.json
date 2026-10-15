@@ -1,0 +1,22 @@
+{
+  "date_utc": "2026-10-15",
+  "source": "reports/extended_backtests/run_phase3_ba0874428e9b/summary.csv",
+  "source_commit": "fdbf4c54bb7cf6bb694d39f9364f67483aedf51c",
+  "method": "Independent arithmetic audit of the fixed previously reported configuration and 12 cap/cost sensitivities; no strategy fitting or new backtest",
+  "fixed_configuration": {"strategy": "mean_reversion_v2", "market": "academic_usdc", "timeframe_seconds": 3600, "scenario": "fixed_grid_price_only", "calendar_days": 184, "initial_capital": 100},
+  "recorded_examples": [
+    {"run_id":"P3-0027","cap":1,"cost_factor":1,"ending_equity":103.10113221103099,"closed_cycles":44,"wins":31,"losses":13,"fills":88,"geometric_daily_percent":0.016599305060904002},
+    {"run_id":"P3-0031","cap":2,"cost_factor":1,"ending_equity":104.91418382557237,"closed_cycles":49,"wins":36,"losses":13,"fills":98,"geometric_daily_percent":0.026075427908034264},
+    {"run_id":"P3-0033","cap":2,"cost_factor":2,"ending_equity":97.13556588447388,"closed_cycles":49,"wins":33,"losses":16,"fills":98,"geometric_daily_percent":-0.015793642217432485},
+    {"run_id":"P3-0034","cap":2,"cost_factor":3,"ending_equity":89.66000874876755,"closed_cycles":42,"wins":17,"losses":25,"fills":84,"geometric_daily_percent":-0.059300535106541055},
+    {"run_id":"P3-0035","cap":5,"cost_factor":1,"ending_equity":104.00390689960904,"closed_cycles":49,"wins":36,"losses":13,"fills":98,"geometric_daily_percent":0.02133829737242944},
+    {"run_id":"P3-0039","cap":10,"cost_factor":1,"ending_equity":104.00390689960904,"closed_cycles":49,"wins":36,"losses":13,"fills":98,"geometric_daily_percent":0.02133829737242944}
+  ],
+  "fixed_path_margin": {"run_id":"P3-0031","net_profit":4.9141838255723655,"fills":98,"additional_equal_usdc_per_fill_to_erase_profit":0.05014473291400373,"limit":"Arithmetic on unchanged old ledger; not a new cost rerun. Actual extra costs can change sizing and stops. Do not transplant current Base costs into Ethereum 2021."},
+  "target_scenario": {"initial_usdc":100,"order_usdc":20,"completed_cycles_per_day":10,"daily_target_percent":1,"pool_only_required_average_gross_percent_per_cycle":0.6,"daily_target_2percent_requires_pool_only_average_gross_percent_per_cycle":1.1,"assumed_pool_fee_bps_each_leg":5,"all_in_required_average_gross":null,"interpretation":"Hypothetical fixed-order daily arithmetic including winning and losing cycles, not win rate, not a forecast. Network, adverse fills and other unknown costs would raise the requirement."},
+  "new_backtests":0,
+  "execution_validated_net_daily_return":null,
+  "target_profitability_established":false,
+  "live_trading":"DISABLED",
+  "decision":"NO-GO"
+}
