@@ -1,46 +1,32 @@
 # Arz project status / وضعیت پروژه
 
-Updated 2026-10-13 UTC. **Current Phase: Phase4 exact-amount execution evidence, partially delivered. Live Trading Authorization Status: DISABLED. NO VALIDATED TRADING EDGE FOUND. Real-capital decision NO-GO; research continuation only for improved execution data.**
+Reviewed 2026-10-15 UTC. **Phase 5 partial: wallet authority research and offline policy/evidence increment. Live trading DISABLED. Real-capital decision NO-GO. No validated trading edge.**
 
-Read [English report](docs/en/phase4_execution_validation.md) or [گزارش فارسی](docs/fa/phase4_execution_validation.md). Prior complete status and work log are preserved byte-for-byte in PROJECT_STATUS.pre-phase4.md and WORK_LOG.pre-phase4.md, including their own earlier-history links. The original README remains an MVP entrypoint; current counts and qualifications are here.
+## Continuity and actual scope
 
-## Completed Tasks
+Branch `research/2026-10-15-phase5-wallet-policy` is based on Phase4 `e5994a1374d22403921d9839cc1473afe48afd3b`. Its preregistration commit is `17d73f25c3ffb6ac78b91d43f1c4c91e755f55cd`. Main and the Phase3/4 branches are not updated or merged. Exact prior status and work log are preserved in `PROJECT_STATUS.pre-phase5.md` and `WORK_LOG.pre-phase5.md`. Read those for the previous 162-test, six-quote evidence and unmet coverage gates.
 
-Real branch/PR inspection; independent Phase4 branch and preregistration; original wallet-free exact-input integer model; strict read-only RPC/ABI/block guards; current Orca account decoder; six historical Base contract quotes; correction of gas-counter versus geometric-tick scope; offline saved-quote/hash audit; market/access/source matrices and equivalent EN/FA report. No prior strategy runtime or numerical outputs were modified.
+## New delivered scope
 
-## Verified Results
+- Ten named wallet brands and separate authority models compared in `research/wallet_comparison.csv`; twenty official source records and a scope-aware access matrix.
+- Equivalent EN/FA wallet research, architecture and partial-delivery reports in docs.
+- Additive `phase5/policy.py`: no-key, no-network synthetic intent restrictions. Memory-only and not on-chain enforcement or a safe production restart design.
+- Additive `phase5/evidence.py`: quote-only record validation, exclusive batch storage and conditional fee arithmetic. Unknown costs remain null; no quote is promoted to a fill or return.
+- 38 added local tests passed after observed RED tests and correction of one over-restrictive policy relation. Full test scope, failure hashes and self-review limits: `reports/phase5/local_verification.json`.
+- Separate offline GitHub workflow added; publication CI must be checked and recorded separately. Complete prior repository suite was not executed locally because local git clone failed DNS. No independent reviewer was available; this is not a third-party audit.
 
-- Preserved 24 MVP, 690 extended and 464 Phase3 scenarios. New Phase4 strategy backtests: **0**. These prior scenarios are not independent observations.
-- Actual new historical evidence: **6 unique exact-size/direction quotes at one Base block**, 44732526 / 2026-04-15T11:59:59Z, for nominal10/20/25USDC both directions. Original model and contract output/post-sqrt-price differ by **0 atomic units** in each case after exact same-cell scope proof.
-- **0 completed independent observed-swap replays**, **1 historical time**, **1 qualifying EVM network**. Preregistered >=12 replays/3times/2networks gate FAILED; not relaxed.
-- Current Orca finalized account at slot456524335 has stored400ppm fee, not a historical schedule. It cannot repair earlier fee/volume assumptions automatically.
-- Tested code commit `3f319702e8f38af175a8e08e03ca29a33a8aee73`: **162 tests passed**, inherited128 plus34new; dependency/static checks and offline numerical/file audit passed. Evidence run38441159779, reports/extended_backtests/run_phase4audit_3f319702e8f3/.
-- Best execution-validated OOS net return and geometric daily return: **NOT ESTABLISHED / null**. Not zero. New validated withdrawals:0; qualified paper candidates:0.
+## Economic and operational result
 
-## Failed Tests / Access Blockers
+New market quotes: 0. New strategy backtests: 0. New prospective observations: 0. Financial signatures: 0. Validated geometric daily return: null, not a measured zero. Qualified operational paper candidates: 0. No wallet, approval, funded account, live recorder or persistent service was activated. No hardware/service purchase.
 
-First Base acquisition stopped on429 after six quotes. A later reduced-rate cooldown attempt also stopped on429 without any new quote. Arbitrum primary returned unavailable historical state; the listed alternative returned403 and was not retried. No additional endpoint rotation, paid service or restriction bypass. Current Solana account state was available; historical account/tick-array data were not.
+The $100 limit remains a future externally funded experiment ceiling, not a deposit request. The 1–2% geometric daily goal remains unproven. Wallet research does not change prior negative/uncalibrated strategy results. Conditional pool-fee examples do not establish complete DEX execution cost.
 
-The153-test source checkpoint passed tests but failed a static import allowlist that did not recognize owned Phase4 modules. Scoped-import regression tests reproduced it; only explicit local module/origin pairs were added. Failure evidence remains under reports/phase4_development. Initial all-six scope rejections are preserved; the gas counter was not an appropriate standalone crossing proof.
+## Next meaningful work
 
-## Open Questions / Security Blockers
-
-Reliable eligible archive RPC; independent state/receipt replay; complete exact-route gas and fees; MEV/inclusion/failure evidence; sufficient independent temporal/network sample; legal eligibility for interface/API/RPC/issuer combination. No full six-month/year/two-year execution-valid return series. The new model is single-range only; unsupported tick crossings remain rejected. Raw first-attempt RPC journal hashes are recorded, but only the numerical transcript is published; internal hash consistency is not authentication of a provider.
-
-No wallet, signer, funded account, approval, send-transaction endpoint, leverage, automatic replenishment or continuous service was enabled. No host/contract/supply-chain audit certificate is claimed. Risk stops do not guarantee bounded loss.
-
-## Active Branch / Latest Verified Commit
-
-Active branch: `research/2026-10-13-phase4-exact-quotes`. Base Phase3 checkpoint7c61ca1; main and PR2 remain unchanged at this review. Latest verified runtime:3f319702e8f38af175a8e08e03ca29a33a8aee73. Published audit evidence:23606491de38e05712b1a4580763ccb47f37e770. This following report checkpoint does not change code/data; inspect actual refs before continuing. Use a stacked PR targeting the Phase3 branch while PR2 remains open; no automatic merge or force push.
-
-## Next Actions
-
-Do not run more price-only parameter searches. Continue only with a demonstrably usable and permitted historical Base state/receipt route, or a clearly labeled prospective execution-data recorder. Re-establish the frozen coverage and full-cost gates before selecting strategies or claiming paper qualification. Specialized paid Solana archive was documented as an option, not authorized or used. Long-lived paper monitoring is not running.
+Obtain a permitted and source-preserving historical replay route or implement a genuinely prospective, read-only quote recorder with complete fee uncertainty. Do not repeat price-only parameter searches. Freeze a new strategy protocol only after data quality improves; preserve all earlier seen holdouts and negative results. Hardware or session-key deployment remains separately reviewable, not authorized. Missing service eligibility is PENDING, not a blanket worldwide nationality ban or permission.
 
 ## فارسی
 
-فاز۴ جزئی تحویل شد: شش مظنهٔ واقعی مبلغ دقیق در یک بلوک تاریخی Base با مدل مستقل عددصحیح، بدون اختلاف اتمی خروجی و قیمت نهایی، تطبیق دارند. این شش رکورد دوره‌های مستقل نیستند. نمونهٔ مستقل سواپ کامل صفر، زمان تاریخی یک و شبکهٔ EVM یک است؛ معیار پیش‌ثبت۱۲نمونه/سه‌زمان/دوشبکه رد شد و کاهش نیافت. کارمزد۴واحدپایهٔ حساب فعلی اورکا شاهد تاریخی نیست.
+فاز ۵ فقط در محدوده پژوهش کیف‌پول و مدل آفلاین جزئی تحویل شده است. ده برند و مدل‌های جدا، بیست منبع رسمی، جدول دسترسی و گزارش‌های هم‌ارز فارسی/انگلیسی ثبت شدند. ۳۸ تست جدید محلی موفق است؛ CI و آزمون‌های قبلی باید جداگانه با اجرای واقعی گیت‌هاب ثبت شوند. مدل مجوز فقط ساختگی و در حافظه است و امنیت قراردادی/میزبان را تضمین نمی‌کند. اعتبارسنجی مظنه، گردآورنده زنده یا معامله نیست.
 
-۱۶۲تست نسخهٔ کد بالا، کنترل ایستای اصلاح‌شده و حسابرسی آفلاین موفق‌اند. شکست153تست/کنترل ایستا، رد اولیهٔ دامنه و خطاهای429/403 حفظ شده‌اند. خطای بعدی نرخ، دریافت تازه را متوقف کرد. کد استراتژی، نتایج قبلی و سرمایه تغییر نکردند؛ بک‌تست استراتژی تازه صفر است.
-
-سود خالص و میانگین هندسی اجرایی تأییدشده احراز نشده‌اند، نه اینکه صفر اندازه‌گیری شده باشد. نامزد paper و برداشت معتبر تازه نداریم؛ NO VALIDATED TRADING EDGE FOUND، سرمایهٔ واقعی NO-GO و معامله DISABLED است. ادامه فقط با داده و هزینهٔ اجرایی بهتر، نه بهینه‌سازی بی‌پایان، توجیه دارد. وضعیت و گزارش کار کامل قبلی در snapshotهای بالا بدون تغییر حفظ شده‌اند؛ main و PR2 بازنویسی نشده‌اند.
+داده بازار، بک‌تست، مشاهده آینده‌نگر و امضای مالی تازه صفر است. بازده تأییدشده نامعلوم و نامزد paper صفر است. main و شاخه‌های قبلی تغییر نکرده‌اند؛ تاریخچه وضعیت/گزارش قبلی به‌صورت دقیق حفظ شده است. **معامله واقعی DISABLED، تصمیم مالی NO-GO و کل مأموریت فاز ۵ PARTIAL است.**

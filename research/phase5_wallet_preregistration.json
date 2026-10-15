@@ -1,0 +1,16 @@
+{
+  "phase": "5-wallet-policy-and-evidence",
+  "review_date_utc": "2026-10-15",
+  "parent_commit": "e5994a1374d22403921d9839cc1473afe48afd3b",
+  "scope": "Official wallet/delegation research, independent additive offline mock-policy tests, evidence-cost validation and a read-only collection design. No new strategy fitting is preregistered.",
+  "branch": "research/2026-10-15-phase5-wallet-policy",
+  "approach_selected": "Independent research module outside existing strategy/runtime trees; no changes to their parameters or numerical outputs.",
+  "alternatives": ["Full hot-wallet integration rejected: signing is unauthorized", "Smart-account deployment deferred: cost/security/eligibility unqualified", "Read-only and synthetic policy research selected: no financial authority"],
+  "acceptance": ["Source-backed comparison with product/version scope and unknowns", "Mock rejects transfer, burn, approve, arbitrary calls, changed receiver, chain and token pair", "Mock enforces replay, expiry, quote-age, cumulative/rolling spend and attempt limits with integer amounts", "Cost analysis preserves unknown fees as null, never zero", "Quote evidence remains distinct from fills and profitability", "New tests observed failing before implementation and passing afterward", "Prior code and result blobs unchanged; GitHub CI result verified if available"],
+  "hard_limits": {"initial_external_capital_usd": 100, "live_trading": "DISABLED", "financial_signatures": false, "wallet_creation": false, "contract_approval": false, "paid_services": false, "automatic_merge": false, "force_push": false},
+  "disclosure": "The mock is a policy specification, not an on-chain enforcement system or a security certificate. No real private key is generated or needed. No runtime is claimed to operate after this session.",
+  "data_gate": "Do not repeat price-only searches. A future quote recorder needs permitted data access and actual elapsed observations. Earlier Phase 4 coverage gates stay failed until their evidence is obtained.",
+  "test_scope": "No-network new module tests locally; full inherited suite only claimed if actually executed on the complete GitHub checkout.",
+  "limitations_at_start": ["Container git clone failed due DNS resolution of github.com", "GitHub connector reads/writes remain available", "No approved complete live route", "No validated profitable strategy"],
+  "fa": "این دور فقط پژوهش رسمی کیف‌پول، مدل مجوز ساختگی و کنترل کیفیت شواهد هزینه است. امضا، پول واقعی، نصب کیف‌پول، خرید سرویس، ادغام خودکار و تغییر استراتژی‌های قبلی ممنوع است. آزمون موفق مدل، امنیت قرارداد یا سودآوری را ثابت نمی‌کند."
+}

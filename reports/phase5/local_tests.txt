@@ -1,0 +1,43 @@
+test_bad_times_and_amounts (test_evidence.EvidenceTests.test_bad_times_and_amounts) ... ok
+test_conflicting_quote_same_identity_rejected (test_evidence.EvidenceTests.test_conflicting_quote_same_identity_rejected) ... ok
+test_cost_integer_ceil (test_evidence.EvidenceTests.test_cost_integer_ceil) ... ok
+test_cost_scales_with_cycles (test_evidence.EvidenceTests.test_cost_scales_with_cycles) ... ok
+test_explicit_zero_different_from_missing (test_evidence.EvidenceTests.test_explicit_zero_different_from_missing) ... ok
+test_identical_reimport_deduplicated (test_evidence.EvidenceTests.test_identical_reimport_deduplicated) ... ok
+test_invalid_batch_creates_no_file (test_evidence.EvidenceTests.test_invalid_batch_creates_no_file) ... ok
+test_quote_has_no_pnl_or_execution_certification (test_evidence.EvidenceTests.test_quote_has_no_pnl_or_execution_certification) ... ok
+test_quote_provenance_retains_unknown_cost_count (test_evidence.EvidenceTests.test_quote_provenance_retains_unknown_cost_count) ... ok
+test_reject_nonfinite_bool_negative_cost (test_evidence.EvidenceTests.test_reject_nonfinite_bool_negative_cost) ... ok
+test_save_exclusive_never_overwrites (test_evidence.EvidenceTests.test_save_exclusive_never_overwrites) ... ok
+test_six_amounts_same_block_not_six_times (test_evidence.EvidenceTests.test_six_amounts_same_block_not_six_times) ... ok
+test_unknown_cost_stays_unknown (test_evidence.EvidenceTests.test_unknown_cost_stays_unknown) ... ok
+test_unknown_fields_and_evidence_promotion_rejected (test_evidence.EvidenceTests.test_unknown_fields_and_evidence_promotion_rejected) ... ok
+test_amount_quote_and_notional_are_positive_integers (test_policy.PolicyTests.test_amount_quote_and_notional_are_positive_integers) ... ok
+test_backward_clock_rejected (test_policy.PolicyTests.test_backward_clock_rejected) ... ok
+test_budget_cannot_exceed_100_usd (test_policy.PolicyTests.test_budget_cannot_exceed_100_usd) ... ok
+test_chain_route_recipient_pair_are_bound (test_policy.PolicyTests.test_chain_route_recipient_pair_are_bound) ... ok
+test_daily_count_includes_failed_attempt (test_policy.PolicyTests.test_daily_count_includes_failed_attempt) ... ok
+test_duplicate_concurrent_attempts_one_accepted (test_policy.PolicyTests.test_duplicate_concurrent_attempts_one_accepted) ... ok
+test_failed_attempt_consumes_fee_nonce_and_capacity (test_policy.PolicyTests.test_failed_attempt_consumes_fee_nonce_and_capacity) ... ok
+test_fee_and_reserve_caps (test_policy.PolicyTests.test_fee_and_reserve_caps) ... ok
+test_forbidden_actions (test_policy.PolicyTests.test_forbidden_actions) ... ok
+test_invalid_fee_unknown_or_non_integer (test_policy.PolicyTests.test_invalid_fee_unknown_or_non_integer) ... ok
+test_invalid_policy (test_policy.PolicyTests.test_invalid_policy) ... ok
+test_lifetime_budget_does_not_reset_after_window (test_policy.PolicyTests.test_lifetime_budget_does_not_reset_after_window) ... ok
+test_no_impossible_minimum (test_policy.PolicyTests.test_no_impossible_minimum) ... ok
+test_no_wallet_methods_or_keys (test_policy.PolicyTests.test_no_wallet_methods_or_keys) ... ok
+test_only_synthetic_scope_allowed (test_policy.PolicyTests.test_only_synthetic_scope_allowed) ... ok
+test_order_cap (test_policy.PolicyTests.test_order_cap) ... ok
+test_quote_time_future_and_expired (test_policy.PolicyTests.test_quote_time_future_and_expired) ... ok
+test_replay_and_skipped_nonce (test_policy.PolicyTests.test_replay_and_skipped_nonce) ... ok
+test_revoke_is_sticky (test_policy.PolicyTests.test_revoke_is_sticky) ... ok
+test_rolling_spend_not_calendar_midnight (test_policy.PolicyTests.test_rolling_spend_not_calendar_midnight) ... ok
+test_session_expired (test_policy.PolicyTests.test_session_expired) ... ok
+test_slippage_minimum_uses_integer_ceil (test_policy.PolicyTests.test_slippage_minimum_uses_integer_ceil) ... ok
+test_unknown_outcome_does_not_change_state (test_policy.PolicyTests.test_unknown_outcome_does_not_change_state) ... ok
+test_valid_intent_only_creates_mock_record (test_policy.PolicyTests.test_valid_intent_only_creates_mock_record) ... ok
+
+----------------------------------------------------------------------
+Ran 38 tests in 0.022s
+
+OK

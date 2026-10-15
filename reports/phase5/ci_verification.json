@@ -1,0 +1,44 @@
+{
+  "reviewed_at_date_utc": "2026-10-15",
+  "tested_commit": "84e7ba1a1c0d78f0131bb0510d12dbce57332de7",
+  "base_commit": "e5994a1374d22403921d9839cc1473afe48afd3b",
+  "new_suite": {
+    "run_id": 38753135202,
+    "job_id": 116484459731,
+    "status": "completed",
+    "conclusion": "success",
+    "test_methods": 38,
+    "log_summary": "Ran 38 tests in 0.014s; OK",
+    "logged_at_utc": "2026-10-15T14:38:08.1468842Z",
+    "url": "https://github.com/DashSaman/Arz/actions/runs/38753135202"
+  },
+  "inherited_suite": {
+    "run_id": 38753134979,
+    "job_id": 116484458962,
+    "status": "completed",
+    "conclusion": "success",
+    "test_methods": 162,
+    "log_summary": "Ran 162 tests in 4.770s; OK; repository all_checks_passed true",
+    "logged_at_utc": "2026-10-15T14:38:16.2618240Z",
+    "url": "https://github.com/DashSaman/Arz/actions/runs/38753134979"
+  },
+  "evidence_method": "Actual GitHub run metadata, job steps and full job logs read via authenticated connector",
+  "count_interpretation": "Two separately executed suites; neither statistical trading evidence nor 200 independent market trials",
+  "warning": "Pinned inherited checkout targets Node20 and runner forces Node24; workflows succeeded. No claim of warning-free CI or supply-chain audit.",
+  "new_source_blob_match": {
+    "phase5/policy.py": "d377bb4cf417b8914a11c821b2e0563bffd87c3e",
+    "phase5/evidence.py": "2f5bbbe02f50d54297c91bfb5bdf24723f401fdb",
+    "phase5/README.md": "de5ca642f4dc94b64d16141a5920f3ee79d34281",
+    "phase5/tests tree": "e7a3c493bb06196aae709ce34d01c0e501597718"
+  },
+  "preservation": "GitHub compare shows no old src, tests, configs or numerical result changes; original status/log retained as exact pre-phase5 blobs",
+  "independent_security_audit": false,
+  "new_market_data": 0,
+  "new_strategy_backtests": 0,
+  "execution_validated_net_return": null,
+  "paper_candidate": false,
+  "live_trading": "DISABLED",
+  "financial_decision": "NO-GO",
+  "full_phase5_scope": "PARTIAL",
+  "note": "This later documentation checkpoint does not change the tested code; it supersedes the earlier pending-publication CI field in the local report."
+}
