@@ -1,28 +1,24 @@
-# Arz status / وضعیت پروژه
+# Arz — current research checkpoint / وضعیت پژوهش
 
-Updated16October2026. **External-engine DEX historical screen completed within documented data coverage. Positive simulated historical cases found; executable profitability NOT validated; 1–2% daily target NOT achieved; real capital NO-GO, live DISABLED.**
+16October2026. **Cross-market repeatability study executed. Intermittent positive simulated compounding exists, but no candidate passes the new preregistered repeatability screen; execution-validated profit and target daily1–2% remain unestablished. Live DISABLED; real-capital NO-GO.**
 
-Branch:`research/2026-10-16-upstream-backtests`, based on2926f35038de681722f0dd92d8630d14778a80e5. Original status/log preserved byte-for-byte in the pre-upstream snapshots. Main, previous branches and old strategy/runtime files remain unchanged.
+Branch `research/2026-10-16-crossmarket-repeatability` starts from e7a809cbb209f24a31c67602c296a1fffbf98132. The original status/work log are preserved byte-for-byte as pre-crossmarket snapshots. Old engine/rules/runtime/configs/results and all other refs remain unchanged. Protocol afc56de893285afc292d49b33e8056e4f9d6c44e was committed before return inspection.
 
-## Actual new deliverables
+## Actual delivery
 
-- Installed and executed backtesting.py0.6.6 FractionalBacktest in an isolated venv. Read six upstream repositories; only backtesting.py actually executed. Trading Strategy API actually supplied new DEX data; Freqtrade/Hummingbot/trade-executor not run.
-- Downloaded36,049 hourly records across Base ETH/USDC and cbBTC/USDC; provenance and gap audit published.52-hour shared gap and early cbBTC gaps retained. Older ETH request403 not retried. Complete24-month result unavailable.
-- Protocol and coverage-only amendment committed before performance inspection. Three fixed long-only rules,1h/4h, entry caps2/10, three cost sensitivities,11 historical windows and cash/20%-hold comparators. No optimizer, leverage or funding.
--1,056 registered cases:480 completed (360strategy,120benchmark),576data/warmup skips. All outcomes published as grouped summaries with offline CSV expander. Counts are dependent tests, not confidence levels.
-- ETH4h Donchian:111.739449 from100 over2024-10–2025-10 at illustrative-mid costs,104.564124 at stress. Another overlapping year ends108.874007(mid)/102.162174(stress). Negative six-month ETH and cbBTC results also preserved. These are screening leads, not independently calibrated live returns.
--16synthetic tests passed before historical execution; separate arithmetic reconciliation of all480completed ledgers passed. Raising cap2to10 improved33paired cases, worsened60 and left87unchanged. Publication identity/CI must be checked separately and recorded after the code commit.
+- Five native4h feeds: ETH,cbBTC,BNB,AVAX and provider-labeled WMATIC;20,151records from the same documented public data provider. No raw data redistribution, keys or paid service.
+- Unchanged three rules and external engine, with market-specific reported fee floors plus declared hypothetical cost sensitivities. Eight non-overlapping quarters, annual/18/24month context and later61day window; no optimizer or post-result parameter tuning.
+-650registered cases:350completed (210strategy,140benchmark),300data/warmup skips; zero complete24month runs.
+-15market/rule candidates:6SCREEN_FAIL,9INSUFFICIENT,0screen passes. Missing data is not a loss. Screening thresholds are research choices, not universal necessities for positive returns.
+- Continuous547day ETH Donchian account:100→109.471781 under moderate costs,100→99.492700 under stress. WMATIC Donchian:108.368447/94.918381. Both lose robustness under stress. The ETH account has3positive and3negative quarters; separate reset-quarter trials are not compounded into a fictitious path.
+-13new tests RED then GREEN;16original engine tests pass. All350ledgers reconcile;20continuous equity groups telescope to their ending account, max difference2.85e-14. Publication bytes/results/CI require separate post-publication verification.
 
-## Boundaries
+## Continue from evidence
 
-No wallet, signer, paid service, financial transaction, continuous daemon or paper-performance track record. Costs are declared sensitivities, not full calibrated historical execution. Old Issue6 fee/transport/data-integrity findings remain unresolved, not closed by a different candle engine. Global untouched holdout claim is not made because old research saw overlapping ETH history. Profits resize orders but the25-unit cap limits scaling above equity125.
+Read docs/fa/crossmarket_repeatability_20261016.md or the equivalent English report, the protocol, compact complete outcomes, data provenance and verification record. Original full-precision ledgers are in the isolated runtime; published compact metrics have8decimals and the original CSVhash. End-to-end fee calibration, issuer/provider/route eligibility and prospective-paper performance remain unresolved. Issue6 is not closed by candle tests.
 
-## Next meaningful test
-
-Post-screening watchlist: freeze ETH4h Donchian20/10 for a newly timestamped diagnostic forward observation, retaining adverse periods and all costs. No tuning these seen outcomes to force daily profit. Verify permitted fee-aware quotes and fix Issue6's recorder issues before durable operation; continuous data observation is distinct from qualified financial deployment. No guarantee of eventual profit.
-
-Read `docs/fa/upstream_benchmark_20261016.md` / English counterpart and `reports/upstream_benchmark_20261016/`. All 1,056 statuses can be expanded with `experiments/upstream_benchmark/unpack_results.py` without data downloads.
+Do not keep tuning now-seen periods until one passes. A new experiment requires a genuine data/period or economic-hypothesis change and its own frozen validation plan. No main merge, force push, trading wallet, financial action or perpetual background service was activated. Existing capital ceiling remains100 for a future separately authorized experiment, not a deposit request.
 
 ## فارسی
 
-این بار موتور خارجی واقعاً اجرا و داده تازه گرفته شد؛۴۸۰آزمون کامل و۵۷۶کنارگذاشته‌شده داریم. برخی سود مرکب تاریخی پس از هزینه فرضی مثبت‌اند، ولی هدف۱تا۲درصد و سود اجرایی قابل اتکا احراز نشده است. دونچیانETHچهارساعته سرنخ مشاهده آینده‌نگر است، نه انتخاب سرمایه‌گذاری؛ دوره منفی و زیانcbBTC حفظ شده‌اند. بازه۲۴ماهه به‌دلیل شکاف و دسترسی داده کامل نشد. همه نتایج قابل مشاهده و هیچ پول/کلید/سرویس دائمی فعال نشده است. شاخه‌های دیگر و نتایج قدیمی دست‌نخورده‌اند؛ تصمیم مالی NO-GO.
+پژوهش روی پنج بازار و دوره‌های جدا ادامه یافت؛۳۵۰اجرا کامل و۳۰۰حالت ناقص ثبت شدند. سود مرکب محاسباتی بعضی دوره‌ها مثبت است، اما هیچ نامزدی معیار تکرارپذیری این دور را پاس نکرد؛۶رد و۹ناکافی داریم. حساب واقعیِ شبیه‌سازی۱۸ماهه دونچیانETHدر هزینه متوسط۱۰۹٫۴۷وپرهزینه۹۹٫۴۹می‌شود. داده ناقص را زیان فرض نکرده‌ایم و سود آزمون‌های۱۰۰دلاری جدا را به‌جای حساب پیوسته نچسبانده‌ایم. کدهای قبلی وmainدست‌نخورده‌اند. هیچ پول/کلید/سرویس دائمی استفاده نشد؛ معاملهDISABLEDوورودسرمایهNO-GO است.

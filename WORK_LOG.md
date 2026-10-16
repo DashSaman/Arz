@@ -1,21 +1,17 @@
 # Work log / گزارش کار
 
-Prior complete work log preserved by exact blob identity in WORK_LOG.pre-upstream-20261016.md.
+Previous full log preserved exactly in WORK_LOG.pre-crossmarket-20261016.md.
 
-## 2026-10-16 — real external-engine study
+## 2026-10-16 — cross-market repeated-compounding test
 
-Inspected live GitHub refs/status and cloned Phase6 into an isolated authorized-device temporary workspace. Read continuity/safety/methodology records. Created a separate branch. Published fixed experiment protocol1deea855 and coverage-only amendment7be7f06 before any strategy-performance run. One-day schema probe was disclosed; old project history overlapping ETH is not pristine holdout.
+Read actual refs/status and continuity documents, cloned into a fresh isolated authorized-device workspace, and reused the already isolated pinned external-engine environment. No system installation or services changed. Created a separate branch from e7a809c; preregistered five markets, fixed rules/costs/windows and explicit repeatability screen at afc56de before market returns.
 
-Reviewed backtesting.py, Freqtrade and strategies, Hummingbot and Gateway, and trade-executor. Installed exact wheel-only package versions in an isolated venv, not system Python: backtesting0.6.6,numpy2.2.6,pandas2.2.3,bokeh3.6.3 plus recorded transitive pins. Only that external engine ran; no full Freqtrade/AI/Hummingbot/DEX executor installed.
+Five read-only public requests17:47:20–17:47:36UTC returned20,151native4h records. Pool identities/reported fees for BNB,AVAX and WMATIC were sourced from provider metadata; ETH/cbBTC retained as replication controls. Data gaps, BNB/AVAX ending4March2026 and cbBTC initial warmup shortage were preserved. No candles invented, no raw provider data published, no access bypass.
 
-Trading Strategy's documented JSONL endpoint returned18,189ETH and17,860cbBTC hourly records. Both have positive reported volume/no duplicate timestamps; shared52-hour gap and cbBTC early gaps were retained. Older ETH history request returned403 and stopped without retry/bypass. Raw data retained privately; derived results and hashes published.
+Added repeatability.py and13tests. All13initial tests failed because implementation was absent; all13passed after implementation. The16unchanged prior engine tests passed. Market run completed at exit0 (66.45s including initial engine tests):650registered,350completed,300skipped. Accounts are long-only100-unit simulations with original risk and size caps.18month runs carry positions/equity/limits through quarters rather than resetting capital. All350trade ledgers and20continuous equity decompositions passed separate arithmetic checks; no real fills or external audit claimed.
 
-Wrote16synthetic tests; observed16failures before benchmark implementation. Same tests passed before historical execution. Ran fixed grid with actual engine:1,056registered statuses,480complete,576skipped due data/warmup gaps. No strategy/hyperparameter optimization or data filling. Market batch exit0, runtime203.39seconds. Saved every completed trade ledger/daily curve/target list locally. Checked all480ledgers arithmetically and expanded all published summary groups against full result CSV within1e-7. No accounting mismatch, shorts, open final positions or observed25-unit entry violations.
-
-Positive screening leads and negative outcomes are both retained. ETH4h Donchian annual simulations remain positive under two declared nonzero cost profiles; cbBTC and one ETH six-month interval lose. More entry capacity often worsens results. This is not calibrated execution profitability or target income. New reports bilingual; old src/config/tests/results unchanged. Publication verification and CI recorded in a following evidence checkpoint when observed.
+Result:0of15candidates meet the preregistered screen (6fail,9insufficient). ETH Donchian moderate18month gain9.471781%does not survive stress costs; WMATIC gain8.368447%also becomes negative. Unchanged Donchian transfer tests in available cbBTC/BNB/AVAX early quarters are negative; other rules have mixed cases. This does not prove no profitable rule can exist. All cases retained in compact indexed summaries, with full output hash and paired FA/EN report. Original engine, history and other branches untouched; publication and CI verification recorded after publication.
 
 ## فارسی
 
-مخزن واقعاً خوانده و شاخه مستقل ساخته شد. طرح قبل از سود ثبت شد؛ به‌خاطر شکاف داده اصلاحیه مبتنی بر پوشش پیش از دیدن نتیجه نوشته شد. موتور خارجیbacktesting.pyواقعاً در محیط جدا نصب و اجرا شد؛ موتورربات‌های دیگر فقط بررسی شدند.۳۶٬۰۴۹رکوردساعتی ازمنبع تازه DEXدریافت شد و شکاف‌ها پر نشدند. درخواست تاریخ قدیمی‌تر403گرفت و توقف شد.
-
-۱۶تست ابتدا شکست خوردند و بعد پیش از آزمون بازار موفق شدند.۴۸۰اجرا کامل و۵۷۶حالت با کمبودداده/گرم‌کردن کنار گذاشته شدند؛ هیچ پارامتری پس از سود تنظیم نشد. حسابداری تمام دفترهای کامل و تبدیل نتایج فشرده با داده اصلی تطبیق دارد. سودهای مثبت، هزینه‌ها، بازه‌های منفی و همه حالت‌های ردشده ثبت می‌شوند. هدف روزانه۱تا۲درصد، سود اجرایی و درآمد پایدار اثبات نشده‌اند. پول، کیف‌پول و سرویس دائمی فعال نشد و نتایج قبلی/شاخه‌های دیگر حفظ شدند.
+ازآخرینCommitواقعی شاخه مستقل ساخته و معیارها پیش از سود ثبت شد.۵دریافت عمومی،۲۰٬۱۵۱کندل۴ساعته داد و کمبودها حفظ شدند.۱۳تست ابتدا شکست خوردند و بعد موفق شدند؛۱۶تست قبلی موتور هم موفق بود.۳۵۰آزمون کامل و۳۰۰کنارگذاشته‌شده داریم؛ حساب۱۸ماهه در مرز فصل‌ها ازنو شارژ نشد. حسابداری همه دفترها و جمع مرکب۲۰گروه پیوسته تطبیق دارد. معیار پژوهشی در۶نامزد رد و۹نامزدناکافی است و قبولی ندارد. نتایج مثبت/منفی کامل، گزارش دوزبانه و هش منبع ثبت می‌شوند. سود اجرایی/درآمد هدف و سرویس۲۴ساعته ادعا نمی‌شود؛ هیچ عملیات مالی صورت نگرفت.
