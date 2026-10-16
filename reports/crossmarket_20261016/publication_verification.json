@@ -1,0 +1,23 @@
+{
+  "reviewed_date_utc":"2026-10-16",
+  "tested_commit":"e1de6a21a6fecd055daf8173d7bd9ee97f2b61d9",
+  "parent":"e7a809cbb209f24a31c67602c296a1fffbf98132",
+  "published_source_byte_matches":{"experiments/crossmarket_repeatability/repeatability.py":"9416bd4431762060952915586be24cc00c2aef9388990bc5d981f0d94d3a2c6e","experiments/crossmarket_repeatability/test_repeatability.py":"566805c02cf62646f60b2445ca396b7190cf91b8ad6d02bab9d9e27f6b87c0f7"},
+  "all650_published_compact_results_equal_original":true,
+  "complete_ids":350,
+  "explicit_skip_ids":300,
+  "no_missing_or_duplicate_ids":true,
+  "published_test_run":{"methods":13,"failures":0,"errors":0,"seconds":0.867},
+  "full_published_code_rerun":{"all_files_byte_match":true,"files":{"all_runs.csv":"9214f141aba9e266e9d739fe8dfeb377d0f783c048faeae80d8963df05ab52a6","continuous_quarters.csv":"9d0ce4a2dc10af3db7cc7b95721acd5a5d922cf0442b0295df7b0fef5f425a04","grades.json":"fba39eb8bf3dbb2a002aa63ef2df6f76248a1cb5102dc561a6786a3383f58a19","summary.json":"8a0c9c1a5f0758d4de8f02cd82de2b89b3e13d4994898345bbfe65277d5fcec1"},"type":"Deterministic same-data reproduction, not independent performance evidence; do not double the number of independent tests or observations."},
+  "ci_observed":[{"id":38944140192,"name":"Cross-market repeatability offline checks","status":"completed","conclusion":"success","url":"https://github.com/DashSaman/Arz/actions/runs/38944140192"},{"id":38944140043,"name":"Research-only checks","status":"completed","conclusion":"success","url":"https://github.com/DashSaman/Arz/actions/runs/38944140043"}],
+  "ci_scope":"Actual workflow metadata read for the tested SHA. CI validates software, not market income. No separately parsed full legacy test count asserted.",
+  "preservation":"Actual GitHub compare: two commits ahead, zero behind at tested checkpoint; no old engine, runtime, strategy, configuration or previous numerical result files modified. Earlier status/log preserved as exact blobs. Main and other refs not updated.",
+  "screen_result":{"passed":0,"failed":6,"insufficient":9},
+  "independent_external_audit":false,
+  "fresh_forward_market_observations":0,
+  "financial_actions":0,
+  "live_trading":"DISABLED",
+  "persistent_service_running":false,
+  "financial_decision":"NO-GO",
+  "note":"Evidence-only follow-up superseding pending-publication fields. Positive hypothetical-cost historical intervals do not imply stable executable profit, and failure of this chosen research screen is not proof of universal impossibility."
+}
