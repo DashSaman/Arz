@@ -1,24 +1,19 @@
-# Arz — current research checkpoint / وضعیت پژوهش
+# Arz current checkpoint / وضعیت پروژه
 
-16October2026. **Cross-market repeatability study executed. Intermittent positive simulated compounding exists, but no candidate passes the new preregistered repeatability screen; execution-validated profit and target daily1–2% remain unestablished. Live DISABLED; real-capital NO-GO.**
+17October2026 Europe/Berlin. **No final execution-validated compounding or dependable income. Target1–2%net geometric daily return NOT established. Live DISABLED; capital NO-GO.**
 
-Branch `research/2026-10-16-crossmarket-repeatability` starts from e7a809cbb209f24a31c67602c296a1fffbf98132. The original status/work log are preserved byte-for-byte as pre-crossmarket snapshots. Old engine/rules/runtime/configs/results and all other refs remain unchanged. Protocol afc56de893285afc292d49b33e8056e4f9d6c44e was committed before return inspection.
+Branch:`research/2026-10-17-fresh-window-check`; base79669af0b8bdd6e25000411008217a370a886c02. Protocol0073cad7807dd3ee9c5ab893d6d4023015347bca was published before new data/PnL. Prior status/work log preserved exactly in pre-fresh snapshots; old rules/engine/results and other refs untouched.
 
-## Actual delivery
+## New executed scope
 
-- Five native4h feeds: ETH,cbBTC,BNB,AVAX and provider-labeled WMATIC;20,151records from the same documented public data provider. No raw data redistribution, keys or paid service.
-- Unchanged three rules and external engine, with market-specific reported fee floors plus declared hypothetical cost sensitivities. Eight non-overlapping quarters, annual/18/24month context and later61day window; no optimizer or post-result parameter tuning.
--650registered cases:350completed (210strategy,140benchmark),300data/warmup skips; zero complete24month runs.
--15market/rule candidates:6SCREEN_FAIL,9INSUFFICIENT,0screen passes. Missing data is not a loss. Screening thresholds are research choices, not universal necessities for positive returns.
-- Continuous547day ETH Donchian account:100→109.471781 under moderate costs,100→99.492700 under stress. WMATIC Donchian:108.368447/94.918381. Both lose robustness under stress. The ETH account has3positive and3negative quarters; separate reset-quarter trials are not compounded into a fictitious path.
--13new tests RED then GREEN;16original engine tests pass. All350ledgers reconcile;20continuous equity groups telescope to their ending account, max difference2.85e-14. Publication bytes/results/CI require separate post-publication verification.
+One preregistered slow120/60-bar Donchian hypothesis versus existing20/10, same4h engine/risk/sizing. Three markets (ETH,cbBTC,provider-labeledWMATIC), two hypothetical costs, old6/12/18month diagnostics and a new15day October1–16performance window. New data request returned813rows including warmup/boundary, not813new independent trading observations. No optimizer or post-outcome tuning.
 
-## Continue from evidence
+96cases registered;88complete (44strategy/44benchmark),8cbBTC18month warmup skips.24cases use the new15days; all12strategy cases are6losses/control and6zero-trade/slow. No strategy profit in the later window.
 
-Read docs/fa/crossmarket_repeatability_20261016.md or the equivalent English report, the protocol, compact complete outcomes, data provenance and verification record. Original full-precision ledgers are in the isolated runtime; published compact metrics have8decimals and the original CSVhash. End-to-end fee calibration, issuer/provider/route eligibility and prospective-paper performance remain unresolved. Issue6 is not closed by candle tests.
+Historical slow ETH18months:100→109.58251994(mid) /106.62926187(stress),20closed cycles instead of68for old rule. But slow ETH6months ends96.89009085/95.67242346. New15day slow rule stays100with no trade on all three markets. Therefore no robust final qualification or daily-income claim. Costs remain uncalibrated, old Issue6gates open, and no90day prospective performance exists. No account reached200within these simulations; no principal withdrawal was executed.
 
-Do not keep tuning now-seen periods until one passes. A new experiment requires a genuine data/period or economic-hypothesis change and its own frozen validation plan. No main merge, force push, trading wallet, financial action or perpetual background service was activated. Existing capital ceiling remains100 for a future separately authorized experiment, not a deposit request.
+Six new RED/GREEN tests and16existing engine tests passed before actual backtest execution. All88ledgers reconcile. Run exited0. Results and hashes in reports/fresh_window_20261017; equivalent reports under docs/fa and docs/en. Publication/CIverification follows actual checks only.
 
-## فارسی
+No wallet, key, signing, transfer, paid service, leverage, new funding or persistent process. Main and other branches not merged. Next research must keep this now-seen later window frozen and distinguish slow-rule fee savings from actual live profitability. Do not force trades or tune until a positive result appears.
 
-پژوهش روی پنج بازار و دوره‌های جدا ادامه یافت؛۳۵۰اجرا کامل و۳۰۰حالت ناقص ثبت شدند. سود مرکب محاسباتی بعضی دوره‌ها مثبت است، اما هیچ نامزدی معیار تکرارپذیری این دور را پاس نکرد؛۶رد و۹ناکافی داریم. حساب واقعیِ شبیه‌سازی۱۸ماهه دونچیانETHدر هزینه متوسط۱۰۹٫۴۷وپرهزینه۹۹٫۴۹می‌شود. داده ناقص را زیان فرض نکرده‌ایم و سود آزمون‌های۱۰۰دلاری جدا را به‌جای حساب پیوسته نچسبانده‌ایم. کدهای قبلی وmainدست‌نخورده‌اند. هیچ پول/کلید/سرویس دائمی استفاده نشد؛ معاملهDISABLEDوورودسرمایهNO-GO است.
+فارسی:۸۸اجرا انجام شد؛ نسخه کندترETHدر۱۸ماه با هزینه فرضی بالاتر هم مثبت بود، اما در۶ماه زیان و در۱۵روزتازه هیچ معامله‌ای نداشت. قاعده قبلی در۱۵روزتازه درهرسه بازار زیان داد. بنابراین به نتیجه نهایی سود مرکب قابل‌اتکا نرسیده‌ایم. کد، داده و حسابداری بررسی و اسناد دوزبانه ثبت‌اند؛ هیچ پول یا سرویس دائمی فعال نشد و تصمیم مالیNO-GOاست.
