@@ -1,0 +1,15 @@
+{
+  "review_date_Europe_Berlin":"2026-10-17",
+  "old_data":"Read-only, hash-verified native4h cache from reports/crossmarket_20261016/data_provenance.json. Old observations not overwritten or merged with new revisions.",
+  "new_request":{"endpoint":"https://tradingstrategy.ai/api/candles-jsonl","time_bucket":"4h","start":"2026-09-01T00:00:00","end":"2026-10-16T00:00:00","max_bytes":1000000,"max_requests":3,"retry":false},
+  "new_records":[
+    {"pair_id":4564367,"asset":"WETH","observed_at_utc":"2026-10-16T23:46:16.766120+00:00","http_status":200,"rows":271,"bytes":61527,"sha256":"36824b77b3882402000281707ec2833c914d15f4ca2ac494ac15c86b68e8816e","first_utc":"2026-09-01T00:00:00+00:00","last_utc":"2026-10-16T00:00:00+00:00","gaps":0},
+    {"pair_id":4705508,"asset":"cbBTC","observed_at_utc":"2026-10-16T23:46:20.071190+00:00","http_status":200,"rows":271,"bytes":60875,"sha256":"8cda8264dc60f33d081174537ca84ab37d91723c0ed9d4a956aec7917e86054b","first_utc":"2026-09-01T00:00:00+00:00","last_utc":"2026-10-16T00:00:00+00:00","gaps":0},
+    {"pair_id":2854997,"asset":"WMATIC_provider_label","observed_at_utc":"2026-10-16T23:46:23.299262+00:00","http_status":200,"rows":271,"bytes":62826,"sha256":"81f15f518cd6869a0ab39bcac7f6f4c149f904b53312cd0f1446833b4c28de40","first_utc":"2026-09-01T00:00:00+00:00","last_utc":"2026-10-16T00:00:00+00:00","gaps":0}
+  ],
+  "new_downloaded_rows_total":813,
+  "later_window":"2026-10-01T00:00:00Z <= bar open < 2026-10-16T00:00:00Z;90four-hour bars per market plus128warmup bars; final API boundary row excluded",
+  "data_class":"PROVIDER_OHLCV_NOT_EXECUTABLE_QUOTES",
+  "raw_data_redistributed":false,
+  "known_limit":"Public reachability is not full live route eligibility. Provider-reported candle volume does not prove executable depth. The only new short evaluation span is15days, not a new long-term independent sample. cbBTC18month window skipped for initial history/warmup shortage. No full24month backtest claimed."
+}

@@ -1,0 +1,28 @@
+name: Fresh-window frozen hypothesis checks
+on:
+  push:
+    paths:
+      - 'experiments/fresh_window_check/**'
+      - '.github/workflows/fresh-window-offline.yml'
+  pull_request:
+    paths:
+      - 'experiments/fresh_window_check/**'
+      - '.github/workflows/fresh-window-offline.yml'
+permissions:
+  contents: read
+jobs:
+  offline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Isolated pinned engine
+        run: |
+          python3 -m venv /tmp/arz-fresh-check
+          /tmp/arz-fresh-check/bin/python -m pip --isolated install --disable-pip-version-check --no-input --only-binary=:all: --index-url https://pypi.org/simple -r experiments/upstream_benchmark/requirements.lock
+      - name: Causal fixed-rule tests without market access
+        run: PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=experiments/fresh_window_check:experiments/crossmarket_repeatability:experiments/upstream_benchmark /tmp/arz-fresh-check/bin/python -m unittest discover -s experiments/fresh_window_check -v
+      - name: Existing engine accounting checks
+        run: PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=experiments/upstream_benchmark /tmp/arz-fresh-check/bin/python -m unittest discover -s experiments/upstream_benchmark -v

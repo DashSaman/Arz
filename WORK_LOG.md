@@ -1,17 +1,15 @@
 # Work log / گزارش کار
 
-Previous full log preserved exactly in WORK_LOG.pre-crossmarket-20261016.md.
+Previous full log preserved byte-for-byte in WORK_LOG.pre-fresh-20261017.md.
 
-## 2026-10-16 — cross-market repeated-compounding test
+## 17October2026 Europe/Berlin — bounded later-window experiment
 
-Read actual refs/status and continuity documents, cloned into a fresh isolated authorized-device workspace, and reused the already isolated pinned external-engine environment. No system installation or services changed. Created a separate branch from e7a809c; preregistered five markets, fixed rules/costs/windows and explicit repeatability screen at afc56de before market returns.
+Read live GitHub refs/status and continuity files; cloned last crossmarket head into an isolated authorized-device workspace. Reused existing pinned backtesting0.6.6 environment without new installs or system changes. Created independent branch and preregistered one slower-turnover hypothesis before data/performance inspection at0073cad7. The branch's UTC commit/acquisition timestamps are16Octoberlate evening, corresponding to17OctoberBerlin; no elapsed-duration claim is inferred from the date label.
 
-Five read-only public requests17:47:20–17:47:36UTC returned20,151native4h records. Pool identities/reported fees for BNB,AVAX and WMATIC were sourced from provider metadata; ETH/cbBTC retained as replication controls. Data gaps, BNB/AVAX ending4March2026 and cbBTC initial warmup shortage were preserved. No candles invented, no raw provider data published, no access bypass.
+Three permitted public requests returned271native4hrecords each (813total) spanning Septemberwarmup throughOctober16boundary. New15day performance span excludes the endpoint row; old6/12/18month diagnostics use prior hash-verified data, not retroactively revised prices. No fills invented for missing warmup, and no claim of a long prospective service.
 
-Added repeatability.py and13tests. All13initial tests failed because implementation was absent; all13passed after implementation. The16unchanged prior engine tests passed. Market run completed at exit0 (66.45s including initial engine tests):650registered,350completed,300skipped. Accounts are long-only100-unit simulations with original risk and size caps.18month runs carry positions/equity/limits through quarters rather than resetting capital. All350trade ledgers and20continuous equity decompositions passed separate arithmetic checks; no real fills or external audit claimed.
+Six unit tests observed failing before the new implementation and passing afterward;16old engine tests passed. Ran96registered cases:88complete,8warmup skips,22.79s/exit0. All88ledgers reconcile long quantity price change minus commissions with final100-plus-PnL. Each long account carries compounding/risk state within its full interval. Cash/hold benchmarks use the same cost profiles. No changes to old engine/strategy/parameter files.
 
-Result:0of15candidates meet the preregistered screen (6fail,9insufficient). ETH Donchian moderate18month gain9.471781%does not survive stress costs; WMATIC gain8.368447%also becomes negative. Unchanged Donchian transfer tests in available cbBTC/BNB/AVAX early quarters are negative; other rules have mixed cases. This does not prove no profitable rule can exist. All cases retained in compact indexed summaries, with full output hash and paired FA/EN report. Original engine, history and other branches untouched; publication and CI verification recorded after publication.
+Slow ETH18month account positive atmid/stress costs (109.58251994/106.62926187), but slow6month interval negative. In the later15days the old rule has2losing closed cycles per market; slow rule has0cycles, flat100. No target1–2%daily, stable income or principal withdrawal evidence. All96statuses published, not only positives. Costs remain explicitly hypothetical. No wallet, financial action, paid service or background process. Publication identity andCIverified in subsequent evidence-only checkpoint when actually observed.
 
-## فارسی
-
-ازآخرینCommitواقعی شاخه مستقل ساخته و معیارها پیش از سود ثبت شد.۵دریافت عمومی،۲۰٬۱۵۱کندل۴ساعته داد و کمبودها حفظ شدند.۱۳تست ابتدا شکست خوردند و بعد موفق شدند؛۱۶تست قبلی موتور هم موفق بود.۳۵۰آزمون کامل و۳۰۰کنارگذاشته‌شده داریم؛ حساب۱۸ماهه در مرز فصل‌ها ازنو شارژ نشد. حسابداری همه دفترها و جمع مرکب۲۰گروه پیوسته تطبیق دارد. معیار پژوهشی در۶نامزد رد و۹نامزدناکافی است و قبولی ندارد. نتایج مثبت/منفی کامل، گزارش دوزبانه و هش منبع ثبت می‌شوند. سود اجرایی/درآمد هدف و سرویس۲۴ساعته ادعا نمی‌شود؛ هیچ عملیات مالی صورت نگرفت.
+فارسی:ازآخرین وضعیت واقعی ادامه دادم و فقط یک فرضیه کندتر را پیش از نتیجه ثبت کردم. داده۱۵روزه جدید و تاریخچه قبلی جدا و هم‌هش‌اند.۶تست تازه و۱۶تست موتور موفق شدند؛۸۸بک‌تست کامل و۸حالت فاقد گرم‌کردن ثبت شد. سود تاریخی مثبتِ نسخه کندتر، دربرابر زیان۶ماهه و نبود معامله در۱۵روزتازه، تأیید نهایی نیست. پول و کیف‌پول استفاده نشد؛ وضعیت و سابقه شاخه‌های دیگر محفوظ است.
