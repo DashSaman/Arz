@@ -1,0 +1,13 @@
+{
+  "date_utc":"2026-10-16",
+  "performance_inspected":false,
+  "reason":"Downloaded data show a common 52-hour provider gap after 2026-06-25 15:00 until 2026-06-27 20:00 UTC. cbBTC also has four isolated early-hour gaps. These must not silently become tradable candles.",
+  "preserved_rule":"Any window whose trading span or required warmup includes a gap remains SKIPPED_DATA_GAP. Do not fill the gap or relabel the original requested 2024–2026 two-year window as complete.",
+  "additional_data_request":{"pair_id":4564367,"start":"2023-09-01T00:00:00","end":"2024-09-01T00:00:00","max_bytes":10000000,"reason":"Pool predates the initial 2024 start; request earlier history to test a genuinely contiguous two-year historical window, not to choose a profitable market."},
+  "additional_fixed_windows":[["2023-10-01","2025-10-01"],["2025-04-01","2026-04-01"],["2026-08-01","2026-10-01"]],
+  "warmup_bars":128,
+  "no_performance_selection":"Extra dates derive solely from data availability before any PnL is computed. Run all originally registered and extra windows or record a precise skip. No tuning after outcomes.",
+  "terminal_exit":"Schedule liquidation one bar before the registered final bar, so the last bar's open is used causally; do not enable retroactive engine finalize_trades. Liquidation is a known scheduled experiment boundary, not a prediction.",
+  "pending_order_limit":"Fractional quantity sized from a known close can change in notional at the next open; record actual order-cap/reserve violations rather than asserting the engine has an exact-input AMM boundary. Any such violation blocks execution qualification.",
+  "financial_mode":"Research only; live DISABLED; no funds or keys."
+}

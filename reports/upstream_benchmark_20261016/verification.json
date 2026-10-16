@@ -1,0 +1,19 @@
+{
+  "date_utc":"2026-10-16",
+  "engine_actually_executed":"backtesting.py 0.6.6 FractionalBacktest",
+  "environment":"Isolated Python3.10.12 venv on authorized connected device; no system packages/services changed",
+  "new_engine_tests":{"methods":16,"observed_red_failures":16,"green_failures":0,"green_exit_code":0,"green_seconds":1.527},
+  "historical_run":{"registered_cases":1056,"completed":480,"strategy_runs":360,"cash_and_hold_runs":120,"skipped_data_or_warmup":576,"runtime_seconds":203.39,"exit_code":0,"complete_24_month_runs":0},
+  "cost_results":{"pool_floor":{"strategy_cases":120,"positive_cases":63,"median_net_profit":0.195479,"best_net_profit":14.9254784},"illustrative_mid":{"strategy_cases":120,"positive_cases":37,"median_net_profit":-2.397106,"best_net_profit":11.73944909},"illustrative_stress":{"strategy_cases":120,"positive_cases":18,"median_net_profit":-8.014553,"best_net_profit":7.315137}},
+  "counts_limit":"Overlapping windows, common data, correlated markets, identical cap outcomes and fee sensitivities are not independent trials. Positive-case fraction is NOT probability of future profit.",
+  "source_sha256":{"experiments/upstream_benchmark/fetch_data.py":"e12a6a157e9aa7d5db8065e61cddd8fb1137edce1e2ea515270983f0a0115522","experiments/upstream_benchmark/test_benchmark.py":"a8675dd98a74af5993e3e88240b888c5202b6c3589293156896e407a19bbf268","experiments/upstream_benchmark/benchmark.py":"198f0bcf147301c394bb4ebd6a3888e251e712322bd93a662916078694c68c00","experiments/upstream_benchmark/unpack_results.py":"823a3f45b4afb80e3f01da30f2860eb3291d901eadc836c3b0251b80a03c5771"},
+  "published_scope":"Grouped outcome summary contains every registered case, with eight-decimal metrics and explicit skips. Full raw CSV and per-run ledgers are retained in the isolated runtime and reproducible from matching entitled data; not all raw artifacts are republished.",
+  "publication_identity":"PENDING_UNTIL_FETCHED_COMMIT_VERIFICATION",
+  "ci":"PENDING_PUBLICATION",
+  "independent_security_audit":false,
+  "live_trading":"DISABLED",
+  "financial_actions":0,
+  "persistent_service":false,
+  "target_1_to_2_percent_geometric_daily_achieved":false,
+  "validated_executable_edge":false
+}

@@ -1,0 +1,17 @@
+{
+  "checked_completed_runs":480,
+  "all_ledgers_reconcile":true,
+  "errors":[],
+  "paired_entry_cap_experiments":180,
+  "higher_cap_better":33,
+  "higher_cap_worse":60,
+  "higher_cap_same":87,
+  "max_actual_entry_notional":23.10883362741226,
+  "order_cap_violation_runs":0,
+  "maximum_strategy_geometric_daily_pct":0.0851811507601641,
+  "median_mid_geometric_daily_pct":-0.0117583702134772,
+  "raw_results_sha256":"b8687950834905df95279a961bbca11046c98a61fea7c17db5bd5b4f910709d3",
+  "independent_reviewer":false,
+  "type":"Separate ledger arithmetic cross-check, same agent; not executed DEX profit",
+  "scope":"Read all completed trade ledgers; checked quantity*(exit-entry)-commission equals trade PnL, final equity equals100+sumPnL, long-only quantities, exit after entry, and flat cash ledgers. Derived grouped result expansion checked against all original outcomes to 1e-7."
+}

@@ -1,27 +1,28 @@
 # Arz status / وضعیت پروژه
 
-Reviewed 2026-10-15 UTC. **Phase 6 bounded economic/data continuation. Target net geometric daily 1–2%: NOT ESTABLISHED. Live trading DISABLED. Real-capital NO-GO.**
+Updated16October2026. **External-engine DEX historical screen completed within documented data coverage. Positive simulated historical cases found; executable profitability NOT validated; 1–2% daily target NOT achieved; real capital NO-GO, live DISABLED.**
 
-Current branch: `research/2026-10-15-phase6-economic-evidence`, starting Phase5 `fdbf4c54bb7cf6bb694d39f9364f67483aedf51c`. Preregistration: `b7ebe7d3c42d0507f3a58fe9f4c4509c6ec791e1`. Main and earlier branches/PRs remain unchanged. Exact prior status/log preserved as PROJECT_STATUS.pre-phase6.md and WORK_LOG.pre-phase6.md.
+Branch:`research/2026-10-16-upstream-backtests`, based on2926f35038de681722f0dd92d8630d14778a80e5. Original status/log preserved byte-for-byte in the pre-upstream snapshots. Main, previous branches and old strategy/runtime files remain unchanged.
 
-## Actual new work
+## Actual new deliverables
 
-- Implemented a finite explicit-opt-in public Base quote collector, with fixed read-only methods/contracts, explicit blocks, request/byte limits and sticky error halt; no wallet/signing/approval/broadcast.
-- Executed it on an isolated authorized-device checkout: 18 quote responses (nine pairs), three distinct Base blocks/times, 64 requests, 265-second bounded run. All 18 numeric outputs agree with existing single-cell model. Subsequent Swap-log retrieval returned HTTP429 and stopped. No receipt cost samples or retry/rotation.
-- Published normalized exact quote inputs/outputs and the original local raw-journal hash in reports/phase6/measurements.json. This is not an authenticated full raw-transcript publication or long-duration record.
-- Audited the fixed previously reported Phase3 strategy and its 12 cap/cost rows; no refitting or new backtest. Its +4.914184%/184days becomes -2.864434% at doubled modeled costs; base geometric daily 0.0260754%. Additional equal cost of about 0.050145USDC per fill erases the stored profit only under frozen-path arithmetic.
-- Added 31 standalone offline tests, observed red/green including two regression tests for empty historical selection. Supported full-repository tests and publication identity/CI must be verified separately.
+- Installed and executed backtesting.py0.6.6 FractionalBacktest in an isolated venv. Read six upstream repositories; only backtesting.py actually executed. Trading Strategy API actually supplied new DEX data; Freqtrade/Hummingbot/trade-executor not run.
+- Downloaded36,049 hourly records across Base ETH/USDC and cbBTC/USDC; provenance and gap audit published.52-hour shared gap and early cbBTC gaps retained. Older ETH request403 not retried. Complete24-month result unavailable.
+- Protocol and coverage-only amendment committed before performance inspection. Three fixed long-only rules,1h/4h, entry caps2/10, three cost sensitivities,11 historical windows and cash/20%-hold comparators. No optimizer, leverage or funding.
+-1,056 registered cases:480 completed (360strategy,120benchmark),576data/warmup skips. All outcomes published as grouped summaries with offline CSV expander. Counts are dependent tests, not confidence levels.
+- ETH4h Donchian:111.739449 from100 over2024-10–2025-10 at illustrative-mid costs,104.564124 at stress. Another overlapping year ends108.874007(mid)/102.162174(stress). Negative six-month ETH and cbBTC results also preserved. These are screening leads, not independently calibrated live returns.
+-16synthetic tests passed before historical execution; separate arithmetic reconciliation of all480completed ledgers passed. Raising cap2to10 improved33paired cases, worsened60 and left87unchanged. Publication identity/CI must be checked separately and recorded after the code commit.
 
-## Economic decision
+## Boundaries
 
-No qualified profitable strategy, actual trade, new strategy backtest, capital withdrawal or sustained paper service. Execution-validated daily account return remains null, not measured zero. Three short states from one provider do not satisfy old historical/cross-network replay or prospective gates. Full own-order network cost and legally eligible end-to-end live route remain unresolved. No financial action or paid service occurred.
+No wallet, signer, paid service, financial transaction, continuous daemon or paper-performance track record. Costs are declared sensitivities, not full calibrated historical execution. Old Issue6 fee/transport/data-integrity findings remain unresolved, not closed by a different candle engine. Global untouched holdout claim is not made because old research saw overlapping ETH history. Profits resize orders but the25-unit cap limits scaling above equity125.
 
-## Next useful work
+## Next meaningful test
 
-Preserve this bounded collection and source data. Improve permitted rate-aware data access and full-cost uncertainty without bypass. Add actual elapsed prospective observations before strategy validation; do not repeat price-only searches to force a positive result. Keep old strategies/holdouts fixed. No funded deployment, persistent service or merge is authorized by this checkpoint.
+Post-screening watchlist: freeze ETH4h Donchian20/10 for a newly timestamped diagnostic forward observation, retaining adverse periods and all costs. No tuning these seen outcomes to force daily profit. Verify permitted fee-aware quotes and fix Issue6's recorder issues before durable operation; continuous data observation is distinct from qualified financial deployment. No guarantee of eventual profit.
 
-Read docs/en/phase6_economic_evidence.md or docs/fa/phase6_economic_evidence.md and reports/phase6/verification.json. A later CI evidence checkpoint may supersede the pending-publication field without changing code.
+Read `docs/fa/upstream_benchmark_20261016.md` / English counterpart and `reports/upstream_benchmark_20261016/`. All 1,056 statuses can be expanded with `experiments/upstream_benchmark/unpack_results.py` without data downloads.
 
 ## فارسی
 
-هنوز به سود هدف نرسیده‌ایم. این بار جمع‌آورنده محدود واقعاً ساخته و اجرا شد: ۱۸ مظنه در سه بلوک، ۶۴ درخواست و حدود ۲۶۵ ثانیه. دریافت بعدی رسیدها به429خورد و متوقف شد؛ هزینه کامل نامعلوم است. عددهای مظنه با مدل تطبیق دارند ولی معامله یا سود نیستند. ۳۱ تست تازه مستقل موفق و خطای انتخاب خالی گزارش با تست بازگشت اصلاح شد. هیچ راهبرد قبلی عوض یا بک‌تست جدیدی اجرا نشد. حسابرسی نتایج قبلی حساسیت شدید سود به هزینه را تأیید می‌کند. main و شاخه‌های دیگر دست‌نخورده‌اند؛ اصل سرمایه مصرف نشد. ادامه فقط با داده و هزینه بهتر، نه ساخت نتیجه مطلوب؛ معامله DISABLED و تصمیم مالی NO-GO.
+این بار موتور خارجی واقعاً اجرا و داده تازه گرفته شد؛۴۸۰آزمون کامل و۵۷۶کنارگذاشته‌شده داریم. برخی سود مرکب تاریخی پس از هزینه فرضی مثبت‌اند، ولی هدف۱تا۲درصد و سود اجرایی قابل اتکا احراز نشده است. دونچیانETHچهارساعته سرنخ مشاهده آینده‌نگر است، نه انتخاب سرمایه‌گذاری؛ دوره منفی و زیانcbBTC حفظ شده‌اند. بازه۲۴ماهه به‌دلیل شکاف و دسترسی داده کامل نشد. همه نتایج قابل مشاهده و هیچ پول/کلید/سرویس دائمی فعال نشده است. شاخه‌های دیگر و نتایج قدیمی دست‌نخورده‌اند؛ تصمیم مالی NO-GO.

@@ -1,0 +1,29 @@
+name: External-engine benchmark offline checks
+on:
+  push:
+    paths:
+      - 'experiments/upstream_benchmark/**'
+      - 'reports/upstream_benchmark_20261016/**'
+      - '.github/workflows/upstream-benchmark-offline.yml'
+  pull_request:
+    paths:
+      - 'experiments/upstream_benchmark/**'
+      - 'reports/upstream_benchmark_20261016/**'
+permissions:
+  contents: read
+jobs:
+  offline-experiment:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Create isolated external-engine environment
+        run: |
+          python3 -m venv /tmp/arz-benchmark-venv
+          /tmp/arz-benchmark-venv/bin/python -m pip --isolated install --disable-pip-version-check --no-input --only-binary=:all: --index-url https://pypi.org/simple -r experiments/upstream_benchmark/requirements.lock
+      - name: Synthetic accounting and causal tests only
+        run: PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=experiments/upstream_benchmark /tmp/arz-benchmark-venv/bin/python -m unittest discover -s experiments/upstream_benchmark -p 'test_*.py' -v
+      - name: Reconstruct all published outcomes without market requests
+        run: python3 experiments/upstream_benchmark/unpack_results.py --output /tmp/arz-all-outcomes.csv
