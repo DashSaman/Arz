@@ -1,0 +1,29 @@
+{
+  "review_date_Europe_Berlin":"2026-10-17",
+  "base_commit":"79669af0b8bdd6e25000411008217a370a886c02",
+  "scope":"Bounded backtest continuation. One new economically motivated hypothesis: slower 120/60-bar Donchian may reduce fee-consuming turnover versus the unchanged20/10 rule. No parameter optimizer or repeated adjustment after results. No live deployment or financial authority.",
+  "hypotheses":["donchian_20_10_long (existing control)","donchian_120_60_long (fixed new slow comparator)"],
+  "signal_definition":"Completed close above the high of the previous N bars enters; completed close below the low of the previous M bars exits. N/M are20/10 and120/60 on4h candles. Same existing FixedSignals sizing, risk exits and next-bar fill adapter. Exactly128 complete warmup bars per window.",
+  "markets":[{"id":4564367,"asset":"WETH","fee":0.0005},{"id":4705508,"asset":"cbBTC","fee":0.0005},{"id":2854997,"asset":"WMATIC_provider_label","fee":0.0005}],
+  "market_selection":"Chosen before returns from the previous study's documented continued data coverage, not highest profit. BNB/AVAX were excluded from this new-window study because their downloaded feeds ended in March2026; keep that limitation, not a negative performance conclusion.",
+  "windows":[
+    {"id":"seen_6m","start":"2025-10-01","end":"2026-04-01","class":"Previously seen retrospective diagnostic"},
+    {"id":"seen_12m","start":"2025-04-01","end":"2026-04-01","class":"Previously seen retrospective diagnostic"},
+    {"id":"seen_18m","start":"2024-10-01","end":"2026-04-01","class":"Previously seen continuous-account diagnostic; no quarter resets"},
+    {"id":"later_15d","start":"2026-10-01","end":"2026-10-16","class":"New performance-evaluation window, cold-start100 account; only15days, NOT prospective service evidence or proof of durable profit"}
+  ],
+  "new_data_request":{"endpoint":"https://tradingstrategy.ai/api/candles-jsonl","time_bucket":"4h","start":"2026-09-01T00:00:00","end":"2026-10-16T00:00:00","max_bytes":1000000,"requests_max":3,"pause_seconds":3,"no_retry_or_rotation_on_401_403_429":true,"no_payment":true},
+  "data_policy":"Reuse hash-verified old native4h cache for old windows; use a separately saved fresh feed for later_15d, without revising past records. No filling of gaps. End exclusive; no incomplete final candle. The first October1boundary bar may have appeared in older raw API responses but was excluded from all prior performance windows; do not call all raw prices globally untouched. A missing request/window becomes BLOCKED/SKIPPED, not flat performance.",
+  "costs":{"mid":{"relative_each_leg":0.0015,"fixed_each_leg":0.01},"stress":{"relative_each_leg":0.003,"fixed_each_leg":0.05}},
+  "cost_limit":"Two preregistered illustrative sensitivities, NOT independently calibrated AMM/router/network costs. No claim to solve Issue6 or permission/issuer/route risks.",
+  "controls":"Initial100;20%equity target per order with25cap,10reserve,5minimum; one long position; existing3%daily/10%drawdown/5%position close-bar risk logic; cap2entries/day, no quota, no leverage/top-up. Risk thresholds do not guarantee limits in gaps. Profits retained and affect sizing. Final liquidation scheduled before last bar open. Cash and20%-initial hold benchmarks included.",
+  "planned_cases":96,
+  "case_order":"market; window; [control,slow,cash,hold]; [mid,stress]",
+  "qualification":"Even positive15day results cannot pass legacy90day/100trade planning gates. Do not declare financialGO. Compare old-window robustness and new-window sign/trade count, cost and drawdown. Report all cases. No new return target or fitting based on final window; previous failed screen remains failed.",
+  "tests_before_execution":["Slow signal equals explicit rolling prior120/60 extremum logic","Future price changes leave earlier signals unchanged","Insufficient warmup produces no new signal","Wrong policy/strategy input rejected","Existing16synthetic engine tests pass","Per-run ledgers reconcile and only causal entries/exits occur"],
+  "deliverables":"Full96-row results CSV, valid ledger summaries, data hashes, tests, equivalentFA/EN report, preserved old code/results and a separate draftPR. Partial output if data unavailable; never fabricate a run or return.",
+  "live_trading":"DISABLED",
+  "wallets_signatures_spending":false,
+  "persistent_service":false,
+  "sources":["https://kernc.github.io/backtesting.py/doc/backtesting/backtesting.html","https://www.freqtrade.io/en/stable/lookahead-analysis/","https://tradingstrategy.ai/docs/api/client/help/tradingstrategy.transport.jsonl.load_candles_jsonl.html"]
+}
