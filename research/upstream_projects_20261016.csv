@@ -1,0 +1,7 @@
+repository,stars_snapshot,forks_snapshot,review_date_utc,head_commit,license_metadata,actual_role_this_study,limit
+kernc/backtesting.py,9054,1551,2026-10-16,ca2e2611621e472542ba90f7243a1fa06a7d7108,AGPL-3.0,Installed and executed release0.6.6 FractionalBacktest,Repository HEAD not asserted to equal installed release; candle engine not AMM execution
+freqtrade/freqtrade,55452,11470,2026-10-16,d9f261b5b34484796048e4fe4d87570c077ea0a8,GPL-3.0,Official RSI example and lookahead-testing method reference,Freqtrade engine and FreqAI NOT installed or executed
+freqtrade/freqtrade-strategies,5557,1453,2026-10-16,f3340ce11f5bdf62f598522e64d1f5638eaa13f5,GPL-3.0,Strategy repository reviewed as reference,No claimed reproduction of its strategy track records
+hummingbot/hummingbot,20478,5005,2026-10-16,9af100d6822da7d2d0291a906c730ef172284ee2,Apache-2.0,Reviewed future execution architecture,No Hummingbot runtime or funded connector activated
+hummingbot/gateway,262,289,2026-10-16,f23e91670781fba75eb023edecaf2d992f0918aa,Apache-2.0,Reviewed DEX connector types and scope,No wallet or execution API activated
+tradingstrategy-ai/trade-executor,160,34,2026-10-16,34fc7eb0b6594d21acc2fc88ab230a95794779f7,API NOASSERTION; README AGPL dual-license needs scoped review,Reviewed DeFi engine; Trading Strategy documented data API actually used,trade-executor engine NOT run; full historical fees remain uncalibrated

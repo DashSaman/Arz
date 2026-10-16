@@ -1,0 +1,15 @@
+{
+  "date_utc":"2026-10-16",
+  "provider":"Trading Strategy documented public JSONL API",
+  "class":"PROVIDER_DEX_OHLCV_NOT_EXECUTABLE_QUOTES",
+  "raw_data_published":false,
+  "raw_data_limit":"Raw provider data retained in isolated runtime only while redistribution entitlement remains unresolved. Hashes and derived outcomes are public. A public endpoint does not establish a user's complete live-service eligibility.",
+  "records":[
+    {"pair_id":4564367,"pool":"0xd0b53d9277642d899df5c87a3966a349a798f224","network":"Base","base":"WETH","quote":"USDC","url":"https://tradingstrategy.ai/api/candles-jsonl?pair_ids=4564367&time_bucket=1h&start=2024-09-01T00%3A00%3A00&end=2026-10-01T00%3A00%3A00&max_bytes=10000000","observed_at_utc":"2026-10-16T14:04:19.871842+00:00","http_status":200,"bytes":4128525,"sha256":"09025d023e030e4b6f8718e1c6d67d626c91241aed734672846701ebbf6925a5","rows":18189,"first":"2024-09-01T00:00:00+00:00","last":"2026-10-01T00:00:00+00:00","duplicate_timestamps":0,"nonpositive_volume":0,"gaps":[{"after":"2026-06-25T15:00:00+00:00","before":"2026-06-27T20:00:00+00:00","missing_hours":52}]},
+    {"pair_id":4705508,"pool":"0xfbb6eed8e7aa03b138556eedaf5d271a5e1e43ef","network":"Base","base":"cbBTC","quote":"USDC","url":"https://tradingstrategy.ai/api/candles-jsonl?pair_ids=4705508&time_bucket=1h&start=2024-09-01T00%3A00%3A00&end=2026-10-01T00%3A00%3A00&max_bytes=10000000","observed_at_utc":"2026-10-16T14:04:25.839806+00:00","http_status":200,"bytes":4021163,"sha256":"37257d3d096a02140088e83e1ebb68a1fbb00d0af63afdebcf1230969a9fa0b7","rows":17860,"first":"2024-09-14T13:00:00+00:00","last":"2026-10-01T00:00:00+00:00","duplicate_timestamps":0,"nonpositive_volume":0,"gaps":[{"after":"2024-09-15T01:00:00+00:00","before":"2024-09-15T03:00:00+00:00","missing_hours":1},{"after":"2024-09-15T06:00:00+00:00","before":"2024-09-15T08:00:00+00:00","missing_hours":1},{"after":"2024-10-19T01:00:00+00:00","before":"2024-10-19T03:00:00+00:00","missing_hours":1},{"after":"2024-10-19T08:00:00+00:00","before":"2024-10-19T10:00:00+00:00","missing_hours":1},{"after":"2026-06-25T15:00:00+00:00","before":"2026-06-27T20:00:00+00:00","missing_hours":52}]}
+  ],
+  "older_history_attempt":{"pair_id":4564367,"requested_start":"2023-09-01T00:00:00","requested_end":"2024-09-01T00:00:00","observed_at_utc":"2026-10-16T14:07:10.462328+00:00","result":"HTTP 403 Forbidden","retry_or_bypass":false,"older_data_obtained":false},
+  "window_rules":"128 complete warmup bars required. Hourly gaps are not interpolated; incomplete 4h aggregation cells remain absent. Every affected complete evaluation window is marked SKIPPED, not represented as a continuous return series. API end-boundary rows excluded by evaluation's end_exclusive.",
+  "complete_24_month_return_obtained":false,
+  "independent_source_authentication":false
+}

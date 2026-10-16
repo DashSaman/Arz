@@ -1,19 +1,21 @@
 # Work log / گزارش کار
 
-Prior complete log preserved by exact blob identity in WORK_LOG.pre-phase6.md.
+Prior complete work log preserved by exact blob identity in WORK_LOG.pre-upstream-20261016.md.
 
-## 2026-10-15 — bounded economic continuation
+## 2026-10-16 — real external-engine study
 
-Read current GitHub refs and Phase5 status; no target profit evidence. Created independent Phase6 branch from fdbf4c5 and preregistered at b7ebe7d. An authorized-device temporary clone succeeded; direct git push dry-run had no credentials. Connector publication is used without copying or requesting credentials. No system services/dependencies changed.
+Inspected live GitHub refs/status and cloned Phase6 into an isolated authorized-device temporary workspace. Read continuity/safety/methodology records. Created a separate branch. Published fixed experiment protocol1deea855 and coverage-only amendment7be7f06 before any strategy-performance run. One-day schema probe was disclosed; old project history overlapping ETH is not pristine holdout.
 
-Implemented additive phase6/economic_audit.py and quote_recorder.py after 29 failing tests. Initial tests passed but an actual historical audit selected zero rows: old scenario name was fixed_grid_price_only, not base. Two additional regression tests failed; corrected the explicit label and added a required complete 12-row grid. All31 standalone tests then passed on Python3.10.12. Preserve the invalid first audit separately; do not call it a result. No prior runtime or strategy code changed.
+Reviewed backtesting.py, Freqtrade and strategies, Hummingbot and Gateway, and trade-executor. Installed exact wheel-only package versions in an isolated venv, not system Python: backtesting0.6.6,numpy2.2.6,pandas2.2.3,bokeh3.6.3 plus recorded transitive pins. Only that external engine ran; no full Freqtrade/AI/Hummingbot/DEX executor installed.
 
-Executed finite collection 18:33:01.644188–18:37:26.482659UTC. Three explicit Base blocks (52649886/52649935/52649984), 18 exact quote legs, 64 public read-only requests and98643 response bytes. All quote numerical comparisons passed. Subsequent log request hit429; no retry, paid service or alternate endpoint. No reference receipts, full gas calibration or financial actions. The process ended after writing its partial summary; no collector remains running.
+Trading Strategy's documented JSONL endpoint returned18,189ETH and17,860cbBTC hourly records. Both have positive reported volume/no duplicate timestamps; shared52-hour gap and cbBTC early gaps were retained. Older ETH history request returned403 and stopped without retry/bypass. Raw data retained privately; derived results and hashes published.
 
-Audited saved Phase3 mean_reversion_v2/academic_usdc/1h with caps1/2/5/10 and costs1/2/3. New report is arithmetic over existing results, not another backtest. Published normalized observation transcript, full local raw-journal hash, source/test identities, bilingual findings and a separate offline-only CI workflow. Code/transcription comparison and CI are checked after publication. No independent external reviewer is claimed.
+Wrote16synthetic tests; observed16failures before benchmark implementation. Same tests passed before historical execution. Ran fixed grid with actual engine:1,056registered statuses,480complete,576skipped due data/warmup gaps. No strategy/hyperparameter optimization or data filling. Market batch exit0, runtime203.39seconds. Saved every completed trade ledger/daily curve/target list locally. Checked all480ledgers arithmetically and expanded all published summary groups against full result CSV within1e-7. No accounting mismatch, shorts, open final positions or observed25-unit entry violations.
+
+Positive screening leads and negative outcomes are both retained. ETH4h Donchian annual simulations remain positive under two declared nonzero cost profiles; cbBTC and one ETH six-month interval lose. More entry capacity often worsens results. This is not calibrated execution profitability or target income. New reports bilingual; old src/config/tests/results unchanged. Publication verification and CI recorded in a following evidence checkpoint when observed.
 
 ## فارسی
 
-پس از خواندن وضعیت واقعی، شاخه مستقل فاز۶ ساخته و قبل از دریافت داده پیش‌ثبت شد. کلون در فضای موقت دستگاه مجاز موفق بود؛ ارسال مستقیم گیت مجوز نداشت و از اتصال مجاز GitHub برای انتشار استفاده شد. ۲۹ تست اولیه شکست خوردند و سپس موفق شدند؛ دو تست تازه خطای انتخاب خالی ردیف تاریخی را بازتولید کردند و پس از اصلاح نام سناریو و الزام ۱۲ ترکیب، هر۳۱ تست موفق شد.
+مخزن واقعاً خوانده و شاخه مستقل ساخته شد. طرح قبل از سود ثبت شد؛ به‌خاطر شکاف داده اصلاحیه مبتنی بر پوشش پیش از دیدن نتیجه نوشته شد. موتور خارجیbacktesting.pyواقعاً در محیط جدا نصب و اجرا شد؛ موتورربات‌های دیگر فقط بررسی شدند.۳۶٬۰۴۹رکوردساعتی ازمنبع تازه DEXدریافت شد و شکاف‌ها پر نشدند. درخواست تاریخ قدیمی‌تر403گرفت و توقف شد.
 
-دریافت محدود واقعی ۱۸ مظنه تازه در سه بلوک Base ثبت کرد؛ درخواست۶۴ برای لاگ‌ها429گرفت و توقف انجام شد. هیچ رسید تازه، هزینه کامل یا سود راهبردی احراز نشد. فرایند پایان یافت و سرویس پس‌زمینه فعال نماند. نتایج قدیمی و شاخه‌های دیگر حفظ‌اند؛ هیچ پول، کلید، امضا یا Approval مصرف نشد. گزارش‌های هم‌ارز دو زبان و شواهد عددی برای ادامه قابل‌بازیابی ثبت می‌شوند؛ هدف سود۱تا۲درصد همچنان تأیید نشده است.
+۱۶تست ابتدا شکست خوردند و بعد پیش از آزمون بازار موفق شدند.۴۸۰اجرا کامل و۵۷۶حالت با کمبودداده/گرم‌کردن کنار گذاشته شدند؛ هیچ پارامتری پس از سود تنظیم نشد. حسابداری تمام دفترهای کامل و تبدیل نتایج فشرده با داده اصلی تطبیق دارد. سودهای مثبت، هزینه‌ها، بازه‌های منفی و همه حالت‌های ردشده ثبت می‌شوند. هدف روزانه۱تا۲درصد، سود اجرایی و درآمد پایدار اثبات نشده‌اند. پول، کیف‌پول و سرویس دائمی فعال نشد و نتایج قبلی/شاخه‌های دیگر حفظ شدند.
