@@ -1,0 +1,30 @@
+{
+  "reviewed_date_utc":"2026-10-16",
+  "tested_published_commit":"00abc9d73fd1a65ee4a0271119c7c89a1860d447",
+  "base_commit":"2926f35038de681722f0dd92d8630d14778a80e5",
+  "verification_method":"Fetched the actual published commit into a second isolated checkout, compared all four Python source files byte-for-byte with the locally executed files, compared the complete grouped outcome JSON with the original object, expanded all1056case identities/outcomes and compared completed metrics to the original full CSV within1e-7. Reran16synthetic tests from published code.",
+  "source_bytes_match":{
+    "experiments/upstream_benchmark/benchmark.py":"198f0bcf147301c394bb4ebd6a3888e251e712322bd93a662916078694c68c00",
+    "experiments/upstream_benchmark/test_benchmark.py":"a8675dd98a74af5993e3e88240b888c5202b6c3589293156896e407a19bbf268",
+    "experiments/upstream_benchmark/fetch_data.py":"e12a6a157e9aa7d5db8065e61cddd8fb1137edce1e2ea515270983f0a0115522",
+    "experiments/upstream_benchmark/unpack_results.py":"823a3f45b4afb80e3f01da30f2860eb3291d901eadc836c3b0251b80a03c5771"
+  },
+  "all_grouped_results_match_original_object":true,
+  "all_1056_case_metadata_and_outcomes_match":true,
+  "outcome_rounding_tolerance":1e-7,
+  "published_code_tests":{"methods":16,"failures":0,"errors":0,"exit_code":0,"seconds":2.387},
+  "ci_observed":[
+    {"run_id":38916739200,"name":"External-engine benchmark offline checks","status":"completed","conclusion":"success","url":"https://github.com/DashSaman/Arz/actions/runs/38916739200"},
+    {"run_id":38916739263,"name":"Research-only checks","status":"completed","conclusion":"success","url":"https://github.com/DashSaman/Arz/actions/runs/38916739263"}
+  ],
+  "ci_scope":"Read actual run status and tested head. New workflow installs pinned engine and runs synthetic tests/summary expansion only, not network market acquisition or new financial backtests. No separately parsed full inherited-test count is asserted here.",
+  "preservation":"GitHub compare shows three commits ahead/zero behind at tested head; no old src/config/tests or earlier numerical result files changed. Prior status/log preserved as exact blobs. No other refs merged or force-updated.",
+  "historical_study":{"registered_cases":1056,"completed":480,"strategy_runs":360,"benchmark_runs":120,"data_or_warmup_skips":576,"full_24_month_runs":0,"same_agent_ledger_reconciliations":480},
+  "interpretation":"Positive simulated historical cases exist under declared uncalibrated costs, but no execution-validated return or1–2%geometric net daily account target is established. Outcomes are dependent, not independent confidence trials.",
+  "independent_reviewer":false,
+  "live_trading":"DISABLED",
+  "financial_actions":0,
+  "persistent_service_running":false,
+  "financial_decision":"NO-GO",
+  "note":"Evidence-only follow-up; supersedes pending-publication fields without changing tested source or historical outputs."
+}
