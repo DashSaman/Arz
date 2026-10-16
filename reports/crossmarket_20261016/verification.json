@@ -1,0 +1,23 @@
+{
+  "date_utc":"2026-10-16",
+  "protocol_commit":"afc56de893285afc292d49b33e8056e4f9d6c44e",
+  "protocol_sha256":"8857ae8afa5d0a96d99f6ae18bdd418ddbd2c000484903595276187726d7ce0f",
+  "engine":"backtesting.py0.6.6; prior Arz experiment engine adapter reused unchanged",
+  "engine_adapter_sha256":"198f0bcf147301c394bb4ebd6a3888e251e712322bd93a662916078694c68c00",
+  "new_code_sha256":"9416bd4431762060952915586be24cc00c2aef9388990bc5d981f0d94d3a2c6e",
+  "new_tests_sha256":"566805c02cf62646f60b2445ca396b7190cf91b8ad6d02bab9d9e27f6b87c0f7",
+  "red":{"methods":13,"failures":13,"reason":"implementation absent"},
+  "green":{"methods":13,"failures":0,"errors":0,"seconds":1.234},
+  "existing_engine_tests":{"methods":16,"failures":0,"seconds":1.932},
+  "market_job":{"exit_code":0,"elapsed_seconds_including_initial_engine_tests":66.45,"registered":650,"completed":350,"skipped":300,"strategy_runs":210,"benchmark_runs":140,"full_24month_runs":0},
+  "arithmetic_audit":{"checked_ledgers":350,"errors":[],"continuous_groups_checked":20,"maximum_compound_reconciliation_difference":2.842170943040401e-14,"max_actual_entry_notional":22.68007297134374,"cap_violation_runs":0},
+  "outcomes":{"screen_passes":0,"screen_failures":6,"insufficient_candidates":9,"mid":{"strategy_cases":105,"positive":42,"negative":62,"zero":1,"median_profit":-0.921241608168728},"stress":{"strategy_cases":105,"positive":25,"negative":79,"zero":1,"median_profit":-3.5221031086002483}},
+  "full_results_sha256":"9214f141aba9e266e9d739fe8dfeb377d0f783c048faeae80d8963df05ab52a6",
+  "ci":"PENDING_PUBLICATION",
+  "publication_identity":"PENDING_FETCHED_COMMIT_VERIFICATION",
+  "independent_external_audit":false,
+  "live":"DISABLED",
+  "financial_actions":0,
+  "persistent_service_running":false,
+  "qualification":"Historical screening only; zero validated executable or repeatability-qualified candidates. Missing data is not evidence of negative returns. Screening criteria are research choices, not necessary laws of profitable trading."
+}
