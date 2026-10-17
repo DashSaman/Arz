@@ -1,0 +1,50 @@
+name: Knowledge validation offline checks
+on:
+  push:
+    paths:
+      - 'experiments/knowledge_validation/**'
+      - 'research/knowledge_base/**'
+      - 'reports/knowledge_20261017/**'
+      - '.github/workflows/knowledge-validation-offline.yml'
+  pull_request:
+    paths:
+      - 'experiments/knowledge_validation/**'
+      - 'research/knowledge_base/**'
+      - 'reports/knowledge_20261017/**'
+permissions:
+  contents: read
+jobs:
+  offline-diagnostics:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Isolated pinned analysis environment
+        run: |
+          python3 -m venv /tmp/arz-knowledge-venv
+          /tmp/arz-knowledge-venv/bin/python -m pip --isolated install --disable-pip-version-check --no-input --only-binary=:all: --index-url https://pypi.org/simple -r experiments/upstream_benchmark/requirements.lock
+      - name: Synthetic accounting resampling and published-example tests
+        run: PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 PYTHONPATH=experiments/knowledge_validation /tmp/arz-knowledge-venv/bin/python -m unittest discover -s experiments/knowledge_validation -v
+      - name: Structured knowledge and reported-cost consistency
+        run: |
+          python3 - <<'PY'
+          import json, math
+          from pathlib import Path
+          root=Path('research/knowledge_base')
+          for p in list(root.glob('*.json'))+list(Path('reports/knowledge_20261017').glob('*.json')):
+              json.loads(p.read_text())
+          assert len(json.loads((root/'PAPERS.json').read_text())['papers'])==9
+          assert len(json.loads((root/'BOOKS.json').read_text())['books'])==18
+          people=json.loads((root/'PROFILES_AND_FAILURES.json').read_text())
+          assert len(people['profiles'])==6 and len(people['remaining_requested_people'])==21 and len(people['failure_cases'])==4
+          costs=json.loads(Path('reports/knowledge_20261017/cost_matrix.json').read_text())
+          assert len(costs['paths'])==8 and len(costs['scenarios'])==7
+          for path in costs['paths']:
+              assert path['pair_id'] in (4564367,4705508)
+              for scenario,ending in zip(costs['scenarios'],path['ending_by_scenario']):
+                  expected=path['recorded_ending']-12*scenario['monthly']-2*path['closed_cycles']*scenario['extra_per_leg']
+                  assert math.isclose(expected,ending,rel_tol=0,abs_tol=1e-9)
+          print('Knowledge schema and56reported cost overlays checked; no market requests.')
+          PY

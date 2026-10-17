@@ -1,0 +1,11 @@
+{
+ "source":"P05, Bailey and Lopez de Prado2014 author manuscript; selected equation and numerical-example pages reviewed",
+ "common":{"observations":1250,"sharpe_per_observation":"2.5/sqrt(250)","trial_sharpe_variance":0.002},
+ "examples":[
+ {"independent_trials":100,"skew":-3,"raw_kurtosis":10,"dsr":0.9003968344493904,"benchmark_sharpe":0.11317200186513214,"z":1.2838160365336546},
+ {"independent_trials":46,"skew":-3,"raw_kurtosis":10,"dsr":0.9505017068755786,"benchmark_sharpe":0.10036237061765357,"z":1.649737746957031},
+ {"independent_trials":88,"skew":0,"raw_kurtosis":3,"dsr":0.9504908166760138,"benchmark_sharpe":0.11114576178358426,"z":1.6496313122924988}
+ ],
+ "classification":"PUBLISHED_NUMERICAL_EXAMPLES_NOT_ARZ_PERFORMANCE",
+ "Arz":{"dsr":null,"pbo":null,"status":"NOT_IDENTIFIABLE_FROM_CURRENT_TRIAL_LINEAGE","missing":["complete comparable hypothesis-selection history","defensible effective independent trial count","same-period trial-Sharpe dispersion and dependence model"],"dependent_run_rows_are_independent_trials":false,"funded_approval":false},
+ "fa":"اعداد نمونه مقاله بازتولید شده‌اند،نه احتمال موفقیتArz. تعداد آزمون مستقل و توزیع قابل‌مقایسه تلاش‌های کل پروژه احراز نشده؛DSR/PBOواقعی nullباقی است."

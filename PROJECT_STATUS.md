@@ -1,27 +1,27 @@
-# Arz — Market intelligence checkpoint,17 October2026
+# Arz — knowledge research checkpoint,17 October2026
 
-**RESEARCH_ONLY; funds NO-GO; live DISABLED. Broad mandate PARTIAL.**
+**RESEARCH_ONLY; funded NO-GO; live DISABLED. Global knowledge mandate PARTIAL.**
 
-Branch `research/2026-10-17-market-intelligence` starts at c38a6f3f828bb2750328846212a14f9df0cd8eb5. Prior status/log/decisions/AGENTS are preserved byte-for-byte as pre-intelligence snapshots. No old engine, risk rule, strategy or numerical output is overwritten, and no other ref/main is merged.
+Branch: `research/2026-10-17-knowledge-validation`, based on `fcba813b0f17ad5a87da3339c54c6cce4f4ca933`. Original status/log/decisions are preserved exactly in pre-knowledge snapshots. Existing trading engines, ATR rules, risk units, journals and other branch refs remain unchanged; main not merged.
 
-## Actual new scope
+## What actually changed
 
-Nine causal numeric features; multi-axis observed trend/volatility/shock labels; three original NumPy logistic specifications with four expanding purged quarters per market; seven fixed entry-only variants against corrected ATR; a bounded official-feed observation/parser;18factor-family catalogue and16source records.
+A searchable bilingual knowledge base contains9paper cards,18book records,6initial profiles plus21remaining-name statuses,4dated failure cases,11pinned OSS metadata/README reviews,3free course overviews,10strategy families,6hypotheses and a proposed12week learning roadmap. Zero full books read; no audited investor fund track records examined. Source access and our adaptations are separated. Not all named people or sources are fully researched.
 
-Reused hash-verified native4h ETH/cbBTC data,3462/3381bars in the registered source slice; no new market-price download.168portfolio cases and48benchmarks complete.24logistic fits,64forecast score rows. No hyperparameter or threshold search. All histories globally seen; temporal folds are diagnostic rather than pristine finalholdout.
+Before executing diagnostics, the plan was committed at18d5738e. Twenty tests were observed RED, then20passed. The original analysis-only module reconciled8previously seen annual account paths with365complete days each. Executed8paired stationary-resampling cases (4096draws per case),56additional-cost fixed-ledger overlays and3publishedDSRexamples. No new strategy backtest, market price observation, paid service or model installation.
 
-ETH12months: ATR106.161639mid/104.293415stress; volatility veto107.322056/105.574733, midPF1.926359, payoff5.779077,12trades and closeDD5.660522%. Improvement mainly traces to one previously losing opportunity; known6month loss remains95.947378/95.150214. cbBTC volatility veto reduces but does not eliminate annual loss. Forecast A/B/C lack stable main-metric improvement; probability gates yield zero ETHtrades, not income. No chosen model qualifies for funds.
+Economic finding: the selected historical ETH annual path has only0.6102/month of additional surplus at mid costs or0.4646/month at stress.1/month makes either path negative in fixed-ledger arithmetic. This is not a future budget or resized strategy simulation. Conditional ETH bootstrap lower percentiles are near0; cbBTC intervals cross/touch0. Prior selection and unobserved regimes remain outside this method. Actual Arz DSR/PBO are null because complete comparable trial lineage is missing; paper examples are not project confidence.
 
-Actual Fed RSS probe returned15existing feeditems at02:32:24UTC; Ethereum feed redirected and stopped. No news sentiment/impact study or historical news trades. First-seen availability is preserved; unverified liquidity and confidence remain null. No on-chain/derivatives source was connected this increment.
+## Read next
 
-30newtests and40corrected-policy tests pass locally. All168ledgers and28continuous12month paths checked. No-trade-duration and extra-month reporting faults were fixed; portfolio PnL unchanged. Published identity, full rerun and CI are recorded after actual verification.
+`research/knowledge_base/README.md` / `.fa.md`; `docs/fa/knowledge_research_20261017.md` and English counterpart; `EXPERIMENT_PLAN.json`; `STRATEGIES_AND_HYPOTHESES.json`; `experiments/knowledge_validation/README.md`; `reports/knowledge_20261017/`.
 
-## Where to continue
+Published summaries retain all8resampling and56overlay cases. Full prior source ledgers and generated detailed JSON/daily-return outputs remain in the authorized temporary runtime and are reproducible with matching input hashes; hashes alone are not missing data. No full copyrighted text or private prompt is published. Actual publication/CI verification is recorded only after it is observed.
 
-Read `docs/fa/market_intelligence_20261017.md` or English counterpart, `research/market_intelligence_protocol_20261017.json`, the factor/source inventories and `reports/market_intelligence_20261017/`. Fullprecision outputs/rawdata remain in the authorized temporary runtime and require matching permitted inputs for exact reproduction; core public summaries are not all rawfiles.
+## Remaining gates
 
-Remaining: historical/vintage news and macro surprises, authenticated on-chain/liquidity/derivatives/sentiment, calibrated probability, untouched final evaluation, full execution costs and operational paper feed/24hour service. The existing512event paper adapter is unchanged. News/model outputs cannot sign or widen risk.90day/100trade planning gates and Issues6/10 remain open. No paid service, financial key, transaction, daemon or automatic merge.
+Full biography/book research, audited historical investor performance, calibrated own-order DEX costs, complete economic-trial genealogy, genuinely independent final evaluation, futureK04–K06strategy tests and continuous paper operations remain incomplete. Existing90day/100trade planning gates and Issues6/10 are not closed by these diagnostics. No funds, keys, signatures, approvals, leverage, paid service or daemon.
 
 ## فارسی
 
-این دور واقعاً وضعیت تکنیکال و احتمال سبک را ساخت و باATRاصلاح‌شده سنجید:۱۶۸آزمون حساب و۴۸معیار کامل،با۳۰تست جدید. فیلتر نوسان سود سالانهETHرا کمی بهتر کرد،اما دوره۶ماهه همچنان زیان‌ده است؛ مدل‌های احتمال برتری پایدار و درآمد نشان ندادند.۱۵رکوردخوراکFedدریافت شد،منبع دوم تغییرمسیر داد و متوقف شد؛ خبر به گذشته منتقل نشده است. فهرست۱۸خانواده عامل و۱۶منبع،اجراشده و معلق را جدا می‌کند. مرحله کامل نیست و سرمایهNO-GOاست؛ هیچ کیف‌پول یا سرویس شبانه‌روزی فعال نشده.
+دانشنامه اولیه مستند و سه تشخیص اجرایی ساخته شد؛۹کارت مقاله،۱۸رکورد کتاب،۶پرونده اولیه،وضعیت۲۱نام دیگر،۴شکست،۱۱مخزن،۳دوره،۱۰خانواده و۶فرضیه داریم. هیچ کتابی کامل یا سابقه مالی فردی مستقل حسابرسی نشده است.۲۰تست موفق و۸مسیر/۸بازنمونه‌گیری/۵۶هزینه اضافه بررسی شدند؛بک‌تست راهبرد یا قیمت تازه صفر است. هزینه کوچک می‌تواند سود تاریخی را مصرف کند وDSR/PBOواقعی نامعلوم‌اند. کد معامله،ریسک وmainدست‌نخورده؛ مأموریت گسترده جزئی و ورودپولNO-GOاست.
