@@ -1,0 +1,28 @@
+{
+ "review_date_utc":"2026-10-17",
+ "tested_published_commit":"2d2a909b29676b0f4cfbd0b0eb6412caf109f9cf",
+ "base_commit":"1c40fc2fdd1e4c4abbcc81f3284b5e44fa588aee",
+ "verification_method":"Fetched published commit into a second isolated authorized-device checkout. All8Python files matched locally executed bytes, every288case core result matched the original object, and allcaseIDs were unique/complete across234successes and54skips. Reran40tests, syntheticpaperdemo and theFULLcorrectedmarketgrid from publishedcode using matching cacheddata.",
+ "published_test_run":{"methods":40,"failures":0,"errors":0,"seconds":2.677},
+ "full_market_rerun":{"results_csv_byte_match":true,"results_sha256":"e3571c65e8ac9868b7b32cb5c1f42a96a8795431c65ce33c7d43218a3ee516da","decision_json_equal":true,"selection_equal_except_recorded_wallclock":true,"same_data_reproduction_not_independent_trials":true},
+ "paper_demo_equal":true,
+ "all_source_bytes_match":true,
+ "all288published_case_outcomes_match_original":true,
+ "ci_observed":[
+  {"id":38992894727,"name":"Payoff and diagnostic paper offline checks","status":"completed","conclusion":"success","url":"https://github.com/DashSaman/Arz/actions/runs/38992894727"},
+  {"id":38992894766,"name":"Research-only checks","status":"completed","conclusion":"success","url":"https://github.com/DashSaman/Arz/actions/runs/38992894766"}
+ ],
+ "ci_scope":"Actual runmetadata/head/status read via GitHub connector. Newworkflow tests units, paper/evidence and syntheticdemo; it is not live market performance. Full legacy count is not separately inferred from greenstatus.",
+ "preservation":"Actual compare showed13commits ahead/0behind at testedhead. Oldsrc/experiments/configuration/market-resultfiles unchanged. Priorstatus,worklog,decisions preserved by exactblobs. No other branch ref ormain merged/forceupdated.",
+ "critical_issue":"Issue10 documents the inherited percent/fraction stop error and corrected interpretation. Oldnumbers remainlegacybehavior, not intended5%stop results. Issue6 fullcost/transport/liveproof gates remainopen.",
+ "security_review":"Same-agent regression and source/accounting review, not independent professional audit. No subagent or external reviewer claimed.",
+ "remaining_scope":"Cleanfinalholdout,calibratedexactDEXexecution,actualprospectivefeed,multiple nestedwalkforwardfolds and24/7operation remainincomplete. Bounded512observation supplied-inputpaperinterface is not a productiondaemon.",
+ "financial_actions":0,
+ "new_market_downloads":0,
+ "persistent_service_running":false,
+ "live_trading":"DISABLED",
+ "candidate":"slow_atr_trail",
+ "candidate_status":"RESEARCH_ONLY",
+ "funded_decision":"NO-GO",
+ "note":"This later evidence-only checkpoint supersedes pending-publication fields without changing tested source or numerical outputs."
+}

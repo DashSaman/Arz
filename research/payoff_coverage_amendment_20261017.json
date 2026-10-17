@@ -1,0 +1,10 @@
+{
+  "date_utc":"2026-10-17",
+  "ablation_returns_inspected":false,
+  "reason":"Cached history begins2024-09-01. A30-complete-day SMA with5-day slope requires216four-hour warmup bars, exceeding the30days available before2024-10-01. Do not shorten or reinterpret the indicator.",
+  "original_windows_preserved":"Keep every originally registered window and explicit per-candidate missing-warmup skips. Do not label the daily-filter October2024start as valid.",
+  "added_matched_selection_window":{"id":"matched_development_11m","start":"2024-11-01","end":"2025-10-01","calendar_days":334,"role":"Run all nine candidates with sufficient preceding data; same start/end for selection."},
+  "selection_override":"Use this uniformly matched11month ETH development period, not the original12month start, for the already-declared worst-cost-return minus0.5drawdown selection rule. Record selection before later-window evaluation. This is a coverage-only amendment, not a performance-based choice.",
+  "scope":"Original18month fast/slow controls still reproduce legacy reports; trend arm may legitimately lack initial warmup. Later15day feed has onlySeptemberwarmup, so daily-trend arm may likewise be missing. No data filling or unsupported24month result.",
+  "fa":"پیش از دیدن نتیجه نسخه‌های تازه، برای فیلتر روزانه کمبود گرم‌کردن مشخص شد. همه قواعد روی بازه مشترک۱نوامبر۲۰۲۴تا۱اکتبر۲۰۲۵ برای انتخاب اجرا می‌شوند. بازه‌های قبلی حذف نمی‌شوند و موارد ناقص صریحاً کنارگذاشته خواهند شد؛ تعریف اندیکاتور برای بهترشدن عدد کوتاه نمی‌شود."
+}
