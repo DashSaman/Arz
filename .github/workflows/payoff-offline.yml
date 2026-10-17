@@ -1,0 +1,29 @@
+name: Payoff and diagnostic paper offline checks
+on:
+  push:
+    paths:
+      - 'experiments/payoff/**'
+      - 'research/payoff*.json'
+      - '.github/workflows/payoff-offline.yml'
+  pull_request:
+    paths:
+      - 'experiments/payoff/**'
+      - 'research/payoff*.json'
+permissions:
+  contents: read
+jobs:
+  synthetic-research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Isolated pinned research environment
+        run: |
+          python3 -m venv /tmp/arz-payoff-venv
+          /tmp/arz-payoff-venv/bin/python -m pip --isolated install --disable-pip-version-check --no-input --only-binary=:all: --index-url https://pypi.org/simple -r experiments/upstream_benchmark/requirements.lock
+      - name: Causal units, accounting, paper-restart and evidence tests
+        run: PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=experiments/payoff:experiments/upstream_benchmark /tmp/arz-payoff-venv/bin/python -m unittest discover -s experiments/payoff/tests -v
+      - name: Synthetic bounded paper demonstration only
+        run: PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=experiments/payoff /tmp/arz-payoff-venv/bin/python experiments/payoff/demo.py --output /tmp/arz-payoff-demo

@@ -1,0 +1,37 @@
+{
+ "date_utc":"2026-10-17",
+ "scope":"Bounded research increment; no financial actions or independent third-party audit",
+ "parent":"1c40fc2fdd1e4c4abbcc81f3284b5e44fa588aee",
+ "engine":"backtesting.py0.6.6 in existing isolated Python3.10.12 environment",
+ "test_sequence":[
+  {"stage":"logic_RED","tests":21,"failed":21,"reason":"Implementations absent"},
+  {"stage":"bridge_RED","tests":27,"failed":6,"reason":"Adapter absent;21existing tests passed"},
+  {"stage":"first_adapter","tests":27,"failed":1,"errors":1,"diagnosis":"ATRzero should be valid for flatdata; a synthetic fixture with wide highs generated no Donchian entries"},
+  {"stage":"adapter_GREEN","tests":27,"passed":27,"seconds":2.304},
+  {"stage":"paper_RED","tests":11,"failed":11,"reason":"Paper implementation absent"},
+  {"stage":"combined_GREEN","tests":38,"passed":38,"seconds":2.528},
+  {"stage":"unit_and_fault_REGRESSION_RED","tests":40,"failed":2,"reason":"Position return percent vs fraction; nonfinite observation rejection was not durably faulted"},
+  {"stage":"corrected_GREEN","tests":40,"passed":40,"seconds":2.825}
+ ],
+ "baseline_reproduction":{"old_runs":[1,3,17,19,18,20],"matched":true,"scope":"Old exact behavior, including wrong documented stop unit, reproduced before new-policy comparison"},
+ "corrected_market":{"cases":288,"complete":234,"skipped":54,"raw_csv_sha256":"e3571c65e8ac9868b7b32cb5c1f42a96a8795431c65ce33c7d43218a3ee516da","trade_account_checks":234,"errors":[]},
+ "legacy_confounded_market":{"cases":288,"complete":234,"skipped":54,"raw_csv_sha256":"90a09715344720d1d2b5dcd03d05d3a0dcb7495843af959693d9c904d901d0c1","interpretation":"Do not count as independent tests or accepted intended5%policy evidence"},
+ "benchmark_checks":{"cases":64,"complete":56,"skipped":8,"risk_overlay":false},
+ "synthetic_paper_demo":{"observations":5,"simulated_fills":2,"final_cash":98.31859234055,"realized_pnl":-1.68140765945,"modeled_costs":0.07747427945,"open_qty":0,"restart_equal":true,"network_requests":0,"actual_transactions":0,"scope":"Fabricated prices used solely for software demonstration; not market profit"},
+ "source_sha256":{
+  "experiments/payoff/study.py":"42ddc611003b340bac1a48031b06b5535e42a4229ca8a86edec686a668bc110f",
+  "experiments/payoff/logic.py":"194e00ed3e1568be6c9f9ed9c1e6358b46fc7a7d024bf0585ef653243837b930",
+  "experiments/payoff/evidence_fix.py":"eb9894545ea8061018b2033ebe91ffe43b39f15af6de0d2c9552750226b5db77",
+  "experiments/payoff/paper_step.py":"6918ce335d3b3871dc8973aee477f0ae5daf6d4dec66d4805f3a85398ce4fd14",
+  "experiments/payoff/demo.py":"91ec442db350afe8747a530588648db755b1b7050929275793e38a9044520bd2",
+  "experiments/payoff/tests/test_payoff.py":"5ff8d51566cbf0cce3ffddf38e0c6a3c1c51c27322d18b02cd820807543a8002",
+  "experiments/payoff/tests/test_bridge.py":"6570d0d9e5ec2b01781d8015a3de33d6e31c2b8b1e1ca15c97612b96ac652b9d",
+  "experiments/payoff/tests/test_paper.py":"fb8122e34571b5a86c0c1e0ab732252c5d93fe656cd5085388ca4878cc538548"
+ },
+ "source_and_results_publication_check":"PENDING_FINAL_PUBLISHED_CHECKOUT",
+ "github_ci":"PENDING_FINAL_PUBLICATION",
+ "limitations":["All market windows globally seen; no independent finalholdout","No multiple-fold nested walkforward completed","Costs are sensitivities, not actual own-order execution","Paper only accepts supplied indicative observations; no running collector","512observation bounded journal and replay are not production24/7architecture","Fee/error utilities are isolated, not end-to-end integration into old recorder","Full exact ledgers/rawdata remain in authorized temporary cache, not guaranteed permanent public storage"],
+ "live_trading":"DISABLED",
+ "funded_decision":"NO-GO",
+ "independent_security_audit":false
+}

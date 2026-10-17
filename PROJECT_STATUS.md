@@ -1,19 +1,31 @@
-# Arz current checkpoint / وضعیت پروژه
+# Arz —17October2026 payoff checkpoint / وضعیت پروژه
 
-17October2026 Europe/Berlin. **No final execution-validated compounding or dependable income. Target1–2%net geometric daily return NOT established. Live DISABLED; capital NO-GO.**
+**RESEARCH_ONLY; funded NO-GO; live DISABLED. Broader mission PARTIAL.**
 
-Branch:`research/2026-10-17-fresh-window-check`; base79669af0b8bdd6e25000411008217a370a886c02. Protocol0073cad7807dd3ee9c5ab893d6d4023015347bca was published before new data/PnL. Prior status/work log preserved exactly in pre-fresh snapshots; old rules/engine/results and other refs untouched.
+Current branch: `research/2026-10-17-payoff-ablation`, based on `1c40fc2fdd1e4c4abbcc81f3284b5e44fa588aee`. Earlier status, log and decisions are preserved exactly in pre-payoff snapshots. Main, old experiments and other refs are not updated.
 
-## New executed scope
+## Critical correction
 
-One preregistered slow120/60-bar Donchian hypothesis versus existing20/10, same4h engine/risk/sizing. Three markets (ETH,cbBTC,provider-labeledWMATIC), two hypothetical costs, old6/12/18month diagnostics and a new15day October1–16performance window. New data request returned813rows including warmup/boundary, not813new independent trading observations. No optimizer or post-outcome tuning.
+The inherited external-engine code interpreted `Position.pl_pct` percent values as fractions. Its documented5%position stop actually triggered at0.05%. Existing figures are preserved as legacy behavior, but must not be cited as intended5%policy results. The new adapter normalizes by100, with an explicit legacy audit mode only for reproduction. The40-test suite now includes an active-position return-unit assertion.
 
-96cases registered;88complete (44strategy/44benchmark),8cbBTC18month warmup skips.24cases use the new15days; all12strategy cases are6losses/control and6zero-trade/slow. No strategy profit in the later window.
+## Actual work
 
-Historical slow ETH18months:100→109.58251994(mid) /106.62926187(stress),20closed cycles instead of68for old rule. But slow ETH6months ends96.89009085/95.67242346. New15day slow rule stays100with no trade on all three markets. Therefore no robust final qualification or daily-income claim. Costs remain uncalibrated, old Issue6gates open, and no90day prospective performance exists. No account reached200within these simulations; no principal withdrawal was executed.
+Read retained data and full fast/slow ledgers, reproduced6old cases, and instrumented PnL/fees/exit reasons/MAE/MFE/initialR. Preregistered9bounded candidates, dynamic-warmup coverage amendment and then a transparent unit-correction rerun. Corrected grid288cases:234complete/54skips;56complete cash/hold benchmarks out of64planned. No new market data or clean holdout was obtained. No parameter optimization after results.
 
-Six new RED/GREEN tests and16existing engine tests passed before actual backtest execution. All88ledgers reconcile. Run exited0. Results and hashes in reports/fresh_window_20261017; equivalent reports under docs/fa and docs/en. Publication/CIverification follows actual checks only.
+Matched-development selection still chooses `slow_atr_trail`. Corrected ETH18month baseline slow:105.7101mid /104.4287stress. ATR family:110.0970/107.7251, payoff4.4756and PF2.0344(mid), close-markDD6.6761%. Gross capture improved despite higher fees relative to corrected slow; this is not simply cost reduction. ATR still loses in later6months, and61dayETH has only2trades. October slow/ATR has no trades. No income target is met, no principal-withdrawal threshold150+was reached.
 
-No wallet, key, signing, transfer, paid service, leverage, new funding or persistent process. Main and other branches not merged. Next research must keep this now-seen later window frozen and distinguish slow-rule fee savings from actual live profitability. Do not force trades or tune until a positive result appears.
+Added common decision policy and SQLite-backed supplied-observation paper adapter; replay, duplicate/conflict/stale/gap protections and synthetic demonstration passed. It is bounded to512observations, no authenticated live feed/daemon. Isolated fork-aware fee and HTTP/evidence utilities address parts ofIssue6, not full actual execution calibration or end-to-end collector repair. Issue6 remains open.
 
-فارسی:۸۸اجرا انجام شد؛ نسخه کندترETHدر۱۸ماه با هزینه فرضی بالاتر هم مثبت بود، اما در۶ماه زیان و در۱۵روزتازه هیچ معامله‌ای نداشت. قاعده قبلی در۱۵روزتازه درهرسه بازار زیان داد. بنابراین به نتیجه نهایی سود مرکب قابل‌اتکا نرسیده‌ایم. کد، داده و حسابداری بررسی و اسناد دوزبانه ثبت‌اند؛ هیچ پول یا سرویس دائمی فعال نشد و تصمیم مالیNO-GOاست.
+## Read next
+
+`docs/fa/payoff_ablation_20261017.md` / English equivalent; `research/payoff_*`; `reports/payoff_20261017/core_results.json`, `decision.json`, `verification.json`; `experiments/payoff/README.md`.
+
+Core metrics retain every case ID. Full precision CSV, attributed trade/equity/event files, monthly decompositions and initial legacy-confounded batch are in the authorized temporary runtime; raw source data are not publicly redistributed or guaranteed permanently retained. Reproduction requires matching entitled inputs. Publication/CI checks are recorded separately after the final code commit.
+
+## Remaining gates
+
+Independent final evaluation, multiple nested walkforwardfolds, complete executable quotes/fees, real persistent read-only feed and90days/100trades remain incomplete. No secrets, financial key, signature, approval, money transfer, paid service or automatic merge. The existing external-capital ceiling is not permission to fund. Do not tune these now-seen periods until a desired profit appears.
+
+## فارسی
+
+خطای مهم واحد درصد موتور قبلی شناسایی شد: توقف ظاهراً۵درصدی درعمل۰٫۰۵درصد بود. اعداد قبلی حذف نشده‌اند، ولی تفسیرشان باید اصلاح شود. رابط جدید واحد را صحیح می‌کند.۹نسخه با۲۳۴اجرای کامل و۵۴موردناقص دوباره بررسی شدند؛ ATRبعضی معیارها را بهتر کرد اما دوره شش‌ماهه هنوز زیان‌ده است. منطق مشترک و رابطpaperباSQLite و نمونه ساختگی کار می‌کنند، نه سامانه زنده۲۴ساعته.۴۰تست موفق؛ سود هدف، هزینه کامل اجرا و آزمون مستقل نهایی احراز نشده است. ورودپولNO-GOومعاملهDISABLED؛ مأموریت کلی جزئی تحویل شده است.
