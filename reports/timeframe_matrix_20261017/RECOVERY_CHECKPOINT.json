@@ -1,0 +1,28 @@
+{
+  "date_utc": "2026-10-17",
+  "recovered_from_branch": "research/2026-10-17-timeframe-matrix",
+  "recovered_head": "37a7e7d6d7bc0057b38123490aff8c6d28f9d33f",
+  "interruption_reason": "The conversation displayed Thinking failed. The actual infrastructure cause is not observable; no timeout, token or server explanation is asserted.",
+  "found_on_authorized_device": {
+    "matrix_rows": 10528,
+    "unique_complete": 972,
+    "alias_rows": 96,
+    "skipped": 9460,
+    "mainnet_separate_probe_complete": 18,
+    "mainnet_separate_probe_skipped": 6
+  },
+  "fresh_checks_completed_this_recovery": {
+    "matrix_unit_tests": 26,
+    "audit_export_unit_tests": 12,
+    "test_failures": 0
+  },
+  "pending_at_this_checkpoint": [
+    "Fresh verification of every stored ledger and raw-source hash",
+    "Replay of all complete mainnet probe cases and selected primary matrix cases",
+    "Publication of recovered uncommitted source, numerical summaries and bilingual report"
+  ],
+  "authority": "Research recovery and verification only. No rule retuning, funding, wallet, paid services, or live trading.",
+  "raw_primary_result_sha256": "08acf1d4b1ec2f4c77afb12aaadeaec4a7c66cbd240f4a9dd2ee7d24ba2bb556",
+  "funded_decision": "NO-GO",
+  "live_trading": "DISABLED"
+}
