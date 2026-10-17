@@ -1,0 +1,9 @@
+{
+ "date_utc":"2026-10-17",
+ "performance_results_inspected":false,
+ "discovery":"Newly acquired BNB1d source starts2021-04-24, ends2026-03-04 and lacks2025-06-09/10. No full5year span exists in this file. This is a data-coverage fact, not a statement of BNB returns.",
+ "additional_windows_for_BNB_daily_or_weekly_only":[["2024-06-01","2025-06-01"],["2023-06-01","2025-06-01"],["2022-06-01","2025-06-01"],["2021-06-01","2025-06-01"]],
+ "rationale":"These1/2/3/4year intact evaluation intervals end before the known gap. Every configuration still needs its full dynamically determined warmup;4year bar-clock may fail while duration-clock has enough history. Do not pretend this ends today or compare it unadjusted with another recent period.",
+ "preserved":"All originally requested fiveyear and anchorOctober2026 statuses remain in coverage, including skips. No incomplete timeframe is filled and no return-based selection occurs.",
+ "fa":"پیش از دیدن سود، مشخص شد داده روزانهBNBکمتر ازپنج سال است و درژوئن۲۰۲۵دو روز کم دارد. بازه‌های سالم یک تاچهارساله منتهی به۱ژوئن۲۰۲۵برای پژوهش اضافه می‌شوند؛ کمبودگرم‌کردن یاپنج‌سال پنهان نمی‌شود و این نتایج وضعیت امروز نیستند."
+}
