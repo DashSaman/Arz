@@ -1,17 +1,18 @@
-# Decisions —17October2026 / تصمیم‌ها
+# Decisions — market intelligence,17October2026
 
-All prior decisions are preserved in DECISIONS.pre-payoff-20261017.md and remain applicable unless explicitly superseded below. Financial prohibitions and budgets are unchanged.
+Previous decisions remain applicable and are retained in DECISIONS.pre-intelligence-20261017.md.
 
-1. Correct the external-engine percent/fraction boundary in the NEW payoff adapter; preserve old reports as legacy actualbehavior, not intended5%stop evidence. Explicitlegacy audit mode only. Do not silently patch earlier histories.
-2. Retain initial confounded and corrected result sets separately. The same9rules and costs are rerun; no additional search is justified by the bug. Initial legacyR0 cannot be interpreted as risk at the actual0.05%trigger.
-3. Selection on matched11monthdevelopment chooses ATRstop+trailing family. It stays RESEARCH_ONLY because later6months lose,61dayETH has2trades and globalfinaldata are notuntouched. This is not financial approval.
-4. Treat fixed2R/3R and higherpayoff as hypotheses, not guaranteededge. Report netexpectancy,PF,tradecount,concentration and accountDD alongsidepayoff. ATRcomparison changes an exitfamily, notisolated initialstop/trailing components.
-5. Risk sizing is a reduction-of-exposure experiment; lowerdrawdown with lowerprofit is not automatically greateredge. Scaledcap is nonbinding inobservedpaths and provides no demonstratedincomeimprovement.
-6. Supplied-observationSQLitepaper interface is bounded research infrastructure. No networkfeed,signer ordaemon. Keepcode/config/sourcefingerprints,stickydatafaults and nohistoricalbackfills. Unknownfullcosts remainunknown.
-7. Newfee/error/duplicatehelpers arepartialIssue6progress; do notclose itscompleteexecution/collector gates. No service restrictions bypassed.
-8. Publish coreoutcomes for allcases and equivalentFA/ENreports; disclose that fullprecisionledgers/rawdata are in temporaryauthorizedcache and notallpublic. Exactrerun needs matchingentitleddata.
-9. Broader task remainsPARTIAL: no independentfinalholdout,multifoldnestedwalkforward,calibratedDEXexecution or90-dayprospectiveperformance. No livecapital.
+1. Preserve the corrected ATR policy and risk units. New intelligence may only veto fresh entries; it cannot suppress exits, increase size, widen stops or sign transactions.
+2. Nine numeric features and a lightweight fixed logistic model suffice for this first comparison. No model/LLM service, HMM, deep network or feature kitchen-sink is justified by a catalogue entry.
+3. Fixed24h price-hurdle probability is not ATR-profit probability or expected net value. The0.55gate is not retuned after no-trade results. Zero trades are not positive-income evidence.
+4. Both overlapping and daily forecast score views are retained. Mixed scores, correlated periods and previously seen histories do not establish independent predictive edge. No calibration certificate from Brier alone.
+5. Volatility filter remains RESEARCH_ONLY: small historical ETH improvement mostly one loss avoided, known adverse6month loss unchanged. Probability variants are rejected for this tested trading gate, not universal proof that ML is useless.
+6. Official-news first-seen time is the earliest allowed research availability. Fifteen Feditems are an ingestion smoke test, not fifteen novel market shocks. Redirected Ethereumfeed stays unresolved; no backdated history or speculative sentiment.
+7. News/on-chain/liquidity/derivatives/sentiment unavailable data stay PENDING. Source accessibility does not certify license, free complete history or eligibility. No keys or paid API asked for.
+8. Explicit calendar reporting replaces the faulty13month label; this changes reporting only. Keep original hashes and protect total PnL/account continuity.
+9. New modules are additive AGPL-scope research. Old paper tool is unchanged and not newly wired to live feeds. No persistent24hourservice or funded deployment.
+10. Full task remains PARTIAL; write/read source-provenance, every outcome and limitations. All financial constraints and90day/100trade planning gates remain unchanged.
 
 ## فارسی
 
-تصمیم‌های قبلی درفایلpre-payoffحفظ و محدودیت مالی پابرجاست. واحدبازده فقط دررابطجدید اصلاح و تفسیر شواهدقدیمی روشن شد. دسته‌های خطادار/اصلاح‌شده جدا می‌مانند.ATRنامزدپژوهشی است، نهتأییدمعامله؛ دوره‌منفی و نمونه‌کم حذف نمی‌شوند. نسبت‌بردبه‌باخت و۲R/۳Rبه‌تنهایی معیارنیستند. اندازه‌گذاریریسک می‌تواند هم‌زمان سودوافت راکم‌کند.رابطpaperمحدود و بدون‌داده‌زنده/امضاست.ابزارهایIssue6فقطبخشی‌ازکارند.هزینه‌واقعی،ارزیابی‌مستقل‌وپایش‌مستمر هنوز کامل نیست؛ مأموریتکلیPARTIALوورودپولNO-GO.
+ریسک وATRاصلاح‌شده ثابت‌اند؛ اطلاعات جدید فقط ورود را رد می‌کند. احتمال رشد۲۴ساعته سودمعامله نیست و آستانه برای ایجاد نتیجه مطلوب تغییر نمی‌کند. بهبود نوسان محدود و مدل‌ها برای دروازه فعلی ناموفق‌اند. خبر فقط از زمان دریافت قابل استفاده است؛ داده ناموجود معلق می‌ماند. اصلاح ماه‌بندی سود را تغییر نمی‌دهد. موارد قبلی و حدود مالی حفظ و سامانه هنوز پژوهشی و جزئی است؛ سرویس دائمی یا معامله واقعی وجود ندارد.

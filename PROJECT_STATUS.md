@@ -1,31 +1,27 @@
-# Arz —17October2026 payoff checkpoint / وضعیت پروژه
+# Arz — Market intelligence checkpoint,17 October2026
 
-**RESEARCH_ONLY; funded NO-GO; live DISABLED. Broader mission PARTIAL.**
+**RESEARCH_ONLY; funds NO-GO; live DISABLED. Broad mandate PARTIAL.**
 
-Current branch: `research/2026-10-17-payoff-ablation`, based on `1c40fc2fdd1e4c4abbcc81f3284b5e44fa588aee`. Earlier status, log and decisions are preserved exactly in pre-payoff snapshots. Main, old experiments and other refs are not updated.
+Branch `research/2026-10-17-market-intelligence` starts at c38a6f3f828bb2750328846212a14f9df0cd8eb5. Prior status/log/decisions/AGENTS are preserved byte-for-byte as pre-intelligence snapshots. No old engine, risk rule, strategy or numerical output is overwritten, and no other ref/main is merged.
 
-## Critical correction
+## Actual new scope
 
-The inherited external-engine code interpreted `Position.pl_pct` percent values as fractions. Its documented5%position stop actually triggered at0.05%. Existing figures are preserved as legacy behavior, but must not be cited as intended5%policy results. The new adapter normalizes by100, with an explicit legacy audit mode only for reproduction. The40-test suite now includes an active-position return-unit assertion.
+Nine causal numeric features; multi-axis observed trend/volatility/shock labels; three original NumPy logistic specifications with four expanding purged quarters per market; seven fixed entry-only variants against corrected ATR; a bounded official-feed observation/parser;18factor-family catalogue and16source records.
 
-## Actual work
+Reused hash-verified native4h ETH/cbBTC data,3462/3381bars in the registered source slice; no new market-price download.168portfolio cases and48benchmarks complete.24logistic fits,64forecast score rows. No hyperparameter or threshold search. All histories globally seen; temporal folds are diagnostic rather than pristine finalholdout.
 
-Read retained data and full fast/slow ledgers, reproduced6old cases, and instrumented PnL/fees/exit reasons/MAE/MFE/initialR. Preregistered9bounded candidates, dynamic-warmup coverage amendment and then a transparent unit-correction rerun. Corrected grid288cases:234complete/54skips;56complete cash/hold benchmarks out of64planned. No new market data or clean holdout was obtained. No parameter optimization after results.
+ETH12months: ATR106.161639mid/104.293415stress; volatility veto107.322056/105.574733, midPF1.926359, payoff5.779077,12trades and closeDD5.660522%. Improvement mainly traces to one previously losing opportunity; known6month loss remains95.947378/95.150214. cbBTC volatility veto reduces but does not eliminate annual loss. Forecast A/B/C lack stable main-metric improvement; probability gates yield zero ETHtrades, not income. No chosen model qualifies for funds.
 
-Matched-development selection still chooses `slow_atr_trail`. Corrected ETH18month baseline slow:105.7101mid /104.4287stress. ATR family:110.0970/107.7251, payoff4.4756and PF2.0344(mid), close-markDD6.6761%. Gross capture improved despite higher fees relative to corrected slow; this is not simply cost reduction. ATR still loses in later6months, and61dayETH has only2trades. October slow/ATR has no trades. No income target is met, no principal-withdrawal threshold150+was reached.
+Actual Fed RSS probe returned15existing feeditems at02:32:24UTC; Ethereum feed redirected and stopped. No news sentiment/impact study or historical news trades. First-seen availability is preserved; unverified liquidity and confidence remain null. No on-chain/derivatives source was connected this increment.
 
-Added common decision policy and SQLite-backed supplied-observation paper adapter; replay, duplicate/conflict/stale/gap protections and synthetic demonstration passed. It is bounded to512observations, no authenticated live feed/daemon. Isolated fork-aware fee and HTTP/evidence utilities address parts ofIssue6, not full actual execution calibration or end-to-end collector repair. Issue6 remains open.
+30newtests and40corrected-policy tests pass locally. All168ledgers and28continuous12month paths checked. No-trade-duration and extra-month reporting faults were fixed; portfolio PnL unchanged. Published identity, full rerun and CI are recorded after actual verification.
 
-## Read next
+## Where to continue
 
-`docs/fa/payoff_ablation_20261017.md` / English equivalent; `research/payoff_*`; `reports/payoff_20261017/core_results.json`, `decision.json`, `verification.json`; `experiments/payoff/README.md`.
+Read `docs/fa/market_intelligence_20261017.md` or English counterpart, `research/market_intelligence_protocol_20261017.json`, the factor/source inventories and `reports/market_intelligence_20261017/`. Fullprecision outputs/rawdata remain in the authorized temporary runtime and require matching permitted inputs for exact reproduction; core public summaries are not all rawfiles.
 
-Core metrics retain every case ID. Full precision CSV, attributed trade/equity/event files, monthly decompositions and initial legacy-confounded batch are in the authorized temporary runtime; raw source data are not publicly redistributed or guaranteed permanently retained. Reproduction requires matching entitled inputs. Publication/CI checks are recorded separately after the final code commit.
-
-## Remaining gates
-
-Independent final evaluation, multiple nested walkforwardfolds, complete executable quotes/fees, real persistent read-only feed and90days/100trades remain incomplete. No secrets, financial key, signature, approval, money transfer, paid service or automatic merge. The existing external-capital ceiling is not permission to fund. Do not tune these now-seen periods until a desired profit appears.
+Remaining: historical/vintage news and macro surprises, authenticated on-chain/liquidity/derivatives/sentiment, calibrated probability, untouched final evaluation, full execution costs and operational paper feed/24hour service. The existing512event paper adapter is unchanged. News/model outputs cannot sign or widen risk.90day/100trade planning gates and Issues6/10 remain open. No paid service, financial key, transaction, daemon or automatic merge.
 
 ## فارسی
 
-خطای مهم واحد درصد موتور قبلی شناسایی شد: توقف ظاهراً۵درصدی درعمل۰٫۰۵درصد بود. اعداد قبلی حذف نشده‌اند، ولی تفسیرشان باید اصلاح شود. رابط جدید واحد را صحیح می‌کند.۹نسخه با۲۳۴اجرای کامل و۵۴موردناقص دوباره بررسی شدند؛ ATRبعضی معیارها را بهتر کرد اما دوره شش‌ماهه هنوز زیان‌ده است. منطق مشترک و رابطpaperباSQLite و نمونه ساختگی کار می‌کنند، نه سامانه زنده۲۴ساعته.۴۰تست موفق؛ سود هدف، هزینه کامل اجرا و آزمون مستقل نهایی احراز نشده است. ورودپولNO-GOومعاملهDISABLED؛ مأموریت کلی جزئی تحویل شده است.
+این دور واقعاً وضعیت تکنیکال و احتمال سبک را ساخت و باATRاصلاح‌شده سنجید:۱۶۸آزمون حساب و۴۸معیار کامل،با۳۰تست جدید. فیلتر نوسان سود سالانهETHرا کمی بهتر کرد،اما دوره۶ماهه همچنان زیان‌ده است؛ مدل‌های احتمال برتری پایدار و درآمد نشان ندادند.۱۵رکوردخوراکFedدریافت شد،منبع دوم تغییرمسیر داد و متوقف شد؛ خبر به گذشته منتقل نشده است. فهرست۱۸خانواده عامل و۱۶منبع،اجراشده و معلق را جدا می‌کند. مرحله کامل نیست و سرمایهNO-GOاست؛ هیچ کیف‌پول یا سرویس شبانه‌روزی فعال نشده.

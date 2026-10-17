@@ -53,12 +53,30 @@ def portfolio(data,allow,start,end,relative,fixed,*,benchmark=None):
       gross_pnl=float((t.Size*(t.ExitPrice-t.EntryPrice)).sum()),
       max_close_drawdown_pct=float((1-eq/eq.cummax().clip(lower=100)).max()*100),
       calendar_days=days,geometric_daily_pct=100*math.expm1(math.log(final/100)/days) if final>0 else -100.,
-      exposure_hours=float(((t.ExitTime-t.EntryTime).dt.total_seconds()/3600).sum()),
+      exposure_hours=float(((t.ExitTime-t.EntryTime).dt.total_seconds()/3600).sum()) if len(t) else 0.,
       vetoed_entry_observations=sum(x['action']=='feature_veto' for x in policy.events),
       drawdown_halted=policy.halted,maximum_equity=float(eq.max()),
       max_entry_notional=float((t.Size*t.EntryPrice).max()) if len(t) else 0.,
       actual_transactions=0,complete_real_costs=False,global_independent_holdout=False)
     return {'metrics':metrics,'trades':t,'equity':eq,'events':policy.events}
+
+
+def monthly_account(equity,start,end):
+    """Assign a bar ending at month boundary to the interval just completed.
+    Equity rows are marks at the END of source bars indexed by their starts.
+    No missing periods or returns are fabricated by forward-filling.
+    """
+    start=pd.Timestamp(start);end=pd.Timestamp(end)
+    expected=pd.date_range(start,end,freq='4h',inclusive='left')
+    if not equity.index.equals(expected) or not np.isfinite(equity.to_numpy()).all() or (equity<=0).any():
+        raise ValueError('Complete positive marked-equity grid required')
+    marks=equity.copy();marks.index=marks.index+pd.Timedelta(hours=4)-pd.Timedelta(nanoseconds=1)
+    previous=100.;result=[]
+    for month,value in marks.groupby(marks.index.strftime('%Y-%m')).last().items():
+        if pd.isna(value):raise ValueError('Missing month')
+        result.append({'month':month,'opening':previous,'ending':float(value),'return_pct':100*(value/previous-1)})
+        previous=float(value)
+    return result
 
 
 def run(root,data_dir,out):
@@ -103,12 +121,8 @@ def run(root,data_dir,out):
                         signal=pd.Timestamp(t.entry_signal_at)-pd.Timedelta(hours=4)
                         regime_details.append({'run_id':run_id,'pair_id':pid,'variant':name,'regime_at_entry':x.loc[signal,'regime'],'net_pnl':t.PnL,'entry_at':str(t.EntryTime)})
                     if start_s=='2025-04-01' and end_s=='2026-04-01':
-                        series=result['equity'].copy();series.index+=pd.Timedelta(hours=4)
-                        prev=100.
-                        for month,val in series.resample('ME').last().items():
-                            if pd.notna(val):
-                                monthly.append({'run_id':run_id,'pair_id':pid,'variant':name,'cost':cost,'month':month.isoformat(),'opening':prev,'ending':float(val),'return_pct':100*(val/prev-1)})
-                                prev=float(val)
+                        for month in monthly_account(result['equity'],start,end):
+                            monthly.append({'run_id':run_id,'pair_id':pid,'variant':name,'cost':cost,**month})
                 from benchmark import simulate,signals
                 for name in ('cash','hold20'):
                     trial=data.join(signals(data,'cash'))
