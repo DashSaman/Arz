@@ -61,7 +61,7 @@ class Policy:
         stamp=t.timestamp()
         if self.last is not None and stamp<=self.last:raise ValueError('Duplicate/backward decision time')
         for k in ('Close','ATR'):
-            if not math.isfinite(float(f[k])) or float(f[k])<=0:raise ValueError('Invalid feature')
+            if not math.isfinite(float(f[k])) or float(f[k])<0 or (k=='Close' and float(f[k])==0):raise ValueError('Invalid feature')
         for k in ('equity','qty','entry_fee','pl_pct'):
             if not math.isfinite(float(p[k])):raise ValueError('Invalid portfolio')
         if p['equity']<0 or p['qty']<0 or p['entry_fee']<0:raise ValueError('Negative state')

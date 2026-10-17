@@ -27,7 +27,7 @@ def prepare(data,cfg,start,end):
     return features(cut,cfg)
 
 class Bridge(Strategy):
-    original=None;cfg=None;start=None;end=None;relative=.0015;fixed=.01
+    original=None;cfg=None;start=None;end=None;relative=.0015;fixed=.01;legacy_units=False
     def init(self):self.policy=Policy(self.cfg,self.relative,self.fixed)
     def next(self):
         t=self.data.index[-1]
@@ -35,7 +35,7 @@ class Bridge(Strategy):
         tr=self.trades[0] if self.trades else None
         qty=float(tr.size*UNIT) if tr else 0.;entry=float(tr.entry_price/UNIT) if tr else None
         p={'equity':float(self.equity),'qty':qty,'entry':entry,'tag':tr.tag if tr else None,
-           'entry_fee':qty*entry*self.relative+self.fixed if tr else 0.,'pl_pct':float(self.position.pl_pct) if tr else 0.}
+           'entry_fee':qty*entry*self.relative+self.fixed if tr else 0.,'pl_pct':float(self.position.pl_pct)/(1 if self.legacy_units else 100) if tr else 0.}
         decision=self.policy.decide(self.original.loc[t].to_dict(),p,t+pd.Timedelta(hours=4),terminal=t>=self.end-pd.Timedelta(hours=8))
         if not decision:return
         if decision['action']=='close':self.position.close()
@@ -43,7 +43,7 @@ class Bridge(Strategy):
             size=math.floor((decision['budget']-self.fixed)/(float(self.data.Close[-1])*(1+self.relative)))
             if size>0:self.buy(size=size,tag=decision['tag'])
 
-def run_case(data,cfg,start,end,relative,fixed):
+def run_case(data,cfg,start,end,relative,fixed,*,legacy_units=False):
     start=pd.Timestamp(start);end=pd.Timestamp(end);frame=prepare(data,cfg,start,end)
     import backtesting.backtesting as api
     api._tqdm=lambda it,**kwargs:it
@@ -51,7 +51,7 @@ def run_case(data,cfg,start,end,relative,fixed):
         warnings.simplefilter('always')
         bt=FractionalBacktest(frame,Bridge,cash=100,commission=(fixed,relative),margin=1,
           trade_on_close=False,hedging=False,exclusive_orders=True,finalize_trades=False,fractional_unit=UNIT)
-        result=bt.run(original=frame,cfg=cfg,start=start,end=end,relative=relative,fixed=fixed)
+        result=bt.run(original=frame,cfg=cfg,start=start,end=end,relative=relative,fixed=fixed,legacy_units=legacy_units)
     p=result['_strategy'].policy;t=result['_trades'].copy();equity=result['_equity_curve'].Equity.loc[start:]
     extra=[]
     for _,tr in t.iterrows():
@@ -85,6 +85,7 @@ def run_case(data,cfg,start,end,relative,fixed):
       gross_winners_turned_net_losers=int(t.gross_winner_net_loser.sum()),
       rejected_entries=sum(e['action']=='reject' for e in p.events),
       close_signal_next_open_only=True,live_authorized=False,complete_real_costs=False,
+      legacy_percent_unit_audit=legacy_units,position_stop_fraction=(.0005 if legacy_units else .05),
       account_reached_200=bool((equity>=200).any()),warnings=[str(x.message) for x in seen])
     return {'metrics':metrics,'trades':t,'equity':equity,'events':p.events,'trade_details':p.trades}
 

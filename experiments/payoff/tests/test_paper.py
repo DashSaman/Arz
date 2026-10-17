@@ -48,4 +48,10 @@ class PaperTests(unittest.TestCase):
   self.call(self.obs);o=self.next();self.call(o);o=copy.deepcopy(o);o['observed_at']+=2;r=self.call(o)
   self.assertEqual(self.call(o),r)
 
+ def test_nonfinite_observation_persists_fault(self):
+  self.call(self.obs);bad=self.next();bad['price']=float('nan')
+  with self.assertRaises(ValueError):self.call(bad)
+  self.assertTrue(self.call(self.next())['halted'])
+
 if __name__=='__main__':unittest.main()
+

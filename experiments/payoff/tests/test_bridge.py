@@ -8,12 +8,12 @@ class BridgeTests(unittest.TestCase):
   self.assertIsNotNone(importlib.util.find_spec('study'),'study implementation absent')
   self.s=importlib.import_module('study');self.l=importlib.import_module('logic')
   idx=pd.date_range('2025-01-01',periods=600,freq='4h',tz='UTC');c=100+np.arange(600)*.03+10*np.sin(np.arange(600)/15)
-  self.d=pd.DataFrame({'Open':c,'High':c+1,'Low':c-1,'Close':c,'Volume':100000.},index=idx)
+  self.d=pd.DataFrame({'Open':c,'High':c+.01,'Low':c-.01,'Close':c,'Volume':100000.},index=idx)
   self.start=idx[216];self.end=idx[-1]+pd.Timedelta(hours=4)
- def test_new_fast_baseline_equals_old_engine(self):
+ def test_explicit_legacy_audit_equals_old_engine(self):
   from benchmark import signals,simulate
   old=simulate(self.d.join(signals(self.d,'donchian_20_10_long')),self.start,self.end,hours=4,cap=2,relative=.0015,fixed=.01)
-  new=self.s.run_case(self.d,self.l.configs()['fast_channel'],self.start,self.end,.0015,.01)
+  new=self.s.run_case(self.d,self.l.configs()['fast_channel'],self.start,self.end,.0015,.01,legacy_units=True)
   self.assertAlmostEqual(old['metrics']['final_equity'],new['metrics']['final_equity'],places=8)
   self.assertEqual(len(old['trades']),len(new['trades']))
   for col in ('Size','EntryTime','ExitTime','PnL','Commission'):
@@ -40,5 +40,20 @@ class BridgeTests(unittest.TestCase):
   d=self.d.copy();d[['Open','High','Low','Close']]=100.
   r=self.s.run_case(d,self.l.configs()['slow_channel'],self.start,self.end,.0015,.01)
   self.assertEqual(r['metrics']['final_equity'],100);self.assertIsNone(r['metrics']['profit_factor'])
+
+class ReturnUnitsTests(unittest.TestCase):
+ def test_active_position_return_is_fraction(self):
+  import study,logic
+  from unittest.mock import patch
+  idx=pd.date_range('2025-01-01',periods=500,freq='4h',tz='UTC');c=100+np.arange(500)*.03+10*np.sin(np.arange(500)/15)
+  d=pd.DataFrame({'Open':c,'High':c+.01,'Low':c-.01,'Close':c,'Volume':1000.},index=idx)
+  original=logic.Policy.decide;observed=[]
+  def check(policy,f,port,when,**kwargs):
+   if port['qty']:
+    observed.append(port['pl_pct']);self.assertAlmostEqual(port['pl_pct'],f['Close']/port['entry']-1,places=10)
+   return original(policy,f,port,when,**kwargs)
+  with patch.object(logic.Policy,'decide',check):
+   study.run_case(d,logic.configs()['fast_channel'],idx[216],idx[-1]+pd.Timedelta(hours=4),.0015,.01)
+  self.assertGreater(len(observed),0)
 
 if __name__=='__main__':unittest.main()

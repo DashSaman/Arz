@@ -85,7 +85,7 @@ class Replay:
 
 def step(path,cfg_id,mode,observation,relative=.0015,fixed=.01):
     if mode not in MODES or cfg_id not in configs():raise ValueError('Unknown mode/config')
-    payload=canonical(observation);ts=observation.get('observed_at')
+    ts=observation.get('observed_at')
     cfg=configs()[cfg_id]
     metadata=canonical({'schema':1,'config':cfg,'mode':mode,'relative':relative,'fixed':fixed,'fingerprint':fingerprint(),
       'source_id':observation.get('source_id'),'pair_id':observation.get('pair_id')})
@@ -108,6 +108,7 @@ def step(path,cfg_id,mode,observation,relative=.0015,fixed=.01):
         if faults:
             result={**engine.report(),'halted':True,'faults':faults,'valuation_scope':'last_valid_observation; no fabricated liquidation'};db.commit();return result
         try:
+            payload=canonical(observation)
             match=next((r for r in rows if r[0]==ts),None)
             if match:
                 if match[1]!=payload:raise ValueError('Conflicting observation identity')
