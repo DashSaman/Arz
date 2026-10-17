@@ -1,0 +1,17 @@
+{
+  "date_utc": "2026-10-17",
+  "reason": "The primary five-market matrix has no complete five-year history. Check one established, distinct Ethereum-mainnet pool explicitly identified in official provider metadata, rather than splice Base history or relabel four years as five.",
+  "prior_matrix_immutable": true,
+  "prior_matrix_results_inspected": true,
+  "new_pool_results_inspected": false,
+  "source": {"pair_id": 1, "asset": "WETH", "quote": "USDC", "chain": "Ethereum", "pool": "0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc", "pool_fee": 0.003, "identity_url": "https://tradingstrategy.ai/trading-view/ethereum/uniswap-v2/eth-usdc"},
+  "acquisition": {"bucket": "1d", "start": "2020-06-01T00:00:00", "end": "2026-10-01T00:00:00", "max_bytes": 1500000, "max_requests": 1, "timeout_seconds": 30, "retry": false, "redirect": false, "stop_on_denial": true},
+  "note": "This is a different pool/network, not a retry of the denied old Base-pool request. Any returned gap or inadequate warmup causes a skip; no imputation or mixing source histories.",
+  "evaluation": {"start": "2021-10-01", "end": "2026-10-01", "minutes": [1440,10080], "variants": ["ATR_bar_clock","ATR_vol_bar_clock","ATR_wall_clock","ATR_vol_wall_clock"], "mechanics": "Use unchanged general timeframe adapter and existing corrected risk. No parameter optimization. Weekly boundaries explicitly trimmed and actual dates/days reported."},
+  "cost_sensitivity": [{"id":"mainnet_low_assumption","relative":0.0035,"fixed":0.2},{"id":"mainnet_mid_assumption","relative":0.004,"fixed":1},{"id":"mainnet_stress_assumption","relative":0.008,"fixed":5}],
+  "cost_limits": "Fixed amounts are explicitly hypothetical per-leg implementation costs, not measured Ethereum fees or guaranteed bounds. Do not transport cheap Base fixed-fee assumptions to mainnet as historical truth. Historical OHLC results never establish executable profit.",
+  "scope": "Coverage probe plus at most24 bounded simulations only when complete. Report all outcomes/skips separately from original10528rows. Failure to obtain data leaves original findings intact.",
+  "financial_actions": 0,
+  "live": "DISABLED",
+  "fa": "برای بررسی درخواست پنج‌ساله، فقط یک دریافت از استخر قدیمی و متفاوت شبکه اصلی اتریوم پیش‌ثبت می‌شود. این داده به تاریخچه Base وصل نمی‌شود و شکاف یا گرم‌کردن ناقص رد می‌شود. هزینه‌های فرضی اجرای شبکه اصلی جدا و روشن‌اند؛ نتایج ماتریس قبلی تغییر نمی‌کنند و هیچ پولی وارد نمی‌شود."
+}
