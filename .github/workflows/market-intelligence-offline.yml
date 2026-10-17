@@ -1,0 +1,29 @@
+name: Market intelligence offline research checks
+on:
+  push:
+    paths:
+      - 'experiments/market_intelligence/**'
+      - 'research/market_intelligence_protocol_20261017.json'
+      - '.github/workflows/market-intelligence-offline.yml'
+  pull_request:
+    paths:
+      - 'experiments/market_intelligence/**'
+      - 'research/market_intelligence_protocol_20261017.json'
+permissions:
+  contents: read
+jobs:
+  offline-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Isolated pinned research environment
+        run: |
+          python3 -m venv /tmp/arz-intelligence-venv
+          /tmp/arz-intelligence-venv/bin/python -m pip --isolated install --disable-pip-version-check --no-input --only-binary=:all: --index-url https://pypi.org/simple -r experiments/upstream_benchmark/requirements.lock
+      - name: Features forecasts news timing and monthly reporting tests
+        run: PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 PYTHONPATH=experiments/market_intelligence:experiments/payoff:experiments/upstream_benchmark /tmp/arz-intelligence-venv/bin/python -m unittest discover -s experiments/market_intelligence/tests -v
+      - name: Preserve corrected ATR and diagnostic paper tests
+        run: PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=experiments/payoff:experiments/upstream_benchmark /tmp/arz-intelligence-venv/bin/python -m unittest discover -s experiments/payoff/tests -v

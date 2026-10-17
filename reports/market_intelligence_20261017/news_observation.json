@@ -1,0 +1,15 @@
+{
+ "date_utc":"2026-10-17",
+ "sources":[{"source":"FED","url":"https://www.federalreserve.gov/feeds/press_monetary.xml","request_started_at":1792204343,"retrieved_at":1792204344,"retrieved_at_iso_utc":"2026-10-17T02:32:24+00:00","status_code":200,"bytes":9687,"sha256":"69b638039ee490f01aea90ac4623d67f9041273322daa48a262c50fed94ca2b1","items":15},{"source":"ETHEREUM","url":"https://blog.ethereum.org/feed.xml","request_started_at":1792204343,"error_type":"ValueError","error":"Redirects prohibited in fixed-feed probe","redirect_followed":false,"retry":false}],
+ "events_observed":15,
+ "historical_backtest_events":0,
+ "events_used_for_trades":0,
+ "sentiment_or_price_impact_validated":false,
+ "availability_rule":"max(first_seen/retrieval_completion,publisher_publication_when_known); unknown publication stays null",
+ "privacy_copyright":"No full articles, titles or raw feed bytes published in this summary. Raw feed and individual event metadata retained locally; all hashes preserve only consistency, not independent source authentication.",
+ "text_is_untrusted_data":true,
+ "LLM_calls":0,
+ "continuous_collector":false,
+ "live_trading":"DISABLED",
+ "overall_capture_status":"PARTIAL; collector CLI correctly returned2 for the unresolved second feed"
+}
