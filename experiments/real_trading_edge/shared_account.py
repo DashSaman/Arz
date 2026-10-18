@@ -69,11 +69,12 @@ def simulate(data,start,end,variant,relative=.0015,fixed=.01,capital=100.):
                 planned=action['quantity'];maxq=math.floor((min(25.*(1+relative)+fixed,cash-10)-fixed)/(price*UNIT*(1+relative)))*UNIT
                 q=min(planned,maxq)
                 if q<=0 or q*price<5-fixed:
-                    events.append({'action':'fill_rejected_before_broadcast','at':t.isoformat(),'asset':asset,'reason':'cash_or_minimum'});continue
-                fee=q*price*relative+fixed;spent=q*price+fee
-                if held is not None or spent>cash-10+1e-7 or q*price>25+1e-7:raise ValueError('Shared cash/notional violation')
-                cash-=spent;held=asset;qty=q;entry=price;entry_time=t;entry_fee=fee;tag=action['tag'];fees+=fee
-                events.append({'action':'buy_fill','at':t.isoformat(),'asset':held,'price':price,'quantity':qty,'fee':fee,'clipped':q<planned})
+                    events.append({'action':'fill_rejected_before_broadcast','at':t.isoformat(),'asset':asset,'reason':'cash_or_minimum'})
+                else:
+                    fee=q*price*relative+fixed;spent=q*price+fee
+                    if held is not None or spent>cash-10+1e-7 or q*price>25+1e-7:raise ValueError('Shared cash/notional violation')
+                    cash-=spent;held=asset;qty=q;entry=price;entry_time=t;entry_fee=fee;tag=action['tag'];fees+=fee
+                    events.append({'action':'buy_fill','at':t.isoformat(),'asset':held,'price':price,'quantity':qty,'fee':fee,'clipped':q<planned})
             elif action['action']=='close':
                 if held!=asset or qty<=0:raise ValueError('Close without shared position')
                 fee=qty*price*relative+fixed;gross=qty*(price-entry);pnl=gross-entry_fee-fee

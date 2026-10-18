@@ -80,6 +80,13 @@ class SharedTests(unittest.TestCase):
             self.assertGreater(pd.Timestamp(x.ExitTime),pd.Timestamp(x.EntryTime))
     def test_no_parameter_search_arguments(self):
         with self.assertRaises(ValueError):self.m.simulate(self.d,self.a,self.b,'unknown_strategy')
+    def test_rejected_fill_keeps_complete_calendar(self):
+        d={k:v.copy() for k,v in self.d.items()};t=self.a+pd.Timedelta(hours=4)
+        d['ETH'].loc[t,['Open','High','Low','Close']]/=10
+        r=self.m.simulate(d,self.a,self.b,'HOLD_ETH')
+        self.assertEqual(len(r['equity']),int((self.b-self.a)/pd.Timedelta(hours=4)))
+        self.assertEqual(r['metrics']['final_equity'],100.)
+        self.assertEqual(sum(e['action']=='fill_rejected_before_broadcast' for e in r['events']),1)
     def test_simple_relative_strength(self):
         self.assertEqual(self.m.choose({'ETH':.1,'BTC':.2},'ROT90'),'BTC')
         self.assertEqual(self.m.choose({'ETH':.1,'BTC':.1},'ROT90'),'ETH')
