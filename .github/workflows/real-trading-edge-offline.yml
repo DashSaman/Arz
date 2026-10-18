@@ -1,0 +1,29 @@
+name: Real trading edge offline research checks
+on:
+  push:
+    paths:
+      - 'experiments/real_trading_edge/**'
+      - 'research/real_trading_edge/**'
+      - '.github/workflows/real-trading-edge-offline.yml'
+  pull_request:
+    paths:
+      - 'experiments/real_trading_edge/**'
+      - 'research/real_trading_edge/**'
+permissions:
+  contents: read
+jobs:
+  offline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Isolated pinned research environment
+        run: |
+          python3 -m venv /tmp/arz-real-edge-venv
+          /tmp/arz-real-edge-venv/bin/python -m pip --isolated install --disable-pip-version-check --no-input --only-binary=:all: --index-url https://pypi.org/simple -r experiments/upstream_benchmark/requirements.lock
+      - name: Shared account and economic model tests
+        run: PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 PYTHONPATH=experiments/real_trading_edge:experiments/payoff:experiments/market_intelligence:experiments/upstream_benchmark /tmp/arz-real-edge-venv/bin/python -m unittest discover -s experiments/real_trading_edge/tests -v
+      - name: Preserve corrected ATR policy tests
+        run: PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=experiments/payoff:experiments/upstream_benchmark /tmp/arz-real-edge-venv/bin/python -m unittest discover -s experiments/payoff/tests -v

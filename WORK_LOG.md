@@ -1,13 +1,15 @@
-# Work log — interruption recovery,17 October2026
+# Work log —18October2026 real trading edge
 
-Prior full work log preserved exactly in WORK_LOG.pre-timeframe-recovery-20261017.md.
+Prior log preserved exactly in WORK_LOG.pre-real-edge-20261018.md.
 
-The user reported a stopped reply displaying Thinking failed and reattached the multi-timeframe mandate. Read live GitHub branches/AGENTS/status and latest protocol commit. Found an in-progress timeframe-matrix branch and preserved local work containing full outputs and uncommitted runner/audit additions. No infrastructure error cause was assumed.
+Read live branches, AGENTS continuity, actualPR14/Issues6/10, priorrecovery report, corrected Policy/adapter and hash registry. Isolated authorized-device workspace and newbranch from15bd6af. Examined selected formal company/fund reports and primary research abstracts; recorded source limits and business-versus-account revenue distinctions.
 
-Created a separate recovery branch and isolated checkout. Read the recovered adapter, runner, audit utilities, source provenance and mainnet outcomes. Reran26matrix and12audit/export tests; both succeeded. A read-only verifier checked all12source hashes, all972primary checkpoint/ledger artifacts,10,528expanded statuses/coremetrics and6,804overlapping trade rows. Its first replay attempt hit NumPy scalar versus strict Python float input validation; corrected the verifier boundary only and reran all checks. Fourteen fixed-ID primary replays and18mainnet replays matched;6mainnet skips confirmed. Maximum ledger reconciliation discrepancy9.95e-14. Recomputed screen:82groups,0passes. No data acquisition, strategy retuning or financial action.
+Protocol d373cff fixed3economic hypotheses before new outcomes.23tests initially failed because implementation was absent; then passed. Added24thtest reproducing899ratherthan900calendar rows when an order was rejected; removed inappropriate loopcontinue before historicalresults.24tests pass, as do40priorpayofftests. No parameter or financial-risk relaxation.
 
-Direct git push was unavailable without credentials; no credentials were requested or exposed. Used the existing GitHub connector to save a report-only recovery checkpoint. The underlying complete raw-output/archive/source publication is explicitly still incomplete; local temporary data cannot be replaced by a hash or assumed permanently durable. This report does not claim a complete five-year matrix, new independent validation, CI of new code or a production service.
+Located/hash-checked two cached4h Base pools. Matched actualannualATR/ATRvol ledgers with old correctedengine in quantities/prices/fees/PnL, then ran96accountcases and8additionalcapsizecases.144recordedfee sensitivities,18analyticalLP cases,32fixedreturn withdrawal replays and15required-rate rows followed. No new rawmarketdata request. Every96account/dailyseries and226trade rows reconciles.
+
+ROT90 improves adverse6months but annualreturn is negative; rejection retained. Costrefund upper bound cannot rescue adverseATR grossloss. LPfees unknown. Extra hypotheticalcapital with25ordercap mostlyidle. Positiveannualpath cannot pay even all1-dollar monthlydistribution fromprofit alone. Sources/cases/opportunities and equivalentFA/EN report plus completecorecase/economic outputs published. Local fullprecision outputs and rawinputs not allpublic; temporarycache limitations stated. Publication/CI evidence recorded after actualchecks. No funds, wallet, signing, paidservice, daemon or oldbranch overwrite.
 
 ## فارسی
 
-پس از گزارش قطع پاسخ،مخزن و فایل‌های باقی‌مانده واقعاً خوانده شدند. شاخه و پوشه جدا ساخته شد؛۳۸تست،هش منابع،دفترها و وضعیت‌های کامل بررسی و نمونه‌های ازپیش‌مشخص دوباره اجرا شدند. خطای نوع عدد در ابزار تأیید اصلاح شد،نه راهبرد. گزارش و وضعیت بازیابی ثبت شد؛انتشار کامل همه فایل‌های محلی هنوز باقی است. علت قطعی قطع قبلی معلوم نیست و هیچ عملیات مالی یا سرویس پس‌زمینه انجام نشده است.
+وضعیت واقعی خوانده و پروتکل پیش ازنتایج ثبت شد. آزمون ردسفارش نشان داد یک ردیف تقویم حذف می‌شود؛ پیش از اجرای بازار اصلاح شد.۲۴تست جدید و۴۰تست قبلی موفق‌اند.۹۶حساب و۸حالت سرمایه اضافی و سناریوهای هزینه/LP/برداشت اجرا شدند. نتیجه گردش در۶ماه بهتر ولی درکل سال منفی است. همه نتایج حفظ،منابع با سطح واقعی مطالعه ثبت و گزارش‌ها دوزبانه‌اند. انتشار قبلی کامل نشده،پول یا سرویس زنده استفاده نشده است.

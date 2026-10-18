@@ -1,19 +1,29 @@
-# Arz — timeframe recovery checkpoint, 17 October 2026
+# Arz — Real economic edge,18October2026
 
-**Recovered and reverified; full matrix release still PARTIAL. Funds NO-GO; live DISABLED.**
+**Research only; real funds NO-GO; live DISABLED.** No reliable living-income mechanism for the100-dollar constraint has been qualified. This does not prove all strategies impossible.
 
-Branch: `research/2026-10-17-timeframe-recovery`, starting at `37a7e7d6d7bc0057b38123490aff8c6d28f9d33f`. Prior status/log preserved as exact pre-timeframe-recovery snapshots; original research branches and main untouched.
+Branch `research/2026-10-18-real-trading-edge`, based on15bd6af0218e35eb20bf8186abee115cb27a694f. Previous status/log/decisions preserved in pre-real-edge snapshots. Main/other refs and previous engines/results unchanged. Prior timeframe-matrix publication remains partial.
 
-A failed chat response did not erase the local matrix outputs. Recovered primary matrix: 10,528 statuses, 972 distinct complete simulations, 96 aliases and 9,460 explicit skips. A separate mainnet legacy-pool probe has 12 daily exact-five-year completions plus 6 weekly trimmed completions and 6 skips. Do not conflate these networks or claim five-minute five-year coverage.
+## Actual findings
 
-Freshly reran 26 matrix + 12 audit/export tests, verified 12 source hashes and all 972 primary ledgers, compared all expanded statuses/metrics, reran 14 predetermined primary cases and all 18 complete mainnet probe cases. Verification passed. This is same-agent reproduction, not new independent market evidence. The original cause of `Thinking failed` remains unknown.
+12primary-source records and7selected case cards distinguish institutional market-making profit, fund return, execution-service revenue, LP empirical research and arbitrage/momentum evidence. Review depth is specified; no private-account audit or complete universal survey. Equivalent FA/EN report links sources to tests rather than copying famous returns into Arz.
 
-Results remain mixed: some compound paths are positive, none of 82 assessed groups passes the registered repeatability screen. All daily exact-five-year mainnet cases end below100. BNB weekly four-year example is positive with only8trades and coarse risk observation. No reliable income or1–2%daily target is established.
+Three preregistered economic tests executed.96shared-account cases (60strategy/36cashhold),8additional hypothetical-capital cases,144fixed-ledger cost sensitivities,18analyticalLPfee hurdles,32counterfactual withdrawal replays and15required-income arithmetic rows. Cached same-network ETH/cbBTC4h data; no new market history and no untouched finalholdout.
 
-Read `docs/fa/timeframe_recovery_20261017.md` / English counterpart and `reports/timeframe_matrix_20261017/RECOVERY_VERIFICATION.json`. This checkpoint publishes recovery findings, not all raw outputs or a complete new software release. Previously committed matrix source exists; recovered local runner fixes, audit modules, full results and ledgers still require complete publication. Cached raw input/data rights and temporary retention limits remain explicit. Do not discard or silently overwrite them.
+ROT90monthly positive90day selection uses onecash balance and maxoneposition. Annual100→98.4862mid/97.6607stress; later6months100→101.1020/100.8168versusATR95.9474/95.1502. Thus a narrow adverse-period improvement exists but the preregistered annual/comparator/sample gate fails. Do not choose the best rule retrospectively each quarter.
 
-Next uncompleted work: publish the retained source/output package with integrity checks; finish complete coverage/gap report, independent confirmation design and eligible exact-execution/paper integration. Do not redo all recovered simulations or call them fresh evidence. No wallet, paid service, signing, transfer, daemon or automatic merge.
+Removing all recorded fees still leaves adverse6monthATRgross loss≈3.5841mid. LPactualfees remainunknown; illustrative fullrange model requires9.5786fees to match holding when relativeprice doubles with1unitcost. Larger hypotheticalcapital with unchanged25ordercap does not create edge. Monthly withdrawal1from the previous positive ATRvolatility returnpath leaves95.4335balance plus12paid; those12are not all profit.
+
+## Code and evidence
+
+Shared-cash adapter reuses corrected ATR Policy; old percent/fraction fix retained.24newtests and40inheritedtests passed. Two actual baseline ledgers match old quantity/price/fee/PnL.96accounts and226overlapping-case trade rows reconciled. Rejected-fill missing-calendar-row regression fixed before market runs. Final publication bytes/fullrerun/CI are recorded separately after checking.
+
+Read docs/fa/real_trading_edge_20261018.md or English counterpart; research/real_trading_edge/; reports/real_trading_edge_20261018/; experiments/real_trading_edge/README.md. All96principal results and normalizedeconomic scenarios are public; fullprecision ledgers/rawinputs remain in authorized temporarycache and require matching permitted inputs to regenerate.
+
+## Remaining scope
+
+No exact route-cost calibration, verifiedLPfee history, independent prospective return series, completed eligibility review or operational paper/24hservice. Previous90day/100trade planning gates and Issues6/10 remain open. No funds, keys, signatures, approvals, paid services or automaticmerge.
 
 ## فارسی
 
-داده‌های مرحله قطع‌شده بازیابی و دوباره کنترل شدند؛ ۳۸تست، دفترهای۹۷۲حساب،۱۴بازاجرای نمونه و۱۸بازاجرای بررسی شبکه اصلی تطبیق دارند. علت فنی قطع پاسخ معلوم نیست. گزارش بازیابی دوزبانه ثبت شده، اما انتشار کامل همه کد/خروجی‌های محلی و مأموریت گسترده هنوز تمام نشده است. نتایج مثبت محدود وجود دارند؛ سود درآمدی مستقل و پایدار تأیید نشده و ورودپولNO-GOاست. فایل‌ها و شاخه‌های قبلی پاک یا بازنویسی نشده‌اند.
+منشأ سود حرفه‌ای‌ها بررسی و سه آزمون اقتصادی اجرا شد. گردش ماهانه حساب مشترک دوره۶ماهه را بهترکرد ولی کل سال زیان‌ده شد؛ کاهش کارمزد هم زیان ناخالصATRرا حل نمی‌کند. LPفقط حدتحلیلی کارمزد دارد و درآمد واقعی آن نامعلوم است. برداشت ماهانه با سود یکسان نیست.۲۴تست تازه و۴۰تست قبلی موفق‌اند؛نتایج و گزارش دوزبانه ثبت‌اند. کارناتمام انتشار قبلی حفظ شده و تکمیل‌شده نام نگرفته؛ هیچ سرمایه یا سرویس زنده فعال نیست. تصمیم مالیNO-GO.

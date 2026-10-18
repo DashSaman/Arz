@@ -1,18 +1,17 @@
-# Decisions — knowledge research,17October2026
+# Decisions —18October2026 real trading edge
 
-All prior decisions remain in effect and are preserved exactly in DECISIONS.pre-knowledge-20261017.md.
+Prior decisions preserved in DECISIONS.pre-real-edge-20261018.md and remain applicable unless explicitly scoped below.
 
-1. Source access is an explicit field. Publisher contents, an abstract and a selected-method PDF review are not a fully read book or replicated original study. Missing biographies, ISBNs and audited performance remain unknown.
-2. Separate academic evidence, investor wealth, self-reported performance and our own adaptation. No secret Renaissance strategy or assumed retail return is invented.
-3. Use existing corrected ATR and volatility-veto results as frozen inputs; no trading-rule retuning or replacement engine this increment. Time-series/futures research motivates a new long-only test only with adequate independent data.
-4. K01 is paired stationary resampling of selected paths, not new market evidence, a selection-adjusted p-value or future-profit probability. Both7and30daysettings and all outcomes retained.
-5. K02 is additional-cost accounting on a fixed annual ledger. No double-counting of existing fees, fictitious top-ups or implied resizing. A historical break-even expense is not a forward affordable budget.
-6. K03 reproduces published DSR fixtures only. Actual Arz DSR/PBO cannot be responsibly populated without complete comparable economic-trial history and defensible dependence assumptions.168run rows are not168independent trials.
-7. Keep exactly6initial knowledge-derived hypotheses. K04–K06 are not executed and need separate frozen data/design; do not tune already-seen losing periods until they pass.
-8. OSS snapshots are metadata/selected README reviews. Star counts are not profits, NOASSERTIONis not a license grant, and a listed DEX connector is not full eligible access. No new dependencies or live capabilities activated.
-9. Failed source access, all negative diagnostic cases and remaining scope are valid outputs. Public summaries do not pretend to include raw proprietary/copyrighted source data or permanent temporary caches.
-10. Financial restrictions, capital ceiling and90day/100trade planning gates unchanged. Full research/production mission remainsPARTIAL; no wallet, real trading, paid service or persistent scheduling.
+1. Treat reported corporate profit, execution/technology revenue, investor fund return and personal-account PnL as different evidence. No inference that famous or institutional returns are accessible at100dollars.
+2. Keep the corrected ATR Policy and immutable financial authority. ROT90uses onecash account, two eligible-for-research assets and maxoneposition; no leverage, top-up or summed independentbankrolls.
+3. Reject currentROT90as replacement: narrow6month improvement is insufficient against negativeannualnet, failedcomparator and smallsample. Do not tune currentwindows until positive or switch rules with future knowledge.
+4. Label complete refund of recordedfees as unattainable diagnostic bound; fixednegativegrosspath cannot be rescued by these savings. Do not confuse engineering costretention with a new profit source.
+5. LPmodel is analyticalfullrange50/50inventory. Fees and actualnetLPperformance are unknown; different lossbenchmarks cannot be blindly added. No funding/integration approved.
+6. Retain25ordercap in hypotheticalcapital study; no linear scaling of100accountreturns. Rate-needed arithmetic is not an achievable forecast or request to fund.
+7. Distributions can include principal; payout-inclusivewealth differs from remainingaccount. Fixedunitreturn replay is not order-resimulated performance or safe withdrawal guidance.
+8. Allnewoutcomes, sources and limitations remain visible. Fullprecision/runtimefile and rawdata limits stated. Prior broadmatrix publication is stillunfinished; no retroactive completion claim.
+9. FinancialNO-GO remains until independent edge, fullcosts, security/access and separate userapproval. Diagnostic observation is allowed in principle but no operationalservice was deployed here.
 
 ## فارسی
 
-سطح دسترسی منبع صریح است و معرفی/چکیده جای متن کامل نیست. علم،ثروت،خوداظهاری و تطبیق ما جدا هستند. خروجیATRاصلاح‌شده ثابت ماند. K01بازنمونه‌گیری شرطی است نه احتمال آینده؛K02حساب هزینه اضافه روی دفتر ثابت است نه بازاجرای حجم؛K03فقط مثال مقاله وDSR/PBOواقعی نامعلوم است. شش فرضیه اولیه داریم و سه مورد بعدی اجرا نشده‌اند. ستاره وREADMEسود یا مجوز دسترسی نیستند. حدود مالی پابرجا و مأموریت گسترده جزئی است.
+سود شرکت،درآمد خدمات و بازده حساب سرمایه‌گذار یکسان نیستند. گردش فعلی با وجودبهبود۶ماهه،معیار سالانه را ردکرد؛ هزینه کمتر زیان ناخالص را درمان نمی‌کند. LPو برداشت سناریوهای تحلیلی‌اند،نه درآمد تضمینی. سقف سفارش و حدودمالی حفظ‌اند؛ افزایش سرمایه درخواست نشده است. شواهد ناقص یا کارناتمام قبلی پنهان نمی‌شود. ورودپول همچنانNO-GOو معاملهDISABLED است.
