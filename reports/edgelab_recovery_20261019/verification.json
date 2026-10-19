@@ -1,0 +1,19 @@
+{
+ "checked_date_utc":"2026-10-19",
+ "tested_commit":"1085bc293931e986132a81cd4273733aa6e0eae7",
+ "last_preexisting_commit_time_utc":"2026-10-18T13:50:37Z",
+ "scope":"Recovery and fresh execution of existing prototype/registered scenario code; no new strategy or retuning",
+ "tests":{"report_module":{"methods":22,"failures":0,"errors":0,"seconds":0.033},"scenario_comparison":{"methods":6,"failures":0,"errors":0,"seconds":2.307}},
+ "prototype_demo":{"languages":["fa","en"],"evidence_class":"SYNTHETIC","net_account_profit":5.799999999999983,"external_net_flow":10.0,"final_equity":115.79999999999998,"closed_cycles":6,"direct_CLI_report_exit":0,"meaning":"Software demonstration only; not market return or revenue","FA_HTML_sha256":"f942162f2ed59bfae77ab0498b66ea43ecce082afb87614edbb3fc0fecd7d857","EN_HTML_sha256":"758f3acd4229f828747ce5bdf69e640f3382ec59bf0dc60d5f0f328c23532aac","browser_visual_QA":"PENDING; local Playwright browser executable unavailable"},
+ "backtests":{"registered_strategy_cases":72,"cash_hold_benchmarks":48,"internal_S0_equivalence_checks":24,"all_account_ledgers_reconciled":72,"ledger_errors":[],"prior_retained_output_files_compared":219,"all_compared_files_byte_equal":true,"market_runner_exit":0,"results_sha256":"5557d48ccd4d51358f36198efaf7cb5ea561b19c2aa7eb56606ce7a00aa918a2","independent_new_market_evidence":false,"new_market_data_downloads":0},
+ "source_sha256":{"src/edge_audit.py":"405e1ed0fd6b4c9e0b42dd14018397c561931e0f656c0013e1ef8e4c74eac9fd","scripts/edgelab_demo.py":"13a75ad6746ece0162e8e4704c0b90c69a9750b7d5c15efebcb5180f805d7652","tests/test_edge_audit.py":"581a2481c3ef54439b191c5f1821bfdffdf4dd99458b7f4183fca06758953f0e","experiments/cost_aware_strategy/compare.py":"79ea5f34fbc760bd8320052f2170558042f14b7cf18c8bb2643b2fb94fb2db4d","experiments/cost_aware_strategy/test_compare.py":"76f93f681008ba0ac35e63592e0f2fb595978fe3dd200a1131d0228f0da583fe"},
+ "revenue":{"verified_paying_customers":0,"verified_receipts":0,"recorded_amount":0,"demand_validation":"NOT_COMPLETED","new_competitor_study_this_recovery":false,"commercial_outreach_sent":0},
+ "true_S1_S2":"PENDING_EXECUTION_EVIDENCE",
+ "funded_decision":"NO-GO",
+ "live_trading":"DISABLED",
+ "persistent_service_running":false,
+ "financial_actions":0,
+ "independent_professional_audit":false,
+ "new_CI_status":"NOT_YET_VERIFIED",
+ "limitations":"Input checks do not establish absence of lookahead/overfitting. No independent final data, exact route fees, liquidity or product-demand qualification. Full raw source data and every detailed ledger are not republished; original caches remain temporary. Earlier incomplete timeframe publication remains incomplete."
+}
