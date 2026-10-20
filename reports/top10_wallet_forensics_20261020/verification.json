@@ -1,0 +1,85 @@
+{
+  "review_date_utc": "2026-10-20",
+  "branch": "research/2026-10-20-top10-wallet-forensics",
+  "parent_checkpoint": "research/2026-10-20-copy-wallet-intelligence",
+  "evidence_class": "PARTIAL_PUBLIC_FORENSIC_RECONSTRUCTION",
+  "source_parent_before_verification": "f1c87215acd01ff475db42b075e0beb28cc05178",
+  "financial_authority": "NONE",
+  "live_trading": "DISABLED",
+  "funded_decision": "NO-GO",
+  "scope": {
+    "wallets": 10,
+    "source_records": 16,
+    "asset_pnl_observations": 92,
+    "trade_position_observations": 48,
+    "capital_flow_events": 18,
+    "provider_conflicts": 10,
+    "coverage_rows": 10,
+    "pattern_rows": 10
+  },
+  "file_blob_shas": {
+    "research/top10_wallet_forensics_20261020/sources.csv": "6d0b99aa8fc641ca1981e51161b93bf11ad8c1eb",
+    "research/top10_wallet_forensics_20261020/wallet_summary.csv": "8cdac3bad7edd2ce3bc95d80884f3e694cd6dd68",
+    "research/top10_wallet_forensics_20261020/asset_pnl_observations.csv": "d70d0949cfa0322b22bb6fbfc499363b4a9303be",
+    "research/top10_wallet_forensics_20261020/trade_position_observations.csv": "754100fd54717c114f6f6c9965df8c3ee8920807",
+    "research/top10_wallet_forensics_20261020/capital_flow_events.csv": "cbfbfba8bd76ab162f8b1988f35fc0f52fa5c089",
+    "research/top10_wallet_forensics_20261020/provider_conflicts.csv": "8347bdd46e7c944452e6fbe0a2cc3ee58589467b",
+    "research/top10_wallet_forensics_20261020/field_coverage.csv": "d982871577826155f65bc92cb1e7940f5c97f476",
+    "research/top10_wallet_forensics_20261020/pattern_matrix.csv": "75e5b213045c6b1b0cd761bcaedf8efcdc2b41e1"
+  },
+  "derived_checks": {
+    "0x0ad9_SKHX_exit": {
+      "source_exit_legs": [
+        {
+          "quantity": 1576.53,
+          "notional_usd": 2270200,
+          "reported_profit_usd": 27200
+        },
+        {
+          "quantity": 7816.592,
+          "notional_usd": 11255900,
+          "reported_profit_usd": 135100
+        },
+        {
+          "quantity": 476.168,
+          "notional_usd": 685700,
+          "reported_profit_usd": 8229.61
+        }
+      ],
+      "total_quantity": 9869.29,
+      "total_exit_notional_usd": 14211800,
+      "weighted_exit_usd_per_contract": 1440.002269666815,
+      "summed_reported_profit_usd": 170529.61,
+      "caveat": "Acquisition cost legs are not fully public, so this is not a complete FIFO reconstruction."
+    },
+    "largest_winner_share_of_headline_pct": {
+      "Frank_PAID": 79.3,
+      "Unipcs_SI": 88.4,
+      "Cupsey_CATE_uwuu": 92.8,
+      "TheSolstice_STONK": 103.9,
+      "0x6f97_STRK_analyzed_Oct": 84.6,
+      "0x95da_WLD_analyzed_Oct": 40.9,
+      "0x708f_CBRS_analyzed_Oct": 29.4,
+      "0x8bae_RSR_analyzed_Aug_Oct": 21
+    }
+  },
+  "critical_findings": [
+    "No reviewed wallet supplies a complete uniform public trade ledger across the entire requested history.",
+    "Exact average entry and exit prices are unavailable for many closed cycles and are never imputed.",
+    "0x95da demonstrates closed-win-rate bias: 100% recent closed wins coexists with about -$222.2K open unrealized PnL.",
+    "0x0ad9 selected SKHX history shows adding into weakness and recovery/break-even style exit after about -$2.59M floating loss; this risk behavior is not transferable to Arz.",
+    "Frank, Cupsey, Unipcs and TheSolstice show material winner concentration in reviewed provider windows.",
+    "Cupsey has a severe methodology conflict: uwuu reports 44d average hold/84.1% win while KOL Explorer position cycles show 17s median/40.4% win.",
+    "Capital withdrawals must be separated from trading drawdown, especially for 0x9871 and 0x0ad9.",
+    "A follower must be evaluated at delayed follower quotes and bounded sizing; leader fills, leverage and whale notionals are not reproducible assumptions."
+  ],
+  "missing_for_full_reconstruction": [
+    "Complete finalized fill/swap event history for every wallet and requested time window",
+    "Deterministic cost basis for all deposits/transfers and acquired tokens",
+    "Complete fees/funding for every Hyperliquid cycle",
+    "Exact entry/exit pairings for provider rows that are only aggregates",
+    "Point-in-time follower quotes for latency/slippage simulation",
+    "Unified realized/unrealized semantics across Solana providers"
+  ],
+  "interpretation": "This package is research evidence and hypothesis generation only. It does not approve any wallet for blind copy trading or modify Arz live-disabled boundaries."
+}
