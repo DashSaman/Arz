@@ -23,11 +23,57 @@
     "execution timing and fill assumptions"
   ],
   "hypothesis_grid": {
-    "rsi_period": [7, 14, 21],
-    "pivot_left_right": [[2, 2], [3, 3], [5, 5]],
-    "dca_scheme": ["equal", "linear", "inverse_vol"],
-    "step_spacing": ["percent", "atr"],
-    "steps": [2, 3, 4, 5]
+    "rsi_period": [
+      7,
+      14,
+      21
+    ],
+    "pivot_left_right": [
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        5,
+        5
+      ]
+    ],
+    "dca_scheme": [
+      "equal",
+      "linear",
+      "inverse_vol"
+    ],
+    "step_spacing": [
+      "percent",
+      "atr"
+    ],
+    "steps": [
+      2,
+      3,
+      4,
+      5
+    ]
   },
-  "anti_overfit_rule": "Choose parameter families on development data only; evaluate a locked choice on a new untouched out-of-sample period. Do not retune on the existing Arz holdout."
-}
+  "anti_overfit_rule": "Choose parameter families on development data only; evaluate a locked choice on a new untouched out-of-sample period. Do not retune on the existing Arz holdout.",
+  "legacy_confluence_candidates": {
+    "evidence_note": "ATA Academy documents these older combinations; current XMOON use is not assumed.",
+    "fibonacci": [
+      "50%",
+      "61.8%"
+    ],
+    "context": [
+      "support_resistance",
+      "order_block"
+    ],
+    "structure": [
+      "CHoCH"
+    ],
+    "moving_average": [
+      "MA200"
+    ]
+  }
+}\n
