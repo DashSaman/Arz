@@ -1,0 +1,37 @@
+name: Multi-edge Phase A offline checks
+on:
+  push:
+    paths:
+      - 'src/arz/multi_edge/**'
+      - 'scripts/multi_edge_phase_a.py'
+      - 'scripts/multi_edge_public_probe.py'
+      - 'tests/test_multi_edge_*.py'
+      - 'research/multi_edge_spot/NEXT_EXPERIMENT_PROTOCOL.json'
+      - 'reports/multi_edge_phase_a_20261020/**'
+      - '.github/workflows/multi-edge-phase-a-offline.yml'
+  pull_request:
+    paths:
+      - 'src/arz/multi_edge/**'
+      - 'scripts/multi_edge_phase_a.py'
+      - 'scripts/multi_edge_public_probe.py'
+      - 'tests/test_multi_edge_*.py'
+      - 'research/multi_edge_spot/NEXT_EXPERIMENT_PROTOCOL.json'
+      - 'reports/multi_edge_phase_a_20261020/**'
+permissions:
+  contents: read
+jobs:
+  offline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Multi-edge focused offline tests
+        run: python3 -m unittest tests.test_multi_edge_accounting tests.test_multi_edge_scoring tests.test_multi_edge_connectors tests.test_multi_edge_feasibility tests.test_multi_edge_delivery -v
+      - name: Full offline regression suite
+        run: python3 -m unittest discover -s tests -v
+      - name: Compile research code
+        run: python3 -m compileall -q src/arz/multi_edge scripts/multi_edge_phase_a.py scripts/multi_edge_public_probe.py

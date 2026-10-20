@@ -1,15 +1,17 @@
-# Work log — 20 October 2026 multi-edge spot research
+# Work log — 20 October 2026 multi-edge Phase A
 
-Prior log preserved in `WORK_LOG.pre-multi-edge-20261020.md`.
+Read PR18 and the frozen H1–H4 protocol. Created an isolated branch/workspace and an implementation plan. TDD sequence:
 
-Read live branches/PR17, AGENTS continuity and prior payoff, market-intelligence, timeframe, real-edge and EdgeLab evidence. Created isolated clone and independent branch from db79545f. Wrote derived design and execution plan without storing the user's full prompt.
+- Task1: 7 tests first failed because modules were absent; implemented point-in-time events and FIFO/weighted-average accounting. 191 full tests passed.
+- Task2: 10 tests first failed; implemented wallet/copyability scoring and related-cluster consensus. 201 full tests passed.
+- Task3: 10 tests first failed; implemented fixed-host read-only Base RPC and GeckoTerminal connectors. 211 full tests passed.
+- Task4: 9 tests first failed. One diagnostic test initially used an implicit 5 bps slippage assumption that correctly vetoed its synthetic signal; the test was corrected to pass its intended explicit 1 bps scenario without changing the strategy gate. Implemented H3 diagnostic and H1–H4 feasibility engine. 220 full tests passed.
+- Task5 delivery tests were observed RED before reports/workflow existed, then completed. Final local run: 41 focused and 225 full tests passed; compileall exited 0.
 
-Reviewed official/current documentation for Nansen, Dune, Bitquery, Helius, The Graph, DefiLlama, DEX Screener, Uniswap, Base and Solana, plus primary momentum/LP/arbitrage research. Reviewed current repository metadata for rotki, Spellbook, SQD, cryo, Graph Node, Substreams, Hummingbot/Gateway, Freqtrade, vectorbt and trade-executor. No paid endpoint, API key or data download was used.
+Executed bounded public probes without credentials. Pool metadata succeeded; swap logs were rate-limited with HTTP 429 on initial and one bounded retry. No endpoint/identity rotation. WETH 5m returned 1999 complete bars with no gaps; cbBTC duplicate data was rejected. Ran only the registered H3 short diagnostic: costed scenarios made zero trades; zero-cost bound lost. H1/H2/H4 remained blocked. Raw data stayed runtime-only.
 
-Produced bilingual repository audit, taxonomy, Smart Wallet, Copy, Scalping, Trend/Rotation, Mean Reversion, LP, Arbitrage, on-chain source and open-source tool documents. Added27source records,16data-source rows and machine-readable wallet/copy/scalp/meta specifications.
-
-Selected exactly four next hypotheses and froze rules, delays, universes, costs, sample gates, acceptance/rejection criteria and evidence phases in NEXT_EXPERIMENT_PROTOCOL.json. No performance backtest, threshold tuning or fifth candidate was added. Validation/publication evidence follows actual checks.
+No paid API, market order, wallet, signing, financial action, parameter search or background service. Publication/CI evidence is recorded only after actual observation.
 
 ## فارسی
 
-وضعیت واقعی مخزن و شواهد قبلی خوانده شد و شاخه مستقل ساخته شد. منابع رسمی و ابزارهای متن‌باز بدون API پولی بررسی شدند. اسناد دوزبانه، ماتریس داده و چهار Spec ماشینی ایجاد شد. دقیقاً چهار فرضیه با قواعد و Gate ثابت برای تست بعد انتخاب شدند؛ در این مرحله بک‌تست عملکردی یا معامله انجام نشد.
+فاز A با TDD اجرا شد. حسابداری Wallet، امتیاز/Consensus، Connector فقط‌خواندنی و Diagnostic/Feasibility ساخته شد. محدودیت ۴۲۹ و Duplicate داده پنهان نشد. H3 در هزینه سناریویی معامله نکرد و حد هزینه صفر زیان داد؛ سایر Candidateها داده کافی نداشتند. هیچ API پولی یا اقدام مالی انجام نشد.

@@ -1,0 +1,48 @@
+{
+  "date_utc": "2026-10-20",
+  "phase": "HISTORICAL_FEASIBILITY",
+  "protocol": "research/multi_edge_spot/NEXT_EXPERIMENT_PROTOCOL.json",
+  "data_cutoff": "2026-10-20T00:00:00Z",
+  "new_performance_hypotheses_accepted": 0,
+  "financial_decision": "NO-GO",
+  "live_trading": "DISABLED",
+  "financial_actions": 0,
+  "probe": {
+    "observation_started_at": "2026-10-20T01:36:05+00:00",
+    "finalized_block": 52835389,
+    "known_request_attempts": 14,
+    "known_successful_http_or_rpc_responses": 10,
+    "rpc_log_attempts_rate_limited": 4,
+    "pool_metadata_verified": [
+      {"pool":"0xd0b53d9277642d899df5c87a3966a349a798f224","token0":"0x4200000000000000000000000000000000000006","token1":"0x833589fcd6edb6e08f4c7c32d4f71b54bda02913","fee_ppm":500,"symbol":"WETH/USDC"},
+      {"pool":"0xfbb6eed8e7aa03b138556eedaf5d271a5e1e43ef","token0":"0x833589fcd6edb6e08f4c7c32d4f71b54bda02913","token1":"0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf","fee_ppm":500,"symbol":"cbBTC/USDC"}
+    ],
+    "wallet_swap_history_acquired": false,
+    "wallet_history_blocker": "Official public Base RPC returned HTTP429 for both pools on initial bounded requests and one bounded same-endpoint retry; no endpoint rotation or evasion."
+  },
+  "ohlcv": {
+    "WETH/USDC": {"status":"USABLE_FOR_SHORT_DIAGNOSTIC_ONLY","bars":1999,"interval_seconds":300,"start":"2026-10-13T03:00:00Z","end_exclusive":"2026-10-20T01:35:00Z","calendar_days":6.940972222222222,"gaps":0,"boundary_duplicates_removed":1,"csv_sha256":"ed7296b74160468f7629fcc8e09c53dd8e8862f5ceaad6f46d6687a164213323","raw_redistributed":false},
+    "cbBTC/USDC": {"status":"REJECTED_DATA_QUALITY","bars_used":0,"blocker":"Provider response contained a duplicate candle in one page; it was rejected rather than silently deduplicated.","raw_redistributed":false}
+  },
+  "candidate_status": {
+    "H1_SMART_WALLET_CONSENSUS_COPY": {"hypothesis_id":"H1_SMART_WALLET_CONSENSUS_COPY","status":"INSUFFICIENT_DATA","candidate":false,"blockers":["WALLET_HISTORY_LT_90_DAYS","FOLLOWER_CYCLES_LT_100","WALLET_CLUSTERS_LT_20","COST_BASIS_COVERAGE_LT_95PCT","NO_FOLLOWER_QUOTES"],"acceptance_evaluated":false},
+    "H2_SMART_FLOW_ATR_CONFIRMATION": {"hypothesis_id":"H2_SMART_FLOW_ATR_CONFIRMATION","status":"INSUFFICIENT_DATA","candidate":false,"blockers":["WALLET_HISTORY_LT_90_DAYS","WALLET_CYCLES_LT_40","WALLET_MONTHS_LT_12","COST_BASIS_COVERAGE_LT_95PCT"],"acceptance_evaluated":false},
+    "H3_COST_AWARE_MEAN_REVERSION_SCALP": {"hypothesis_id":"H3_COST_AWARE_MEAN_REVERSION_SCALP","status":"INSUFFICIENT_DATA","candidate":false,"blockers":["SCALP_HISTORY_LT_6_MONTHS","SCALP_CYCLES_LT_200","WETH_USDC_CYCLES_LT_50","cbBTC_USDC_CYCLES_LT_50","NO_EXACT_COSTS"],"acceptance_evaluated":false},
+    "H4_POINT_IN_TIME_LEADER_ROTATION": {"hypothesis_id":"H4_POINT_IN_TIME_LEADER_ROTATION","status":"INSUFFICIENT_DATA","candidate":false,"blockers":["ROTATION_HISTORY_LT_3_YEARS","ROTATION_CYCLES_LT_36","ROTATION_REGIMES_LT_3","NO_POINT_IN_TIME_UNIVERSE"],"acceptance_evaluated":false}
+  },
+  "H3_diagnostics": [
+    {"scenario":"scenario_primary","evidence_class":"HISTORICAL_PRICE_SIMULATION","metrics":{"initial_equity":100.0,"ending_equity":100.0,"cash":100.0,"net_profit":0.0,"closed_cycles":0,"wins":0,"losses":0,"win_rate":null,"profit_factor":null,"payoff_ratio":null,"net_expectancy":null,"maximum_drawdown":0.0,"fees":0.0,"buy_fills":0,"max_open_positions":0},"diagnostics":{"entry_signals":0,"cost_hurdle_vetoes":35,"volume_vetoes":61,"trend_vetoes":10,"zscore_vetoes":1844},"open_position":false,"averaging_down":false},
+    {"scenario":"scenario_stress","evidence_class":"HISTORICAL_PRICE_SIMULATION","metrics":{"initial_equity":100.0,"ending_equity":100.0,"cash":100.0,"net_profit":0.0,"closed_cycles":0,"wins":0,"losses":0,"win_rate":null,"profit_factor":null,"payoff_ratio":null,"net_expectancy":null,"maximum_drawdown":0.0,"fees":0.0,"buy_fills":0,"max_open_positions":0},"diagnostics":{"entry_signals":0,"cost_hurdle_vetoes":35,"volume_vetoes":61,"trend_vetoes":10,"zscore_vetoes":1844},"open_position":false,"averaging_down":false},
+    {"scenario":"unattainable_zero_cost","evidence_class":"HISTORICAL_PRICE_SIMULATION","metrics":{"initial_equity":100.0,"ending_equity":99.72916621026994,"cash":99.72916621026994,"net_profit":-0.27083378973006234,"closed_cycles":23,"wins":11,"losses":12,"win_rate":0.4782608695652174,"profit_factor":0.5976858515537864,"payoff_ratio":0.6520209289677671,"net_expectancy":-0.011775382162175387,"maximum_drawdown":0.00453759676756893,"fees":0.0,"buy_fills":23,"max_open_positions":1},"diagnostics":{"entry_signals":23,"cost_hurdle_vetoes":0,"volume_vetoes":44,"trend_vetoes":5,"zscore_vetoes":1684},"open_position":false,"averaging_down":false}
+  ],
+  "interpretation": {
+    "primary_and_stress": "No trades because all35 otherwise qualifying opportunities failed the cost hurdle; zero trades are not income.",
+    "zero_cost_bound": "The unattainable zero-cost bound made23 closed cycles and lost0.2708337897 quote units; win rate47.83%, profit factor0.5977, payoff0.6520.",
+    "scope": "Only6.94days of one pair; no exact follower quotes or failed-transaction costs. This neither accepts nor conclusively rejects H3."
+  },
+  "H4_existing_data": {"status":"INSUFFICIENT_DATA","WETH_4h_rows":4548,"WETH_sha256":"40f4a87937d09ab21f1f112444785c09d0119f7d8b91ce48f5bdd5ad27d56aa3","cbBTC_4h_rows":4467,"cbBTC_sha256":"427da056b70bfc67f1ae7ff6e1ca94f41df4ec238a225e34f621d4cb1072323e","coverage_years_approx":1.55,"point_in_time_universe":false,"required_years":3},
+  "raw_provider_data_committed": false,
+  "paid_api_calls": 0,
+  "wallet_or_signing": false,
+  "persistent_service": false
+}

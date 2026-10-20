@@ -1,0 +1,9 @@
+{
+  "files": {
+    "phase_a_summary.json": {"bytes": 7127, "sha256": "9472ab7ed8368c54f87c546772c1585eda6336c89e093636823e852f5d51f09f"},
+    "data_coverage.csv": {"bytes": 738, "sha256": "9e5b693f9399221ac0cfb50c09e4127245d2335b868850473778fb67405f2378"}
+  },
+  "raw_runtime_only": ["runtime/multi_edge_phase_a/raw/weth_5m.csv"],
+  "raw_not_committed": true,
+  "same_agent_review": true
+}
