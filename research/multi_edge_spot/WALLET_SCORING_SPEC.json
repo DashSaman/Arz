@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "date_utc": "2026-10-20",
+  "purpose": "Research ranking only; not identity, future-skill probability or trade authorization.",
+  "accounting": {
+    "primary_cost_basis": "FIFO",
+    "sensitivity": "WEIGHTED_AVERAGE",
+    "quote_unit": "USD_OR_USDC_WITH_DEPEG_SERIES",
+    "net_pnl": "realized proceeds - assigned acquisition cost - pool fees - network/priority fees",
+    "unrealized_separate": true,
+    "unknown_basis": "UNRESOLVED_COST_BASIS_NEVER_ZERO"
+  },
+  "hard_gates": {
+    "history_days": 90,
+    "closed_cycles": 30,
+    "active_calendar_months": 3,
+    "disposed_notional_cost_basis_coverage_min": 0.95,
+    "fees_and_gas_required": true,
+    "point_in_time_selection": true,
+    "finalized_events_only": true
+  },
+  "hard_exclusions": [
+    "CONTRACT_OR_ROUTER",
+    "CEX_OR_BRIDGE",
+    "TREASURY_OR_TEAM_OR_DEPLOYER",
+    "LP_MANAGER",
+    "MEV_OR_ATOMIC_ARBITRAGE",
+    "MARKET_MAKER",
+    "SYBIL_OR_RELATED_CLUSTER",
+    "ULTRA_LOW_LIQUIDITY_ONLY",
+    "UNKNOWN_MATERIAL_FUNDING_OR_COST_BASIS"
+  ],
+  "score_0_100": [
+    {
+      "id": "net_realized_consistency",
+      "weight": 25,
+      "definition": "Positive net realized PnL in trailing30/90days and at least2of3months; monotonic score, no future data"
+    },
+    {
+      "id": "profit_factor_and_expectancy",
+      "weight": 20,
+      "definition": "Net profit factor and mean net PnL per closed cycle; undefined ratios receive no score"
+    },
+    {
+      "id": "drawdown_and_loss_tail",
+      "weight": 15,
+      "definition": "Mark-to-market wallet equity drawdown where valuation is available plus worst-cycle loss"
+    },
+    {
+      "id": "winner_concentration",
+      "weight": 15,
+      "definition": "Net PnL without largest and top3 winners; concentration is penalized, not silently deleted"
+    },
+    {
+      "id": "sample_sufficiency",
+      "weight": 10,
+      "definition": "Closed cycles, active months and disposed notional beyond hard minimum"
+    },
+    {
+      "id": "monthly_stability",
+      "weight": 10,
+      "definition": "Fraction of positive active months and worst month; no zero fill for missing months"
+    },
+    {
+      "id": "data_integrity",
+      "weight": 5,
+      "definition": "Coverage, reconciled balances, duplicate/reorg handling and valuation provenance"
+    }
+  ],
+  "reported_not_scored": [
+    "win_rate",
+    "payoff_ratio",
+    "turnover",
+    "token_concentration",
+    "median_holding_time",
+    "average_holding_time",
+    "largest_winner_share",
+    "top3_winner_share",
+    "unrealized_pnl"
+  ],
+  "candidate_threshold": 70,
+  "minimum_score_requires_all_hard_gates": true,
+  "missing_component_policy": "SCORE_UNDEFINED_NOT_IMPUTED",
+  "label_policy": {
+    "provider_labels_are_optional_enrichment": true,
+    "store": [
+      "provider",
+      "label",
+      "observed_at",
+      "source_version"
+    ],
+    "no_historical_backfill": true
+  },
+  "financial_authority": "NONE"
+}

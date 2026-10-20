@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "date_utc": "2026-10-20",
+  "purpose": "Qualify pair/time periods before any scalp signal; not predict return.",
+  "primary_order_quote_units": 20,
+  "primary_timeframe": "5m",
+  "sensitivity_timeframe": "15m",
+  "hard_gates": {
+    "complete_event_or_1m_history": true,
+    "maximum_missing_bar_fraction": 0.001,
+    "nonzero_swap_activity_fraction_min": 0.95,
+    "point_in_time_contract_and_pool_validation": true,
+    "qualified_exact_input_route": true,
+    "round_trip_cost_to_median_5m_atr_max": 0.25,
+    "quote_age_seconds_max": 30,
+    "price_impact_bps_max": 10,
+    "honeypot_blacklist_pause_transfer_tax_unknown_rejected": true
+  },
+  "score_0_100": [
+    {
+      "id": "cost_to_move",
+      "weight": 30,
+      "definition": "All-in round-trip cost divided by median short-horizon true range"
+    },
+    {
+      "id": "active_liquidity",
+      "weight": 20,
+      "definition": "Exact-quote impact and active route depth, not TVL alone"
+    },
+    {
+      "id": "spread_and_impact_stability",
+      "weight": 15,
+      "definition": "Distribution of effective spread/price impact across test period"
+    },
+    {
+      "id": "volume_continuity",
+      "weight": 10,
+      "definition": "Swap activity and unique takers without filled missing bars"
+    },
+    {
+      "id": "quote_freshness_and_route_availability",
+      "weight": 10,
+      "definition": "Share of signals with timely executable route"
+    },
+    {
+      "id": "manipulation_and_contract_risk",
+      "weight": 10,
+      "definition": "Point-in-time contract authorities, concentration and abnormal flow warnings"
+    },
+    {
+      "id": "operational_failure_rate",
+      "weight": 5,
+      "definition": "Observed/estimated failed or expired transaction share"
+    }
+  ],
+  "candidate_threshold": 75,
+  "primary_pairs": [
+    "BASE:WETH/USDC",
+    "BASE:cbBTC/USDC"
+  ],
+  "high_win_rate_target": {
+    "preferred_range": [
+      0.7,
+      0.75
+    ],
+    "not_sufficient": true,
+    "alternative_lower_win_rate_allowed_if_profit_factor_min": 1.8
+  },
+  "financial_authority": "NONE"
+}

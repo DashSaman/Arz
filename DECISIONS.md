@@ -1,17 +1,18 @@
-# Decisions —18October2026 real trading edge
+# Decisions — 20 October 2026 multi-edge spot research
 
-Prior decisions preserved in DECISIONS.pre-real-edge-20261018.md and remain applicable unless explicitly scoped below.
+Prior decisions remain applicable and are preserved in `DECISIONS.pre-multi-edge-20261020.md`.
 
-1. Treat reported corporate profit, execution/technology revenue, investor fund return and personal-account PnL as different evidence. No inference that famous or institutional returns are accessible at100dollars.
-2. Keep the corrected ATR Policy and immutable financial authority. ROT90uses onecash account, two eligible-for-research assets and maxoneposition; no leverage, top-up or summed independentbankrolls.
-3. Reject currentROT90as replacement: narrow6month improvement is insufficient against negativeannualnet, failedcomparator and smallsample. Do not tune currentwindows until positive or switch rules with future knowledge.
-4. Label complete refund of recordedfees as unattainable diagnostic bound; fixednegativegrosspath cannot be rescued by these savings. Do not confuse engineering costretention with a new profit source.
-5. LPmodel is analyticalfullrange50/50inventory. Fees and actualnetLPperformance are unknown; different lossbenchmarks cannot be blindly added. No funding/integration approved.
-6. Retain25ordercap in hypotheticalcapital study; no linear scaling of100accountreturns. Rate-needed arithmetic is not an achievable forecast or request to fund.
-7. Distributions can include principal; payout-inclusivewealth differs from remainingaccount. Fixedunitreturn replay is not order-resimulated performance or safe withdrawal guidance.
-8. Allnewoutcomes, sources and limitations remain visible. Fullprecision/runtimefile and rawdata limits stated. Prior broadmatrix publication is stillunfinished; no retroactive completion claim.
-9. FinancialNO-GO remains until independent edge, fullcosts, security/access and separate userapproval. Diagnostic observation is allowed in principle but no operationalservice was deployed here.
+1. Use Base first for reproducible EVM wallet/market experiments; Solana is a second path after archive/identity cost qualification.
+2. Recompute wallet PnL from raw/curated events. Provider smart-money labels are versioned enrichment, not historical truth.
+3. Keep Profit Score and Copyability Score separate; profitable but atomic/MEV/market-making wallets are not normal copy candidates.
+4. Test consensus at follower prices with a60-second primary delay; leader fill prices are forbidden.
+5. Test one cost-aware mean-reversion scalp only, on qualified liquid pairs; no indicator kitchen sink, averaging or martingale.
+6. Test weekly point-in-time leader rotation with an absolute trend/cash filter; do not repeat the two-asset ROT90 rule under a new name.
+7. Do not performance-test the meta allocator until at least two independent component engines pass frozen tests.
+8. LP remains data-required and arbitrage deferred; harmful MEV is rejected.
+9. The70–75% win-rate preference is a target only. PF, net expectancy, stress costs, drawdown and sample gates control acceptance.
+10. Historical feasibility cannot authorize capital. Prospective paper evidence and separate user approval remain mandatory.
 
 ## فارسی
 
-سود شرکت،درآمد خدمات و بازده حساب سرمایه‌گذار یکسان نیستند. گردش فعلی با وجودبهبود۶ماهه،معیار سالانه را ردکرد؛ هزینه کمتر زیان ناخالص را درمان نمی‌کند. LPو برداشت سناریوهای تحلیلی‌اند،نه درآمد تضمینی. سقف سفارش و حدودمالی حفظ‌اند؛ افزایش سرمایه درخواست نشده است. شواهد ناقص یا کارناتمام قبلی پنهان نمی‌شود. ورودپول همچنانNO-GOو معاملهDISABLED است.
+PnL کیف‌پول از رویداد خام محاسبه و Label فقط Enrichment است. Profit و Copyability جدا هستند. Copy با قیمت دنبال‌کننده و تأخیر۶۰ثانیه تست می‌شود. فقط یک Scalping هزینه‌محور و یک Rotation زمان‌مند بررسی می‌شوند. Meta قبل از قبولی موتورهای مستقل فعال نمی‌شود. LP/آربیتراژ معلق و MEV مخرب رد است. هدف Win Rate به‌تنهایی معیار قبولی یا مجوز سرمایه نیست.

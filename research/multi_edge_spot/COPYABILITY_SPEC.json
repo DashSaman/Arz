@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "date_utc": "2026-10-20",
+  "purpose": "Estimate whether a profitable public wallet can be followed after realistic delay and costs.",
+  "hard_gates": {
+    "wallet_profit_score_min": 70,
+    "qualified_trade_cycles_min": 30,
+    "median_holding_time_minutes_min": 60,
+    "eligible_token_route_required": true,
+    "follower_quote_required": true,
+    "related_wallet_cluster_counted_once": true
+  },
+  "score_0_100": [
+    {
+      "id": "delay_edge_retention",
+      "weight": 30,
+      "definition": "Fraction of leader net edge retained at follower 60-second prices; next-block/15s/5m/15m are sensitivities"
+    },
+    {
+      "id": "liquidity_and_impact",
+      "weight": 20,
+      "definition": "Follower $20 exact-input quote impact and route depth at signal time"
+    },
+    {
+      "id": "holding_time_fit",
+      "weight": 15,
+      "definition": "Enough time after public observation; penalize atomic/sub-minute edges"
+    },
+    {
+      "id": "all_in_cost_burden",
+      "weight": 15,
+      "definition": "Pool fee + gas/L1/L2 or priority fee + slippage/impact + failure allowance relative to gross move"
+    },
+    {
+      "id": "token_quality",
+      "weight": 10,
+      "definition": "Point-in-time token age, verified contract/mint, concentration and manipulation screens"
+    },
+    {
+      "id": "trade_frequency_capacity",
+      "weight": 5,
+      "definition": "Frequency compatible with $100 reserve and no overlapping exposure"
+    },
+    {
+      "id": "cluster_independence",
+      "weight": 5,
+      "definition": "Funding/entity/transfer/deployer/synchrony evidence that votes are independent"
+    }
+  ],
+  "primary_delay_seconds": 60,
+  "sensitivity_delays": [
+    "NEXT_BLOCK",
+    15,
+    300,
+    900
+  ],
+  "candidate_threshold": 70,
+  "copy_trade_price": "FIRST_QUALIFIED_FOLLOWER_QUOTE_AFTER_DELAY",
+  "leader_fill_price_forbidden": true,
+  "consensus_primary": {
+    "independent_wallets": 3,
+    "window_hours": 6,
+    "same_token": true,
+    "one_cluster_one_vote": true
+  },
+  "exit_primary": [
+    "TWO_OF_CONTRIBUTING_WALLETS_NET_SELL_WITHIN_6H",
+    "THREE_ATR_TRAILING_ON_COMPLETED_1H_BARS",
+    "14_DAY_TIME_STOP"
+  ],
+  "evidence_class_before_forward": "HISTORICAL_COPY_SIMULATION",
+  "financial_authority": "NONE"
+}

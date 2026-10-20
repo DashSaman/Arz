@@ -1,17 +1,19 @@
-# Arz — EdgeLab recovery checkpoint, 19 October 2026
+# Arz — Multi-edge spot research checkpoint, 20 October 2026
 
-**Product: PROTOTYPE / DEMAND_UNVALIDATED. Trading: NO-GO / DISABLED.**
+**Research architecture complete for this phase. Trading/funding NO-GO; live DISABLED.**
 
-This checkpoint resumes existing EdgeLab code at 1085bc293931e986132a81cd4273733aa6e0eae7 without changing strategies or parameters. The earlier status is preserved in PROJECT_STATUS.pre-edgelab-recovery-20261019.md. Main and prior research branches are not merged or overwritten.
+Branch `research/2026-10-20-multi-edge-spot`, based on `db79545f5162518251eda73ec9fd3526411f9dc8`. Prior status/log/decisions are preserved as pre-multi-edge snapshots. Main and prior research branches are not merged or overwritten.
 
-Freshly executed: 22 report tests, six scenario-comparison tests, a bilingual synthetic demonstration and the direct report CLI. Replayed 72 registered scenario strategy cases plus48cash/hold comparisons; all219stored output/ledger/event files match retained earlier outputs byte-for-byte, and72account ledgers reconcile. These are repeated known-data results, not new independent evidence.
+This phase produced no broad market backtest or optimization. It reviewed repository evidence and current official/primary sources, created a27-record source registry,16-row data-source matrix, open-source tool review, bilingual research for wallet/copy/scalping/trend/mean-reversion/LP/arbitrage, four scoring/architecture specifications and a frozen next-experiment protocol.
 
-ETH12month S0=107.3221mid/105.5747stress; S1scenario=107.3221/104.2424; S2scenario=107.5434/104.4575. Adverse6months remain negative. Actual exact-cost/liquidity S1/S2 are PENDING. No daily living-income target qualified.
+Exactly four hypotheses are selected for later falsification: smart-wallet consensus copy, smart-flow confirmation of corrected ATR, cost-aware liquid-pair mean-reversion scalping and point-in-time leader rotation with cash. Smart labels are optional enrichment; raw event accounting and follower-time execution are required. Meta allocation remains architecture only.
 
-A dependency-free file-only JSON/FA/EN HTML accounting prototype exists. It is not a full strategy/security audit and does not establish absence of lookahead or overfitting. Browser visual QA, customer interviews, demand/pricing validation and independent product review remain incomplete. Recorded customers/receipts/revenue for this mission:0. No commercial messages, payment setup, funded keys, signature, transaction or persistent service.
+LP needs position-level fee/range evidence; arbitrage lacks atomic/speed advantage; harmful MEV, martingale and uncontrolled averaging are rejected. The70–75% win-rate preference is a target for copy/scalp, never sufficient without PF/expectancy/stress-cost/drawdown gates.
 
-Read docs/fa/edgelab_recovery_20261019.md or the English counterpart, reports/edgelab_recovery_20261019/ and research/revenue_strategy/EDGELAB_PROTOCOL.json. To generate labeled synthetic reports: `PYTHONPATH=src python3 scripts/edgelab_demo.py --output runtime/new-edgelab-demo` using a new output path. The full prior timeframe publication remains unfinished; its gates are not silently closed.
+No API keys, paid services, wallet, signature, approval, transaction, persistent collector or new performance claim. The earlier timeframe publication remains incomplete, EdgeLab demand remains unvalidated and all existing execution/data gates remain open.
+
+Read `docs/fa/multi_edge_spot_20261020.md`, the English equivalent and `research/multi_edge_spot/NEXT_EXPERIMENT_PROTOCOL.json`.
 
 ## فارسی
 
-کد موجود بازیابی و۲۸تست دوباره اجرا شد؛ گزارش نمونه فارسی/انگلیسی تولید و۷۲آزمون معاملاتی به‌همراه۴۸معیار با خروجی قبلی تطبیق داده شد. این کار جدیدِ مستقل بازار نیست. محصول فعلاً نمونه بررسی فایل است،نه فروش تأییدشده؛ درآمد ثبت‌شده صفر است. سود پایدار،هزینه اجرای دقیق و داده مستقل احراز نشده و پول واقعیNO-GOاست. جزئیات و محدودیت‌ها در گزارش بازیابی دوزبانه آمده‌اند.
+نقشه پژوهشی سیستم Spot چندلبه‌ای تکمیل شد، ولی هیچ بک‌تست گسترده یا معامله‌ای انجام نشد. چهار فرضیه Smart Wallet Consensus، تأیید ATR با جریان Wallet، Scalping Mean-Reversion هزینه‌محور و Leader Rotation زمان‌مند برای تست بعد ثابت شده‌اند. برچسب Provider حقیقت تاریخی نیست و اجرای دنبال‌کننده/هزینه کامل الزامی است. LP و آربیتراژ معلق و MEV مخرب/Martingale رد شده‌اند. پول واقعی و Live همچنان NO-GO است.

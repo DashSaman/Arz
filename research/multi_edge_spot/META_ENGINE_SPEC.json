@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "date_utc": "2026-10-20",
+  "status": "ARCHITECTURE_ONLY_NOT_IN_NEXT_PERFORMANCE_TEST",
+  "engines": [
+    "SMART_WALLET_CONSENSUS",
+    "SMART_FLOW_ATR_CONFIRMATION",
+    "COST_AWARE_SCALP",
+    "POINT_IN_TIME_LEADER_ROTATION",
+    "EXISTING_ATR_TREND",
+    "CASH"
+  ],
+  "research_only_engines": [
+    "LP"
+  ],
+  "deferred_engines": [
+    "ARBITRAGE",
+    "EVENT_DRIVEN"
+  ],
+  "rejected_engines": [
+    "HARMFUL_MEV",
+    "MARTINGALE",
+    "UNCONTROLLED_AVERAGING"
+  ],
+  "candidate_contract": {
+    "required_fields": [
+      "engine_id",
+      "asset",
+      "chain",
+      "signal_time",
+      "available_at",
+      "valid_until",
+      "evidence_class",
+      "entry_condition",
+      "estimated_gross_move",
+      "all_in_cost_bound",
+      "risk_distance",
+      "data_quality",
+      "source_versions"
+    ],
+    "missing_field_action": "REJECT"
+  },
+  "risk_engine": {
+    "independent": true,
+    "can_veto": true,
+    "opportunity_engine_cannot_override": true,
+    "initial_hypothetical_capital": 100,
+    "max_order_quote_units": 25,
+    "cash_reserve_quote_units": 10,
+    "max_open_positions_initially": 1,
+    "leverage": 0,
+    "borrowing": false,
+    "martingale": false
+  },
+  "allocation": "No combined performance allocation until at least two individual engines pass frozen tests. For architecture only, highest positive expected-net candidate may be considered; uncalibrated expected edge means CASH.",
+  "cash_is_valid_state": true,
+  "cash_is_income": false,
+  "financial_authority": "NONE"
+}
