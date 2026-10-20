@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "date_utc": "2026-10-20",
+  "ranking_is_not_profit_probability": true,
+  "items": [
+    {
+      "id": "H1_SMART_WALLET_CONSENSUS_COPY",
+      "mechanism": "public wallet skill/information retained after follower delay",
+      "status": "TEST_NEXT",
+      "priority_score": 24,
+      "data_blockers": [
+        "point-in-time wallet cohort",
+        "complete cost basis",
+        "follower-time quotes"
+      ],
+      "selected": true
+    },
+    {
+      "id": "H2_SMART_FLOW_ATR_CONFIRMATION",
+      "mechanism": "wallet accumulation confirms/vetoes existing trend entries",
+      "status": "HIGH_PRIORITY_TEST_NEXT",
+      "priority_score": 25,
+      "data_blockers": [
+        "wallet cohort/flow history"
+      ],
+      "selected": true
+    },
+    {
+      "id": "H3_COST_AWARE_MEAN_REVERSION_SCALP",
+      "mechanism": "temporary liquid price pressure reverts after all costs",
+      "status": "TEST_NEXT_CONDITIONAL_DATA",
+      "priority_score": 20,
+      "data_blockers": [
+        "event-level/1m history",
+        "exact quote and failure costs"
+      ],
+      "selected": true
+    },
+    {
+      "id": "H4_POINT_IN_TIME_LEADER_ROTATION",
+      "mechanism": "absolute and cross-sectional momentum with cash",
+      "status": "TEST_NEXT",
+      "priority_score": 25,
+      "data_blockers": [
+        "point-in-time major-token universe and routes"
+      ],
+      "selected": true
+    },
+    {
+      "id": "H5_STANDALONE_MEAN_REVERSION",
+      "mechanism": "local deviation reversion",
+      "status": "RESEARCH_MORE",
+      "priority_score": 18,
+      "selected": false,
+      "reason": "folded into cost-aware scalp to limit trials"
+    },
+    {
+      "id": "H6_LP_POSITION_NET_RETURN",
+      "mechanism": "swap fees minus inventory/adverse-selection/operations",
+      "status": "RESEARCH_MORE_DATA_REQUIRED",
+      "priority_score": 17,
+      "selected": false,
+      "reason": "no position-level historical fees/ranges/costs"
+    },
+    {
+      "id": "H7_DEX_ARBITRAGE",
+      "mechanism": "simultaneous executable price convergence",
+      "status": "DEFER",
+      "priority_score": 12,
+      "selected": false,
+      "reason": "atomicity/speed/capital advantage absent"
+    },
+    {
+      "id": "H8_EVENT_DRIVEN",
+      "mechanism": "delayed public-information repricing",
+      "status": "RESEARCH_MORE",
+      "priority_score": 15,
+      "selected": false,
+      "reason": "historical first-seen corpus unavailable"
+    },
+    {
+      "id": "H9_GENERAL_ONCHAIN_FLOW",
+      "mechanism": "transfer/liquidity flow as context",
+      "status": "FEATURE_RESEARCH",
+      "priority_score": 17,
+      "selected": false,
+      "reason": "flow is not causation; use inside selected hypotheses only"
+    },
+    {
+      "id": "H10_HARMFUL_MEV",
+      "mechanism": "extract value from user transaction ordering",
+      "status": "REJECT",
+      "priority_score": 2,
+      "selected": false,
+      "reason": "harmful and specialized"
+    }
+  ],
+  "selected_count": 4
+}

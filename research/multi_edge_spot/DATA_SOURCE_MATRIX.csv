@@ -1,0 +1,17 @@
+data_type,source,free_status,history,latency,license_or_terms,arz_value,status
+OHLCV / price history,Trading Strategy cached project data,partial/existing,pool-dependent; known gaps,4h in current project,provider terms/hash provenance,Price/trend baselines,REUSED_ONLY
+EVM DEX swaps,Dune dex.trades,credit-based query,multi-chain historical curated data,warehouse/query latency,Dune API + Spellbook model license lineage,Wallet/flow and universe research,CANDIDATE
+EVM/Solana DEX swaps,Bitquery Trading/chain cubes,free IDE + paid/key products,~30d clean cube; archives vary,real-time to archive,provider terms,Wallet trades and delay study,CANDIDATE_WITH_COST
+Solana wallet activity,Helius Wallet API,free history; paid identity,history/balance-at product dependent,REST near-real-time,provider terms,Raw history and exclusion labels,CANDIDATE_SOLANA_PHASE2
+Smart-money labels/flows,Nansen,paid/premium API,date filters available; historical label-version semantics unproven,API near-real-time,provider terms/proprietary labels,Optional enrichment and comparison,OPTIONAL_NOT_GROUND_TRUTH
+Entity labels/flows,Arkham,unresolved,unresolved,unresolved,provider terms,Optional exclusion/enrichment,PENDING_REVIEW
+Protocol-specific events,The Graph,100k free monthly then usage,depends on subgraph/version,indexing lag,API key and subgraph license,Swaps/LP position events,CANDIDATE
+Raw EVM extraction,cryo + archive RPC,software free; RPC/storage cost,node/archive dependent,batch,Apache-2.0 plus RPC terms,Reproducible EVM event lake,HIGH_VALUE_EVM
+Raw EVM/Solana ETL,SQD/Subsquid,software free; network/storage cost,provider/archive dependent,stream/batch,Apache-2.0 plus provider terms,Cross-chain event pipeline,CANDIDATE_IF_SCALE
+Current pair/liquidity snapshot,DEX Screener,public rate-limited,current only in official reference,polling,API terms,Discovery/current safety checks,NOT_HISTORICAL_SOURCE
+TVL/protocol/chain history,DefiLlama,mixed free/API plan,historical TVL and selected metrics,daily/endpoint specific,API terms,Context and universe screening,NOT_EXECUTABLE_LIQUIDITY
+Exact-input quote,Uniswap Quoter / protocol contracts,RPC cost,current chain state; archive requires node,block-level simulation,protocol/RPC terms,Execution qualification,REQUIRED_FOR_UNISWAP
+Base gas components,Base GasPriceOracle/RPC,RPC cost,current and historical block data if available,block-level,chain/RPC terms,L1+L2 cost,REQUIRED_BASE
+Solana fees,Solana RPC/runtime,RPC cost,transaction/block history,slot-level,chain/RPC terms,Base/priority/failed transaction cost,REQUIRED_SOLANA
+Cost-basis reference,rotki,open source,depends on imported history,offline,AGPL-3.0,FIFO/ACB/fee semantics reference,REFERENCE_NOT_DROPIN
+Wallet labels,Any provider,never treated as ground truth,must store label version and observed_at,provider-specific,provider terms,Exclusion/enrichment,POINT_IN_TIME_REQUIRED
