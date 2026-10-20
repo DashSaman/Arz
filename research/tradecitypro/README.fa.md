@@ -170,3 +170,9 @@ Win rate واقعی فقط وقتی قابل دفاع است که برای هم�
 فعلاً این ولت‌ها نباید منبع automatic copy-trading شوند. چیزی که ارزش تحقیق دارد استخراج الگوهای قابل تکرار است: زمان ورود، انتخاب دارایی، مدت نگهداری، سهم LP/yield و محدودیت ریسک؛ سپس باید مستقل و با محدودیت‌های DEX-only و no-leverage پروژه Arz بک‌تست شود.
 
 این audit هیچ مجوزی برای live trading ایجاد نمی‌کند و وضعیت کلی **NO-GO** پروژه را تغییر نمی‌دهد.
+
+## ادامه استخراج استراتژی
+
+مرحله بعدی کالبدشکافی رفتار و استخراج Ruleها در [strategy/STRATEGY_EXTRACTION.fa.md](strategy/STRATEGY_EXTRACTION.fa.md) ثبت شده است. فایل‌های Machine-readable شامل Position Episodeها، ویژگی‌های رفتاری، Ruleهای کاندید Arz، Snapshot تازه و Source Manifest نیز در پوشه [strategy/](strategy/) قرار دارند.
+
+این مرحله رفتارهای احتمالاً قابل تکرار مثل ورود پله‌ای، خروج پله‌ای، Routing و جداسازی ولت را از رفتارهای غیرقابل تکرار یا نامجاز برای Arz مثل Claim/Vesting به‌عنوان Alpha، Drawdown بدون کنترل و Leverage جدا می‌کند.
