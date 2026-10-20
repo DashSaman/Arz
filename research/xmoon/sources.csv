@@ -1,0 +1,6 @@
+source_id,retrieved_date,source_type,url,claim,status
+XMOON_TV_PREMIUM,2026-10-20,first_party,https://www.tradingview.com/script/BE2Z3Y4F-Xmoon-3-Push-Divergence-Premium/,"3-Push RSI core; four pivot tiers; HTF MA200 and HTF RSI confirmations; weighted 2-10 step entries; break-even/targets/liquidity",verified_public_description
+XMOON_TV_DCA,2026-10-20,first_party,https://www.tradingview.com/chart/AUDCAD/8wMT3mUf-Xmoon-Indicator-Tutorial-Part-3-Step-Entry-DCA-Entry/,"DCA/step entry adds positions if price continues against the initial setup",verified_public_description
+XMOON_TV_V1,2026-10-20,first_party,https://www.tradingview.com/script/hy72ihEV-Xmoon-3-Push-Divergence-V1/,"V1 source is protected and Premium is not public source",verified_public_description
+ATA_HOME,2026-10-20,first_party,https://ata.trade/?language=en,"Falcon Assistant advertises 3Push+Divergence and ICT strategies",verified_public_description
+ATA_VERSION,2026-10-20,first_party,https://ata.trade/version-history/?language=en,"ATA version history records Three Pushes-Divergence+Choch in 2024",verified_public_description
