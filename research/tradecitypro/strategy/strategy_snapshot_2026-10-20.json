@@ -1,0 +1,164 @@
+{
+  "generated_at": "2026-10-20",
+  "fresh_main_debank_snapshot": {
+    "net_worth_usd": 15072,
+    "note": "A fresh profile read during strategy extraction. Earlier same-day audit reads returned ~23,959; tracker snapshot instability is preserved as a data-quality warning.",
+    "wallet_usd": 5294,
+    "wallet_pct": 35.12,
+    "listed_protocol_positions_usd": 9774,
+    "listed_protocol_pct": 64.85,
+    "chains_usd": {
+      "bnb_chain": 4334,
+      "ethereum": 3857,
+      "arbitrum": 2650,
+      "zksync_era": 2565,
+      "avalanche": 1103,
+      "base": 399,
+      "mode": 146
+    },
+    "protocol_positions_usd": {
+      "Venus": 3614,
+      "Ethena": 2207,
+      "zkSwap_Finance": 1011,
+      "Portal_Gaming": 640,
+      "gTrade": 584,
+      "Beefy_Avalanche": 438,
+      "Beefy_Base": 261,
+      "Lido": 260,
+      "DODO": 177,
+      "Kim": 124,
+      "LFJ": 122,
+      "Prisma": 118,
+      "Human_Passport": 89,
+      "Stargate": 56,
+      "Maverick": 35,
+      "Camelot": 20,
+      "Aerodrome": 18
+    }
+  },
+  "provisional_open_balance_cost_basis_update": {
+    "caveat": "Average-buy values come from the secondary CoinStats snapshot captured in the prior audit and could not be re-fetched after 403 responses. Current prices below are from the fresh DeBank snapshot; these are open-balance estimates, not realized PnL.",
+    "rows": [
+      {
+        "token": "GNS",
+        "amount": 1230.9611,
+        "avg_buy_usd": 4.175,
+        "current_price_usd": 0.403,
+        "estimated_open_cost_usd": 5139.26,
+        "current_value_usd": 496.08,
+        "estimated_open_pnl_usd": -4643.19,
+        "estimated_roi_pct": -90.35
+      },
+      {
+        "token": "ARB",
+        "amount": 1328.798,
+        "avg_buy_usd": 0.9584,
+        "current_price_usd": 0.1979,
+        "estimated_open_cost_usd": 1273.52,
+        "current_value_usd": 262.97,
+        "estimated_open_pnl_usd": -1010.55,
+        "estimated_roi_pct": -79.35
+      },
+      {
+        "token": "AVAX",
+        "amount": 69.8771,
+        "avg_buy_usd": 16.73,
+        "current_price_usd": 9.501,
+        "estimated_open_cost_usd": 1169.04,
+        "current_value_usd": 663.9,
+        "estimated_open_pnl_usd": -505.14,
+        "estimated_roi_pct": -43.21
+      },
+      {
+        "token": "LINK",
+        "amount": 77.805,
+        "avg_buy_usd": 15.12,
+        "current_price_usd": 11.8947,
+        "estimated_open_cost_usd": 1176.41,
+        "current_value_usd": 925.47,
+        "estimated_open_pnl_usd": -250.94,
+        "estimated_roi_pct": -21.33
+      },
+      {
+        "token": "XVS",
+        "amount": 79.1055,
+        "avg_buy_usd": 5.476,
+        "current_price_usd": 2.927,
+        "estimated_open_cost_usd": 433.18,
+        "current_value_usd": 231.54,
+        "estimated_open_pnl_usd": -201.64,
+        "estimated_roi_pct": -46.55
+      },
+      {
+        "token": "WBNB",
+        "amount": 0.3425,
+        "avg_buy_usd": 364.61,
+        "current_price_usd": 727.7,
+        "estimated_open_cost_usd": 124.88,
+        "current_value_usd": 249.24,
+        "estimated_open_pnl_usd": 124.36,
+        "estimated_roi_pct": 99.58
+      },
+      {
+        "token": "ZK",
+        "amount": 19946.0124,
+        "avg_buy_usd": 0.008883,
+        "current_price_usd": 0.0145,
+        "estimated_open_cost_usd": 177.18,
+        "current_value_usd": 289.22,
+        "estimated_open_pnl_usd": 112.04,
+        "estimated_roi_pct": 63.23
+      },
+      {
+        "token": "DRV",
+        "amount": 377.9159,
+        "avg_buy_usd": 0.04874,
+        "current_price_usd": 0.3865,
+        "estimated_open_cost_usd": 18.42,
+        "current_value_usd": 146.06,
+        "estimated_open_pnl_usd": 127.64,
+        "estimated_roi_pct": 692.98
+      }
+    ]
+  },
+  "observed_activity": {
+    "main": {
+      "initiated_rows": 330,
+      "active_days": 84,
+      "swap": 44,
+      "liquidity": 17,
+      "staking": 17,
+      "bridge": 10,
+      "lending": 2,
+      "approvals": 92
+    },
+    "deficity": {
+      "initiated_rows": 75,
+      "active_days": 25,
+      "swap_outer_methods": 6,
+      "lending": 3,
+      "bridge": 8,
+      "staking": 2,
+      "approvals": 27
+    },
+    "team": {
+      "initiated_rows": 94,
+      "active_days": 40,
+      "swap": 4,
+      "liquidity": 1,
+      "claim_vesting_reward": 24,
+      "approvals": 10
+    }
+  },
+  "funding_structure": {
+    "team_to_main_eth": 6.932,
+    "main_to_deficity_eth": 6.27
+  },
+  "conclusions": [
+    "TradeCityPro behavior is a multi-protocol yield/LP/cross-chain portfolio process, not a simple spot-entry signal feed.",
+    "Claims/vesting and treasury transfers materially contaminate naive PnL/win-rate calculations.",
+    "Observed staged entries and tranche exits are plausible execution techniques worth independent backtesting.",
+    "Observed deep underwater open balances are a negative lesson for Arz; no-stop behavior should not be copied.",
+    "Deficity leverage/borrowing is outside Arz's no-leverage design."
+  ]
+}
