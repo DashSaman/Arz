@@ -78,3 +78,10 @@ Run `python scripts/consolidate_research.py --output-root runtime/registry_rebui
 `sources_arz.csv` holds four separately registered root-experiment references for the official German salary benchmark, ECB conversion, OHLCV documentation and observed pool analytics. They are outside the preserved 190-record union and its existing collision/row-preservation manifest; they do not change that snapshot's count or claim four additional independent profitability sources. `venue_index.csv` indexes eight DEX table entries plus the separate Hyperliquid product table.
 
 فایل `sources_arz.csv` چهار ارجاع تکمیلیِ آمار رسمی حقوق آلمان، نرخ ECB، مستند OHLCV و مشاهدهٔ استخر را ثبت می‌کند. این‌ها خارج از اجتماع حفظ‌شدهٔ ۱۹۰رکوردی و manifest آن هستند و تعداد آن نسخه یا شواهد مستقل سودآوری را افزایشِ ادعایی نمی‌دهند. `venue_index.csv` هشت صرافی جدول اصلی و جدول مستقل محصولات Hyperliquid را فهرست می‌کند.
+
+
+## TradeCityPro public-wallet audit / ممیزی کیف‌پول‌های عمومی TradeCityPro
+
+The dated 2026-10-20 OSINT/on-chain audit is in [tradecitypro/README.md](tradecitypro/README.md), with the Persian report in [tradecitypro/README.fa.md](tradecitypro/README.fa.md). Raw transaction inventories, classified transaction ledgers, the dated portfolio snapshot and source manifest are in [tradecitypro/data/](tradecitypro/data/).
+
+این ممیزی فقط کیف‌پول‌های عمومیِ خوداظهارشده یا منتسب به تیم را بررسی می‌کند و شامل کشف یا خوشه‌بندی کیف‌پول‌های مخفی نیست. گزارش فارسی در [tradecitypro/README.fa.md](tradecitypro/README.fa.md) و داده‌های خام و طبقه‌بندی‌شده در [tradecitypro/data/](tradecitypro/data/) قرار دارند. اعداد Win Rate و Realized PnL فقط در صورت کامل‌بودن cost basis و پوشش زنجیره‌ای منتشر می‌شوند.
