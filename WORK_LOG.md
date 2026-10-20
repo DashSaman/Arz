@@ -64,3 +64,27 @@ The final combined check executed all 56 tests successfully but initially reject
 ### فارسی
 
 ادغام دووالدی واقعی با شناسهٔ 818c3f02aba5fa5064e14b56612341e003a3684c ساخته شد؛ هر دو سابقه حفظ و main با کنترل مقدار قبلی و بدون Force به‌روز و دوباره خوانده شد. هویت و حالت هر ۲۹۷ فایل دوردست با تحویل محلی یکسان بود؛ فایل اضافه، مفقود یا متفاوت وجود نداشت. هر دو نمودار نیز از نظر بایت تطبیق داشتند. دو workflow واقعی با شناسه‌های بالا موفق شدند و فرادادهٔ اجرا و گام‌ها جدا خوانده و ثبت شد. این Commit بعدی صرفاً شواهد مشاهده‌شده را در اسناد ثبت می‌کند؛ هسته، استراتژی و تنظیمِ آزموده‌شده تغییر نکرده‌اند. معاملهٔ واقعی غیرفعال و تصمیم NO-GO باقی است.
+
+
+## 2026-10-20 — TradeCityPro public-wallet audit
+
+- Audited only wallets publicly self-disclosed by Trade City Pro or clearly attributed to the public team. No hidden-wallet clustering, exchange-deposit inference, private identity lookup or deanonymization was performed.
+- Added bilingual audit reports under `research/tradecitypro/` plus raw and classified data under `research/tradecitypro/data/`.
+- Captured a public DeBank snapshot of approximately $23,959 for `tradecitypro.eth`, $36,084 for `deficitypro.eth`, and $62,965 for `tradecityproteam.eth`; the approximately $123,008 combined EVM snapshot includes team assets and is not a personal-net-worth claim.
+- Preserved 586 normal transactions, 494 ERC-20 transfers and 641 internal operations from the keyless Routescan extraction. Classified initiated transactions into swaps, liquidity, staking, lending, bridges, transfers, claims and other protocol interactions.
+- Reconstructed the 2024-08-20 GEMS exit at high confidence: 90,902.81449086 GEMS sold in three Universal Router transactions for 5.5590334062 ETH, approximately $14.7k using dated Coinbase ETH/USD candles. Public acquisition/allocation cost basis is incomplete, so no GEMS ROI or realized-profit claim is made.
+- Found that Routescan `amountInUsd` is unsuitable as historical transaction-time valuation for this dataset; raw values remain preserved but are excluded from realized-PnL conclusions.
+- Recorded a provisional open-balance cost-basis snapshot that shows large drawdowns in some spot balances (notably ARB and GNS) alongside profitable balances, while clearly separating those estimates from realized PnL and DeFi protocol positions.
+- Full lifetime realized PnL and a single global win rate remain unresolved because the retrieved keyless event set is incomplete for several chains visible in DeBank (including Base, BSC, Arbitrum, zkSync Era, Soneium, Mantle and Mode) and because LP/lending/bridge/vesting flows require economic-position normalization.
+- No runtime, strategy or live-trading code was changed. Live trading remains disabled and the project-wide real-capital decision remains NO-GO.
+
+### فارسی
+
+- فقط کیف‌پول‌هایی بررسی شدند که خود Trade City Pro عمومی کرده یا انتساب آن‌ها به تیم به‌صورت عمومی روشن است؛ هیچ جست‌وجوی ولت مخفی یا استنتاج هویت خصوصی انجام نشد.
+- گزارش فارسی و انگلیسی و داده‌های خام/طبقه‌بندی‌شده در `research/tradecitypro/` ثبت شدند.
+- Snapshot عمومی DeBank حدود ۲۳٬۹۵۹ دلار برای ولت اصلی، ۳۶٬۰۸۴ دلار برای DeficityPro و ۶۲٬۹۶۵ دلار برای ولت تیم نشان داد. جمع حدود ۱۲۳٬۰۰۸ دلار شامل دارایی تیم است و ادعای ثروت شخصی نیست.
+- ۵۸۶ تراکنش عادی، ۴۹۴ انتقال ERC-20 و ۶۴۱ internal operation در داده خام حفظ و فعالیت‌ها به Swap، LP، Staking، Lending، Bridge و غیره طبقه‌بندی شدند.
+- خروج GEMS در ۲۰ اوت ۲۰۲۴ بازسازی شد: ۹۰٬۹۰۲٫۸۱۴۴۹۰۸۶ GEMS در سه تراکنش به ۵٫۵۵۹۰۳۳۴۰۶۲ ETH تبدیل شده که با قیمت تاریخی ETH حدود ۱۴٫۷ هزار دلار proceeds دارد. چون cost basis تخصیص اولیه معلوم نیست، ROI یا سود قطعی برای GEMS اعلام نشده است.
+- فیلد `amountInUsd` ایندکسر برای PnL تاریخی معتبر تشخیص داده نشد و فقط به‌عنوان داده خام نگه داشته شد.
+- Win rate و lifetime realized PnL نهایی عمداً عددسازی نشده‌اند چون event history چند زنجیره کامل نیست و جریان‌های LP/وام/bridge/vesting باید ابتدا به پوزیشن اقتصادی تبدیل شوند.
+- هیچ کد اجرای واقعی تغییر نکرد؛ Live Trading غیرفعال و تصمیم کلی NO-GO باقی است.
