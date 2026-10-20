@@ -1,0 +1,33 @@
+{
+  "status": "research_only_not_xmoon_source",
+  "live_execution": false,
+  "leverage": false,
+  "max_steps": 10,
+  "publicly_supported_components": [
+    "3-push RSI divergence core",
+    "pivot classification by bar distance into four tiers",
+    "2-10 step entries",
+    "weighted step sizing",
+    "higher-timeframe MA200 confirmation",
+    "higher-timeframe RSI overbought/oversold confirmation",
+    "risk-free/break-even and target levels"
+  ],
+  "unknown_proprietary_details": [
+    "pivot tier thresholds",
+    "RSI period and exact pivot algorithm",
+    "entry-step spacing formula",
+    "step-weight progression formula",
+    "target formula",
+    "spot invalidation formula",
+    "exact higher-timeframe mapping",
+    "execution timing and fill assumptions"
+  ],
+  "hypothesis_grid": {
+    "rsi_period": [7, 14, 21],
+    "pivot_left_right": [[2, 2], [3, 3], [5, 5]],
+    "dca_scheme": ["equal", "linear", "inverse_vol"],
+    "step_spacing": ["percent", "atr"],
+    "steps": [2, 3, 4, 5]
+  },
+  "anti_overfit_rule": "Choose parameter families on development data only; evaluate a locked choice on a new untouched out-of-sample period. Do not retune on the existing Arz holdout."
+}
