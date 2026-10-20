@@ -1,0 +1,214 @@
+{
+  "snapshot_date": "2026-10-20",
+  "scope": "publicly disclosed or clearly public-team-attributed wallets only; no hidden-wallet clustering",
+  "wallets": [
+    {
+      "label": "tradecitypro_main",
+      "address": "0x0ab94c79f986bbf77df888ac25e348cc3d7c9af8",
+      "ens": "tradecitypro.eth",
+      "role": "public main wallet",
+      "confidence": "high",
+      "debank_net_worth_usd": 23959,
+      "chains_usd": {
+        "zksync_era": 6567,
+        "bnb_chain": 6052,
+        "ethereum": 4581,
+        "arbitrum": 4472,
+        "avalanche": 1444,
+        "base": 586,
+        "mode": 234
+      },
+      "wallet_liquid_usd": 7633,
+      "notable_protocols_usd": {
+        "Venus": 5142,
+        "zkSwap_Finance": 4179,
+        "Ethena": 2422,
+        "gTrade": 1242,
+        "Portal_Gaming": 951,
+        "Beefy_avax": 560,
+        "Beefy_base": 486,
+        "Lido": 313,
+        "DODO": 207,
+        "Kim": 204,
+        "Prisma": 182,
+        "LFJ": 173
+      }
+    },
+    {
+      "label": "deficitypro",
+      "address": "0xbbc7840f1bc63abecbcad50d4ac1acb37d096765",
+      "ens": "deficitypro.eth",
+      "role": "public DeFi/trading wallet",
+      "confidence": "high",
+      "debank_net_worth_usd": 36084,
+      "chains_usd": {
+        "base": 16210,
+        "ethereum": 13871,
+        "soneium": 2485,
+        "bnb_chain": 2131,
+        "mantle": 849,
+        "sonic": 208,
+        "optimism": 173,
+        "arbitrum": 121
+      },
+      "wallet_liquid_usd": 9045,
+      "notable_protocols_usd": {
+        "Extra_Finance": 7590,
+        "Aave_V3_Base": 7524,
+        "SatLayer": 4448,
+        "SoneFi": 1798,
+        "Lombard": 1313,
+        "Aave_V3_Ethereum": 1291,
+        "Aerodrome": 1065
+      }
+    },
+    {
+      "label": "tradecitypro_team",
+      "address": "0x8a5e67978061c1fb60788d10d2b635cb76b9354a",
+      "ens": "tradecityproteam.eth",
+      "role": "team/treasury wallet; not treated as personal",
+      "confidence": "high_for_team_not_personal",
+      "debank_net_worth_usd": 62965,
+      "chains_usd": {
+        "ethereum": 58339,
+        "soneium": 2150,
+        "mode": 1195,
+        "zksync_era": 1107,
+        "arbitrum": 175
+      },
+      "wallet_liquid_usd": 62060,
+      "notable_protocols_usd": {
+        "zkSwap_Finance": 569,
+        "Portal_Gaming": 149,
+        "Uniswap_V3": 87,
+        "Camelot_V3": 62,
+        "Camelot": 39
+      }
+    },
+    {
+      "label": "tradecitypro_team_tron",
+      "address": "TY39pzwtHMwQzAgnVHxvPtqqadnwQ8eynV",
+      "role": "public team payment address on TRON",
+      "confidence": "high_for_team_not_personal",
+      "debank_net_worth_usd": null,
+      "notes": "TRON is outside the EVM/DeBank audit and was not included in the combined EVM snapshot."
+    }
+  ],
+  "combined_three_evm_public_wallets_usd": 123008,
+  "routescan_inventory": {
+    "normal_transactions": 586,
+    "erc20_transfers": 494,
+    "internal_operations": 641
+  },
+  "initiated_classification": {
+    "tradecitypro_main": {
+      "rows": 330,
+      "swap": 44,
+      "liquidity": 17,
+      "staking": 17,
+      "bridge": 10,
+      "owned_wallet_transfer": 6,
+      "approval": 92
+    },
+    "deficitypro": {
+      "rows": 75,
+      "swap": 6,
+      "lending": 3,
+      "bridge": 8,
+      "staking": 2,
+      "approval": 27
+    },
+    "tradecitypro_team": {
+      "rows": 94,
+      "swap": 4,
+      "liquidity": 1,
+      "claim_vesting_reward": 24,
+      "owned_wallet_transfer": 2,
+      "approval": 10
+    }
+  },
+  "gem_sale_2024_08_20": {
+    "sold_gems": 90902.81449085714,
+    "eth_received": 5.559033406181688,
+    "approximate_usd_proceeds_using_coinbase_hourly_close": 14706.1,
+    "pnl_usd": null,
+    "roi_pct": null,
+    "reason": "Entry/allocation cost basis is not publicly reconstructible with sufficient confidence; do not infer ROI from current-value amountInUsd fields."
+  },
+  "provisional_open_wallet_token_cost_basis_snapshot": {
+    "provenance": "Secondary CoinStats average-buy snapshot captured earlier in the 2026-10-20 audit; current prices from DeBank snapshot. Not independently re-fetched after CoinStats began returning 403.",
+    "rows": [
+      {
+        "token": "GNS",
+        "amount": 1230.9611,
+        "avg_buy_usd": 4.175,
+        "current_price_usd": 1.116,
+        "estimated_open_pnl_usd": -3765.51,
+        "estimated_roi_pct": -73.27
+      },
+      {
+        "token": "ARB",
+        "amount": 1328.798,
+        "avg_buy_usd": 0.9584,
+        "current_price_usd": 0.1917,
+        "estimated_open_pnl_usd": -1018.79,
+        "estimated_roi_pct": -80
+      },
+      {
+        "token": "XVS",
+        "amount": 79.1055,
+        "avg_buy_usd": 5.476,
+        "current_price_usd": 4.37,
+        "estimated_open_pnl_usd": -87.49,
+        "estimated_roi_pct": -20.2
+      },
+      {
+        "token": "AVAX",
+        "amount": 69.8771,
+        "avg_buy_usd": 16.73,
+        "current_price_usd": 12.62,
+        "estimated_open_pnl_usd": -287.19,
+        "estimated_roi_pct": -24.57
+      },
+      {
+        "token": "LINK",
+        "amount": 77.805,
+        "avg_buy_usd": 15.12,
+        "current_price_usd": 12.4023,
+        "estimated_open_pnl_usd": -211.45,
+        "estimated_roi_pct": -17.97
+      },
+      {
+        "token": "WBNB",
+        "amount": 0.3425,
+        "avg_buy_usd": 364.61,
+        "current_price_usd": 853,
+        "estimated_open_pnl_usd": 167.27,
+        "estimated_roi_pct": 133.95
+      },
+      {
+        "token": "ZK",
+        "amount": 19946.0124,
+        "avg_buy_usd": 0.008883,
+        "current_price_usd": 0.03,
+        "estimated_open_pnl_usd": 421.2,
+        "estimated_roi_pct": 237.72
+      },
+      {
+        "token": "DRV",
+        "amount": 377.9159,
+        "avg_buy_usd": 0.04874,
+        "current_price_usd": 0.0498,
+        "estimated_open_pnl_usd": 0.4,
+        "estimated_roi_pct": 2.17
+      }
+    ]
+  },
+  "data_quality_notes": [
+    "Routescan address aggregation returned Ethereum and Avalanche for the main wallet and Ethereum for the other two in this extraction, despite requesting Ethereum/Arbitrum/Avalanche/BSC/Base chain IDs.",
+    "DeBank public portfolio proves substantial positions on Base, Arbitrum, BSC, zkSync Era, Soneium, Mantle, Mode and others; event-level history for all those chains is therefore not complete in the Routescan CSVs.",
+    "Routescan amountInUsd is not safe as historical transaction-time USD valuation. It behaved like a current/indexed valuation for multiple assets, so it is retained as raw metadata but excluded from realized-PnL claims.",
+    "Spam/airdrop token receipts are excluded from trade counts unless the wallet initiated or economically participated in the transaction.",
+    "No hidden-wallet clustering or private identity inference was performed."
+  ]
+}
