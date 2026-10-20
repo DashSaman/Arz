@@ -1,0 +1,84 @@
+{
+  "status": "preregistered_followup_after_first_daily_screen_before_cross_asset_data_open",
+  "created_date": "2026-10-20",
+  "rationale": "The first preregistered daily screen produced no C signals and therefore could not evaluate preregistered E/F. An exploratory diagnostic on A signals suggested linear weighting may recover faster/with lower path drawdown. This follow-up tests that hypothesis on untouched assets; the original OOS is not reused as confirmatory evidence.",
+  "source": "coinmetrics/data CC BY-NC 4.0",
+  "untouched_assets": [
+    "yfi",
+    "bal",
+    "grt",
+    "ens",
+    "ldo",
+    "rpl",
+    "dydx",
+    "1inch"
+  ],
+  "evaluation_window": {
+    "start": "2022-01-01",
+    "end": "latest_available_per_asset",
+    "note": "Earlier rows may be used only as indicator warm-up."
+  },
+  "signal": {
+    "definition": "same A: long 3-Push from 2/2 confirmed price pivot lows with Wilder RSI14 rising across the three lower price lows",
+    "action_anchor": "next available daily close after confirmation"
+  },
+  "descriptive_context_only": {
+    "ma200_side": [
+      "above",
+      "below"
+    ],
+    "confirmation_rsi_bands": [
+      "<=35",
+      "35-45",
+      ">45"
+    ],
+    "note": "These are subgroup diagnostics, not trade filters in this follow-up."
+  },
+  "dca": {
+    "basket_budget_usd": 20,
+    "steps": 4,
+    "levels_pct_below_entry1": [
+      0,
+      0.03,
+      0.06,
+      0.09
+    ],
+    "horizon_days": 30,
+    "target": "costed break-even + 2%",
+    "costs": {
+      "entry_pct": 0.0015,
+      "exit_pct": 0.0015,
+      "fixed_entry_each_usd": 0.01,
+      "fixed_exit_usd": 0.01
+    },
+    "equal_weights": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "linear_weights": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "stop_on_first_recovery": true
+  },
+  "minimum_interpretable_signal_count": 20,
+  "primary_comparisons": [
+    "linear vs equal recovery rate within 30 days",
+    "linear vs equal median and worst diagnostic mark-to-market drawdown",
+    "linear vs equal final-step unrecovered rate"
+  ],
+  "signal_sanity": [
+    "median 20-day forward return",
+    "fraction of positive 20-day forward returns",
+    "median 20-day maximum adverse close-to-close excursion"
+  ],
+  "anti_overfit": [
+    "No parameter changes after reading these asset files.",
+    "If fewer than 20 eligible signals exist, label the follow-up insufficient rather than relax the rules.",
+    "Daily close path diagnostics are not executable DEX fills or profitability proof."
+  ]
+}
