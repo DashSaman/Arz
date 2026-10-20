@@ -190,3 +190,9 @@ Public portfolio evidence proves activity on Base, Arbitrum, BSC, zkSync Era, So
 Do **not** use these wallets as an automatic copy-trading source yet. The useful next research target is not “copy every swap”; it is to extract repeatable components (entry timing, asset selection, holding duration, LP/yield allocation and risk limits) and backtest them independently under Arz's DEX-only, no-leverage acceptance criteria.
 
 This audit does not authorize live trading and does not change the project-wide NO-GO status.
+
+## Strategy extraction follow-up
+
+The next-stage behavioral decomposition is now available in [strategy/STRATEGY_EXTRACTION.md](strategy/STRATEGY_EXTRACTION.md). Machine-readable position episodes, observed features, candidate Arz rules, the fresh dated snapshot and a dedicated source manifest are under [strategy/](strategy/).
+
+This follow-up separates potentially repeatable execution behavior (staged entries, tranche exits, routing and wallet segmentation) from non-repeatable or prohibited behavior (claims/vesting alpha, uncontrolled drawdowns and leverage).
