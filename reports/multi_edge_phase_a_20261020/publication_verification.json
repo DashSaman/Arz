@@ -1,0 +1,52 @@
+{
+  "review_date_utc": "2026-10-20",
+  "tested_source_commit": "02a8ae9604905ff19ce6c8c29aa9a8f989d656f6",
+  "base_commit": "41a2ef4eb018f9c697efba0557923abad908d244",
+  "pull_request": 24,
+  "pull_request_state": "OPEN_DRAFT",
+  "publication_checks": {
+    "published_phase_summary_read_back": true,
+    "candidate_status_count": 4,
+    "accepted_hypotheses": 0,
+    "financial_decision": "NO-GO",
+    "live_trading": "DISABLED",
+    "raw_provider_data_committed": false,
+    "performance_claim": "NONE_ACCEPTED"
+  },
+  "ci_observed_on_tested_source_commit": [
+    {
+      "run_id": 39355653370,
+      "name": "Multi-edge Phase A offline checks",
+      "status": "completed",
+      "conclusion": "success",
+      "verified_steps": [
+        "Multi-edge focused offline tests",
+        "Full offline regression suite",
+        "Compile research code"
+      ]
+    },
+    {
+      "run_id": 39355653298,
+      "name": "Arz offline-only tests",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "run_id": 39355653317,
+      "name": "Research-only checks",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "ci_scope": "Actual workflow metadata and Phase A job steps were read from GitHub for the tested source commit. Successful software/research checks are not independent financial review or market-performance evidence.",
+  "same_agent_review_not_independent_audit": true,
+  "new_market_data_downloads": 0,
+  "paid_api_calls": 0,
+  "financial_actions": 0,
+  "wallet_or_signing": false,
+  "persistent_service": false,
+  "all_candidates": "INSUFFICIENT_DATA",
+  "funded_decision": "NO-GO",
+  "live_trading": "DISABLED",
+  "note": "Evidence-only follow-up. It does not change source code, candidate rules, diagnostic outcomes or the frozen protocol."
+}
