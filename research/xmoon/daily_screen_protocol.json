@@ -1,0 +1,93 @@
+{
+  "status": "preregistered_before_daily_screen_results",
+  "created_date": "2026-10-20",
+  "purpose": "Independent coarse daily-price screen of public XMOON/ATA signal components; not a reproduction of proprietary source and not an executable DEX backtest.",
+  "source": {
+    "repository": "coinmetrics/data",
+    "license": "CC BY-NC 4.0",
+    "assets": [
+      "aave",
+      "link",
+      "uni",
+      "mkr",
+      "comp",
+      "crv",
+      "sushi",
+      "snx"
+    ],
+    "price_priority": [
+      "PriceUSD",
+      "ReferenceRateUSD",
+      "ReferenceRate"
+    ]
+  },
+  "partitions": {
+    "development_end": "2023-12-31",
+    "validation_start": "2024-01-01",
+    "validation_end": "2024-12-31",
+    "final_oos_start": "2025-01-01",
+    "final_oos_end": "latest_available_per_asset"
+  },
+  "signal": {
+    "rsi_period": 14,
+    "pivot_left": 2,
+    "pivot_right": 2,
+    "long_three_push": "three successively lower price pivot lows and three successively higher RSI pivot lows",
+    "execution_note": "For forward-return diagnostics, anchor at the next available daily close after confirmation; no same-bar action is claimed."
+  },
+  "variants": {
+    "A": "3-Push only",
+    "B": "A + close above daily SMA200 at confirmation",
+    "C": "B + confirmation-day RSI <= 30",
+    "E": "C signals + equal 4-step basket path diagnostic",
+    "F": "C signals + linear 1:2:3:4 4-step basket path diagnostic"
+  },
+  "omitted_in_this_coarse_screen": {
+    "D": "extra confluence is not defined from daily close-only archive",
+    "G": "inverse-vol step weighting is not meaningful without a preregistered per-step volatility mapping",
+    "note": "Omission is declared before results and is not a post-hoc result choice."
+  },
+  "forward_return_horizons_days": [
+    5,
+    10,
+    20
+  ],
+  "dca_path_diagnostic": {
+    "basket_budget_usd": 20,
+    "steps": 4,
+    "step_levels_pct_below_entry1": [
+      0,
+      0.03,
+      0.06,
+      0.09
+    ],
+    "max_horizon_days": 30,
+    "recovery_target_above_costed_break_even_pct": 0.02,
+    "entry_pct_cost": 0.0015,
+    "exit_pct_cost": 0.0015,
+    "fixed_entry_cost_each_usd": 0.01,
+    "fixed_exit_cost_usd": 0.01,
+    "one_fill_per_step": true,
+    "fill_rule": "diagnostic only: a step is considered reached on the first observed daily close at or below its level; fill value uses that observed close",
+    "schemes": {
+      "equal": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "linear": [
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  "anti_overfit": [
+    "No parameter changes after opening final OOS results.",
+    "Existing Arz WETH/Base holdout must not be used to tune this screen.",
+    "Daily close-only findings are screening evidence, not execution-quality evidence.",
+    "No live-capital decision can be upgraded from this screen alone."
+  ]
+}
