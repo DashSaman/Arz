@@ -1,0 +1,11 @@
+source_id,url,retrieved_date,use,notes
+TCP-S01,https://debank.com/profile/0x0ab94c79f986bbf77df888ac25e348cc3d7c9af8,2026-10-20,Fresh main portfolio snapshot,"Returned ~$15,072 in fresh strategy-extraction read; earlier same-day audit captured ~$23,959"
+TCP-S02,https://debank.com/profile/0x0ab94c79f986bbf77df888ac25e348cc3d7c9af8/history,2026-10-20,Main public history and spam/airdrop sanity checks,"History UI only exposes a bounded initial window without interactive Load More"
+TCP-S03,https://debank.com/profile/0x0ab94c79f986bbf77df888ac25e348cc3d7c9af8/history?chain=arb,2026-10-20,Arbitrum visible history,"Used only as supplemental public evidence"
+TCP-S04,https://debank.com/profile/0x0ab94c79f986bbf77df888ac25e348cc3d7c9af8/history?chain=bsc,2026-10-20,BNB Chain visible history,"Initial visible window mostly unsolicited receipts; not treated as trading"
+TCP-S05,https://debank.com/profile/0x0ab94c79f986bbf77df888ac25e348cc3d7c9af8/history?chain=base,2026-10-20,Base visible history,"Initial visible window mostly unsolicited receipts; not treated as trading"
+TCP-S06,https://debank.com/profile/0x8a5e67978061c1fb60788d10d2b635cb76b9354a,2026-10-20,Team portfolio snapshot,"Team role remains separate from personal-net-worth claims"
+TCP-S07,repository:research/tradecitypro/data/main_classified_transactions.csv,2026-10-20,Main transaction-level evidence,"Derived from preserved Routescan raw inventory"
+TCP-S08,repository:research/tradecitypro/data/deficity_classified_transactions.csv,2026-10-20,Deficity transaction-level evidence,"Derived from preserved Routescan raw inventory"
+TCP-S09,repository:research/tradecitypro/data/team_classified_transactions.csv,2026-10-20,Team transaction-level evidence,"Derived from preserved Routescan raw inventory"
+TCP-S10,repository:research/tradecitypro/data/audit_snapshot_2026-10-20.json,2026-10-20,Prior audit snapshot and provisional cost-basis context,"Preserves earlier values and limitations"
