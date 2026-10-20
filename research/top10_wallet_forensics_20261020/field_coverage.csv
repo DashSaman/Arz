@@ -1,0 +1,11 @@
+rank,wallet,closed_trade_level_rows,asset_pnl,average_entry_price,average_exit_price,position_size,stop_behavior,fees_funding,capital_flows,coverage_grade,reason
+1,0x8bae3527e5a33fa0cf184f37bc112d071463ab6d,NO_PUBLIC_ROWS,YES,OPEN_POSITIONS_ONLY,NO,OPEN_POSITIONS_ONLY,INFER_ONLY_FROM_OPEN_RISK,PARTIAL,NO,B,"Strong aggregate/open-position coverage; provider round-trip table is blank in public extraction"
+2,0x987163b6b482c30c2f5f3aa2760109668eb0091d,NO,NO,NO,NO,AGGREGATE_CAPITAL_ONLY,NO_DIRECT_STOP_ROWS,FEES_YES_FUNDING_NOT_MEASURED,YES,B-,"Excellent long account history but insufficient per-asset trade ledger"
+3,0x0ad9e656d9e6211d0ea1c5462342e1fc94cc4cbf,SELECTED_LARGE_POSITION_ONLY,SELECTED_ONLY,YES_FOR_SELECTED_STORAGE_POSITIONS,YES_FOR_SKHX_EXIT,YES_FOR_SELECTED_POSITIONS,YES_SELECTED_SKHX_CASE,FEES_AGGREGATE,YES,A-,"Best selected-position behavioral reconstruction, but not complete history"
+4,0x708f713637e28c014705fec1bab002992f53d4ea,NO_PUBLIC_ROWS,YES,NO,NO,NO_CURRENT_OPEN,NO,PARTIAL,NO,B-,"Per-asset aggregate is useful but analyzed window is extremely short"
+5,0x95da8596c44dd09f4b8becce87ad3b7894fb2328,NO_PUBLIC_ROWS,YES,YES_OPEN,NO,YES_OPEN,YES_LOSS_DEFERRAL_SIGNAL,PARTIAL,NO,A-,"Open loss book materially changes interpretation of 100% closed win rate"
+6,498g1rVnFcnjBjpfw1xyqA1WvgQXUU8RWuELjxkjAayQ,ONE_RECENT_SWAP,YES,NO,NO,BUY_SELL_TOTALS_ONLY,NO,NO,NO,B-,"Good 30d token PnL; no complete cost-basis ledger"
+7,2heJbC32Tpfcb3nbUb5ER61K11FGZVfVGtVnDm6LDogF,NO,YES,NO,NO,BUY_SELL_TOTALS_ONLY,NO,NO,NO,C+,"Provider/accounting conflict and very small sell volume make realized semantics uncertain"
+8,0x6f97b7de6be7b7771e975e46bae96c35e332e172,NO_PUBLIC_ROWS,YES,YES_OPEN,NO,YES_OPEN,INFER_ONLY_FROM_MARGIN_RISK,YES,NO,B,"Current open PUMP risk is visible but historical per-trade rows are not"
+9,2fg5QD1eD7rzNNCsvnhmXFm5hqNgwTTG8p7kQ6f3rx6f,RECENT_POSITION_SAMPLES,YES_CONFLICTED,ENTRY_MARKET_CAP_NOT_PRICE,OUTCOME_MULTIPLE_NOT_EXIT_PRICE,YES_RECENT_SAMPLES,YES_FROM_OUTCOME_DISTRIBUTION,NO,NO,A-,"Best Solana position-cycle sample, but provider grouping conflicts sharply"
+10,4ugDhHJ8XDXAeABmrNmGffFaLbJb9BkPyiFGVSV9ocwo,NO,YES,NO,NO,BUY_SELL_TOTALS_ONLY,NO,NO,NO,B-,"Strong token-level concentration evidence; no detailed cycle ledger"
