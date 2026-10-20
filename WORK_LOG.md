@@ -174,3 +174,11 @@ The final combined check executed all 56 tests successfully but initially reject
 - Claim/Vesting، Leverage، Drawdown بدون کنترل، LP بدون مدل IL/Range و Bridge کورکورانه برای Arz رد شدند.
 - ده Hypothesis با شناسه TCP-R01 تا TCP-R10 ثبت شد و هیچ‌کدام مجوز اجرای Live نیستند.
 - کد اجرای واقعی تغییر نکرد؛ NO-GO و غیرفعال بودن Live Trading حفظ شد.
+
+## 2026-10-20 UTC — public wallets study, conservative checkpoint
+
+- Read AGENTS, README, STATUS, decisions, methodology, original research, roadmaps and earlier test/security evidence before changes. Existing 2026-10-13 empirical results were preserved.
+- Located live-public dated DexTrading profile summaries for wallets 4Be9 and Bvov (as of Oct 19), compared earlier-window uwuu results for Mitch and Cented, and checked FOMO handle-wallet claims against public third parties. All 21 listed Solana addresses passed *format-only* 32-byte base58 decoding in local Python. No financial keys or private user data handled.
+- Published `research/wallets/wallets.csv` (21 Solana + 5 EVM), `source_snapshots.csv` (20 source-claimed metric observations), and an explicit source-bias/contradiction README. Published equivalent `docs/en/wallet_trade_reconstruction.md` and `docs/fa/wallet_trade_reconstruction.md`.
+- Implemented raw Solana read-only bounded RPC collector (`scripts/solana_wallet_collect.py`) which writes signature/transaction JSONL + manifest outside the repository when later run with network availability; **not executed against RPC here**. Added conservative FIFO consumer (`scripts/wallet_trade_audit.py`) for independently normalized USD CSV legs and `tests/test_wallet_trade_audit.py` (seven synthetic test methods). **Tests not yet independently executed**; add no pass claim until real output is observed. No raw chain transaction was reconstructed; PnL and copy feasibility remain UNKNOWN.
+- No wallet signer, deposit, swap, API secret, execution integration, increased capital cap, or changes to predeclared historical strategy/holdout. Funded replication remains NO-GO.
