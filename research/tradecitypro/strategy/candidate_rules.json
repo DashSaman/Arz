@@ -1,0 +1,119 @@
+{
+  "generated_at": "2026-10-20",
+  "status": "research hypotheses only; no live implementation authorization",
+  "wallet_scope": [
+    "tradecitypro.eth",
+    "deficitypro.eth",
+    "tradecityproteam.eth"
+  ],
+  "rules": [
+    {
+      "id": "TCP-R01",
+      "name": "staged_entry",
+      "hypothesis": "Split a qualified spot entry into 2-3 tranches only while the original signal remains valid.",
+      "evidence": [
+        "E01",
+        "E07"
+      ],
+      "test_design": "Compare single-fill vs time/price-staged entries on identical historical signals after gas/slippage.",
+      "arz_status": "candidate_for_backtest"
+    },
+    {
+      "id": "TCP-R02",
+      "name": "tranche_exit",
+      "hypothesis": "For illiquid/high-impact assets, split exits into tranches instead of one market-sized exit.",
+      "evidence": [
+        "E08"
+      ],
+      "test_design": "Simulate one-shot versus 3-tranche exits using liquidity-aware slippage and route quotes.",
+      "arz_status": "candidate_for_backtest"
+    },
+    {
+      "id": "TCP-R03",
+      "name": "yield_overlay",
+      "hypothesis": "After spot acquisition, eligible idle inventory may earn additional yield through staking/LP.",
+      "evidence": [
+        "E01",
+        "E06",
+        "E07"
+      ],
+      "test_design": "Measure incremental net yield after gas, IL, smart-contract and lockup costs.",
+      "arz_status": "separate_research_only"
+    },
+    {
+      "id": "TCP-R04",
+      "name": "stable_yield_rotation",
+      "hypothesis": "Rotate stablecoin reserves into vetted yield instruments only when net expected yield exceeds execution/risk hurdle.",
+      "evidence": [
+        "E05"
+      ],
+      "test_design": "Backtest yield sleeve independently from trading alpha with depeg/withdrawal stress.",
+      "arz_status": "candidate_separate_sleeve"
+    },
+    {
+      "id": "TCP-R05",
+      "name": "treasury_strategy_separation",
+      "hypothesis": "Keep treasury, active strategy and experimental DeFi wallets separated with hard capital limits.",
+      "evidence": [
+        "E12"
+      ],
+      "test_design": "Operational architecture review; no performance backtest required.",
+      "arz_status": "recommended_architecture"
+    },
+    {
+      "id": "TCP-R06",
+      "name": "cross_chain_opportunity_routing",
+      "hypothesis": "Move capital across chains only when expected post-bridge advantage exceeds all costs and security premium.",
+      "evidence": [
+        "E03",
+        "E11"
+      ],
+      "test_design": "Model bridge fee, latency, gas, failure and price movement; reject if benefit is marginal.",
+      "arz_status": "research_only"
+    },
+    {
+      "id": "TCP-R07",
+      "name": "hard_drawdown_guard_override",
+      "hypothesis": "Do not copy observed long-duration bag holding; retain Arz position/drawdown stops regardless of source wallet behavior.",
+      "evidence": [
+        "F09",
+        "F10"
+      ],
+      "test_design": "Stress-test strict risk caps against no-stop baseline.",
+      "arz_status": "recommended_risk_guard"
+    },
+    {
+      "id": "TCP-R08",
+      "name": "exclude_nonrepeatable_alpha",
+      "hypothesis": "Claims, airdrops, vesting and treasury transfers must be excluded from trader win-rate and strategy alpha.",
+      "evidence": [
+        "F08",
+        "E08",
+        "E12"
+      ],
+      "test_design": "Accounting rule: tag non-market acquisition basis separately.",
+      "arz_status": "mandatory_accounting"
+    },
+    {
+      "id": "TCP-R09",
+      "name": "exclude_leverage",
+      "hypothesis": "Do not reproduce Deficity borrowing/leveraged-farming behavior in Arz.",
+      "evidence": [
+        "F11",
+        "E09"
+      ],
+      "test_design": "Not applicable; project constraint.",
+      "arz_status": "prohibited_by_design"
+    },
+    {
+      "id": "TCP-R10",
+      "name": "route_quality",
+      "hypothesis": "For the same trade signal, router/venue selection should minimize total execution cost rather than copy the exact venue used by TradeCityPro.",
+      "evidence": [
+        "F14"
+      ],
+      "test_design": "Quote multiple allowed DEX routes and compare net fill after gas/slippage/MEV.",
+      "arz_status": "candidate_for_backtest"
+    }
+  ]
+}
