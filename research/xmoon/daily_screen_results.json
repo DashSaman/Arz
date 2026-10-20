@@ -1,0 +1,176 @@
+{
+  "status": "completed_daily_close_screen_and_untouched_cross_asset_followup",
+  "date": "2026-10-20",
+  "evidence_class": "historical_daily_close_path_diagnostic_not_execution_backtest",
+  "source": {
+    "repo": "coinmetrics/data",
+    "license": "CC BY-NC 4.0",
+    "archive_note": "Repository archive available through 2026-05-24 for most selected assets; not current to 2026-10-20.",
+    "first_screen_blobs": {
+      "aave": "49e840ab7fd902d99d521e1277e0dd456d16e52a",
+      "link": "4c7cd1db76ed3655bf4d7e45c116ba5c0f00c518",
+      "uni": "793af855e2ef44cab441c13140d8c250ce3f6f28",
+      "mkr": "bd8159f6daec4b86d067d7e83e85ba8f82278119",
+      "comp": "ef20149917d77556b4e89f6227e3c04f34d76d44",
+      "crv": "a6902407db7133a12487cb384715574488e17e36",
+      "sushi": "2c793b75223982cc7de3b07f63a88ca47bf2dc5b",
+      "snx": "8c7273a7535f60c01a589d89c92cd085a232e3a4"
+    },
+    "cross_asset_blobs": {
+      "yfi": "255823d29d6096068bb6af980dca62068076b214",
+      "bal": "a31c4cb0ee1a2c9c3f435b32b86a4f819837863e",
+      "grt": "65ac468a56e63614428838e47ecd7678563e9922",
+      "ens": "9c3e688c1d4cd9aa7f166f987a020de56917d568",
+      "ldo": "01d3697c93c35d1fe5a1233cf0d7d13bd83044ee",
+      "rpl": "9bf8e1fa3ae98512d100a95e09dec4a91a446a82",
+      "dydx": "62bf664d0b38cabb35c8923554f3408f66046b7f",
+      "1inch": "88c0f41cf2794e1999f2c568f4df98de64415bca"
+    }
+  },
+  "first_preregistered_screen": {
+    "assets": [
+      "aave",
+      "link",
+      "uni",
+      "mkr",
+      "comp",
+      "crv",
+      "sushi",
+      "snx"
+    ],
+    "final_oos_window": "2025-01-01 to latest available per asset",
+    "A_three_push_only": {
+      "n": 7,
+      "median_5d_return": 0.0022346217514326305,
+      "median_10d_return": 0.01882969761542541,
+      "median_20d_return": -0.01790247756512109,
+      "positive_20d_fraction": 0.42857142857142855,
+      "median_20d_max_adverse_excursion": -0.08620212149759476
+    },
+    "B_hard_gate_close_above_daily_sma200": {
+      "n": 0
+    },
+    "C_B_plus_rsi_le_30": {
+      "n": 0
+    },
+    "interpretation": [
+      "The hard-gated daily MA200 proxy produced no OOS signals and therefore cannot validate the claimed confirmation stack.",
+      "The Premium public description presents HTF MA200/RSI as confirmation strength/context, not necessarily mandatory entry gates; the hard-gate proxy should not be treated as a faithful XMOON reproduction."
+    ]
+  },
+  "exploratory_on_opened_first_oos_not_confirmatory": {
+    "signal_set": "A signals only",
+    "n": 7,
+    "equal_1_1_1_1": {
+      "recovery_rate_30d": 0.8571428571428571,
+      "median_recovery_days": 2,
+      "final_step_rate": 0.2857142857142857,
+      "unrecovered_final_rate": 0.14285714285714285,
+      "worst_diagnostic_mark": -0.1203299790002305,
+      "median_steps": 2
+    },
+    "linear_1_2_3_4": {
+      "recovery_rate_30d": 1,
+      "median_recovery_days": 2,
+      "final_step_rate": 0.2857142857142857,
+      "unrecovered_final_rate": 0,
+      "worst_diagnostic_mark": -0.05559067233693703,
+      "median_steps": 2
+    },
+    "note": "Hypothesis-generating only because this diagnostic was specified after the first OOS had already been opened."
+  },
+  "untouched_cross_asset_followup": {
+    "preregistered_assets": [
+      "yfi",
+      "bal",
+      "grt",
+      "ens",
+      "ldo",
+      "rpl",
+      "dydx",
+      "1inch"
+    ],
+    "usable_long_history_assets": [
+      "yfi",
+      "bal",
+      "ldo",
+      "1inch"
+    ],
+    "insufficient_archive_history_assets": [
+      "grt",
+      "ens",
+      "rpl",
+      "dydx"
+    ],
+    "evaluation_window": "2022-01-01 to latest available per asset, with earlier rows warm-up only",
+    "eligible_signals": 20,
+    "signal_sanity": {
+      "median_20d_return": 0.03596492183288924,
+      "positive_20d_fraction": 0.65,
+      "median_20d_max_adverse_excursion": -0.08524472899600943
+    },
+    "ma200_context": {
+      "above_sma200_signals": 0,
+      "below_sma200_signals": 20,
+      "interpretation": "In this daily proxy all long 3-Push reversal signals occurred below daily SMA200, reinforcing that MA200 is better treated as context/scoring than a mandatory same-timeframe gate."
+    },
+    "rsi_context": {
+      "le_35": {
+        "n": 5,
+        "median_20d_return": 0.045272393641815345,
+        "positive_fraction": 0.6
+      },
+      "35_45": {
+        "n": 12,
+        "median_20d_return": 0.05958037298696062,
+        "positive_fraction": 0.75
+      },
+      "gt_45": {
+        "n": 3,
+        "median_20d_return": -0.07169203475920916,
+        "positive_fraction": 0.3333333333333333
+      }
+    },
+    "equal_1_1_1_1": {
+      "recovery_rate_30d": 0.95,
+      "median_recovery_days": 3,
+      "median_steps": 2,
+      "final_step_rate": 0.25,
+      "unrecovered_final_rate": 0.05,
+      "median_worst_diagnostic_mark": -0.026044639357381095,
+      "worst_diagnostic_mark": -0.14931868721926136
+    },
+    "linear_1_2_3_4": {
+      "recovery_rate_30d": 1,
+      "median_recovery_days": 5,
+      "median_steps": 3,
+      "final_step_rate": 0.25,
+      "unrecovered_final_rate": 0,
+      "median_worst_diagnostic_mark": -0.0384653619461838,
+      "worst_diagnostic_mark": -0.11300441984869602
+    },
+    "paired_linear_vs_equal": {
+      "drawdown_better_count": 10,
+      "drawdown_same_count": 6,
+      "drawdown_worse_count": 4,
+      "median_paired_change_in_worst_mark": 0.0025529660439366983,
+      "recovery_faster_count": 1,
+      "recovery_same_count": 15,
+      "recovery_slower_count": 3,
+      "rescued_equal_failure_count": 1
+    },
+    "interpretation": [
+      "Linear weighting is not uniformly superior.",
+      "It improved the worst tail path and rescued one Equal non-recovery, but it increased median capital deployment and median recovery time.",
+      "The apparent benefit is best described as tail-recovery at the cost of heavier adverse-move exposure, not a free increase in edge."
+    ]
+  },
+  "design_decisions_for_arz": [
+    "Keep 3-Push as a candidate signal feature, not a proven strategy.",
+    "Treat MA200/HTF RSI as scoring/context features rather than hard gates until intraday multi-timeframe evidence exists.",
+    "Do not copy leveraged XMOON liquidity/liquidation behavior into Arz spot.",
+    "If DCA is studied further, keep total basket capital fixed before entry and compare equal versus linear tail risk.",
+    "Next required evidence is true intraday OHLC/multi-timeframe data with executable-cost calibration; daily closes cannot identify XMOON step spacing or intrabar fills."
+  ],
+  "project_decision": "NO-GO unchanged"
+}
