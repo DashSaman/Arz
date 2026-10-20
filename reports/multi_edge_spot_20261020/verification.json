@@ -25,7 +25,7 @@
     "research/multi_edge_spot/COPYABILITY_SPEC.json": "41282f2ce40e75c75cada3824e023086a96e8ac94ea6212b66bf383265c127ff",
     "research/multi_edge_spot/COPY_TRADING_RESEARCH.fa.md": "4d5e3c7d9b0f0ac2a48af1913633038394abc0f4123d46a33223668b0b828892",
     "research/multi_edge_spot/COPY_TRADING_RESEARCH.md": "7c0afb2e87ed3e0d8056e02c8b57dea4777377b9f2205b379481c37820f2002f",
-    "research/multi_edge_spot/DATA_SOURCE_MATRIX.csv": "0ef1b1cf297263215b35a7a773517cfe3678d99b204dbfe9700ab6950620edc5",
+    "research/multi_edge_spot/DATA_SOURCE_MATRIX.csv": "fe7813b173704987bca73db904ebd6235c77e5fca173c8a25559e0df15c0b6e6",
     "research/multi_edge_spot/EDGE_TAXONOMY.fa.md": "6770d75f520ecbfc19eb54400be309692b44bca223a01745242be99533fdb0ed",
     "research/multi_edge_spot/EDGE_TAXONOMY.md": "e6e209603947176260fb2dd3a4271ba66606186d1266ea18647641826496b6d1",
     "research/multi_edge_spot/HYPOTHESIS_BACKLOG.json": "29fbc1d223c664b48f5886e93d247158e265760c1c21501439078a67f027ba72",
@@ -34,7 +34,7 @@
     "research/multi_edge_spot/MEAN_REVERSION_RESEARCH.fa.md": "19eb83343968738349f40e766efd49cbdc5f475b4c39043f2b186db3246a3c03",
     "research/multi_edge_spot/MEAN_REVERSION_RESEARCH.md": "bb5873e6746f79e22085133c366ba43ea08e7b3f9f9c975b203ee8e27810a30d",
     "research/multi_edge_spot/META_ENGINE_SPEC.json": "5a393b4093c4aa91d4d6376584b7f3ccca7d72146202a145085bfd3570709561",
-    "research/multi_edge_spot/NEXT_EXPERIMENT_PROTOCOL.json": "9fbd1ea1b68bd1c46a628196a2f0dcbc6da08c4b032715546db4d3a5165b6b1d",
+    "research/multi_edge_spot/NEXT_EXPERIMENT_PROTOCOL.json": "88203411b4e64d96d8b8e1099f1af11dc8ca9b3b867cf982bac6673bd1ef5c52",
     "research/multi_edge_spot/ONCHAIN_DATA_SOURCES.fa.md": "c3842e63b596fc0f2ee8f837453b9c22fcaea1242f8088f77703ca3bd8cadc57",
     "research/multi_edge_spot/ONCHAIN_DATA_SOURCES.md": "01219cd5b8208767ad4b92b005262da0792ca3ecbf76999f1af181a8b82e41a8",
     "research/multi_edge_spot/OPEN_SOURCE_TOOLS.fa.md": "30f043eee3cb33978d6570ff91ba47e99047ffe2f7afc186534ea5a4f3fd95d7",
@@ -48,9 +48,14 @@
     "research/multi_edge_spot/SCALPING_RESEARCH.md": "1982938f482254db0537ce681324af76410cdf390aa6017ccec5dc7bbbcab379",
     "research/multi_edge_spot/SMART_WALLET_RESEARCH.fa.md": "52f42b47cf6f93d64b4b999682d4450f16ea0060956af92962152c7d327c3ad4",
     "research/multi_edge_spot/SMART_WALLET_RESEARCH.md": "45c6094e72471ccfd5a0da37ed19d25b408da27c562b3bfc0eccf4e8f36f6407",
-    "research/multi_edge_spot/SOURCE_REGISTRY.csv": "0397512884b3f94981dc60eb106bdebb71f1bfc592b56517be2660f4adcb8c6f",
+    "research/multi_edge_spot/SOURCE_REGISTRY.csv": "1a9f41a63a057f6ebec46e8e5bd24099c758162c9cb51513841567268768ed11",
     "research/multi_edge_spot/TREND_ROTATION_RESEARCH.fa.md": "15c6375b112cd729ee3598f8ce2db9c6035683877b0e158d2e528a4e13ba7cad",
     "research/multi_edge_spot/TREND_ROTATION_RESEARCH.md": "2f053b9fb76e6e74788bb247fa0fc99b411d78322ffef3a72d3cdb41efde61ef",
     "research/multi_edge_spot/WALLET_SCORING_SPEC.json": "929b078e46d01af78379b9c915b401a0dc49a85819a7282c7b9eaf1dadc8eeba"
+  },
+  "publication_canonicalization": {
+    "csv_line_endings": "LF",
+    "json_format": "Published canonical JSON; semantic equality to locally generated protocol revalidated",
+    "content_changes": false
   }
 }
