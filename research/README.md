@@ -78,3 +78,20 @@ Run `python scripts/consolidate_research.py --output-root runtime/registry_rebui
 `sources_arz.csv` holds four separately registered root-experiment references for the official German salary benchmark, ECB conversion, OHLCV documentation and observed pool analytics. They are outside the preserved 190-record union and its existing collision/row-preservation manifest; they do not change that snapshot's count or claim four additional independent profitability sources. `venue_index.csv` indexes eight DEX table entries plus the separate Hyperliquid product table.
 
 فایل `sources_arz.csv` چهار ارجاع تکمیلیِ آمار رسمی حقوق آلمان، نرخ ECB، مستند OHLCV و مشاهدهٔ استخر را ثبت می‌کند. این‌ها خارج از اجتماع حفظ‌شدهٔ ۱۹۰رکوردی و manifest آن هستند و تعداد آن نسخه یا شواهد مستقل سودآوری را افزایشِ ادعایی نمی‌دهند. `venue_index.csv` هشت صرافی جدول اصلی و جدول مستقل محصولات Hyperliquid را فهرست می‌کند.
+
+
+## Copy-wallet intelligence snapshot — 2026-10-20 / تصویر پژوهش کیف‌پول‌های کپی‌ترید
+
+This later research snapshot is intentionally outside the preserved 190-source union described above. It does **not** alter that historical registry count.
+
+| File | Purpose |
+|---|---|
+| [copy_wallet_watchlist_20261020.csv](copy_wallet_watchlist_20261020.csv) | 30 public wallet candidates, initial screening rank, research bucket and refreshed-verification status |
+| [copy_wallet_sources_20261020.csv](copy_wallet_sources_20261020.csv) | Dated source registry for the focused refresh |
+| [verification.json](../reports/copy_wallet_research_20261020/verification.json) | Machine-readable refreshed metrics, conflicts and unresolved work |
+| [English report](../docs/en/copy_wallet_research_20261020.md) | Interpretation, limitations and reconstruction queue |
+| [گزارش فارسی](../docs/fa/copy_wallet_research_20261020.md) | تفسیر، محدودیت‌ها و صف کالبدشکافی |
+
+The initial ranking is a research-priority snapshot, not a live recommendation. Current third-party metrics are treated as dated observations; provider conflicts remain explicit. Multi-chain wallets attributed to the same public trader must be deduplicated before any future consensus experiment. Hyperliquid perpetual-wallet behavior is research evidence only and does not relax Arz's spot-only/no-leverage live boundary.
+
+این بسته خارج از رجیستری تاریخی ۱۹۰منبعی است و تعداد آن را تغییر نمی‌دهد. رتبه‌ها اولویت پژوهشی هستند، نه توصیه کپی. اختلاف Providerها صریح حفظ شده و کیف‌پول‌های چندزنجیره‌ای یک Trader نباید در اجماع آینده چند رأی مستقل حساب شوند. داده Perpetual هایپرلیکویید فقط برای پژوهش رفتار است و مرز Spot/بدون اهرم Arz را تغییر نمی‌دهد.
