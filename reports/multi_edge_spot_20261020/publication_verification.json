@@ -1,0 +1,46 @@
+{
+  "review_date_utc": "2026-10-20",
+  "tested_source_commit": "2c5c1c723b2d96c6f9092ffa66849eadb172ebdd",
+  "base_commit": "db79545f5162518251eda73ec9fd3526411f9dc8",
+  "pull_request": 18,
+  "pull_request_state": "OPEN_DRAFT",
+  "publication_checks": {
+    "published_protocol_read_back": true,
+    "published_verification_read_back": true,
+    "compare_status": "ahead",
+    "commits_ahead": 1,
+    "commits_behind": 0,
+    "changed_files": 43,
+    "additions": 1474,
+    "deletions": 27,
+    "protocol_status": "FROZEN_FOR_NEXT_PHASE_NOT_EXECUTED",
+    "selected_hypotheses": 4,
+    "performance_backtests_run": 0,
+    "paid_api_calls": 0,
+    "financial_actions": 0
+  },
+  "ci_observed": [
+    {
+      "run_id": 39352560102,
+      "name": "Arz offline-only tests",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "run_id": 39352560067,
+      "name": "Research-only checks",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "ci_scope": "Actual workflow metadata was read for the tested source commit. Successful software/research checks are not market-performance evidence or an independent financial audit.",
+  "preservation": "The published comparison is one commit ahead and zero behind its recovery base. No main merge, force push, strategy-result rewrite or financial activation occurred.",
+  "independent_external_audit": false,
+  "new_market_evidence": false,
+  "new_market_data_downloads": 0,
+  "wallet_or_signing": false,
+  "persistent_service": false,
+  "funded_decision": "NO-GO",
+  "live_trading": "DISABLED",
+  "note": "This evidence-only follow-up records publication and CI. It does not modify candidate rules or the frozen experiment protocol."
+}
