@@ -5,7 +5,7 @@
 ## What is actually in this checkpoint
 
 - `wallets.csv`: 21 valid-format Solana addresses and 5 EVM addresses (26 chain-specific records), including 21 original Solana leads and additional source-attributed EVM matches. Base58 decoding to 32 bytes is a *format check* only, not a live-chain ownership/performance verification.
-- `source_snapshots.csv`: 20 *third-party observations*, dated by the provider's **underlying snapshot**, not by today's crawl. Providers, windows, units and contradictions are kept separate. These rows are not a reconstructed trade ledger. One advertisement or paid-copy-trading site can have financial incentives; independent verification remains open.
+- `source_snapshots.csv`: 37 *third-party observations*, dated by the provider's **underlying snapshot**, not by today's crawl. Providers, windows, units and contradictions are kept separate. These rows are not a reconstructed trade ledger. One advertisement or paid-copy-trading site can have financial incentives; independent verification remains open.
 - No genuine per-swap signature, on-chain trade-by-trade ledger, fee-inclusive USD PnL, multi-window positive compounding, whole-wallet deposits/withdrawals reconciliation, or reliable copy-trading execution fill has been verified in this checkpoint. No synthetic data is labeled live.
 
 ## Priority research candidates (investigation ordering only)
@@ -30,3 +30,11 @@
 For each address, obtain transaction signatures and parsed swaps with source time, chain/slot/block, signature, token mint, buys, partial sells, USD quote at execution, transferred funds, native/token fees, pool/DEX, tx success, failed swap gas, and provenance. Reconcile to balance deltas; resolve unpriced token amounts using contemporaneous quote data (not today's price); mark unsupported multi-hop and transfer flows as UNKNOWN, not zero. FIFO match lots, and separately show open-lot inventory with an unbiased mark, total equity and calendar-day geometric return inclusive of no-trade days. Check 7/30/90/180d and across regimes with no forward-selection. Add 0.25/0.5/1/2% execution slippage and 3/10/30-second copy latency stress with liquidity and market impact. Select only on untouched prospective history and realistic $100 cap. **No historical screenshots or win-rate alone pass these gates.**
 
 See [English method](../../docs/en/wallet_trade_reconstruction.md) and [روش فارسی](../../docs/fa/wallet_trade_reconstruction.md). Real trading stays **DISABLED**.
+
+## Position-level leads (new)
+
+`public_position_examples.csv` contains **10 token-level position summaries**, not individual signed swap transactions. It includes Decu (`Ash`, `miura`, `SCALPOOR`), Cented (`CCAT`, `TCAT`, `Charlie`), and Mitch (`packs`, `MINTLINE`, `godspeed`, `ALT-COIN`), covering both wins and losses. Each row has token mint, wallet, source URL, aggregated buy/sell values when explicitly provided, reported realized PnL, reported buy/sell leg counts and hold time. ALL are labeled `third_party_position_summary` and `signature_verified=false`.
+
+**Important mismatch:** The Cented `TCAT` source says buy `$518`, sell `$1.5K`, realized `+$255` simultaneously. These figures are not internally reconcilable without missing context; flagged rather than repaired. `packs`, `godspeed` and `ALT-COIN` have rounded values that prevent exact fee/PnL replay. **Do not feed this aggregated summary CSV into the transaction FIFO audit.**
+
+Recent provider snapshots add KOL Explorer 7/30/90-day performance for Decu/Cented/Mitch, while uwuu Decu Oct 19 30-day results differ materially from the Oct 20 KOL Explorer figures. Dates/provider methodologies must remain distinct. Sources: https://kolexplorer.com/kol/decu ; https://kolexplorer.com/kol/cented ; https://kolexplorer.com/kol/mitch ; https://uwuu.ai/trader/4vw54BmAogeRV3vPKWyFet5yf8DTLcREzdSzx4rw9Ud9 .
