@@ -64,3 +64,21 @@ The final combined check executed all 56 tests successfully but initially reject
 ### فارسی
 
 ادغام دووالدی واقعی با شناسهٔ 818c3f02aba5fa5064e14b56612341e003a3684c ساخته شد؛ هر دو سابقه حفظ و main با کنترل مقدار قبلی و بدون Force به‌روز و دوباره خوانده شد. هویت و حالت هر ۲۹۷ فایل دوردست با تحویل محلی یکسان بود؛ فایل اضافه، مفقود یا متفاوت وجود نداشت. هر دو نمودار نیز از نظر بایت تطبیق داشتند. دو workflow واقعی با شناسه‌های بالا موفق شدند و فرادادهٔ اجرا و گام‌ها جدا خوانده و ثبت شد. این Commit بعدی صرفاً شواهد مشاهده‌شده را در اسناد ثبت می‌کند؛ هسته، استراتژی و تنظیمِ آزموده‌شده تغییر نکرده‌اند. معاملهٔ واقعی غیرفعال و تصمیم NO-GO باقی است.
+
+
+## 2026-10-20 UTC — XMOON/ATA reconstruction research
+
+- Added an isolated research-only XMOON reconstruction under `research/xmoon/`; no files under `src/arz` were changed, so the study does not silently alter the existing runtime/paper strategy implementation.
+- Primary first-party public descriptions confirm the research target includes 3-Push RSI divergence, four pivot tiers based on bar distance, 2–10 step entries, weighted sizing, HTF MA200 and HTF RSI confirmations, and risk-free/target/liquidity levels. ATA's own site/version history also preserves Falcon 3Push+Divergence and a 2024 Three Pushes-Divergence+CHoCH entry.
+- Explicitly separated verified public claims from unknown proprietary details. Exact pivot thresholds, RSI period, step spacing, step-weight progression, target/invalidation rules and execution semantics remain hypotheses rather than claims about XMOON source code.
+- Implemented no-look-ahead pivot confirmation, conventional long/short 3-Push semantics, Wilder RSI/ATR/SMA primitives, bounded equal/linear/inverse-vol step sizing, percent/ATR spacing hypotheses and cost-aware spot basket break-even.
+- Predeclared A–G ablation variants and an anti-overfit rule: do not retune on the already observed Arz holdout; future evaluation requires new chronological development/validation/untouched-OOS evidence.
+- Added equivalent English/Persian specifications and a dated primary-source CSV.
+- Isolated local execution of the seven new unit tests passed 7/7 before publication. Pull request #19 was opened for repository CI. Live trading remains DISABLED and the current investment decision remains NO-GO.
+
+### فارسی
+
+- بازسازی XMOON فقط در بخش پژوهش اضافه شد و `src/arz` تغییر نکرد.
+- ادعاهای عمومی تأییدشده از جزئیات اختصاصی نامعلوم جدا شدند؛ فرمول دقیق Pivot، RSI، فاصله و وزن پله‌ها و خروج‌ها هنوز فرضیه هستند.
+- Pivot بدون نگاه به آینده، 3-Push، MA200/RSI، DCA محدود، فاصله درصدی/ATR و Break-even هزینه‌محور پیاده‌سازی و ۷ آزمون جدید محلی با موفقیت اجرا شد.
+- ماتریس A تا G و ممنوعیت تیون دوباره روی Holdout دیده‌شده ثبت شد. PR شماره ۱۹ برای CI مخزن باز شده است. معامله واقعی همچنان غیرفعال و تصمیم فعلی NO-GO است.
