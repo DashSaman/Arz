@@ -1,0 +1,6 @@
+hypothesis,source,market,resolution,rows_used,coverage,limitations,status
+H1/H2,Base public RPC swaps,WETH/USDC and cbBTC/USDC,event,0,0,HTTP429 initial and bounded retry,INSUFFICIENT_DATA
+H3,GeckoTerminal/CoinGecko OHLCV,WETH/USDC,5m,1999,2026-10-13T03:00:00Z/2026-10-20T01:35:00Z,6.94days;0gaps;no exact costs,DIAGNOSTIC_ONLY
+H3,GeckoTerminal/CoinGecko OHLCV,cbBTC/USDC,5m,0,,duplicate candle rejected,REJECTED_DATA_QUALITY
+H4,TradingStrategy cached project data,WETH/USDC,4h,4548,2024-09-01/2026-10-01,"1gap;~2.08calendar years, but protocol needs3years point-in-time universe",INSUFFICIENT_DATA
+H4,TradingStrategy cached project data,cbBTC/USDC,4h,4467,2024-09-14/2026-10-01,1gap;point-in-time universe absent,INSUFFICIENT_DATA

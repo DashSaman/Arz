@@ -1,18 +1,16 @@
-# Decisions — 20 October 2026 multi-edge spot research
+# Decisions — 20 October 2026 multi-edge Phase A
 
-Prior decisions remain applicable and are preserved in `DECISIONS.pre-multi-edge-20261020.md`.
-
-1. Use Base first for reproducible EVM wallet/market experiments; Solana is a second path after archive/identity cost qualification.
-2. Recompute wallet PnL from raw/curated events. Provider smart-money labels are versioned enrichment, not historical truth.
-3. Keep Profit Score and Copyability Score separate; profitable but atomic/MEV/market-making wallets are not normal copy candidates.
-4. Test consensus at follower prices with a60-second primary delay; leader fill prices are forbidden.
-5. Test one cost-aware mean-reversion scalp only, on qualified liquid pairs; no indicator kitchen sink, averaging or martingale.
-6. Test weekly point-in-time leader rotation with an absolute trend/cash filter; do not repeat the two-asset ROT90 rule under a new name.
-7. Do not performance-test the meta allocator until at least two independent component engines pass frozen tests.
-8. LP remains data-required and arbitrage deferred; harmful MEV is rejected.
-9. The70–75% win-rate preference is a target only. PF, net expectancy, stress costs, drawdown and sample gates control acceptance.
-10. Historical feasibility cannot authorize capital. Prospective paper evidence and separate user approval remain mandatory.
+1. Keep Phase A accounting original and stdlib-only. FIFO is primary; weighted average is sensitivity. Unknown basis/fees are unresolved, never zero.
+2. Wallet profit and copyability remain separate. Three related wallets never become three independent votes.
+3. Use only follower-time signals and quotes. This phase acquired no follower quote history, so H1/H2 cannot be evaluated.
+4. Respect the official public Base RPC rate limit. After one declared same-endpoint retry returned HTTP 429, stop; do not rotate providers/identities to evade it.
+5. Reject provider duplicate candles instead of silently choosing one. cbBTC H3 is data-quality blocked.
+6. Treat the 6.94-day WETH 5m run as diagnostic only. Costed zero-trade results are not income; the negative zero-cost bound does not conclusively reject H3 but provides no positive evidence.
+7. Do not run H4 on a two-asset, 1.55-year dataset when the frozen protocol requires a three-year point-in-time universe.
+8. All four candidates remain `INSUFFICIENT_DATA`; no historical acceptance and no prospective paper candidate yet.
+9. The next useful work is lawful data acquisition/coverage, not threshold relaxation. Any paid/archive source requires separate approval.
+10. Financial NO-GO remains absolute regardless of software test success.
 
 ## فارسی
 
-PnL کیف‌پول از رویداد خام محاسبه و Label فقط Enrichment است. Profit و Copyability جدا هستند. Copy با قیمت دنبال‌کننده و تأخیر۶۰ثانیه تست می‌شود. فقط یک Scalping هزینه‌محور و یک Rotation زمان‌مند بررسی می‌شوند. Meta قبل از قبولی موتورهای مستقل فعال نمی‌شود. LP/آربیتراژ معلق و MEV مخرب رد است. هدف Win Rate به‌تنهایی معیار قبولی یا مجوز سرمایه نیست.
+Cost Basis و Fee نامعلوم صفر نمی‌شود. Wallet مرتبط فقط یک رأی است و قیمت Copy باید زمان دنبال‌کننده باشد. محدودیت ۴۲۹ با تغییر Provider دور زده نمی‌شود. Candle تکراری cbBTC رد شد. Diagnostic هفت‌روزه WETH نه درآمد است و نه رد قطعی H3. H4 بدون Universe سه‌ساله اجرا نمی‌شود. همه Candidateها داده ناکافی و پول واقعی NO-GO دارند.
