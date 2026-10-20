@@ -61,3 +61,11 @@ D008: دادهٔ خام و نرمال‌شده تا روشن‌شدن حقوق �
 D009: مشاهدهٔ ۷۵ثانیه‌ای و تأیید جداگانهٔ ۲۵ثانیه‌ای با صفر معامله فقط آزمون اتصال و وضعیت است؛ سطح ۴، پایش پیوسته، سی روز اجرا یا درآمد روزانه نیست. ۹۰ روز و ۱۰۰ معامله حداقل برنامه‌ریزی‌اند، نه شرط کافی یا سهمیهٔ اجباری. برای شواهد فعلی پنل سنگین، سرویس پس‌زمینه و پیام‌رسان ضرورت ندارند.
 
 D010: سوابق پژوهش و main با ادغام واقعی و بدون Force حفظ می‌شوند. نقشهٔ راه، ابزار حسابداری و آزمون‌ها باقی می‌مانند؛ CI فقط برای سازگاری ساختار و ثبت نسخه اصلاح می‌شود. حسابداری بازده روزانه از موتور معامله جداست؛ هزینه از بازده خالص دوباره کسر نمی‌شود و فرض روزانه مجوز تغییر ریسک نیست.
+
+## D011 — researched-wallet PnL claims are not proof (2026-10-20)
+
+Wallet aliases, whole-profile FOMO all-time PnL, third-party realized-only snapshots and on-chain USD equity are not equivalent. Each metric must retain provider, window and retrieval date; conflicting windows must not be reconciled by guesswork. Inventory transfers and unpriced opening positions cannot be free buys. Audit script only matches independently normalized legs and intentionally leaves account-level returns UNKNOWN. Avoid executing copied Solana memecoin buys where speed/fees/impact invalidate the $100 economics; permissionless access does not override country/service constraints. No copy-trade execution authorized.
+
+### فارسی
+
+ادعای سود تاریخی یا نام یک تریدر به معنی سود تأییدشده یک آدرس نیست. برای هر عدد منبع، تاریخ و دوره جدا ثبت شود. انتقال دارایی خرید صفرهزینه نیست. تا تکمیل گردش سرمایه، ارزش روز موجودی و کارمزدها، بازده مرکب و PnL کل حساب نامعلوم است. کپی‌ترید و معامله واقعی مجاز نشده است.
