@@ -95,3 +95,26 @@ This later research snapshot is intentionally outside the preserved 190-source u
 The initial ranking is a research-priority snapshot, not a live recommendation. Current third-party metrics are treated as dated observations; provider conflicts remain explicit. Multi-chain wallets attributed to the same public trader must be deduplicated before any future consensus experiment. Hyperliquid perpetual-wallet behavior is research evidence only and does not relax Arz's spot-only/no-leverage live boundary.
 
 این بسته خارج از رجیستری تاریخی ۱۹۰منبعی است و تعداد آن را تغییر نمی‌دهد. رتبه‌ها اولویت پژوهشی هستند، نه توصیه کپی. اختلاف Providerها صریح حفظ شده و کیف‌پول‌های چندزنجیره‌ای یک Trader نباید در اجماع آینده چند رأی مستقل حساب شوند. داده Perpetual هایپرلیکویید فقط برای پژوهش رفتار است و مرز Spot/بدون اهرم Arz را تغییر نمی‌دهد.
+
+
+## Top-10 wallet forensics — 2026-10-20 / کالبدشکافی ۱۰ Wallet اول
+
+This package deepens the later copy-wallet snapshot. It remains outside the preserved historical 190-source registry and does not alter its count.
+
+| File | Purpose |
+|---|---|
+| [wallet summary](top10_wallet_forensics_20261020/wallet_summary.csv) | One forensic row per top-10 wallet |
+| [asset PnL](top10_wallet_forensics_20261020/asset_pnl_observations.csv) | 92 observed per-asset/token PnL or selected-position rows |
+| [trade/position observations](top10_wallet_forensics_20261020/trade_position_observations.csv) | 48 detailed public trade/open-position observations |
+| [capital flows](top10_wallet_forensics_20261020/capital_flow_events.csv) | Withdrawal/mixed events separated from trading drawdown |
+| [provider conflicts](top10_wallet_forensics_20261020/provider_conflicts.csv) | Explicit accounting/window/methodology contradictions |
+| [field coverage](top10_wallet_forensics_20261020/field_coverage.csv) | Requested Entry/Exit/size/stop coverage and missing fields |
+| [pattern matrix](top10_wallet_forensics_20261020/pattern_matrix.csv) | Behavior hypotheses kept separate from observed facts |
+| [sources](top10_wallet_forensics_20261020/sources.csv) | 16 dated public source records |
+| [verification](../reports/top10_wallet_forensics_20261020/verification.json) | Counts, file identities, derived checks and unresolved gaps |
+| [English report](../docs/en/top10_wallet_forensics_20261020.md) | Full interpretation |
+| [گزارش فارسی](../docs/fa/top10_wallet_forensics_20261020.md) | گزارش کامل فارسی |
+
+The package is deliberately labeled **PARTIAL_PUBLIC_FORENSIC_RECONSTRUCTION**, not a complete raw trade ledger. Missing closed-cycle entry/exit prices are never imputed. The selected 0x0ad9 SKHX case is reconstructed from published legs, while complete acquisition cost basis remains unavailable. Provider disagreement is treated as evidence-quality risk rather than averaged away.
+
+این بسته «بازسازی جزئی عمومی» است، نه Ledger کامل. قیمت Entry/Exit گمشده حدس زده نشده، اختلاف Providerها حفظ شده و الگوهای رفتاری به‌عنوان Hypothesis از واقعیت مشاهده‌شده جدا هستند. هیچ نتیجه‌ای مجوز Blind Copy یا معامله واقعی نیست.
