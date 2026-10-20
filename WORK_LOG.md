@@ -127,3 +127,24 @@ The final combined check executed all 56 tests successfully but initially reject
 - فیلد `amountInUsd` ایندکسر برای PnL تاریخی معتبر تشخیص داده نشد و فقط به‌عنوان داده خام نگه داشته شد.
 - Win rate و lifetime realized PnL نهایی عمداً عددسازی نشده‌اند چون event history چند زنجیره کامل نیست و جریان‌های LP/وام/bridge/vesting باید ابتدا به پوزیشن اقتصادی تبدیل شوند.
 - هیچ کد اجرای واقعی تغییر نکرد؛ Live Trading غیرفعال و تصمیم کلی NO-GO باقی است.
+
+
+## 2026-10-20 UTC — XMOON free-access and public account audit
+
+- Verified a lawful zero-cost route to genuine XMOON: TradingView labels XMOON 3-Push Divergence V1 as the Basic Version (Free) and states the protected script can be used freely without limitations. Premium remains invite-only but advertises a free 7-day test.
+- Added independent free comparison options: Three Pushes MT5, HTF Reversal Divergences with downloadable mq5 source, and a free non-repainting RSI divergence tool. These are explicitly not represented as XMOON copies.
+- Searched for on-chain XMOON/Bijan wallets. No verifiable trading wallet was found. Same-name XMOON token contracts/pools were excluded as unrelated. Public XMOON performance evidence is MT5/Myfxbook account evidence, not blockchain transaction evidence.
+- Captured 32 public Real XMOON Myfxbook systems in research/xmoon/myfxbook_accounts_2026-10-20.csv. Twenty-five use 1:1000 leverage; median published drawdown across the captured inventory is 23.46%; six have published DD below 15%.
+- Lower-published-DD audit candidates include 750→2350 (6.78%, 176 trades), 402→3019 (8.85%, 123), 10,000→140,000 (9.68%, 698), 527→3726 (10.52%, 198), 500→2705 (11.82%, 362), and 422→3208 (13.45%, trade count not recovered in indexed evidence).
+- Captured detailed public aggregate trade statistics where indexed pages exposed them, including long/short win counts, average win/loss, commissions, profit factor, Sharpe, expectancy and trade duration. The strongest low-leverage study target is 10,000→140,000: 698 trades, leverage 1:100, DD 9.68%, 93% long wins and 69% short wins in the public summary.
+- Did not fabricate a trade-by-trade ledger. Myfxbook indexed pages expose aggregates and in some cases export controls, but individual trade-history/open-trade rows are private or not anonymously exposed in this pass. A legitimate closed-trade export is required for exact symbol/entry/exit/lot/basket reconstruction.
+- Added equivalent English/Persian comprehensive XMOON dossiers and a free-access options registry. Existing XMOON reconstruction and historical daily/cross-asset findings are summarized in those dossiers.
+- Live trading remains DISABLED; no wallet, payment, subscription, leverage activation or real-money action was performed. Project investment decision remains NO-GO.
+
+### فارسی
+
+- مسیر رایگان رسمی XMOON تأیید شد: V1 در TradingView رایگان و قابل استفاده بدون محدودیت معرفی شده، هرچند سورس Protected است؛ Premium نیز تست رایگان ۷روزه دارد.
+- ۳۲ حساب Real عمومی XMOON در Myfxbook ثبت شدند. ۲۵ حساب لوریج 1:1000 دارند؛ میانه DD منتشرشده ۲۳٫۴۶٪ است و فقط ۶ حساب DD زیر ۱۵٪ دارند.
+- هیچ Wallet on-chain قابل‌انتساب به XMOON/بیژن پیدا نشد؛ نتایج توکن‌های هم‌نام حذف شدند. واحد صحیح تحلیل، حساب Myfxbook/MT5 است.
+- آمار عمومی معاملات برای حساب‌های قابل‌بازیابی ثبت شد، اما Ledger معامله‌به‌معامله به دلیل خصوصی/غیرقابل‌دسترسی بودن History عمومی جعل نشد.
+- پرونده جامع فارسی/انگلیسی و جدول راه‌های رایگان به مخزن اضافه شد. معامله واقعی و تصمیم NO-GO بدون تغییر است.

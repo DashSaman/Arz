@@ -1,0 +1,7 @@
+option,category,cost,source_visible,limitations,url,retrieved_date
+"XMOON Basic V1","official XMOON","free","no - protected TradingView script","Genuine XMOON Basic; exact source code hidden","https://www.tradingview.com/script/hy72ihEV-Xmoon-3-Push-Divergence-V1/","2026-10-20"
+"XMOON Premium 7-day test","official XMOON trial","free for 7 days","no - invite-only","Temporary author-approved trial; Premium remains closed","https://www.tradingview.com/script/BE2Z3Y4F-Xmoon-3-Push-Divergence-Premium/","2026-10-20"
+"Arz XMOON clean-room research module","independent reconstruction","free","yes - Arz source","Research hypotheses only; not proprietary XMOON source and no live executor","https://github.com/DashSaman/Arz/tree/main/research/xmoon","2026-10-20"
+"Three Pushes MT5","third-party comparator","free","no/market binary","Restricted to AUDUSD H1; not XMOON","https://www.mql5.com/en/market/product/165391","2026-10-20"
+"HTF Reversal Divergences","third-party open-source comparator","free","yes - downloadable mq5","RSI divergence + HTF PO3; not XMOON","https://www.mql5.com/en/code/71611","2026-10-20"
+"RSI Divergence without repaint","third-party comparator","free","no/market binary","Generic confirmed-swing divergence; not XMOON","https://www.mql5.com/en/market/product/159646","2026-10-20"
