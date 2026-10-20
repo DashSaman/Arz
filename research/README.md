@@ -84,3 +84,9 @@ Run `python scripts/consolidate_research.py --output-root runtime/registry_rebui
 The dated 2026-10-20 OSINT/on-chain audit is in [tradecitypro/README.md](tradecitypro/README.md), with the Persian report in [tradecitypro/README.fa.md](tradecitypro/README.fa.md). Raw transaction inventories, classified transaction ledgers, the dated portfolio snapshot and source manifest are in [tradecitypro/data/](tradecitypro/data/).
 
 این ممیزی فقط کیف‌پول‌های عمومیِ خوداظهارشده یا منتسب به تیم را بررسی می‌کند و شامل کشف یا خوشه‌بندی کیف‌پول‌های مخفی نیست. گزارش فارسی در [tradecitypro/README.fa.md](tradecitypro/README.fa.md) و داده‌های خام و طبقه‌بندی‌شده در [tradecitypro/data/](tradecitypro/data/) قرار دارند. اعداد Win Rate و Realized PnL فقط در صورت کامل‌بودن cost basis و پوشش زنجیره‌ای منتشر می‌شوند.
+
+### TradeCityPro strategy extraction / استخراج استراتژی TradeCityPro
+
+The behavioral follow-up is indexed at [tradecitypro/strategy/STRATEGY_EXTRACTION.md](tradecitypro/strategy/STRATEGY_EXTRACTION.md) and [tradecitypro/strategy/STRATEGY_EXTRACTION.fa.md](tradecitypro/strategy/STRATEGY_EXTRACTION.fa.md). It records curated position episodes, confidence-tagged features and ten machine-readable Arz research hypotheses without enabling live trading.
+
+ادامه پژوهش رفتاری در مسیر بالا ثبت شده و شامل Episodeهای پوزیشن، ویژگی‌های دارای سطح اطمینان و ده Hypothesis قابل‌آزمایش برای Arz است؛ هیچ‌کدام مجوز اجرای Live ایجاد نمی‌کنند.
