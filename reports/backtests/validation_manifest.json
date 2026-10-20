@@ -71,5 +71,27 @@
     "copy_latency_sensitivity": "NOT_POSSIBLE_NO_SECOND_LEVEL_QUOTES"
   },
   "status": "NO-GO",
-  "last_observed_evidence": "Repository-sourced wallet indexing and seven synthetic verifier unit tests, no independent full on-chain history or fresh qualifying strategy PnL"
+  "last_observed_evidence": "Repository-sourced wallet indexing and seven synthetic verifier unit tests, no independent full on-chain history or fresh qualifying strategy PnL",
+  "derived_archived_endpoint_only": {
+    "csv": "reports/backtests/compounding_results.csv",
+    "rows": 3,
+    "starting_capital_simulated_usd": 100,
+    "sample_days": 33.333333333333336,
+    "measurement": "implied fixed daily equivalent from historical start/end equity, NOT independently observed calendar daily wallet marks",
+    "other_requested_capitals_not_run": [
+      300,
+      500,
+      1000,
+      3000
+    ],
+    "independent_quote_replay": false
+  },
+  "explicit_empty_tables": {
+    "normalized_trades": "research/wallets/normalized_trades.csv",
+    "position_ledger": "research/wallets/position_ledger.csv",
+    "wallet_copy_backtests": "reports/backtests/wallet_copy_results.csv",
+    "all_record_counts": 0,
+    "manifest": "research/wallets/ledger_manifest_2026-10-20.json"
+  },
+  "wallet_ranking": "research/wallets/wallet_ranking.csv — 59 unranked; research triage only"
 }
