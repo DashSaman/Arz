@@ -9,10 +9,12 @@ This research is a separate observational branch of Arz, not an executable copy-
 | File | Content | What it does NOT prove |
 | --- | --- | --- |
 | research/wallets/wallets.csv | 21 Solana leads + 5 EVM associated addresses with provenance tiers | Owner identity, fund availability, or profit |
-| research/wallets/source_snapshots.csv | 20 dated provider metric claims (30d vs all-time kept separate) | Independently calculated PnL or a trade ledger |
+| research/wallets/source_snapshots.csv | 37 dated provider metric claims (30d vs all-time kept separate) | Independently calculated PnL or a trade ledger |
 | scripts/solana_wallet_collect.py | Bounded read-only RPC transaction JSONL capture, hash/manifest | Full chain history or decoded USD swaps |
 | scripts/wallet_trade_audit.py | Deterministic FIFO accounting from pre-normalized USD-quote CSV | On-chain correctness, open-position valuation or total portfolio growth |
 | tests/test_wallet_trade_audit.py | Synthetic tests for FIFO, partial exits, failed-fee-only records, malformed rows | Actual performance of any wallet |
+
+There are also **10 third-party token-level position examples** in `research/wallets/public_position_examples.csv`; these are not raw tx-level legs, and values with arithmetic inconsistencies are flagged, not imputed.
 
 **No actual transaction-by-transaction data were obtained during this session.** The collection script was published but not run against a working RPC, and no output is presented as such. A collector manifest deliberately marks full history incomplete. Do not merge these snapshot figures into an audited equity curve.
 
