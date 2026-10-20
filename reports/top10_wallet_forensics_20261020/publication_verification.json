@@ -1,0 +1,29 @@
+{
+  "review_date_utc": "2026-10-20",
+  "branch": "research/2026-10-20-top10-wallet-forensics",
+  "tested_source_commit": "2470d8267c914e48a819c245e59d13e4939aee0f",
+  "base_branch": "research/2026-10-20-copy-wallet-intelligence",
+  "base_commit": "db118cbd4f4e0d97c2238b620cd06037a255802e",
+  "publication_checks": {
+    "source_compare_status": "ahead",
+    "source_commits_ahead": 13,
+    "source_commits_behind": 0,
+    "source_changed_files": 13,
+    "wallet_summary_rows": 10,
+    "asset_pnl_rows": 92,
+    "trade_position_rows": 48,
+    "capital_flow_rows": 18,
+    "provider_conflict_rows": 10,
+    "verification_json_parsed": true,
+    "persian_report_read_back": true
+  },
+  "runtime_code_changed": false,
+  "tests_run": false,
+  "tests_note": "This checkpoint adds research CSV/JSON/Markdown only and does not modify runtime, strategy, config, tests, workflows or trading code.",
+  "raw_full_ledger_claimed": false,
+  "evidence_label": "PARTIAL_PUBLIC_FORENSIC_RECONSTRUCTION",
+  "financial_actions": 0,
+  "wallet_connections": 0,
+  "live_trading": "DISABLED",
+  "funded_decision": "NO-GO"
+}
