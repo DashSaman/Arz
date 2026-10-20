@@ -118,7 +118,7 @@ These are hypotheses because public XMOON material says overbought/oversold but 
 
 ## 10. Step-entry / DCA reconstruction
 
-Public XMOON material verifies multi-step entries and weighted step sizing, but it does **not** disclose the exact progression. Three bounded alternatives are predeclared:
+Public XMOON material verifies multi-step entries and weighted step sizing. The V1 public description goes further and says entry capital can increase incrementally by **one unit per step**. The literal research interpretation is therefore a linear progression such as `1:2:...:N`, while the exact internal normalization/source remains unverified. Three bounded alternatives are predeclared:
 
 - `equal`: `1 : 1 : ... : 1`;
 - `linear`: `1 : 2 : ... : N`;
