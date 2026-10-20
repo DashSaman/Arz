@@ -1,0 +1,232 @@
+{
+  "review_date_utc": "2026-10-20",
+  "base_branch": "research/2026-10-20-multi-edge-spot",
+  "purpose": "Public-wallet research snapshot only. No live execution, wallet connection, signing, leverage authorization, or financial action.",
+  "ranking_semantics": "Initial rank/score preserves the conversation screening order; it is not a calibrated investment score and is not automatically recomputed from refreshed metrics.",
+  "key_refreshes": {
+    "0x8bae3527e5a33fa0cf184f37bc112d071463ab6d": {
+      "sources": [
+        "CW-001",
+        "CW-005"
+      ],
+      "linceo": {
+        "all_time_pnl_usd": 11840000,
+        "sharpe": 3.89,
+        "sortino": 20.87,
+        "max_drawdown_equity_pct": 8.42,
+        "profit_factor": 32.96,
+        "closed_trades": 462,
+        "account_value_usd": 4060000,
+        "track_record_days": 460,
+        "copyability": 3,
+        "median_hold": "~2.8d"
+      },
+      "hypersonnar": {
+        "all_time_pnl_usd": 11850000,
+        "ranked_position": 3,
+        "ranked_population": 1277,
+        "score": 86,
+        "win_rate_pct_last_2000_fills_roundtrip_analysis": 94,
+        "median_hold": "6.7d"
+      },
+      "interpretation": "Highest-confidence long-history research candidate. Cross-provider metrics differ because windows and aggregation differ."
+    },
+    "0x987163b6b482c30c2f5f3aa2760109668eb0091d": {
+      "sources": [
+        "CW-002"
+      ],
+      "linceo": {
+        "all_time_pnl_usd": 5520000,
+        "sharpe": 2.5,
+        "sortino": 17.85,
+        "max_drawdown_equity_pct": 11.26,
+        "profit_factor": 19.62,
+        "closed_trades": 1851,
+        "account_value_usd": 258800,
+        "track_record_days": 987,
+        "copyability": 3,
+        "median_hold": "~1.6h"
+      },
+      "interpretation": "Best long-duration evidence window in this screen; copy lag deserves explicit simulation."
+    },
+    "0x0ad9e656d9e6211d0ea1c5462342e1fc94cc4cbf": {
+      "sources": [
+        "CW-003"
+      ],
+      "linceo": {
+        "all_time_pnl_usd": 12250000,
+        "sharpe": 4.41,
+        "sortino": 12.8,
+        "max_drawdown_equity_pct": 4.74,
+        "profit_factor": 208.79,
+        "closed_trades": 102,
+        "account_value_usd": 19030000,
+        "track_record_days": 116,
+        "copyability": 3
+      },
+      "interpretation": "Exceptional current ratios but insufficient duration to call durable."
+    },
+    "0x708f713637e28c014705fec1bab002992f53d4ea": {
+      "sources": [
+        "CW-004"
+      ],
+      "linceo": {
+        "all_time_pnl_usd": 1950000,
+        "sharpe": 3.59,
+        "sortino": 7.61,
+        "max_drawdown_equity_pct": 9.4,
+        "profit_factor": 30.05,
+        "account_value_usd": 5950000,
+        "track_record_days": 82,
+        "copyability": 5
+      },
+      "interpretation": "Best timing/copyability score in current verified set; history remains short."
+    },
+    "0x95da8596c44dd09f4b8becce87ad3b7894fb2328": {
+      "sources": [
+        "CW-006"
+      ],
+      "hyperkeel_snapshot_date_utc": "2026-10-04T14:23:00Z",
+      "account_value_usd": 1930000,
+      "pnl_7d_usd": 102030,
+      "roi_7d_pct": 13.6,
+      "pnl_30d_usd": 239970,
+      "roi_30d_pct": 14.2,
+      "all_time_pnl_usd": 1140000,
+      "all_time_roi_pct": 125.6,
+      "all_time_volume_usd": 106310000,
+      "interpretation": "Positive across this snapshot's short windows, but path and concentration need raw-account reconstruction."
+    },
+    "0x6f97b7de6be7b7771e975e46bae96c35e332e172": {
+      "sources": [
+        "CW-007"
+      ],
+      "linceo": {
+        "all_time_pnl_usd": 1000000,
+        "sharpe": 3.53,
+        "sortino": 10.76,
+        "max_drawdown_equity_pct": 25.65,
+        "closed_trades": 5788,
+        "account_value_usd": 140900,
+        "track_record_days": 229,
+        "copyability": 3,
+        "median_hold": "~6.2h"
+      },
+      "interpretation": "Large sample but meaningfully higher drawdown."
+    },
+    "498g1rVnFcnjBjpfw1xyqA1WvgQXUU8RWuELjxkjAayQ": {
+      "sources": [
+        "CW-008"
+      ],
+      "uwuu_headline_snapshot": {
+        "refreshed_date": "2026-10-18",
+        "pnl_30d_usd": 401913,
+        "roi_30d_pct": 9.1,
+        "trades": 586,
+        "win_rate_pct": 40.6,
+        "tokens": 106,
+        "avg_holding": "27d"
+      },
+      "caveat": "The same page's generated profile text lists different PnL/trade/token/win-rate values. Treat the provider page as internally inconsistent until raw Solana reconstruction."
+    },
+    "2fg5QD1eD7rzNNCsvnhmXFm5hqNgwTTG8p7kQ6f3rx6f": {
+      "sources": [
+        "CW-009"
+      ],
+      "uwuu_snapshot": {
+        "refreshed_date": "2026-10-18",
+        "pnl_30d_usd": 1876058,
+        "roi_30d_pct": 721,
+        "trades": 4419,
+        "win_rate_pct": 84.4,
+        "tokens": 45,
+        "avg_holding": "44d",
+        "best_trade_token": "CATE",
+        "best_trade_pnl_usd": 1739011
+      },
+      "concentration_note": "CATE alone is about 92.7% of headline 30d PnL; do not infer diversified durable alpha from aggregate PnL."
+    },
+    "2heJbC32Tpfcb3nbUb5ER61K11FGZVfVGtVnDm6LDogF": {
+      "sources": [
+        "CW-012"
+      ],
+      "provadata_as_of": "2026-10-16",
+      "pnl_24h_usd": -735101,
+      "pnl_7d_usd": -2373994,
+      "pnl_30d_usd": -6670409,
+      "all_time_pnl_usd": 4349243,
+      "followers": 790098,
+      "verified_wallets": 3,
+      "interpretation": "Widely followed but current drawdown directly rejects the 'always positive' premise."
+    },
+    "MobS6L5HhVJtxpeafDgREsweWFh53xFoUeP9pgbaDSf": {
+      "sources": [
+        "CW-010"
+      ],
+      "dextrading": {
+        "pnl_30d_usd": 63090,
+        "tokens": 648,
+        "win_rate_pct": 28,
+        "avg_hold": "1.1d",
+        "trades": 1698,
+        "wallet_age_days": 480,
+        "grade": "B",
+        "trader_score": 71
+      },
+      "interpretation": "Profitable despite low hit rate; likely payoff-asymmetry candidate rather than high-consistency copier."
+    },
+    "Beqv6dzTcjV2eodo8RRXCiCcnSYrS1vkQKhfqwHXqeit": {
+      "sources": [
+        "CW-011"
+      ],
+      "uwuu_snapshot": {
+        "refreshed_date": "2026-10-19",
+        "pnl_30d_usd": 3031024,
+        "roi_30d_pct": 51.7,
+        "trades": 15393,
+        "win_rate_pct": 44,
+        "tokens": 259,
+        "avg_holding": "25d",
+        "best_trade_token": "STONK",
+        "best_trade_pnl_usd": 3043809
+      },
+      "interpretation": "STONK profit exceeds total 30d PnL because other positions offset it; aggregate success is highly concentrated."
+    },
+    "0xec7f9f5b31b8f5da6ac6c0973bbd496e16f9df39": {
+      "sources": [
+        "CW-013"
+      ],
+      "hyperkeel_snapshot_date_utc": "2026-10-10T00:42:00Z",
+      "account_value_usd": 8080000,
+      "pnl_7d_usd": -1870000,
+      "roi_7d_pct": -43.9,
+      "pnl_30d_usd": 355070,
+      "all_time_pnl_usd": 4080000,
+      "interpretation": "All-time positive is insufficient; recent 7d drawdown is incompatible with smooth-growth/direct-copy criterion."
+    },
+    "0x020ca66c30bec2c4fe3861a94e4db4a498a35872": {
+      "sources": [
+        "CW-014"
+      ],
+      "hypersonnar": {
+        "all_time_perp_pnl_usd": -34890000,
+        "account_value_usd": 139400,
+        "copy_ranking": false,
+        "analyzed_current_leverage": "25x cross",
+        "liquidation_cushion_pct": 28.9
+      },
+      "interpretation": "Reject direct copy. Keep only as negative-control/risk-pattern case."
+    }
+  },
+  "unresolved": [
+    "Full raw transaction-level reconstruction for most Solana wallets",
+    "Deposit/withdrawal normalization and true time-weighted equity curves",
+    "Consistent realized-versus-unrealized accounting across providers",
+    "Monthly positive-rate and drawdown reconstruction for all 30 wallets",
+    "Copy-lag and slippage simulation under Arz spot-only constraints",
+    "Identity independence for multi-chain wallets before any consensus signal",
+    "Survivorship and selection bias from leaderboard discovery"
+  ],
+  "funded_decision": "NO-GO",
+  "live_trading": "DISABLED"
+}
