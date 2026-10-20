@@ -1,0 +1,12 @@
+source_type,url,purpose,retrieved_date,notes
+official_social,https://t.me/s/tradecity_pro?q=%23%D8%AA%D8%B1%DB%8C%D8%AF%D8%B3%DB%8C%D8%AA%DB%8C_%D9%BE%D8%B1%D9%88,Main wallet self-disclosure,2026-10-20,"Official channel links tradecitypro.eth/DeBank"
+official_social,https://t.me/s/Tradecity_pro?after=17684,DeficityPro wallet self-disclosure,2026-10-20,"Official channel posts DeBank profile and asks about taking profit"
+portfolio,https://debank.com/profile/0x0ab94c79f986bbf77df888ac25e348cc3d7c9af8,Main current EVM portfolio/protocols,2026-10-20,"Public profile"
+portfolio,https://debank.com/profile/0xbbc7840f1bc63abecbcad50d4ac1acb37d096765,Deficity current EVM portfolio/protocols/history,2026-10-20,"Public profile"
+portfolio,https://debank.com/profile/0x8a5e67978061c1fb60788d10d2b635cb76b9354a,Team current EVM portfolio/protocols,2026-10-20,"Public profile"
+explorer,https://etherscan.io/address/0x8a5e67978061c1fb60788d10d2b635cb76b9354a,Team ENS/transactions/holdings,2026-10-20,"ENS tradecityproteam.eth"
+explorer,https://basescan.org/address/0x0ab94c79f986bbf77df888ac25e348cc3d7c9af8,Main Base transactions/holdings,2026-10-20,"149 Base transactions visible in explorer snapshot"
+api,https://api.routescan.io/v2/network/mainnet/evm/all/address/{address}/transactions,Raw address transactions,2026-10-20,"Keyless public API; see data/routescan_*"
+api,https://api.routescan.io/v2/network/mainnet/evm/all/address/{address}/erc20-transfers,Raw ERC20 transfers,2026-10-20,"Keyless public API; amountInUsd retained but not trusted as historical price"
+api,https://api.routescan.io/v2/network/mainnet/evm/all/address/{address}/internal-operations,Raw internal operations,2026-10-20,"Keyless public API"
+api,https://api.exchange.coinbase.com/products/ETH-USD/candles,Historical ETH/USD candles,2026-10-20,"Used only for quote-asset valuation where specified"
