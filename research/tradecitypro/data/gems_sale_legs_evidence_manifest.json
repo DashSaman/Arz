@@ -1,0 +1,41 @@
+{
+  "date_utc": "2026-10-20",
+  "kind": "partial_provider_ingestion_crosschecked_with_public_etherscan_address_listing",
+  "network": "ethereum_mainnet",
+  "wallet": "0x0ab94c79f986bbf77df888ac25e348cc3d7c9af8",
+  "transactions_in_subset": 3,
+  "scope": "Only three selected 2024-08-20 GEMS sales, not full portfolio trades",
+  "sources": [
+    {
+      "path": "research/tradecitypro/data/routescan_main_transactions.csv",
+      "blob_sha1": "6bb7e5bdf64bdced2480c2f7af6ec92afc9e0d8b"
+    },
+    {
+      "path": "research/tradecitypro/data/main_classified_transactions.csv",
+      "blob_sha1": "649f418a3d4cb6750bf04f4c028c619844eedf00"
+    },
+    {
+      "url": "https://etherscan.io/address/0x0ab94c79f986bbf77df888ac25e348cc3d7c9af8",
+      "scope": "Crawled public historical transaction listing; independent receipt/log RPC unavailable"
+    }
+  ],
+  "totals": {
+    "gems_sent": "90902.81449086",
+    "gross_eth_in": "5.5590334061816876",
+    "gas_eth": "0.000861284492280117",
+    "gross_eth_less_reported_gas": "5.558172121689407483"
+  },
+  "fee_check": "burned_fees_wei==gas_used*gas_price_wei for all 3 stored provider rows",
+  "unknowns": [
+    "Token contract/mint per tx not in classified CSV",
+    "Complete acquisition and historical position cost basis",
+    "Historical USD/ETH at each execution to independent oracle standard",
+    "All earlier swaps/transfers/claims and matching inventory",
+    "DEX fee, liquidity and market impact",
+    "Whether every internal/external transfer was decoded and attributed"
+  ],
+  "not_a_profit_number": true,
+  "portfolio_compounding_proven": false,
+  "capital_authorization": false,
+  "decision": "NO-GO"
+}

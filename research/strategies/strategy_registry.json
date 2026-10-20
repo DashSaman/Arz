@@ -1,0 +1,376 @@
+{
+  "schema_version": 1,
+  "as_of_date_utc": "2026-10-20",
+  "purpose": "Register intended hypotheses only; NOT an executed backtest, no source of fabricated PnL",
+  "safety": "LIVE_TRADING_DISABLED",
+  "parameters_frozen": false,
+  "explanation": "Templates only. Numeric signal parameters must be frozen and hash-pinned before collecting a fresh prospective holdout; none is eligible as confirmatory until then.",
+  "source_context": [
+    "research/wallets/verified_wallet_registry.csv",
+    "research/xmoon/variants.json",
+    "reports/backtests/summary.csv",
+    "RESEARCH_GAP_AUDIT.md"
+  ],
+  "strategies": [
+    {
+      "id": "A",
+      "display_name": "Wallet Copy Baseline",
+      "signal_rule_description": "Public wallet swap observed only after valid chain confirmation and a source timestamp; enter next executable quote after delay, same token/pool and permitted $100 sizing; respect missing liquidity and tokens",
+      "parameters_to_preregister": [
+        "wallet_address",
+        "observed_signature",
+        "publication_time",
+        "network",
+        "token_mint",
+        "swap_side",
+        "pool_liquidity"
+      ],
+      "independent_benchmark": "Same-capital no-trade and eligible buy/hold as benchmarks",
+      "rejection_conditions": "Any unresolved timestamp, missing cost mark or unacceptable quote impact => no trade",
+      "status": "DRAFT_NOT_VALIDATED",
+      "data_status": "MISSING_VERIFIED_TIME_ALIGNED_ONCHAIN_QUOTES_AND_FULL_WALLET_HISTORY",
+      "test_universe_status": "MUST_FREEZE_BEFORE_FIRST_TEST",
+      "evaluation_period": "Future new untouched on-chain price/liquidity observations; prior 2026-10-13 holdout expressly excluded",
+      "capital_scenarios_usd": [
+        100,
+        300,
+        500,
+        1000,
+        3000
+      ],
+      "capital_live_authorization": false,
+      "execution_type": "DEX_SPOT_NON_CUSTODIAL_SIMULATION_ONLY",
+      "latency_seconds": [
+        3,
+        10,
+        30,
+        60,
+        120
+      ],
+      "slippage_frac": [
+        0.001,
+        0.0025,
+        0.005,
+        0.01,
+        0.02
+      ],
+      "risk": {
+        "leverage": 0,
+        "martingale": false,
+        "simulated_initial_usd": 100,
+        "max_single_order_usd": 25,
+        "cash_reserve_usd": 10
+      },
+      "target_metric": "whole_account_net_geometric_calendar_daily_return_including_idle_days",
+      "qualification": "At least one unseen chronological holdout, rigorous cost-aware fills, wallet/time selection controls, bootstrap with multiplicity awareness, and sufficient prospective track record; reject without evidence",
+      "decision": "NO-GO"
+    },
+    {
+      "id": "B",
+      "display_name": "Multi-Wallet Consensus",
+      "signal_rule_description": "At least two independently labeled wallets acquire same token inside a predeclared trailing window, with non-sybil independence and discovery date no later than signal",
+      "parameters_to_preregister": [
+        "independent_wallet_set",
+        "signature_confirmation",
+        "discovery_timestamp",
+        "overlap_window_seconds"
+      ],
+      "independent_benchmark": "Single wallet copy A matched with equal capital and delay",
+      "rejection_conditions": "Reject if wallet identities not provably independent",
+      "status": "DRAFT_NOT_VALIDATED",
+      "data_status": "MISSING_VERIFIED_TIME_ALIGNED_ONCHAIN_QUOTES_AND_FULL_WALLET_HISTORY",
+      "test_universe_status": "MUST_FREEZE_BEFORE_FIRST_TEST",
+      "evaluation_period": "Future new untouched on-chain price/liquidity observations; prior 2026-10-13 holdout expressly excluded",
+      "capital_scenarios_usd": [
+        100,
+        300,
+        500,
+        1000,
+        3000
+      ],
+      "capital_live_authorization": false,
+      "execution_type": "DEX_SPOT_NON_CUSTODIAL_SIMULATION_ONLY",
+      "latency_seconds": [
+        3,
+        10,
+        30,
+        60,
+        120
+      ],
+      "slippage_frac": [
+        0.001,
+        0.0025,
+        0.005,
+        0.01,
+        0.02
+      ],
+      "risk": {
+        "leverage": 0,
+        "martingale": false,
+        "simulated_initial_usd": 100,
+        "max_single_order_usd": 25,
+        "cash_reserve_usd": 10
+      },
+      "target_metric": "whole_account_net_geometric_calendar_daily_return_including_idle_days",
+      "qualification": "At least one unseen chronological holdout, rigorous cost-aware fills, wallet/time selection controls, bootstrap with multiplicity awareness, and sufficient prospective track record; reject without evidence",
+      "decision": "NO-GO"
+    },
+    {
+      "id": "C",
+      "display_name": "Wallet + Technical Confirmation",
+      "signal_rule_description": "Require wallet activity preceding decision; optional lagged close-only momentum/RSI/volume, pre-signal liquidity gate and regime filter; no after-the-fact indicator selection",
+      "parameters_to_preregister": [
+        "wallet_event_lag",
+        "rsi_lookback",
+        "momentum_lookback",
+        "pool_liquidity_threshold_usd",
+        "volume_window"
+      ],
+      "independent_benchmark": "A and indicator-only matched risk",
+      "rejection_conditions": "Reject if no independent OOS incremental gain",
+      "status": "DRAFT_NOT_VALIDATED",
+      "data_status": "MISSING_VERIFIED_TIME_ALIGNED_ONCHAIN_QUOTES_AND_FULL_WALLET_HISTORY",
+      "test_universe_status": "MUST_FREEZE_BEFORE_FIRST_TEST",
+      "evaluation_period": "Future new untouched on-chain price/liquidity observations; prior 2026-10-13 holdout expressly excluded",
+      "capital_scenarios_usd": [
+        100,
+        300,
+        500,
+        1000,
+        3000
+      ],
+      "capital_live_authorization": false,
+      "execution_type": "DEX_SPOT_NON_CUSTODIAL_SIMULATION_ONLY",
+      "latency_seconds": [
+        3,
+        10,
+        30,
+        60,
+        120
+      ],
+      "slippage_frac": [
+        0.001,
+        0.0025,
+        0.005,
+        0.01,
+        0.02
+      ],
+      "risk": {
+        "leverage": 0,
+        "martingale": false,
+        "simulated_initial_usd": 100,
+        "max_single_order_usd": 25,
+        "cash_reserve_usd": 10
+      },
+      "target_metric": "whole_account_net_geometric_calendar_daily_return_including_idle_days",
+      "qualification": "At least one unseen chronological holdout, rigorous cost-aware fills, wallet/time selection controls, bootstrap with multiplicity awareness, and sufficient prospective track record; reject without evidence",
+      "decision": "NO-GO"
+    },
+    {
+      "id": "D",
+      "display_name": "XMOON-inspired Spot",
+      "signal_rule_description": "Independent bullish confirmed three-pivot RSI-divergence hypothesis with MA200 context scoring and bounded, pre-sized DCA, no borrow/leverage; charges all attempts, no zero-cost simulated fills",
+      "parameters_to_preregister": [
+        "pivot_rule",
+        "rsi_period",
+        "ma_context_window",
+        "dca_spacing",
+        "max_steps",
+        "basket_budget",
+        "stop_rule"
+      ],
+      "independent_benchmark": "No-DCA, equal vs linear DCA and cost-adjusted take-profit",
+      "rejection_conditions": "Reject if daily-close path recovery fails quote-aware stop/tail risk",
+      "status": "DRAFT_NOT_VALIDATED",
+      "data_status": "MISSING_VERIFIED_TIME_ALIGNED_ONCHAIN_QUOTES_AND_FULL_WALLET_HISTORY",
+      "test_universe_status": "MUST_FREEZE_BEFORE_FIRST_TEST",
+      "evaluation_period": "Future new untouched on-chain price/liquidity observations; prior 2026-10-13 holdout expressly excluded",
+      "capital_scenarios_usd": [
+        100,
+        300,
+        500,
+        1000,
+        3000
+      ],
+      "capital_live_authorization": false,
+      "execution_type": "DEX_SPOT_NON_CUSTODIAL_SIMULATION_ONLY",
+      "latency_seconds": [
+        3,
+        10,
+        30,
+        60,
+        120
+      ],
+      "slippage_frac": [
+        0.001,
+        0.0025,
+        0.005,
+        0.01,
+        0.02
+      ],
+      "risk": {
+        "leverage": 0,
+        "martingale": false,
+        "simulated_initial_usd": 100,
+        "max_single_order_usd": 25,
+        "cash_reserve_usd": 10
+      },
+      "target_metric": "whole_account_net_geometric_calendar_daily_return_including_idle_days",
+      "qualification": "At least one unseen chronological holdout, rigorous cost-aware fills, wallet/time selection controls, bootstrap with multiplicity awareness, and sufficient prospective track record; reject without evidence",
+      "decision": "NO-GO"
+    },
+    {
+      "id": "E",
+      "display_name": "Selective Mean Reversion",
+      "signal_rule_description": "Completed-bar negative z-score candidate, spot long only with source-time liquidity/regime gates and predefined stop/exit; no retune on October 2026 holdout",
+      "parameters_to_preregister": [
+        "z_window",
+        "z_entry",
+        "z_exit",
+        "min_liquidity_usd",
+        "stop_vol_multiplier"
+      ],
+      "independent_benchmark": "Pre-registered Oct13 mean reversion historical baseline (non-independent)",
+      "rejection_conditions": "Reject if new unseen quote-aware OOS net gain not positive",
+      "status": "DRAFT_NOT_VALIDATED",
+      "data_status": "MISSING_VERIFIED_TIME_ALIGNED_ONCHAIN_QUOTES_AND_FULL_WALLET_HISTORY",
+      "test_universe_status": "MUST_FREEZE_BEFORE_FIRST_TEST",
+      "evaluation_period": "Future new untouched on-chain price/liquidity observations; prior 2026-10-13 holdout expressly excluded",
+      "capital_scenarios_usd": [
+        100,
+        300,
+        500,
+        1000,
+        3000
+      ],
+      "capital_live_authorization": false,
+      "execution_type": "DEX_SPOT_NON_CUSTODIAL_SIMULATION_ONLY",
+      "latency_seconds": [
+        3,
+        10,
+        30,
+        60,
+        120
+      ],
+      "slippage_frac": [
+        0.001,
+        0.0025,
+        0.005,
+        0.01,
+        0.02
+      ],
+      "risk": {
+        "leverage": 0,
+        "martingale": false,
+        "simulated_initial_usd": 100,
+        "max_single_order_usd": 25,
+        "cash_reserve_usd": 10
+      },
+      "target_metric": "whole_account_net_geometric_calendar_daily_return_including_idle_days",
+      "qualification": "At least one unseen chronological holdout, rigorous cost-aware fills, wallet/time selection controls, bootstrap with multiplicity awareness, and sufficient prospective track record; reject without evidence",
+      "decision": "NO-GO"
+    },
+    {
+      "id": "F",
+      "display_name": "Adaptive Ensemble",
+      "signal_rule_description": "Combine pre-signal weighted forecasts from A/C/D/E using training-period-only weights; walk-forward retrain and embargo; fallback to flat when confidence low",
+      "parameters_to_preregister": [
+        "training_window_days",
+        "lag_days",
+        "embargo_days",
+        "weight_floor",
+        "rebalancing_frequency"
+      ],
+      "independent_benchmark": "Equal-weight ensemble and stronger single-strategy matched-risks",
+      "rejection_conditions": "Reject if lift disappears after turnover/multiplicity correction",
+      "status": "DRAFT_NOT_VALIDATED",
+      "data_status": "MISSING_VERIFIED_TIME_ALIGNED_ONCHAIN_QUOTES_AND_FULL_WALLET_HISTORY",
+      "test_universe_status": "MUST_FREEZE_BEFORE_FIRST_TEST",
+      "evaluation_period": "Future new untouched on-chain price/liquidity observations; prior 2026-10-13 holdout expressly excluded",
+      "capital_scenarios_usd": [
+        100,
+        300,
+        500,
+        1000,
+        3000
+      ],
+      "capital_live_authorization": false,
+      "execution_type": "DEX_SPOT_NON_CUSTODIAL_SIMULATION_ONLY",
+      "latency_seconds": [
+        3,
+        10,
+        30,
+        60,
+        120
+      ],
+      "slippage_frac": [
+        0.001,
+        0.0025,
+        0.005,
+        0.01,
+        0.02
+      ],
+      "risk": {
+        "leverage": 0,
+        "martingale": false,
+        "simulated_initial_usd": 100,
+        "max_single_order_usd": 25,
+        "cash_reserve_usd": 10
+      },
+      "target_metric": "whole_account_net_geometric_calendar_daily_return_including_idle_days",
+      "qualification": "At least one unseen chronological holdout, rigorous cost-aware fills, wallet/time selection controls, bootstrap with multiplicity awareness, and sufficient prospective track record; reject without evidence",
+      "decision": "NO-GO"
+    },
+    {
+      "id": "G",
+      "display_name": "Risk-controlled Portfolio",
+      "signal_rule_description": "Only trade proposals with positive conservative expected net return after gas/fees/slippage and account-level exposure/correlation constraints; preserve idle cash",
+      "parameters_to_preregister": [
+        "risk_budget_per_trade",
+        "max_open_positions",
+        "max_total_exposure",
+        "asset_correlation_window",
+        "drawdown_halt"
+      ],
+      "independent_benchmark": "No-trade and score-only matching proposal universe",
+      "rejection_conditions": "Reject if risk control worsens recovery or increases modeled tail drawdown",
+      "status": "DRAFT_NOT_VALIDATED",
+      "data_status": "MISSING_VERIFIED_TIME_ALIGNED_ONCHAIN_QUOTES_AND_FULL_WALLET_HISTORY",
+      "test_universe_status": "MUST_FREEZE_BEFORE_FIRST_TEST",
+      "evaluation_period": "Future new untouched on-chain price/liquidity observations; prior 2026-10-13 holdout expressly excluded",
+      "capital_scenarios_usd": [
+        100,
+        300,
+        500,
+        1000,
+        3000
+      ],
+      "capital_live_authorization": false,
+      "execution_type": "DEX_SPOT_NON_CUSTODIAL_SIMULATION_ONLY",
+      "latency_seconds": [
+        3,
+        10,
+        30,
+        60,
+        120
+      ],
+      "slippage_frac": [
+        0.001,
+        0.0025,
+        0.005,
+        0.01,
+        0.02
+      ],
+      "risk": {
+        "leverage": 0,
+        "martingale": false,
+        "simulated_initial_usd": 100,
+        "max_single_order_usd": 25,
+        "cash_reserve_usd": 10
+      },
+      "target_metric": "whole_account_net_geometric_calendar_daily_return_including_idle_days",
+      "qualification": "At least one unseen chronological holdout, rigorous cost-aware fills, wallet/time selection controls, bootstrap with multiplicity awareness, and sufficient prospective track record; reject without evidence",
+      "decision": "NO-GO"
+    }
+  ]
+}
