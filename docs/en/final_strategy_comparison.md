@@ -21,3 +21,7 @@ The recorded 3-push screen is a *daily close/path* diagnostic, not trade-replay 
 No measured 3/10/30/60/120-second copy-latency fills, no five-level fee/slippage grid, no continuous compounded equity series for five capital amounts, no fully verified open-basis FIFO, no new untampered OOS or prospective results. Consequently the user's requested capital-compounding, drawdown, monthly distributions and fee/latency charts would imply false precision. [Manifest](../../reports/backtests/validation_manifest.json) lists each missing gate.
 
 **Go/no-go:** keep **NO-GO** until primary chain execution history, cashflow-adjusted positions, time-matched slippage/latency, protected wallet selection and fresh chronologically independent cost-aware OOS data are available and pass predeclared conditions. Do not activate wallet connections or live trades.
+
+### Mathematical daily-rate equivalence for prior $100 historical endpoints
+
+[Three-row archived capital table](../../reports/backtests/compounding_results.csv) shows only prior old holdout endpoint results: approximate constant-rate daily geometric equivalents are **trend −0.074212796%**, **momentum −0.055891477%**, **mean reversion +0.004279000%** over 33⅓ days. These derive from historical start/end equity; they are **not daily observed compounded wallet returns** or an executed five-capital-scenario test.
