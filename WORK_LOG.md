@@ -82,3 +82,25 @@ The final combined check executed all 56 tests successfully but initially reject
 - ادعاهای عمومی تأییدشده از جزئیات اختصاصی نامعلوم جدا شدند؛ فرمول دقیق Pivot، RSI، فاصله و وزن پله‌ها و خروج‌ها هنوز فرضیه هستند.
 - Pivot بدون نگاه به آینده، 3-Push، MA200/RSI، DCA محدود، فاصله درصدی/ATR و Break-even هزینه‌محور پیاده‌سازی و ۷ آزمون جدید محلی با موفقیت اجرا شد.
 - ماتریس A تا G و ممنوعیت تیون دوباره روی Holdout دیده‌شده ثبت شد. PR شماره ۱۹ برای CI مخزن باز شده است. معامله واقعی همچنان غیرفعال و تصمیم فعلی NO-GO است.
+
+
+## 2026-10-20 UTC — XMOON daily-price screen and untouched cross-asset follow-up
+
+- Preregistered a daily-close screening protocol before opening results. Source: public `coinmetrics/data` archive under CC BY-NC 4.0. Raw provider files were not copied into Arz; exact source blob SHAs were recorded.
+- First asset set: AAVE, LINK, UNI, MKR, COMP, CRV, SUSHI, SNX. Final OOS began 2025-01-01. Plain 3-Push produced 7 OOS signals with median 20-day return -1.79%, 42.9% positive 20-day returns and median 20-day maximum adverse close-to-close excursion -8.62%.
+- The preregistered same-timeframe hard gate close > daily SMA200 produced zero OOS signals; C (plus RSI <=30) also produced zero. This is not evidence that XMOON's published HTF confirmation is useless; it shows the hard-gate daily proxy is a poor reconstruction candidate.
+- After the OOS was opened, an explicitly exploratory A-signal DCA diagnostic suggested linear 1:2:3:4 could improve tail recovery versus equal 1:1:1:1. Because this was post-OOS, it was not treated as confirmation.
+- Before opening any new asset data, preregistered an untouched cross-asset follow-up on YFI, BAL, GRT, ENS, LDO, RPL, DYDX and 1INCH. YFI/BAL/LDO/1INCH had sufficient archive history; the other four had only seven usable price rows in this snapshot.
+- The untouched follow-up met the minimum 20-signal threshold. Median 20-day return was +3.60%, 65% were positive and median 20-day maximum adverse excursion was -8.52%. All 20 long-reversal signals occurred below daily SMA200.
+- Equal DCA recovered 95% within 30 days versus 100% for linear; linear rescued the one Equal failure and improved the single worst tail mark (-11.30% vs -14.93%), but had slower median recovery (5 vs 3 days), used more median steps (3 vs 2) and had a worse aggregate median worst-mark (-3.85% vs -2.60%). Pairwise, linear had a better worst-mark path in 10/20, equal in 4/20 and ties in 6/20.
+- Interpretation: linear sizing is not uniformly superior. Its plausible advantage is tail recovery in exchange for heavier adverse-move capital deployment. MA200/HTF RSI should be investigated as context/score features, not same-timeframe hard gates.
+- Results are historical daily-close path diagnostics, not executable DEX fills or profitability evidence. Project NO-GO and live-disabled boundary remain unchanged.
+
+### فارسی
+
+- پروتکل غربال‌گری روزانه قبل از مشاهده نتیجه ثبت شد و SHA دقیق منابع Coin Metrics ذخیره شد.
+- در OOS اول، 3-Push خام فقط ۷ سیگنال داشت؛ میانه بازده ۲۰ روزه منفی ۱٫۷۹٪ و سهم مثبت ۴۲٫۹٪ بود. Hard Gate مووینگ ۲۰۰ هیچ سیگنالی باقی نگذاشت.
+- نتیجه DCA روی همان OOS فقط اکتشافی محسوب شد و برای تأیید، Follow-up روی دارایی‌های کاملاً ندیده قبل از بازکردن داده ثبت شد.
+- Follow-up به ۲۰ سیگنال رسید: میانه بازده ۲۰ روزه +۳٫۶۰٪ و ۶۵٪ مثبت. تمام سیگنال‌ها زیر SMA200 روزانه بودند.
+- Linear 1:2:3:4 یک شکست Equal را نجات داد و بدترین Tail را بهتر کرد، اما Recovery میانه کندتر و استفاده از پله‌ها بیشتر بود. نتیجه: Linear Edge رایگان نیست و مزیت احتمالی آن Tail Recovery در برابر Exposure بیشتر است.
+- این شواهد اجرای واقعی نیستند؛ NO-GO و غیرفعال بودن معامله زنده بدون تغییر باقی ماند.
