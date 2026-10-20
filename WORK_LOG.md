@@ -127,3 +127,29 @@ The final combined check executed all 56 tests successfully but initially reject
 - فیلد `amountInUsd` ایندکسر برای PnL تاریخی معتبر تشخیص داده نشد و فقط به‌عنوان داده خام نگه داشته شد.
 - Win rate و lifetime realized PnL نهایی عمداً عددسازی نشده‌اند چون event history چند زنجیره کامل نیست و جریان‌های LP/وام/bridge/vesting باید ابتدا به پوزیشن اقتصادی تبدیل شوند.
 - هیچ کد اجرای واقعی تغییر نکرد؛ Live Trading غیرفعال و تصمیم کلی NO-GO باقی است.
+
+## 2026-10-20 — TradeCityPro strategy extraction
+
+- Converted the public-wallet audit into curated economic episodes and repeatable-behavior hypotheses under `research/tradecitypro/strategy/`.
+- Added 12 position/portfolio episodes covering staged GTC/ENA entries, GEMS tranche exit, USDe stable-yield rotation, concentrated-liquidity episodes, Deficity lending/yield stacks, cross-chain routing and treasury segmentation.
+- Fresh DeBank read for `tradecitypro.eth` returned approximately $15,072, versus approximately $23,959 in an earlier same-day capture. The discrepancy is explicitly retained as tracker snapshot instability; transaction flows and protocol positions are prioritized over a single headline balance.
+- Fresh main allocation was approximately 35.1% wallet/free bucket and 64.9% in listed protocol positions. Venus and Ethena were the two largest visible protocol allocations.
+- Updated the provisional open-balance drawdown view using the earlier secondary Average Buy snapshot and fresh DeBank prices. GNS and ARB remained deeply underwater (approximately -90.35% and -79.35% respectively). These are not realized-PnL claims.
+- Identified staged entry and tranche exit as the clearest execution behaviors worth independent backtesting.
+- Identified treasury/strategy/DeFi wallet separation as an architecture pattern worth adopting.
+- Marked claims/vesting, leverage/borrowing, uncontrolled deep drawdowns, LP without IL/range modeling, and automatic bridge copying as non-copyable or prohibited for Arz.
+- Added ten machine-readable research hypotheses TCP-R01..TCP-R10 in `candidate_rules.json`. None authorizes live trading.
+- No runtime or live-execution code changed. Project-wide NO-GO and live-trading-disabled status remain unchanged.
+
+### فارسی
+
+- ممیزی قبلی به Episodeهای اقتصادی و Ruleهای قابل‌آزمایش تبدیل شد و در `research/tradecitypro/strategy/` ثبت شد.
+- ۱۲ Episode شامل ورود پله‌ای GTC/ENA، خروج پله‌ای GEMS، Stable-Yield با USDe، LPها، Lending/Yield در Deficity، Bridge و جداسازی Treasury ثبت شدند.
+- واکشی تازه DeBank برای ولت اصلی حدود ۱۵٬۰۷۲ دلار نشان داد در حالی که Snapshot قبلی همان روز حدود ۲۳٬۹۵۹ دلار بود؛ این اختلاف به‌عنوان ناپایداری Tracker ثبت شد.
+- در Snapshot تازه حدود ۳۵.۱٪ در Wallet و ۶۴.۹٪ در پروتکل‌های قابل مشاهده بود.
+- Drawdown موقت با قیمت تازه به‌روز شد؛ GNS حدود ۹۰.۳۵٪ و ARB حدود ۷۹.۳۵٪ زیر Average Buy موقت بودند. این اعداد Realized PnL نیستند.
+- Staged Entry و Tranche Exit مهم‌ترین رفتارهای ارزشمند برای بک‌تست تشخیص داده شدند.
+- جداسازی Treasury/Strategy/DeFi Wallet به‌عنوان الگوی معماری مثبت ثبت شد.
+- Claim/Vesting، Leverage، Drawdown بدون کنترل، LP بدون مدل IL/Range و Bridge کورکورانه برای Arz رد شدند.
+- ده Hypothesis با شناسه TCP-R01 تا TCP-R10 ثبت شد و هیچ‌کدام مجوز اجرای Live نیستند.
+- کد اجرای واقعی تغییر نکرد؛ NO-GO و غیرفعال بودن Live Trading حفظ شد.
