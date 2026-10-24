@@ -64,8 +64,7 @@ class ChainEvidenceTests(unittest.TestCase):
         result = p.quote_probe()
         self.assertEqual(result["block_number"], 100)
         self.assertEqual(result["status"], "PARTIAL_QUOTED")
-        self.assertTrue(any("reverse_usdc" in r.get("same_block_reverse_usdc_before_network_cost", "")
-                            for r in [] ) is False)
+        self.assertIsNotNone(result["records"][1].get("same_block_reverse_usdc_before_network_cost"))
         self.assertEqual(len([x for x in result["records"] if x.get("label")]), 4)
         self.assertTrue(all(x["gas_usd"] is None for x in result["records"] if "gas_usd" in x))
         self.assertEqual(result["records"][1]["actual_network_fee_usdc"], None)
@@ -85,6 +84,7 @@ class ChainEvidenceTests(unittest.TestCase):
             if method == "getSignaturesForAddress":
                 return [{"signature": "SIG", "slot": 12, "blockTime": 100, "err": None}]
             if method == "getTransaction":
+                self.assertEqual(args[1]["maxSupportedTransactionVersion"], 1)
                 return {"slot": 12, "blockTime": 100,
                         "meta": {"fee": 10000, "err": None,
                                  "preTokenBalances": [], "postTokenBalances": []}}
