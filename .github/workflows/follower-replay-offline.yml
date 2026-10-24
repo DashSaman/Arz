@@ -1,0 +1,30 @@
+name: follower quote replay offline
+on:
+  push:
+    branches:
+      - research/2026-10-24-follower-quote-gates
+  pull_request:
+    paths:
+      - 'src/arz/multi_edge/follower_replay.py'
+      - 'scripts/replay_follower_quotes.py'
+      - 'tests/test_follower_replay.py'
+      - 'tests/test_replay_follower_runner.py'
+      - '.github/workflows/follower-replay-offline.yml'
+permissions:
+  contents: read
+jobs:
+  offline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: New focused tests
+        run: |
+          PYTHONPATH=src:. python -m unittest discover -s tests -p 'test_follower_replay.py' -v
+          PYTHONPATH=src:. python -m unittest discover -s tests -p 'test_replay_follower_runner.py' -v
+      - name: Offline fixture replay and syntax
+        run: |
+          PYTHONPATH=src:. python scripts/replay_follower_quotes.py --input tests/fixtures/follower_quote_synthetic.json > /dev/null
+          python -m compileall -q src/arz/multi_edge/follower_replay.py scripts/replay_follower_quotes.py
