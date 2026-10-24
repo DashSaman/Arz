@@ -36,6 +36,10 @@ jobs:
       - name: Compile research code
         run: python3 -m compileall -q src/arz/multi_edge scripts/multi_edge_phase_a.py scripts/multi_edge_public_probe.py
 
+      - name: Price-proxy lookahead / fold / checksum-parser regression
+        env:
+          PYTHONPATH: "src:."
+        run: python -m unittest discover -s tests -p 'test_long_history_proxy.py' -v
       - name: Bounded new multi-year public CEX spot price proxy replay (NO orders)
         env:
           PYTHONPATH: "src:."
