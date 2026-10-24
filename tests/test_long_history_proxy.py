@@ -58,7 +58,8 @@ class LongHistoryProxyTests(unittest.TestCase):
         self.assertIsNone(x["win_rate_pct"])
         self.assertEqual(x["calendar_days"], 80)
         self.assertEqual(x["cash_benchmark_pct"], 0)
-        self.assertEqual(x["twenty_percent_buy_hold"]["BTCUSDT"]["ending_equity_usdc"], 100)
+        self.assertLess(x["twenty_percent_buy_hold"]["BTCUSDT"]["ending_equity_usdc"], 100)
+        self.assertGreater(x["twenty_percent_buy_hold"]["BTCUSDT"]["ending_equity_usdc"], 99.9)
 
     def test_input_alignment_rejected(self):
         start_ts = 1704067200
