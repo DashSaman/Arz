@@ -195,7 +195,7 @@ def solana_probe() -> dict:
             for row in sigs[:2]:
                 sig = row["signature"]
                 raw = rpc(SOL_RPC, "getTransaction", [sig, {"encoding": "jsonParsed",
-                                "commitment": "finalized", "maxSupportedTransactionVersion": 0}])
+                                "commitment": "finalized", "maxSupportedTransactionVersion": 1}])
                 if raw is None:
                     record["sample"].append({"signature": sig, "status": "UNAVAILABLE_PRUNED"})
                     continue
