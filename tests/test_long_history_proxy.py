@@ -58,12 +58,30 @@ class LongHistoryProxyTests(unittest.TestCase):
         self.assertIsNone(x["win_rate_pct"])
         self.assertEqual(x["calendar_days"], 80)
         self.assertEqual(x["cash_benchmark_pct"], 0)
+        self.assertEqual(x["twenty_percent_buy_hold"]["BTCUSDT"]["ending_equity_usdc"], 100)
 
     def test_input_alignment_rejected(self):
         start_ts = 1704067200
         bs = [bar(start_ts + i*86400, 100) for i in range(150)]
         with self.assertRaisesRegex(ValueError, "Unaligned"):
             rotation_proxy({"BTCUSDT": bs, "ETHUSDT": bs[1:]})
+
+    def test_independent_fold_window_and_return_count(self):
+        first = 1704067200
+        bs = [bar(first + i * 86400, 100) for i in range(250)]
+        sliced = rotation_proxy({"BTCUSDT": bs, "ETHUSDT": bs}, start_idx=120, end_idx=170)
+        self.assertEqual(sliced["calendar_days"], 50)
+        self.assertEqual(sliced["last_day"],
+                         datetime.fromtimestamp(bs[169].ts, timezone.utc).date().isoformat())
+        self.assertIn("ETHUSDT", sliced["twenty_percent_buy_hold"])
+
+    def test_older_data_does_not_react_to_future_price_modification(self):
+        t = 1704067200
+        a = [bar(t + i * 86400, 100 + i * 0.1) for i in range(260)]
+        original = rotation_proxy({"BTCUSDT": a, "ETHUSDT": a}, start_idx=120, end_idx=190)
+        altered = a[:190] + [bar(z.ts, z.close + 1000) for z in a[190:]]
+        replay = rotation_proxy({"BTCUSDT": altered, "ETHUSDT": altered}, start_idx=120, end_idx=190)
+        self.assertEqual(original, replay)
 
     def test_drawdown_math(self):
         self.assertAlmostEqual(max_drawdown([100, 110, 90, 120]), 1-90/110)
