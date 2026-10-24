@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "data_class": "SYNTHETIC",
+  "episodes": [
+    {
+      "episode_id": "ep1",
+      "entry": {"event_id": "buy1", "token": "WETH", "side": "buy", "chain_at": 100, "finalized_at": 105, "seen_at": 111},
+      "exit": {"event_id": "sell1", "token": "WETH", "side": "sell", "chain_at": 300, "finalized_at": 305, "seen_at": 311},
+      "independent_clusters": ["clusterA", "clusterB", "clusterC"]
+    }
+  ],
+  "quotes": [
+    {"quote_id": "q1", "token": "WETH", "side": "buy", "market_at": 172, "seen_at": 173, "amount_in": 20, "amount_out": 0.01, "network_fee_usdc": 0.02, "pool_fee_embedded": true},
+    {"quote_id": "q2", "token": "WETH", "side": "sell", "market_at": 372, "seen_at": 373, "amount_in": 0.01, "amount_out": 20.5, "network_fee_usdc": 0.02, "pool_fee_embedded": true}
+  ]
+}
