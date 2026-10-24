@@ -1,0 +1,81 @@
+{
+  "checkpoint_utc": "2026-10-24",
+  "repository": "DashSaman/Arz",
+  "base_branch": "research/2026-10-20-multi-edge-phase-a",
+  "working_branch": "research/2026-10-24-follower-quote-gates",
+  "evidence": "SOFTWARE_TESTS_WITH_SYNTHETIC_FIXTURES_ONLY",
+  "code_status": {
+    "new_source_files": 2,
+    "new_test_files": 2,
+    "focused_tests_passed": 18,
+    "focused_tests_failed": 0,
+    "compileall_exit_code": 0,
+    "inherited_phase_a_suite_executed_here": false,
+    "local_test_command": "PYTHONPATH=src:. python -m unittest discover -s tests -p 'test_*.py' -v",
+    "github_blob_exact_match_verified": true,
+    "file_hashes": [
+      {
+        "path": "src/arz/multi_edge/follower_replay.py",
+        "sha256": "42d022ace20ca70fe53423afc51aaa1db9cf1f890c2630a9d3ba0a49faba1da9",
+        "git_blob_sha": "1fcafd110b050f7cca7c5daa7dfe9e106cd98f36"
+      },
+      {
+        "path": "tests/test_follower_replay.py",
+        "sha256": "66a893f5e730f75f8518e34e42f7fd4b2c426057494444bd305cb1ed9065e9c3",
+        "git_blob_sha": "7e5178e9ff065aa19a1cd852250da722119243a9"
+      },
+      {
+        "path": "scripts/replay_follower_quotes.py",
+        "sha256": "f83ad7b915300b28224b897dc3d044230aac3894fc2f4451975d574c3cf9c092",
+        "git_blob_sha": "b1e165482429cf2881256da302ea2a4668aa3cd1"
+      },
+      {
+        "path": "tests/test_replay_follower_runner.py",
+        "sha256": "2a1fc8db336de221562010ecaad29624ce0ad9fe558af206c8c30e235b51dfc0",
+        "git_blob_sha": "2286ee6e5475118adfe3eead97cf24a59e814c2d"
+      }
+    ]
+  },
+  "synthetic_delay_probe": {
+    "delays_s": [
+      3,
+      10,
+      30,
+      60,
+      120
+    ],
+    "episodes": 1,
+    "quotes": 2,
+    "paired_by_delay": {
+      "3": 0,
+      "10": 0,
+      "30": 0,
+      "60": 1,
+      "120": 0
+    },
+    "source": "SYNTHETIC_ONLY",
+    "interpretation": "Proof of deterministic time gating, not wallet copy profitability"
+  },
+  "real_evidence": {
+    "new_chain_swap_receipts": 0,
+    "new_real_follower_quotes": 0,
+    "new_market_backtests": 0,
+    "new_prospective_paper_days": 0,
+    "independently_verified_positive_wallets": 0
+  },
+  "phase_a_existing": {
+    "data_gap": "Base public RPC eth_getLogs HTTP 429, no historical swaps; short WETH 5m; rejected cbBTC page; no cost-calibrated H1-H4",
+    "qualified_hypotheses": 0
+  },
+  "blocked_tasks": [
+    "Complete permitted archival receipts/logs",
+    "Timestamped wallet cohort and independent clusters",
+    "Executable time-of-follower $20 quotes and fee coverage",
+    "Whole-account point-in-time portfolio backtest",
+    "Untouched OOS and 90+ day prospective paper",
+    "Independent execution and security approval"
+  ],
+  "financial_decision": "NO-GO",
+  "live_trading": "DISABLED",
+  "remote_ci": "NOT_OBSERVED_AT_REPORT_CREATION"
+}
