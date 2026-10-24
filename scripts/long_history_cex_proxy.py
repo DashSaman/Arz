@@ -145,7 +145,7 @@ def avg_true_range(bars: list[Bar], end: int) -> float:
                             for i in range(end - 13, end + 1))
 
 
-def rotation_proxy(bars: dict[str, list[Bar]], *, start_idx: int = 120, cost_scale: int = 1) -> dict:
+def rotation_proxy(bars: dict[str, list[Bar]], *, start_idx: int = 120, end_idx: int | None = None, cost_scale: int = 1) -> dict:
     """Research H4-*style* proxy, not faithful H4 (CEX and fixed two-asset universe).
 
     Sunday close produces the Monday 00:00 UTC weekly signal; execute at
@@ -155,7 +155,8 @@ def rotation_proxy(bars: dict[str, list[Bar]], *, start_idx: int = 120, cost_sca
     b, e = bars["BTCUSDT"], bars["ETHUSDT"]
     if len(b) != len(e) or any(x.ts != y.ts for x, y in zip(b, e)):
         raise ValueError("Unaligned asset dates")
-    if start_idx < 120 or start_idx >= len(b) - 2:
+    end_idx = len(b) if end_idx is None else end_idx
+    if start_idx < 120 or start_idx >= end_idx - 2 or end_idx > len(b):
         raise ValueError("Insufficient lookback or trading days")
     cash = 100.0
     units = 0.0
@@ -171,7 +172,7 @@ def rotation_proxy(bars: dict[str, list[Bar]], *, start_idx: int = 120, cost_sca
     date_labels = []
     month_ending = {}
     day_returns = []
-    for i in range(start_idx, len(b)):
+    for i in range(start_idx, end_idx):
         d = datetime.fromtimestamp(b[i].ts, timezone.utc)
         mapping = {"BTCUSDT": b[i], "ETHUSDT": e[i]}
         prev = {"BTCUSDT": b[i - 1], "ETHUSDT": e[i - 1]}
@@ -222,7 +223,7 @@ def rotation_proxy(bars: dict[str, list[Bar]], *, start_idx: int = 120, cost_sca
                 exiting = True
             wait_buy = target if asset is None else None
 
-        if wait_buy is not None and asset is None and not exiting and i < len(b) - 1:
+        if wait_buy is not None and asset is None and not exiting and i < end_idx - 1:
             symbol = wait_buy
             equity_at_open = cash
             notional = min(.2 * equity_at_open, 25.0)
@@ -252,6 +253,26 @@ def rotation_proxy(bars: dict[str, list[Bar]], *, start_idx: int = 120, cost_sca
     wins = [x for x in pnls if x > 0]
     losses = [x for x in pnls if x < 0]
     ending = daily[-1]
+    # Comparable initial 20%-allocation buy-and-hold of each CEX spot asset.
+    # Marked open at the last close, not force-liquidated or time-exposure matched.
+    buy_hold = {}
+    for symbol, series in (("BTCUSDT", b), ("ETHUSDT", e)):
+        entry_usd = 20.0
+        qty = entry_usd / (series[start_idx].open * (1 + .0005 * cost_scale))
+        fee = cost_scale * (entry_usd * .0005 + .01)
+        ending_mark = 100 - entry_usd - fee + qty * series[end_idx - 1].close
+        hold_equity = [100.0]
+        hold_cash = 100 - entry_usd - fee
+        for j in range(start_idx, end_idx):
+            hold_equity.append(hold_cash + qty * series[j].close)
+        buy_hold[symbol] = {
+            "initial_allocation_usdc": entry_usd,
+            "ending_equity_usdc": round(ending_mark, 7),
+            "return_pct": round(100 * (ending_mark / 100 - 1), 6),
+            "max_drawdown_pct": round(100 * max_drawdown(hold_equity), 6),
+            "open_terminal_position": True,
+            "time_exposure_matched": False
+        }
     geom = (ending / 100.0) ** (1 / len(day_returns)) - 1
     month_vals = [100.0, *month_ending.values()]
     month_returns = [(month_vals[i] / month_vals[i-1]) - 1 for i in range(1, len(month_vals))]
@@ -269,7 +290,8 @@ def rotation_proxy(bars: dict[str, list[Bar]], *, start_idx: int = 120, cost_sca
             "worst_calendar_month_pct": round(min(month_returns) * 100, 5) if month_returns else None,
             "largest_winner_share_gross_positive": round(max(wins) / sum(wins), 5) if wins else None,
             "label_note": "Non-tradable CEX-proxy simulation; not compliant H4 DEX protocol",
-            "cash_benchmark_pct": 0.0, "days_with_returns": len(day_returns)}
+            "cash_benchmark_pct": 0.0, "twenty_percent_buy_hold": buy_hold,
+            "days_with_returns": len(day_returns)}
 
 
 def main():
@@ -289,15 +311,20 @@ def main():
         bars, source = acquire(symbol, "1d", START, END)
         daily[symbol] = bars
         proofs.extend(source)
-    tasks = {"full_baseline": (120, 1), "full_network_stress": (120, 2)}
+    tasks = {"full_baseline": (120, None, 1), "full_network_stress": (120, None, 2)}
     # Dates fixed before viewing any new market returns: audit slices are diagnostics,
     # not untouched OOS if the proxy was devised with earlier project outcomes seen.
     idx = {datetime.fromtimestamp(x.ts, timezone.utc).date(): i for i,x in enumerate(daily["BTCUSDT"])}
-    for name, t in (("calendar_2024_to_2025", date(2024, 2, 1)),
-                    ("calendar_2025_to_2026", date(2025, 2, 1)),
-                    ("recent_2026", date(2026, 2, 1))):
-        tasks[name] = (idx[t], 1)
-    rotation = {name: rotation_proxy(daily, start_idx=s, cost_scale=cost) for name, (s, cost) in tasks.items()}
+    # Non-overlapping calendar time slices; each explicitly resets to $100 and
+    # uses only earlier completed bars for the 120-day warm-up.
+    for name, start_date, end_date in (
+        ("fold_2024_Feb_Dec", date(2024, 2, 1), date(2025, 1, 1)),
+        ("fold_2025_Jan_Dec", date(2025, 1, 1), date(2026, 1, 1)),
+        ("fold_2026_Jan_Oct23", date(2026, 1, 1), END)
+    ):
+        tasks[name] = (idx[start_date], idx[end_date] if end_date in idx else len(daily["BTCUSDT"]), 1)
+    rotation = {name: rotation_proxy(daily, start_idx=start, end_idx=end, cost_scale=cost)
+                for name, (start, end, cost) in tasks.items()}
     scalp = {}
     if not args.skip_five_minute:
         for symbol in SYMBOLS:
@@ -324,7 +351,9 @@ def main():
               "rotation_protocol_fidelity": "EXPLORATORY_H4_STYLE_PROXY_ONLY; fixed 2-asset CEX universe, no historical Base liquidity/eligible universe, approximate ATR",
               "costs": {"modeled_per_leg_fee_bps": 5, "modeled_per_leg_slippage_bps": 5,
                         "network_fixed_usdc": .01, "stress": "2x slippage and network but also 2x fee for rotation proxy; not a calibrated executable DEX quote"},
-              "rotation": rotation, "h3_existing_rule_proxy": scalp,
+              "rotation": rotation, "calendar_folds_reset_capital": True,
+              "buy_hold_comparator_note": "Same initial $20 allocation; not time-exposure matched or a DEX executable portfolio.",
+              "h3_existing_rule_proxy": scalp,
               "file_manifest": proofs, "archive_count": len(proofs),
               "historical_inputs_qualified_for_financial_go": False,
               "wallet_signatures_independently_reconstructed": 0,
