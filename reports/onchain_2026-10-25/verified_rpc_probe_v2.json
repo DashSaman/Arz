@@ -1,0 +1,234 @@
+{
+  "schema_version": 1,
+  "source": "GitHub Actions read-only official RPC responses",
+  "observed_run_url": "https://github.com/DashSaman/Arz/actions/runs/40142483424",
+  "workflow_run_id": 40142483424,
+  "job_id": 121016930219,
+  "base_block": 53047410,
+  "base_block_timestamp": 1792884167,
+  "base_rpc_url": "https://mainnet.base.org",
+  "quoter_v2": "0x3d4e44Eb1374240CE5F1B871ab261CD16335B76a",
+  "quote_simulations": [
+    {
+      "asset": "WETH",
+      "block": 53047410,
+      "gas_usd": null,
+      "input_usdc": 10,
+      "label": "UNISWAP_V3_QUOTER_SIMULATION_NOT_FILLED",
+      "observed_at_quote_unix": 1792884168,
+      "quoter_gas_estimate": 86215,
+      "raw_input_units": 10000000,
+      "raw_token_out_units": 4269391111441580,
+      "sqrt_price_after_x96": "3833434657483872808153469",
+      "ticks_crossed": 1,
+      "token_out": "0.00426939111144158"
+    },
+    {
+      "actual_network_fee_usdc": null,
+      "asset": "WETH",
+      "block": 53047410,
+      "cannot_replay_historical_time": true,
+      "gas_usd": null,
+      "input_usdc": 20,
+      "label": "UNISWAP_V3_QUOTER_SIMULATION_NOT_FILLED",
+      "observed_at_quote_unix": 1792884168,
+      "quoter_gas_estimate": 86215,
+      "raw_input_units": 20000000,
+      "raw_token_out_units": 8538780148839221,
+      "same_block_reverse_usdc_before_network_cost": "19.979985",
+      "same_block_roundtrip_pool_fee_impact_usdc": "0.020015",
+      "sqrt_price_after_x96": "3833435588613587518801832",
+      "ticks_crossed": 1,
+      "token_out": "0.008538780148839221"
+    },
+    {
+      "asset": "cbBTC",
+      "block": 53047410,
+      "gas_usd": null,
+      "input_usdc": 10,
+      "label": "UNISWAP_V3_QUOTER_SIMULATION_NOT_FILLED",
+      "observed_at_quote_unix": 1792884168,
+      "quoter_gas_estimate": 100835,
+      "raw_input_units": 10000000,
+      "raw_token_out_units": 12417,
+      "sqrt_price_after_x96": "2792588504011653177342174779",
+      "ticks_crossed": 1,
+      "token_out": "0.00012417"
+    },
+    {
+      "actual_network_fee_usdc": null,
+      "asset": "cbBTC",
+      "block": 53047410,
+      "cannot_replay_historical_time": true,
+      "gas_usd": null,
+      "input_usdc": 20,
+      "label": "UNISWAP_V3_QUOTER_SIMULATION_NOT_FILLED",
+      "observed_at_quote_unix": 1792884168,
+      "quoter_gas_estimate": 100835,
+      "raw_input_units": 20000000,
+      "raw_token_out_units": 24835,
+      "same_block_reverse_usdc_before_network_cost": "19.979371",
+      "same_block_roundtrip_pool_fee_impact_usdc": "0.020629",
+      "sqrt_price_after_x96": "2792588131809044936152950426",
+      "ticks_crossed": 1,
+      "token_out": "0.00024835"
+    }
+  ],
+  "solana_rpc_url": "https://api.mainnet-beta.solana.com",
+  "solana_sample": [
+    {
+      "label": "Cented",
+      "address": "CyaE1VxvBrahnPWkqm5VsdCvyS2QmNht2UFrKJHga54o",
+      "signatures_returned": 3,
+      "detail_rows": 2,
+      "failed_detail_rows": 2,
+      "details": [
+        {
+          "signature": "2Jfn96WDTL1Rz4YukDzVTH5hyZd7UQeXxoz25BeoY1bNwaQgoURHSvrNFgxvx7avrnp2pBpFosTTnNL1YJG7tZh5",
+          "slot": 461035391,
+          "block_time": 1792884167,
+          "execution_error": {
+            "InstructionError": [
+              1,
+              {
+                "Custom": 13
+              }
+            ]
+          },
+          "network_fee_lamports_paid_by_unspecified_fee_payer": 6178,
+          "owner_token_balance_deltas": [],
+          "transaction_source_sha256": "492511cdbeef634669f65aa43d5f7bbe347fcb7b14122558f09ec20e1171bf3f",
+          "classification": "UNCLASSIFIED_TOKEN_FLOWS_NOT_DECODED_SWAPS",
+          "pnl_usd": null
+        },
+        {
+          "signature": "65DytAReEUPnvjFAkgrLUQnfneR9nXiWq9BxcGCozdsfA1bSMj6yGZ9A2FEYqcRFjiNQa5oeYdNwo2UhLMSSMFB3",
+          "slot": 461035391,
+          "block_time": 1792884167,
+          "execution_error": {
+            "InstructionError": [
+              1,
+              {
+                "Custom": 3
+              }
+            ]
+          },
+          "network_fee_lamports_paid_by_unspecified_fee_payer": 27866,
+          "owner_token_balance_deltas": [],
+          "transaction_source_sha256": "c17a3cd0f9f9d972fd2e9df8e64bc31599a5ec8fbf1daf5115d53a15e55e2b5d",
+          "classification": "UNCLASSIFIED_TOKEN_FLOWS_NOT_DECODED_SWAPS",
+          "pnl_usd": null
+        }
+      ]
+    },
+    {
+      "label": "Decu",
+      "address": "4vw54BmAogeRV3vPKWyFet5yf8DTLcREzdSzx4rw9Ud9",
+      "signatures_returned": 3,
+      "detail_rows": 2,
+      "failed_detail_rows": 2,
+      "details": [
+        {
+          "signature": "3unXCWssvKnU5kz8TLAKBcCahQBUTkgptWgXrdiih1okiu8TQZ67JsuThRgUyyorwunpyvCeXJ6meBt2GnaKSFam",
+          "slot": 461035403,
+          "block_time": 1792884169,
+          "execution_error": {
+            "InstructionError": [
+              1,
+              {
+                "Custom": 3
+              }
+            ]
+          },
+          "network_fee_lamports_paid_by_unspecified_fee_payer": 5022,
+          "owner_token_balance_deltas": [],
+          "transaction_source_sha256": "d9a80ab39ef138769c06fb41e5d59c71ab1967c15c7eff016a848c31b597bf3f",
+          "classification": "UNCLASSIFIED_TOKEN_FLOWS_NOT_DECODED_SWAPS",
+          "pnl_usd": null
+        },
+        {
+          "signature": "3YTaFxJQ6HhBR8wBGeKZYsEoNErhwZpqKhNrAKwskzQHGXk2XK8x2jrdqN5KLdvFcfnp2YyoF6HD28fEhaVua8bu",
+          "slot": 461035403,
+          "block_time": 1792884169,
+          "execution_error": {
+            "InstructionError": [
+              0,
+              {
+                "Custom": 7
+              }
+            ]
+          },
+          "network_fee_lamports_paid_by_unspecified_fee_payer": 5700,
+          "owner_token_balance_deltas": [],
+          "transaction_source_sha256": "f454e794b51112d15f7ef5b9ff8d327205efa5106e08fa168da67a20dd79dfba",
+          "classification": "UNCLASSIFIED_TOKEN_FLOWS_NOT_DECODED_SWAPS",
+          "pnl_usd": null
+        }
+      ]
+    },
+    {
+      "label": "Mitch",
+      "address": "4Be9CvxqHW6BYiRAxW9Q3xu1ycTMWaL5z8NX4HR3ha7t",
+      "signatures_returned": 3,
+      "detail_rows": 2,
+      "failed_detail_rows": 0,
+      "details": [
+        {
+          "signature": "3SnbqqEwtPjmMvrfqjeZSanwqJe7Ma2HM9f4oHECMZvEfP6uikeWXMPzn2Hqs9F6VpqXrbgHZ8YxVQBQETtZwo6Q",
+          "slot": 461033025,
+          "block_time": 1792883664,
+          "execution_error": null,
+          "network_fee_lamports_paid_by_unspecified_fee_payer": 9000,
+          "owner_token_balance_deltas": [],
+          "transaction_source_sha256": "47e5d6186723b5a521f92fdaade53312761cf9a03c008138a7ac0ec0f53eec72",
+          "classification": "UNCLASSIFIED_TOKEN_FLOWS_NOT_DECODED_SWAPS",
+          "pnl_usd": null
+        },
+        {
+          "signature": "5RqPZx5nWKKAoyaqUjM18ViwdR8DJNzVxQzoQX2YRJQCDzexSYMvBiJ1LB2UAqBXkFXrsqeXDYR9obKhdiF9ExWj",
+          "slot": 461030696,
+          "block_time": 1792883172,
+          "execution_error": null,
+          "network_fee_lamports_paid_by_unspecified_fee_payer": 19209,
+          "owner_token_balance_deltas": [
+            {
+              "account_index": 4,
+              "decimals": 6,
+              "delta_raw": "-28938389952554",
+              "delta_tokens": "-28938389.952554",
+              "mint": "BwZmBr4XFaDFEN6pQyay5aHNLaFSgxky6TpF9SxYpump"
+            },
+            {
+              "account_index": 8,
+              "decimals": 6,
+              "delta_raw": "402799439",
+              "delta_tokens": "402.799439",
+              "mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+            }
+          ],
+          "transaction_source_sha256": "406d6b8343b6883473dbe0ac174348a13043b0aaccb69bd20339b8b512570e8e",
+          "classification": "UNCLASSIFIED_TOKEN_FLOWS_NOT_DECODED_SWAPS",
+          "pnl_usd": null
+        }
+      ]
+    }
+  ],
+  "provider_returned_sampled_transactions": 6,
+  "provider_returned_failed_transactions": 4,
+  "provider_returned_proven_wallet_profit_count": 0,
+  "whole_history_complete": false,
+  "fee_payer_wallet_not_attributed": true,
+  "open_inventory_cost_basis": null,
+  "dex_historical_follower_fill": null,
+  "real_time_quoter_quote_not_executable_fill": true,
+  "live": "DISABLED",
+  "financial": "NO-GO",
+  "ci_tests": {
+    "full_suite": 260,
+    "focused_multi_edge": 41,
+    "focused_chain": 8,
+    "price_proxy_tests": 9,
+    "all_success": true
+  },
+  "no_rpc_redirection_or_credentials": true
+}
