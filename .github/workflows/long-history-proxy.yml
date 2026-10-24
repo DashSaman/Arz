@@ -1,0 +1,44 @@
+name: Long historical CEX proxy (manual-scope research)
+
+on:
+  push:
+    branches:
+      - research/2026-10-25-long-history-proxy
+    paths:
+      - scripts/long_history_cex_proxy.py
+      - tests/test_long_history_proxy.py
+      - .github/workflows/long-history-proxy.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  long-history:
+    runs-on: ubuntu-latest
+    timeout-minutes: 28
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Synthetic parser and strategy tests — no network
+        env:
+          PYTHONPATH: "src:."
+        run: |
+          python -m unittest discover -s tests -p 'test_long_history_proxy.py' -v
+      - name: Public archive data retrieval and historical replay — NO ORDERS
+        env:
+          PYTHONPATH: "src:."
+        run: |
+          python scripts/long_history_cex_proxy.py --output /tmp/arz-long-history-20261025.json
+      - name: Upload research result only (raw provider archives not redistributed)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: long-history-research-json
+          path: /tmp/arz-long-history-20261025.json
+          if-no-files-found: warn
+          retention-days: 30
