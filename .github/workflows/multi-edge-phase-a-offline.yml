@@ -41,13 +41,13 @@ jobs:
           PYTHONPATH: "src:."
         run: python -m unittest discover -s tests -p 'test_long_history_proxy.py' -v
       - name: Bounded new multi-year public CEX spot price proxy replay (NO orders)
-        if: github.ref != 'refs/heads/research/2026-10-25-real-chain-bounded'
+        if: github.ref != 'refs/heads/research/2026-10-25-real-chain-bounded' && github.head_ref != 'research/2026-10-25-real-chain-bounded'
         env:
           PYTHONPATH: "src:."
         run: |
           python scripts/long_history_cex_proxy.py --output /tmp/arz-long-history-20261025.json
       - name: Upload derived report (no raw market redistribution)
-        if: github.ref != 'refs/heads/research/2026-10-25-real-chain-bounded'
+        if: github.ref != 'refs/heads/research/2026-10-25-real-chain-bounded' && github.head_ref != 'research/2026-10-25-real-chain-bounded'
         uses: actions/upload-artifact@v4
         with:
           name: multi-year-price-proxy
