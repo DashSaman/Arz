@@ -5,6 +5,8 @@ on:
       - 'src/arz/multi_edge/**'
       - 'scripts/multi_edge_phase_a.py'
       - 'scripts/multi_edge_public_probe.py'
+      - 'scripts/bounded_real_chain_probe.py'
+      - 'tests/test_bounded_real_chain_probe.py'
       - 'tests/test_multi_edge_*.py'
       - 'research/multi_edge_spot/NEXT_EXPERIMENT_PROTOCOL.json'
       - 'reports/multi_edge_phase_a_20261020/**'
@@ -14,6 +16,8 @@ on:
       - 'src/arz/multi_edge/**'
       - 'scripts/multi_edge_phase_a.py'
       - 'scripts/multi_edge_public_probe.py'
+      - 'scripts/bounded_real_chain_probe.py'
+      - 'tests/test_bounded_real_chain_probe.py'
       - 'tests/test_multi_edge_*.py'
       - 'research/multi_edge_spot/NEXT_EXPERIMENT_PROTOCOL.json'
       - 'reports/multi_edge_phase_a_20261020/**'
@@ -22,7 +26,7 @@ permissions:
 jobs:
   offline:
     runs-on: ubuntu-latest
-    timeout-minutes: 28
+    timeout-minutes: 20
     env:
       PYTHONPATH: src
     steps:
@@ -41,15 +45,34 @@ jobs:
           PYTHONPATH: "src:."
         run: python -m unittest discover -s tests -p 'test_long_history_proxy.py' -v
       - name: Bounded new multi-year public CEX spot price proxy replay (NO orders)
+        if: github.ref != 'refs/heads/research/2026-10-25-real-chain-bounded' && github.head_ref != 'research/2026-10-25-real-chain-bounded'
         env:
           PYTHONPATH: "src:."
         run: |
           python scripts/long_history_cex_proxy.py --output /tmp/arz-long-history-20261025.json
       - name: Upload derived report (no raw market redistribution)
-        if: always()
+        if: github.ref != 'refs/heads/research/2026-10-25-real-chain-bounded' && github.head_ref != 'research/2026-10-25-real-chain-bounded'
         uses: actions/upload-artifact@v4
         with:
           name: multi-year-price-proxy
           path: /tmp/arz-long-history-20261025.json
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Read-only Base and Solana protocol regression
+        env:
+          PYTHONPATH: "src:."
+        run: python -m unittest discover -s tests -p 'test_bounded_real_chain_probe.py' -v
+      - name: Bounded public-chain on-chain facts — no keys or transaction sends
+        env:
+          PYTHONPATH: "src:."
+        run: |
+          python scripts/bounded_real_chain_probe.py --output /tmp/arz-real-chain-probe-20261025.json
+      - name: Preserve only derived on-chain evidence without raw provider payloads
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: arz-bounded-real-chain-evidence
+          path: /tmp/arz-real-chain-probe-20261025.json
           if-no-files-found: warn
           retention-days: 30
