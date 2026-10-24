@@ -22,7 +22,7 @@ permissions:
 jobs:
   offline:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 28
     env:
       PYTHONPATH: src
     steps:
@@ -35,3 +35,21 @@ jobs:
         run: python3 -m unittest discover -s tests -v
       - name: Compile research code
         run: python3 -m compileall -q src/arz/multi_edge scripts/multi_edge_phase_a.py scripts/multi_edge_public_probe.py
+
+      - name: Price-proxy lookahead / fold / checksum-parser regression
+        env:
+          PYTHONPATH: "src:."
+        run: python -m unittest discover -s tests -p 'test_long_history_proxy.py' -v
+      - name: Bounded new multi-year public CEX spot price proxy replay (NO orders)
+        env:
+          PYTHONPATH: "src:."
+        run: |
+          python scripts/long_history_cex_proxy.py --output /tmp/arz-long-history-20261025.json
+      - name: Upload derived report (no raw market redistribution)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: multi-year-price-proxy
+          path: /tmp/arz-long-history-20261025.json
+          if-no-files-found: warn
+          retention-days: 30

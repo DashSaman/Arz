@@ -1,0 +1,399 @@
+{
+  "run_time_utc": "2026-10-24T22:04Z",
+  "head_code_commit": "358240d665158e72fbfdc5fcd50b58c82c45be84",
+  "run_id": 40136757544,
+  "job_id": 120999778187,
+  "ci_url": "https://github.com/DashSaman/Arz/actions/runs/40136757544",
+  "archive_manifest_hash_sha256": "8bee6f2212283e146472dfd13865944bb6106420065cf161cf2e507ee3494ae4",
+  "provider_checksum_archives_verified": 176,
+  "verified_test_results": {
+    "multi_edge_focused": 41,
+    "full_offline": 252,
+    "proxy_focused": 9,
+    "ci": "SUCCESS"
+  },
+  "status": "HISTORICAL_CEX_PROXY_NOT_DEX",
+  "dataset_calendar_cutoff_inclusive": "2026-10-23",
+  "interpretation": "Non-overlapping 2024 Feb-Dec, 2025 Jan-Dec, 2026 Jan-Oct folds each restart $100. The full 999-day result is continuous, distinct from fold aggregation. Fixed 20% BTC/ETH holds are not time-exposure-matched. H3 pair results each use separate $100 accounts. No prices from real Base transaction-time follower quotes.",
+  "results": {
+    "archive_count": 176,
+    "buy_hold_comparator_note": "Same initial $20 allocation; not time-exposure matched or a DEX executable portfolio.",
+    "calendar_folds_reset_capital": true,
+    "costs": {
+      "modeled_per_leg_fee_bps": 5,
+      "modeled_per_leg_slippage_bps": 5,
+      "network_fixed_usdc": 0.01,
+      "stress": "2x slippage and network but also 2x fee for rotation proxy; not a calibrated executable DEX quote"
+    },
+    "daily_period_inclusive": [
+      "2023-10-01",
+      "2026-10-23"
+    ],
+    "date_of_last_completed_day": "2026-10-23",
+    "decision": "NO-GO",
+    "five_min_period_inclusive": [
+      "2026-04-01",
+      "2026-10-23"
+    ],
+    "h3_existing_rule_proxy": {
+      "BTCUSDT": {
+        "primary": {
+          "bar_count": 59328,
+          "diagnostics": {
+            "cost_hurdle_vetoes": 969,
+            "entry_signals": 3,
+            "trend_vetoes": 100,
+            "volume_vetoes": 1428,
+            "zscore_vetoes": 56746
+          },
+          "earliest_bar_ts": 1775001600,
+          "last_bar_ts": 1792799700,
+          "metrics": {
+            "buy_fills": 3,
+            "cash": 99.9465652438912,
+            "closed_cycles": 3,
+            "ending_equity": 99.9465652438912,
+            "fees": 0.1200332992715814,
+            "initial_equity": 100,
+            "losses": 2,
+            "max_open_positions": 1,
+            "maximum_drawdown": 0.0011812284170237275,
+            "net_expectancy": -0.017811585369603478,
+            "net_profit": -0.053434756108799775,
+            "payoff_ratio": 0.734378229057769,
+            "profit_factor": 0.3671891145288845,
+            "win_rate": 0.3333333333333333,
+            "wins": 1
+          },
+          "open_position": false,
+          "proxy_only": true
+        },
+        "stress": {
+          "bar_count": 59328,
+          "diagnostics": {
+            "cost_hurdle_vetoes": 972,
+            "entry_signals": 0,
+            "trend_vetoes": 100,
+            "volume_vetoes": 1431,
+            "zscore_vetoes": 56776
+          },
+          "earliest_bar_ts": 1775001600,
+          "last_bar_ts": 1792799700,
+          "metrics": {
+            "buy_fills": 0,
+            "cash": 100,
+            "closed_cycles": 0,
+            "ending_equity": 100,
+            "fees": 0,
+            "initial_equity": 100,
+            "losses": 0,
+            "max_open_positions": 0,
+            "maximum_drawdown": 0,
+            "net_expectancy": null,
+            "net_profit": 0,
+            "payoff_ratio": null,
+            "profit_factor": null,
+            "win_rate": null,
+            "wins": 0
+          },
+          "open_position": false,
+          "proxy_only": true
+        }
+      },
+      "ETHUSDT": {
+        "primary": {
+          "bar_count": 59328,
+          "diagnostics": {
+            "cost_hurdle_vetoes": 1063,
+            "entry_signals": 10,
+            "trend_vetoes": 216,
+            "volume_vetoes": 1142,
+            "zscore_vetoes": 56733
+          },
+          "earliest_bar_ts": 1775001600,
+          "last_bar_ts": 1792799700,
+          "metrics": {
+            "buy_fills": 10,
+            "cash": 100.1971731574912,
+            "closed_cycles": 10,
+            "ending_equity": 100.1971731574912,
+            "fees": 0.400298735946719,
+            "initial_equity": 100,
+            "losses": 4,
+            "max_open_positions": 1,
+            "maximum_drawdown": 0.0022469191695632107,
+            "net_expectancy": 0.019717315749115373,
+            "net_profit": 0.197173157491207,
+            "payoff_ratio": 1.2218674374448735,
+            "profit_factor": 1.83280115616731,
+            "win_rate": 0.6,
+            "wins": 6
+          },
+          "open_position": false,
+          "proxy_only": true
+        },
+        "stress": {
+          "bar_count": 59328,
+          "diagnostics": {
+            "cost_hurdle_vetoes": 1073,
+            "entry_signals": 0,
+            "trend_vetoes": 216,
+            "volume_vetoes": 1148,
+            "zscore_vetoes": 56842
+          },
+          "earliest_bar_ts": 1775001600,
+          "last_bar_ts": 1792799700,
+          "metrics": {
+            "buy_fills": 0,
+            "cash": 100,
+            "closed_cycles": 0,
+            "ending_equity": 100,
+            "fees": 0,
+            "initial_equity": 100,
+            "losses": 0,
+            "max_open_positions": 0,
+            "maximum_drawdown": 0,
+            "net_expectancy": null,
+            "net_profit": 0,
+            "payoff_ratio": null,
+            "profit_factor": null,
+            "win_rate": null,
+            "wins": 0
+          },
+          "open_position": false,
+          "proxy_only": true
+        }
+      }
+    },
+    "historical_inputs_qualified_for_financial_go": false,
+    "live_trading": "DISABLED",
+    "prospective_days": 0,
+    "real_follower_quotes": 0,
+    "rotation": {
+      "fold_2024_Feb_Dec": {
+        "calendar_days": 335,
+        "cash_benchmark_pct": 0,
+        "closed_cycles": 11,
+        "days_with_returns": 335,
+        "ending_usdc": 101.9032559,
+        "entry_fills": 11,
+        "fee_cash_usdc": 0.4408888,
+        "first_trade_day": "2024-02-01",
+        "geometric_daily_pct": 0.0056281,
+        "label_note": "Non-tradable CEX-proxy simulation; not compliant H4 DEX protocol",
+        "largest_winner_share_gross_positive": 0.64176,
+        "last_day": "2024-12-31",
+        "max_drawdown_pct": 12.521674,
+        "negative_calendar_months": 6,
+        "net_return_pct": 1.903256,
+        "open_position": null,
+        "positive_calendar_months": 5,
+        "profit_factor": 1.23142,
+        "rejected_orders": 0,
+        "status": "EXPLORATORY_CEX_PRICE_PROXY_ONLY",
+        "twenty_percent_buy_hold": {
+          "BTCUSDT": {
+            "ending_equity_usdc": 123.9110641,
+            "initial_allocation_usdc": 20,
+            "max_drawdown_pct": 7.849916,
+            "open_terminal_position": true,
+            "return_pct": 23.911064,
+            "time_exposure_matched": false
+          },
+          "ETHUSDT": {
+            "ending_equity_usdc": 109.2037649,
+            "initial_allocation_usdc": 20,
+            "max_drawdown_pct": 13.936472,
+            "open_terminal_position": true,
+            "return_pct": 9.203765,
+            "time_exposure_matched": false
+          }
+        },
+        "win_rate_pct": 36.364,
+        "worst_calendar_month_pct": -3.11828
+      },
+      "fold_2025_Jan_Dec": {
+        "calendar_days": 365,
+        "cash_benchmark_pct": 0,
+        "closed_cycles": 8,
+        "days_with_returns": 365,
+        "ending_usdc": 95.1801828,
+        "entry_fills": 8,
+        "fee_cash_usdc": 0.3150417,
+        "first_trade_day": "2025-01-01",
+        "geometric_daily_pct": -0.0135329,
+        "label_note": "Non-tradable CEX-proxy simulation; not compliant H4 DEX protocol",
+        "largest_winner_share_gross_positive": 0.57864,
+        "last_day": "2025-12-31",
+        "max_drawdown_pct": 8.851001,
+        "negative_calendar_months": 4,
+        "net_return_pct": -4.819817,
+        "open_position": null,
+        "positive_calendar_months": 5,
+        "profit_factor": 0.50107,
+        "rejected_orders": 0,
+        "status": "EXPLORATORY_CEX_PRICE_PROXY_ONLY",
+        "twenty_percent_buy_hold": {
+          "BTCUSDT": {
+            "ending_equity_usdc": 98.7036936,
+            "initial_allocation_usdc": 20,
+            "max_drawdown_pct": 7.998861,
+            "open_terminal_position": true,
+            "return_pct": -1.296306,
+            "time_exposure_matched": false
+          },
+          "ETHUSDT": {
+            "ending_equity_usdc": 97.7771881,
+            "initial_allocation_usdc": 20,
+            "max_drawdown_pct": 12.991739,
+            "open_terminal_position": true,
+            "return_pct": -2.222812,
+            "time_exposure_matched": false
+          }
+        },
+        "win_rate_pct": 25,
+        "worst_calendar_month_pct": -3.88626
+      },
+      "fold_2026_Jan_Oct23": {
+        "calendar_days": 296,
+        "cash_benchmark_pct": 0,
+        "closed_cycles": 5,
+        "days_with_returns": 296,
+        "ending_usdc": 95.966039,
+        "entry_fills": 6,
+        "fee_cash_usdc": 0.215713,
+        "first_trade_day": "2026-01-01",
+        "geometric_daily_pct": -0.0139098,
+        "label_note": "Non-tradable CEX-proxy simulation; not compliant H4 DEX protocol",
+        "largest_winner_share_gross_positive": 1,
+        "last_day": "2026-10-23",
+        "max_drawdown_pct": 4.033961,
+        "negative_calendar_months": 4,
+        "net_return_pct": -4.033961,
+        "open_position": "BTCUSDT",
+        "positive_calendar_months": 1,
+        "profit_factor": 0.09856,
+        "rejected_orders": 0,
+        "status": "EXPLORATORY_CEX_PRICE_PROXY_ONLY",
+        "twenty_percent_buy_hold": {
+          "BTCUSDT": {
+            "ending_equity_usdc": 98.4969453,
+            "initial_allocation_usdc": 20,
+            "max_drawdown_pct": 8.562178,
+            "open_terminal_position": true,
+            "return_pct": -1.503055,
+            "time_exposure_matched": false
+          },
+          "ETHUSDT": {
+            "ending_equity_usdc": 96.0411566,
+            "initial_allocation_usdc": 20,
+            "max_drawdown_pct": 11.722793,
+            "open_terminal_position": true,
+            "return_pct": -3.958843,
+            "time_exposure_matched": false
+          }
+        },
+        "win_rate_pct": 20,
+        "worst_calendar_month_pct": -2.57472
+      },
+      "full_baseline": {
+        "calendar_days": 999,
+        "cash_benchmark_pct": 0,
+        "closed_cycles": 25,
+        "days_with_returns": 999,
+        "ending_usdc": 93.1624846,
+        "entry_fills": 26,
+        "fee_cash_usdc": 1.0119376,
+        "first_trade_day": "2024-01-29",
+        "geometric_daily_pct": -0.0070893,
+        "label_note": "Non-tradable CEX-proxy simulation; not compliant H4 DEX protocol",
+        "largest_winner_share_gross_positive": 0.41901,
+        "last_day": "2026-10-23",
+        "max_drawdown_pct": 13.989588,
+        "negative_calendar_months": 14,
+        "net_return_pct": -6.837515,
+        "open_position": "BTCUSDT",
+        "positive_calendar_months": 12,
+        "profit_factor": 0.71361,
+        "rejected_orders": 0,
+        "status": "EXPLORATORY_CEX_PRICE_PROXY_ONLY",
+        "twenty_percent_buy_hold": {
+          "BTCUSDT": {
+            "ending_equity_usdc": 118.5937656,
+            "initial_allocation_usdc": 20,
+            "max_drawdown_pct": 22.550631,
+            "open_terminal_position": true,
+            "return_pct": 18.593766,
+            "time_exposure_matched": false
+          },
+          "ETHUSDT": {
+            "ending_equity_usdc": 101.1276521,
+            "initial_allocation_usdc": 20,
+            "max_drawdown_pct": 23.548171,
+            "open_terminal_position": true,
+            "return_pct": 1.127652,
+            "time_exposure_matched": false
+          }
+        },
+        "win_rate_pct": 32,
+        "worst_calendar_month_pct": -3.88568
+      },
+      "full_network_stress": {
+        "calendar_days": 999,
+        "cash_benchmark_pct": 0,
+        "closed_cycles": 25,
+        "days_with_returns": 999,
+        "ending_usdc": 91.7401346,
+        "entry_fills": 26,
+        "fee_cash_usdc": 2.0161461,
+        "first_trade_day": "2024-01-29",
+        "geometric_daily_pct": -0.0086293,
+        "label_note": "Non-tradable CEX-proxy simulation; not compliant H4 DEX protocol",
+        "largest_winner_share_gross_positive": 0.42839,
+        "last_day": "2026-10-23",
+        "max_drawdown_pct": 15.122192,
+        "negative_calendar_months": 15,
+        "net_return_pct": -8.259865,
+        "open_position": "BTCUSDT",
+        "positive_calendar_months": 11,
+        "profit_factor": 0.66165,
+        "rejected_orders": 0,
+        "status": "EXPLORATORY_CEX_PRICE_PROXY_ONLY",
+        "twenty_percent_buy_hold": {
+          "BTCUSDT": {
+            "ending_equity_usdc": 118.554478,
+            "initial_allocation_usdc": 20,
+            "max_drawdown_pct": 22.5474,
+            "open_terminal_position": true,
+            "return_pct": 18.554478,
+            "time_exposure_matched": false
+          },
+          "ETHUSDT": {
+            "ending_equity_usdc": 101.0970888,
+            "initial_allocation_usdc": 20,
+            "max_drawdown_pct": 23.544344,
+            "open_terminal_position": true,
+            "return_pct": 1.097089,
+            "time_exposure_matched": false
+          }
+        },
+        "win_rate_pct": 32,
+        "worst_calendar_month_pct": -3.96929
+      }
+    },
+    "rotation_protocol_fidelity": "EXPLORATORY_H4_STYLE_PROXY_ONLY; fixed 2-asset CEX universe, no historical Base liquidity/eligible universe, approximate ATR",
+    "run_type": "HISTORICAL_CEX_SPOT_PROXY_ONLY",
+    "source": "Binance Public Data SPOT archive verified SHA256 sidecars",
+    "source_url": "https://data.binance.vision/data/spot",
+    "symbol_mapping": {
+      "BTCUSDT": "cbBTC/USDC PROXY ONLY",
+      "ETHUSDT": "WETH/USDC PROXY ONLY"
+    },
+    "timeframe_fidelity": "CEX 1d and 5m; NOT Base DEX swaps, not follower-time executable quotes",
+    "wallet_signatures_independently_reconstructed": 0
+  },
+  "wallet_signed_trades_new": 0,
+  "net_geometric_daily_Dex_real": "UNVERIFIED",
+  "decision": "NO-GO",
+  "live": "DISABLED"
+}
