@@ -84,6 +84,8 @@ def owner_token_balances(tx: dict, wallet: str, account_count: int) -> tuple[lis
             owner = entry.get("owner")
             if owner is not None:
                 check_pubkey(owner, "token account owner")
+            if entry.get("programId") is not None:
+                check_pubkey(entry["programId"], "token program id")
             key = (index, mint)
             if key in values:
                 raise ValueError("Duplicate token balance")
