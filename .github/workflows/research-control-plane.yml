@@ -1,0 +1,52 @@
+name: Arz canonical research control plane
+
+on:
+  push:
+    paths:
+      - RESEARCH_NOW.md
+      - research/control/STATE.json
+      - scripts/verify_research_control.py
+      - tests/test_verify_research_control.py
+      - README.md
+      - AGENTS.md
+      - PROJECT_STATUS.md
+      - docs/fa/research_current_checkpoint.md
+      - docs/en/research_current_checkpoint.md
+      - .github/workflows/research-control-plane.yml
+  pull_request:
+    paths:
+      - RESEARCH_NOW.md
+      - research/control/STATE.json
+      - scripts/verify_research_control.py
+      - tests/test_verify_research_control.py
+      - README.md
+      - AGENTS.md
+      - PROJECT_STATUS.md
+      - docs/fa/research_current_checkpoint.md
+      - docs/en/research_current_checkpoint.md
+      - .github/workflows/research-control-plane.yml
+
+permissions:
+  contents: read
+
+jobs:
+  offline-restart-validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      PYTHONPATH: "src:."
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: No-network canonical source-of-truth consistency
+        run: python scripts/verify_research_control.py
+      - name: Research-specific fail-closed regression
+        run: python -m unittest discover -s tests -p 'test_verify_research_control.py' -v
+      - name: Complete main-branch regression
+        run: python -m unittest discover -s tests -q
+      - name: Compile validator, ensure paired documents are present
+        run: |
+          python -m compileall -q scripts/verify_research_control.py
+          test -s docs/en/research_current_checkpoint.md
+          test -s docs/fa/research_current_checkpoint.md
