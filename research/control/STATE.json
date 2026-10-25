@@ -315,7 +315,8 @@
         "EV-005"
       ],
       "completion": "Decoded full DEX CPI swap route and exact historical acquisition lots for observed transaction; parent+signer+fee payer already verified",
-      "next_action": "NEXT STAGE: establish authorized archive coverage and original acquisition lots for single independently proven Mitch signature index20; reject $402.799439 receipt as profit and do not retry throttled provider endpoints."
+      "next_action": "NEXT ACTIVE ISSUE #37: establish authorized full acquisition lots and economic Jupiter route for signer-confirmed Mitch signature index20; explicitly keep 402.799439 USDC receipt as UNKNOWN PnL and never retry throttled source blindly.",
+      "github_issue_url": "https://github.com/DashSaman/Arz/issues/37"
     },
     {
       "id": "DATA-01",
