@@ -177,9 +177,15 @@ def parse_single_response(raw: bytes, spec: dict) -> dict:
             delta = post-pre
             if not delta:
                 continue
+            decimals0, decimals1 = b.get("preDecimals"), b.get("postDecimals")
+            good_decimals = (type(decimals0) is int and type(decimals1) is int
+                             and decimals0 == decimals1 and 0 <= decimals0 <= 30)
+            dec = decimals0 if good_decimals else None
             record = {"transaction_index": ti, "mint": pre_mint,
                       "raw_amount_delta": str(delta), "confirmed_owner": True,
-                      "units_unverified": True, "token_decimals": None, "not_a_proven_swap": True}
+                      "units_unverified": not good_decimals, "token_decimals": dec,
+                      "delta_tokens": str(delta / (Decimal(10) ** dec)) if good_decimals else None,
+                      "not_a_proven_swap": True}
             owner_tokens.append(record)
             if ti is not None:
                 indexed_owner_deltas[ti] = indexed_owner_deltas.get(ti,0)+1
