@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "observed_run": "https://github.com/DashSaman/Arz/actions/runs/40206142455",
+  "observed_at": "2026-10-25T15:16:27.835507+00:00",
+  "official_sol_rpc": "https://api.mainnet-beta.solana.com",
+  "method": "getTransaction",
+  "independent_index_proof": "reports/onchain_2026-10-25/solana_block_signature_attested.json",
+  "independent_parent_signature_at_index20_confirmed": true,
+  "chain": {
+    "block_timestamp": 1792883172,
+    "dex_swap_route_fully_decoded": false,
+    "execution_failed": false,
+    "fee_lamports": 19209,
+    "fee_payer": "FHpcNSe6tb2n15bAdq4BkeYWGyZKFD7yLYrH92ng7wCT",
+    "jupiter_program_observed": true,
+    "owner_balance_metadata_complete": true,
+    "raw_response_sha256": "bd5f63bc6c487e52455ee558d99a2b3923cafef0f4a22d220eb81668efbe8133",
+    "realized_wallet_pnl_usdc": null,
+    "signature": "5RqPZx5nWKKAoyaqUjM18ViwdR8DJNzVxQzoQX2YRJQCDzexSYMvBiJ1LB2UAqBXkFXrsqeXDYR9obKhdiF9ExWj",
+    "slot": 461030696,
+    "source_transaction_sha256": "406d6b8343b6883473dbe0ac174348a13043b0aaccb69bd20339b8b512570e8e",
+    "top_or_inner_program_ids": [
+      "11111111111111111111111111111111",
+      "6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P",
+      "6Vo3245eszAb5wuqEMw8mGdbfRUdKbHhDHP5LcaGuTAB",
+      "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+      "BiSoNHVpsVZW2F7rx2eQ59yQwKxzU5NvBcmKshCSUypi",
+      "ComputeBudget111111111111111111111111111111",
+      "JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4",
+      "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+      "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+    ],
+    "verified_cost_basis_usdc": null,
+    "wallet_fee_lamports_attributed": 0,
+    "watched_owner_token_deltas": [
+      {
+        "account_index": 4,
+        "decimals": 6,
+        "delta_atomic": "-28938389952554",
+        "delta_tokens": "-28938389.952554",
+        "mint": "BwZmBr4XFaDFEN6pQyay5aHNLaFSgxky6TpF9SxYpump"
+      },
+      {
+        "account_index": 8,
+        "decimals": 6,
+        "delta_atomic": "402799439",
+        "delta_tokens": "402.799439",
+        "mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+      }
+    ],
+    "watched_wallet_is_explicit_signer": true,
+    "watched_wallet_is_fee_payer": false
+  },
+  "economic_event_class": "WATCHED_WALLET_SIGNED_JUPITER_ASSOCIATED_TOKEN_TO_USDC_FLOW_NOT_DECODED_FULL_SWAP",
+  "gross_usdc_receipt_at_watched_owned_token_account": "402.799439",
+  "token_sold_or_transferred_qty": "28938389.952554",
+  "cost_basis_original_usdc": null,
+  "historical_buy_lots_verified": 0,
+  "whole_position_closed_verified": false,
+  "full_swap_route_decoded": false,
+  "fee_payer_is_watched_wallet": false,
+  "transaction_network_fee_lamports_paid_by_other": 19209,
+  "fee_attributed_to_watched_wallet_lamports": 0,
+  "net_realized_pnl_usdc": null,
+  "whole_wallet_account_return": null,
+  "full_90_day_history_complete": false,
+  "risk": "Signer proof and balance changes do not establish acquisition cost, direct swap causality for all tokens, or realized PnL; sponsor-paid network fee must not be deducted from watched wallet.",
+  "validation": {
+    "focused_route_tests_passed": 8,
+    "whole_repo_tests_passed": 348,
+    "tests_overlap": true
+  },
+  "financial_decision": "NO-GO",
+  "live_trading": "DISABLED"
+}
