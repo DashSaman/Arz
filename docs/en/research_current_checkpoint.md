@@ -42,3 +42,13 @@ PYTHONPATH=src:. python -m unittest discover -s tests -p 'test_verify_research_c
 ```
 
 **The validator proves local documentation consistency only**, not live PR freshness, actual source financial verification or trading profitability. OPS-01 and OPS-02 are complete and merged into main. **Next substantive task is WAL-01:** establish full original acquisition and economic routing for the one independently signer-proven Mitch event, without mistaking token receipts for net profit. GitHub and raw evidence must be reviewed again before action. No paid services, signing keys, transaction broadcasting or automatically enabled live trades.
+
+## Verified WAL-01 subcheckpoint — 26 October 2026
+
+- Standalone [PR #38](https://github.com/DashSaman/Arz/pull/38) merged to main as commit `eafee63bcd331826da36af6727593cd4021f4126`, without merging stacked draft PRs.
+- [Actually observed GitHub Actions 40236822763](https://github.com/DashSaman/Arz/actions/runs/40236822763): **460/460 full repository unittest methods PASS**, with **364/364 focused WAL-01 cases** included (not additional). 320 independent-oracle numerical matrix cases, 40 tampered-evidence or invalid-event checks and four source/limitation checks.
+- Two byte-for-byte previously observed PR33 public **derived** witnesses now on main under `research/wal01/source_snapshots/`; `scripts/wal01_witness_gate.py` validates signature, block/index, sponsor fees and exact token deltas offline. No new blockchain/API queries, no new profitable transactions, no fresh 90-day source history.
+- [Machine CI evidence](../../reports/wal01/2026-10-26_verified_adversarial_ci.json) and [full report](wal01_adversarial_audit.md).
+- **WAL-01 remains PARTIAL in [Issue #37](https://github.com/DashSaman/Arz/issues/37)**. Original acquisition-lot cost basis, full CPI route, transfers, historical marks and whole-wallet daily equity remain UNKNOWN. 402.799439 USDC is an owner-account receipt, **not realized profit**; 460 synthetic software tests do not qualify H1–H4.
+
+**Next:** only lawful, complete acquisition and economic route evidence for the one signed Mitch transaction; no repeated throttled public RPC scan, no trading authorization. Decision NO-GO, live DISABLED.
