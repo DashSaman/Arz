@@ -44,3 +44,15 @@ PYTHONPATH=src:. python -m unittest discover -s tests -q
 مرجع رسمی: https://docs.sqd.dev/en/portal/solana/api و https://docs.sqd.dev/solana-indexing/sdk/solana-batch/field-selection/
 
 **وضعیت سرمایه‌گذاری: NO-GO. کلید خصوصی: هیچ. امضا/تراکنش واقعی: هیچ. ۹۰ روز تاریخچه: تکمیل‌نشده.**
+
+## تکمیل مستقل تراکنش مادر — ۲۵ اکتبر ۲۰۲۶
+
+**این بخش پس از گزارش SQD بالا انجام شد** و نتیجه قبلیِ «عدم وجود Parent Index در پاسخ SQD» را با استفاده از یک منبع مستقل حل کرد، نه با حدس زدن ترتیب آرایه‌ها.
+
+- اجرای موفق **getBlock با transactionDetails=signatures** از RPC رسمی Solana: https://github.com/DashSaman/Arz/actions/runs/40205843218 — تعداد دقیق تراکنش‌های همان Slot **۷۴** و هش بلاک **دقیقاً برابر با SQD** بود. امضای تراکنش شماره **۲۰** همان `5RqPZx5nWKKAoyaqUjM18ViwdR8DJNzVxQzoQX2YRJQCDzexSYMvBiJ1LB2UAqBXkFXrsqeXDYR9obKhdiF9ExWj` است. پس ۱۰ دستور قبلی با `transactionIndex=20` به همین Parent Signature مربوط هستند. گزارش: `reports/onchain_2026-10-25/solana_block_signature_attested.json`.
+- اجرای مستقل **getTransaction** همان امضا از RPC رسمی: https://github.com/DashSaman/Arz/actions/runs/40206142455 — تراکنش موفق بود؛ Mitch **امضاکننده** است، ولی پرداخت‌کننده کارمزد `FHpcNSe6tb2n15bAdq4BkeYWGyZKFD7yLYrH92ng7wCT` است. کارمزد کل تراکنش **۱۹٬۲۰۹ Lamport** به Mitch منتسب نمی‌شود. Jupiter و برنامه‌های SPL/Pump در دستورهای تراکنش حضور دارند.
+- تغییر موجودی متعلق به Mitch: توکن `BwZmBr4XFaDFEN6pQyay5aHNLaFSgxky6TpF9SxYpump` مقدار **۲۸٬۹۳۸٬۳۸۹٫۹۵۲۵۵۴−**، USDC مقدار **۴۰۲٫۷۹۹۴۳۹+**. مقدار Token Decimals هر دو **۶** و هش بدنه تراکنش با داده قبلی PR #28 مطابق است.
+- تست آخر: **۸ تست متمرکز جدید و ۳۴۸ تست کامل PASS** (شمارهای هم‌پوشان)، بدون هیچ معامله واقعی.
+- پرونده قابل پردازش: `reports/onchain_2026-10-25/solana_one_tx_route_attested.json`، دو ردیف خروجی `reports/onchain_2026-10-25/mitch_verified_execution_legs.csv`.
+
+**محدودیت غیرقابل حذف:** این فقط یک رویداد امضاشدهٔ همراه Jupiter و تغییر موجودی توکن است؛ هنوز تمام CPIها و Swap route به شکل اقتصادی رمزگشایی نشده، خریدهای قبلی و Cost Basis موجود نیستند، و معلوم نیست این فروش کل موقعیت بوده است یا نه. بنابراین **۴۰۲٫۷۹۹۴۳۹ USDC دریافتی سود خالص نیست** و `realized_pnl_usdc=null` باقی می‌ماند. تحلیل بازده مرکب ۹۰ روزه همچنان غیرممکن است.
