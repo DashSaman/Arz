@@ -24,8 +24,8 @@ The default `main` contains the initial research/MVP. Advanced branches are **un
 
 ## Staged, dependency-aware execution plan
 
-1. **OPS-01 (in progress at checkpoint):** land control-plane state/index/CI on main; no research code merged.
-2. **OPS-02 (next):** review full stacked PR DAG, isolate validated accounting and security fixes into a clean, independently tested PR; avoid force-push and accidental merge of parent research.
+1. **OPS-01 (DONE):** independent [PR #34](https://github.com/DashSaman/Arz/pull/34) merged into main, commit `1265e7f70145b0166712cbaae2942b38980e13d6`; 12 focused / 82 full tests passed [CI](https://github.com/DashSaman/Arz/actions/runs/40208500322). No stacked research code merged.
+2. **OPS-02 (IN PROGRESS):** review full stacked PR DAG, isolate validated accounting and security fixes into a clean, independently tested PR; avoid force-push and accidental merge of parent research.
 3. **WAL-01 partial + DATA-01 blocked:** focus on **Mitch (one signer case missing original lots), Cented (wallet-mentioned vs signer), Decu (insufficient provider history)**. Obtain lawful source-complete token-account genealogy and 90-day transaction coverage. These three are *research leads*, not profitable rankings.
 4. **STRAT-01 ready:** freeze and independently compare corrected ATR-volatility baseline against cash and risk-matched hold with conservative Base cost assumptions; research CEX proxy cannot certify DEX returns. H2 wallet flow can only veto/confirm otherwise valid ATR entries.
 5. **WAL-02 / EXEC-01 blocked:** complete swap-level source event/rewards/transfers/cashflow FIFO and open-position daily marking; actual observed follower-time $20 DEX quotes + gas/failures/cost stress. Keep unknown costs null.

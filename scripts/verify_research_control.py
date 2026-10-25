@@ -155,6 +155,12 @@ def validate(state: object) -> dict:
         if item["status"] == "BLOCKED":
             require(type(item.get("blockers")) is list and bool(item["blockers"]),
                     "Blocked task must name blockers")
+        if item["status"] == "DONE":
+            require(bool(COMMIT_SHA.fullmatch(str(item.get("completed_commit_sha")))),
+                    "Completed task must cite immutable commit")
+            require(type(item.get("completed_run_url")) is str and
+                    RUN_REF.fullmatch(item["completed_run_url"]) is not None,
+                    "Completed task must cite real CI")
         tasks[name] = item
     require("OPS-01" in tasks and "LIVE-01" in tasks and "STRAT-01" in tasks,
             "Required research tracks missing")
@@ -184,10 +190,12 @@ def validate(state: object) -> dict:
     require(type(state.get("stop_rules")) is list and len(state["stop_rules"]) >= 3,
             "Missing mandatory stop rules")
 
+    next_unfinished = next((name for name in order if tasks[name]["status"] != "DONE"), None)
+    require(next_unfinished is not None, "No next research work defined")
     return {
         "checkpoint_id": state["checkpoint_id"], "pr_count": len(prs),
         "evidence_count": len(evidence), "task_count": len(tasks),
-        "next_work": order[0], "financial_decision": "NO-GO",
+        "next_work": next_unfinished, "financial_decision": "NO-GO",
         "live_trading": "DISABLED",
         "scope": "OFFLINE_CONSISTENCY_ONLY_REMOTE_FRESHNESS_NOT_PROVED",
     }

@@ -274,7 +274,7 @@
       "id": "OPS-01",
       "title": "Single-source-of-truth and PR handoff",
       "priority": 0,
-      "status": "IN_PROGRESS",
+      "status": "DONE",
       "depends_on": [],
       "proof_ids": [
         "EV-005",
@@ -282,13 +282,15 @@
         "EV-007"
       ],
       "completion": "Control files linked from main; offline validator+CI green; no research-branch merges",
-      "next_action": "Finalize and merge control-only PR after checks"
+      "next_action": "Maintain merged source-of-truth on main; future changes require a new verified checkpoint.",
+      "completed_commit_sha": "1265e7f70145b0166712cbaae2942b38980e13d6",
+      "completed_run_url": "https://github.com/DashSaman/Arz/actions/runs/40208500322"
     },
     {
       "id": "OPS-02",
       "title": "Review stacked PR DAG and separate validated code before merges",
       "priority": 1,
-      "status": "READY",
+      "status": "IN_PROGRESS",
       "depends_on": [
         "OPS-01"
       ],
@@ -297,7 +299,7 @@
         "EV-007"
       ],
       "completion": "Document independent review/security/test and cherry-pick/split plan; no implicit merge of PR 15→33",
-      "next_action": "Review changes starting from lowest dependency; choose standalone verified accounting fix, separately rerun regression on main"
+      "next_action": "Independently test isolated read-only FIFO/events core copied byte-for-byte from PR33 into a clean branch from main, inspect safety, then merge only isolated files."
     },
     {
       "id": "WAL-01",
@@ -466,5 +468,15 @@
     "No PR treated as merged unless GitHub checked",
     "No changes to main trading runtime while integrating governance files"
   ],
-  "verification_policy": "Run scripts/verify_research_control.py on every state/AGENTS/README change; inspect GitHub PR and CI live before merging other branches."
+  "verification_policy": "The canonical control plane is now merged into main in PR34. For OPS02 only independent accounting/files may be integrated after fresh CI; never merge whole stacked draft chain.",
+  "completed_milestones": [
+    {
+      "task": "OPS-01",
+      "merged_pr": 34,
+      "merge_commit_sha": "1265e7f70145b0166712cbaae2942b38980e13d6",
+      "observed_tests": "12 control-specific, 82 total main-branch tests passed before merge",
+      "ci_url": "https://github.com/DashSaman/Arz/actions/runs/40208500322",
+      "scope": "governance/docs/offline validator only"
+    }
+  ]
 }

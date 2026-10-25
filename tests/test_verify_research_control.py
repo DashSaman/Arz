@@ -23,6 +23,7 @@ class ControlPlaneTests(unittest.TestCase):
         self.assertEqual(r["live_trading"], "DISABLED")
         self.assertGreaterEqual(r["pr_count"], 13)
         self.assertGreaterEqual(r["evidence_count"], 7)
+        self.assertEqual(r["next_work"], "OPS-02")
 
     def test_no_live_mode_or_capital_approval(self):
         for key, value in [("financial_decision", "GO"),
@@ -72,6 +73,18 @@ class ControlPlaneTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "sponsor"):
             validate(s)
 
+    def test_done_work_requires_real_immutable_ci_and_commit_proof(self):
+        s = fresh()
+        completed = next(x for x in s["tracks"] if x["id"] == "OPS-01")
+        completed["completed_run_url"] = "https://invalid.example/green"
+        with self.assertRaisesRegex(ValueError,"real CI"):
+            validate(s)
+        s = fresh()
+        completed = next(x for x in s["tracks"] if x["id"] == "OPS-01")
+        completed["completed_commit_sha"] = "faked"
+        with self.assertRaisesRegex(ValueError,"immutable commit"):
+            validate(s)
+
     def test_pr_merge_status_and_duplicate_branch_rejected(self):
         s = fresh()
         s["research_prs"][-1]["state"] = "MERGED"
@@ -94,6 +107,8 @@ class ControlPlaneTests(unittest.TestCase):
         s = fresh()
         t = next(x for x in s["tracks"] if x["id"] == "LIVE-01")
         t["status"] = "DONE"
+        t["completed_commit_sha"] = "a" * 40
+        t["completed_run_url"] = "https://github.com/DashSaman/Arz/actions/runs/40208500322"
         with self.assertRaisesRegex(ValueError, "Live trade track"):
             validate(s)
 
