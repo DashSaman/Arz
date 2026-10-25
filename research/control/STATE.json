@@ -290,7 +290,7 @@
       "id": "OPS-02",
       "title": "Review stacked PR DAG and separate validated code before merges",
       "priority": 1,
-      "status": "IN_PROGRESS",
+      "status": "DONE",
       "depends_on": [
         "OPS-01"
       ],
@@ -299,7 +299,9 @@
         "EV-007"
       ],
       "completion": "Document independent review/security/test and cherry-pick/split plan; no implicit merge of PR 15→33",
-      "next_action": "Independently test isolated read-only FIFO/events core copied byte-for-byte from PR33 into a clean branch from main, inspect safety, then merge only isolated files."
+      "next_action": "DONE: isolated source-matched accounting/events module and tests merged into main in PR35; review any future change against original evidence and fresh CI.",
+      "completed_commit_sha": "9741849cf53453488eafe72be01ae7e5b942d594",
+      "completed_run_url": "https://github.com/DashSaman/Arz/actions/runs/40209051710"
     },
     {
       "id": "WAL-01",
@@ -313,7 +315,7 @@
         "EV-005"
       ],
       "completion": "Decoded full DEX CPI swap route and exact historical acquisition lots for observed transaction; parent+signer+fee payer already verified",
-      "next_action": "Do not treat 402.799439 USDC as PnL; reconcile earliest token acquisitions and transfers using permitted full history"
+      "next_action": "NEXT STAGE: establish authorized archive coverage and original acquisition lots for single independently proven Mitch signature index20; reject $402.799439 receipt as profit and do not retry throttled provider endpoints."
     },
     {
       "id": "DATA-01",
@@ -468,7 +470,7 @@
     "No PR treated as merged unless GitHub checked",
     "No changes to main trading runtime while integrating governance files"
   ],
-  "verification_policy": "The canonical control plane is now merged into main in PR34. For OPS02 only independent accounting/files may be integrated after fresh CI; never merge whole stacked draft chain.",
+  "verification_policy": "OPS-01 and OPS-02 are merged on main as standalone PR34 and PR35; start WAL-01 next, not a repeated bulk-wallet discovery. Source-level claims still require independent wallet history and exact follower-time quotes.",
   "completed_milestones": [
     {
       "task": "OPS-01",
@@ -477,6 +479,14 @@
       "observed_tests": "12 control-specific, 82 total main-branch tests passed before merge",
       "ci_url": "https://github.com/DashSaman/Arz/actions/runs/40208500322",
       "scope": "governance/docs/offline validator only"
+    },
+    {
+      "task": "OPS-02",
+      "merged_pr": 35,
+      "merge_commit_sha": "9741849cf53453488eafe72be01ae7e5b942d594",
+      "observed_tests": "13 research-control tests + 96 complete tests passed",
+      "ci_url": "https://github.com/DashSaman/Arz/actions/runs/40209051710",
+      "scope": "five exact-source Git blob wallet accounting/events/tests files, no RPC, no trading"
     }
   ]
 }

@@ -23,7 +23,7 @@ class ControlPlaneTests(unittest.TestCase):
         self.assertEqual(r["live_trading"], "DISABLED")
         self.assertGreaterEqual(r["pr_count"], 13)
         self.assertGreaterEqual(r["evidence_count"], 7)
-        self.assertEqual(r["next_work"], "OPS-02")
+        self.assertEqual(r["next_work"], "WAL-01")
 
     def test_no_live_mode_or_capital_approval(self):
         for key, value in [("financial_decision", "GO"),

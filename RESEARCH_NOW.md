@@ -23,14 +23,14 @@ Core research dependency chain: **#15 → #17 → #18 → #24 → #26 → #27 �
 ## Actual work queue — follow order, don't repeat finished probes
 
 1. **OPS-01 — COMPLETE on main:** standalone governance [PR #34](https://github.com/DashSaman/Arz/pull/34) merged as commit `1265e7f70145b0166712cbaae2942b38980e13d6`; [CI 40208500322](https://github.com/DashSaman/Arz/actions/runs/40208500322) passed 12 focused and 82 full tests. No stacked research code merged.
-2. **OPS-02 — IN PROGRESS, independent safe-code extraction:** review and isolate the confirmed FIFO unknown-sale fix and other evidence-safe code before considering merges of dependent PRs; do not force-push.
+2. **OPS-02 — COMPLETE on main:** accounting-only [PR #35](https://github.com/DashSaman/Arz/pull/35) merged as `9741849cf53453488eafe72be01ae7e5b942d594` after [CI 40209051710](https://github.com/DashSaman/Arz/actions/runs/40209051710), 13 focused and 96 full tests. Five isolated files matched PR #33 Git blob SHAs; no network/trading draft was merged. Task scope: review and isolate the confirmed FIFO unknown-sale fix and other evidence-safe code before considering merges of dependent PRs; do not force-push.
 3. **WAL-01 / DATA-01 — Three-wallet forensic focus:** Mitch (a confirmed signer event but unknown original basis), Cented (address mentions do not prove trader signing), Decu (insufficient detailed history). Use already-captured RPC artifacts. New archive collection only with explicit allowed provider capacity and coverage manifests. **Do not repeat the already-rate-limited requests.**
 4. **STRAT-01 — Corrected ATR baseline, separate from wallet alpha:** freeze existing code/parameters; map costs and independent chronological OOS; compare cash and hold. H2 wallet signal is only an entry confirm/veto, never a new strategy fill.
 5. **WAL-02 / EXEC-01 — Whole-wallet FIFO and follower-time executable quotes:** no numerical PnL until linked acquisition lots, fee payers, deposits/transfers, open inventory marks and exact quote/gas/latency data.
 6. **PAPER-01 — Genuinely elapsed paper:** 90+ days, or H4 180+ days, with immutable prospective journal; **not** simulated overnight.
 7. **LIVE-01:** separate user authorization and security review only after evidence gates; currently **BLOCKED**.
 
-**Current technical task:** `OPS-02`; the control plane is already on `main`. Its deliverable is a *reviewed* dependency-splitting plan plus an independently tested accounting correction, not another bulk whale list.
+**NEXT technical task:** `WAL-01` — complete historical acquisition and economic-route evidence for the *single* signer-confirmed Mitch event; currently PnL remains UNKNOWN. The control plane and safe FIFO core are already on `main`. Its deliverable is a *reviewed* dependency-splitting plan plus an independently tested accounting correction, not another bulk whale list.
 
 ## Rules for the next agent
 
@@ -38,4 +38,4 @@ Read this file + `research/control/STATE.json` first, verify actual latest GitHu
 
 ## فارسی — قانون ادامه
 
-**هر عامل ابتدا همین فایل و `research/control/STATE.json` را بخواند.** نتایج PRهای پیش‌نویس با کد ادغام‌شده در `main` یکی نیستند. امضای یک تراکنش یا ورود ۴۰۲ USDC بدون مبنای خرید، سود خالص نیست. مرحله بعد `OPS-02` یعنی بازبینی و جداکردن تغییرات قابل‌اعتماد از زنجیره PRهاست، نه شروع مجدد تحقیق کیف‌پول‌ها. معامله واقعی و سرمایه‌گذاری همچنان **NO-GO / DISABLED** است.
+**هر عامل ابتدا همین فایل و `research/control/STATE.json` را بخواند.** نتایج PRهای پیش‌نویس با کد ادغام‌شده در `main` یکی نیستند. امضای یک تراکنش یا ورود ۴۰۲ USDC بدون مبنای خرید، سود خالص نیست. مرحله `OPS-02` با PR #35 ادغام شد. مرحله بعد `WAL-01` یعنی تکمیل مسیر معامله و Lotهای خرید قبلی همان نمونه امضاشده Mitch است؛ نه شروع مجدد جست‌وجوی کیف‌پول‌ها. معامله واقعی و سرمایه‌گذاری همچنان **NO-GO / DISABLED** است.
