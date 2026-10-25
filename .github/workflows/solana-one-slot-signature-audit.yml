@@ -1,0 +1,46 @@
+name: Independent Solana one-slot signature-order audit
+
+on:
+  push:
+    branches:
+      - research/2026-10-25-sqd-parent-context-recovery
+    paths:
+      - scripts/solana_block_signature_attest.py
+      - tests/test_solana_block_signature_attest.py
+      - .github/workflows/solana-one-slot-signature-audit.yml
+  pull_request:
+    paths:
+      - scripts/solana_block_signature_attest.py
+      - tests/test_solana_block_signature_attest.py
+      - .github/workflows/solana-one-slot-signature-audit.yml
+
+permissions:
+  contents: read
+
+jobs:
+  readonly:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    env:
+      PYTHONPATH: "src:."
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Signature-index and blockchain provenance regression
+        run: python -m unittest discover -s tests -p 'test_solana_block_signature_attest.py' -v
+      - name: Full Arz offline regression
+        run: python -m unittest discover -s tests -q
+      - name: Compile one-shot research code
+        run: python -m compileall -q scripts/solana_block_signature_attest.py
+      - name: One read-only official Solana getBlock at fixed slot
+        if: hashFiles('reports/onchain_2026-10-25/solana_block_signature_attested.json') == ''
+        run: python scripts/solana_block_signature_attest.py --output /tmp/arz-block-signatures.json
+      - name: Preserve derived independent block signature evidence
+        if: hashFiles('reports/onchain_2026-10-25/solana_block_signature_attested.json') == ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: solana-single-slot-signature-proof
+          path: /tmp/arz-block-signatures.json
+          if-no-files-found: error
+          retention-days: 30
