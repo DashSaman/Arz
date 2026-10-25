@@ -87,7 +87,8 @@ class WalletAccountingTests(unittest.TestCase):
         result=FIFOBook().process(events,cutoff=300)
         self.assertEqual(result['cycles'],[]);self.assertEqual(result['unresolved_events'][0]['event_id'],'2')
         self.assertEqual(result['unresolved_events'][0]['reason'],'INSUFFICIENT_COST_BASIS')
-        self.assertAlmostEqual(result['cost_basis_coverage'],.5);self.assertAlmostEqual(result['remaining_units']['WETH'],1)
+        self.assertAlmostEqual(result['cost_basis_coverage'],0)
+        self.assertEqual(result['tainted_positions'][0]['wallet'], '0xabc');self.assertAlmostEqual(result['remaining_units']['WETH'],1)
 
     def test_wallets_and_assets_are_accounted_separately(self):
         events=[ev('1','buy',1,10,ts=100,block=10,log=0,wallet='0xa',asset='WETH'),ev('2','buy',2,20,ts=110,block=11,log=0,wallet='0xb',asset='WETH'),ev('3','sell',1,15,ts=200,block=20,log=0,wallet='0xa',asset='WETH')]

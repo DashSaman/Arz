@@ -1,0 +1,47 @@
+name: SQD parent transaction and token-balance selector audit
+
+on:
+  push:
+    branches:
+      - research/2026-10-25-sqd-parent-context-recovery
+    paths:
+      - scripts/sqd_parent_context_recovery.py
+      - tests/test_sqd_parent_context_recovery.py
+      - .github/workflows/sqd-parent-context.yml
+  pull_request:
+    paths:
+      - scripts/sqd_parent_context_recovery.py
+      - tests/test_sqd_parent_context_recovery.py
+      - .github/workflows/sqd-parent-context.yml
+
+permissions:
+  contents: read
+
+jobs:
+  readonly:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      PYTHONPATH: "src:."
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: New safety and selector tests
+        run: python -m unittest discover -s tests -p 'test_sqd_parent_context_recovery.py' -v
+      - name: Whole-repository offline regression
+        run: python -m unittest discover -s tests -q
+      - name: Compile bounded, no-trading source
+        run: python -m compileall -q scripts/sqd_parent_context_recovery.py
+      - name: One restricted SQD finalized-slot query
+        if: hashFiles('reports/onchain_2026-10-25/sqd_parent_context_observed.json') == ''
+        run: |
+          python scripts/sqd_parent_context_recovery.py --output /tmp/arz-sqd-parent-context.json
+      - name: Preserve derived source and transaction linkage metadata
+        if: hashFiles('reports/onchain_2026-10-25/sqd_parent_context_observed.json') == ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: sqd-parent-context-one-slot
+          path: /tmp/arz-sqd-parent-context.json
+          if-no-files-found: error
+          retention-days: 30

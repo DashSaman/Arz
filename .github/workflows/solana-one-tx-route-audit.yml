@@ -1,0 +1,46 @@
+name: Independent one-signature Solana route and fee audit
+
+on:
+  push:
+    branches:
+      - research/2026-10-25-sqd-parent-context-recovery
+    paths:
+      - scripts/solana_one_tx_route_audit.py
+      - tests/test_solana_one_tx_route_audit.py
+      - .github/workflows/solana-one-tx-route-audit.yml
+  pull_request:
+    paths:
+      - scripts/solana_one_tx_route_audit.py
+      - tests/test_solana_one_tx_route_audit.py
+      - .github/workflows/solana-one-tx-route-audit.yml
+
+permissions:
+  contents: read
+
+jobs:
+  forensic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    env:
+      PYTHONPATH: "src:."
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Synthetic authority/fee/token-owner tests
+        run: python -m unittest discover -s tests -p 'test_solana_one_tx_route_audit.py' -v
+      - name: Full offline regression
+        run: python -m unittest discover -s tests -q
+      - name: Syntax
+        run: python -m compileall -q scripts/solana_one_tx_route_audit.py
+      - name: Only one read-only Solana getTransaction for known block/index
+        if: hashFiles('reports/onchain_2026-10-25/solana_one_tx_route_attested.json') == ''
+        run: python scripts/solana_one_tx_route_audit.py --output /tmp/arz-single-tx-route.json
+      - name: Upload derived event/authority evidence
+        if: hashFiles('reports/onchain_2026-10-25/solana_one_tx_route_attested.json') == ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: single-solana-execution-route-proof
+          path: /tmp/arz-single-tx-route.json
+          if-no-files-found: error
+          retention-days: 30
