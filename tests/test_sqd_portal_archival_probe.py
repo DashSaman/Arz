@@ -85,6 +85,25 @@ class SQDPortalArchivalTests(unittest.TestCase):
         self.assertEqual(r["financial_decision"],"NO-GO")
         self.assertTrue(all(v["status"]=="UNAVAILABLE" for v in r["queries"].values()))
 
+    def test_retry_after_exactly_one_compliant_delay(self):
+        import urllib.error
+        from unittest.mock import patch
+        error=urllib.error.HTTPError(q.FINALIZED,529,"overloaded",
+                                     {"Retry-After":"10"},None)
+        self.assertEqual(q.retry_after_delay(error),10)
+        for code,seconds in [(429,"31"),(529,"0"),(403,"10"),(529,"bad")]:
+            blocked=urllib.error.HTTPError(q.FINALIZED,code,"error",
+                                           {"Retry-After":seconds},None)
+            self.assertIsNone(q.retry_after_delay(blocked))
+
+    def test_overload_still_no_fake_pnl(self):
+        from unittest.mock import patch
+        with patch.object(q,"request",side_effect=q.PortalError('{"code":"HTTP_529","rate_limited":true}')):
+            result=q.collect()
+        self.assertEqual(result["request_count"],1)
+        self.assertEqual(result["stopped_reason"],"ACCESS_OR_RATE_LIMIT_STOP")
+        self.assertIsNone(result["daily_compounding"])
+
     def test_no_order_execution_imported(self):
         self.assertEqual(q.FINALIZED,"https://portal.sqd.dev/datasets/solana-mainnet/finalized-stream")
         self.assertEqual(q.NETWORK_REQUESTS_LIMIT,4)
