@@ -1,0 +1,50 @@
+name: Offline Solana archive forensic gate
+
+on:
+  push:
+    branches:
+      - research/2026-10-25-offline-archive-forensics
+    paths:
+      - 'scripts/solana_archival_forensics.py'
+      - 'tests/test_solana_archival_forensics.py'
+      - 'reports/onchain_2026-10-25/wallet_pagination_rpc_observed.json'
+      - '.github/workflows/solana-archive-offline.yml'
+  pull_request:
+    paths:
+      - 'scripts/solana_archival_forensics.py'
+      - 'tests/test_solana_archival_forensics.py'
+      - '.github/workflows/solana-archive-offline.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  offline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    env:
+      PYTHONPATH: "src:."
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Offline archival forensic regression
+        run: |
+          python -m unittest discover -s tests -p 'test_solana_archival_forensics.py' -v
+      - name: Re-audit PREVIOUS signed-role evidence without RPC
+        run: |
+          python scripts/solana_archival_forensics.py \
+            --saved-probe reports/onchain_2026-10-25/wallet_pagination_rpc_observed.json \
+            --output /tmp/arz-archival-role-audit.json
+          python -c 'import json; x=json.load(open("/tmp/arz-archival-role-audit.json")); assert x["profitability_proven"] is False and x["total_role_classified_details"] == 10 and x["wallets"][0]["neither_signer_nor_fee_payer"] == 10'
+      - name: Full offline regression suite
+        run: python -m unittest discover -s tests -q
+      - name: Source syntax check
+        run: python -m compileall -q scripts/solana_archival_forensics.py
+      - name: Preserve derived audited evidence (no raw RPC payload)
+        uses: actions/upload-artifact@v4
+        with:
+          name: offline-solana-archive-forensic-report
+          path: /tmp/arz-archival-role-audit.json
+          if-no-files-found: error
+          retention-days: 30
