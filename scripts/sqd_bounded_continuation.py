@@ -257,12 +257,19 @@ def capture(start: int = ANCHOR, end: int = DEFAULT_END, max_pages: int = 3) -> 
     total_instr = sum(x["instructions_returned"] for p in pages for x in p["records"])
     total_joined = sum(x["instructions_with_matching_parent_transaction"]
                        for p in pages for x in p["records"])
+    explicitly_mentioned = sum(x["instructions_that_explicitly_mention_watched"]
+                               for p in pages for x in p["records"])
+    if explicitly_mentioned > total_instr:
+        raise ValueError("Count integrity violation")
     return {"schema_version": 1, "captured_at_utc": datetime.now(timezone.utc).isoformat(),
             "source": FINALIZED, "wallet": WATCHED,
             "query_range": [start, end], "requested_page_cap": max_pages,
             "actual_pages": len(pages), "page_evidence": pages,
             "continuation": status, "errors": errors,
-            "instructions_seen": total_instr, "parent_tx_joined_instructions": total_joined,
+            "instructions_seen": total_instr,
+            "watched_account_explicit_instruction_mentions": explicitly_mentioned,
+            "context_instruction_rows_not_watched": total_instr - explicitly_mentioned,
+            "parent_tx_joined_instructions": total_joined,
             "no_complete_historical_wallet_ledger": True,
             "verified_realized_pnl_usd": None, "verified_swap_cycles": 0,
             "geometric_daily_account_return": None, "historical_follower_quotes": 0,
