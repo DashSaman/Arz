@@ -169,6 +169,8 @@ def indices_for_sample(n: int, cap: int = MAX_DETAILS) -> list[int]:
         raise ValueError("Bad sample bounds")
     if n <= cap:
         return list(range(n))
+    if cap == 1:
+        return [0]
     # Evenly spread within the observed signature window, not just freshest.
     return [(i * (n - 1)) // (cap - 1) for i in range(cap)]
 
