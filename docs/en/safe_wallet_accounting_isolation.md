@@ -32,4 +32,4 @@ PYTHONPATH=src:. python -m unittest discover -s tests -q
 PYTHONPATH=src:. python scripts/verify_research_control.py
 ```
 
-**OPS-02 code isolation in progress. Financial NO-GO. Live trading DISABLED.**
+**OPS-02 DONE:** independently merged to main as PR #35, commit `9741849cf53453488eafe72be01ae7e5b942d594`, [CI 40209051710](https://github.com/DashSaman/Arz/actions/runs/40209051710) passed 13 focused / 96 full tests. Next task WAL-01; financial NO-GO and live trading DISABLED.
