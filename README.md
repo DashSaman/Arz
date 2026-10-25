@@ -2,6 +2,8 @@
 
 **Experimental Trading Capital: Maximum $100**
 
+**Latest verified cross-branch control plane (2026-10-25): [RESEARCH_NOW.md](RESEARCH_NOW.md) — read before older status or draft PR results.**
+
 **Research / Simulation Only · Live Trading: DISABLED**
 
 **Current investment decision: NO-GO**
