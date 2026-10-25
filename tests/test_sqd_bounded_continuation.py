@@ -102,8 +102,21 @@ class SQDContinuationTests(unittest.TestCase):
         self.assertEqual(req.call_count,2)
         self.assertTrue(r["continuation"]["reached_requested_end"])
         self.assertEqual(r["actual_pages"],2)
+        self.assertEqual(r["watched_account_explicit_instruction_mentions"],0)
+        self.assertEqual(r["context_instruction_rows_not_watched"],0)
         self.assertIsNone(r["verified_realized_pnl_usd"])
         self.assertFalse(r["continuation"]["whole_wallet_history_verified"])
+
+    @patch.object(c,"request")
+    def test_explicit_mentions_not_entire_instruction_population(self,req):
+        valid={"transactionIndex":1,"programId":"a","accounts":[c.WATCHED]}
+        context={"transactionIndex":2,"programId":"b","accounts":["OTHER"]}
+        req.return_value=(raw(block(c.ANCHOR,[valid,context])),{})
+        result=c.capture(end=c.ANCHOR)
+        self.assertEqual(result["instructions_seen"],2)
+        self.assertEqual(result["watched_account_explicit_instruction_mentions"],1)
+        self.assertEqual(result["context_instruction_rows_not_watched"],1)
+        self.assertEqual(result["parent_tx_joined_instructions"],0)
 
     @patch.object(c,"request")
     def test_provider_empty_stops_not_infinite(self,req):
