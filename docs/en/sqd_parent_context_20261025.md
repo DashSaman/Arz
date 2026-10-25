@@ -29,3 +29,16 @@ SQD entire-slot transaction data **are not 74 wallet trades**. A watched token b
 Reference: https://docs.sqd.dev/en/portal/solana/api ; https://docs.sqd.dev/solana-indexing/sdk/solana-batch/field-selection/
 
 **0 newly verified profitable wallet records. NO-GO, live DISABLED, no capital at risk.**
+
+## Independent parent-signature and authority recovery — follow-up on 25 Oct 2026
+
+**This later source observation resolves the prior SQD parent-index gap for ONE specific known transaction, by independently verifying canonical signature order, not by guessing array positions.**
+
+- Official Solana `getBlock(transactionDetails="signatures")`, [Actions run 40205843218](https://github.com/DashSaman/Arz/actions/runs/40205843218): the finalized slot contains **74 signatures**, blockhash exactly matches SQD, and its index **20** equals the previously observed Mitch-associated signature `5RqPZx5nWKKAoyaqUjM18ViwdR8DJNzVxQzoQX2YRJQCDzexSYMvBiJ1LB2UAqBXkFXrsqeXDYR9obKhdiF9ExWj`. Ten SQD instructions at transactionIndex 20 therefore have this verified parent signature.
+- Official Solana `getTransaction` for the same signature, [Actions run 40206142455](https://github.com/DashSaman/Arz/actions/runs/40206142455): successful execution; **watched wallet was a signer but NOT the fee payer**. Fee payer `FHpcNSe6tb2n15bAdq4BkeYWGyZKFD7yLYrH92ng7wCT` paid **19,209 lamports**. Jupiter and SPL/Pump program IDs occur in transaction instructions.
+- Owner token balances: pump token mint `BwZmBr4XFaDFEN6pQyay5aHNLaFSgxky6TpF9SxYpump` **−28,938,389.952554** token units and native Solana USDC **+402.799439**, both verified at **6 decimals**, original transaction-response SHA matches the earlier observed PR #28 evidence.
+- New 8 focused tests and **348 full-suite tests** passed (overlapping counts); network requests limited to one read-only `getBlock` and one read-only `getTransaction` with immutable result files preventing repeat collection.
+
+Machine records: `reports/onchain_2026-10-25/solana_block_signature_attested.json`, `reports/onchain_2026-10-25/solana_one_tx_route_attested.json`, and `reports/onchain_2026-10-25/mitch_verified_execution_legs.csv`.
+
+**Critical boundary:** This is a signed Jupiter-associated token-to-USDC flow; complete DEX CPI causality and pre-existing acquisition lots remain unreconciled. The USDC receipt is NOT $402 profit, and the payer's fee must NOT be assigned as a wallet trading expense. Full 90-day wallet equity and compounded return remain UNVERIFIED, financial NO-GO, trading DISABLED.
