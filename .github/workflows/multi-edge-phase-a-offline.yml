@@ -68,12 +68,14 @@ jobs:
         run: |
           python -m unittest discover -s tests -p 'test_solana_wallet_pagination_probe.py' -v
       - name: Bounded 4-wallet Solana historical RPC backfill (NO TRADE)
+        # One research capture already performed; disable automatic repeats after public RPC 429.
+        if: ${{ false }}
         env:
           PYTHONPATH: "src:."
         run: |
           python scripts/solana_wallet_pagination_probe.py --output /tmp/arz-wallet-pagination-20261025.json
       - name: Archive derived wallet history metadata
-        if: always()
+        if: ${{ false }}
         uses: actions/upload-artifact@v4
         with:
           name: arz-wallet-history-pagination
