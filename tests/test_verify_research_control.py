@@ -107,6 +107,8 @@ class ControlPlaneTests(unittest.TestCase):
         s = fresh()
         t = next(x for x in s["tracks"] if x["id"] == "LIVE-01")
         t["status"] = "DONE"
+        t["completed_commit_sha"] = "a" * 40
+        t["completed_run_url"] = "https://github.com/DashSaman/Arz/actions/runs/40208500322"
         with self.assertRaisesRegex(ValueError, "Live trade track"):
             validate(s)
 
