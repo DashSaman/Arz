@@ -1,0 +1,55 @@
+{
+  "evidence_type": "INDEPENDENT_CANONICAL_BLOCK_SIGNATURE_ORDER_CROSSCHECK",
+  "observed_github_actions": "https://github.com/DashSaman/Arz/actions/runs/40205843218",
+  "rpc": "https://api.mainnet-beta.solana.com",
+  "reference_source": "https://solana.com/docs/rpc/http/getblock",
+  "source_observation": {
+    "financial_decision": "NO-GO",
+    "live_trading": "DISABLED",
+    "method": "getBlock",
+    "observed_at_utc": "2026-10-25T15:12:42.759189+00:00",
+    "realized_pnl_usd": null,
+    "requests_attempted": 1,
+    "result": {
+      "block_time": 1792883172,
+      "blockhash": "tzMZR1PjgdAwnmRKz3dQsa2QuwQ1DC8zKWLu993Vpwo",
+      "blockhash_matches_previously_observed_SQD": true,
+      "identity_or_economic_control_proven": false,
+      "index20_is_previous_mitch_associated_signature": true,
+      "index20_signature": "5RqPZx5nWKKAoyaqUjM18ViwdR8DJNzVxQzoQX2YRJQCDzexSYMvBiJ1LB2UAqBXkFXrsqeXDYR9obKhdiF9ExWj",
+      "previously_observed_signature_index": 20,
+      "previously_observed_signature_present": true,
+      "signature_count": 74,
+      "slot": 461030696,
+      "source_sha256": "7670599112650fdc6721d031db14b614508c7e6072157cea6541128ec64c74b4",
+      "status": "FINALIZED_BLOCK_SIGNATURES_OBSERVED",
+      "wallet_pnl_usd": null
+    },
+    "source": "OFFICIAL_SOLANA_READ_ONLY_GETBLOCK_ONE_SLOT",
+    "status": "OBSERVED",
+    "target_slot": 461030696
+  },
+  "independent_sqd_source": "reports/onchain_2026-10-25/sqd_parent_context_observed.json",
+  "verified_parent_link": {
+    "slot": 461030696,
+    "transaction_index": 20,
+    "parent_signature": "5RqPZx5nWKKAoyaqUjM18ViwdR8DJNzVxQzoQX2YRJQCDzexSYMvBiJ1LB2UAqBXkFXrsqeXDYR9obKhdiF9ExWj",
+    "sqd_instruction_rows_at_that_index": 10,
+    "canonical_block_hash_matches": true,
+    "block_transaction_count_matches": true,
+    "historically_observed_token_balance_deltas_associated_by_prior_rpc": true,
+    "signing_control_verified": false,
+    "transaction_fee_payer_verified": false,
+    "historical_cost_basis_usdc": null,
+    "net_pnl_usdc": null
+  },
+  "test_evidence": {
+    "focused_tests": 7,
+    "whole_repo_tests": 340,
+    "note": "overlapping counts; latest included new FIFO safeguards",
+    "status": "PASS"
+  },
+  "whole_wallet_historical_profitability": "UNVERIFIED",
+  "financial_decision": "NO-GO",
+  "live_trading": "DISABLED"
+}

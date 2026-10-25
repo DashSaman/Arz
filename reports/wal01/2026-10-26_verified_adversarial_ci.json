@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "WAL01-ADVERSARIAL-2026-10-26",
+  "evidence_class": "SOFTWARE_TESTS_AND_PRIOR_DERIVED_SINGLE_TRANSACTION_NO_FINANCIAL_ALPHA",
+  "base_branch": "main",
+  "research_pr": "https://github.com/DashSaman/Arz/pull/38",
+  "tested_code_head": "0cd9866e40bd569b94ba4ead0487fc807deb067e",
+  "verified_ci": {
+    "workflow": "WAL-01 adversarial accounting and source attestation — offline",
+    "run_url": "https://github.com/DashSaman/Arz/actions/runs/40236585866",
+    "job_id": 121299363491,
+    "status": "completed",
+    "conclusion": "success",
+    "discovered_unit_tests": 460,
+    "focused_unit_tests": 364,
+    "full_repository_unit_tests": 460,
+    "test_scopes_overlap": true,
+    "quantitative_case_matrix": [
+      {
+        "kind": "known_full_roundtrips",
+        "tests": 80,
+        "methods": "FIFO + weighted average",
+        "independent_oracle": "Fraction cost, fees, proceeds"
+      },
+      {
+        "kind": "two_lot_partial_sales",
+        "tests": 80,
+        "methods": "FIFO + weighted average",
+        "independent_oracle": "Fraction lot cost and remaining inventory"
+      },
+      {
+        "kind": "unmatched_disposal_quarantine",
+        "tests": 80,
+        "methods": "FIFO + weighted average",
+        "independent_oracle": "zero provable cycles after taint"
+      },
+      {
+        "kind": "unknown_network_fees",
+        "tests": 80,
+        "methods": "FIFO + weighted average",
+        "independent_oracle": "net PnL must remain None"
+      },
+      {
+        "kind": "tampered_prior_signed_witness",
+        "tests": 20,
+        "independent_oracle": "exact cited source fields and immutable signature/block witness"
+      },
+      {
+        "kind": "malformed_wallet_event",
+        "tests": 20,
+        "independent_oracle": "validation rejects invalid event attributes"
+      },
+      {
+        "kind": "explicit_unchanged_source_proof",
+        "tests": 4,
+        "independent_oracle": "source git blob SHA1 matches earlier PR33 and blocker invariants"
+      }
+    ],
+    "total_matrix_test_methods": 364,
+    "prior_repository_tests": 96
+  },
+  "witness": {
+    "source_1": "https://github.com/DashSaman/Arz/blob/research/2026-10-25-sqd-parent-context-recovery/reports/onchain_2026-10-25/solana_one_tx_route_attested.json",
+    "source_2": "https://github.com/DashSaman/Arz/blob/research/2026-10-25-sqd-parent-context-recovery/reports/onchain_2026-10-25/solana_block_signature_attested.json",
+    "git_blob_sha1_tx": "d33aacc4793215d801b6d91fca11b69e81df474d",
+    "git_blob_sha1_block": "d92acc850e65d9e3d0696e873809aca28f356d2c",
+    "wallet": "4Be9CvxqHW6BYiRAxW9Q3xu1ycTMWaL5z8NX4HR3ha7t",
+    "signature": "5RqPZx5nWKKAoyaqUjM18ViwdR8DJNzVxQzoQX2YRJQCDzexSYMvBiJ1LB2UAqBXkFXrsqeXDYR9obKhdiF9ExWj",
+    "slot": 461030696,
+    "index": 20,
+    "watched_wallet_signer": true,
+    "watched_wallet_fee_payer": false,
+    "third_party_fee_lamports": 19209,
+    "owned_usdc_received": "402.799439",
+    "owned_token_amount_decreased": "28938389.952554",
+    "acquisition_basis_usdc": null,
+    "full_swap_route_confirmed": false,
+    "realized_net_pnl_usdc": null
+  },
+  "historical_wallet_window_days_verified": 0,
+  "new_onchain_requests_executed": 0,
+  "new_exec_quotes_executed": 0,
+  "h1_h2_h3_h4_qualified": 0,
+  "next_wal01_blockers": [
+    "Complete signer-associated original purchase lot and transfers",
+    "Full CPI routing and actual swap causality",
+    "Full token-account historical ancestry and native/SOL flows",
+    "At-event-time USD prices and fee-payer economic allocation",
+    "Whole wallet 90-day cashflow-adjusted equity and open holdings",
+    "Follower-time executable DEX quotes and forward paper"
+  ],
+  "prohibited_inferences": [
+    "User wallet profit=402.799439 USD",
+    "User took 460 profitable real trades",
+    "CI pass implies geometric return positive",
+    "Prior signature-index evidence is a full account history"
+  ],
+  "financial_decision": "NO-GO",
+  "live_trading": "DISABLED",
+  "notes": "No added public RPC calls or wallet orders. Development-stage evidence-only hardening, test count distinct unittest methods."
+}
