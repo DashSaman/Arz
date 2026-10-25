@@ -27,6 +27,10 @@ class _BaseBook:
         total_known_fees = 0.0
         total_sell_units = 0.0
         covered_sell_units = 0.0
+        # An unmatched sale invalidates subsequent cost-basis attribution for
+        # the same wallet/asset/quote, even if previously seen lots remain.
+        # Otherwise later sales could reuse inventory already sold.
+        tainted_keys: set[tuple[str, str, str]] = set()
 
         for event in events:
             key = (event.wallet, event.asset, event.quote_asset)
@@ -43,8 +47,17 @@ class _BaseBook:
 
             total_sell_units += event.asset_amount
             available = sum(lot.units for lot in lots[key])
+            if key in tainted_keys:
+                unresolved.append({
+                    "event_id": event.event_id, "wallet": event.wallet,
+                    "asset": event.asset, "reason": "PRIOR_UNMATCHED_SALE_TAINT",
+                    "requested_units": event.asset_amount, "known_units": available,
+                })
+                continue
             if available + 1e-12 < event.asset_amount:
-                covered_sell_units += max(0.0, available)
+                # No units were actually consumed or PnL reconciled. Do not
+                # count a hypothetical partial basis allocation as coverage.
+                tainted_keys.add(key)
                 unresolved.append({
                     "event_id": event.event_id,
                     "wallet": event.wallet,
@@ -96,6 +109,11 @@ class _BaseBook:
             "fee_coverage_complete": not unknown_fee_events,
             "total_network_fees_quote": total_known_fees,
             "cost_basis_coverage": coverage,
+            "cost_basis_coverage_definition": "MATCHED_SOLD_UNITS_DIVIDED_BY_ALL_SOLD_UNITS",
+            "tainted_positions": [
+                {"wallet": w, "asset": a, "quote_asset": q}
+                for w, a, q in sorted(tainted_keys)
+            ],
             "remaining_units": dict(remaining_units),
             "remaining_basis": dict(remaining_basis),
             "remaining_units_by_wallet": {w: dict(v) for w, v in remaining_units_by_wallet.items()},
