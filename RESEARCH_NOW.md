@@ -1,6 +1,6 @@
 # ARZ RESEARCH NOW — single restart checkpoint
 
-**As observed on 2026-10-25 UTC · Research only · NO-GO · Live trading DISABLED**
+**Latest checkpoint 2026-10-26 UTC · WAL-01 PARTIAL · Financial NO-GO · Live trading DISABLED**
 
 > **Start here before doing anything in Arz.** This is the entry point on `main` even when newer research work lives in unmerged draft branches. `PROJECT_STATUS.md` begins with the older 2026-10-13 MVP checkpoint and must not be mistaken for the latest research status.
 
@@ -15,6 +15,14 @@
 - The latest signed-wallet case is **one** Solana transaction at slot `461030696`, `transactionIndex=20`, from [PR #33](https://github.com/DashSaman/Arz/pull/33). The watched Mitch-attributed address signed it, but another address paid the fee; its owned token balances show **+402.799439 USDC** and **−28,938,389.952554** units of another token. **Original acquisition basis unknown; realized PnL UNKNOWN; not a $402 profit.** Same slot is not a 90-day trade ledger.
 - Bounded Solana public RPC retrieval hit 429, SQD occasionally hit 529, and archival coverage is incomplete. **No wallet is independently proven consistently profitable.**
 - GitHub Actions passes on draft PRs prove software tests, **not merged deployment nor profitable trades**.
+
+## WAL-01 checkpoint update — verified 460 software tests, still no trading alpha
+
+Standalone [PR #38](https://github.com/DashSaman/Arz/pull/38) was merged directly into `main` as `eafee63bcd331826da36af6727593cd4021f4126`. [GitHub Actions 40236822763](https://github.com/DashSaman/Arz/actions/runs/40236822763) observed **460/460 full-suite** and **364/364 focused WAL-01** test METHODS successful (focused included in full). 320 parameterized but individually discoverable numeric cases use an independent rational arithmetic oracle; 40 further source tamper/event invalidity tests and four witness/limitation tests. They are **synthetic software verification**, not market trades or historical backtests.
+
+The merged `scripts/wal01_witness_gate.py` compares the public PR #33 derived transaction/block witnesses byte-for-byte via Git blob SHA, keeps the sponsor fee separate and **does not permit a USD realized-profit value** for Mitch's signed +402.799439 USDC balance change. No new public RPC source data were acquired in this stage. [Source/test summary](reports/wal01/2026-10-26_verified_adversarial_ci.json) · [Detailed Persian](docs/fa/wal01_adversarial_audit.md) · [Detailed English](docs/en/wal01_adversarial_audit.md).
+
+**WAL-01 Issue #37 is STILL PARTIAL**: historical original acquisition lots, complete CPI route, transfers, position basis and 90-day whole-account equity remain missing. Do not mark WAL-01 DONE or promote the receipt as profit because 460 tests passed.
 
 ## PR topology (check remotely again before changing branches)
 
