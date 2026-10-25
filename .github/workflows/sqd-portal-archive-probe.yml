@@ -1,0 +1,47 @@
+name: Bounded SQD Portal archive smoke and offline regression
+
+on:
+  push:
+    branches:
+      - research/2026-10-25-sqd-portal-archival-probe
+    paths:
+      - scripts/sqd_portal_archival_probe.py
+      - tests/test_sqd_portal_archival_probe.py
+      - .github/workflows/sqd-portal-archive-probe.yml
+  pull_request:
+    paths:
+      - scripts/sqd_portal_archival_probe.py
+      - tests/test_sqd_portal_archival_probe.py
+      - .github/workflows/sqd-portal-archive-probe.yml
+
+permissions:
+  contents: read
+
+jobs:
+  bounded:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      PYTHONPATH: "src:."
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Strict endpoint and timeline tests
+        run: python -m unittest discover -s tests -p 'test_sqd_portal_archival_probe.py' -v
+      - name: Full offline repository suite
+        run: python -m unittest discover -s tests -q
+      - name: Syntax compilation
+        run: python -m compileall -q scripts/sqd_portal_archival_probe.py
+      - name: One-shot public SQD Portal dev endpoint (4 bounded reads only)
+        if: hashFiles('reports/onchain_2026-10-25/sqd_portal_smoke_observed.json') == ''
+        run: |
+          python scripts/sqd_portal_archival_probe.py --output /tmp/arz-sqd-archival-smoke.json
+      - name: Upload source-hashed evidence only (no wallet raw history)
+        if: hashFiles('reports/onchain_2026-10-25/sqd_portal_smoke_observed.json') == ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: sqd-public-solana-archival-smoke
+          path: /tmp/arz-sqd-archival-smoke.json
+          if-no-files-found: error
+          retention-days: 30

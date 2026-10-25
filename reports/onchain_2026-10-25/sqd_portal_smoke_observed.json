@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "captured_from": "GitHub Actions log, source result marker",
+  "verified_run_url": "https://github.com/DashSaman/Arz/actions/runs/40190978360",
+  "checked_commit": "2170e870de5c3c53b53ed17249f45fb77db5e654",
+  "latest_source": "scripts/sqd_portal_archival_probe.py",
+  "observed_local_date": "2026-10-25",
+  "verified_offline_tests": {
+    "focused": 12,
+    "full_suite": 299,
+    "notes": "Focused tests included in full suite; do not sum."
+  },
+  "public_source_evidence": {
+    "collected_utc": "2026-10-25T11:56:56.475727+00:00",
+    "completed_utc": "2026-10-25T11:57:07.578341+00:00",
+    "daily_compounding": null,
+    "dataset": "solana-mainnet",
+    "financial_decision": "NO-GO",
+    "historical_wallet_90d_complete": false,
+    "live_trading": "DISABLED",
+    "portal": "https://portal.sqd.dev",
+    "queries": {
+      "2024_archive": {
+        "first_slot": null,
+        "headers": {
+          "arz_bounded_retry_count": 0,
+          "x-request-id": "fc1925e1da969ffe5556d39a8770fd70",
+          "x-sqd-data-source": "network",
+          "x-sqd-finalized-head-hash": "FoHPvFRkW4PKcdkq4xxe7K2xe4kpCwKRcRXZY3e5oS8j",
+          "x-sqd-finalized-head-number": "461232845",
+          "x-sqd-head-number": "461248457"
+        },
+        "last_slot": null,
+        "not_whole_wallet_history": true,
+        "query_end": 259984950,
+        "query_start": 259984950,
+        "range_fully_confirmed": false,
+        "raw_response_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "records": [],
+        "requires_continuation": true,
+        "returned_block_rows": 0,
+        "status": "OK"
+      },
+      "metadata": {
+        "headers": {
+          "arz_bounded_retry_count": 0,
+          "x-request-id": "27888d09ab4b5a6bf13aece5e7e94308"
+        },
+        "metadata_kind": "dict",
+        "response_sha256": "94159b8532b84ea61d935367715d8ce51910dd0e3c6f0e5bd8c57a7e7d931723",
+        "status": "OK"
+      },
+      "mitch_fee_payer": {
+        "first_slot": 461030696,
+        "headers": {
+          "arz_bounded_retry_count": 1,
+          "x-request-id": "f0525d30e969d3ec15030c096a0f4ac1",
+          "x-sqd-data-source": "network",
+          "x-sqd-finalized-head-hash": "FoHPvFRkW4PKcdkq4xxe7K2xe4kpCwKRcRXZY3e5oS8j",
+          "x-sqd-finalized-head-number": "461232845",
+          "x-sqd-head-number": "461248504"
+        },
+        "last_slot": 461030746,
+        "not_whole_wallet_history": true,
+        "query_end": 461030746,
+        "query_start": 461030696,
+        "range_fully_confirmed": true,
+        "raw_response_sha256": "c00e943c0dccaf4b4c4b98061e479e0beba7778010d045ad46d717a956582f0a",
+        "records": [
+          {
+            "instruction_count": 0,
+            "program_ids": [],
+            "raw_block_sha256": "d4525e42d2df243f797f15738048577ed57161e3ccd8fd40082f5220872fe56e",
+            "slot": 461030696,
+            "timestamp": 1792883172,
+            "transaction_records": []
+          },
+          {
+            "instruction_count": 0,
+            "program_ids": [],
+            "raw_block_sha256": "d070b27f486db91e24ee4fcd8a640d27ba8ce30c47c1d1a8667e8f97d7a0d407",
+            "slot": 461030712,
+            "timestamp": 1792883176,
+            "transaction_records": []
+          },
+          {
+            "instruction_count": 0,
+            "program_ids": [],
+            "raw_block_sha256": "9c30f3fb604c3f3ed70384d43b9904fec72c0673b2cf8d2bd9bceccb09faa59e",
+            "slot": 461030713,
+            "timestamp": 1792883176,
+            "transaction_records": []
+          },
+          {
+            "instruction_count": 0,
+            "program_ids": [],
+            "raw_block_sha256": "8c6fcdbabce59fd895aafe02a1fa7c2a3c423d8efc7e95a0e3acc02ed6f0b72a",
+            "slot": 461030746,
+            "timestamp": 1792883183,
+            "transaction_records": []
+          }
+        ],
+        "requires_continuation": false,
+        "returned_block_rows": 4,
+        "status": "OK"
+      },
+      "mitch_mentioned_instructions": {
+        "first_slot": 461030696,
+        "headers": {
+          "arz_bounded_retry_count": 0,
+          "x-request-id": "2a2348169ea70c46772ce92482d1b3b8",
+          "x-sqd-data-source": "network",
+          "x-sqd-finalized-head-hash": "FoHPvFRkW4PKcdkq4xxe7K2xe4kpCwKRcRXZY3e5oS8j",
+          "x-sqd-finalized-head-number": "461232845",
+          "x-sqd-head-number": "461248505"
+        },
+        "last_slot": 461030696,
+        "not_whole_wallet_history": true,
+        "query_end": 461030696,
+        "query_start": 461030696,
+        "range_fully_confirmed": true,
+        "raw_response_sha256": "3e7d8638ad7683ab2c7ff13b946884d94ebd274a3a32811f8141d3a5a684b8c9",
+        "records": [
+          {
+            "instruction_count": 10,
+            "program_ids": [
+              "11111111111111111111111111111111",
+              "6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P",
+              "6Vo3245eszAb5wuqEMw8mGdbfRUdKbHhDHP5LcaGuTAB",
+              "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+              "BiSoNHVpsVZW2F7rx2eQ59yQwKxzU5NvBcmKshCSUypi",
+              "JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4",
+              "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+              "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+            ],
+            "raw_block_sha256": "fe983b90e9b3fcb2148fb3cc0669ea36088697eaffff07e678df7656156fcde6",
+            "slot": 461030696,
+            "timestamp": 1792883172,
+            "transaction_records": []
+          }
+        ],
+        "requires_continuation": false,
+        "returned_block_rows": 1,
+        "status": "OK"
+      }
+    },
+    "read_only": true,
+    "realized_wallet_pnl_usd": null,
+    "request_count": 4,
+    "signed_trade_ledger": false,
+    "stopped_reason": null
+  },
+  "interpretation": {
+    "result": "LIVE SQD PUBLIC DEVELOPMENT PORTAL REACHABLE; filtered Solana instructions successfully returned at one 2026 finalized slot",
+    "snapshot_only": true,
+    "historical_2024_block_coverage": "UNVERIFIED_ZERO_ROWS",
+    "historical_query_partial_coverage": "NO_WALLET_90_DAY_HISTORY",
+    "fee_payer_scan": "51-slot filtered Mitch fee payer returned 4 block rows and zero selected transactions; incomplete broader wallet history",
+    "instruction_scan": "10 instruction records mentioning watched wallet in one slot; this does not establish signing authority or PnL",
+    "price_basis": "UNKNOWN",
+    "executable_dex_quote": "UNKNOWN",
+    "wallet_daily_equity": "UNKNOWN",
+    "elapsed_paper_days": 0
+  },
+  "financial_decision": "NO-GO",
+  "live_trading": "DISABLED",
+  "spent_money": false,
+  "transactions_submitted": 0
+}
