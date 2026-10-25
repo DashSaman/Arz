@@ -77,6 +77,18 @@ class ParentRecoveryTests(unittest.TestCase):
         self.assertEqual(x["block_rows"][0]["watched_owner_token_balance_rows_without_tx_index"],1)
         self.assertEqual(x["block_rows"][0]["instructions_sample"][0]["owner_token_balances_linked"],0)
 
+    def test_decimal_string_fee_accepted_exactly(self):
+        fee_val="18446744073709551615"
+        self.assertEqual(m._uint64(fee_val,"fee"),2**64-1)
+        self.assertEqual(m._uint64(5000,"fee"),5000)
+        for bad in ("1.2", "-1", "NaN", True, str(2**64)):
+            with self.subTest(bad=bad),self.assertRaises(ValueError):
+                m._uint64(bad,"fee")
+        tx=parent()
+        tx["fee"]="5000"
+        x=m.parse_single_response(dump(block(tx=[tx],inst=[ins()])),m.build_request())
+        self.assertEqual(x["block_rows"][0]["mentioned_instructions_with_parent"],1)
+
     def test_false_wallet_fee_payer_propagates(self):
         x=m.parse_single_response(dump(block(tx=[parent(payer="Sponsor")],inst=[ins()])),
                                   m.build_request())
