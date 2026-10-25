@@ -37,7 +37,7 @@ def build_request(slot: int = ANCHOR) -> dict:
         "fields": {
             "block": {"number": True, "hash": True, "timestamp": True},
             "transaction": {
-                "signatures": True, "feePayer": True, "err": True, "fee": True,
+                "transactionIndex": True, "signatures": True, "feePayer": True, "err": True, "fee": True,
                 "accountKeys": True, "version": True
             },
             "instruction": {
@@ -45,8 +45,9 @@ def build_request(slot: int = ANCHOR) -> dict:
                 "instructionAddress": True, "isCommitted": True
             },
             "tokenBalance": {
-                "account": True, "preMint": True, "postMint": True,
+                "transactionIndex": True, "account": True, "preMint": True, "postMint": True,
                 "preAmount": True, "postAmount": True,
+                "preDecimals": True, "postDecimals": True,
                 "preOwner": True, "postOwner": True
             },
         },
