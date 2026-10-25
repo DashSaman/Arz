@@ -62,6 +62,17 @@ def _int(value, name, *, max_num=None):
     return value
 
 
+def _uint64(value, name):
+    """Preserve Solana u64 lamports exactly: integer or canonical decimal string."""
+    if type(value) is int:
+        return _int(value, name, max_num=2**64 - 1)
+    if type(value) is str and value.isascii() and value.isdecimal():
+        # String-valued bigints are common in JSON blockchain data.
+        n = int(value)
+        return _int(n, name, max_num=2**64 - 1)
+    raise ValueError("Invalid exact u64: " + name)
+
+
 def _items(block, name, limit):
     values = block.get(name, [])
     if type(values) is not list or len(values) > limit:
@@ -119,7 +130,7 @@ def parse_single_response(raw: bytes, spec: dict) -> dict:
                 parent_map[ti] = t
             f = t.get("fee")
             if f is not None:
-                _int(f, "fee", max_num=2**64 - 1)
+                _uint64(f, "fee")
             payer = t.get("feePayer")
             if payer is not None and (type(payer) is not str or not payer):
                 raise ValueError("Invalid fee payer")
