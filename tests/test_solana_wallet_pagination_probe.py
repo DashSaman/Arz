@@ -98,6 +98,7 @@ class PaginationEvidenceTests(unittest.TestCase):
 
     def test_spread_sample(self):
         self.assertEqual(p.indices_for_sample(5, 10), [0,1,2,3,4])
+        self.assertEqual(p.indices_for_sample(100,1), [0])
         points=p.indices_for_sample(100,10)
         self.assertEqual((points[0], points[-1], len(set(points))), (0,99,10))
 
