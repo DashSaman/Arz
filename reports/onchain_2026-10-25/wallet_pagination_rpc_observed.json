@@ -1,0 +1,358 @@
+{
+  "audit_run_utc": "2026-10-25T09:05:10.633264+00:00",
+  "checked_commit": "26d4bdd67fcef9209e24dcf545831c17d82cb898",
+  "source_run_url": "https://github.com/DashSaman/Arz/actions/runs/40179174892",
+  "source": "official-public-Solana-RPC",
+  "method": "getSignaturesForAddress paginated and bounded getTransaction subset",
+  "raw_source_rows_persisted": false,
+  "raw_data_responses_hashed": true,
+  "provider_rate_limit_hit": true,
+  "provider_blocker": "PROVIDER_RATE_LIMIT_HTTP_429",
+  "all_90day_wallet_history_complete": false,
+  "financial_decision": "NO-GO",
+  "live_trading": "DISABLED",
+  "wallets_not_probed_because_limit": [
+    "Mitch",
+    "Orangie"
+  ],
+  "unverified_public_attribution": true,
+  "financial_conclusions": "NO_REALIZED_PNL_VERIFIED",
+  "tests_observed": {
+    "repo_suite": 270,
+    "legacy_multi_edge": 41,
+    "new_focused": 10,
+    "historical_focused": 9,
+    "base_solana_focused": 8,
+    "overlapping_counts": true
+  },
+  "observations": [
+    {
+      "label": "Cented",
+      "address": "CyaE1VxvBrahnPWkqm5VsdCvyS2QmNht2UFrKJHga54o",
+      "signature_count": 80,
+      "signature_page_sha256s": [
+        {
+          "count": 40,
+          "oldest_signature": "jD5iXVUdZKqtQKwptSRTksyvjfTcuMijQrSGcbpiruC2tVeC1wt9cJBzbdoWdznhpmcSKvKxNMhXGMvbFgJKdYv",
+          "page": 1,
+          "sha256": "ed221da0c55cb86fc169695f7d2cdc995b26a9c390f21ec6663058f043ec5825"
+        },
+        {
+          "count": 40,
+          "oldest_signature": "3CgukW4Wk9QcXjtFDrbsDV8uXCMH9JgFyvk7L33irqxF3yAkthV6ghmFteVnEtx6XeLHoKmoK68VTgJVbdTAnuT4",
+          "page": 2,
+          "sha256": "1ed4a83365d3ac93b581a8f0058be80b0595f7f67199b59f8a6bf3e9c8e37b51"
+        }
+      ],
+      "oldest_unix": 1792919012,
+      "newest_unix": 1792919015,
+      "signature_window_hours": 0.0008,
+      "detail_attempts": 10,
+      "verified_transaction_details": 10,
+      "failed_detail_reads": 0,
+      "chain_execution_failures_in_sample": 10,
+      "unknown_PnL": true,
+      "wallet_self_paid_fee_records": 0,
+      "wallet_self_signed_records": 0,
+      "third_party_payer_records": 10,
+      "usdc_flow_candidates": 0,
+      "missing_history": true,
+      "details": [
+        {
+          "balance_deltas": [],
+          "block_time": 1792919015,
+          "capital_flows_reconciled": false,
+          "cost_basis_usd": null,
+          "economic_class": "FAILED_TRANSACTION_NO_TOKEN_SWAP_PROFIT",
+          "execution_failed": true,
+          "failed_inclusion_cost_usd": null,
+          "fee_attributed_to_wallet_lamports": null,
+          "fee_lamports": 5302,
+          "fee_payer": {
+            "address": "53JGzWmneUivUP7odawk47sXgozLvVKj4Fs27B2wL3k2",
+            "wallet_is_fee_payer": false,
+            "wallet_is_signer": false
+          },
+          "has_inner_instructions": false,
+          "instruction_route_decoded": false,
+          "owner_fields_complete": true,
+          "signature": "Nyj5qthn9Zc1SUtyxHiZ5fgFD2DH8zqGfo2y7KYvseWVatSYPdHagHThzaPvAJeDfk4KvGPEeKHHbyAd7nfMUmg",
+          "signature_list_failed": true,
+          "slot": 461199392,
+          "status": "FETCHED",
+          "tx_response_sha256": "ab497698451969f8bd7e94dfad2a2c9af89077b349fb4d67e22e46a2b4fe9f62",
+          "wallet_pnl_usd": null
+        },
+        {
+          "balance_deltas": [],
+          "block_time": 1792919014,
+          "capital_flows_reconciled": false,
+          "cost_basis_usd": null,
+          "economic_class": "FAILED_TRANSACTION_NO_TOKEN_SWAP_PROFIT",
+          "execution_failed": true,
+          "failed_inclusion_cost_usd": null,
+          "fee_attributed_to_wallet_lamports": null,
+          "fee_lamports": 5302,
+          "fee_payer": {
+            "address": "53JGzWmneUivUP7odawk47sXgozLvVKj4Fs27B2wL3k2",
+            "wallet_is_fee_payer": false,
+            "wallet_is_signer": false
+          },
+          "has_inner_instructions": false,
+          "instruction_route_decoded": false,
+          "owner_fields_complete": true,
+          "signature": "5AuWbq8diBkRGhK9iVkDkF8CqaW4BZbmLWcNGaYRU9uC8RmSrQEXZ2Lxdarsy3UXQMmrWUFqc8zd4FtkELXi4HHe",
+          "signature_list_failed": true,
+          "slot": 461199388,
+          "status": "FETCHED",
+          "tx_response_sha256": "2a94374aea18a84c1f96448f1bd9a198b3789b22efde85ea0a046867acc1e9e2",
+          "wallet_pnl_usd": null
+        },
+        {
+          "balance_deltas": [],
+          "block_time": 1792919014,
+          "capital_flows_reconciled": false,
+          "cost_basis_usd": null,
+          "economic_class": "FAILED_TRANSACTION_NO_TOKEN_SWAP_PROFIT",
+          "execution_failed": true,
+          "failed_inclusion_cost_usd": null,
+          "fee_attributed_to_wallet_lamports": null,
+          "fee_lamports": 5302,
+          "fee_payer": {
+            "address": "DF4qVoMnNv5r64hfcGM6XiLku98QDLdFQf82UokGDV4T",
+            "wallet_is_fee_payer": false,
+            "wallet_is_signer": false
+          },
+          "has_inner_instructions": false,
+          "instruction_route_decoded": false,
+          "owner_fields_complete": true,
+          "signature": "5oy3BAgaToFbigsKWQbmj2cJscDmX7nrW73DYh6qVJf7woN9xAJfDDN6sY2bQcTVB4DL7ipV2gjBBZuTE5rGvTgz",
+          "signature_list_failed": true,
+          "slot": 461199387,
+          "status": "FETCHED",
+          "tx_response_sha256": "69739b0016e8cc477541530d90ef4dc36d48bd393ad422ba2a3b6f51459da36d",
+          "wallet_pnl_usd": null
+        },
+        {
+          "balance_deltas": [],
+          "block_time": 1792919014,
+          "capital_flows_reconciled": false,
+          "cost_basis_usd": null,
+          "economic_class": "FAILED_TRANSACTION_NO_TOKEN_SWAP_PROFIT",
+          "execution_failed": true,
+          "failed_inclusion_cost_usd": null,
+          "fee_attributed_to_wallet_lamports": null,
+          "fee_lamports": 5700,
+          "fee_payer": {
+            "address": "9LXVVAWBkSjNVChAuWTUvX5p182fgaD1sR1dWCo2qcGD",
+            "wallet_is_fee_payer": false,
+            "wallet_is_signer": false
+          },
+          "has_inner_instructions": false,
+          "instruction_route_decoded": false,
+          "owner_fields_complete": true,
+          "signature": "3Yij8JorLwK57iHse7vQLHmULWLVNLwY4AETQeiUC7tCWAfh1TRdWq553Hs9GatSptCTyJJm6XepWtWryZgE11Dc",
+          "signature_list_failed": true,
+          "slot": 461199385,
+          "status": "FETCHED",
+          "tx_response_sha256": "fe50e195f8eeb88524fb0f983e354bedaa1170131c7b5015a4618a751d27949b",
+          "wallet_pnl_usd": null
+        },
+        {
+          "balance_deltas": [],
+          "block_time": 1792919013,
+          "capital_flows_reconciled": false,
+          "cost_basis_usd": null,
+          "economic_class": "FAILED_TRANSACTION_NO_TOKEN_SWAP_PROFIT",
+          "execution_failed": true,
+          "failed_inclusion_cost_usd": null,
+          "fee_attributed_to_wallet_lamports": null,
+          "fee_lamports": 5700,
+          "fee_payer": {
+            "address": "9LXVVAWBkSjNVChAuWTUvX5p182fgaD1sR1dWCo2qcGD",
+            "wallet_is_fee_payer": false,
+            "wallet_is_signer": false
+          },
+          "has_inner_instructions": false,
+          "instruction_route_decoded": false,
+          "owner_fields_complete": true,
+          "signature": "2hDhJ3SoRdedH8hCixQHdTQGumFxQisry8k85kiUmj8APVXsPUyk7jay7gz4sG2tSwuYYmgu2GcMqwQPWNBfXsyz",
+          "signature_list_failed": true,
+          "slot": 461199384,
+          "status": "FETCHED",
+          "tx_response_sha256": "75d00463ca4e1995ecd79223796ec603fa212108bd2d4beb60fd84ea6b6804b9",
+          "wallet_pnl_usd": null
+        },
+        {
+          "balance_deltas": [],
+          "block_time": 1792919013,
+          "capital_flows_reconciled": false,
+          "cost_basis_usd": null,
+          "economic_class": "FAILED_TRANSACTION_NO_TOKEN_SWAP_PROFIT",
+          "execution_failed": true,
+          "failed_inclusion_cost_usd": null,
+          "fee_attributed_to_wallet_lamports": null,
+          "fee_lamports": 5700,
+          "fee_payer": {
+            "address": "9LXVVAWBkSjNVChAuWTUvX5p182fgaD1sR1dWCo2qcGD",
+            "wallet_is_fee_payer": false,
+            "wallet_is_signer": false
+          },
+          "has_inner_instructions": false,
+          "instruction_route_decoded": false,
+          "owner_fields_complete": true,
+          "signature": "3ZVZfq3RYKPvJ7LsQkrEsYmFFSuTyqR6FkPScTUkXSwVfmWD5PErBpfzXqAZpubcnGudbuKZ1BC64HwEN3YJHmkm",
+          "signature_list_failed": true,
+          "slot": 461199383,
+          "status": "FETCHED",
+          "tx_response_sha256": "43f1e8997cf870bb9082b4540158bd32e649431ceeb3e24eac8b8bd6c9a7a77b",
+          "wallet_pnl_usd": null
+        },
+        {
+          "balance_deltas": [],
+          "block_time": 1792919013,
+          "capital_flows_reconciled": false,
+          "cost_basis_usd": null,
+          "economic_class": "FAILED_TRANSACTION_NO_TOKEN_SWAP_PROFIT",
+          "execution_failed": true,
+          "failed_inclusion_cost_usd": null,
+          "fee_attributed_to_wallet_lamports": null,
+          "fee_lamports": 5700,
+          "fee_payer": {
+            "address": "9LXVVAWBkSjNVChAuWTUvX5p182fgaD1sR1dWCo2qcGD",
+            "wallet_is_fee_payer": false,
+            "wallet_is_signer": false
+          },
+          "has_inner_instructions": false,
+          "instruction_route_decoded": false,
+          "owner_fields_complete": true,
+          "signature": "d2Q6EcG5Q3QXdy2rh5JFAz1Bpg5NHMsHLp8Rq4DmVJ1Ve3BoNXWQGrxCGL2gfN1D4Xj7cWH65xqo2MighX6NpRj",
+          "signature_list_failed": true,
+          "slot": 461199381,
+          "status": "FETCHED",
+          "tx_response_sha256": "3a3e0ac8c42d6cdd9ffafb1c2d1f5189d93796ed9abe175e49c5642156df2173",
+          "wallet_pnl_usd": null
+        },
+        {
+          "balance_deltas": [],
+          "block_time": 1792919013,
+          "capital_flows_reconciled": false,
+          "cost_basis_usd": null,
+          "economic_class": "FAILED_TRANSACTION_NO_TOKEN_SWAP_PROFIT",
+          "execution_failed": true,
+          "failed_inclusion_cost_usd": null,
+          "fee_attributed_to_wallet_lamports": null,
+          "fee_lamports": 5302,
+          "fee_payer": {
+            "address": "DF4qVoMnNv5r64hfcGM6XiLku98QDLdFQf82UokGDV4T",
+            "wallet_is_fee_payer": false,
+            "wallet_is_signer": false
+          },
+          "has_inner_instructions": false,
+          "instruction_route_decoded": false,
+          "owner_fields_complete": true,
+          "signature": "SwBuk6dTnCXdYeprSi8gATx7veidtL9jDVcvqP1vwBCxxxi4m3fDvVTicLcgrBbwLbXBjRqE5yEZsczniAshDMJ",
+          "signature_list_failed": true,
+          "slot": 461199380,
+          "status": "FETCHED",
+          "tx_response_sha256": "a8fe32a293812dfbdefcd89b7407093d83637e9e54ca04272a658a104d4a3121",
+          "wallet_pnl_usd": null
+        },
+        {
+          "balance_deltas": [],
+          "block_time": 1792919012,
+          "capital_flows_reconciled": false,
+          "cost_basis_usd": null,
+          "economic_class": "FAILED_TRANSACTION_NO_TOKEN_SWAP_PROFIT",
+          "execution_failed": true,
+          "failed_inclusion_cost_usd": null,
+          "fee_attributed_to_wallet_lamports": null,
+          "fee_lamports": 5033,
+          "fee_payer": {
+            "address": "3crj9TB2QitxSKBCTz9wSFR4wvEcK3RqEdhHtSxEfhgS",
+            "wallet_is_fee_payer": false,
+            "wallet_is_signer": false
+          },
+          "has_inner_instructions": false,
+          "instruction_route_decoded": false,
+          "owner_fields_complete": true,
+          "signature": "3x48kbXMDhvXVGHsyUsj29c2QKQUojmUcJvu637MVmGLx1yCArQi6yiQBNZAJgkGPYqbW5VmDjNModUpBnQro71",
+          "signature_list_failed": true,
+          "slot": 461199379,
+          "status": "FETCHED",
+          "tx_response_sha256": "3ee3bfd0ce6aba309be2e3848bd0afb264e1f53dba10a84be841a277a63ccacf",
+          "wallet_pnl_usd": null
+        },
+        {
+          "balance_deltas": [],
+          "block_time": 1792919012,
+          "capital_flows_reconciled": false,
+          "cost_basis_usd": null,
+          "economic_class": "FAILED_TRANSACTION_NO_TOKEN_SWAP_PROFIT",
+          "execution_failed": true,
+          "failed_inclusion_cost_usd": null,
+          "fee_attributed_to_wallet_lamports": null,
+          "fee_lamports": 5002,
+          "fee_payer": {
+            "address": "5L7aqweEkQWzogyyqi1xs2oU2ePseSXQnpnxYrg2aBUD",
+            "wallet_is_fee_payer": false,
+            "wallet_is_signer": false
+          },
+          "has_inner_instructions": false,
+          "instruction_route_decoded": false,
+          "owner_fields_complete": true,
+          "signature": "3CgukW4Wk9QcXjtFDrbsDV8uXCMH9JgFyvk7L33irqxF3yAkthV6ghmFteVnEtx6XeLHoKmoK68VTgJVbdTAnuT4",
+          "signature_list_failed": true,
+          "slot": 461199378,
+          "status": "FETCHED",
+          "tx_response_sha256": "65c99d4841351de19ee006d754992c54f5936b20a44e4622c8ba226418add203",
+          "wallet_pnl_usd": null
+        }
+      ]
+    },
+    {
+      "label": "Decu",
+      "address": "4vw54BmAogeRV3vPKWyFet5yf8DTLcREzdSzx4rw9Ud9",
+      "signature_count": 80,
+      "signature_page_sha256s": [
+        {
+          "count": 40,
+          "oldest_signature": "4uzrpsL9yevs3nfF7bdKq4ymsuPFAzb3WGYqqH5TeeuhhnrXdmh2eUsQHWCKQsAPQMZxLjnQLRspnqnL8T31VDHV",
+          "page": 1,
+          "sha256": "40e39dc1a3cb1a9d59cb29c3b69a413423c9cfb8cef03547e0851ac63573da89"
+        },
+        {
+          "count": 40,
+          "oldest_signature": "2CRA9LGLNHTHHC6mUviVxmYaB2ziEKSQqpozkvYhcNVeySHTVRHxTw1CZ1Ez9xaiqNtDq3nBkZ2W54jNQMSozidv",
+          "page": 2,
+          "sha256": "219289f91f7ac4414e802a8310e7c8c0b7a09e43a1c2cd934d4306e1b5e9d0a3"
+        }
+      ],
+      "oldest_unix": 1792919012,
+      "newest_unix": 1792919070,
+      "signature_window_hours": 0.0161,
+      "detail_attempts": 1,
+      "verified_transaction_details": 0,
+      "failed_detail_reads": 1,
+      "chain_execution_failures_in_sample": 0,
+      "unknown_PnL": true,
+      "wallet_self_paid_fee_records": 0,
+      "wallet_self_signed_records": 0,
+      "third_party_payer_records": 0,
+      "usdc_flow_candidates": 0,
+      "missing_history": true,
+      "details": [
+        {
+          "block_time": 1792919070,
+          "cost_basis_usd": null,
+          "error": "HTTP_429",
+          "signature": "3rtt8ujckcuq18f9iiNtWGd1S6Xobp1V5AUXJcinfVXXbvriWE8vsJXK1bEJUdWw5AZXVzHPkkP5tYbt8Af5qexQ",
+          "signature_list_failed": false,
+          "slot": 461199652,
+          "status": "UNAVAILABLE_ERROR",
+          "wallet_pnl_usd": null
+        }
+      ]
+    }
+  ]
+}
