@@ -30,7 +30,7 @@ Core research dependency chain: **#15 → #17 → #18 → #24 → #26 → #27 �
 6. **PAPER-01 — Genuinely elapsed paper:** 90+ days, or H4 180+ days, with immutable prospective journal; **not** simulated overnight.
 7. **LIVE-01:** separate user authorization and security review only after evidence gates; currently **BLOCKED**.
 
-**NEXT technical task:** `WAL-01` — complete historical acquisition and economic-route evidence for the *single* signer-confirmed Mitch event; currently PnL remains UNKNOWN. The control plane and safe FIFO core are already on `main`. Its deliverable is a *reviewed* dependency-splitting plan plus an independently tested accounting correction, not another bulk whale list.
+**NEXT technical task:** [`WAL-01` — Issue #37](https://github.com/DashSaman/Arz/issues/37) — complete historical acquisition and economic-route evidence for the *single* signer-confirmed Mitch event; currently PnL remains UNKNOWN. The control plane and safe FIFO core are already on `main`. Its deliverable is a *reviewed* dependency-splitting plan plus an independently tested accounting correction, not another bulk whale list.
 
 ## Rules for the next agent
 
