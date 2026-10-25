@@ -9,7 +9,7 @@ checks that real single-transaction evidence can never be inflated into PnL.
 from __future__ import annotations
 
 import copy
-from decimal import Decimal
+from decimal import Decimal, InvalidOperation
 from fractions import Fraction
 import json
 import unittest
