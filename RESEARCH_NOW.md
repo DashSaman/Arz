@@ -1,0 +1,41 @@
+# ARZ RESEARCH NOW — single restart checkpoint
+
+**As observed on 2026-10-25 UTC · Research only · NO-GO · Live trading DISABLED**
+
+> **Start here before doing anything in Arz.** This is the entry point on `main` even when newer research work lives in unmerged draft branches. `PROJECT_STATUS.md` begins with the older 2026-10-13 MVP checkpoint and must not be mistaken for the latest research status.
+
+**Machine-readable source of truth:** [research/control/STATE.json](research/control/STATE.json)  
+**Detailed Persian:** [docs/fa/research_current_checkpoint.md](docs/fa/research_current_checkpoint.md)  
+**Detailed English:** [docs/en/research_current_checkpoint.md](docs/en/research_current_checkpoint.md)  
+**Offline consistency check:** `PYTHONPATH=src:. python scripts/verify_research_control.py`
+
+## Current facts, not claims of investment returns
+
+- The experimental Base WETH/USDC main-branch holdout is unqualified. The unmerged multi-year **CEX proxy** research in [PR #27](https://github.com/DashSaman/Arz/pull/27) found H4-style rotation **−6.837515%** on the 999-day account simulation and **−8.259865%** under modeled cost stress. This is **not a Base H4 DEX backtest**.
+- The latest signed-wallet case is **one** Solana transaction at slot `461030696`, `transactionIndex=20`, from [PR #33](https://github.com/DashSaman/Arz/pull/33). The watched Mitch-attributed address signed it, but another address paid the fee; its owned token balances show **+402.799439 USDC** and **−28,938,389.952554** units of another token. **Original acquisition basis unknown; realized PnL UNKNOWN; not a $402 profit.** Same slot is not a 90-day trade ledger.
+- Bounded Solana public RPC retrieval hit 429, SQD occasionally hit 529, and archival coverage is incomplete. **No wallet is independently proven consistently profitable.**
+- GitHub Actions passes on draft PRs prove software tests, **not merged deployment nor profitable trades**.
+
+## PR topology (check remotely again before changing branches)
+
+Core research dependency chain: **#15 → #17 → #18 → #24 → #26 → #27 → #28 → #29 → #30 → #31 → #32 → #33**. These were **all open Draft PRs**, not merged, when this checkpoint was created. The independent forensic gap audit [#25](https://github.com/DashSaman/Arz/pull/25) is also open Draft against `main`. **Do not merge the whole chain or misattribute a draft file to `main`.**
+
+## Actual work queue — follow order, don't repeat finished probes
+
+1. **OPS-01 — This checkpoint/control-plane:** verify schema, tests, GitHub CI; land this *control-only* change on main without merging research code.
+2. **OPS-02 — De-stack + audit:** review and isolate the confirmed FIFO unknown-sale fix and other evidence-safe code before considering merges of dependent PRs; do not force-push.
+3. **WAL-01 / DATA-01 — Three-wallet forensic focus:** Mitch (a confirmed signer event but unknown original basis), Cented (address mentions do not prove trader signing), Decu (insufficient detailed history). Use already-captured RPC artifacts. New archive collection only with explicit allowed provider capacity and coverage manifests. **Do not repeat the already-rate-limited requests.**
+4. **STRAT-01 — Corrected ATR baseline, separate from wallet alpha:** freeze existing code/parameters; map costs and independent chronological OOS; compare cash and hold. H2 wallet signal is only an entry confirm/veto, never a new strategy fill.
+5. **WAL-02 / EXEC-01 — Whole-wallet FIFO and follower-time executable quotes:** no numerical PnL until linked acquisition lots, fee payers, deposits/transfers, open inventory marks and exact quote/gas/latency data.
+6. **PAPER-01 — Genuinely elapsed paper:** 90+ days, or H4 180+ days, with immutable prospective journal; **not** simulated overnight.
+7. **LIVE-01:** separate user authorization and security review only after evidence gates; currently **BLOCKED**.
+
+**Next technical task after this control PR:** `OPS-02`. Its deliverable is a *reviewed* dependency-splitting plan plus an independently tested accounting correction, not another bulk whale list.
+
+## Rules for the next agent
+
+Read this file + `research/control/STATE.json` first, verify actual latest GitHub PR status and head SHA, read referenced branch artifacts (they are not on main), and run `scripts/verify_research_control.py`. Start from the highest-priority unfinished/READY item whose dependencies are satisfied. Preserve immutable run logs, source hashes, failures and complete English/Persian pairs. Any new result requires a dated source, exact command/test output, branch, commit, scope and financial classification. Update this checkpoint **only after** a verified step, never just for a new prompt.
+
+## فارسی — قانون ادامه
+
+**هر عامل ابتدا همین فایل و `research/control/STATE.json` را بخواند.** نتایج PRهای پیش‌نویس با کد ادغام‌شده در `main` یکی نیستند. امضای یک تراکنش یا ورود ۴۰۲ USDC بدون مبنای خرید، سود خالص نیست. مرحله بعد `OPS-02` یعنی بازبینی و جداکردن تغییرات قابل‌اعتماد از زنجیره PRهاست، نه شروع مجدد تحقیق کیف‌پول‌ها. معامله واقعی و سرمایه‌گذاری همچنان **NO-GO / DISABLED** است.
