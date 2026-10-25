@@ -6,6 +6,8 @@ on:
       - 'scripts/multi_edge_phase_a.py'
       - 'scripts/multi_edge_public_probe.py'
       - 'scripts/bounded_real_chain_probe.py'
+      - 'scripts/solana_wallet_pagination_probe.py'
+      - 'tests/test_solana_wallet_pagination_probe.py'
       - 'tests/test_bounded_real_chain_probe.py'
       - 'tests/test_multi_edge_*.py'
       - 'research/multi_edge_spot/NEXT_EXPERIMENT_PROTOCOL.json'
@@ -45,17 +47,39 @@ jobs:
           PYTHONPATH: "src:."
         run: python -m unittest discover -s tests -p 'test_long_history_proxy.py' -v
       - name: Bounded new multi-year public CEX spot price proxy replay (NO orders)
-        if: github.ref != 'refs/heads/research/2026-10-25-real-chain-bounded' && github.head_ref != 'research/2026-10-25-real-chain-bounded'
+        if: github.ref != 'refs/heads/research/2026-10-25-real-chain-bounded' && github.head_ref != 'research/2026-10-25-real-chain-bounded' && github.ref != 'refs/heads/research/2026-10-25-wallet-pagination-feepayer' && github.head_ref != 'research/2026-10-25-wallet-pagination-feepayer'
         env:
           PYTHONPATH: "src:."
         run: |
           python scripts/long_history_cex_proxy.py --output /tmp/arz-long-history-20261025.json
       - name: Upload derived report (no raw market redistribution)
-        if: github.ref != 'refs/heads/research/2026-10-25-real-chain-bounded' && github.head_ref != 'research/2026-10-25-real-chain-bounded'
+        if: github.ref != 'refs/heads/research/2026-10-25-real-chain-bounded' && github.head_ref != 'research/2026-10-25-real-chain-bounded' && github.ref != 'refs/heads/research/2026-10-25-wallet-pagination-feepayer' && github.head_ref != 'research/2026-10-25-wallet-pagination-feepayer'
         uses: actions/upload-artifact@v4
         with:
           name: multi-year-price-proxy
           path: /tmp/arz-long-history-20261025.json
+          if-no-files-found: warn
+          retention-days: 30
+
+
+      - name: Wallet historical pagination and economic gating tests
+        env:
+          PYTHONPATH: "src:."
+        run: |
+          python -m unittest discover -s tests -p 'test_solana_wallet_pagination_probe.py' -v
+      - name: Bounded 4-wallet Solana historical RPC backfill (NO TRADE)
+        # One research capture already performed; disable automatic repeats after public RPC 429.
+        if: ${{ false }}
+        env:
+          PYTHONPATH: "src:."
+        run: |
+          python scripts/solana_wallet_pagination_probe.py --output /tmp/arz-wallet-pagination-20261025.json
+      - name: Archive derived wallet history metadata
+        if: ${{ false }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: arz-wallet-history-pagination
+          path: /tmp/arz-wallet-pagination-20261025.json
           if-no-files-found: warn
           retention-days: 30
 
@@ -64,12 +88,13 @@ jobs:
           PYTHONPATH: "src:."
         run: python -m unittest discover -s tests -p 'test_bounded_real_chain_probe.py' -v
       - name: Bounded public-chain on-chain facts — no keys or transaction sends
+        if: github.ref != 'refs/heads/research/2026-10-25-wallet-pagination-feepayer' && github.head_ref != 'research/2026-10-25-wallet-pagination-feepayer'
         env:
           PYTHONPATH: "src:."
         run: |
           python scripts/bounded_real_chain_probe.py --output /tmp/arz-real-chain-probe-20261025.json
       - name: Preserve only derived on-chain evidence without raw provider payloads
-        if: always()
+        if: github.ref != 'refs/heads/research/2026-10-25-wallet-pagination-feepayer' && github.head_ref != 'research/2026-10-25-wallet-pagination-feepayer'
         uses: actions/upload-artifact@v4
         with:
           name: arz-bounded-real-chain-evidence
