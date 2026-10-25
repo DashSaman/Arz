@@ -21,7 +21,8 @@ def ins(index=12, mentions=True):
 
 def balance(index=12, owner=m.WATCHED):
     return {"transactionIndex":index,"preOwner":owner,"postOwner":owner,
-            "preMint":m.USDC,"postMint":m.USDC,"preAmount":"123","postAmount":"223"}
+            "preMint":m.USDC,"postMint":m.USDC,"preAmount":"123","postAmount":"223",
+            "preDecimals":6,"postDecimals":6}
 
 
 def block(**kw):
@@ -35,6 +36,9 @@ class ParentRecoveryTests(unittest.TestCase):
         spec=m.build_request()
         self.assertEqual(spec["transactions"],[{}])
         self.assertEqual(spec["tokenBalances"],[{}])
+        self.assertTrue(spec["fields"]["transaction"]["transactionIndex"])
+        self.assertTrue(spec["fields"]["tokenBalance"]["transactionIndex"])
+        self.assertTrue(spec["fields"]["tokenBalance"]["preDecimals"])
         self.assertEqual(spec["instructions"],[{"mentionsAccount":[m.WATCHED]}])
         self.assertEqual(spec["fromBlock"],spec["toBlock"])
         with self.assertRaises(ValueError):
@@ -49,6 +53,7 @@ class ParentRecoveryTests(unittest.TestCase):
         self.assertEqual(b["mentioned_instructions_with_parent"],1)
         self.assertEqual(b["watched_owner_token_deltas_with_known_mint_and_amount"],1)
         self.assertEqual(b["instructions_sample"][0]["owner_token_balances_linked"],1)
+        self.assertEqual(b["owner_token_deltas_sample"][0]["delta_tokens"],"0.0001")
         self.assertIsNone(x["wallet_realized_pnl_usd"])
         self.assertEqual(x["qualified_wallet_trade_cycles"],0)
 
@@ -58,6 +63,14 @@ class ParentRecoveryTests(unittest.TestCase):
         self.assertEqual(b["mentioned_instructions_without_parent"],1)
         self.assertEqual(b["mentioned_instructions_with_parent"],0)
         self.assertIsNone(b["instructions_sample"][0]["parent_signature"])
+
+    def test_mismatched_decimals_fail_closed_not_valued(self):
+        b=balance()
+        b["postDecimals"]=8
+        out=m.parse_single_response(dump(block(tx=[parent()],inst=[ins()],bal=[b])),m.build_request())
+        row=out["block_rows"][0]["owner_token_deltas_sample"][0]
+        self.assertIsNone(row["delta_tokens"])
+        self.assertTrue(row["units_unverified"])
 
     def test_foreign_owner_not_attributed(self):
         x=m.parse_single_response(dump(block(tx=[parent()],inst=[ins()],bal=[balance(owner="OTHER")])),
