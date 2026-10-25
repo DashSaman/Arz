@@ -10,6 +10,7 @@ import argparse
 from datetime import datetime, timezone
 import hashlib
 import json
+import time
 from pathlib import Path
 import urllib.error
 import urllib.request
@@ -40,9 +41,20 @@ def _safe_error(exc):
     if isinstance(exc, urllib.error.HTTPError):
         code = exc.code
         retry_after = exc.headers.get("Retry-After") if exc.headers else None
-        return {"code": "HTTP_"+str(code), "rate_limited": code == 429,
+        return {"code": "HTTP_"+str(code), "rate_limited": code in (429,529),
                 "retry_after_seconds": retry_after}
     return {"code": type(exc).__name__, "rate_limited": False}
+
+
+def retry_after_delay(exc):
+    """Only one standards-compliant retry for 429/529 and valid 1..30s Retry-After."""
+    if not isinstance(exc, urllib.error.HTTPError) or exc.code not in (429,529):
+        return None
+    raw = exc.headers.get("Retry-After") if exc.headers else None
+    if not isinstance(raw,str) or not raw.isdecimal():
+        return None
+    seconds = int(raw)
+    return seconds if 1 <= seconds <= 30 else None
 
 
 def request(method: str, url: str, payload: dict | None = None) -> tuple[bytes, dict]:
@@ -55,21 +67,33 @@ def request(method: str, url: str, payload: dict | None = None) -> tuple[bytes, 
     req = urllib.request.Request(url, method=method, data=data,
         headers={"Content-Type": "application/json", "User-Agent": "Arz-offline-quant-bounded-sqd/1.0"})
     opener = urllib.request.build_opener(_NoRedirect)
-    try:
-        with opener.open(req, timeout=15) as res:
-            if res.status != 200:
-                raise PortalError("Unexpected HTTP success "+str(res.status))
-            raw = res.read(MAX_RESPONSE+1)
-            headers = dict(res.headers.items())
-    except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError, OSError, PortalError) as exc:
-        e = _safe_error(exc)
-        raise PortalError(json.dumps(e, sort_keys=True)) from exc
+    retries_used = 0
+    for attempt in range(2):
+        try:
+            with opener.open(req, timeout=15) as res:
+                if res.status != 200:
+                    raise PortalError("Unexpected HTTP success "+str(res.status))
+                raw = res.read(MAX_RESPONSE+1)
+                headers = dict(res.headers.items())
+                break
+        except urllib.error.HTTPError as exc:
+            delay = retry_after_delay(exc)
+            if attempt == 0 and delay is not None:
+                retries_used += 1
+                time.sleep(delay)
+                continue
+            raise PortalError(json.dumps(_safe_error(exc), sort_keys=True)) from exc
+        except (urllib.error.URLError, TimeoutError, OSError, PortalError) as exc:
+            raise PortalError(json.dumps(_safe_error(exc), sort_keys=True)) from exc
+    else:
+        raise PortalError("RETRIES_EXHAUSTED")
     if len(raw) > MAX_RESPONSE:
         raise PortalError("RESPONSE_BOUND_EXCEEDED")
     # Only record documented request IDs and source metadata, not auth-related headers.
     selected = {k.lower():v for k,v in headers.items() if k.lower() in (
         "x-request-id", "x-sqd-data-source", "x-sqd-head-number",
         "x-sqd-finalized-head-number", "x-sqd-finalized-head-hash")}
+    selected["arz_bounded_retry_count"] = retries_used
     return raw, selected
 
 
@@ -173,7 +197,7 @@ def collect() -> dict:
         except (PortalError,ValueError,UnicodeError, json.JSONDecodeError) as exc:
             out["queries"][name]={"status":"UNAVAILABLE","failure":str(exc)[:250]}
             # Avoid hammering an overloaded or access-gated shared public service.
-            if "429" in str(exc) or "rate_limited" in str(exc) or "403" in str(exc):
+            if "429" in str(exc) or "529" in str(exc) or "rate_limited" in str(exc) or "403" in str(exc):
                 out["stopped_reason"]="ACCESS_OR_RATE_LIMIT_STOP"
                 break
     out["completed_utc"]=datetime.now(timezone.utc).isoformat()
