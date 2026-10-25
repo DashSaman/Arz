@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "checkpoint_id": "ARZ-2026-10-25-CONTROL-01",
-  "observed_at_utc": "2026-10-25",
+  "checkpoint_id": "ARZ-2026-10-26-CONTROL-02",
+  "observed_at_utc": "2026-10-26",
   "repository": "DashSaman/Arz",
   "canonical_branch": "main",
   "purpose": "Evidence-linked restart-safe control plane; does not promote unmerged draft code to main",
@@ -315,8 +315,34 @@
         "EV-005"
       ],
       "completion": "Decoded full DEX CPI swap route and exact historical acquisition lots for observed transaction; parent+signer+fee payer already verified",
-      "next_action": "NEXT ACTIVE ISSUE #37: establish authorized full acquisition lots and economic Jupiter route for signer-confirmed Mitch signature index20; explicitly keep 402.799439 USDC receipt as UNKNOWN PnL and never retry throttled source blindly.",
-      "github_issue_url": "https://github.com/DashSaman/Arz/issues/37"
+      "next_action": "WAL-01 remains PARTIAL — issue #37: obtain permitted complete original token lot buys/transfers and full Jupiter CPI swap route for the one known signer-verified Mitch transaction; only calculate realized PnL when provenance, fees, ownership, 90-day coverage and daily equity reconcile.",
+      "github_issue_url": "https://github.com/DashSaman/Arz/issues/37",
+      "last_verified_subcheckpoint": {
+        "id": "WAL01-ADVERSARIAL-2026-10-26",
+        "merged_pr": 38,
+        "merged_sha": "eafee63bcd331826da36af6727593cd4021f4126",
+        "ci_url": "https://github.com/DashSaman/Arz/actions/runs/40236822763",
+        "tests": {
+          "full_repo": 460,
+          "wal01_matrix": 364,
+          "quantitative": 320,
+          "invalid_source_or_events": 40,
+          "witness_explicit": 4,
+          "subsets_overlap": true
+        },
+        "source_report": "reports/wal01/2026-10-26_verified_adversarial_ci.json",
+        "source_witness_status": "ONE_PAST_SIGNED_TX_DERIVED_PUBLIC_RPC_NOT_COMPLETE_ARCHIVAL_HISTORIC_PURCHASES",
+        "received_usdc": "402.799439",
+        "profit_usdc": null,
+        "new_onchain_requests": 0,
+        "financial_go": false
+      },
+      "blockers": [
+        "Only one signed transaction with public derived source evidence",
+        "Original acquisition cost basis and ownership lot ancestry missing",
+        "Complete CPI route and transfers not reconstructed",
+        "No full 90-day cashflow-adjusted wallet equity or follower-time DEX fills"
+      ]
     },
     {
       "id": "DATA-01",
@@ -471,7 +497,7 @@
     "No PR treated as merged unless GitHub checked",
     "No changes to main trading runtime while integrating governance files"
   ],
-  "verification_policy": "OPS-01 and OPS-02 are merged on main as standalone PR34 and PR35; start WAL-01 next, not a repeated bulk-wallet discovery. Source-level claims still require independent wallet history and exact follower-time quotes.",
+  "verification_policy": "OPS-01/02 completed main. WAL-01 only partial hardening after PR38 460 tests; tests are not trading/backtesting results. Resume issue #37 acquisition-lot/CPI reconstruction; source provenance and missing 90d data MUST stay UNKNOWN. No repeat throttled public RPC.",
   "completed_milestones": [
     {
       "task": "OPS-01",
@@ -489,5 +515,16 @@
       "ci_url": "https://github.com/DashSaman/Arz/actions/runs/40209051710",
       "scope": "five exact-source Git blob wallet accounting/events/tests files, no RPC, no trading"
     }
-  ]
+  ],
+  "last_verified_delivery": {
+    "pr": 38,
+    "merged_sha": "eafee63bcd331826da36af6727593cd4021f4126",
+    "run_url": "https://github.com/DashSaman/Arz/actions/runs/40236822763",
+    "total_unit_test_methods": 460,
+    "focused_unit_test_methods": 364,
+    "trade_count_in_this_test_suite": 0,
+    "source_requests_in_this_stage": 0,
+    "software_status": "PASS",
+    "economics_status": "INSUFFICIENT_DATA_NO_GO"
+  }
 }
