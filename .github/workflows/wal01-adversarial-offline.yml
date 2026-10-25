@@ -1,0 +1,70 @@
+name: WAL-01 adversarial accounting and source attestation — offline
+
+on:
+  push:
+    branches:
+      - research/2026-10-26-wal01-adversarial-audit
+    paths:
+      - scripts/wal01_witness_gate.py
+      - tests/test_wal01_adversarial_matrix.py
+      - research/wal01/source_snapshots/**
+      - .github/workflows/wal01-adversarial-offline.yml
+      - docs/fa/wal01_adversarial_audit.md
+      - docs/en/wal01_adversarial_audit.md
+  pull_request:
+    paths:
+      - scripts/wal01_witness_gate.py
+      - tests/test_wal01_adversarial_matrix.py
+      - research/wal01/source_snapshots/**
+      - .github/workflows/wal01-adversarial-offline.yml
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      PYTHONPATH: "src:."
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Verify test-count bounds — 100 through 1000 real discovered tests
+        run: |
+          python - <<'PY'
+          import unittest
+          suite = unittest.defaultTestLoader.discover('tests', pattern='test_*.py', top_level_dir='.')
+          n = suite.countTestCases()
+          print("ARZ_WAL01_DISCOVERED_TESTS=" + str(n))
+          assert 400 <= n <= 1000, f"Unexpected breadth, discovered {n} actual test methods"
+          PY
+      - name: Run independent-source witness audit without RPC
+        run: |
+          python scripts/wal01_witness_gate.py --output /tmp/wal01-attested.json
+          python - <<'PY'
+          import json
+          doc=json.load(open("/tmp/wal01-attested.json"))
+          assert doc["witness"]["realized_net_pnl_usdc"] is None
+          assert doc["witness"]["receipt_is_not_profit"] is True
+          assert doc["witness"]["fee_charged_to_watched_wallet_lamports"] == 0
+          assert doc["archival_transactions_newly_fetched"] == 0
+          print("WAL01_REAL_EVIDENCE_GATE=PASS_WITH_UNKNOWN_PNL")
+          PY
+      - name: Run adversarial matrices — 360 distinct generated cases plus 4 explicit
+        run: python -m unittest discover -s tests -p 'test_wal01_adversarial_matrix.py' -q
+      - name: Complete Arz offline regression suite
+        run: python -m unittest discover -s tests -q
+      - name: Compile and safety guard
+        run: |
+          python -m compileall -q scripts/wal01_witness_gate.py
+          python scripts/verify_research_control.py
+      - name: Save only normalized read-only research evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: wal01-offline-single-witness
+          path: /tmp/wal01-attested.json
+          if-no-files-found: warn
+          retention-days: 30
