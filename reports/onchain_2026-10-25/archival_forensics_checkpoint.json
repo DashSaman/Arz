@@ -1,0 +1,90 @@
+{
+  "checkpoint_utc": "2026-10-25T10:03:51Z",
+  "research_branch": "research/2026-10-25-offline-archive-forensics",
+  "prior_evidence": "reports/onchain_2026-10-25/wallet_pagination_rpc_observed.json",
+  "prior_onchain_run": "https://github.com/DashSaman/Arz/actions/runs/40179174892",
+  "new_code_ci_run": "https://github.com/DashSaman/Arz/actions/runs/40183209919",
+  "new_code_ci_commit": "7772fd79893fadd266fed35df30ffd8f73d0d704",
+  "source_class": "OFFLINE_ARCHIVAL_VERIFIER_PLUS_CATALOGUE_METADATA_PROBE",
+  "archive_importer_path": "scripts/solana_archival_forensics.py",
+  "archive_input_contract": {
+    "format": "jsonl",
+    "each_row": {
+      "wallet": "base58",
+      "signature": "base58",
+      "signature_meta": "getSignaturesForAddress item",
+      "rpc_transaction": "getTransaction jsonParsed response or null"
+    },
+    "limit_rows": 5000,
+    "limit_bytes": 40000000,
+    "required_invariants": [
+      "matching watched wallet",
+      "canonical primary signature",
+      "slot/time/status aligned",
+      "parsed signer and payer",
+      "complete pre/post native balance arrays",
+      "contemporaneous owner token balances or unresolved"
+    ],
+    "pnl_policy": "always UNVERIFIED until decoded, reconciled, priced and marked full account"
+  },
+  "observed_old_sample": {
+    "wallets": [
+      "Cented",
+      "Decu"
+    ],
+    "signature_rows": 160,
+    "transaction_details": 10,
+    "failed_execution_samples": 10,
+    "source_attributed_signer_for_cented_count": 0,
+    "source_attributed_fee_payer_for_cented_count": 0,
+    "proof_class": "PRIOR_DERIVED_RPC_ONLY",
+    "fresh_full_wallet_histories": 0
+  },
+  "catalogue": {
+    "source": "https://solarchive.org/",
+    "provider_license_claim": "CC-BY-4.0",
+    "checked": {
+      "https://data.solarchive.org/txs/index.json": {
+        "status": "HTTP_404",
+        "usable": false
+      },
+      "https://data.solarchive.org/txs/2025-12-05/index.json": {
+        "status": "HTTP_404",
+        "usable": false
+      },
+      "https://data.solarchive.org/txs/2026-10-24/index.json": {
+        "status": "HTTP_404",
+        "usable": false
+      }
+    },
+    "files_downloaded": 0,
+    "raw_transactions_retrieved": 0,
+    "archival_2026_wallet_coverage": "NOT_AVAILABLE_OR_UNVERIFIED",
+    "caution": "provider site advertises data but metadata URLs were 404 from workflow; no inference of availability"
+  },
+  "test_evidence": {
+    "focused_archive_tests_passed": 12,
+    "focused_catalogue_tests_passed": 5,
+    "full_suite_passed": 287,
+    "all_runs_completed_success": true,
+    "overlapping_subsets": true,
+    "network_requests": "3 GET metadata probes only; zero RPC, zero Parquet files"
+  },
+  "missing": [
+    "authorized reproducible raw transaction archive for watched wallets",
+    "complete 90/365d coverage and token account ancestry",
+    "decoded DEX instruction paths",
+    "historical acquisition lots and inventory",
+    "wallet-controlled native SOL fees and external flows",
+    "transaction-time fair USD price and fee",
+    "as-of-follower DEX quotes",
+    "untouched OOS with shared $100",
+    "90 days prospective paper"
+  ],
+  "new_verified_realized_wallet_pnl": 0,
+  "new_verified_profitable_strategies": 0,
+  "financial_decision": "NO-GO",
+  "live_trading": "DISABLED",
+  "paid_sources_used": false,
+  "financial_actions": 0
+}
