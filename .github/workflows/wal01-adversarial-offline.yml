@@ -35,7 +35,7 @@ jobs:
         run: |
           python - <<'PY'
           import unittest
-          suite = unittest.defaultTestLoader.discover('tests', pattern='test_*.py', top_level_dir='.')
+          suite = unittest.defaultTestLoader.discover('tests', pattern='test_*.py')
           n = suite.countTestCases()
           print("ARZ_WAL01_DISCOVERED_TESTS=" + str(n))
           assert 400 <= n <= 1000, f"Unexpected breadth, discovered {n} actual test methods"
