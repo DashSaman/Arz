@@ -6,6 +6,8 @@ on:
       - research/2026-10-25-offline-archive-forensics
     paths:
       - 'scripts/solana_archival_forensics.py'
+      - 'scripts/solarchive_catalog_probe.py'
+      - 'tests/test_solarchive_catalog_probe.py'
       - 'tests/test_solana_archival_forensics.py'
       - 'reports/onchain_2026-10-25/wallet_pagination_rpc_observed.json'
       - '.github/workflows/solana-archive-offline.yml'
@@ -37,6 +39,18 @@ jobs:
             --saved-probe reports/onchain_2026-10-25/wallet_pagination_rpc_observed.json \
             --output /tmp/arz-archival-role-audit.json
           python -c 'import json; x=json.load(open("/tmp/arz-archival-role-audit.json")); assert x["profitability_proven"] is False and x["total_role_classified_details"] == 10 and x["wallets"][0]["neither_signer_nor_fee_payer"] == 10'
+      - name: Free historical index unit tests (no network)
+        run: python -m unittest discover -s tests -p 'test_solarchive_catalog_probe.py' -v
+      - name: One bounded public SolArchive index metadata inquiry
+        run: |
+          python scripts/solarchive_catalog_probe.py --output /tmp/arz-solarchive-index-20261025.json
+      - name: Preserve index status only (no historical parquet downloaded)
+        uses: actions/upload-artifact@v4
+        with:
+          name: solarchive-index-probe
+          path: /tmp/arz-solarchive-index-20261025.json
+          if-no-files-found: error
+          retention-days: 30
       - name: Full offline regression suite
         run: python -m unittest discover -s tests -q
       - name: Source syntax check
