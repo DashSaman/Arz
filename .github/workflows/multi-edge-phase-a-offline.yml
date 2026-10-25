@@ -6,6 +6,8 @@ on:
       - 'scripts/multi_edge_phase_a.py'
       - 'scripts/multi_edge_public_probe.py'
       - 'scripts/bounded_real_chain_probe.py'
+      - 'scripts/solana_wallet_pagination_probe.py'
+      - 'tests/test_solana_wallet_pagination_probe.py'
       - 'tests/test_bounded_real_chain_probe.py'
       - 'tests/test_multi_edge_*.py'
       - 'research/multi_edge_spot/NEXT_EXPERIMENT_PROTOCOL.json'
@@ -59,17 +61,38 @@ jobs:
           if-no-files-found: warn
           retention-days: 30
 
+
+      - name: Wallet historical pagination and economic gating tests
+        env:
+          PYTHONPATH: "src:."
+        run: |
+          python -m unittest discover -s tests -p 'test_solana_wallet_pagination_probe.py' -v
+      - name: Bounded 4-wallet Solana historical RPC backfill (NO TRADE)
+        env:
+          PYTHONPATH: "src:."
+        run: |
+          python scripts/solana_wallet_pagination_probe.py --output /tmp/arz-wallet-pagination-20261025.json
+      - name: Archive derived wallet history metadata
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: arz-wallet-history-pagination
+          path: /tmp/arz-wallet-pagination-20261025.json
+          if-no-files-found: warn
+          retention-days: 30
+
       - name: Read-only Base and Solana protocol regression
         env:
           PYTHONPATH: "src:."
         run: python -m unittest discover -s tests -p 'test_bounded_real_chain_probe.py' -v
       - name: Bounded public-chain on-chain facts — no keys or transaction sends
+        if: github.ref != 'refs/heads/research/2026-10-25-wallet-pagination-feepayer' && github.head_ref != 'research/2026-10-25-wallet-pagination-feepayer'
         env:
           PYTHONPATH: "src:."
         run: |
           python scripts/bounded_real_chain_probe.py --output /tmp/arz-real-chain-probe-20261025.json
       - name: Preserve only derived on-chain evidence without raw provider payloads
-        if: always()
+        if: github.ref != 'refs/heads/research/2026-10-25-wallet-pagination-feepayer' && github.head_ref != 'research/2026-10-25-wallet-pagination-feepayer'
         uses: actions/upload-artifact@v4
         with:
           name: arz-bounded-real-chain-evidence
