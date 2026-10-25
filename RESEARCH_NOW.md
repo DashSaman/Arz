@@ -22,15 +22,15 @@ Core research dependency chain: **#15 → #17 → #18 → #24 → #26 → #27 �
 
 ## Actual work queue — follow order, don't repeat finished probes
 
-1. **OPS-01 — This checkpoint/control-plane:** verify schema, tests, GitHub CI; land this *control-only* change on main without merging research code.
-2. **OPS-02 — De-stack + audit:** review and isolate the confirmed FIFO unknown-sale fix and other evidence-safe code before considering merges of dependent PRs; do not force-push.
+1. **OPS-01 — COMPLETE on main:** standalone governance [PR #34](https://github.com/DashSaman/Arz/pull/34) merged as commit `1265e7f70145b0166712cbaae2942b38980e13d6`; [CI 40208500322](https://github.com/DashSaman/Arz/actions/runs/40208500322) passed 12 focused and 82 full tests. No stacked research code merged.
+2. **OPS-02 — IN PROGRESS, independent safe-code extraction:** review and isolate the confirmed FIFO unknown-sale fix and other evidence-safe code before considering merges of dependent PRs; do not force-push.
 3. **WAL-01 / DATA-01 — Three-wallet forensic focus:** Mitch (a confirmed signer event but unknown original basis), Cented (address mentions do not prove trader signing), Decu (insufficient detailed history). Use already-captured RPC artifacts. New archive collection only with explicit allowed provider capacity and coverage manifests. **Do not repeat the already-rate-limited requests.**
 4. **STRAT-01 — Corrected ATR baseline, separate from wallet alpha:** freeze existing code/parameters; map costs and independent chronological OOS; compare cash and hold. H2 wallet signal is only an entry confirm/veto, never a new strategy fill.
 5. **WAL-02 / EXEC-01 — Whole-wallet FIFO and follower-time executable quotes:** no numerical PnL until linked acquisition lots, fee payers, deposits/transfers, open inventory marks and exact quote/gas/latency data.
 6. **PAPER-01 — Genuinely elapsed paper:** 90+ days, or H4 180+ days, with immutable prospective journal; **not** simulated overnight.
 7. **LIVE-01:** separate user authorization and security review only after evidence gates; currently **BLOCKED**.
 
-**Next technical task after this control PR:** `OPS-02`. Its deliverable is a *reviewed* dependency-splitting plan plus an independently tested accounting correction, not another bulk whale list.
+**Current technical task:** `OPS-02`; the control plane is already on `main`. Its deliverable is a *reviewed* dependency-splitting plan plus an independently tested accounting correction, not another bulk whale list.
 
 ## Rules for the next agent
 
