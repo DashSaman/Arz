@@ -10,7 +10,7 @@ Evidence: [GitHub Actions 40179174892](https://github.com/DashSaman/Arz/actions/
 - **Decu: 80 signature-list rows over approximately 58 seconds. No transaction detail was fetched; provider HTTP 429 on first detail attempt.** No Decu transaction-failure rate, realized PnL or full trace can be inferred.
 - **Mitch and Orangie were not probed in this run** because the shared public provider rate limit stopped collection. No endpoint/identity rotation or rate-limit bypass was used.
 - **160 signature records and 10 transaction details in total**. Both signature windows are extremely short, not 90 days.
-- Observed remote CI success: 270 full-suite tests, 10 new focused unit tests, 41 prior multi-edge tests, 9 price-proxy tests, 8 prior chain-focused tests (overlapping test subsets, not independent additive totals). A subsequent narrow `cap=1` bug fix requires its own CI run to attest latest source.
+- Observed remote CI success: 270 full-suite tests, 10 new focused unit tests, 41 prior multi-edge tests, 9 price-proxy tests, 8 prior chain-focused tests (overlapping test subsets, not independent additive totals). The follow-up `cap=1` fix and latest offline code passed [GitHub Actions 40179376212](https://github.com/DashSaman/Arz/actions/runs/40179376212): 270 full-suite and 10 focused tests; no repeat network capture was made.
 - After hitting 429, automatic repeat RPC steps were disabled in the workflow; offline tests remain available.
 
 ### What remains unknowable
