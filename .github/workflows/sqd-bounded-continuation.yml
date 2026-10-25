@@ -1,0 +1,51 @@
+name: SQD bounded continuation and offline forensic checks
+
+on:
+  push:
+    branches:
+      - research/2026-10-25-sqd-continuation-evidence
+    paths:
+      - 'scripts/sqd_bounded_continuation.py'
+      - 'tests/test_sqd_bounded_continuation.py'
+      - '.github/workflows/sqd-bounded-continuation.yml'
+  pull_request:
+    paths:
+      - 'scripts/sqd_bounded_continuation.py'
+      - 'tests/test_sqd_bounded_continuation.py'
+      - '.github/workflows/sqd-bounded-continuation.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  bounded:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      PYTHONPATH: "src:."
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: SQD continuation/actor linkage tests
+        run: python -m unittest discover -s tests -p 'test_sqd_bounded_continuation.py' -v
+      - name: Full offline Arz regression suite
+        run: python -m unittest discover -s tests -q
+      - name: Syntax and no-wallet gate
+        run: |
+          python -m compileall -q scripts/sqd_bounded_continuation.py
+          grep -q '"live_trading": "DISABLED"' reports/onchain_2026-10-25/sqd_portal_smoke_observed.json
+      - name: One-time 3-page bounded finalized SQD 2026 sample (NO trades)
+        if: hashFiles('reports/onchain_2026-10-25/sqd_continuation_observed.json') == ''
+        run: |
+          python scripts/sqd_bounded_continuation.py \
+            --from-slot 461030696 --to-slot 461030756 \
+            --output /tmp/arz-sqd-continuation-proof.json
+      - name: Preserve only derived page hash and matched actor evidence
+        if: hashFiles('reports/onchain_2026-10-25/sqd_continuation_observed.json') == ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: arz-sqd-continuation-proof
+          path: /tmp/arz-sqd-continuation-proof.json
+          retention-days: 30
+          if-no-files-found: error
