@@ -1,5 +1,8 @@
 # Arz agent continuity and safety contract
 
+**CURRENT FIRST READ (updated 2026-10-25):** Read [RESEARCH_NOW.md](RESEARCH_NOW.md) and `research/control/STATE.json` **before** the historical document order below. The initial PROJECT_STATUS.md prose starts at Oct 13, and advanced PRs #15/#17/#18/#24/#26–#33 and independent #25 are draft/unmerged until you recheck their live status. Never assume draft code or tests are in main. Run `PYTHONPATH=src:. python scripts/verify_research_control.py` before work; update the checkpoint only with actual reproducible source/date/SHA, preserve separate EN/FA reports, mark UNKNOWN not zero, and do not rerun previously throttled 429/529 network probes just because the chat restarted. Complete the highest-priority stage only after its exit evidence passes. Live trading remains DISABLED and financial NO-GO.
+
+
 Before doing any work, read in this order: README.md, PROJECT_STATUS.md, WORK_LOG.md, DECISIONS.md, research/research_methodology.md, docs/en/research_report.md, docs/en/30-day-roadmap.md and docs/fa/30-day-roadmap.md, reports/tests/latest.json, reports/security/closure.md, then inspect git status, branches and log. Resume the last verified checkpoint. Never repeat completed research just because chat history is absent. Read equivalent Persian documents when needed.
 
 - Live trading is **DISABLED**. Never sign, approve, deposit, transfer, borrow, leverage, activate a live trading service or purchase services without a separate explicit authorization. This repository currently contains no live executor.

@@ -1,5 +1,8 @@
 # Project status / وضعیت پروژه
 
+**LATEST CROSS-BRANCH RESTART POINT, 2026-10-25:** [RESEARCH_NOW.md](RESEARCH_NOW.md) and [research/control/STATE.json](research/control/STATE.json). The original Oct-13 baseline below is retained as historic evidence; it is not the status of unmerged research PRs. Trading NO-GO / DISABLED.
+
+
 Updated: 2026-10-13T01:54:56.802965+00:00. This is the initial research/MVP delivery checkpoint, not completion of prospective qualification.
 
 - **Current Phase:** Phase 9 initial delivery completed with current investment decision **NO-GO**. Bounded software review, real main integration and both merged CI workflows completed. Prospective qualification remains pending.

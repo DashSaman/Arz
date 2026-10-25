@@ -1,0 +1,470 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "ARZ-2026-10-25-CONTROL-01",
+  "observed_at_utc": "2026-10-25",
+  "repository": "DashSaman/Arz",
+  "canonical_branch": "main",
+  "purpose": "Evidence-linked restart-safe control plane; does not promote unmerged draft code to main",
+  "research_prs": [
+    {
+      "number": 15,
+      "url": "https://github.com/DashSaman/Arz/pull/15",
+      "state": "OPEN_DRAFT_UNMERGED_AS_OBSERVED",
+      "head": "research/2026-10-18-real-trading-edge",
+      "base": "research/2026-10-17-timeframe-recovery",
+      "observed_head_sha": "6cc530dc0da5b16be0b2a39ea3a580682920737c",
+      "scope": "legacy trend / rotation benchmark"
+    },
+    {
+      "number": 17,
+      "url": "https://github.com/DashSaman/Arz/pull/17",
+      "state": "OPEN_DRAFT_UNMERGED_AS_OBSERVED",
+      "head": "research/2026-10-19-edgelab-recovery",
+      "base": "research/2026-10-18-real-trading-edge",
+      "observed_head_sha": "db79545f5162518251eda73ec9fd3526411f9dc8",
+      "scope": "EdgeLab prototype research"
+    },
+    {
+      "number": 18,
+      "url": "https://github.com/DashSaman/Arz/pull/18",
+      "state": "OPEN_DRAFT_UNMERGED_AS_OBSERVED",
+      "head": "research/2026-10-20-multi-edge-spot",
+      "base": "research/2026-10-19-edgelab-recovery",
+      "observed_head_sha": "41a2ef4eb018f9c697efba0557923abad908d244",
+      "scope": "frozen H1-H4 hypotheses"
+    },
+    {
+      "number": 24,
+      "url": "https://github.com/DashSaman/Arz/pull/24",
+      "state": "OPEN_DRAFT_UNMERGED_AS_OBSERVED",
+      "head": "research/2026-10-20-multi-edge-phase-a",
+      "base": "research/2026-10-20-multi-edge-spot",
+      "observed_head_sha": "0bab62ee331151a733a21bf3abe81aea143d667f",
+      "scope": "Phase A wallet/diagnostic code"
+    },
+    {
+      "number": 25,
+      "url": "https://github.com/DashSaman/Arz/pull/25",
+      "state": "OPEN_DRAFT_UNMERGED_AS_OBSERVED",
+      "head": "research/2026-10-20-master-quant-forensic-audit",
+      "base": "main",
+      "observed_head_sha": "a7d56fbdff78cc99f3c3084b7d291bab58e99cc6",
+      "scope": "independent forensic gap audit; not part of stacked PR chain"
+    },
+    {
+      "number": 26,
+      "url": "https://github.com/DashSaman/Arz/pull/26",
+      "state": "OPEN_DRAFT_UNMERGED_AS_OBSERVED",
+      "head": "research/2026-10-24-follower-quote-gates",
+      "base": "research/2026-10-20-multi-edge-phase-a",
+      "observed_head_sha": "9d698535ab567d6cae49ced4f99bbe81b9b561f4",
+      "scope": "time-of-follower paired quote diagnostics"
+    },
+    {
+      "number": 27,
+      "url": "https://github.com/DashSaman/Arz/pull/27",
+      "state": "OPEN_DRAFT_UNMERGED_AS_OBSERVED",
+      "head": "research/2026-10-25-long-history-proxy",
+      "base": "research/2026-10-24-follower-quote-gates",
+      "observed_head_sha": "7aeb5c1764666f9d67ea71d8eda11b0ac3a0b8d1",
+      "scope": "long-run historical CEX proxy"
+    },
+    {
+      "number": 28,
+      "url": "https://github.com/DashSaman/Arz/pull/28",
+      "state": "OPEN_DRAFT_UNMERGED_AS_OBSERVED",
+      "head": "research/2026-10-25-real-chain-bounded",
+      "base": "research/2026-10-25-long-history-proxy",
+      "observed_head_sha": "3c18794231354b5e1ce2a92fedf88ba7067b301b",
+      "scope": "Base spot quote and Solana 3-wallet sampled evidence"
+    },
+    {
+      "number": 29,
+      "url": "https://github.com/DashSaman/Arz/pull/29",
+      "state": "OPEN_DRAFT_UNMERGED_AS_OBSERVED",
+      "head": "research/2026-10-25-wallet-pagination-feepayer",
+      "base": "research/2026-10-25-real-chain-bounded",
+      "observed_head_sha": "4beed1af08d04c612714710a8b157a09f09ac661",
+      "scope": "Solana wallet mentioned versus fee payer"
+    },
+    {
+      "number": 30,
+      "url": "https://github.com/DashSaman/Arz/pull/30",
+      "state": "OPEN_DRAFT_UNMERGED_AS_OBSERVED",
+      "head": "research/2026-10-25-offline-archive-forensics",
+      "base": "research/2026-10-25-wallet-pagination-feepayer",
+      "observed_head_sha": "ced85de48e4d19d4f5242ee1dda8f929d9090cfb",
+      "scope": "offline archival verifier; no new real profitable history"
+    },
+    {
+      "number": 31,
+      "url": "https://github.com/DashSaman/Arz/pull/31",
+      "state": "OPEN_DRAFT_UNMERGED_AS_OBSERVED",
+      "head": "research/2026-10-25-sqd-portal-archival-probe",
+      "base": "research/2026-10-25-offline-archive-forensics",
+      "observed_head_sha": "7e32a16d52666bf862ea1e6230a887bd381cd424",
+      "scope": "public SQD first verified access"
+    },
+    {
+      "number": 32,
+      "url": "https://github.com/DashSaman/Arz/pull/32",
+      "state": "OPEN_DRAFT_UNMERGED_AS_OBSERVED",
+      "head": "research/2026-10-25-sqd-continuation-evidence",
+      "base": "research/2026-10-25-sqd-portal-archival-probe",
+      "observed_head_sha": "b778a1ecc4e81b02588197c11641d9e4f0040c0d",
+      "scope": "SQD page continuation, only 10/75 explicit Mitch mentions"
+    },
+    {
+      "number": 33,
+      "url": "https://github.com/DashSaman/Arz/pull/33",
+      "state": "OPEN_DRAFT_UNMERGED_AS_OBSERVED",
+      "head": "research/2026-10-25-sqd-parent-context-recovery",
+      "base": "research/2026-10-25-sqd-continuation-evidence",
+      "observed_head_sha": "97bf3aa3957bff4c0eb636186f322055cf05feea",
+      "scope": "Mitch one signature index20, signed Jupiter-related USDC receipt, FIFO fix"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "EV-001",
+      "level": "REPRODUCIBLE_HISTORICAL_CEX_PROXY",
+      "source_pr": 27,
+      "source_file": "reports/long_history_2026-10-25/verified_v2_nonoverlap.json",
+      "run_url": "https://github.com/DashSaman/Arz/actions/runs/40136757544",
+      "status": "OBSERVED_LIMITED",
+      "facts": {
+        "spot_source": "Binance BTCUSDT+ETHUSDT only, not Base DEX",
+        "source_archives_checksum_verified": 176,
+        "full_999day_rotation_proxy_net_pct": -6.837515,
+        "full_999day_rotation_proxy_stress_pct": -8.259865,
+        "h3_eth_5min_cycles": 10,
+        "h3_eth_net_usdc": 0.197173157491207
+      },
+      "not_proof_of": [
+        "Base DEX fills",
+        "net profitable H4",
+        "positive geometric daily account edge"
+      ]
+    },
+    {
+      "id": "EV-002",
+      "level": "REAL_ONE_BLOCK_ETH_CALL_QUOTER_NOT_FILL",
+      "source_pr": 28,
+      "source_file": "reports/onchain_2026-10-25/verified_rpc_probe_v2.json",
+      "run_url": "https://github.com/DashSaman/Arz/actions/runs/40142483424",
+      "status": "OBSERVED_LIMITED",
+      "facts": {
+        "chain": "Base",
+        "quote_usdc": 20,
+        "weth_same_block_roundtrip_gap_ex_gas_usdc": 0.020015,
+        "cbbtc_same_block_roundtrip_gap_ex_gas_usdc": 0.020629
+      },
+      "not_proof_of": [
+        "gas-inclusive fills",
+        "historical follower-time quote",
+        "profitable strategy"
+      ]
+    },
+    {
+      "id": "EV-003",
+      "level": "REAL_SOLANA_ADDRESS_MENTION_PROBE",
+      "source_pr": 29,
+      "source_file": "reports/onchain_2026-10-25/wallet_pagination_rpc_observed.json",
+      "run_url": "https://github.com/DashSaman/Arz/actions/runs/40179174892",
+      "status": "OBSERVED_LIMITED",
+      "facts": {
+        "two_wallet_signature_rows": 160,
+        "cented_tx_details": 10,
+        "cented_failed_tx_details": 10,
+        "cented_fee_payer_of_those": 0,
+        "cented_signer_of_those": 0,
+        "subsequent_provider_error": "HTTP_429"
+      },
+      "not_proof_of": [
+        "10 trading losses Cented",
+        "continuous wallet history",
+        "win rate"
+      ]
+    },
+    {
+      "id": "EV-004",
+      "level": "REAL_FINALIZED_SQD_FILTERED_BLOCK_CONTEXT",
+      "source_pr": 32,
+      "source_file": "reports/onchain_2026-10-25/sqd_continuation_observed.json",
+      "run_url": "https://github.com/DashSaman/Arz/actions/runs/40203286081",
+      "status": "OBSERVED_LIMITED",
+      "facts": {
+        "slot_start": 461030696,
+        "slot_end": 461030756,
+        "returned_block_rows": 61,
+        "returned_instruction_rows": 75,
+        "explicit_watched_wallet_instruction_mentions": 10,
+        "parent_tx_joined_in_this_response": 0
+      },
+      "not_proof_of": [
+        "75 wallet trades",
+        "90-day wallet coverage",
+        "wallet profit"
+      ]
+    },
+    {
+      "id": "EV-005",
+      "level": "REAL_SINGLE_SOLANA_SIGNED_TX_WITH_TOKEN_DELTAS",
+      "source_pr": 33,
+      "source_file": "reports/onchain_2026-10-25/solana_one_tx_route_attested.json",
+      "run_url": "https://github.com/DashSaman/Arz/actions/runs/40206142455",
+      "status": "OBSERVED_LIMITED",
+      "facts": {
+        "label": "Mitch (third party attribution)",
+        "slot": 461030696,
+        "transaction_index": 20,
+        "signature": "5RqPZx5nWKKAoyaqUjM18ViwdR8DJNzVxQzoQX2YRJQCDzexSYMvBiJ1LB2UAqBXkFXrsqeXDYR9obKhdiF9ExWj",
+        "watched_address_signer": true,
+        "watched_address_fee_payer": false,
+        "usdc_owner_balance_increase": "402.799439",
+        "prior_acquisition_basis_usdc": null,
+        "realized_pnl_usdc": null,
+        "jupiter_program_observed": true
+      },
+      "not_proof_of": [
+        "$402 profit",
+        "independent beneficial ownership identity",
+        "complete swap cycle",
+        "compound daily account growth"
+      ]
+    },
+    {
+      "id": "EV-006",
+      "level": "SOFTWARE_REGRESSION_NOT_MARKET_EVIDENCE",
+      "source_pr": 33,
+      "source_file": "docs/en/sqd_parent_context_20261025.md",
+      "run_url": "https://github.com/DashSaman/Arz/actions/runs/40206142455",
+      "status": "OBSERVED_LIMITED",
+      "facts": {
+        "repository_suite_tests_passed_at_recorded_commit": 348,
+        "unmatched_sell_fifo_taint_regressions": 6
+      },
+      "not_proof_of": [
+        "market alpha",
+        "CI on main contains draft code",
+        "live execution readiness"
+      ]
+    },
+    {
+      "id": "EV-007",
+      "level": "PREREGISTERED_HYPOTHESIS",
+      "source_pr": 18,
+      "source_file": "research/multi_edge_spot/NEXT_EXPERIMENT_PROTOCOL.json",
+      "run_url": null,
+      "status": "FROZEN_RULES",
+      "facts": {
+        "H1": "wallet consensus follower-copy",
+        "H2": "wallet flow only confirms corrected ATR",
+        "H3": "5-minute cost-aware scalping",
+        "H4": "point-in-time leader rotation"
+      },
+      "not_proof_of": [
+        "strategies completed",
+        "financial GO"
+      ]
+    }
+  ],
+  "tracks": [
+    {
+      "id": "OPS-01",
+      "title": "Single-source-of-truth and PR handoff",
+      "priority": 0,
+      "status": "IN_PROGRESS",
+      "depends_on": [],
+      "proof_ids": [
+        "EV-005",
+        "EV-006",
+        "EV-007"
+      ],
+      "completion": "Control files linked from main; offline validator+CI green; no research-branch merges",
+      "next_action": "Finalize and merge control-only PR after checks"
+    },
+    {
+      "id": "OPS-02",
+      "title": "Review stacked PR DAG and separate validated code before merges",
+      "priority": 1,
+      "status": "READY",
+      "depends_on": [
+        "OPS-01"
+      ],
+      "proof_ids": [
+        "EV-006",
+        "EV-007"
+      ],
+      "completion": "Document independent review/security/test and cherry-pick/split plan; no implicit merge of PR 15→33",
+      "next_action": "Review changes starting from lowest dependency; choose standalone verified accounting fix, separately rerun regression on main"
+    },
+    {
+      "id": "WAL-01",
+      "title": "Mitch single-transaction actor, token and fee proof",
+      "priority": 2,
+      "status": "PARTIAL",
+      "depends_on": [
+        "OPS-01"
+      ],
+      "proof_ids": [
+        "EV-005"
+      ],
+      "completion": "Decoded full DEX CPI swap route and exact historical acquisition lots for observed transaction; parent+signer+fee payer already verified",
+      "next_action": "Do not treat 402.799439 USDC as PnL; reconcile earliest token acquisitions and transfers using permitted full history"
+    },
+    {
+      "id": "DATA-01",
+      "title": "Permitted reproducible archival coverage for 3 watched-wallet cohorts",
+      "priority": 3,
+      "status": "BLOCKED",
+      "depends_on": [
+        "OPS-01"
+      ],
+      "proof_ids": [
+        "EV-003",
+        "EV-004"
+      ],
+      "completion": "At least 90d of complete signatures, token-account ancestry, fee-payer, signer, timestamps, failed fees and coverage manifests with no rate-limit evasion",
+      "blockers": [
+        "Public Solana RPC HTTP429 on bounded access",
+        "SQD 2024 coverage not verified / request 529; public dev capacity",
+        "No proven complete 90d raw onchain transaction records"
+      ],
+      "next_action": "Design source-neutral local import contract; evaluate authorized archive coverage without assuming zero for missing pages"
+    },
+    {
+      "id": "WAL-02",
+      "title": "Reconstruct whole-wallet signed swaps FIFO and daily adjusted equity",
+      "priority": 4,
+      "status": "BLOCKED",
+      "depends_on": [
+        "DATA-01",
+        "WAL-01"
+      ],
+      "proof_ids": [
+        "EV-005"
+      ],
+      "completion": "Trade-by-trade signed swaps, incoming/outgoing transfers, original lots, open inventory marked, native+token gas, daily account return inclusive of no-trade days",
+      "blockers": [
+        "Historical acquisition basis incomplete",
+        "No full wallet portfolio cashflow or opening balances"
+      ],
+      "next_action": "Once DATA-01 coverage passes, parse and reconcile token lot sources; rank no wallet before that"
+    },
+    {
+      "id": "EXEC-01",
+      "title": "Real follower-time $20 exact-input Base DEX quotes and gas/stress",
+      "priority": 5,
+      "status": "BLOCKED",
+      "depends_on": [
+        "DATA-01"
+      ],
+      "proof_ids": [
+        "EV-002"
+      ],
+      "completion": "Timestamped executable-size quote after observed signal + 60 sec with L1/L2 gas, inclusion, expiry/failure and 2× stressed costs",
+      "blockers": [
+        "Only same-block spot quotation available, not historical follower-time execution"
+      ],
+      "next_action": "Specify prospective fee/quote observation journal without broadcast; cannot backfill quotes from leader fills"
+    },
+    {
+      "id": "STRAT-01",
+      "title": "Frozen corrected ATR baseline + independent long-horizon OOS",
+      "priority": 6,
+      "status": "READY",
+      "depends_on": [
+        "OPS-01"
+      ],
+      "proof_ids": [
+        "EV-001",
+        "EV-007"
+      ],
+      "completion": "Separate H2 baseline and wallet-confirmed variant once wallet data arrives; baseline must pass realistic cost and OOS without retuning; CEX proxy never qualifies Base DEX H4",
+      "next_action": "Inventory exact original ATR code/parameters, create cost stress and untouched date manifest; benchmark cash and risk-matched hold"
+    },
+    {
+      "id": "PAPER-01",
+      "title": "90d prospective immutable read-only paper journal",
+      "priority": 7,
+      "status": "BLOCKED",
+      "depends_on": [
+        "EXEC-01",
+        "WAL-02",
+        "STRAT-01"
+      ],
+      "proof_ids": [
+        "EV-007"
+      ],
+      "completion": "Prospective 90d and strategy-specific trade gates; H4 requires 180d; immutable signals/rejects/quotes and code hash",
+      "blockers": [
+        "No qualified strategy or complete follower-time feed"
+      ],
+      "next_action": "Do not backdate simulated trades or count test fixture as real days"
+    },
+    {
+      "id": "LIVE-01",
+      "title": "Separate funded authorization gate",
+      "priority": 8,
+      "status": "BLOCKED",
+      "depends_on": [
+        "PAPER-01"
+      ],
+      "proof_ids": [],
+      "completion": "Independent financial/security review plus user's separate explicit approval; current maximum experimental capital remains $100",
+      "blockers": [
+        "NO-GO, no proved geometric returns"
+      ],
+      "next_action": "Keep live disabled and never request funding to recover losses"
+    }
+  ],
+  "next_work_order": [
+    "OPS-01",
+    "OPS-02",
+    "WAL-01",
+    "DATA-01",
+    "STRAT-01",
+    "WAL-02",
+    "EXEC-01",
+    "PAPER-01",
+    "LIVE-01"
+  ],
+  "safety": {
+    "financial_decision": "NO-GO",
+    "live_trading": "DISABLED",
+    "initial_real_capital_authorized_usd": 0,
+    "max_hypothetical_account_usd": 100,
+    "max_hypothetical_order_usd": 25,
+    "cash_reserve_usd": 10,
+    "leverage": false,
+    "martingale": false,
+    "automatic_deposit": false,
+    "noncustodial_wallet_keys_present": false
+  },
+  "performance": {
+    "qualified_wallets": 0,
+    "qualified_H1_H2_H3_H4": 0,
+    "whole_wallet_adjusted_daily_equity_available": false,
+    "prospective_paper_calendar_days": 0,
+    "positive_net_daily_geometric_return_verified": false
+  },
+  "protocol": {
+    "source_pr": 18,
+    "immutable_source": "research/multi_edge_spot/NEXT_EXPERIMENT_PROTOCOL.json",
+    "source_branch": "research/2026-10-20-multi-edge-spot",
+    "min_prospective_days_default": 90,
+    "min_prospective_days_H4": 180,
+    "h1_min_historical_cycles": 100,
+    "h3_min_historical_cycles": 200,
+    "require_primary_and_cost_stress_positive": true
+  },
+  "stop_rules": [
+    "NO-GO until whole-wallet and executable follower-price evidence verified",
+    "No source rate limit evasion or paid API without approval",
+    "No synthetic fixtures passed off as trades",
+    "No PR treated as merged unless GitHub checked",
+    "No changes to main trading runtime while integrating governance files"
+  ],
+  "verification_policy": "Run scripts/verify_research_control.py on every state/AGENTS/README change; inspect GitHub PR and CI live before merging other branches."
+}
