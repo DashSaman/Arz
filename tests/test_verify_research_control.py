@@ -23,6 +23,7 @@ class ControlPlaneTests(unittest.TestCase):
         self.assertEqual(r["live_trading"], "DISABLED")
         self.assertGreaterEqual(r["pr_count"], 13)
         self.assertGreaterEqual(r["evidence_count"], 7)
+        self.assertEqual(r["next_work"], "OPS-02")
 
     def test_no_live_mode_or_capital_approval(self):
         for key, value in [("financial_decision", "GO"),
@@ -70,6 +71,18 @@ class ControlPlaneTests(unittest.TestCase):
         lead = next(x for x in s["evidence"] if x["id"] == "EV-005")
         lead["facts"]["watched_address_fee_payer"] = True
         with self.assertRaisesRegex(ValueError, "sponsor"):
+            validate(s)
+
+    def test_done_work_requires_real_immutable_ci_and_commit_proof(self):
+        s = fresh()
+        completed = next(x for x in s["tracks"] if x["id"] == "OPS-01")
+        completed["completed_run_url"] = "https://invalid.example/green"
+        with self.assertRaisesRegex(ValueError,"real CI"):
+            validate(s)
+        s = fresh()
+        completed = next(x for x in s["tracks"] if x["id"] == "OPS-01")
+        completed["completed_commit_sha"] = "faked"
+        with self.assertRaisesRegex(ValueError,"immutable commit"):
             validate(s)
 
     def test_pr_merge_status_and_duplicate_branch_rejected(self):
