@@ -1,0 +1,235 @@
+{
+  "schema_version": 1,
+  "research_scope": "BOUND_SINGLE_FINALIZED_SLOT_NOT_COMPLETE_WALLET_LEDGER",
+  "real_provider_observation": {
+    "source_ci": "https://github.com/DashSaman/Arz/actions/runs/40205073542",
+    "observed_on_source_commit": "9d653baea9e07606fe41ef5b136338f58ff10736",
+    "actual_response": {
+      "actual_wallet_pnl_usd": null,
+      "completed_at_utc": "2026-10-25T15:03:01.831112+00:00",
+      "created_at_utc": "2026-10-25T15:03:01.097174+00:00",
+      "data": {
+        "block_count": 1,
+        "block_rows": [
+          {
+            "block_hash": "tzMZR1PjgdAwnmRKz3dQsa2QuwQ1DC8zKWLu993Vpwo",
+            "block_timestamp": 1792883172,
+            "instructions_explicitly_mention_wallet": 10,
+            "instructions_sample": [
+              {
+                "committed": true,
+                "instruction_program": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+                "owner_token_balances_linked": 0,
+                "parent_failed": null,
+                "parent_fee_payer": null,
+                "parent_found": false,
+                "parent_signature": null,
+                "transaction_index": 20,
+                "wallet_is_fee_payer": null
+              },
+              {
+                "committed": true,
+                "instruction_program": "6Vo3245eszAb5wuqEMw8mGdbfRUdKbHhDHP5LcaGuTAB",
+                "owner_token_balances_linked": 0,
+                "parent_failed": null,
+                "parent_fee_payer": null,
+                "parent_found": false,
+                "parent_signature": null,
+                "transaction_index": 20,
+                "wallet_is_fee_payer": null
+              },
+              {
+                "committed": true,
+                "instruction_program": "6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P",
+                "owner_token_balances_linked": 0,
+                "parent_failed": null,
+                "parent_fee_payer": null,
+                "parent_found": false,
+                "parent_signature": null,
+                "transaction_index": 20,
+                "wallet_is_fee_payer": null
+              },
+              {
+                "committed": true,
+                "instruction_program": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+                "owner_token_balances_linked": 0,
+                "parent_failed": null,
+                "parent_fee_payer": null,
+                "parent_found": false,
+                "parent_signature": null,
+                "transaction_index": 20,
+                "wallet_is_fee_payer": null
+              },
+              {
+                "committed": true,
+                "instruction_program": "11111111111111111111111111111111",
+                "owner_token_balances_linked": 0,
+                "parent_failed": null,
+                "parent_fee_payer": null,
+                "parent_found": false,
+                "parent_signature": null,
+                "transaction_index": 20,
+                "wallet_is_fee_payer": null
+              },
+              {
+                "committed": true,
+                "instruction_program": "JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4",
+                "owner_token_balances_linked": 0,
+                "parent_failed": null,
+                "parent_fee_payer": null,
+                "parent_found": false,
+                "parent_signature": null,
+                "transaction_index": 20,
+                "wallet_is_fee_payer": null
+              },
+              {
+                "committed": true,
+                "instruction_program": "BiSoNHVpsVZW2F7rx2eQ59yQwKxzU5NvBcmKshCSUypi",
+                "owner_token_balances_linked": 0,
+                "parent_failed": null,
+                "parent_fee_payer": null,
+                "parent_found": false,
+                "parent_signature": null,
+                "transaction_index": 20,
+                "wallet_is_fee_payer": null
+              },
+              {
+                "committed": true,
+                "instruction_program": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+                "owner_token_balances_linked": 0,
+                "parent_failed": null,
+                "parent_fee_payer": null,
+                "parent_found": false,
+                "parent_signature": null,
+                "transaction_index": 20,
+                "wallet_is_fee_payer": null
+              },
+              {
+                "committed": true,
+                "instruction_program": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+                "owner_token_balances_linked": 0,
+                "parent_failed": null,
+                "parent_fee_payer": null,
+                "parent_found": false,
+                "parent_signature": null,
+                "transaction_index": 20,
+                "wallet_is_fee_payer": null
+              },
+              {
+                "committed": true,
+                "instruction_program": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+                "owner_token_balances_linked": 0,
+                "parent_failed": null,
+                "parent_fee_payer": null,
+                "parent_found": false,
+                "parent_signature": null,
+                "transaction_index": 20,
+                "wallet_is_fee_payer": null
+              }
+            ],
+            "mentioned_instructions_with_parent": 0,
+            "mentioned_instructions_without_parent": 10,
+            "owner_token_deltas_sample": [
+              {
+                "confirmed_owner": true,
+                "mint": "BwZmBr4XFaDFEN6pQyay5aHNLaFSgxky6TpF9SxYpump",
+                "not_a_proven_swap": true,
+                "raw_amount_delta": "-28938389952554",
+                "token_decimals": null,
+                "transaction_index": null,
+                "units_unverified": true
+              },
+              {
+                "confirmed_owner": true,
+                "mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+                "not_a_proven_swap": true,
+                "raw_amount_delta": "402799439",
+                "token_decimals": null,
+                "transaction_index": null,
+                "units_unverified": true
+              }
+            ],
+            "raw_block_sha256": "22eb7d844d7e826acf47664fa6f0b30c3ffb38bcce768822f1e66eb0f0f82a5f",
+            "slot": 461030696,
+            "total_instruction_rows": 10,
+            "total_token_balance_rows": 247,
+            "total_transaction_rows": 74,
+            "tx_rows_missing_index": 74,
+            "watched_owner_token_balance_rows_without_tx_index": 2,
+            "watched_owner_token_deltas_with_known_mint_and_amount": 2
+          }
+        ],
+        "cannot_conclude_complete_history": true,
+        "qualified_wallet_trade_cycles": 0,
+        "response_sha256": "843456d465c1a2e1221ab22163107d1444f259562262551b5982916af9a44e10",
+        "wallet_portfolio_geometric_daily_return": null,
+        "wallet_realized_pnl_usd": null,
+        "zero_rows_means_missing_coverage_not_zero_activity": false
+      },
+      "developer_free_public_one_query": true,
+      "financial_decision": "NO-GO",
+      "live_trading": "DISABLED",
+      "query_mode": "EXPLICIT_ALL_TRANSACTIONS_AND_TOKEN_BALANCES_AT_SINGLE_SLOT",
+      "query_slot": 461030696,
+      "raw_transaction_data_redistributed": false,
+      "request_schema": "SQD_PORTAL_SOLANA_FINALIZED",
+      "request_spec_sha256": "51b4ca204c886de759a60acf6547b10e4a68868fa1c0f041533a2ee7922eda63",
+      "source": "https://portal.sqd.dev/datasets/solana-mainnet/finalized-stream",
+      "source_headers": {
+        "arz_bounded_retry_count": 0,
+        "x-request-id": "c6acf4f9b7eda621d6b5f292e30218ba",
+        "x-sqd-data-source": "network",
+        "x-sqd-finalized-head-hash": "9kM39X8353T2aaau8yTATsYJCJ9K4wuhhpKxB6TyCVMN",
+        "x-sqd-finalized-head-number": "461285472",
+        "x-sqd-head-number": "461301019"
+      },
+      "status": "SOURCE_OBSERVED"
+    },
+    "interpretation": "Explicit selector transactions:[{}] and tokenBalances:[{}] returned 74 tx rows and 247 token-balance rows at one finalized Solana slot; the 10 wallet-related instructions still lacked matching transactionIndex in selected transaction rows, and owner token balances also lacked transactionIndex. Cannot attach individual swap/profit."
+  },
+  "subsequent_explicit_index_field_attempt": {
+    "source_ci": "https://github.com/DashSaman/Arz/actions/runs/40205263273",
+    "source_commit": "df93b8bb1123ed917832f956fe2083b2e01df735",
+    "status": "PROVIDER_UNAVAILABLE_HTTP_529_AFTER_POLICY_RETRY",
+    "fields_requested": [
+      "transaction.transactionIndex",
+      "tokenBalance.transactionIndex",
+      "tokenBalance.preDecimals",
+      "tokenBalance.postDecimals"
+    ],
+    "response": "NO_DATA_RETRIEVED",
+    "conclusion": "MISSING_PROVIDER_RESPONSE_NOT_INVALID_SCHEMA_AND_NOT_NO_WALLET_ACTIVITY"
+  },
+  "software_validation": {
+    "latest_head_at_tests": "df93b8bb1123ed917832f956fe2083b2e01df735",
+    "full_repository_offline_tests": 333,
+    "focused_parent_context_tests": 14,
+    "fifo_unmatched_sale_taint_tests": 6,
+    "tests_are_overlapping_scopes": true,
+    "github_ci": [
+      "https://github.com/DashSaman/Arz/actions/runs/40205263273",
+      "https://github.com/DashSaman/Arz/actions/runs/40205263256",
+      "https://github.com/DashSaman/Arz/actions/runs/40205263353",
+      "https://github.com/DashSaman/Arz/actions/runs/40205263347"
+    ]
+  },
+  "accounting_fix": {
+    "behavior": "After unmatched sale, key wallet+asset+quote remains tainted; subsequent sells cannot reuse unconsumed historical FIFO/average lots to claim realized profit.",
+    "cost_basis_coverage": "Only actually matched sold units, no partial hypothetical matched units",
+    "regressions": "6 focused tests, full suite passed"
+  },
+  "source_metadata": {
+    "documentation": "https://docs.sqd.dev/en/portal/solana/api",
+    "field_selector_rule": "fields alone do not select table rows; transactions:[{}] and tokenBalances:[{}] necessary for full slot population",
+    "all_population_one_slot_not_wallet_trades": true,
+    "value_units": "SQD amounts raw without confirmed decimals in observed run"
+  },
+  "wallet_pnl_verified_usd": null,
+  "account_net_geometric_daily_return": null,
+  "ninety_day_watched_wallet_history_complete": false,
+  "historical_executable_follower_quotes": 0,
+  "strategy_h1_h2_h3_h4_qualified": false,
+  "financial_decision": "NO-GO",
+  "live_trading": "DISABLED",
+  "future_network_probe_automatically_disabled_after_this_checkpoint": true
+}
