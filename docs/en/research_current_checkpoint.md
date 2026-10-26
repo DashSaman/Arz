@@ -75,3 +75,13 @@ No new real historical market data or wallet cohorts, no genuine Base fills and 
 `scripts/strat01_s0_source_preflight.py` admits only structurally complete, time-causal future four-hour data for both Base WETH/cbBTC markets with start at/after **2026-10-27T00:00:00Z**. Historical old datasets each had a provider gap and are already observed; raw data were not downloaded or copied here. Result remains **PENDING_NO_AUTHORIZED_NEW_FUTURE_MARKET_DATA**, with 0 new market backtests, 0 real follower quotes, 0 forward paper days and no profitable result. [Detailed report](strat01_s0_frozen_source_20261026.md), [machine result](../../reports/strat01/2026-10-26-s0-frozen-source-observed.json).
 
 STRAT-01 is still **IN PROGRESS**; [Issue #42](https://github.com/DashSaman/Arz/issues/42) next requires lawful auditable dual-asset Base DEX future as-of market feeds and actual execution-size/gas/impact/failure evidence. Financial NO-GO / live DISABLED.
+
+## STRAT-01 first real public Base source pilot — late 26 October 2026 UTC
+
+[PR #48](https://github.com/DashSaman/Arz/pull/48) safely merged to main as `1876a5c5ae7cc539a39430a273a15fcfa8ecfa2e`. [Network-source CI 40421138680](https://github.com/DashSaman/Arz/actions/runs/40421138680) and [no-repeat latest CI 40421512800](https://github.com/DashSaman/Arz/actions/runs/40421512800) completed successfully with **21 focused and 945 whole-repository tests PASS** (overlap).
+
+Real public Trading Strategy response for previously registered Base WETH pair ID 4564367 and cbBTC pair ID 4705508 contained **six native four-hour bars each for 26 October UTC**, **only five completed at initial observation**. Base block **53,134,288** was used to simulate one same-block 20 USDC Uniswap V3 QuoterV2 exact-input quote for each asset: **0.008616692865956162 WETH** and **0.00024981 cbBTC**, estimated gas **86,263 / 100,765 units**; dollar L1/L2 network costs, quote-to-inclusion slippage, actual failed broadcast costs and independent provider pair-to-chain pool/token identity remain unverified.
+
+The capture is strictly **one pre-frozen-OOS-day pilot**, not an account backtest, 60-second signal follower trade or genuinely elapsed prospective paper series. Full machine [real-source report](../../reports/strat01/2026-10-27-base-pilot-observed.json), [English details](strat01_base_real_pilot_20261027.md).
+
+**Next STRAT-01 Issue #42:** independently verify chain/pool/token identity; then immutable actually future-as-observed dual-market 4h feed at/after 27 Oct 00:00Z, contemporaneous 20 USDC quote + externally evidenced L1/L2/MEV/failure costs, followed by frozen S0 vs H2 and cash/hold cost-stressed OOS if data complete. Financial NO-GO, live DISABLED.
