@@ -96,12 +96,13 @@ def confirm_baseline_entry(request: AsOfConfirmation, flows: list[WalletFlow]) -
     """Fail-closed H2: baseline signal is necessary but never sufficient."""
     if not isinstance(request, AsOfConfirmation) or type(flows) is not list:
         raise ValueError("Invalid confirmation inputs")
+    context = {"pair": request.pair, "decision_at": request.decision_at}
     if not request.baseline_entry:
-        return _out("NO_ATR_ENTRY", {}, {}, False)
+        return _out("NO_ATR_ENTRY", {}, context, False)
     if not request.coverage_complete_last_24h:
-        return _out("HISTORY_INCOMPLETE", {}, {}, False)
+        return _out("HISTORY_INCOMPLETE", {}, context, False)
     if not request.cluster_independence_audited:
-        return _out("CLUSTER_INDEPENDENCE_UNVERIFIED", {}, {}, False)
+        return _out("CLUSTER_INDEPENDENCE_UNVERIFIED", {}, context, False)
     totals: dict[str, dict[str, float]] = defaultdict(lambda: {"buy": 0.0, "sell": 0.0})
     seen = set()
     for flow in flows:
@@ -114,11 +115,11 @@ def confirm_baseline_entry(request: AsOfConfirmation, flows: list[WalletFlow]) -
         if flow.pair != request.pair:
             continue
         if flow.selected_cohort_asof != request.cohort_snapshot_at:
-            return _out("COHORT_SNAPSHOT_MISMATCH", {}, {}, False)
+            return _out("COHORT_SNAPSHOT_MISMATCH", {}, context, False)
         if not flow.independent_cluster_verified:
-            return _out("CLUSTER_INDEPENDENCE_UNVERIFIED", {}, {}, False)
+            return _out("CLUSTER_INDEPENDENCE_UNVERIFIED", {}, context, False)
         if flow.block_at > request.decision_at or flow.finalized_at > request.decision_at or flow.observed_at > request.decision_at:
-            return _out("FUTURE_OR_UNSEEN_WALLET_FLOW", {}, {}, False)
+            return _out("FUTURE_OR_UNSEEN_WALLET_FLOW", {}, context, False)
         if flow.block_at < request.decision_at - DAY:
             continue
         totals[flow.cluster][flow.side] += flow.amount_usdc
@@ -130,7 +131,7 @@ def confirm_baseline_entry(request: AsOfConfirmation, flows: list[WalletFlow]) -
     detail = {"positive_independent_clusters": positive_clusters, "distinct_clusters_seen": len(totals),
               "qualified_buy_usdc": round(buys, 8), "qualified_sell_usdc": round(sells, 8)}
     return _out("H2_CONFIRMED_FOR_RESEARCH_ONLY" if eligible else "INSUFFICIENT_INDEPENDENT_NET_BUY",
-                detail, {}, eligible)
+                detail, context, eligible)
 
 
 def _out(reason: str, detail: dict, metadata: dict, allowed: bool) -> dict:
@@ -147,6 +148,7 @@ class FollowerQuote:
     L1 and L2 network USD fees and failures cannot be imputed from v3's
     gasEstimate (units). Unknown values must remain None.
     """
+    pair: str
     signal_seen_at: int
     observed_at: int
     block_at: int
@@ -159,6 +161,8 @@ class FollowerQuote:
     failed_attempt_cost_usdc: float | None
 
     def __post_init__(self):
+        if self.pair not in TOKEN_PAIRS:
+            raise ValueError("Unapproved quote pair")
         for field in ("signal_seen_at", "observed_at", "block_at", "quote_out_atomic"):
             _integer(getattr(self, field), field)
         if self.quote_out_atomic <= 0:
@@ -184,6 +188,8 @@ def assess_follower_quote(quote: FollowerQuote, confirmed: dict, *, now: int) ->
     problems = []
     if confirmed.get("entry_eligible") is not True:
         problems.append("NO_ELIGIBLE_CAUSAL_H2_ENTRY")
+    if confirmed.get("pair") != quote.pair or confirmed.get("decision_at") != quote.signal_seen_at:
+        problems.append("SIGNAL_PAIR_OR_TIME_MISMATCH")
     if quote.observed_at < quote.signal_seen_at + FOLLOWER_DELAY_SEC:
         problems.append("BEFORE_60SEC_FOLLOWER_DELAY")
     if quote.block_at > quote.observed_at:
