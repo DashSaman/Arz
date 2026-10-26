@@ -49,6 +49,14 @@ The merged `scripts/wal01_witness_gate.py` compares the public PR #33 derived tr
 
 **NEXT in [Issue #42](https://github.com/DashSaman/Arz/issues/42):** lawful, provable next-window Base DEX market and exact-size follower quote/cost acquisition for *both* assets; then untouched S0 cost-stressed OOS and genuine forward paper. H2 must only confirm/veto S0 and WAL-01 remains incomplete. Trading **NO-GO / DISABLED**.
 
+## STRAT-01 first REAL Base public data observation — late 2026-10-26 UTC
+
+**[PR #48](https://github.com/DashSaman/Arz/pull/48) was merged into main** as `1876a5c5ae7cc539a39430a273a15fcfa8ecfa2e`. [Real network CI 40421138680](https://github.com/DashSaman/Arz/actions/runs/40421138680) and [latest no-repeat offline CI 40421512800](https://github.com/DashSaman/Arz/actions/runs/40421512800) confirmed **21 focused, 945 total software tests PASS**. This source pilot made exactly two bounded public Trading Strategy 4h candle queries (previously recorded WETH ID 4564367 and cbBTC 4705508): **six** 26-Oct bars per pair, **five fully completed at first acquisition**, one still incomplete. Source hashes and missing-interval warnings preserved.
+
+Both 20 USDC single-pool Uniswap V3 `eth_call` QuoteV2 simulations used **Base block 53,134,288**, timestamp `1793057923`: WETH **0.008616692865956162**, cbBTC **0.00024981**. Quoter gas *units* were 86,263 / 100,765, NOT actual paid L1/L2 USD. Receipt/failure/MEV and quote-to-inclusion slippage remain **UNKNOWN**, and provider pair ID→Base pool/token contract mapping has not been independently re-attested. This was a bounded single block/one-day **pre-OOS source pilot**, NOT newly elapsed prospective paper, profitable trade, or a 12-month backtest. [Machine evidence](reports/strat01/2026-10-27-base-pilot-observed.json) · [Persian](docs/fa/strat01_base_real_pilot_20261027.md) · [English](docs/en/strat01_base_real_pilot_20261027.md).
+
+**NEXT in [STRAT-01 Issue #42](https://github.com/DashSaman/Arz/issues/42):** independently verify the historical provider pool/token identities; then acquire an immutable two-pair truly prospective as-observed feed **after 2026-10-27T00:00:00Z** and exact-size $20 follower Quoter quotes with separately evidenced real L1/L2 fee, slippage and failures. Keep unchanged frozen ATR S0, H2 entry-veto only, and cash/risk-matched holds. **Financial NO-GO, live DISABLED**.
+
 ## PR topology (check remotely again before changing branches)
 
 Core research dependency chain: **#15 → #17 → #18 → #24 → #26 → #27 → #28 → #29 → #30 → #31 → #32 → #33**. These were **all open Draft PRs**, not merged, when this checkpoint was created. The independent forensic gap audit [#25](https://github.com/DashSaman/Arz/pull/25) is also open Draft against `main`. **Do not merge the whole chain or misattribute a draft file to `main`.**
