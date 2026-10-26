@@ -413,7 +413,7 @@
         "EV-007"
       ],
       "completion": "Separate H2 baseline and wallet-confirmed variant once wallet data arrives; baseline must pass realistic cost and OOS without retuning; CEX proxy never qualifies Base DEX H4",
-      "next_action": "Next: isolate and source-pin the old corrected ATR S0 source and parameters from draft PR17 without merging the research stack; design lawful real Base DEX price/fee/quote acquisition with auditable time windows, then untouched cost-stressed OOS. H2 only vetoes S0 entries and remains disabled without complete as-of wallet cohorts.",
+      "next_action": "Issue #42 after frozen S0 source PR46: use permitted real Base 4h WETH/USDC and cbBTC/USDC point-in-time data starting no earlier than 2026-10-27 00:00 UTC with SHA256, complete matching grids, true observation/finality provenance and quoted USD gas/slippage/failure evidence; test unchanged S0+H2 gate on new chronological OOS. If absent, mark BLOCKED/PENDING, never treat already-seen proxy as alpha.",
       "github_issue_url": "https://github.com/DashSaman/Arz/issues/42",
       "last_verified_subcheckpoint": {
         "id": "STRAT01-IMMUTABLE-NEGATIVE-CONTROL-2026-10-26",
@@ -444,6 +444,25 @@
           "new_market_backtests": 0,
           "net_profit_usd": null,
           "live_enabled": false
+        },
+        {
+          "id": "STRAT01-FROZEN-S0-SOURCE-OOS-PREFLIGHT-2026-10-26",
+          "merged_pr": 46,
+          "merged_sha": "85d7ebb1d516adf5ed5cb7f9d3c76e14e7170291",
+          "ci_url": "https://github.com/DashSaman/Arz/actions/runs/40383696394",
+          "focused_test_methods_passed": 137,
+          "full_repository_test_methods_passed": 924,
+          "source_snapshots_exact_original_git_blobs": 6,
+          "earliest_new_unseen_oos_utc": "2026-10-27T00:00:00Z",
+          "historical_old_raw_market_bar_files_present": false,
+          "historical_old_weth_4h_gap_count": 1,
+          "historical_old_cbbtc_4h_gap_count": 1,
+          "new_real_dex_markets_covered": 0,
+          "new_trading_simulations": 0,
+          "real_follower_quotes_collected": 0,
+          "net_profitable_strategy_verified": false,
+          "reference": "reports/strat01/2026-10-26-s0-frozen-source-observed.json",
+          "source_kind": "PINNED_PRIOR_AGPL_RESEARCH_NOT_RUNTIME_EXECUTION"
         }
       ]
     },
@@ -529,7 +548,7 @@
     "No PR treated as merged unless GitHub checked",
     "No changes to main trading runtime while integrating governance files"
   ],
-  "verification_policy": "Source-of-truth on main. STRAT-01 continues at S0 ATR source pin and lawful Base DEX as-of quote/fee intake; merged H2 gate PR44 is code correctness only, no wallet or positive profit evidence. All live use remains NO-GO/DISABLED.",
+  "verification_policy": "Main includes PR46 pinned S0/ATR source and future OOS admission validator; no new historical market bars, executable quotes or elapsed paper days. STRAT-01 IN_PROGRESS at as-of provider data+quote acquisition; WAL-01 PARTIAL. Never retune older seen price windows or call source-pinning a market win.",
   "completed_milestones": [
     {
       "task": "OPS-01",
@@ -549,13 +568,13 @@
     }
   ],
   "last_verified_delivery": {
-    "pr": 44,
-    "merged_sha": "032b781045d5cb2198d71c5dd4528ac9aea9296c",
-    "run_url": "https://github.com/DashSaman/Arz/actions/runs/40377379362",
-    "full_tests": 787,
-    "focused": 35,
+    "pr": 46,
+    "merged_sha": "85d7ebb1d516adf5ed5cb7f9d3c76e14e7170291",
+    "run_url": "https://github.com/DashSaman/Arz/actions/runs/40383696394",
+    "full_tests": 924,
+    "focused": 137,
     "net_alpha_verified": false,
-    "source": "reports/strat01/2026-10-26-h2-evidence-readiness.json"
+    "source": "reports/strat01/2026-10-26-s0-frozen-source-observed.json"
   },
   "post_checkpoint_verified_deliveries": [
     {
