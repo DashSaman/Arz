@@ -66,6 +66,10 @@ def _start_datetime() -> datetime:
     return datetime.fromisoformat(FUTURE_OOS_START.replace("Z", "+00:00"))
 
 
+def _utc_now_unix() -> int:
+    return int(datetime.now(timezone.utc).timestamp())
+
+
 def freeze_originals(root: Path = PIN) -> dict:
     snapshots = {}
     contents = {}
@@ -168,7 +172,7 @@ def _row_number(row: dict, field: str, positive: bool) -> float:
 def check_market_bars(raw: bytes, pair_id: int, *, asof: int) -> dict:
     if type(pair_id) is not int or pair_id not in MARKET_IDS:
         raise ValueError("Unreviewed market identity")
-    if type(asof) is not int or asof < 0 or asof > int(datetime.now(timezone.utc).timestamp()):
+    if type(asof) is not int or asof < 0 or asof > _utc_now_unix():
         raise ValueError("Future/invalid observation cutoff")
     if len(raw) > MAX_MARKET_BYTES:
         raise ValueError("Historical dataset too large for bounded validator")
