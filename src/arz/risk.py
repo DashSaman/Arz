@@ -36,8 +36,13 @@ class Risk:
         if side=="buy" and self.halt_reason:return self.halt_reason
         if c.slippage_bps>c.max_slippage_bps:return "slippage_cap"
         if c.gas_usd>c.max_gas_usd:return "network_fee_cap"
-        if self.count>=c.max_trades_day:return "daily_trade_cap"
-        if self.fees+estimated_cost>c.max_fees_day+1e-10:return "daily_fee_cap"
+        # Entry quotas must NEVER silently lock a risk-reducing exit.
+        # Counters still record successful exit fills, even past the daily
+        # entry budget. Hard execution constraints below still apply: an
+        # illiquid market, excessive gas or slippage can prevent a fill.
+        # This is simulated exit eligibility, NOT guaranteed execution.
+        if side=="buy" and self.count>=c.max_trades_day:return "daily_trade_cap"
+        if side=="buy" and self.fees+estimated_cost>c.max_fees_day+1e-10:return "daily_fee_cap"
         if notional<c.min_order-1e-10:return "dust_or_min_order"
         if notional>c.max_order+1e-10:return "order_cap"
         if notional>previous_volume*c.max_volume_fraction+1e-10:return "liquidity_cap"
