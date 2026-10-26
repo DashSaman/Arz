@@ -105,6 +105,26 @@ class ControlPlaneTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 validate(bad)
 
+    def test_real_pilot_never_turns_into_filled_trades_or_future_paper(self):
+        original = fresh()
+        self.assertEqual(validate(original)["financial_decision"], "NO-GO")
+        for key, value in (
+            ("profitability_verified", True),
+            ("real_network_l1_l2_gas_usd", 0),
+            ("realized_follower_execution_pnl_usd", 100),
+            ("post_frozen_oos_prospective_paper_days", 90),
+            ("new_independent_market_backtests", 1),
+            ("original_market_pool_contract_identity_independently_verified", True),
+            ("completed_at_time_of_capture_each", 6)
+        ):
+            bad = fresh()
+            rec = next(x for x in next(t for t in bad["tracks"]
+                           if t["id"] == "STRAT-01")["additional_verified_subcheckpoints"]
+                           if x["id"] == "STRAT01-REAL-BASE-ONE-DAY-PREOOS-2026-10-26")
+            rec[key] = value
+            with self.subTest(key=key), self.assertRaises(ValueError):
+                validate(bad)
+
     def test_pr_merge_status_and_duplicate_branch_rejected(self):
         s = fresh()
         s["research_prs"][-1]["state"] = "MERGED"
