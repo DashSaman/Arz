@@ -1,0 +1,37 @@
+name: STRAT-01 H2 point-in-time signal veto and quote-cost eligibility
+
+on:
+  push:
+    branches:
+      - research/2026-10-26-strat01-h2-causal-veto
+    paths:
+      - src/arz/h2_causal_gate.py
+      - tests/test_h2_causal_gate.py
+      - .github/workflows/strat01-h2-gate.yml
+  pull_request:
+    paths:
+      - src/arz/h2_causal_gate.py
+      - tests/test_h2_causal_gate.py
+      - .github/workflows/strat01-h2-gate.yml
+
+permissions:
+  contents: read
+
+jobs:
+  offline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    env:
+      PYTHONPATH: "src:."
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: H2 independent cluster, causal cutoff, gas and follower quote tests
+        run: python -m unittest discover -s tests -p 'test_h2_causal_gate.py' -v
+      - name: Whole repository regression
+        run: python -m unittest discover -s tests -q
+      - name: Compile and preserve non-executable status
+        run: |
+          python -m compileall -q src/arz/h2_causal_gate.py
+          python scripts/verify_research_control.py
