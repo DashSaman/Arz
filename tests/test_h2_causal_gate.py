@@ -30,7 +30,7 @@ def ctx(*, baseline=True, covered=True, independent=True, pair="WETH/USDC", at=T
 
 
 def quote(**kw):
-    values=dict(signal_seen_at=T-120, observed_at=T-60, block_at=T-90,
+    values=dict(pair="WETH/USDC", signal_seen_at=T-120, observed_at=T-60, block_at=T-90,
                 amount_in_usdc=20.0, quote_out_atomic=100000,
                 source_sha256=SHA, network_l1_usdc=.01, network_l2_usdc=.03,
                 slip_impact_usdc=.01, failed_attempt_cost_usdc=.005)
@@ -141,7 +141,7 @@ class H2CausalEntryTests(unittest.TestCase):
 
 class QuoterEvidenceTests(unittest.TestCase):
     def test_cost_known_is_still_quote_diagnostic_not_order_or_profit(self):
-        r=assess_follower_quote(quote(), {"entry_eligible":True},now=T-30)
+        r=assess_follower_quote(quote(), {"entry_eligible":True,"pair":"WETH/USDC","decision_at":T-120},now=T-30)
         self.assertEqual(r["classification"],"QUALIFIED_QUOTE_COST_DIAGNOSTIC_NOT_FILL")
         self.assertAlmostEqual(r["primary_cost_usdc"],.055)
         self.assertAlmostEqual(r["stress_cost_usdc"],.11)
@@ -150,40 +150,40 @@ class QuoterEvidenceTests(unittest.TestCase):
 
     def test_before_sixty_second_follower_delay_is_unqualified(self):
         x=quote(signal_seen_at=T-100, observed_at=T-50,block_at=T-60)
-        r=assess_follower_quote(x,{"entry_eligible":True},now=T-40)
+        r=assess_follower_quote(x,{"entry_eligible":True,"pair":"WETH/USDC","decision_at":T-120},now=T-40)
         self.assertIn("BEFORE_60SEC_FOLLOWER_DELAY",r["problems"])
 
     def test_stale_quote_rejected(self):
-        r=assess_follower_quote(quote(), {"entry_eligible":True},now=T)
+        r=assess_follower_quote(quote(), {"entry_eligible":True,"pair":"WETH/USDC","decision_at":T-120},now=T)
         self.assertIn("FUTURE_OR_STALE_QUOTE",r["problems"])
 
     def test_future_quote_rejected(self):
-        r=assess_follower_quote(quote(), {"entry_eligible":True},now=T-61)
+        r=assess_follower_quote(quote(), {"entry_eligible":True,"pair":"WETH/USDC","decision_at":T-120},now=T-61)
         self.assertIn("FUTURE_OR_STALE_QUOTE",r["problems"])
 
     def test_unknown_network_l1_cost_never_assumed_zero(self):
-        r=assess_follower_quote(quote(network_l1_usdc=None),{"entry_eligible":True},now=T-30)
+        r=assess_follower_quote(quote(network_l1_usdc=None),{"entry_eligible":True,"pair":"WETH/USDC","decision_at":T-120},now=T-30)
         self.assertIn("network_l1_usdc",r["missing_cost_components"])
         self.assertIsNone(r["modeled_net_profit_usdc"])
 
     def test_unknown_network_l2_cost_never_assumed_zero(self):
-        r=assess_follower_quote(quote(network_l2_usdc=None),{"entry_eligible":True},now=T-30)
+        r=assess_follower_quote(quote(network_l2_usdc=None),{"entry_eligible":True,"pair":"WETH/USDC","decision_at":T-120},now=T-30)
         self.assertIn("network_l2_usdc",r["missing_cost_components"])
 
     def test_unknown_slippage_mev_never_assumed_zero(self):
-        r=assess_follower_quote(quote(slip_impact_usdc=None),{"entry_eligible":True},now=T-30)
+        r=assess_follower_quote(quote(slip_impact_usdc=None),{"entry_eligible":True,"pair":"WETH/USDC","decision_at":T-120},now=T-30)
         self.assertIn("slip_impact_usdc",r["missing_cost_components"])
 
     def test_unknown_failed_attempt_cost_never_assumed_zero(self):
-        r=assess_follower_quote(quote(failed_attempt_cost_usdc=None),{"entry_eligible":True},now=T-30)
+        r=assess_follower_quote(quote(failed_attempt_cost_usdc=None),{"entry_eligible":True,"pair":"WETH/USDC","decision_at":T-120},now=T-30)
         self.assertIn("failed_attempt_cost_usdc",r["missing_cost_components"])
 
     def test_unconfirmed_h2_never_trades_even_with_cost_known(self):
-        r=assess_follower_quote(quote(),{"entry_eligible":False},now=T-30)
+        r=assess_follower_quote(quote(),{"entry_eligible":False,"pair":"WETH/USDC","decision_at":T-120},now=T-30)
         self.assertIn("NO_ELIGIBLE_CAUSAL_H2_ENTRY",r["problems"])
 
     def test_price_timestamp_cannot_precede_block(self):
-        r=assess_follower_quote(quote(block_at=T-20),{"entry_eligible":True},now=T-30)
+        r=assess_follower_quote(quote(block_at=T-20),{"entry_eligible":True,"pair":"WETH/USDC","decision_at":T-120},now=T-30)
         self.assertIn("IMPOSSIBLE_BLOCK_TIME",r["problems"])
 
     def test_only_exact_20_usdc_size_is_accepted(self):
@@ -193,9 +193,20 @@ class QuoterEvidenceTests(unittest.TestCase):
 
     def test_quoter_gas_units_are_not_network_usdc(self):
         x=quote(network_l1_usdc=None,network_l2_usdc=None)
-        r=assess_follower_quote(x,{"entry_eligible":True},now=T-30)
+        r=assess_follower_quote(x,{"entry_eligible":True,"pair":"WETH/USDC","decision_at":T-120},now=T-30)
         self.assertEqual(r["classification"],"REJECTED_NO_EXECUTABLE_PROOF")
         self.assertNotIn("primary_cost_usdc",r)
+
+    def test_wrong_pair_cannot_reuse_positive_h2_consensus(self):
+        confirmed={"entry_eligible":True,"pair":"WETH/USDC","decision_at":T-120}
+        r=assess_follower_quote(quote(pair="cbBTC/USDC"),confirmed,now=T-30)
+        self.assertIn("SIGNAL_PAIR_OR_TIME_MISMATCH",r["problems"])
+        self.assertFalse(r["risk_trade_authorized"])
+
+    def test_wrong_signal_time_cannot_reuse_positive_cluster_votes(self):
+        confirmed={"entry_eligible":True,"pair":"WETH/USDC","decision_at":T-121}
+        r=assess_follower_quote(quote(),confirmed,now=T-30)
+        self.assertIn("SIGNAL_PAIR_OR_TIME_MISMATCH",r["problems"])
 
     def test_future_cohort_cannot_be_backdated_to_approve_quote(self):
         r=assess_follower_quote(quote(),
