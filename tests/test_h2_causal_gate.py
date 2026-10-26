@@ -113,7 +113,7 @@ class H2CausalEntryTests(unittest.TestCase):
     def test_future_cohort_selection_rejected(self):
         with self.assertRaisesRegex(ValueError,"Future"):
             ctx(cohort=T+1)
-        r=confirm_baseline_entry(ctx(),[flow("1","A"),flow("2","B",cohort=T-1)])
+        r=confirm_baseline_entry(ctx(),[flow("1","A"),flow("2","B",cohort=COHORT-1)])
         self.assertEqual(r["reason"],"COHORT_SNAPSHOT_MISMATCH")
 
     def test_impossible_observation_before_finality_rejected(self):
