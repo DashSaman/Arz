@@ -80,8 +80,10 @@ for n in range(30):
                 rows[i]=",".join(fields)
                 break
         blob=("\n".join(rows)+"\n").encode()
-        data,_=gate.parse_report(blob)
         with self.assertRaises(ValueError):
+            # Either parsing or qualification must fail closed: missing/NaN
+            # final holdout cannot silently become a zero-return scenario.
+            data,_=gate.parse_report(blob)
             gate.qualification(data,gate.STRATEGIES[n%3])
     define_test("invalid_holdout_return_%03d" % n, test)
 
