@@ -1,0 +1,292 @@
+{
+  "evidence_version": 1,
+  "checkpoint_id": "STRAT01-BASE-READONLY-PILOT-2026-10-27",
+  "captured_from_GitHub_Actions": "https://github.com/DashSaman/Arz/actions/runs/40421138680",
+  "checked_commit": "3950780670ab001666654efe88f887240a6584e9",
+  "source_verification": {
+    "provider": "Trading Strategy public native 4h candles-jsonl",
+    "provider_docs": "https://tradingstrategy.ai/docs/_modules/tradingstrategy/transport/jsonl.html",
+    "uniswap_docs": "https://developers.uniswap.org/docs/sdks/v3/guides/swapping/quoting",
+    "base_rpc": "https://mainnet.base.org",
+    "queried_public_sources": "2 JSONL candle requests, 1 blockNumber, 1 getBlockByNumber, 2 QuoterV2 eth_call, no signing or transaction sending"
+  },
+  "source_output": {
+    "base_rpc": {
+      "actual_L1_L2_gas_cost_usdc": null,
+      "all_in_cost_proven": false,
+      "block": 53134288,
+      "block_timestamp": 1793057923,
+      "head_rpc_sha256": "e8a7c48434cabf1bd0fcfd2b4252276be642c93b27ec5b68e2e227f19c39b49e",
+      "header_rpc_sha256": "e6f6fb7e900a3f145d856484ae25f25090410c347c4150cae27f86105575e619",
+      "observed_at": 1793057924,
+      "quotes": [
+        {
+          "actual_slippage_or_MEV_usdc": null,
+          "amount_out_atomic": "8616692865956162",
+          "amount_out_tokens": "0.008616692865956162",
+          "block_timestamp": 1793057923,
+          "calldata_static_simulation": true,
+          "chain_id": 8453,
+          "failed_broadcast_cost_usdc": null,
+          "first_observed_in_this_run": 1793057924,
+          "gas_estimate_UNITS": "86263",
+          "included_transaction": false,
+          "input_usdc": "20",
+          "market": "WETH",
+          "quote_first_observed_after_frozen_OOS_start": false,
+          "quote_is_not_prospective_signal_or_realized_trade": true,
+          "rpc_response_sha256": "7c6495b0023bc54cf9acd279646a6506cceca4b445e36cabb3fac491b47c0a45",
+          "source_block": 53134288,
+          "status": "READ_ONLY_QUOTER_SIMULATION_ONLY",
+          "usd_L1_fee": null,
+          "usd_L2_fee": null
+        },
+        {
+          "actual_slippage_or_MEV_usdc": null,
+          "amount_out_atomic": "24981",
+          "amount_out_tokens": "0.00024981",
+          "block_timestamp": 1793057923,
+          "calldata_static_simulation": true,
+          "chain_id": 8453,
+          "failed_broadcast_cost_usdc": null,
+          "first_observed_in_this_run": 1793057924,
+          "gas_estimate_UNITS": "100765",
+          "included_transaction": false,
+          "input_usdc": "20",
+          "market": "cbBTC",
+          "quote_first_observed_after_frozen_OOS_start": false,
+          "quote_is_not_prospective_signal_or_realized_trade": true,
+          "rpc_response_sha256": "25e8b6ab73a93d2583cd9aeba3b14ea561b821a77a6cf5faa88372cc015e7376",
+          "source_block": 53134288,
+          "status": "READ_ONLY_QUOTER_SIMULATION_ONLY",
+          "usd_L1_fee": null,
+          "usd_L2_fee": null
+        }
+      ],
+      "rpc_host": "https://mainnet.base.org",
+      "status": "PARTIAL_QUOTER_SNAPSHOT"
+    },
+    "captured_at_utc": "2026-10-26T23:38:43.173767+00:00",
+    "daily_compounding_verified": false,
+    "financial_decision": "NO-GO",
+    "historical_fee_inclusive_follower_fills_verified": 0,
+    "live_trading": "DISABLED",
+    "max_whitelisted_network_requests": 6,
+    "new_market_bars_relabelled_as_prospective_OOS": 0,
+    "note": "One snapshot is not a market data history. Provider candle empty rows never interpolated; gas and fill execution unknown.",
+    "provider_candles": [
+      {
+        "HTTP": "200",
+        "acquired_at_unix": 1793057923,
+        "chain_pool_token_identity_independently_verified": false,
+        "complete_observed_rows": 5,
+        "eligible_as_unseen_future_OOS": false,
+        "first_ts": 1792972800,
+        "last_ts": 1793044800,
+        "missing_expected_4h_timestamps": [],
+        "pair_id": 4564367,
+        "provider_first_published_at_available": false,
+        "provider_zero_trades_or_missing_candle_cannot_be_distinguished": true,
+        "row_count": 6,
+        "rows": [
+          {
+            "ohlcv": {
+              "close": 2301.2680811896303,
+              "high": 2334.6444055940033,
+              "low": 2291.394365819088,
+              "open": 2327.185856460268,
+              "volume": 4425944.6179229915
+            },
+            "source_line_sha256": "b5786513def835fba47774d061abc818e646b8a70ee78413e0d8c7a431ebce86",
+            "status": "HISTORICAL_PILOT_COMPLETED_PRIOR_TO_FROZEN_OOS",
+            "ts": 1792972800
+          },
+          {
+            "ohlcv": {
+              "close": 2316.505918197912,
+              "high": 2325.790033525129,
+              "low": 2300.3478040379455,
+              "open": 2301.2680811896303,
+              "volume": 1851184.5664829998
+            },
+            "source_line_sha256": "7699baae7023c4fc586415eabd98e44c6d9a8c6dfce015432808829468858ba5",
+            "status": "HISTORICAL_PILOT_COMPLETED_PRIOR_TO_FROZEN_OOS",
+            "ts": 1792987200
+          },
+          {
+            "ohlcv": {
+              "close": 2331.6114913313017,
+              "high": 2334.4109644975533,
+              "low": 2302.6491872745846,
+              "open": 2316.505918197912,
+              "volume": 1812830.3853930007
+            },
+            "source_line_sha256": "1fe08e0e812b1615bb22053cc607512571f675dc762d9bfa64fac2fa4ed99b34",
+            "status": "HISTORICAL_PILOT_COMPLETED_PRIOR_TO_FROZEN_OOS",
+            "ts": 1793001600
+          },
+          {
+            "ohlcv": {
+              "close": 2325.790033525129,
+              "high": 2339.786019911947,
+              "low": 2293.686791587387,
+              "open": 2331.6114913313017,
+              "volume": 4481234.4960189955
+            },
+            "source_line_sha256": "9030f341223f88a44e271ebd672cea31bca369d47cbc0741fa1daaa28f5c3f5d",
+            "status": "HISTORICAL_PILOT_COMPLETED_PRIOR_TO_FROZEN_OOS",
+            "ts": 1793016000
+          },
+          {
+            "ohlcv": {
+              "close": 2316.274290768835,
+              "high": 2333.0108080144596,
+              "low": 2306.566824062196,
+              "open": 2325.790033525129,
+              "volume": 2413655.480072003
+            },
+            "source_line_sha256": "9d1269d44e48f43e9c04855d9fa6a533d4f958f43f636ca1ed6b7eb0bbeb76e8",
+            "status": "HISTORICAL_PILOT_COMPLETED_PRIOR_TO_FROZEN_OOS",
+            "ts": 1793030400
+          },
+          {
+            "ohlcv": {
+              "close": 2319.751135347214,
+              "high": 2319.751135347214,
+              "low": 2300.3478040379455,
+              "open": 2315.811105389646,
+              "volume": 1356847.1095079985
+            },
+            "source_line_sha256": "0aafa32f04a744c8f7e1e273ca0a2dfb275c5eeab20439f337d626a99e5a3fa0",
+            "status": "INCOMPLETE_AT_ACQUISITION",
+            "ts": 1793044800
+          }
+        ],
+        "source_response_empty": false,
+        "source_sha256": "da0956c6bb4e97f4409e4f2d17dfb9e25c037efcd54fd2f60c636309cc90e929",
+        "source_url": "https://tradingstrategy.ai/api/candles-jsonl?pair_ids=4564367&time_bucket=4h&start=2026-10-26T00%3A00%3A00&end=2026-10-26T23%3A59%3A59&max_bytes=240000",
+        "status": "OBSERVED_PILOT_ONLY_NOT_FILL"
+      },
+      {
+        "HTTP": "200",
+        "acquired_at_unix": 1793057924,
+        "chain_pool_token_identity_independently_verified": false,
+        "complete_observed_rows": 5,
+        "eligible_as_unseen_future_OOS": false,
+        "first_ts": 1792972800,
+        "last_ts": 1793044800,
+        "missing_expected_4h_timestamps": [],
+        "pair_id": 4705508,
+        "provider_first_published_at_available": false,
+        "provider_zero_trades_or_missing_candle_cannot_be_distinguished": true,
+        "row_count": 6,
+        "rows": [
+          {
+            "ohlcv": {
+              "close": 79493.95644934392,
+              "high": 80260.73474022438,
+              "low": 79303.40922919002,
+              "open": 80068.34955051493,
+              "volume": 3086855.0904770037
+            },
+            "source_line_sha256": "db2382e597b397e92ddc904bc128ca0d41400387788347875b4597d7f9024934",
+            "status": "HISTORICAL_PILOT_COMPLETED_PRIOR_TO_FROZEN_OOS",
+            "ts": 1792972800
+          },
+          {
+            "ohlcv": {
+              "close": 79964.33352188085,
+              "high": 80156.46878582667,
+              "low": 79493.95644934392,
+              "open": 79493.95644934392,
+              "volume": 1181308.6965650008
+            },
+            "source_line_sha256": "08e690d42f9cc45f716aecc1f70e3bf6b3fc23afeecf194598f2e3e26b7e7a8f",
+            "status": "HISTORICAL_PILOT_COMPLETED_PRIOR_TO_FROZEN_OOS",
+            "ts": 1792987200
+          },
+          {
+            "ohlcv": {
+              "close": 80341.03160192819,
+              "high": 80453.58218576181,
+              "low": 79581.44353623338,
+              "open": 79964.33352188085,
+              "volume": 1376527.5183739976
+            },
+            "source_line_sha256": "5e3dee6452a0934cca3515bd33bd9718594cc82a1825e0db3876fc5f2b521db3",
+            "status": "HISTORICAL_PILOT_COMPLETED_PRIOR_TO_FROZEN_OOS",
+            "ts": 1793001600
+          },
+          {
+            "ohlcv": {
+              "close": 80324.96580551744,
+              "high": 80687.22450981275,
+              "low": 79390.68660930487,
+              "open": 80341.03160192819,
+              "volume": 4244153.100680996
+            },
+            "source_line_sha256": "b543b6eae3f84059a0d107646c8711225b4d2a06ff04c7a9916eda2f2f0ebfb4",
+            "status": "HISTORICAL_PILOT_COMPLETED_PRIOR_TO_FROZEN_OOS",
+            "ts": 1793016000
+          },
+          {
+            "ohlcv": {
+              "close": 79892.40159247108,
+              "high": 80421.40879663694,
+              "low": 79708.86938820366,
+              "open": 80324.96580551744,
+              "volume": 1912119.3979809997
+            },
+            "source_line_sha256": "5da0dd7c16db1a79a1f2480cbf48b18b3c3960e311e23d1cfd9f8ab4fc84811c",
+            "status": "HISTORICAL_PILOT_COMPLETED_PRIOR_TO_FROZEN_OOS",
+            "ts": 1793030400
+          },
+          {
+            "ohlcv": {
+              "close": 80020.32535065521,
+              "high": 80068.34955051493,
+              "low": 79653.09549142148,
+              "open": 79892.40159247108,
+              "volume": 781586.6417190002
+            },
+            "source_line_sha256": "e83dadd74470ac661d1e111ae208d5407923c314b0c62c473ee2d1de932623df",
+            "status": "INCOMPLETE_AT_ACQUISITION",
+            "ts": 1793044800
+          }
+        ],
+        "source_response_empty": false,
+        "source_sha256": "492d36b0ac1643aae6dddaa38ef5c228e00423de08f61ace788452e40b138c54",
+        "source_url": "https://tradingstrategy.ai/api/candles-jsonl?pair_ids=4705508&time_bucket=4h&start=2026-10-26T00%3A00%3A00&end=2026-10-26T23%3A59%3A59&max_bytes=240000",
+        "status": "OBSERVED_PILOT_ONLY_NOT_FILL"
+      }
+    ],
+    "schema_version": 1,
+    "source_class": "REAL_PUBLIC_ONE_SHOT_BEFORE_OR_AT_FROZEN_OOS_BOUNDARY"
+  },
+  "independent_checks": {
+    "programmatic_tests": 21,
+    "full_repo_tests": 945,
+    "focused_are_subset_of_full": true,
+    "full_suite_result": "SUCCESS",
+    "all_network_access_readonly": true,
+    "provisional_old_pair_id_source": "reports/crossmarket_20261016/data_provenance.json",
+    "contracts_or_source_pool_independent_identity_verified": false,
+    "realized_network_costs_or_fills_verified": false,
+    "forward_signal_delay_observed": false,
+    "source_raw_response_hash_and_per_candle_row_hash_retained": true,
+    "completed_candles_available_per_market": 5,
+    "incomplete_candles_per_market": 1,
+    "frozen_new_OOS_start_utc": "2026-10-27T00:00:00Z",
+    "observation_classification": "ONE_DAY_PRE_FROZEN_OOS_DIAGNOSTIC_NOT_FINANCIAL_BACKTEST",
+    "provider_missing_candle_means_no_trade_or_feed_gap": "AMBIGUOUS",
+    "future_oos_days_genuinely_elapsed_at_this_capture": 0
+  },
+  "decision": {
+    "historical_trading_strategy_alpha_verified": false,
+    "net_positive_geometric_return_verified": false,
+    "exact_execution_costs_known": false,
+    "funded_decision": "NO-GO",
+    "live_trading": "DISABLED",
+    "capital_used_usdc": 0
+  }
+}
