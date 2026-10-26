@@ -24,6 +24,15 @@ The merged `scripts/wal01_witness_gate.py` compares the public PR #33 derived tr
 
 **WAL-01 Issue #37 is STILL PARTIAL**: historical original acquisition lots, complete CPI route, transfers, position basis and 90-day whole-account equity remain missing. Do not mark WAL-01 DONE or promote the receipt as profit because 460 tests passed.
 
+## 2026-10-26 safety and profitability checkpoint (verified on main)
+
+- **[PR #40](https://github.com/DashSaman/Arz/pull/40) merged**: entry trade-count and fee quotas no longer prevent an otherwise-valid protective SELL. Hard caps for slippage, gas, market liquidity and order size continue to apply: **there is no guaranteed stop fill**. Rejected and failed exits are counted, never treated as executed orders. [Actions 40372639075](https://github.com/DashSaman/Arz/actions/runs/40372639075): **708/708 total**, **248 focused** safety tests PASS.
+- **[PR #41](https://github.com/DashSaman/Arz/pull/41) merged**: reproducible, SHA-pinned financial qualification of all 24 **already seen** historical Oct13 simulations. Trend final holdout −2.4443%, Momentum −1.8463%, Mean Reversion +0.1427% but −0.1777% with doubled modeled costs. **0/3 qualified for funded use**, only 4–6 closed cycles, no executable DEX quotes, no 90 elapsed prospective days. [Actions 40373896709](https://github.com/DashSaman/Arz/actions/runs/40373896709): **751/751 total**, **43 focused** tests PASS. **This was an audit, not a new OOS backtest**.
+- **Active parallel strategy research**: [STRAT-01 Issue #42](https://github.com/DashSaman/Arz/issues/42) — corrected ATR S0 and H2 wallet entry-veto only when independently verified, real Base DEX costs, source-time quotes, frozen new holdout and forward paper. The archived Edgelab surrogate code in unmerged PR #17 must be independently assessed, never automatically merged or treated as live execution.
+- **WAL-01 still PARTIAL**: [Issue #37](https://github.com/DashSaman/Arz/issues/37) needs original mint acquisition lots and complete economic CPI trace for Mitch's one signer-confirmed USDC receipt. 751 or 708 tests cannot supply missing histories.
+
+**Trading remains DISABLED, funded authorization zero, no profits or exits guaranteed.** See the verified financial audit [report JSON](reports/research/2026-10-26-holdout-net-profit-no-go.json) and [safety report](reports/safety/protective_exit_20261026.json).
+
 ## PR topology (check remotely again before changing branches)
 
 Core research dependency chain: **#15 → #17 → #18 → #24 → #26 → #27 → #28 → #29 → #30 → #31 → #32 → #33**. These were **all open Draft PRs**, not merged, when this checkpoint was created. The independent forensic gap audit [#25](https://github.com/DashSaman/Arz/pull/25) is also open Draft against `main`. **Do not merge the whole chain or misattribute a draft file to `main`.**
