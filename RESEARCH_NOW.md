@@ -33,6 +33,14 @@ The merged `scripts/wal01_witness_gate.py` compares the public PR #33 derived tr
 
 **Trading remains DISABLED, funded authorization zero, no profits or exits guaranteed.** See the verified financial audit [report JSON](reports/research/2026-10-26-holdout-net-profit-no-go.json) and [safety report](reports/safety/protective_exit_20261026.json).
 
+## STRAT-01 H2 causal-entry safety checkpoint — 2026-10-26
+
+[PR #44](https://github.com/DashSaman/Arz/pull/44) was independently merged into `main` (`032b781045d5cb2198d71c5dd4528ac9aea9296c`). [GitHub Actions 40377379362](https://github.com/DashSaman/Arz/actions/runs/40377379362) observed **35/35 focused** and **787/787 whole-repository software tests PASS** (overlapping subsets). `src/arz/h2_causal_gate.py` implements frozen PR18 H2 **wallet confirmation as an entry veto only**; it cannot invent ATR entries, modify exits/sizing or submit orders. Causal source timestamps/cohort/cluster independence and exact pair/signal bind are required. The follower price preflight enforces a 60-second delay, 30-second freshness and independent L1/L2/impact/failure USD costs. Any missing inputs reject eligibility; even a complete QuoterV2 response is **diagnostic, not a filled trade**.
+
+**No new real Base wallet historical cluster feed, no new executable quote, no new market backtest, no qualified return or forward paper days** resulted. [Persian report](docs/fa/strat01_h2_causal_20261026.md) · [English report](docs/en/strat01_h2_causal_20261026.md) · [machine evidence](reports/strat01/2026-10-26-h2-evidence-readiness.json).
+
+**NEXT STRAT-01 step in [Issue #42](https://github.com/DashSaman/Arz/issues/42):** isolate and source-pin the old corrected ATR S0 from draft PR17, establish actual lawful Base DEX price/time/execution-cost coverage, then test a genuinely untouched as-of holdout. H2 cannot be tested economically until point-in-time wallet feed and exact follower-time costs exist. WAL-01 [Issue #37](https://github.com/DashSaman/Arz/issues/37) is still PARTIAL. Financial **NO-GO**, live **DISABLED**.
+
 ## PR topology (check remotely again before changing branches)
 
 Core research dependency chain: **#15 → #17 → #18 → #24 → #26 → #27 → #28 → #29 → #30 → #31 → #32 → #33**. These were **all open Draft PRs**, not merged, when this checkpoint was created. The independent forensic gap audit [#25](https://github.com/DashSaman/Arz/pull/25) is also open Draft against `main`. **Do not merge the whole chain or misattribute a draft file to `main`.**
