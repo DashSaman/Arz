@@ -1,0 +1,18 @@
+{
+  "provider":"Trading Strategy",
+  "endpoint":"https://tradingstrategy.ai/api/candles-jsonl",
+  "request_common":{"time_bucket":"4h","start":"2024-09-01T00:00:00","end":"2026-10-01T00:00:00","max_bytes":3000000},
+  "date_utc":"2026-10-16",
+  "total_returned_native4h_records":20151,
+  "records":[
+    {"pair_id":4564367,"asset":"WETH","rows":4548,"bytes":1033372,"downloaded_at":"2026-10-16T17:47:20.503168+00:00","sha256":"40f4a87937d09ab21f1f112444785c09d0119f7d8b91ce48f5bdd5ad27d56aa3","first":1725148800,"last":1790812800,"gaps":1},
+    {"pair_id":4705508,"asset":"cbBTC","rows":4467,"bytes":1008255,"downloaded_at":"2026-10-16T17:47:24.356508+00:00","sha256":"427da056b70bfc67f1ae7ff6e1ca94f41df4ec238a225e34f621d4cb1072323e","first":1726315200,"last":1790812800,"gaps":1},
+    {"pair_id":1364813,"asset":"WBNB","rows":3281,"bytes":826310,"downloaded_at":"2026-10-16T17:47:28.063381+00:00","sha256":"dee8ce776cd6bcf6c9ded918f9e152c2bf2b6a439849aea3b31fb269dee36f53","first":1725148800,"last":1772596800,"gaps":2},
+    {"pair_id":2601348,"asset":"WAVAX","rows":3295,"bytes":794454,"downloaded_at":"2026-10-16T17:47:32.046791+00:00","sha256":"eafca55581c0fa42c111c1cec7b5d67d7eda3ffe90bb341f95325e08d023e708","first":1725148800,"last":1772596800,"gaps":1},
+    {"pair_id":2854997,"asset":"WMATIC_provider_label","rows":4560,"bytes":1054568,"downloaded_at":"2026-10-16T17:47:36.031243+00:00","sha256":"c23cdb0c07de450948d83133e369b70086f85c5814a1b5bceb9144ed33dc3466","first":1725148800,"last":1790812800,"gaps":1}
+  ],
+  "http_status_all":200,
+  "zero_or_missing_reported_volume_all":0,
+  "raw_data_published":false,
+  "limits":"Native provider4h aggregation, not synthetic filling of missing hourly records. Market IDs, contract identities and reported pool fees are specified in the preregistered protocol. Positive reported volume does not guarantee our execution. BNB and AVAX samples stop at2026-03-04T04:00:00Z; missing periods remain missing. Other gaps and warmup shortages cause skips. No complete24-month account was obtained. Raw data/precise ledgers remain in isolated runtime while redistribution entitlement remains unresolved; matching hashes are necessary for exact reproduction."
+}
