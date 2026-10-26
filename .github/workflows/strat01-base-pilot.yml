@@ -1,0 +1,59 @@
+name: STRAT-01 bounded real Base market and Quoter pilot
+
+on:
+  push:
+    branches:
+      - research/2026-10-27-base-pilot-feeds
+    paths:
+      - 'scripts/strat01_base_observation_pilot.py'
+      - 'tests/test_strat01_base_observation_pilot.py'
+      - '.github/workflows/strat01-base-pilot.yml'
+  pull_request:
+    paths:
+      - 'scripts/strat01_base_observation_pilot.py'
+      - 'tests/test_strat01_base_observation_pilot.py'
+      - '.github/workflows/strat01-base-pilot.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      PYTHONPATH: "src:."
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Explicit provider and Quoter adversarial safety tests
+        run: python -m unittest discover -s tests -p 'test_strat01_base_observation_pilot.py' -v
+      - name: Full repository offline regression
+        run: python -m unittest discover -s tests -q
+      - name: Static validation plus research NO-GO
+        run: |
+          python -m compileall -q scripts/strat01_base_observation_pilot.py
+          python scripts/verify_research_control.py
+      - name: ONE bounded public source observation — prior-day pilot, not OOS
+        if: hashFiles('reports/strat01/2026-10-27-base-pilot-observed.json') == ''
+        run: |
+          python scripts/strat01_base_observation_pilot.py --output /tmp/arz-base-pilot-one-shot.json
+          python - <<'PY'
+          import json
+          d=json.load(open("/tmp/arz-base-pilot-one-shot.json"))
+          assert d["financial_decision"] == "NO-GO"
+          assert d["live_trading"] == "DISABLED"
+          assert d["historical_fee_inclusive_follower_fills_verified"] == 0
+          assert d["new_market_bars_relabelled_as_prospective_OOS"] == 0
+          assert len(d["provider_candles"]) == 2
+          print("ARZ_READ_ONLY_PILOT_NO_GO=PASS")
+          PY
+      - name: Preserve bounded derived public-source evidence
+        if: hashFiles('reports/strat01/2026-10-27-base-pilot-observed.json') == ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: arz-real-base-two-markets-quote-pilot
+          path: /tmp/arz-base-pilot-one-shot.json
+          retention-days: 30
+          if-no-files-found: error
