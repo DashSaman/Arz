@@ -190,6 +190,43 @@ def validate(state: object) -> dict:
     require(type(state.get("stop_rules")) is list and len(state["stop_rules"]) >= 3,
             "Missing mandatory stop rules")
 
+    # Later independently merged PRs are NOT the old open-draft stack.
+    # Preserve them as immutable checkpoints with actual runs, not by falsely
+    # relabeling existing PR #15–#33 source provenance.
+    deliveries = state.get("post_checkpoint_verified_deliveries", [])
+    require(type(deliveries) is list and len(deliveries) >= 2,
+            "Missing verified post-control research checkpoints")
+    delivered = set()
+    for item in deliveries:
+        require(type(item) is dict, "Invalid delivery record")
+        number = item.get("pr")
+        require(type(number) is int and number not in delivered and number >= 34,
+                "Duplicate or invalid later PR")
+        delivered.add(number)
+        require(item.get("status") == "MERGED_TO_MAIN_VERIFIED",
+                "Later PR merge claim changed without review")
+        require(bool(COMMIT_SHA.fullmatch(str(item.get("merged_sha")))),
+                "Later PR must cite immutable merge SHA")
+        require(type(item.get("run_url")) is str and
+                RUN_REF.fullmatch(item["run_url"]) is not None,
+                "Later PR must cite actual CI URL")
+        require(controlled_path(item.get("report")), "Later PR evidence path invalid")
+        require(type(item.get("all_tests_passed")) is int and item["all_tests_passed"] > 0,
+                "No observed software tests")
+        require(type(item.get("new_test_methods")) is int and
+                0 < item["new_test_methods"] <= item["all_tests_passed"],
+                "Focused suite must be inside full suite")
+    require({40, 41}.issubset(delivered),
+            "Protective exit and immutable negative profit gate must both be recorded")
+    require(tasks["STRAT-01"]["status"] == "IN_PROGRESS" and
+            tasks["STRAT-01"].get("github_issue_url") ==
+            "https://github.com/DashSaman/Arz/issues/42",
+            "Incorrect next profitability research issue")
+    require(performance["qualified_H1_H2_H3_H4"] == 0 and
+            safety["financial_decision"] == "NO-GO" and
+            safety["live_trading"] == "DISABLED",
+            "Software passes cannot authorize profit or trade execution")
+
     next_unfinished = next((name for name in order if tasks[name]["status"] != "DONE"), None)
     require(next_unfinished is not None, "No next research work defined")
     return {
