@@ -413,7 +413,7 @@
         "EV-007"
       ],
       "completion": "Separate H2 baseline and wallet-confirmed variant once wallet data arrives; baseline must pass realistic cost and OOS without retuning; CEX proxy never qualifies Base DEX H4",
-      "next_action": "Issue #42: run source-pinned actual Base DEX ATR baseline cost-aware OOS/forward validation; pre-register untouched segment, require wallet H2 confirmation only with full permitted history; no optimizations using seen Oct13 results.",
+      "next_action": "Next: isolate and source-pin the old corrected ATR S0 source and parameters from draft PR17 without merging the research stack; design lawful real Base DEX price/fee/quote acquisition with auditable time windows, then untouched cost-stressed OOS. H2 only vetoes S0 entries and remains disabled without complete as-of wallet cohorts.",
       "github_issue_url": "https://github.com/DashSaman/Arz/issues/42",
       "last_verified_subcheckpoint": {
         "id": "STRAT01-IMMUTABLE-NEGATIVE-CONTROL-2026-10-26",
@@ -427,7 +427,25 @@
         "qualified_strategies": 0,
         "independent_new_backtest": false,
         "net_profitable_trade_proof": false
-      }
+      },
+      "additional_verified_subcheckpoints": [
+        {
+          "id": "STRAT01-H2-CAUSAL-GATE-2026-10-26",
+          "merged_pr": 44,
+          "merged_sha": "032b781045d5cb2198d71c5dd4528ac9aea9296c",
+          "ci_url": "https://github.com/DashSaman/Arz/actions/runs/40377379362",
+          "focused_methods_passed": 35,
+          "full_repository_methods_passed": 787,
+          "scope": "Source and causal eligibility only; exact $20 USD quote cost-hurdle diagnostic, no DEX orders.",
+          "original_h2_protocol_git_blob_sha1": "10a29718800a14f5bb827cdb23cd20ef8c7a12b3",
+          "wallet_cluster_history_complete": false,
+          "independent_real_wallet_voters": 0,
+          "new_real_quotes": 0,
+          "new_market_backtests": 0,
+          "net_profit_usd": null,
+          "live_enabled": false
+        }
+      ]
     },
     {
       "id": "PAPER-01",
@@ -511,7 +529,7 @@
     "No PR treated as merged unless GitHub checked",
     "No changes to main trading runtime while integrating governance files"
   ],
-  "verification_policy": "Main contains safety PR40 and immutable Oct13 profit NO-GO gate PR41. STRAT-01 is IN_PROGRESS in issue42; WAL-01 remains PARTIAL in issue37. Neither a safe exit nor 751 software tests guarantee profitable orders. No real wallet approvals/live trades, and no fabricated paper history.",
+  "verification_policy": "Source-of-truth on main. STRAT-01 continues at S0 ATR source pin and lawful Base DEX as-of quote/fee intake; merged H2 gate PR44 is code correctness only, no wallet or positive profit evidence. All live use remains NO-GO/DISABLED.",
   "completed_milestones": [
     {
       "task": "OPS-01",
@@ -531,15 +549,13 @@
     }
   ],
   "last_verified_delivery": {
-    "pr": 38,
-    "merged_sha": "eafee63bcd331826da36af6727593cd4021f4126",
-    "run_url": "https://github.com/DashSaman/Arz/actions/runs/40236822763",
-    "total_unit_test_methods": 460,
-    "focused_unit_test_methods": 364,
-    "trade_count_in_this_test_suite": 0,
-    "source_requests_in_this_stage": 0,
-    "software_status": "PASS",
-    "economics_status": "INSUFFICIENT_DATA_NO_GO"
+    "pr": 44,
+    "merged_sha": "032b781045d5cb2198d71c5dd4528ac9aea9296c",
+    "run_url": "https://github.com/DashSaman/Arz/actions/runs/40377379362",
+    "full_tests": 787,
+    "focused": 35,
+    "net_alpha_verified": false,
+    "source": "reports/strat01/2026-10-26-h2-evidence-readiness.json"
   },
   "post_checkpoint_verified_deliveries": [
     {
