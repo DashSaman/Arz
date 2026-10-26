@@ -1,0 +1,116 @@
+{
+  "financial_decision": "NO-GO",
+  "gate_id": "ARZ_MAIN_OCT13_REPORTED_HOLDOUT_NEGATIVE_CONTROL_V1",
+  "live_trading": "DISABLED",
+  "model_costs_not_real_Dex_execution": true,
+  "net_geometric_real_account_return_verified": false,
+  "qualified_strategy_count": 0,
+  "saved_historical_runs": 24,
+  "schema_version": 1,
+  "source_class": "ALREADY_SEEN_HISTORICAL_PRICE_SIMULATION_NOT_NEW_OUT_OF_SAMPLE",
+  "sources": {
+    "historical_result_csv": "reports/backtests/summary.csv",
+    "historical_result_git_blob_sha1": "a2afaff3e9b4a6e1af8223eef4862cbd134b2d17",
+    "historical_result_sha256": "25d5ccf029171ba16b7b87ce697110cabd53d4cb3fa8d43c3edf8ada9a2f502c",
+    "preregistered_protocol": "configs/preregistered_strategies.json",
+    "preregistered_protocol_git_blob_sha1": "5693f693fe388825db5cc1176d1b073d1ef51633",
+    "preregistered_protocol_sha256": "3e8b078dcceeb291480623bb5a0b3fb137fc7e52f2e74643b7213af320607a39"
+  },
+  "strategy_results": [
+    {
+      "all_financial_gates_pass": false,
+      "bootstrap_mean_lower": "-0.0013983588877542377",
+      "closed_trades": 6,
+      "double_cost_return_pct": "-2.91832534590901200",
+      "failed_requirements": [
+        "positive_base_holdout",
+        "positive_double_cost_holdout",
+        "positive_higher_gas_holdout",
+        "closed_trades_at_least_100",
+        "profit_factor_at_least_1_5",
+        "bootstrap_mean_lower_positive",
+        "actual_base_dex_follower_time_fills_verified",
+        "ninety_prospective_paper_calendar_days_verified"
+      ],
+      "higher_gas_return_pct": "-3.52430911333412300",
+      "historical_model_only": true,
+      "holdout_return_pct": "-2.444309113334153200",
+      "live_trading": "DISABLED",
+      "max_drawdown_pct": "2.444309113334153200",
+      "passed_requirements": [
+        "drawdown_not_over_10pct"
+      ],
+      "profit_factor": "0.0882937246760768",
+      "strategy": "trend"
+    },
+    {
+      "all_financial_gates_pass": false,
+      "bootstrap_mean_lower": "-0.0013972863910496837",
+      "closed_trades": 6,
+      "double_cost_return_pct": "-2.362915040540969300",
+      "failed_requirements": [
+        "positive_base_holdout",
+        "positive_double_cost_holdout",
+        "positive_higher_gas_holdout",
+        "closed_trades_at_least_100",
+        "profit_factor_at_least_1_5",
+        "bootstrap_mean_lower_positive",
+        "actual_base_dex_follower_time_fills_verified",
+        "ninety_prospective_paper_calendar_days_verified"
+      ],
+      "higher_gas_return_pct": "-3.016312960128875200",
+      "historical_model_only": true,
+      "holdout_return_pct": "-1.84631296012889300",
+      "live_trading": "DISABLED",
+      "max_drawdown_pct": "2.685657271823349600",
+      "passed_requirements": [
+        "drawdown_not_over_10pct"
+      ],
+      "profit_factor": "0.5149614562676602",
+      "strategy": "momentum"
+    },
+    {
+      "all_financial_gates_pass": false,
+      "bootstrap_mean_lower": "-0.0006974243649154365",
+      "closed_trades": 4,
+      "double_cost_return_pct": "-0.177704577618864600",
+      "failed_requirements": [
+        "positive_double_cost_holdout",
+        "positive_higher_gas_holdout",
+        "closed_trades_at_least_100",
+        "profit_factor_at_least_1_5",
+        "bootstrap_mean_lower_positive",
+        "actual_base_dex_follower_time_fills_verified",
+        "ninety_prospective_paper_calendar_days_verified"
+      ],
+      "higher_gas_return_pct": "-0.577267939255887700",
+      "historical_model_only": true,
+      "holdout_return_pct": "0.142732060744088500",
+      "live_trading": "DISABLED",
+      "max_drawdown_pct": "1.429478557943841800",
+      "passed_requirements": [
+        "positive_base_holdout",
+        "drawdown_not_over_10pct"
+      ],
+      "profit_factor": "1.1802062759129794",
+      "strategy": "mean_reversion"
+    }
+  ],
+  "wallet_profitability_verified": false,
+  "warnings": [
+    "Final holdout reused as last forward fold, not independent new evidence",
+    "Every saved simulation uses assumed OHLCV fills, not actual DEX execution",
+    "The code and observed data have already been seen; never retune using this rejection"
+  ],
+  "was_a_new_market_backtest": false,
+  "was_prospective_paper": false,
+  "observed_ci": {
+    "run_url": "https://github.com/DashSaman/Arz/actions/runs/40373593029",
+    "source_code_commit": "dc008a6d34f21b5a7616d56bf7d4b3ac44c8be8e",
+    "focused_test_methods_passed": 43,
+    "full_repo_test_methods_passed": 751,
+    "source_checksums_verified": true,
+    "conclusion": "SUCCESS",
+    "all_tests_overlap_scope": true
+  }
+}
