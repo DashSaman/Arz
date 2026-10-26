@@ -227,6 +227,35 @@ def validate(state: object) -> dict:
             safety["live_trading"] == "DISABLED",
             "Software passes cannot authorize profit or trade execution")
 
+    # A one-day public pre-OOS data snapshot is NOT a profitable strategy,
+    # prospective paper history, a direct token/pool proof or an executed fill.
+    strat_entries = tasks["STRAT-01"].get("additional_verified_subcheckpoints", [])
+    require(type(strat_entries) is list, "STRAT-01 subcheckpoint list invalid")
+    captured = [x for x in strat_entries if isinstance(x, dict) and
+                x.get("id") == "STRAT01-REAL-BASE-ONE-DAY-PREOOS-2026-10-26"]
+    require(len(captured) == 1, "Real provider pilot missing/duplicated")
+    pilot = captured[0]
+    require(pilot.get("merged_pr") == 48 and
+            bool(COMMIT_SHA.fullmatch(str(pilot.get("merged_sha")))),
+            "Real pilot merge proof missing")
+    require(type(pilot.get("first_data_run_url")) is str and
+            RUN_REF.fullmatch(pilot["first_data_run_url"]) is not None,
+            "Provider source run proof missing")
+    require(pilot.get("returned_4h_bars_each") == 6 and
+            pilot.get("completed_at_time_of_capture_each") == 5 and
+            pilot.get("incomplete_at_time_of_capture_each") == 1,
+            "Provider bar completeness changed without new source evidence")
+    require(pilot.get("real_network_l1_l2_gas_usd") is None and
+            pilot.get("realized_follower_execution_pnl_usd") is None and
+            pilot.get("post_frozen_oos_prospective_paper_days") == 0 and
+            pilot.get("new_independent_market_backtests") == 0 and
+            pilot.get("profitability_verified") is False and
+            pilot.get("original_market_pool_contract_identity_independently_verified") is False,
+            "Pre-OOS quote/source was promoted to unjustified financial proof")
+    require(pilot.get("label") ==
+            "ACTUAL_READONLY_PUBLIC_SOURCE_SINGLE_BLOCK_AND_PRIOR_DAY_PILOT_NOT_FILLS",
+            "Incorrect economic evidence class for one-shot Base public pilot")
+
     next_unfinished = next((name for name in order if tasks[name]["status"] != "DONE"), None)
     require(next_unfinished is not None, "No next research work defined")
     return {
