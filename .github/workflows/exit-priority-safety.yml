@@ -1,0 +1,41 @@
+name: Exit safety under exhausted entry budgets
+
+on:
+  push:
+    branches:
+      - safety/2026-10-26-exit-not-quota-blocked
+    paths:
+      - src/arz/risk.py
+      - src/arz/metrics.py
+      - tests/test_exit_priority_adversarial.py
+      - .github/workflows/exit-priority-safety.yml
+  pull_request:
+    paths:
+      - src/arz/risk.py
+      - src/arz/metrics.py
+      - tests/test_exit_priority_adversarial.py
+      - .github/workflows/exit-priority-safety.yml
+
+permissions:
+  contents: read
+
+jobs:
+  offline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      PYTHONPATH: "src:."
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Exit safety adversarial test matrix
+        run: python -m unittest discover -s tests -p 'test_exit_priority_adversarial.py' -v
+      - name: Existing engine/risk restart regression
+        run: python -m unittest tests.test_engine -v
+      - name: Full offline repository regression
+        run: python -m unittest discover -s tests -q
+      - name: Compile read-only simulation source
+        run: python -m compileall -q src/arz/risk.py src/arz/metrics.py
+      - name: Reaffirm evidence-linked research financial decision
+        run: python scripts/verify_research_control.py
