@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "observed_date_utc": "2026-10-26",
+  "topic": "PROTECTIVE_EXIT_ENTRY_QUOTA_SEPARATION",
+  "verified_source_commit": "f1415cea25b1bfbdb0b9f01c6f38c6f8eebcb729",
+  "repo": "DashSaman/Arz",
+  "pr": "https://github.com/DashSaman/Arz/pull/40",
+  "verified_ci_run": "https://github.com/DashSaman/Arz/actions/runs/40372256120",
+  "test_results": {
+    "focused_adversarial_methods": 248,
+    "existing_engine_methods_replayed": 10,
+    "full_repo_methods": 708,
+    "conclusion": "SUCCESS",
+    "overlap": true,
+    "distinct_focus_matrix": {
+      "exhausted_trade_count_quota": 64,
+      "exhausted_daily_fee_budget": 64,
+      "hard_veto_still_blocks_exit": 64,
+      "costed_engine_roundtrip": 48,
+      "explicit_limit_tests": 8
+    }
+  },
+  "changed_production_files": [
+    "src/arz/risk.py",
+    "src/arz/metrics.py"
+  ],
+  "safety_invariants": [
+    "New BUY checks daily trade-count and fee quotas",
+    "Risk reducing SELL ignores exhausted entry quotas but does not ignore max-gas, max-slippage, liquidity, min/max order, no-short",
+    "SELL actual fee/trade counts still recorded and reported",
+    "Rejected SELL and failed SELL attempts separately reported",
+    "Never claim protective stop guarantees maximum drawdown or an executable fill"
+  ],
+  "disclaimer": "Historical simulation and regression only; not demonstrated DEX fills, proven profitable returns, execution guarantees or economic edge.",
+  "wallet_trading_enabled": false,
+  "real_orders_executed": 0,
+  "qualified_new_trading_strategies": 0,
+  "financial_decision": "NO-GO",
+  "live_trading": "DISABLED",
+  "next_financial_gate": "STRAT-01: independently falsify baseline ATR under actual cost/latency stress and accepted time-series inputs; WAL-01 source lot history still incomplete"
+}
