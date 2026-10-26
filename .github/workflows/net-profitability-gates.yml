@@ -1,0 +1,58 @@
+name: Immutable strategy net-profit qualification gate
+
+on:
+  push:
+    branches:
+      - research/2026-10-26-profit-qualification-gates
+    paths:
+      - scripts/verify_profitability_gates.py
+      - tests/test_verify_profitability_gates.py
+      - .github/workflows/net-profitability-gates.yml
+      - reports/backtests/summary.csv
+      - configs/preregistered_strategies.json
+  pull_request:
+    paths:
+      - scripts/verify_profitability_gates.py
+      - tests/test_verify_profitability_gates.py
+      - .github/workflows/net-profitability-gates.yml
+
+permissions:
+  contents: read
+
+jobs:
+  deterministic-rejection:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      PYTHONPATH: "src:."
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Evaluate immutable 24-row historical results with primary/stress gates
+        run: |
+          python scripts/verify_profitability_gates.py --output /tmp/arz-qualification.json
+          python - <<'PY'
+          import json
+          a=json.load(open("/tmp/arz-qualification.json"))
+          assert a["qualified_strategy_count"] == 0
+          assert len(a["strategy_results"]) == 3
+          assert a["financial_decision"] == "NO-GO"
+          assert a["was_a_new_market_backtest"] is False
+          print("ARZ_QUALIFICATION_NO_GO=PASS")
+          PY
+      - name: Check evidence tampering and sample-size gates
+        run: python -m unittest discover -s tests -p 'test_verify_profitability_gates.py' -v
+      - name: Full Arz offline regression including safe exit rules
+        run: python -m unittest discover -s tests -q
+      - name: Compile without external market connectivity
+        run: python -m compileall -q scripts/verify_profitability_gates.py
+      - name: Canonical research financial freeze
+        run: python scripts/verify_research_control.py
+      - name: Persist source-hashed negative eligibility report
+        uses: actions/upload-artifact@v4
+        with:
+          name: arz-historical-profitability-no-go
+          path: /tmp/arz-qualification.json
+          if-no-files-found: error
+          retention-days: 30
