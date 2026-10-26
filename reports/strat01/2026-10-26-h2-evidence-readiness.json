@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "experiment_id": "STRAT01-H2-CAUSAL-VETO-2026-10-26",
+  "scope": "CAUSAL_H2_ENTRY_GATE_AND_FOLLOWER_QUOTE_COST_PRECONDITIONS_ONLY",
+  "source_protocol": {
+    "original_pr": "https://github.com/DashSaman/Arz/pull/18",
+    "branch": "research/2026-10-20-multi-edge-spot",
+    "path": "research/multi_edge_spot/NEXT_EXPERIMENT_PROTOCOL.json",
+    "git_blob_sha1": "10a29718800a14f5bb827cdb23cd20ef8c7a12b3",
+    "hypothesis": "H2_SMART_FLOW_ATR_CONFIRMATION",
+    "frozen_since": "2026-10-20"
+  },
+  "prior_atr": {
+    "original_pr": "https://github.com/DashSaman/Arz/pull/17",
+    "source_path": "experiments/cost_aware_strategy/compare.py",
+    "source_git_blob_sha1": "e52668da01ccb97b0003dc7f178c4de2e7c50e39",
+    "cost_policy_provenance": "research/revenue_strategy/EDGELAB_PROTOCOL.json",
+    "protocol_blob_sha1": "ee3d36c780953736725e5cb805cf87a8e4ca4074",
+    "previous_S0_S1_S2_class": "SEEN_DATA_SCENARIO_SURROGATE_NOT_EXACT_DEX_EXECUTION"
+  },
+  "frozen_rules": {
+    "eligible_pairs": [
+      "WETH/USDC",
+      "cbBTC/USDC"
+    ],
+    "baseline": "corrected ATR-volatility baseline, H2 veto ONLY",
+    "lookback_hours": 24,
+    "minimum_independent_wallet_clusters_net_buying": 2,
+    "buy_notional_must_exceed_sell": true,
+    "monthly_asof_wallet_cohort_required": true,
+    "source_sha256_per_event": true,
+    "first_seen_and_finalized_pre_decision": true,
+    "exits_unchanged": true,
+    "position_sizing_unchanged": true,
+    "follower_delay_seconds": 60,
+    "max_quote_age_seconds": 30,
+    "target_order_usdc": 20,
+    "pool_fee": "already embedded in exact QuoterV2 amountOut",
+    "network_fee_layers_usdc": "must be separately observed L1 and L2",
+    "gas_estimate_units_not_fee_usdc": true,
+    "failed_attempt_reserve_explicit": true,
+    "stress": "double independent L1/L2 network and slippage/failure components, not pool fee already in quote"
+  },
+  "data_gaps": [
+    "No full verified 90-day point-in-time Base wallet cohort or independent cluster event coverage",
+    "No current two-wallet-cluster 24h buy/sell source signed proofs",
+    "No continuous exact-input 20 USDC Base follower-time quote feed with real inclusion/failures",
+    "No observed all-in L1/L2 gas USD, slippage impact or failures at follower time",
+    "Prior S0/S1/S2 ATR historical market data globally seen, not untouched OOS",
+    "Zero qualified 90-day genuinely elapsed prospective paper series"
+  ],
+  "software_test_observation": {
+    "source_ci": "https://github.com/DashSaman/Arz/actions/runs/40377010950",
+    "test_commit": "34e075aeb9d5669198407717d7e18725c0aa8af5",
+    "focused_test_methods_passed": 35,
+    "full_test_methods_passed": 787,
+    "overlap": true
+  },
+  "output": {
+    "historical_backtests_new": 0,
+    "price_quotes_new": 0,
+    "verified_base_wallet_vote_clusters": 0,
+    "qualified_trades": 0,
+    "realized_wallet_pnl_usdc": null,
+    "net_geometric_account_daily_return": null,
+    "approved_orders": 0,
+    "financial_decision": "NO-GO",
+    "live": "DISABLED"
+  },
+  "method_reference": [
+    "https://developers.uniswap.org/docs/sdks/v3/guides/swapping/quoting",
+    "https://github.com/Uniswap/v3-periphery/blob/main/contracts/interfaces/IQuoterV2.sol"
+  ]
+}
