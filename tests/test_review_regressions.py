@@ -100,15 +100,19 @@ class ReviewRegressionTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 Engine.restore(c, Strategy("trend"), state)
 
-    def test_observed_utc_day_applies_to_paper_trade_cap(self):
+    def test_observed_utc_day_blocks_new_entry_but_allows_protective_exit(self):
         c = config(max_trades_day=1)
-        e = Engine(c, Scheduled({1: True}))
+        # First BUY exhausts day-1 entry budget, but SELL must still be
+        # allowed, and the subsequent attempted BUY must be blocked.
+        e = Engine(c, Scheduled({1: True, 3: True}))
         e.step(candle(86280), trading=False)
         e.step(candle(86340), execution_price=10, observed_at=86401)
         e.step(candle(86400), execution_price=10, observed_at=86461)
-        self.assertEqual(len(e.fills), 1)
+        e.step(candle(86460), execution_price=10, observed_at=86521)
+        self.assertEqual([f["side"] for f in e.fills], ["buy", "sell"])
         self.assertEqual(e.risk.day, 1)
         self.assertEqual(e.events[-1]["reason"], "daily_trade_cap")
+        self.assertEqual(e.result()["metrics"]["blocked_exit_attempts"], 0)
         self.assertEqual(e.result()["metrics"]["daily_return_count"], 1)
 
     def test_historical_api_rejects_future_candles(self):
