@@ -1,0 +1,59 @@
+name: STRAT-01 Frozen S0 source and future OOS preflight
+
+on:
+  push:
+    branches:
+      - research/2026-10-26-strat01-s0-frozen-source
+    paths:
+      - 'scripts/strat01_s0_source_preflight.py'
+      - 'tests/test_strat01_s0_source_preflight.py'
+      - 'research/strat01/frozen_sources/**'
+      - '.github/workflows/strat01-s0-frozen-source.yml'
+  pull_request:
+    paths:
+      - 'scripts/strat01_s0_source_preflight.py'
+      - 'tests/test_strat01_s0_source_preflight.py'
+      - 'research/strat01/frozen_sources/**'
+      - '.github/workflows/strat01-s0-frozen-source.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    env:
+      PYTHONPATH: "src:."
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: S0 pinned public research source manifest (NO new market data)
+        run: |
+          python scripts/strat01_s0_source_preflight.py --output /tmp/arz-s0-frozen-source.json
+          python - <<'PY'
+          import json
+          d=json.load(open("/tmp/arz-s0-frozen-source.json"))
+          assert d["source"]["source_identity_verified"] is True
+          assert d["new_market_data"]["status"] == "PENDING_NO_AUTHORIZED_NEW_FUTURE_MARKET_DATA"
+          assert d["new_price_candles_acquired_by_this_script"] == 0
+          assert d["new_market_backtests"] == 0
+          assert d["financial_decision"] == "NO-GO"
+          print("ARZ_S0_PRE_FLIGHT_PASS_NO_NEW_DATA")
+          PY
+      - name: 137 distinct S0 identity and synthetic future market validator tests
+        run: python -m unittest discover -s tests -p 'test_strat01_s0_source_preflight.py' -q
+      - name: Full Arz offline regression
+        run: python -m unittest discover -s tests -q
+      - name: Compilation and canonical financial-stop validation
+        run: |
+          python -m compileall -q scripts/strat01_s0_source_preflight.py
+          python scripts/verify_research_control.py
+      - name: Persist no-trade source/coverage manifest
+        uses: actions/upload-artifact@v4
+        with:
+          name: s0-frozen-source-and-future-coverage
+          path: /tmp/arz-s0-frozen-source.json
+          if-no-files-found: error
+          retention-days: 30
