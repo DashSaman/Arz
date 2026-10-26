@@ -41,6 +41,14 @@ The merged `scripts/wal01_witness_gate.py` compares the public PR #33 derived tr
 
 **NEXT STRAT-01 step in [Issue #42](https://github.com/DashSaman/Arz/issues/42):** isolate and source-pin the old corrected ATR S0 from draft PR17, establish actual lawful Base DEX price/time/execution-cost coverage, then test a genuinely untouched as-of holdout. H2 cannot be tested economically until point-in-time wallet feed and exact follower-time costs exist. WAL-01 [Issue #37](https://github.com/DashSaman/Arz/issues/37) is still PARTIAL. Financial **NO-GO**, live **DISABLED**.
 
+## STRAT-01 immutable corrected S0 / future OOS gate — 2026-10-26
+
+[PR #46](https://github.com/DashSaman/Arz/pull/46) was merged safely to `main` (SHA `85d7ebb1d516adf5ed5cb7f9d3c76e14e7170291`). [GitHub Actions 40383696394](https://github.com/DashSaman/Arz/actions/runs/40383696394) passed **137 focused + 924 total repository software tests** (overlapping). The original corrected ATR S0 and its old scenario/provenance metadata are now frozen byte-for-byte as six Git blob-verified research snapshots under `research/strat01/frozen_sources/`, without merging the draft PR17 runtime dependency stack. `slow_atr_trail` uses 4-hour completed candles, previous 120-bar high breakout, ATR14, prior stop then one-way 3ATR trailing, initial min(3ATR,5%) stop, and HIGH volatility/shock *entry* veto only. Historical old mid/stress cost values are scenarios, NOT executable Base DEX gas/fills.
+
+`scripts/strat01_s0_source_preflight.py` checks frozen source identity and **future** two-market WETH/cbBTC continuous 4h data/observation/finality causality starting no earlier than `2026-10-27T00:00:00Z`. Both earlier source datasets had gaps and were already seen; raw caches are not included. The observed report classified new market data as `PENDING_NO_AUTHORIZED_NEW_FUTURE_MARKET_DATA`: **0 new candles, 0 independent OOS strategies, 0 real-time executable quotes, 0 proven net returns**. [Machine evidence](reports/strat01/2026-10-26-s0-frozen-source-observed.json) · [FA report](docs/fa/strat01_s0_frozen_source_20261026.md) · [EN report](docs/en/strat01_s0_frozen_source_20261026.md).
+
+**NEXT in [Issue #42](https://github.com/DashSaman/Arz/issues/42):** lawful, provable next-window Base DEX market and exact-size follower quote/cost acquisition for *both* assets; then untouched S0 cost-stressed OOS and genuine forward paper. H2 must only confirm/veto S0 and WAL-01 remains incomplete. Trading **NO-GO / DISABLED**.
+
 ## PR topology (check remotely again before changing branches)
 
 Core research dependency chain: **#15 → #17 → #18 → #24 → #26 → #27 → #28 → #29 → #30 → #31 → #32 → #33**. These were **all open Draft PRs**, not merged, when this checkpoint was created. The independent forensic gap audit [#25](https://github.com/DashSaman/Arz/pull/25) is also open Draft against `main`. **Do not merge the whole chain or misattribute a draft file to `main`.**

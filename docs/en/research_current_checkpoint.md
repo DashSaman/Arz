@@ -67,3 +67,11 @@ Standalone [PR #44](https://github.com/DashSaman/Arz/pull/44) merged to main (`0
 Strict `src/arz/h2_causal_gate.py` implements frozen H2 entry-confirmation/veto only: an existing corrected S0 ATR entry, verified point-in-time as-of cohort, complete 24-hour signed source records, at least two independently net buying wallet clusters and buy > sell notionals. No source future-knowledge, quote pair/time replay, unknown L1/L2 gas, fee gaps or stale quote can qualify. Exact $20 quote diagnostics never count as fills or realized trading PnL.
 
 No new real historical market data or wallet cohorts, no genuine Base fills and no positive geometric account return were produced. **STRAT-01 stays IN_PROGRESS** (next S0 source extraction, approved Base DEX as-of price/fee intake and new clean OOS); WAL-01 stays PARTIAL. Financial NO-GO and live DISABLED.
+
+## New STRAT-01/S0 frozen-source checkpoint — 26 October 2026
+
+[PR #46](https://github.com/DashSaman/Arz/pull/46) independently merged to main at `85d7ebb1d516adf5ed5cb7f9d3c76e14e7170291`. [Actual CI 40383696394](https://github.com/DashSaman/Arz/actions/runs/40383696394): **137 focused and 924 full repository tests PASS** (overlapping). Six original registered corrected ATR S0 source/protocol/old data-manifest Git blobs are preserved byte-identically in `research/strat01/frozen_sources/`; these are archival AGPL references, not live runtime modules.
+
+`scripts/strat01_s0_source_preflight.py` admits only structurally complete, time-causal future four-hour data for both Base WETH/cbBTC markets with start at/after **2026-10-27T00:00:00Z**. Historical old datasets each had a provider gap and are already observed; raw data were not downloaded or copied here. Result remains **PENDING_NO_AUTHORIZED_NEW_FUTURE_MARKET_DATA**, with 0 new market backtests, 0 real follower quotes, 0 forward paper days and no profitable result. [Detailed report](strat01_s0_frozen_source_20261026.md), [machine result](../../reports/strat01/2026-10-26-s0-frozen-source-observed.json).
+
+STRAT-01 is still **IN PROGRESS**; [Issue #42](https://github.com/DashSaman/Arz/issues/42) next requires lawful auditable dual-asset Base DEX future as-of market feeds and actual execution-size/gas/impact/failure evidence. Financial NO-GO / live DISABLED.
