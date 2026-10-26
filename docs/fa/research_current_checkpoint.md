@@ -64,3 +64,10 @@ PYTHONPATH=src:. python -m unittest discover -s tests -p 'test_verify_research_c
 - جزئیات: [گزارش آزمون فارسی WAL01](wal01_adversarial_audit.md) و [JSON](../../reports/wal01/2026-10-26_verified_adversarial_ci.json).
 
 **ادامه دقیق:** مبنای خرید اصلی و مسیر CPI/انتقالات مربوط به همان امضای Mitch را با آرشیو مجاز تکمیل کن؛ از ایجاد کیف‌پول/درخواست تکراری و انتساب سود ساختگی خودداری شود. تصمیم مالی NO-GO، معامله واقعی DISABLED.
+
+## ادامه ۲۶ اکتبر ۲۰۲۶ — ایمنی خروج و ممیزی سود
+
+- **PR #40 ادغام‌شده در main:** اصلاح سهمیه BUY/SELL؛ سقف تعداد ورود و بودجه کارمزد روزانه دیگر به‌تنهایی خروج محافظتی را مسدود نمی‌کنند، ولی Gas، لغزش، نقدشوندگی و شکست تراکنش همچنان می‌توانند مانع فروش شوند. [CI](https://github.com/DashSaman/Arz/actions/runs/40372639075) **۷۰۸ تست کامل** و **۲۴۸ تست اختصاصی** موفق؛ [گزارش ایمنی](../../reports/safety/protective_exit_20261026.json).
+- **PR #41 ادغام‌شده در main:** ممیزی مجدد ۲۴ نتیجه تاریخی *قدیمی* و ثابت: Trend Holdout **۲٫۴۴۴۳٪−**، Momentum **۱٫۸۴۶۳٪−**، Mean Reversion **۰٫۱۴۲۷٪+** که تحت هزینه دوبرابر **۰٫۱۷۷۷٪−** می‌شود. فقط ۴–۶ معامله بسته؛ **هیچ‌یک واجد شرایط سود خالص پایدار نیست**. [CI](https://github.com/DashSaman/Arz/actions/runs/40373896709) **۷۵۱ تست کامل** و **۴۳ تست اختصاصی** موفق؛ [گزارش مالی](../../reports/research/2026-10-26-holdout-net-profit-no-go.json). این **بک‌تست یا داده تازه نیست**.
+- **STRAT-01 اکنون در حال اجرا** با [Issue #42](https://github.com/DashSaman/Arz/issues/42): آزمون مستقل ATR اصلاح‌شده S0، ورود تأییدشده H2 فقط با داده Wallet معتبر، هزینه اجرایی واقعی Base، OOS جدید و Paper آینده‌نگر.
+- WAL-01 همچنان ناقص است ([Issue #37](https://github.com/DashSaman/Arz/issues/37)). ورود **۴۰۲٫۷۹۹۴۳۹ USDC** به معنی سود نیست. تضمین سود یا اجرای خروج امکان‌پذیر نیست؛ `NO-GO / DISABLED`.

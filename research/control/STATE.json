@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint_id": "ARZ-2026-10-26-CONTROL-02",
+  "checkpoint_id": "ARZ-2026-10-26-CONTROL-03",
   "observed_at_utc": "2026-10-26",
   "repository": "DashSaman/Arz",
   "canonical_branch": "main",
@@ -404,7 +404,7 @@
       "id": "STRAT-01",
       "title": "Frozen corrected ATR baseline + independent long-horizon OOS",
       "priority": 6,
-      "status": "READY",
+      "status": "IN_PROGRESS",
       "depends_on": [
         "OPS-01"
       ],
@@ -413,7 +413,21 @@
         "EV-007"
       ],
       "completion": "Separate H2 baseline and wallet-confirmed variant once wallet data arrives; baseline must pass realistic cost and OOS without retuning; CEX proxy never qualifies Base DEX H4",
-      "next_action": "Inventory exact original ATR code/parameters, create cost stress and untouched date manifest; benchmark cash and risk-matched hold"
+      "next_action": "Issue #42: run source-pinned actual Base DEX ATR baseline cost-aware OOS/forward validation; pre-register untouched segment, require wallet H2 confirmation only with full permitted history; no optimizations using seen Oct13 results.",
+      "github_issue_url": "https://github.com/DashSaman/Arz/issues/42",
+      "last_verified_subcheckpoint": {
+        "id": "STRAT01-IMMUTABLE-NEGATIVE-CONTROL-2026-10-26",
+        "merged_pr": 41,
+        "merged_sha": "4ba60e3c35a4838023be4090b57544e8582a9375",
+        "ci_url": "https://github.com/DashSaman/Arz/actions/runs/40373896709",
+        "full_software_tests": 751,
+        "focused_tests": 43,
+        "source_report": "reports/research/2026-10-26-holdout-net-profit-no-go.json",
+        "saved_historical_scenarios": 24,
+        "qualified_strategies": 0,
+        "independent_new_backtest": false,
+        "net_profitable_trade_proof": false
+      }
     },
     {
       "id": "PAPER-01",
@@ -497,7 +511,7 @@
     "No PR treated as merged unless GitHub checked",
     "No changes to main trading runtime while integrating governance files"
   ],
-  "verification_policy": "OPS-01/02 completed main. WAL-01 only partial hardening after PR38 460 tests; tests are not trading/backtesting results. Resume issue #37 acquisition-lot/CPI reconstruction; source provenance and missing 90d data MUST stay UNKNOWN. No repeat throttled public RPC.",
+  "verification_policy": "Main contains safety PR40 and immutable Oct13 profit NO-GO gate PR41. STRAT-01 is IN_PROGRESS in issue42; WAL-01 remains PARTIAL in issue37. Neither a safe exit nor 751 software tests guarantee profitable orders. No real wallet approvals/live trades, and no fabricated paper history.",
   "completed_milestones": [
     {
       "task": "OPS-01",
@@ -526,5 +540,27 @@
     "source_requests_in_this_stage": 0,
     "software_status": "PASS",
     "economics_status": "INSUFFICIENT_DATA_NO_GO"
-  }
+  },
+  "post_checkpoint_verified_deliveries": [
+    {
+      "pr": 40,
+      "status": "MERGED_TO_MAIN_VERIFIED",
+      "merged_sha": "3553931ad73ab4d429f4d655075871397890d9e1",
+      "run_url": "https://github.com/DashSaman/Arz/actions/runs/40372639075",
+      "report": "reports/safety/protective_exit_20261026.json",
+      "all_tests_passed": 708,
+      "new_test_methods": 248,
+      "scope": "BUY quota is entry-only, SELL attempts retain hard market vetoes; blocked/failed exits visible; no guarantee"
+    },
+    {
+      "pr": 41,
+      "status": "MERGED_TO_MAIN_VERIFIED",
+      "merged_sha": "4ba60e3c35a4838023be4090b57544e8582a9375",
+      "run_url": "https://github.com/DashSaman/Arz/actions/runs/40373896709",
+      "report": "reports/research/2026-10-26-holdout-net-profit-no-go.json",
+      "all_tests_passed": 751,
+      "new_test_methods": 43,
+      "scope": "24 already-seen Oct13 historical simulations: three candidates 0 financial qualifications"
+    }
+  ]
 }

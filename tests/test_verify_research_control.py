@@ -85,6 +85,26 @@ class ControlPlaneTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,"immutable commit"):
             validate(s)
 
+    def test_merged_negative_profit_gate_cannot_turn_into_claimed_go(self):
+        s = fresh()
+        result = validate(s)
+        self.assertEqual(result["financial_decision"], "NO-GO")
+        self.assertEqual(next(t for t in s["tracks"] if t["id"] == "STRAT-01")["status"],
+                         "IN_PROGRESS")
+        self.assertEqual({x["pr"] for x in s["post_checkpoint_verified_deliveries"]},
+                         {40,41})
+        for corrupt in [
+            lambda d: d["post_checkpoint_verified_deliveries"][0].__setitem__("status", "DRAFT"),
+            lambda d: d["post_checkpoint_verified_deliveries"][1].__setitem__("report", "../no-evidence"),
+            lambda d: d["post_checkpoint_verified_deliveries"][1].__setitem__("merged_sha", "invalid"),
+            lambda d: d["post_checkpoint_verified_deliveries"][0].__setitem__("all_tests_passed", 0),
+            lambda d: next(t for t in d["tracks"] if t["id"] == "STRAT-01").__setitem__("status", "DONE"),
+        ]:
+            bad = fresh()
+            corrupt(bad)
+            with self.assertRaises(ValueError):
+                validate(bad)
+
     def test_pr_merge_status_and_duplicate_branch_rejected(self):
         s = fresh()
         s["research_prs"][-1]["state"] = "MERGED"
