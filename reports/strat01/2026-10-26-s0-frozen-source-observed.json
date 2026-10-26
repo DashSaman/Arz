@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "checkpoint": "STRAT01-S0-FROZEN-SOURCE-2026-10-26",
+  "verified_at_run": "https://github.com/DashSaman/Arz/actions/runs/40383284637",
+  "source_commit": "99b775dcea178657e0557654c884ccac82e92a9b",
+  "tested_ci": {
+    "status": "completed_success",
+    "new_distinct_unittest_methods": 137,
+    "complete_repository_test_methods": 924,
+    "new_in_complete": true
+  },
+  "observed_output": {
+    "classification": "FROZEN_S0_SOURCE_AND_FUTURE_OOS_PREFLIGHT_ONLY",
+    "financial_decision": "NO-GO",
+    "live_trading": "DISABLED",
+    "new_market_backtests": 0,
+    "new_market_data": {
+      "complete_market_grid": false,
+      "financial_decision": "NO-GO",
+      "full_OOS_and_real_execution_proved": false,
+      "markets_required": [
+        4564367,
+        4705508
+      ],
+      "oos_start": "2026-10-27T00:00:00Z",
+      "status": "PENDING_NO_AUTHORIZED_NEW_FUTURE_MARKET_DATA"
+    },
+    "new_price_candles_acquired_by_this_script": 0,
+    "new_real_base_quote_fills": 0,
+    "schema_version": 1,
+    "source": {
+      "archived_agpl_source_not_runtime_import": true,
+      "code_executed": false,
+      "exact_network_L1_L2_gas_unknown": true,
+      "financial_decision": "NO-GO",
+      "historical_cache_in_this_pr": false,
+      "historical_data_registry": {
+        "4564367": {
+          "asset": "WETH",
+          "first": 1725148800,
+          "gaps": 1,
+          "last": 1790812800,
+          "pair_id": 4564367,
+          "rows": 4548,
+          "sha256": "40f4a87937d09ab21f1f112444785c09d0119f7d8b91ce48f5bdd5ad27d56aa3"
+        },
+        "4705508": {
+          "asset": "cbBTC",
+          "first": 1726315200,
+          "gaps": 1,
+          "last": 1790812800,
+          "pair_id": 4705508,
+          "rows": 4467,
+          "sha256": "427da056b70bfc67f1ae7ff6e1ca94f41df4ec238a225e34f621d4cb1072323e"
+        }
+      },
+      "historical_data_reused_and_seen": true,
+      "live_trading": "DISABLED",
+      "minimum_feature_warmup_bars": 194,
+      "original_S0": {
+        "cost_gate": false,
+        "entry_bars": 120,
+        "exit_bars": 60,
+        "exit_mode": "atr_trail",
+        "id": "slow_atr_trail",
+        "risk_fraction": null,
+        "scaled_cap": false,
+        "trend_filter": false
+      },
+      "original_function_symbols": {
+        "edgelab_compare.py": [
+          "ScreenPolicy",
+          "cost_ok",
+          "main",
+          "run_case"
+        ],
+        "market_intelligence.py": [
+          "compute",
+          "snapshot"
+        ],
+        "payoff_logic.py": [
+          "Policy",
+          "configs",
+          "features",
+          "payoff",
+          "warmup"
+        ]
+      },
+      "risk_mechanics": {
+        "ATR": "simple True Range mean rolling 14 completed 4h bars",
+        "entry": "close above previous 120-bar high",
+        "entry_veto": "HIGH volatility or shock_proxy, completed-bar only",
+        "execution": "signal after complete 4h bar, simulated next price, not executable quote",
+        "initial_ATR_distance": "min(3*ATR14_signal, 5% of reference entry)",
+        "max_budget": "min(20% equity, $25, equity - $10)",
+        "no_leverage": true,
+        "no_retroactive_parameter_tuning": true,
+        "prior_fee_scenarios": {
+          "mid": {
+            "fixed": 0.01,
+            "relative": 0.0015
+          },
+          "stress": {
+            "fixed": 0.05,
+            "relative": 0.003
+          }
+        },
+        "trailing_exit": "previous trailing stop checked before tightening by 3*currentATR"
+      },
+      "snapshots": {
+        "edgelab_compare.py": {
+          "archived_from_original_pr": 17,
+          "bytes": 5922,
+          "git_blob_sha1": "e52668da01ccb97b0003dc7f178c4de2e7c50e39",
+          "sha256": "79ea5f34fbc760bd8320052f2170558042f14b7cf18c8bb2643b2fb94fb2db4d",
+          "source_branch": "research/2026-10-19-edgelab-recovery"
+        },
+        "edgelab_protocol.json": {
+          "archived_from_original_pr": 17,
+          "bytes": 5774,
+          "git_blob_sha1": "ee3d36c780953736725e5cb805cf87a8e4ca4074",
+          "sha256": "771ce76df70028eaad2c6a414ef5b87e553345eed53cbfe36a7991e83089d939",
+          "source_branch": "research/2026-10-19-edgelab-recovery"
+        },
+        "market_intelligence.py": {
+          "archived_from_original_pr": 17,
+          "bytes": 3825,
+          "git_blob_sha1": "9c0d7db3025522166bd5696d8bc0812f89c022c9",
+          "sha256": "a188c1eb8e9885654a5b9d363e514a5092fb8641c94385c4379d1d8f2bc437ac",
+          "source_branch": "research/2026-10-19-edgelab-recovery"
+        },
+        "old_market_data_provenance.json": {
+          "archived_from_original_pr": 17,
+          "bytes": 2205,
+          "git_blob_sha1": "c3e608083f0e2132431a1e0b869a7e9ab4c8e057",
+          "sha256": "31a0a8d881e35974ff818ed1181af2e28fdcc03e16bc00f51519ec997de50766",
+          "source_branch": "research/2026-10-19-edgelab-recovery"
+        },
+        "payoff_logic.py": {
+          "archived_from_original_pr": 17,
+          "bytes": 7900,
+          "git_blob_sha1": "b9e4e548d25a3ff5ff5d2c4ba9e84f43360ec6c9",
+          "sha256": "194e00ed3e1568be6c9f9ed9c1e6358b46fc7a7d024bf0585ef653243837b930",
+          "source_branch": "research/2026-10-19-edgelab-recovery"
+        },
+        "payoff_protocol.json": {
+          "archived_from_original_pr": 17,
+          "bytes": 8656,
+          "git_blob_sha1": "aecfb27cebac764a5ecdb80e064b9892aec209b1",
+          "sha256": "c8b58c74adb43b671463d6fdaed1849152bea1c14eaa5d7720b91b838730315b",
+          "source_branch": "research/2026-10-19-edgelab-recovery"
+        }
+      },
+      "source_identity_verified": true,
+      "study_timeframe_hours": 4,
+      "true_follower_quote_fills_unknown": true
+    },
+    "whole_account_profitable_compounding_verified": false
+  },
+  "source_class": "EXACT_PRIOR_AGPL_CODE_SNAPSHOT_STATIC_AUDIT_NO_MARKET_RESULT",
+  "original_research_branch": "research/2026-10-19-edgelab-recovery",
+  "source_pr": 17,
+  "controlled_future_oos_start": "2026-10-27T00:00:00Z",
+  "raw_market_data_in_repo": false,
+  "new_market_bars": 0,
+  "new_independently_untouched_oos_days": 0,
+  "new_dex_follower_quotes": 0,
+  "qualified_trade_cycles": 0,
+  "financial_decision": "NO-GO",
+  "live_trading": "DISABLED",
+  "blockers": [
+    "Previous WETH and cbBTC 4h provider datasets each contain an existing gap, already seen",
+    "Original raw caches not redistributed; source hashes do not provide executable new DEX data",
+    "No future market data satisfying frozen clock and full dual-asset coverage",
+    "No actual Base L1/L2 gas, slippage, revert or follower-time exact-sized quotes",
+    "No trusted full 24h point-in-time wallet cluster H2 signals",
+    "No original S0 implementation re-run with exact dependencies and provider entitled source",
+    "No qualified new untouched 12-month historic fold or prospective paper 90-day series"
+  ]
+}
