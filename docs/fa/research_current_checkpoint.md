@@ -87,3 +87,13 @@ PYTHONPATH=src:. python -m unittest discover -s tests -p 'test_verify_research_c
 برنامه ورودی جدید `scripts/strat01_s0_source_preflight.py` برای دو بازار Base WETH و cbBTC به کندل‌های ۴ساعته کامل، بدون شکاف و با زمان مشاهده و نهایی‌شدن معتبر پس از **۲۰۲۶-۱۰-۲۷ ۰۰:۰۰ UTC** نیاز دارد. داده قدیمی دو بازار هرکدام یک شکاف دارد و قبلاً دیده شده؛ تازه یا اجرایی نیست. در این مرحله **هیچ داده بازار تازه، هیچ بک‌تست تازه، هیچ سود یا Paper آینده‌نگر** وجود ندارد و وضعیت `PENDING_NO_AUTHORIZED_NEW_FUTURE_MARKET_DATA` است.
 
 [جزئیات فارسی](strat01_s0_frozen_source_20261026.md) · [گزارش JSON](../../reports/strat01/2026-10-26-s0-frozen-source-observed.json). مرحله STRAT-01 همچنان در حال انجام است و [Issue #42](https://github.com/DashSaman/Arz/issues/42) باید به دریافت قانونی داده مستقل و هزینه واقعی DEX بپردازد؛ NO-GO / DISABLED.
+
+## مرحله جدید: نخستین دریافت واقعی دو بازار Base — اواخر ۲۶ اکتبر UTC
+
+[PR #48](https://github.com/DashSaman/Arz/pull/48) با Commit `1876a5c5ae7cc539a39430a273a15fcfa8ecfa2e` در main ادغام شد. [اجرای واقعی شبکه](https://github.com/DashSaman/Arz/actions/runs/40421138680) و [اجرای نهایی بدون تکرار شبکه](https://github.com/DashSaman/Arz/actions/runs/40421512800) هر دو موفق شدند؛ **۲۱ تست اختصاصی و ۹۴۵ تست کامل PASS** (هم‌پوشان).
+
+Trading Strategy برای بازارهای WETH ID 4564367 و cbBTC ID 4705508، هرکدام **۶ کندل ۴ساعته** مربوط به ۲۶ اکتبر UTC برگرداند؛ هنگام مشاهده **۵ کندل کامل و ۱ کندل ناقص** بودند. QuoterV2 در بلاک واقعی Base شماره **53,134,288** برای ۲۰ USDC خروجی **0.008616692865956162 WETH** و **0.00024981 cbBTC** شبیه‌سازی کرد. Gas Estimate به ترتیب ۸۶٬۲۶۳ و ۱۰۰٬۷۶۵ **واحد گاز** بود، نه هزینه واقعی دلار.
+
+محدودیت‌ها: احراز مجدد مستقل Pool و Tokenهای Pair IDها، هزینه L1/L2 واقعی، Slippage و Failure هنوز انجام نشده و شبیه‌سازی Quote به معنی سفارش یا سود نیست. ثبت فقط پایلوت **پیش از شروع پنجره OOS در ۲۰۲۶-۱۰-۲۷ ساعت ۰۰:۰۰ UTC** است؛ بک‌تست یا روز Paper تازه‌ای ساخته نشده. [گزارش کامل فارسی](strat01_base_real_pilot_20261027.md) و [JSON واقعی](../../reports/strat01/2026-10-27-base-pilot-observed.json).
+
+**گام بعدی STRAT-01 Issue #42:** اثبات هویت Poolها و شروع ثبت زمان مشاهده آینده‌نگر دو بازار با Quote سفارش ۲۰ دلاری و هزینه اجرایی قابل‌بررسی؛ بدون پرکردن شکاف قیمت با داده ساختگی. NO-GO / DISABLED.
