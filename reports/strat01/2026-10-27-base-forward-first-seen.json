@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "source_run_url": "https://github.com/DashSaman/Arz/actions/runs/40425075566",
+  "observed_code_sha": "aa389205ca82f4dc116e66f95e0f48fcc8a99552",
+  "first_as_observed_snapshot": {
+    "any_order_broadcast": false,
+    "calls_made": 5,
+    "chain": "Base",
+    "chain_id": 8453,
+    "collected_utc": "2026-10-27T00:14:13+00:00",
+    "data": {
+      "asof_bar_signal_exists": false,
+      "block": 53135353,
+      "block_header_rpc_sha256": "ff61b1e6e0382ed98bdedb6b00e1eb4606c7542e7407181471307e6a836bbcce",
+      "block_timestamp": 1793060053,
+      "first_seen_sample_count": 0,
+      "fixed_new_OOS_start": 1793059200,
+      "mode": "FORWARD_OBSERVATION",
+      "net_wallet_pnl_usdc": null,
+      "observed_at_utc": "2026-10-27T00:14:13+00:00",
+      "price_source_semantic": "SOURCE_CAPTURE_NOT_FOLLOWER_ORDER",
+      "prospective_day_count": 0,
+      "provider_candles": [
+        {
+          "asset": "WETH",
+          "status": "NO_FROZEN_OOS_4H_BAR_COMPLETED"
+        },
+        {
+          "asset": "cbBTC",
+          "status": "NO_FROZEN_OOS_4H_BAR_COMPLETED"
+        }
+      ],
+      "quotes": [
+        {
+          "actual_L1_usd": null,
+          "actual_L2_usd": null,
+          "amount_in_usdc": "20",
+          "amount_out_atomic": "8596332884170224",
+          "amount_out_tokens": "0.008596332884170224",
+          "asset": "WETH",
+          "block": 53135353,
+          "block_time": 1793060053,
+          "executed_order": false,
+          "failed_attempt_cost_usdc": null,
+          "first_observed_at": 1793060053,
+          "pool_fee_included_in_output": true,
+          "quote_to_inclusion_slippage_usdc": null,
+          "quoter_estimated_gas_units": "86243",
+          "realized_pnl_usdc": null,
+          "signal_observed_time": null,
+          "simulated_follower_delay_verified": false,
+          "source_response_sha256": "fb581a102a08da58433e79f60c47d50ce891a68ee5969e3cce8688bed7e8a124",
+          "status": "READ_ONLY_SNAPSHOT_NOT_ORDER"
+        },
+        {
+          "actual_L1_usd": null,
+          "actual_L2_usd": null,
+          "amount_in_usdc": "20",
+          "amount_out_atomic": "24938",
+          "amount_out_tokens": "0.00024938",
+          "asset": "cbBTC",
+          "block": 53135353,
+          "block_time": 1793060053,
+          "executed_order": false,
+          "failed_attempt_cost_usdc": null,
+          "first_observed_at": 1793060053,
+          "pool_fee_included_in_output": true,
+          "quote_to_inclusion_slippage_usdc": null,
+          "quoter_estimated_gas_units": "100765",
+          "realized_pnl_usdc": null,
+          "signal_observed_time": null,
+          "simulated_follower_delay_verified": false,
+          "source_response_sha256": "8012542e21750d255d1eeb0053c8f8e05e5374279714c39368f8bb0d1fe8555b",
+          "status": "READ_ONLY_SNAPSHOT_NOT_ORDER"
+        }
+      ],
+      "realized_profit_verified": false,
+      "requested_last_closed_bar": null
+    },
+    "financial_decision": "NO-GO",
+    "genuine_prospective_paper_days_qualified": 0,
+    "live_trading": "DISABLED",
+    "mode": "forward",
+    "positive_compounding_verified": false,
+    "real_trading_enabled": false,
+    "request_budget": 7,
+    "schema_version": 1,
+    "status": "SOURCE_OBSERVATION_NOT_FINANCIAL_BACKTEST"
+  },
+  "metadata_not_automatically_true_oos": true,
+  "signal_bound_follower_quote_available": false,
+  "execution_fee_L1_L2_usd": null,
+  "actual_fills": 0,
+  "completed_4h_bars_from_OOS": 0,
+  "prospective_calendar_days_qualified": 0,
+  "financial_decision": "NO-GO",
+  "live_trading": "DISABLED"
+}
