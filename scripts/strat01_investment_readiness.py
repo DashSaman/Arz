@@ -179,7 +179,8 @@ def snapshot_summary(doc:dict, *, filename:str) -> dict:
 def audit_capture_dir(source:Path) -> dict:
     if not source.exists():
         return {"file_count":0,"valid_source_files":0,"complete_both_asset_bar_starts":[],
-                "conflicts":[],"missing_or_untrusted_capture":True,
+                "conflicts":[],"observed_candle_grid_gaps":[],
+                "missing_or_untrusted_capture":True,
                 "errors":["NO_SCHEDULED_APPEND_FILE_PRESENT"],
                 "first_schedule_run_independently_verified":False,
                 "qualified_trading_days":0}
