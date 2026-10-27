@@ -108,9 +108,9 @@ class IdentityTests(unittest.TestCase):
     def test_factory_query_exact_usdc_asset_and_500ppm(self):
         calldata=m._factory_call("WETH")
         self.assertTrue(calldata.startswith("0x1698ee82"))
-        self.assertEqual(int(calldata[8+128:8+192],16),500)
-        self.assertEqual(int(calldata[8:8+64],16),int(m.USDC,16))
-        self.assertEqual(int(calldata[8+64:8+128],16),int(m.WETH,16))
+        self.assertEqual(int(calldata[10+128:10+192],16),500)
+        self.assertEqual(int(calldata[10:10+64],16),int(m.USDC,16))
+        self.assertEqual(int(calldata[10+64:10+128],16),int(m.WETH,16))
 
     def test_factory_and_provider_both_agree_case(self):
         probe=StaticFactoryProbe()
@@ -151,7 +151,7 @@ class IdentityTests(unittest.TestCase):
 
     def test_allowlisted_symbols_have_exact_chain_addresses(self):
         self.assertEqual(m.CHAIN_ID,8453)
-        self.assertEqual(m.USDC.lower(),"0x833589fcd6edb6e08f4e7c32d4f71b54bda02913")
+        self.assertEqual(m.USDC.lower(),"0x833589fcd6edb6e08f4c7c32d4f71b54bda02913")
         self.assertEqual(m.ASSETS["WETH"]["decimals"],18)
         self.assertEqual(m.ASSETS["cbBTC"]["decimals"],8)
 
@@ -174,7 +174,8 @@ class ProspectiveNoFalseTradeTests(unittest.TestCase):
     def test_forward_one_bar_and_quotes_no_orders_or_profit(self):
         at=m.START_OOS+m.BAR+90
         probe=FakeForwardProbe(at,m.START_OOS)
-        result=m.forward_snapshot(probe,at)
+        with patch.object(m.time,"time",return_value=at):
+            result=m.forward_snapshot(probe,at)
         self.assertEqual(probe.calls,7)
         self.assertEqual(result["first_seen_sample_count"],2)
         self.assertEqual({r["asset"] for r in result["quotes"]},{"WETH","cbBTC"})
@@ -195,7 +196,8 @@ class ProspectiveNoFalseTradeTests(unittest.TestCase):
     def test_first_seen_late_not_retroactively_relabelled(self):
         at=m.START_OOS+2*m.BAR+110
         p=FakeForwardProbe(at,m.START_OOS+m.BAR)
-        result=m.forward_snapshot(p,at)
+        with patch.object(m.time,"time",return_value=at):
+            result=m.forward_snapshot(p,at)
         self.assertTrue(all(bar["status"]=="SINGLE_BAR_FIRST_SEEN_POTENTIALLY_DELAYED"
                             for bar in result["provider_candles"]))
         self.assertTrue(all(bar["source_publication_at_original_bar_close_proven"] is False
@@ -204,7 +206,8 @@ class ProspectiveNoFalseTradeTests(unittest.TestCase):
     def test_missing_provider_bar_is_unknown_not_no_trades(self):
         at=m.START_OOS+m.BAR+10
         p=FakeForwardProbe(at,m.START_OOS,missing_second=True)
-        result=m.forward_snapshot(p,at)
+        with patch.object(m.time,"time",return_value=at):
+            result=m.forward_snapshot(p,at)
         self.assertEqual(result["provider_candles"][1]["status"],"MISSING_CANDLE_AMBIGUOUS")
         self.assertEqual(result["prospective_day_count"],0)
 
