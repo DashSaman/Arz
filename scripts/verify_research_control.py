@@ -401,6 +401,42 @@ def validate(state: object) -> dict:
         selfaudit.get("live_trading")=="DISABLED",
         "Unobserved scheduled run or source-only quote promoted to funded strategy")
 
+    # Real first bot-authored Base source+NO-GO audit was actually COMMITTED
+    # but was late and had a leading frozen-OOS gap. A bot commit alone cannot
+    # prove schedule vs dispatch or establish a profitable, executable trade.
+    first=[x for x in strat_entries if type(x) is dict and x.get("id") ==
+        "STRAT01-FIRST-REAL-BASE-BOT-CAPTURE-MISSING-LEADING-OOS-2026-10-27"]
+    require(len(first)==1,"Missing or duplicate first real bot-capture checkpoint")
+    evidence=first[0]
+    require(evidence.get("source_bot_commit_sha") ==
+            "efc4e29d8e54b3a8523e64b7072d8b7f60a57c91" and
+            evidence.get("new_integrity_fix_pr")==59 and
+            bool(COMMIT_SHA.fullmatch(str(evidence.get("new_integrity_fix_merged_sha")))) and
+            type(evidence.get("new_integrity_fix_ci_url")) is str and
+            RUN_REF.fullmatch(evidence["new_integrity_fix_ci_url"]) is not None,
+            "Bot-source / late-data correction provenance changed")
+    require(evidence.get("original_bot_capture_audit_pair_verified") is True and
+            evidence.get("original_source_sha256") ==
+            "34c7bc50dddcd93bfa0d4e4bf228094e54b957d82ba3e97ceb98baf759220d02" and
+            evidence.get("source_first_seen_at_utc")=="2026-10-27T09:53:59Z" and
+            evidence.get("source_weth_bar_close_lag_seconds")==6839 and
+            evidence.get("source_cbbtc_bar_close_lag_seconds")==6840 and
+            evidence.get("first_missing_four_hour_bar")==
+            "2026-10-27T00:00:00Z–04:00:00Z" and
+            evidence.get("new_focused_test_methods_passed")==84 and
+            evidence.get("whole_repo_test_methods_passed")==1293,
+            "First actual source facts or source latency proof mutated")
+    require(evidence.get("github_schedule_event_type_independently_verified") is False and
+            evidence.get("operationally_timely_4h_bar_pairs")==0 and
+            evidence.get("source_bar_has_quote_execution_eligibility") is False and
+            evidence.get("actual_paid_L1_L2_gas_USDC") is None and
+            evidence.get("real_trade_execution_count")==0 and
+            evidence.get("genuine_prospective_paper_days")==0 and
+            evidence.get("actual_geometric_account_profit_proven") is False and
+            evidence.get("financial_decision")=="NO-GO" and
+            evidence.get("live_trading")=="DISABLED",
+            "Delayed source cannot establish an executed trade, safe fee or financial GO")
+
     next_unfinished = next((name for name in order if tasks[name]["status"] != "DONE"), None)
     require(next_unfinished is not None, "No next research work defined")
     return {

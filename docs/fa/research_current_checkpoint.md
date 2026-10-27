@@ -133,3 +133,11 @@ Trading Strategy برای بازارهای WETH ID 4564367 و cbBTC ID 4705508،
 [CI 40445362421](https://github.com/DashSaman/Arz/actions/runs/40445362421): **۱۲۰۸ تست کل ریپو PASS**، شامل **۱۸ تست افزوده کنترل Workflow**؛ [CI مالی 40445362541](https://github.com/DashSaman/Arz/actions/runs/40445362541) نیز موفق بود. **اینها اجرای واقعی Cron نیستند**؛ هنوز فایل جدید، روز Paper، گاز پرداخت‌شده یا سود تأیید نشده است. [گزارش](strat01_forward_self_audit_20261027.md) و [شاهد JSON](../../reports/strat01/2026-10-27-self-audited-forward-pipeline.json).
 
 **مرحله بعد Issue #42:** مشاهده واقعی اولین اجرای زمان‌بندی‌شده پس از ساعت ۰۴:۲۳ UTC و بررسی فایل داده و فایل حسابرسی/Artifact. تصمیم مالی NO-GO، اجرای واقعی DISABLED.
+
+## نخستین داده واقعی GitHub Bot و شکاف ابتدایی OOS — ۲۷ اکتبر ۲۰۲۶
+
+ثبت خودکار داده و حسابرسی **واقعاً** با [Commit efc4e29](https://github.com/DashSaman/Arz/commit/efc4e29d8e54b3a8523e64b7072d8b7f60a57c91) در main دیده شد: `reports/strat01/forward/20261027T095359Z.json` و `reports/strat01/audits/20261027T095359Z.json` همراه هش یکسان و تصمیم `NO-GO`. نویسنده Commit، حساب `github-actions[bot]` است؛ نوع رخداد schedule یا dispatch صرفاً با Commit ثابت نمی‌شود.
+
+**مشکل واقعی:** کندل OOS **۰۰:۰۰–۰۴:۰۰ UTC** اصلاً در پرونده ثبت نشده است؛ اولین کندل مشترک ۰۴:۰۰–۰۸:۰۰ UTC در **۰۹:۵۳:۵۹ / ۰۹:۵۴:۰۰ UTC** مشاهده شد، تأخیر **۶۸۳۹ / ۶۸۴۰ ثانیه**. نسخه قبلی فقط شکاف بین کندل‌های موجود را می‌دید؛ **PR #59** این شکاف آغاز و تأخیر را رفع/گزارش می‌کند، بدون اینکه ساعت مشاهده را بازنویسی کند یا آستانه یک‌ساعته تشخیصی را پارامتر ATR تلقی کند. [تست‌های ۱۲۹۳تایی موفق](https://github.com/DashSaman/Arz/actions/runs/40525201907) و [گزارش واقعی JSON](../../reports/strat01/2026-10-27-first-capture-gap-latency-audit.json) ثبت شد. [شرح فارسی](strat01_first_capture_gap_latency_20261027.md).
+
+**فقط ۱ کندل مشترک ثبت‌شده و ۰ کندل به‌موقع طبق معیار تشخیصی** داریم. سود خالص، ۹۰ روز Paper، کارمزد پرداخت‌شده واقعی و Fill واقعی همچنان نامعلوم است. ادامه Issue #42: ثبت داده‌های واقعی و قابل‌اتکای بیشتری با کنترل آغاز/میانه/پایان بازه، بدون Backfill ساختگی. مالی NO-GO، معاملات DISABLED.

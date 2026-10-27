@@ -216,6 +216,29 @@ class ControlPlaneTests(unittest.TestCase):
             with self.subTest(field=field), self.assertRaises(ValueError):
                 validate(bad)
 
+    def test_actual_bot_first_source_does_not_qualify_late_market_trade(self):
+        s=fresh()
+        self.assertEqual(validate(s)["financial_decision"],"NO-GO")
+        for key,val in (
+            ("github_schedule_event_type_independently_verified",True),
+            ("source_weth_bar_close_lag_seconds",0),
+            ("first_missing_four_hour_bar",None),
+            ("operationally_timely_4h_bar_pairs",1),
+            ("source_bar_has_quote_execution_eligibility",True),
+            ("actual_paid_L1_L2_gas_USDC",0),
+            ("real_trade_execution_count",1),
+            ("genuine_prospective_paper_days",90),
+            ("actual_geometric_account_profit_proven",True),
+            ("financial_decision","GO"),
+        ):
+            v=fresh()
+            stage=next(x for x in v["tracks"] if x["id"]=="STRAT-01")
+            record=next(x for x in stage["additional_verified_subcheckpoints"]
+                   if x["id"]=="STRAT01-FIRST-REAL-BASE-BOT-CAPTURE-MISSING-LEADING-OOS-2026-10-27")
+            record[key]=val
+            with self.subTest(key=key),self.assertRaises(ValueError):
+                validate(v)
+
     def test_pr_merge_status_and_duplicate_branch_rejected(self):
         s = fresh()
         s["research_prs"][-1]["state"] = "MERGED"
