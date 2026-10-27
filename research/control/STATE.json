@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "checkpoint_id": "ARZ-2026-10-26-CONTROL-04",
-  "observed_at_utc": "2026-10-26",
+  "checkpoint_id": "ARZ-2026-10-27-CONTROL-05",
+  "observed_at_utc": "2026-10-27",
   "repository": "DashSaman/Arz",
   "canonical_branch": "main",
   "purpose": "Evidence-linked restart-safe control plane; does not promote unmerged draft code to main",
@@ -413,7 +413,7 @@
         "EV-007"
       ],
       "completion": "Separate H2 baseline and wallet-confirmed variant once wallet data arrives; baseline must pass realistic cost and OOS without retuning; CEX proxy never qualifies Base DEX H4",
-      "next_action": "STRAT-01 next, issue #42: independently attest provider pair IDs 4564367/4705508 to Base pool/token contract identities and price orientation; then immutable truly as-observed dual market 4h bar and same-signal $20 Quoter feed starting after 2026-10-27T00:00:00Z; capture USD L1/L2 network charges/impact/failures. Do not claim a one-day, pre-cutoff pilot as new OOS/backtest.",
+      "next_action": "STRAT-01 Issue #42: verify next configured GitHub Actions scheduled read-only capture and append-only file/artifact, then source-complete 4h bars starting 2026-10-27T00:00 UTC with source first-seen timestamps, actual USD L1/L2 and inclusion/slippage/failure costs. Only once complete apply unchanged S0/H2 without backdating paper days; no live trades.",
       "github_issue_url": "https://github.com/DashSaman/Arz/issues/42",
       "last_verified_subcheckpoint": {
         "id": "STRAT01-IMMUTABLE-NEGATIVE-CONTROL-2026-10-26",
@@ -491,6 +491,46 @@
           "new_independent_market_backtests": 0,
           "profitability_verified": false,
           "label": "ACTUAL_READONLY_PUBLIC_SOURCE_SINGLE_BLOCK_AND_PRIOR_DAY_PILOT_NOT_FILLS"
+        },
+        {
+          "id": "STRAT01-BASE-FACTORY-PROVIDER-AND-FIRST-ASOF-2026-10-27",
+          "merged_pr": 50,
+          "merged_sha": "60bec95cfec281c19a7fe08bb422d25ad79e2929",
+          "first_data_ci_url": "https://github.com/DashSaman/Arz/actions/runs/40425075566",
+          "latest_ci_url": "https://github.com/DashSaman/Arz/actions/runs/40425916606",
+          "focused_methods_passed": 28,
+          "full_repository_methods_passed": 974,
+          "source_identity_verified": true,
+          "base_chain_id": 8453,
+          "fee_ppm": 500,
+          "pools": {
+            "WETH/USDC": {
+              "provider_pair_id": 4564367,
+              "canonical_pool": "0xd0b53d9277642d899df5c87a3966a349a798f224"
+            },
+            "cbBTC/USDC": {
+              "provider_pair_id": 4705508,
+              "canonical_pool": "0xfbb6eed8e7aa03b138556eedaf5d271a5e1e43ef"
+            }
+          },
+          "original_parser_rejected_due_to_provider_base_quote_schema": true,
+          "offline_reconciliation_no_new_provider_requests": true,
+          "identity_report": "reports/strat01/2026-10-27-base-identity-observed.json",
+          "first_post_cutoff_utc": "2026-10-27T00:14:13+00:00",
+          "post_cutoff_block": 53135353,
+          "completed_oos_4h_bars_at_first_capture": 0,
+          "initial_readonly_weth_quote_out": "0.008596332884170224",
+          "initial_readonly_cbbtc_quote_out": "0.00024938",
+          "actual_network_cost_L1_L2_usd": null,
+          "signal_bound_quote_execution_verified": false,
+          "realized_profit_usdc": null,
+          "prospective_qualified_paper_days": 0,
+          "scheduled_workflow_present": true,
+          "scheduled_workflow_first_run_verified": false,
+          "scheduled_workflow_main_commit_verified": false,
+          "scheduled_cron_utc": "23 0,4,8,12,16,20 * * *",
+          "live_orders_executed": 0,
+          "financial_go": false
         }
       ]
     },
@@ -576,7 +616,7 @@
     "No PR treated as merged unless GitHub checked",
     "No changes to main trading runtime while integrating governance files"
   ],
-  "verification_policy": "STRAT-01 remains IN_PROGRESS, after PR48 new bounded *real* Base pilot only; do not duplicate prior-day public requests. Obtain chain/pool identity, prospective as-of market data and exact real execution costs before any new OOS/bot profitability qualification; live NO-GO/DISABLED.",
+  "verification_policy": "Actual factory/provider pool mappings for two Base pairs verified (PR50); first after-OOS quote at 00:14 UTC has ZERO closed 4h bars and zero paper days. 4h cron source capture configured, first cron not yet observed. Ensure actual USD gas/inclusion costs and complete causal series; trading NO-GO/DISABLED.",
   "completed_milestones": [
     {
       "task": "OPS-01",
@@ -596,13 +636,13 @@
     }
   ],
   "last_verified_delivery": {
-    "pr": 48,
-    "merged_sha": "1876a5c5ae7cc539a39430a273a15fcfa8ecfa2e",
-    "run_url": "https://github.com/DashSaman/Arz/actions/runs/40421512800",
-    "full_tests": 945,
-    "focused": 21,
+    "pr": 50,
+    "merged_sha": "60bec95cfec281c19a7fe08bb422d25ad79e2929",
+    "run_url": "https://github.com/DashSaman/Arz/actions/runs/40425916606",
+    "full_tests": 974,
+    "focused": 28,
     "net_alpha_verified": false,
-    "source": "reports/strat01/2026-10-27-base-pilot-observed.json"
+    "source": "reports/strat01/2026-10-27-base-identity-observed.json"
   },
   "post_checkpoint_verified_deliveries": [
     {
