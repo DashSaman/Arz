@@ -1,0 +1,100 @@
+name: STRAT-01 independent Base identity and first-seen observations
+
+on:
+  push:
+    branches: [research/2026-10-27-base-identity-prospective]
+    paths:
+      - scripts/strat01_base_identity_forward.py
+      - tests/test_strat01_base_identity_forward.py
+      - .github/workflows/strat01-base-forward.yml
+  pull_request:
+    paths:
+      - scripts/strat01_base_identity_forward.py
+      - tests/test_strat01_base_identity_forward.py
+      - .github/workflows/strat01-base-forward.yml
+  schedule:
+    - cron: '23 0,4,8,12,16,20 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: arz-strat01-${{ github.event_name }}
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    if: github.event_name == 'push' || github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      PYTHONPATH: 'src:.'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Test read-only Base factory/provider evidence
+        run: python -m unittest discover -s tests -p 'test_strat01_base_identity_forward.py' -v
+      - name: Full repository offline suite
+        run: python -m unittest discover -s tests -q
+      - name: Compile and enforce NO-GO
+        run: |
+          python -m compileall -q scripts/strat01_base_identity_forward.py
+          python scripts/verify_research_control.py
+      - name: One bounded identity check
+        if: hashFiles('reports/strat01/2026-10-27-base-identity-observed.json') == ''
+        run: python scripts/strat01_base_identity_forward.py --mode identity --output /tmp/arz-identity.json
+      - name: One post-cutoff first-seen read-only snapshot
+        if: hashFiles('reports/strat01/2026-10-27-base-forward-first-seen.json') == ''
+        run: python scripts/strat01_base_identity_forward.py --mode forward --output /tmp/arz-first-seen.json
+      - name: Archive bounded derived actual source evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: arz-identity-and-initial-asof
+          path: |
+            /tmp/arz-identity.json
+            /tmp/arz-first-seen.json
+          if-no-files-found: warn
+          retention-days: 30
+
+  future_capture:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    permissions:
+      contents: write
+    env:
+      PYTHONPATH: 'src:.'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Fail-closed source and trading guards
+        run: |
+          python -m unittest discover -s tests -p 'test_strat01_base_identity_forward.py' -q
+          python scripts/verify_research_control.py
+      - name: Capture one observed-at-runtime sample
+        id: capture
+        run: |
+          set -eu
+          marker="$(date -u +%Y%m%dT%H%M%SZ)"
+          file="reports/strat01/forward/${marker}.json"
+          python scripts/strat01_base_identity_forward.py --mode forward --output "$file"
+          echo "file=$file" >> "$GITHUB_OUTPUT"
+      - name: Append only JSON source witness (no secrets or live orders)
+        run: |
+          set -eu
+          file="${{ steps.capture.outputs.file }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- "$file"
+          git commit -m "evidence: read-only Base 4h first seen plus Quoter as-observed, not fill"
+          git push origin HEAD:main
+      - name: Archive capture also if main branch write is protected
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: arz-prospective-asof-readonly-capture
+          path: reports/strat01/forward/*.json
+          if-no-files-found: warn
+          retention-days: 30
