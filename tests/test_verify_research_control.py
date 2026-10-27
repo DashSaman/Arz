@@ -146,6 +146,32 @@ class ControlPlaneTests(unittest.TestCase):
             with self.subTest(key=key),self.assertRaises(ValueError):
                 validate(bad)
 
+    def test_real_base_fee_oracle_and_future_schedule_cannot_prove_paid_fees_or_paper(self):
+        source = fresh()
+        self.assertEqual(validate(source)["financial_decision"],"NO-GO")
+        for sid,key,badvalue in (
+            ("STRAT01-REAL-BASE-ORACLE-L1-L2-SCENARIOS-2026-10-27",
+                "real_paid_network_fee_USDC",0),
+            ("STRAT01-REAL-BASE-ORACLE-L1-L2-SCENARIOS-2026-10-27",
+                "real_swap_receipt_count",1),
+            ("STRAT01-REAL-BASE-ORACLE-L1-L2-SCENARIOS-2026-10-27",
+                "net_geometric_daily_return_verified",True),
+            ("STRAT01-FORWARD-SAME-BLOCK-GAS-ORACLE-ADDED-2026-10-27",
+                "real_post_merge_scheduled_cron_capture_count_verified",1),
+            ("STRAT01-FORWARD-SAME-BLOCK-GAS-ORACLE-ADDED-2026-10-27",
+                "actual_swap_fee_usdc",0),
+            ("STRAT01-FORWARD-SAME-BLOCK-GAS-ORACLE-ADDED-2026-10-27",
+                "profit_qualified",True),
+            ("STRAT01-FORWARD-SAME-BLOCK-GAS-ORACLE-ADDED-2026-10-27",
+                "forward_read_only_source_call_max",200)
+        ):
+            damaged=fresh()
+            series=next(x for x in damaged["tracks"] if x["id"]=="STRAT-01")["additional_verified_subcheckpoints"]
+            checkpoint=next(x for x in series if x["id"]==sid)
+            checkpoint[key]=badvalue
+            with self.subTest(sid=sid,key=key),self.assertRaises(ValueError):
+                validate(damaged)
+
     def test_pr_merge_status_and_duplicate_branch_rejected(self):
         s = fresh()
         s["research_prs"][-1]["state"] = "MERGED"

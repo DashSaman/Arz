@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint_id": "ARZ-2026-10-27-CONTROL-05",
+  "checkpoint_id": "ARZ-2026-10-27-CONTROL-06",
   "observed_at_utc": "2026-10-27",
   "repository": "DashSaman/Arz",
   "canonical_branch": "main",
@@ -413,7 +413,7 @@
         "EV-007"
       ],
       "completion": "Separate H2 baseline and wallet-confirmed variant once wallet data arrives; baseline must pass realistic cost and OOS without retuning; CEX proxy never qualifies Base DEX H4",
-      "next_action": "STRAT-01 Issue #42: verify next configured GitHub Actions scheduled read-only capture and append-only file/artifact, then source-complete 4h bars starting 2026-10-27T00:00 UTC with source first-seen timestamps, actual USD L1/L2 and inclusion/slippage/failure costs. Only once complete apply unchanged S0/H2 without backdating paper days; no live trades.",
+      "next_action": "STRAT-01 Issue #42: first verify GitHub Actions 04:23 UTC scheduled forward capture actually ran, appended unique first-seen JSON or produced an artifact; then collect complete 4h candles for WETH and cbBTC and exact same-block L1 oracle/L2 basefee with true source timestamps, fee paid from independently observed receipts and quote-to-inclusion impact, before unchanged S0/H2 and >=90 real future days. At 00:23 tick scheduled workflow was not yet on main (merged 00:23:20).",
       "github_issue_url": "https://github.com/DashSaman/Arz/issues/42",
       "last_verified_subcheckpoint": {
         "id": "STRAT01-IMMUTABLE-NEGATIVE-CONTROL-2026-10-26",
@@ -531,6 +531,59 @@
           "scheduled_cron_utc": "23 0,4,8,12,16,20 * * *",
           "live_orders_executed": 0,
           "financial_go": false
+        },
+        {
+          "id": "STRAT01-REAL-BASE-ORACLE-L1-L2-SCENARIOS-2026-10-27",
+          "merged_pr": 52,
+          "merged_sha": "2b821c75554f570a995bd0d17759bf31b8ce527c",
+          "observed_source_run_url": "https://github.com/DashSaman/Arz/actions/runs/40432414902",
+          "latest_code_ci_url": "https://github.com/DashSaman/Arz/actions/runs/40432764259",
+          "observed_base_block": 53137474,
+          "observed_block_basefee_wei": 5000000,
+          "gas_oracle_address": "0x420000000000000000000000000000000000000F",
+          "unsigned_tx_size_assumption_bytes": [
+            180,
+            300,
+            500
+          ],
+          "onchain_oracle_L1_upper_bound_wei": [
+            "712475029",
+            "1117042025",
+            "1789091332"
+          ],
+          "assumed_L2_gas_used": [
+            100000,
+            200000,
+            350000
+          ],
+          "hypothetical_cost_USDC_scenarios": 9,
+          "real_paid_network_fee_USDC": null,
+          "real_router_tx_length_bytes": null,
+          "real_swap_receipt_count": 0,
+          "actual_equity_profit_USDC": null,
+          "net_geometric_daily_return_verified": false,
+          "software_full_tests_passed": 1042,
+          "focused_methods_passed": 67,
+          "evidence_path": "reports/strat01/2026-10-27-base-fee-envelope-observed.json"
+        },
+        {
+          "id": "STRAT01-FORWARD-SAME-BLOCK-GAS-ORACLE-ADDED-2026-10-27",
+          "merged_pr": 53,
+          "merged_sha": "8f044b92266164d2116900fa383aa29e768e4a07",
+          "ci_url": "https://github.com/DashSaman/Arz/actions/runs/40433472180",
+          "software_full_tests_passed": 1045,
+          "focused_methods_passed": 31,
+          "source": "reports/strat01/2026-10-27-forward-fee-source-integration.json",
+          "forward_read_only_source_call_max": 8,
+          "same_pinned_block_read_L2_fee_and_L1_oracle": true,
+          "unpaid_unserialized_assumed_L1_tx_size_bytes": 300,
+          "real_post_merge_scheduled_cron_capture_count_verified": 0,
+          "scheduled_first_tick_2026_10_27_0023_was_before_main_merge": true,
+          "original_cron_merge_time_utc": "2026-10-27T00:23:20Z",
+          "earliest_next_nominal_cron_time_utc": "2026-10-27T04:23:00Z",
+          "actual_swap_fee_usdc": null,
+          "actual_strategy_follower_quote_with_delay": false,
+          "profit_qualified": false
         }
       ]
     },
@@ -616,7 +669,7 @@
     "No PR treated as merged unless GitHub checked",
     "No changes to main trading runtime while integrating governance files"
   ],
-  "verification_policy": "Actual factory/provider pool mappings for two Base pairs verified (PR50); first after-OOS quote at 00:14 UTC has ZERO closed 4h bars and zero paper days. 4h cron source capture configured, first cron not yet observed. Ensure actual USD gas/inclusion costs and complete causal series; trading NO-GO/DISABLED.",
+  "verification_policy": "PR52 real Base Oracle only hypothetical unsigned transaction size/L2 gas assumptions; PR53 future snapshot captures basefee and oracle at same quote block but NO actual paid USD fees or observed first cron. PR50 initial cron deployed at 00:23:20Z after nominal 00:23 tick. Next tick 04:23Z best-effort, no asynchronous claim until checked. Financial NO-GO, live DISABLED.",
   "completed_milestones": [
     {
       "task": "OPS-01",
@@ -636,13 +689,14 @@
     }
   ],
   "last_verified_delivery": {
-    "pr": 50,
-    "merged_sha": "60bec95cfec281c19a7fe08bb422d25ad79e2929",
-    "run_url": "https://github.com/DashSaman/Arz/actions/runs/40425916606",
-    "full_tests": 974,
-    "focused": 28,
-    "net_alpha_verified": false,
-    "source": "reports/strat01/2026-10-27-base-identity-observed.json"
+    "pr": 53,
+    "merged_sha": "8f044b92266164d2116900fa383aa29e768e4a07",
+    "run_url": "https://github.com/DashSaman/Arz/actions/runs/40433472180",
+    "focused": 31,
+    "full_tests": 1045,
+    "real_network_paid_fee_verified": false,
+    "new_qualified_account_trades": 0,
+    "source": "reports/strat01/2026-10-27-forward-fee-source-integration.json"
   },
   "post_checkpoint_verified_deliveries": [
     {
