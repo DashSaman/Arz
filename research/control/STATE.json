@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint_id": "ARZ-2026-10-27-CONTROL-07",
+  "checkpoint_id": "ARZ-2026-10-27-CONTROL-08",
   "observed_at_utc": "2026-10-27",
   "repository": "DashSaman/Arz",
   "canonical_branch": "main",
@@ -413,7 +413,7 @@
         "EV-007"
       ],
       "completion": "Separate H2 baseline and wallet-confirmed variant once wallet data arrives; baseline must pass realistic cost and OOS without retuning; CEX proxy never qualifies Base DEX H4",
-      "next_action": "STRAT-01 Issue #42: at/after scheduled 2026-10-27T04:23:00Z first confirm GitHub Actions schedule event, artifact and append-only file in reports/strat01/forward. CI source audit now automatically executes on every appended file. Do not count prior-day pilot or missing delayed data as observed first-seen, and do not issue GO without independent verified 90d net cost/stress account paper and user authorization.",
+      "next_action": "Issue #42: after Oct 27 04:23 UTC verify *actual* scheduled run of GitHub workflow strat01-base-forward.yml, its real first-seen source/audit pair or Actions artifact, then build source-continuous causal WETH/cbBTC observations. GITHUB_TOKEN pushes do not fire separate push workflow; in-job audit PR57 fixed. Do not count code CI as Cron, fills, paper days, or investment approval.",
       "github_issue_url": "https://github.com/DashSaman/Arz/issues/42",
       "last_verified_subcheckpoint": {
         "id": "STRAT01-IMMUTABLE-NEGATIVE-CONTROL-2026-10-26",
@@ -607,6 +607,32 @@
           "capital_activation_authorized": false,
           "live_trading": "DISABLED",
           "source_scope": "REAL_GITHUB_CI_CHECKOUT_NO_FORWARD_APPEND_YET_SYNTHETIC_VALIDATION_TESTS_NOT_FINANCIAL_RESULTS"
+        },
+        {
+          "id": "STRAT01-INRUN-SELF-AUDITED-BASE-CAPTURE-2026-10-27",
+          "merged_pr": 57,
+          "merged_sha": "6c6bc98741adc07d5044c35c3c9368d523172a9d",
+          "full_ci": "https://github.com/DashSaman/Arz/actions/runs/40445362421",
+          "separate_investment_gate_ci": "https://github.com/DashSaman/Arz/actions/runs/40445362541",
+          "full_repo_tests_passed": 1208,
+          "new_pipeline_test_methods": 18,
+          "scheduled_workflow_integration_tested_on_PR": true,
+          "actual_scheduled_run_verified": false,
+          "actual_main_forward_file_verified": false,
+          "actual_main_audit_file_verified": false,
+          "trigger_bug_source": "https://docs.github.com/en/actions/concepts/security/github_token",
+          "github_token_push_triggers_separate_push_workflow": false,
+          "now_audits_source_in_same_scheduled_job_before_commit": true,
+          "simultaneous_source_and_no_go_audit_commit": true,
+          "exact_sha256_utc_manifest_binding": true,
+          "artifact_fallback_for_denied_push": true,
+          "source_evidence": "reports/strat01/2026-10-27-self-audited-forward-pipeline.json",
+          "paid_l1_l2_gas_usdc": null,
+          "positive_net_compounded_return_verified": false,
+          "prospective_paper_days_qualified": 0,
+          "independent_investment_approval": false,
+          "financial_decision": "NO-GO",
+          "live_trading": "DISABLED"
         }
       ]
     },
@@ -692,7 +718,7 @@
     "No PR treated as merged unless GitHub checked",
     "No changes to main trading runtime while integrating governance files"
   ],
-  "verification_policy": "Main PR55 investment gate audits each future source file on push for 4h clock/revisions and paid-gas/PnL false promotion. Observed zero scheduled files before first possible Oct27 04:23 UTC tick. 194 warmup bars, 90 elapsed paper days and all-in signed execution costs are unverified. STRAT-01 in progress, PAPER/LIVE blocked, no automatic funding, no false GO.",
+  "verification_policy": "PR57 fixed documented GITHUB_TOKEN-initiated bot push blind spot with same-run audit and source SHA256/UTC manifest before commit, with artifact fallback. CI is NOT evidence a scheduled run happened. Next actual schedule at 2026-10-27 04:23 UTC still unobserved. Financial NO-GO and live DISABLED; 194 warmup 4h and 90 elapsed paper days missing.",
   "completed_milestones": [
     {
       "task": "OPS-01",
@@ -712,13 +738,13 @@
     }
   ],
   "last_verified_delivery": {
-    "pr": 55,
-    "merged_sha": "f271102049cf8dbc61530db6f6504d93dd4e1c83",
-    "run_url": "https://github.com/DashSaman/Arz/actions/runs/40437993852",
-    "focused": 143,
-    "full_tests": 1189,
+    "pr": 57,
+    "merged_sha": "6c6bc98741adc07d5044c35c3c9368d523172a9d",
+    "run_url": "https://github.com/DashSaman/Arz/actions/runs/40445362421",
+    "full_tests": 1208,
+    "focused": 18,
     "net_alpha_verified": false,
-    "source": "reports/strat01/2026-10-27-investment-readiness-no-go.json"
+    "source": "reports/strat01/2026-10-27-self-audited-forward-pipeline.json"
   },
   "post_checkpoint_verified_deliveries": [
     {

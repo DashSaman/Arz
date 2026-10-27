@@ -85,6 +85,16 @@ Both 20 USDC single-pool Uniswap V3 `eth_call` QuoteV2 simulations used **Base b
 
 **NEXT STRAT-01 [Issue #42](https://github.com/DashSaman/Arz/issues/42):** after **2026-10-27T04:23:00Z** nominal Cron tick, independently check GitHub scheduled run/Artifact and unique file append, diagnose any missing source, then accumulate actual causal data without backdated first-seen claims. Still NO-GO / real trading DISABLED. No automatic capital approval is possible from an offline source audit.
 
+## STRAT-01 scheduled capture audit fixed — 2026-10-27
+
+**[PR #57](https://github.com/DashSaman/Arz/pull/57) is merged in main** (commit `6c6bc98741adc07d5044c35c3c9368d523172a9d`). The previously configured 4-hour GitHub scheduled collector used its own `GITHUB_TOKEN` to push capture files; **GitHub does not trigger another push-based workflow from these bot-origin pushes**, per [official GitHub documentation](https://docs.github.com/en/actions/concepts/security/github_token). The separate `strat01-investment-gate.yml` therefore could not reliably auto-validate collector-origin source files.
+
+The collector now **runs the offline investment/source validator in the SAME scheduled job BEFORE any push**, binds the exact source JSON file's SHA-256 and first-observed UTC to its manifest, and commits both `reports/strat01/forward/<UTC>.json` and `reports/strat01/audits/<UTC>.json` together after validation. If main push is blocked, both are preserved in an Actions artifact, not silently declared committed. The separate human-push gate is retained.
+
+[Final on-head Actions 40445362421](https://github.com/DashSaman/Arz/actions/runs/40445362421) **1,208 complete repository unit tests PASS** (including 18 added pipeline/source proof tests), and [finance-gate CI 40445362541](https://github.com/DashSaman/Arz/actions/runs/40445362541) 143 finance-targeted + 1,208 full-suite tests PASS; suites overlap. Reports: [machine JSON](reports/strat01/2026-10-27-self-audited-forward-pipeline.json) · [FA](docs/fa/strat01_forward_self_audit_20261027.md) · [EN](docs/en/strat01_forward_self_audit_20261027.md).
+
+**IMPORTANT:** PR test success **does not prove any scheduled workflow ran**, source file/audit pair was appended, any paid USD gas was incurred, or an actual trade was profitable. Next nominal first observed slot after original activation is **2026-10-27 04:23 UTC**, GitHub best effort. [STRAT-01 Issue #42](https://github.com/DashSaman/Arz/issues/42) continues with independent actual schedule run/artifact verification and then complete dual-market source/fee history. Capital remains **NO-GO; live DISABLED**.
+
 ## PR topology (check remotely again before changing branches)
 
 Core research dependency chain: **#15 → #17 → #18 → #24 → #26 → #27 → #28 → #29 → #30 → #31 → #32 → #33**. These were **all open Draft PRs**, not merged, when this checkpoint was created. The independent forensic gap audit [#25](https://github.com/DashSaman/Arz/pull/25) is also open Draft against `main`. **Do not merge the whole chain or misattribute a draft file to `main`.**
