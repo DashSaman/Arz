@@ -256,6 +256,50 @@ def validate(state: object) -> dict:
             "ACTUAL_READONLY_PUBLIC_SOURCE_SINGLE_BLOCK_AND_PRIOR_DAY_PILOT_NOT_FILLS",
             "Incorrect economic evidence class for one-shot Base public pilot")
 
+    # Onchain identity may be VERIFIED without any profitable or executable
+    # follower transaction. A configured 4h GitHub cron is NOT an observed
+    # scheduled run or an elapsed real paper-trading day.
+    latest = [x for x in strat_entries if isinstance(x, dict) and
+              x.get("id") == "STRAT01-BASE-FACTORY-PROVIDER-AND-FIRST-ASOF-2026-10-27"]
+    require(len(latest) == 1, "Post-cutoff Base identity evidence missing or duplicated")
+    proof = latest[0]
+    require(proof.get("merged_pr") == 50 and
+            bool(COMMIT_SHA.fullmatch(str(proof.get("merged_sha")))),
+            "Cross-source Base identity merge proof invalid")
+    require(proof.get("source_identity_verified") is True and
+            proof.get("base_chain_id") == 8453 and proof.get("fee_ppm") == 500,
+            "Canonical factory identity not verified")
+    pools = proof.get("pools")
+    require(type(pools) is dict and set(pools) == {"WETH/USDC","cbBTC/USDC"},
+            "Pool identity pair set changed")
+    require(pools["WETH/USDC"].get("canonical_pool") ==
+            "0xd0b53d9277642d899df5c87a3966a349a798f224" and
+            pools["WETH/USDC"].get("provider_pair_id") == 4564367 and
+            pools["cbBTC/USDC"].get("canonical_pool") ==
+            "0xfbb6eed8e7aa03b138556eedaf5d271a5e1e43ef" and
+            pools["cbBTC/USDC"].get("provider_pair_id") == 4705508,
+            "Actual source-address binding changed")
+    require(proof.get("completed_oos_4h_bars_at_first_capture") == 0 and
+            proof.get("prospective_qualified_paper_days") == 0 and
+            proof.get("actual_network_cost_L1_L2_usd") is None and
+            proof.get("realized_profit_usdc") is None and
+            proof.get("signal_bound_quote_execution_verified") is False and
+            proof.get("live_orders_executed") == 0 and
+            proof.get("financial_go") is False,
+            "First post-cutoff quote incorrectly promoted to traded profit")
+    require(proof.get("scheduled_workflow_present") is True and
+            proof.get("scheduled_workflow_first_run_verified") is False and
+            proof.get("scheduled_workflow_main_commit_verified") is False,
+            "Cron configuration cannot be reported as observed future operation")
+    require(type(proof.get("first_data_ci_url")) is str and
+            RUN_REF.fullmatch(proof["first_data_ci_url"]) is not None and
+            type(proof.get("latest_ci_url")) is str and
+            RUN_REF.fullmatch(proof["latest_ci_url"]) is not None,
+            "Onchain/provider source CI links not verifiable")
+    require(controlled_path(proof.get("identity_report")) and
+            proof.get("first_post_cutoff_utc") == "2026-10-27T00:14:13+00:00",
+            "Identity source file or first-seen clock modified")
+
     next_unfinished = next((name for name in order if tasks[name]["status"] != "DONE"), None)
     require(next_unfinished is not None, "No next research work defined")
     return {
