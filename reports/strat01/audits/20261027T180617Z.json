@@ -1,0 +1,96 @@
+{
+  "blockers": [
+    "REVISED_OR_GAPPED_MARKET_BARS",
+    "MISSING_INITIAL_FROZEN_OOS_4H_BAR",
+    "BAR_SOURCE_FIRST_SEEN_OVER_1H_AFTER_CLOSE_DIAGNOSTIC",
+    "LESS_THAN_194_TIMELY_CAUSAL_BOTH_ASSET_BARS",
+    "FROZEN_S0_NEEDS_194_CONSECUTIVE_DUAL_ASSET_4H_BARS",
+    "ACTUAL_GITHUB_CRON_JOB_NOT_INDEPENDENTLY_ATTESTED",
+    "REAL_FOLLOWER_QUOTE_WITH_60SEC_DELAY_MISSING",
+    "PAID_GAS_L1_L2_AND_FAILURE_SLIPPAGE_COSTS_UNVERIFIED",
+    "NO_90_ELAPSED_PROSPECTIVE_ACCOUNT_DAYS",
+    "NO_POSITIVE_STRESSED_GEOMETRIC_NET_ACCOUNT_RETURN",
+    "NO_INDEPENDENT_OUT_OF_SAMPLE_TRADING_PROFITABILITY",
+    "NO_SEPARATE_USER_FUNDING_APPROVAL"
+  ],
+  "capital_activation_authorized": false,
+  "investment_recommendation": "NO-GO",
+  "live_trading": "DISABLED",
+  "market_trade_execution_profit_evidence_verified": false,
+  "notice": "Even a hypothetical success in statistical paper tests is never a capital-transfer authorization.",
+  "prior_historical_gate": {
+    "new_real_capital_authorized_usd": 0,
+    "prior_historical_models_qualified": 0,
+    "state_checkpoint": "ARZ-2026-10-27-CONTROL-09"
+  },
+  "report_kind": "OFFLINE_REAL_SOURCE_CONSISTENCY_NOT_FINANCIAL_ORACLE",
+  "requirements": {
+    "direct_external_verification_and_user_funding_approval": true,
+    "max_drawdown": "0.10",
+    "min_consecutive_market_bars": 194,
+    "min_prospective_days": 90,
+    "positive_primary_and_double_cost_geometric_returns": true,
+    "source_follower_latency_seconds": 60,
+    "source_lag_diagnostic_seconds_not_a_strategy_signal": 3600
+  },
+  "schema_version": 1,
+  "software_source_validator_passed": true,
+  "source_capture_audit": {
+    "complete_both_asset_bar_starts": [
+      1793073600,
+      1793102400
+    ],
+    "conflicts": [],
+    "errors": [],
+    "file_count": 2,
+    "first_schedule_run_independently_verified": false,
+    "full_historical_continuous_warmup_verified": false,
+    "late_both_market_bar_starts": [
+      1793073600,
+      1793102400
+    ],
+    "max_consecutive_operationally_timely_bars": 0,
+    "max_observed_bar_close_to_source_lag_seconds": 7578,
+    "missing_leading_oos_bar_starts": [
+      1793059200
+    ],
+    "observed_candle_grid_gaps": [
+      [
+        1793073600,
+        1793102400
+      ]
+    ],
+    "operationally_timely_both_market_bar_starts": [],
+    "original_publication_time_verified": false,
+    "qualified_trading_days": 0,
+    "source_exact_20USDC_execution_fee_paid_verified": false,
+    "source_manifest": [
+      {
+        "closed_bar_start": 1793073600,
+        "filename": "20261027T095359Z.json",
+        "first_seen": "2026-10-27T09:53:59+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 6839,
+          "cbBTC": 6840
+        },
+        "operational_timeliness_1h_both_assets": false,
+        "sha256": "34c7bc50dddcd93bfa0d4e4bf228094e54b957d82ba3e97ceb98baf759220d02",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793102400,
+        "filename": "20261027T180617Z.json",
+        "first_seen": "2026-10-27T18:06:17+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 7577,
+          "cbBTC": 7578
+        },
+        "operational_timeliness_1h_both_assets": false,
+        "sha256": "a18be33ace52e39e40eacba47811a7c2e0273eb9dc97faee43f62022a4434424",
+        "two_asset_bar_received": true
+      }
+    ],
+    "valid_both_market_bar_groups": 2,
+    "valid_source_files": 2
+  }
+}
