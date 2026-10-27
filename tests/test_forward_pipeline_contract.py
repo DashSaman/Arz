@@ -71,7 +71,7 @@ class ActualScheduleAuditContractTests(unittest.TestCase):
     def test_only_scheduled_job_can_write_evidence_on_main(self):
         self.assertIn("github.event_name == 'schedule'",self.forward)
         self.assertIn("contents: write",self.forward)
-        self.assertIn("      contents: read",self.forward)
+        self.assertIn("permissions:\n  contents: read",self.forward)
         self.assertIn('    if: github.event_name == \'push\' || github.event_name == \'pull_request\'',self.forward)
 
     def test_cron_period_is_frozen(self):
