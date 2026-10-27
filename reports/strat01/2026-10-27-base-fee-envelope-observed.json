@@ -1,0 +1,181 @@
+{
+  "checkpoint": "STRAT01-BASE-GASPRICE-ORACLE-SCENARIO-2026-10-27",
+  "source_ci_url": "https://github.com/DashSaman/Arz/actions/runs/40432414902",
+  "code_tested_sha": "238a529ec1fbb4d7d8c57fd1b0b471b044a3220b",
+  "focus_methods_passed": 67,
+  "whole_repo_methods_passed": 1042,
+  "tests_overlap": true,
+  "source_class": "ACTUAL_ONCHAIN_ORACLE_OBSERVATION_FOR_HYPOTHETICAL_UNSIGNED_SIZE_AND_L2_GAS_UNIT_COSTS",
+  "network_calls": 7,
+  "original_observation": {
+    "actual_network_fee_usdc": null,
+    "approx_ETHUSDC": "2318.9622027446786723367505988940787382927503",
+    "captured_at_utc": "2026-10-27T01:24:56.377305+00:00",
+    "classification": "HYPOTHETICAL_GAS_ENVELOPE_NOT_ACTUAL_ROUTER_EXECUTION_COST",
+    "eth_usdc_reference": "ONE_SAME_BLOCK_20USDC_QUOTERV2_IMPLIED_NOT_ORACLE_SPOT",
+    "financial_decision": "NO-GO",
+    "gas_calculation_scope": "SIZE_AND_GAS_UNIT_HYPOTHETICAL_SCENARIOS",
+    "l1_projections": {
+      "180": {
+        "first_observed_unix": 1793064296,
+        "source_response_sha256": "3685e7dd0a3187e08b4909b848c15885d00448b70256e9e18d1ec73f42abfe5a",
+        "upper_bound_wei": "712475029"
+      },
+      "300": {
+        "first_observed_unix": 1793064296,
+        "source_response_sha256": "6f166493a27c5057035537c47fb89b7fb746b8983e4e101fab14d6b35b6f8c63",
+        "upper_bound_wei": "1117042025"
+      },
+      "500": {
+        "first_observed_unix": 1793064296,
+        "source_response_sha256": "881d34b7ab3ba382bcdf0c56599946cb75cc12c67b93d1753c5d9294f44eb196",
+        "upper_bound_wei": "1789091332"
+      }
+    },
+    "l2_basefee_per_gas_wei": "5000000",
+    "live_trading": "DISABLED",
+    "oracle": "0x420000000000000000000000000000000000000F",
+    "oracle_function": "getL1FeeUpperBound(uint256)",
+    "oracle_function_selector": "0xf1c7a58b",
+    "qualified_OOS_paper_days": 0,
+    "quote_bound_to_60_second_follower_signal": false,
+    "quote_first_observed_unix": 1793064296,
+    "quote_source_response_sha256": "91625e5dc41ebb97c957234a84ea6fb06aeea90fcc66795c482eae5a7c1911bf",
+    "realized_trading_net_pnl_usdc": null,
+    "scenarios": [
+      {
+        "L1_upper_bound_for_assumed_size_wei": "712475029",
+        "L2_basefee_only_for_assumed_gas_wei": "500000000000",
+        "L2_priority_fee_wei": null,
+        "actual_inclusion_fee_known": false,
+        "actual_router_gas_used_known": false,
+        "actual_transaction_bytes_known": false,
+        "assumed_L2_gas_units": 100000,
+        "complete_swap_roundtrip_cost": false,
+        "indicative_scenario_network_cost_usdc": "0.0011611333040349897549850441073277521952633686",
+        "unsigned_tx_size_scenario_bytes": 180
+      },
+      {
+        "L1_upper_bound_for_assumed_size_wei": "712475029",
+        "L2_basefee_only_for_assumed_gas_wei": "1000000000000",
+        "L2_priority_fee_wei": null,
+        "actual_inclusion_fee_known": false,
+        "actual_router_gas_used_known": false,
+        "actual_transaction_bytes_known": false,
+        "assumed_L2_gas_units": 200000,
+        "complete_swap_roundtrip_cost": false,
+        "indicative_scenario_network_cost_usdc": "0.0023206144054073290911534194067747915644097437",
+        "unsigned_tx_size_scenario_bytes": 180
+      },
+      {
+        "L1_upper_bound_for_assumed_size_wei": "712475029",
+        "L2_basefee_only_for_assumed_gas_wei": "1750000000000",
+        "L2_priority_fee_wei": null,
+        "actual_inclusion_fee_known": false,
+        "actual_router_gas_used_known": false,
+        "actual_transaction_bytes_known": false,
+        "assumed_L2_gas_units": 350000,
+        "complete_swap_roundtrip_cost": false,
+        "indicative_scenario_network_cost_usdc": "0.0040598360574658380954059823559453506181293064",
+        "unsigned_tx_size_scenario_bytes": 180
+      },
+      {
+        "L1_upper_bound_for_assumed_size_wei": "1117042025",
+        "L2_basefee_only_for_assumed_gas_wei": "500000000000",
+        "L2_priority_fee_wei": null,
+        "actual_inclusion_fee_known": false,
+        "actual_router_gas_used_known": false,
+        "actual_transaction_bytes_known": false,
+        "assumed_L2_gas_units": 100000,
+        "complete_swap_roundtrip_cost": false,
+        "indicative_scenario_network_cost_usdc": "0.0011620714796071917125904966548179479736207071",
+        "unsigned_tx_size_scenario_bytes": 300
+      },
+      {
+        "L1_upper_bound_for_assumed_size_wei": "1117042025",
+        "L2_basefee_only_for_assumed_gas_wei": "1000000000000",
+        "L2_priority_fee_wei": null,
+        "actual_inclusion_fee_known": false,
+        "actual_router_gas_used_known": false,
+        "actual_transaction_bytes_known": false,
+        "assumed_L2_gas_units": 200000,
+        "complete_swap_roundtrip_cost": false,
+        "indicative_scenario_network_cost_usdc": "0.0023215525809795310487588719542649873427670823",
+        "unsigned_tx_size_scenario_bytes": 300
+      },
+      {
+        "L1_upper_bound_for_assumed_size_wei": "1117042025",
+        "L2_basefee_only_for_assumed_gas_wei": "1750000000000",
+        "L2_priority_fee_wei": null,
+        "actual_inclusion_fee_known": false,
+        "actual_router_gas_used_known": false,
+        "actual_transaction_bytes_known": false,
+        "assumed_L2_gas_units": 350000,
+        "complete_swap_roundtrip_cost": false,
+        "indicative_scenario_network_cost_usdc": "0.0040607742330380400530114349034355463964866450",
+        "unsigned_tx_size_scenario_bytes": 300
+      },
+      {
+        "L1_upper_bound_for_assumed_size_wei": "1789091332",
+        "L2_basefee_only_for_assumed_gas_wei": "500000000000",
+        "L2_priority_fee_wei": null,
+        "actual_inclusion_fee_known": false,
+        "actual_router_gas_used_known": false,
+        "actual_transaction_bytes_known": false,
+        "assumed_L2_gas_units": 100000,
+        "complete_swap_roundtrip_cost": false,
+        "indicative_scenario_network_cost_usdc": "0.0011636299365485054673901782481285665742031802",
+        "unsigned_tx_size_scenario_bytes": 500
+      },
+      {
+        "L1_upper_bound_for_assumed_size_wei": "1789091332",
+        "L2_basefee_only_for_assumed_gas_wei": "1000000000000",
+        "L2_priority_fee_wei": null,
+        "actual_inclusion_fee_known": false,
+        "actual_router_gas_used_known": false,
+        "actual_transaction_bytes_known": false,
+        "assumed_L2_gas_units": 200000,
+        "complete_swap_roundtrip_cost": false,
+        "indicative_scenario_network_cost_usdc": "0.0023231110379208448035585535475756059433495554",
+        "unsigned_tx_size_scenario_bytes": 500
+      },
+      {
+        "L1_upper_bound_for_assumed_size_wei": "1789091332",
+        "L2_basefee_only_for_assumed_gas_wei": "1750000000000",
+        "L2_priority_fee_wei": null,
+        "actual_inclusion_fee_known": false,
+        "actual_router_gas_used_known": false,
+        "actual_transaction_bytes_known": false,
+        "assumed_L2_gas_units": 350000,
+        "complete_swap_roundtrip_cost": false,
+        "indicative_scenario_network_cost_usdc": "0.0040623326899793538078111164967461649970691181",
+        "unsigned_tx_size_scenario_bytes": 500
+      }
+    ],
+    "schema_version": 1,
+    "source": "Official Base JSON-RPC + GasPriceOracle + QuoterV2, read-only",
+    "source_block": 53137474,
+    "source_block_header_sha256": "1fcc948b244dd3eb20eeb4ae3f0e2784a133f8f82025527a2117c157ccaa9e2d",
+    "source_block_timestamp": 1793064295,
+    "source_network_calls": 7,
+    "status": "READ_ONLY_SCENARIO_OBSERVED_NOT_EXECUTED",
+    "underlying_quoter_amountOut_atomic": "8624547643048424"
+  },
+  "unearned_financial_outcomes": {
+    "confirmed_real_router_unsigned_tx_bytes": null,
+    "actual_gas_used_l2": null,
+    "actual_effective_gas_price_wei": null,
+    "actual_paid_l1_fee_wei": null,
+    "actual_paid_l2_fee_wei": null,
+    "actual_paid_network_fee_usdc": null,
+    "actual_quote_to_inclusion_impact_usdc": null,
+    "actual_failed_order_fees_usdc": null,
+    "actual_realized_pnl_usdc": null,
+    "actual_net_daily_geometric_return": null,
+    "qualified_paper_days": 0,
+    "candidate_live_trading_authorized": false,
+    "note": "Fee envelope is NOT an executable quote or realized fee. Oracle getL1FeeUpperBound needs a hypothetical unsigned tx length; L2 scenarios assume execution gas, no priority fee. USD reference 20-USDC WETH Quoter-derived after pool fee/impact. Unobserved real router calldata, signed transaction and inclusion costs can differ."
+  },
+  "financial_decision": "NO-GO",
+  "live_trading": "DISABLED"
+}
