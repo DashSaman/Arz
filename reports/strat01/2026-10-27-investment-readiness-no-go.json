@@ -1,0 +1,58 @@
+{
+  "blockers": [
+    "NO_SCHEDULED_SOURCE_CAPTURE_ON_MAIN_YET",
+    "FROZEN_S0_NEEDS_194_CONSECUTIVE_DUAL_ASSET_4H_BARS",
+    "ACTUAL_GITHUB_CRON_JOB_NOT_INDEPENDENTLY_ATTESTED",
+    "REAL_FOLLOWER_QUOTE_WITH_60SEC_DELAY_MISSING",
+    "PAID_GAS_L1_L2_AND_FAILURE_SLIPPAGE_COSTS_UNVERIFIED",
+    "NO_90_ELAPSED_PROSPECTIVE_ACCOUNT_DAYS",
+    "NO_POSITIVE_STRESSED_GEOMETRIC_NET_ACCOUNT_RETURN",
+    "NO_INDEPENDENT_OUT_OF_SAMPLE_TRADING_PROFITABILITY",
+    "NO_SEPARATE_USER_FUNDING_APPROVAL"
+  ],
+  "capital_activation_authorized": false,
+  "investment_recommendation": "NO-GO",
+  "live_trading": "DISABLED",
+  "market_trade_execution_profit_evidence_verified": false,
+  "notice": "Even a hypothetical success in statistical paper tests is never a capital-transfer authorization.",
+  "prior_historical_gate": {
+    "new_real_capital_authorized_usd": 0,
+    "prior_historical_models_qualified": 0,
+    "state_checkpoint": "ARZ-2026-10-27-CONTROL-06"
+  },
+  "report_kind": "OFFLINE_REAL_SOURCE_CONSISTENCY_NOT_FINANCIAL_ORACLE",
+  "requirements": {
+    "direct_external_verification_and_user_funding_approval": true,
+    "max_drawdown": "0.10",
+    "min_consecutive_market_bars": 194,
+    "min_prospective_days": 90,
+    "positive_primary_and_double_cost_geometric_returns": true,
+    "source_follower_latency_seconds": 60
+  },
+  "schema_version": 1,
+  "software_source_validator_passed": false,
+  "source_capture_audit": {
+    "complete_both_asset_bar_starts": [],
+    "conflicts": [],
+    "errors": [
+      "NO_SCHEDULED_APPEND_FILE_PRESENT"
+    ],
+    "file_count": 0,
+    "first_schedule_run_independently_verified": false,
+    "missing_or_untrusted_capture": true,
+    "observed_candle_grid_gaps": [],
+    "qualified_trading_days": 0,
+    "valid_source_files": 0
+  },
+  "observed_ci": {
+    "run_url": "https://github.com/DashSaman/Arz/actions/runs/40437733246",
+    "tested_commit": "a803934589f9b747775733e01939f8c603b211dd",
+    "observed_focus_tests": 143,
+    "observed_full_repo_tests": 1189,
+    "tests_overlap": true,
+    "result": "SUCCESS",
+    "source_provider_rpc_calls_in_evaluator": 0,
+    "observed_at_utc": "2026-10-27T02:18:00Z (approx. CI window; not captured source run timestamp)"
+  },
+  "evidence_limit": "GH Actions tested repository state; absence of reports/strat01/forward at job checkout is not proof no cloud UI schedule will ever run. Already-seen historical October13 strategy 0/3 eligible; neither code assertions nor source hashes prove profitable fills. Automated system cannot authorize capital."
+}
