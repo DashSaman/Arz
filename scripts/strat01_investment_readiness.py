@@ -234,7 +234,7 @@ def _truthy_raw_no_profit_sources() -> dict:
     state,_=read_strict(STATE_FILE,100_000)
     if gate.get("qualified_strategy_count")!=0 or gate.get("financial_decision")!="NO-GO":
         raise ValueError("Existing negative qualification was silently promoted")
-    if frozen.get("new_market_data",{}).get("status")!="PENDING_NO_AUTHORIZED_NEW_FUTURE_MARKET_DATA":
+    if frozen.get("observed_output",{}).get("new_market_data",{}).get("status")!="PENDING_NO_AUTHORIZED_NEW_FUTURE_MARKET_DATA":
         raise ValueError("Old original source must not become a fresh backtest")
     safety=state.get("safety",{})
     if safety.get("live_trading")!="DISABLED" or safety.get("financial_decision")!="NO-GO":
