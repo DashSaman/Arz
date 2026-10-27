@@ -370,6 +370,37 @@ def validate(state: object) -> dict:
             gate.get("min_required_real_forward_calendar_days")==90,
             "Real S0 data and forward-time requirements changed")
 
+    # The cron source-capture job now validates its own GITHUB_TOKEN push.
+    # This is CI/source reliability evidence, NOT an actual scheduled run,
+    # successful main append, trading receipt or prospective PnL.
+    selfaudits=[x for x in strat_entries if type(x) is dict and
+        x.get("id")=="STRAT01-INRUN-SELF-AUDITED-BASE-CAPTURE-2026-10-27"]
+    require(len(selfaudits)==1,"Scheduled in-job source audit checkpoint missing or duplicated")
+    selfaudit=selfaudits[0]
+    require(selfaudit.get("merged_pr")==57 and
+        bool(COMMIT_SHA.fullmatch(str(selfaudit.get("merged_sha")))) and
+        type(selfaudit.get("full_ci")) is str and
+        RUN_REF.fullmatch(selfaudit["full_ci"]) is not None,
+        "No valid in-job audit PR/CI proof")
+    require(selfaudit.get("full_repo_tests_passed")==1208 and
+        selfaudit.get("new_pipeline_test_methods")==18 and
+        selfaudit.get("github_token_push_triggers_separate_push_workflow") is False and
+        selfaudit.get("now_audits_source_in_same_scheduled_job_before_commit") is True and
+        selfaudit.get("simultaneous_source_and_no_go_audit_commit") is True and
+        selfaudit.get("exact_sha256_utc_manifest_binding") is True and
+        selfaudit.get("artifact_fallback_for_denied_push") is True,
+        "Bot-source audit safeguards or observed test counts invalid")
+    require(selfaudit.get("actual_scheduled_run_verified") is False and
+        selfaudit.get("actual_main_forward_file_verified") is False and
+        selfaudit.get("actual_main_audit_file_verified") is False and
+        selfaudit.get("paid_l1_l2_gas_usdc") is None and
+        selfaudit.get("prospective_paper_days_qualified")==0 and
+        selfaudit.get("positive_net_compounded_return_verified") is False and
+        selfaudit.get("independent_investment_approval") is False and
+        selfaudit.get("financial_decision")=="NO-GO" and
+        selfaudit.get("live_trading")=="DISABLED",
+        "Unobserved scheduled run or source-only quote promoted to funded strategy")
+
     next_unfinished = next((name for name in order if tasks[name]["status"] != "DONE"), None)
     require(next_unfinished is not None, "No next research work defined")
     return {
