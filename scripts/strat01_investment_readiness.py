@@ -253,7 +253,7 @@ def evaluate(source:Path=FORWARD) -> dict:
     blockers=[]
     if snaps["file_count"]==0:
         blockers.append("NO_SCHEDULED_SOURCE_CAPTURE_ON_MAIN_YET")
-    if snaps["errors"]:
+    if any(error != "NO_SCHEDULED_APPEND_FILE_PRESENT" for error in snaps["errors"]):
         blockers.append("MALFORMED_OR_UNTRUSTED_CAPTURE")
     if snaps["conflicts"] or snaps["observed_candle_grid_gaps"]:
         blockers.append("REVISED_OR_GAPPED_MARKET_BARS")
