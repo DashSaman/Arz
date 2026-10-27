@@ -67,7 +67,9 @@ class StaticFactoryProbe:
             "chain_id":m.CHAIN_ID,
             "address":self.pools[asset] if self.source_match else self.pools["cbBTC" if asset=="WETH" else "WETH"],
             "token0_address":m.USDC,
-            "token1_address":m.ASSETS[asset]["address"]}}
+            "token1_address":m.ASSETS[asset]["address"],
+            "base_token_address":m.ASSETS[asset]["address"],
+            "quote_token_address":m.USDC}}
         return json.dumps(d).encode(),m.START_OOS,"1"*64
 
 
@@ -126,6 +128,46 @@ class IdentityTests(unittest.TestCase):
         self.assertFalse(r["provider_pair_to_onchain_pool_verified"])
         self.assertIn("HISTORIC_INTERNAL_PAIR_ID_MISMATCH_OR_NOT_RETURNED",
                       r["assets"]["WETH"]["mismatch_reasons"])
+
+    def test_real_provider_base_quote_fields_match_expected_token_direction(self):
+        actual={"source_fields":{
+            "pair_id":4564367,"chain_id":8453,
+            "pool_address":"0xd0b53d9277642d899df5c87a3966a349a798f224",
+            "base_token_address":m.WETH, "quote_token_address":m.USDC
+        }}
+        yes,reasons=m._valid_metadata(actual,
+             pool="0xd0b53d9277642d899df5c87a3966a349a798f224",asset="WETH")
+        self.assertTrue(yes)
+        self.assertEqual(reasons,[])
+
+    def test_reversed_base_quote_contracts_cannot_pass_price_direction(self):
+        probe=StaticFactoryProbe()
+        original=probe.fetch
+        def swapped(url,body=None):
+            raw,at,sha=original(url,body)
+            obj=json.loads(raw)
+            base=obj["summary"]["base_token_address"]
+            obj["summary"]["base_token_address"]=obj["summary"]["quote_token_address"]
+            obj["summary"]["quote_token_address"]=base
+            return json.dumps(obj).encode(),at,sha
+        probe.fetch=swapped
+        result=m.audit_identity(probe)
+        self.assertFalse(result["provider_pair_to_onchain_pool_verified"])
+        self.assertIn("PROVIDER_BASE_QUOTE_ORIENTATION_NOT_PROVEN",
+                      result["assets"]["WETH"]["mismatch_reasons"])
+
+    def test_conflicting_token0_token1_and_correct_base_quote_fail(self):
+        source={"source_fields":{
+            "pair_id":4705508,"chain_id":8453,
+            "pool_address":"0x2222222222222222222222222222222222222222",
+            "base_token_address":m.CBBTC,
+            "quote_token_address":m.USDC,
+            "token0_address":m.WETH,"token1_address":m.USDC
+        }}
+        yes,why=m._valid_metadata(source,
+          pool="0x2222222222222222222222222222222222222222",asset="cbBTC")
+        self.assertFalse(yes)
+        self.assertIn("CONTRADICTORY_PROVIDER_TOKEN0_TOKEN1",why)
 
     def test_same_tokens_but_wrong_pool_is_not_verified(self):
         r=m.audit_identity(StaticFactoryProbe(source_match=False))
