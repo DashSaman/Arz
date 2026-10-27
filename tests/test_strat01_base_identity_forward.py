@@ -45,7 +45,7 @@ class StaticFactoryProbe:
             c=params[0]["data"]
             a=params[0]["to"].lower()
             if a==m.FACTORY.lower():
-                token=int(c[8+64:8+128],16)
+                token=int(c[10+64:10+128],16)
                 name="WETH" if token==int(m.WETH,16) else "cbBTC"
                 return addrword(self.pools[name]),m.START_OOS,"c"*64
             if c=="0x"+m.ABI_TOKEN0:
