@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "checkpoint": "STRAT01-REAL-FIRST-CAPTURE-PREFIX-GAP-AND-SOURCE-LAG-2026-10-27",
+  "observed_real_commit": "efc4e29d8e54b3a8523e64b7072d8b7f60a57c91",
+  "commit_url": "https://github.com/DashSaman/Arz/commit/efc4e29d8e54b3a8523e64b7072d8b7f60a57c91",
+  "commit_author": "github-actions[bot]",
+  "original_exact_sources": {
+    "source_path": "reports/strat01/forward/20261027T095359Z.json",
+    "source_git_blob_sha1": "694ca960e5c24f0e9294173272d00c80fad264cf",
+    "original_source_sha256": "34c7bc50dddcd93bfa0d4e4bf228094e54b957d82ba3e97ceb98baf759220d02",
+    "audit_path": "reports/strat01/audits/20261027T095359Z.json",
+    "audit_git_blob_sha1": "6912c80a7dcd5aa7ae0d4964389e49f80d7665ed"
+  },
+  "offline_actual_source_audit": {
+    "blockers": [
+      "MISSING_INITIAL_FROZEN_OOS_4H_BAR",
+      "BAR_SOURCE_FIRST_SEEN_OVER_1H_AFTER_CLOSE_DIAGNOSTIC",
+      "LESS_THAN_194_TIMELY_CAUSAL_BOTH_ASSET_BARS",
+      "FROZEN_S0_NEEDS_194_CONSECUTIVE_DUAL_ASSET_4H_BARS",
+      "ACTUAL_GITHUB_CRON_JOB_NOT_INDEPENDENTLY_ATTESTED",
+      "REAL_FOLLOWER_QUOTE_WITH_60SEC_DELAY_MISSING",
+      "PAID_GAS_L1_L2_AND_FAILURE_SLIPPAGE_COSTS_UNVERIFIED",
+      "NO_90_ELAPSED_PROSPECTIVE_ACCOUNT_DAYS",
+      "NO_POSITIVE_STRESSED_GEOMETRIC_NET_ACCOUNT_RETURN",
+      "NO_INDEPENDENT_OUT_OF_SAMPLE_TRADING_PROFITABILITY",
+      "NO_SEPARATE_USER_FUNDING_APPROVAL"
+    ],
+    "capital_activation_authorized": false,
+    "investment_recommendation": "NO-GO",
+    "live_trading": "DISABLED",
+    "market_trade_execution_profit_evidence_verified": false,
+    "notice": "Even a hypothetical success in statistical paper tests is never a capital-transfer authorization.",
+    "prior_historical_gate": {
+      "new_real_capital_authorized_usd": 0,
+      "prior_historical_models_qualified": 0,
+      "state_checkpoint": "ARZ-2026-10-27-CONTROL-08"
+    },
+    "report_kind": "OFFLINE_REAL_SOURCE_CONSISTENCY_NOT_FINANCIAL_ORACLE",
+    "requirements": {
+      "direct_external_verification_and_user_funding_approval": true,
+      "max_drawdown": "0.10",
+      "min_consecutive_market_bars": 194,
+      "min_prospective_days": 90,
+      "positive_primary_and_double_cost_geometric_returns": true,
+      "source_follower_latency_seconds": 60,
+      "source_lag_diagnostic_seconds_not_a_strategy_signal": 3600
+    },
+    "schema_version": 1,
+    "software_source_validator_passed": true,
+    "source_capture_audit": {
+      "complete_both_asset_bar_starts": [
+        1793073600
+      ],
+      "conflicts": [],
+      "errors": [],
+      "file_count": 1,
+      "first_schedule_run_independently_verified": false,
+      "full_historical_continuous_warmup_verified": false,
+      "late_both_market_bar_starts": [
+        1793073600
+      ],
+      "max_consecutive_operationally_timely_bars": 0,
+      "max_observed_bar_close_to_source_lag_seconds": 6840,
+      "missing_leading_oos_bar_starts": [
+        1793059200
+      ],
+      "observed_candle_grid_gaps": [],
+      "operationally_timely_both_market_bar_starts": [],
+      "original_publication_time_verified": false,
+      "qualified_trading_days": 0,
+      "source_exact_20USDC_execution_fee_paid_verified": false,
+      "source_manifest": [
+        {
+          "closed_bar_start": 1793073600,
+          "filename": "20261027T095359Z.json",
+          "first_seen": "2026-10-27T09:53:59+00:00",
+          "observed_bar_close_lag_seconds": {
+            "WETH": 6839,
+            "cbBTC": 6840
+          },
+          "operational_timeliness_1h_both_assets": false,
+          "sha256": "34c7bc50dddcd93bfa0d4e4bf228094e54b957d82ba3e97ceb98baf759220d02",
+          "two_asset_bar_received": true
+        }
+      ],
+      "valid_both_market_bar_groups": 1,
+      "valid_source_files": 1
+    }
+  },
+  "ci": {
+    "run_url": "https://github.com/DashSaman/Arz/actions/runs/40524560986",
+    "source_commit": "17f961ea94bd39a98a89b0fed683e5541b4551bc",
+    "test_count_focus_gap_latency": 84,
+    "total_unittest_methods": 1293,
+    "conclusion": "SUCCESS",
+    "subset_overlap": true,
+    "secondary_ci": "https://github.com/DashSaman/Arz/actions/runs/40524561316"
+  },
+  "scientific_interpretation": {
+    "source_capture_occurrences_on_main": 1,
+    "verified_paired_weth_cbbtc_bar_starts": [
+      1793073600
+    ],
+    "bar_start_utc": "2026-10-27T04:00:00Z",
+    "bar_closed_utc": "2026-10-27T08:00:00Z",
+    "first_observed_utc": "2026-10-27T09:53:59Z",
+    "weth_after_close_first_seen_seconds": 6839,
+    "cbbtc_after_close_first_seen_seconds": 6840,
+    "frozen_OOS_start_utc": "2026-10-27T00:00:00Z",
+    "leading_missing_OOS_4h_bar_starts": [
+      1793059200
+    ],
+    "leading_missing_OOS_4h_bar": "2026-10-27T00:00:00Z–04:00:00Z",
+    "source_late_over_one_hour_diagnostic": true,
+    "diagnostic_1h_threshold_is_strategy_parameter": false,
+    "max_consecutive_timely_paired_4h_bars": 0,
+    "base_block": 53152746,
+    "quote_readonly_outputs": {
+      "WETH": "0.008669910559247304",
+      "cbBTC": "0.0002512"
+    },
+    "l2_basefee_wei": 5000000,
+    "L1_300byte_unsigned_fee_upperbound_wei": 1802952723,
+    "real_network_fee_usdc": null,
+    "actual_fill_count": 0,
+    "verified_schedule_event_type": "UNKNOWN_FROM_BOT_COMMIT_ONLY",
+    "original_provider_publication_asof_bar_close_proven": false,
+    "prospective_paper_calendar_days_qualified": 0,
+    "net_positive_compounded_account_return_verified": false
+  },
+  "investment_decision": "NO-GO",
+  "live_trading": "DISABLED",
+  "next": "Monitor scheduled first-seen and source/audit commit pairs; protect frozen S0 from late/gapped signal leakage. Accumulate authentically observed paired 4h continuous warmup and genuine signal-bound 60s follower-time quotes with paid gas/inclusion/failures before any strategy financial approval."
+}

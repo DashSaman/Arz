@@ -74,6 +74,7 @@ jobs:
           python -m unittest discover -s tests -p 'test_strat01_base_identity_forward.py' -q
           python -m unittest discover -s tests -p 'test_strat01_investment_readiness.py' -q
           python -m unittest discover -s tests -p 'test_forward_pipeline_contract.py' -q
+          python -m unittest discover -s tests -p 'test_forward_gap_latency.py' -q
           python scripts/verify_research_control.py
       - name: Capture one observed-at-runtime sample
         id: capture
