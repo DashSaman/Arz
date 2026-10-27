@@ -1,0 +1,59 @@
+name: STRAT-01 Base L1+L2 hypothetical gas envelope — read-only
+
+on:
+  push:
+    branches:
+      - research/2026-10-27-base-fee-oracle-hurdle
+    paths:
+      - scripts/strat01_base_fee_oracle_hurdle.py
+      - tests/test_strat01_base_fee_oracle_hurdle.py
+      - .github/workflows/strat01-base-fee-hurdle.yml
+  pull_request:
+    paths:
+      - scripts/strat01_base_fee_oracle_hurdle.py
+      - tests/test_strat01_base_fee_oracle_hurdle.py
+      - .github/workflows/strat01-base-fee-hurdle.yml
+
+permissions:
+  contents: read
+
+jobs:
+  read_only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      PYTHONPATH: 'src:.'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Verify 67 fee envelope safety and exact Decimal scenarios
+        run: python -m unittest discover -s tests -p 'test_strat01_base_fee_oracle_hurdle.py' -v
+      - name: Full repository offline suite
+        run: python -m unittest discover -s tests -q
+      - name: Safety and syntax
+        run: |
+          python -m compileall -q scripts/strat01_base_fee_oracle_hurdle.py
+          python scripts/verify_research_control.py
+      - name: ONE bounded 7-request official Base oracle/head/Quoter read
+        if: hashFiles('reports/strat01/2026-10-27-base-fee-envelope-observed.json') == ''
+        run: |
+          python scripts/strat01_base_fee_oracle_hurdle.py --output /tmp/arz-base-fee-scenarios.json
+          python - <<'PY'
+          import json
+          x=json.load(open("/tmp/arz-base-fee-scenarios.json"))
+          assert x["live_trading"] == "DISABLED"
+          assert x["financial_decision"] == "NO-GO"
+          assert x["actual_network_fee_usdc"] is None
+          assert x["realized_trading_net_pnl_usdc"] is None
+          assert x["source_network_calls"] <= 7
+          print("ARZ_HYPOTHETICAL_FEES_NOT_ACTUAL_FILLS=PASS")
+          PY
+      - name: Preserve source-hashed fee oracle evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: arz-one-base-oracle-upper-bound-not-execution
+          path: /tmp/arz-base-fee-scenarios.json
+          if-no-files-found: warn
+          retention-days: 30
