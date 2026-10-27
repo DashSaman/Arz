@@ -8,6 +8,7 @@ on:
     paths:
       - scripts/strat01_investment_readiness.py
       - tests/test_strat01_investment_readiness.py
+      - tests/test_forward_gap_latency.py
       - .github/workflows/strat01-investment-gate.yml
       - 'reports/strat01/forward/**'
       - 'reports/research/2026-10-26-holdout-net-profit-no-go.json'
@@ -34,6 +35,8 @@ jobs:
           persist-credentials: false
       - name: Fail-closed synthetic tamper and forward ledger regression
         run: python -m unittest discover -s tests -p 'test_strat01_investment_readiness.py' -v
+      - name: Detect prefix OOS gaps and data delayed past candle close
+        run: python -m unittest discover -s tests -p 'test_forward_gap_latency.py' -v
       - name: Audit actual checked-in forward capture evidence without RPC
         run: |
           python scripts/strat01_investment_readiness.py --output /tmp/arz-investment-readiness.json
