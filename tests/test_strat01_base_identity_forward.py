@@ -100,8 +100,10 @@ class FakeForwardProbe:
         if method=="eth_blockNumber":
             return "0x20",self.at,"2"*64
         if method=="eth_getBlockByNumber":
-            return {"number":"0x20","timestamp":hex(self.at-1)},self.at,"3"*64
+            return {"number":"0x20","timestamp":hex(self.at-1),"baseFeePerGas":hex(5000000)},self.at,"3"*64
         if method=="eth_call":
+            if params[0]["to"].lower()==m.GAS_ORACLE.lower():
+                return single_word(1000000000),self.at,"5"*64
             return quote_encoded(),self.at,"4"*64
         raise AssertionError("Unsupported method")
 
@@ -251,13 +253,50 @@ class ProspectiveNoFalseTradeTests(unittest.TestCase):
         probe=FakeForwardProbe(at,m.START_OOS)
         with patch.object(m.time,"time",return_value=at):
             result=m.forward_snapshot(probe,at)
-        self.assertEqual(probe.calls,7)
+        self.assertEqual(probe.calls,8)
         self.assertEqual(result["first_seen_sample_count"],2)
         self.assertEqual({r["asset"] for r in result["quotes"]},{"WETH","cbBTC"})
         self.assertTrue(all(q["executed_order"] is False for q in result["quotes"]))
         self.assertTrue(all(q["actual_L1_usd"] is None for q in result["quotes"]))
         self.assertFalse(result["realized_profit_verified"])
         self.assertEqual(result["prospective_day_count"],0)
+
+    def test_sample_gas_oracle_and_l2_fee_share_quote_block(self):
+        at=m.START_OOS+m.BAR+120
+        probe=FakeForwardProbe(at,m.START_OOS)
+        with patch.object(m.time,"time",return_value=at):
+            result=m.forward_snapshot(probe,at)
+        gas=result["network_cost_source"]
+        self.assertEqual(result["block"],32)
+        self.assertEqual(gas["status"],"HYPOTHETICAL_SIZE_ONLY_PINNED_BLOCK_COST_SOURCE")
+        self.assertEqual(gas["l2_basefee_per_gas_wei"],"5000000")
+        self.assertEqual(gas["l1_upper_bound_wei"],"1000000000")
+        self.assertEqual(gas["unsigned_tx_size_assumption_bytes"],300)
+        self.assertIsNone(gas["actual_network_fee_usdc"])
+        self.assertFalse(gas["execution_fee_or_fill_proven"])
+        self.assertEqual(probe.calls,8)
+
+    def test_fee_oracle_unavailable_cannot_promote_calculated_zero(self):
+        class MissingOracle(FakeForwardProbe):
+            def rpc(self,method,params):
+                if method=="eth_call" and params[0]["to"].lower()==m.GAS_ORACLE.lower():
+                    self.calls+=1
+                    raise m.BoundedError("HTTP_429")
+                return super().rpc(method,params)
+        at=m.START_OOS+m.BAR+120
+        with patch.object(m.time,"time",return_value=at):
+            sample=m.forward_snapshot(MissingOracle(at,m.START_OOS),at)
+        cost=sample["network_cost_source"]
+        self.assertEqual(cost["status"],"UNAVAILABLE")
+        self.assertIsNone(cost["l1_upper_bound_wei"])
+        self.assertIsNone(cost["actual_network_fee_usdc"])
+
+    def test_missing_basefee_in_pinned_header_is_not_silent_zero(self):
+        provider=FakeForwardProbe(m.START_OOS+m.BAR+120,m.START_OOS)
+        out=m._forward_fee_quote(provider,{"number":"0x20"},"0x20")
+        self.assertEqual(out["status"],"UNAVAILABLE")
+        self.assertIsNone(out["l2_basefee_per_gas_wei"])
+        self.assertEqual(provider.calls,0)
 
     def test_at_frozen_start_before_first_bar_do_not_query_candles(self):
         probe=FakeForwardProbe(m.START_OOS+5,m.START_OOS)
@@ -266,7 +305,7 @@ class ProspectiveNoFalseTradeTests(unittest.TestCase):
                             for v in result["provider_candles"]))
         self.assertEqual(result["first_seen_sample_count"],0)
         self.assertIsNone(result["requested_last_closed_bar"])
-        self.assertEqual(probe.calls,5)
+        self.assertEqual(probe.calls,6)
 
     def test_first_seen_late_not_retroactively_relabelled(self):
         at=m.START_OOS+2*m.BAR+110
