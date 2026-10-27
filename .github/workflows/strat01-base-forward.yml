@@ -69,9 +69,11 @@ jobs:
       PYTHONPATH: 'src:.'
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
-      - name: Fail-closed source and trading guards
+      - name: Fail-closed source, in-run audit contract and trading guards
         run: |
           python -m unittest discover -s tests -p 'test_strat01_base_identity_forward.py' -q
+          python -m unittest discover -s tests -p 'test_strat01_investment_readiness.py' -q
+          python -m unittest discover -s tests -p 'test_forward_pipeline_contract.py' -q
           python scripts/verify_research_control.py
       - name: Capture one observed-at-runtime sample
         id: capture
@@ -81,20 +83,65 @@ jobs:
           file="reports/strat01/forward/${marker}.json"
           python scripts/strat01_base_identity_forward.py --mode forward --output "$file"
           echo "file=$file" >> "$GITHUB_OUTPUT"
-      - name: Append only JSON source witness (no secrets or live orders)
+      - name: Audit the captured source and fail closed BEFORE any git push
+        id: audit
+        run: |
+          set -eu
+          source="${{ steps.capture.outputs.file }}"
+          name="$(basename "$source")"
+          audit="reports/strat01/audits/$name"
+          python scripts/strat01_investment_readiness.py --output "$audit"
+          SOURCE_FILE="$source" AUDIT_FILE="$audit" python - <<'PY'
+          import json, os
+          from pathlib import Path
+          import hashlib
+          from scripts.strat01_investment_readiness import snapshot_summary
+          source=Path(os.environ["SOURCE_FILE"])
+          audit_path=Path(os.environ["AUDIT_FILE"])
+          capture=json.loads(source.read_text(encoding="utf-8"))
+          result=json.loads(audit_path.read_text(encoding="utf-8"))
+          # GitHub GITHUB_TOKEN push does not trigger another workflow.
+          # Validate this exact file in this run (not only the surrounding dir).
+          checked=snapshot_summary(capture,filename=source.name)
+          ledger=result["source_capture_audit"]
+          assert result["investment_recommendation"] == "NO-GO"
+          assert result["capital_activation_authorized"] is False
+          assert result["live_trading"] == "DISABLED"
+          assert checked["execution_verified"] is False
+          assert ledger["file_count"] >= 1
+          assert ledger["valid_source_files"] == ledger["file_count"]
+          assert ledger["conflicts"] == []
+          assert ledger["errors"] == []
+          matched=[x for x in ledger["source_manifest"]
+                    if x["filename"] == source.name]
+          assert len(matched)==1
+          assert matched[0]["sha256"]==hashlib.sha256(source.read_bytes()).hexdigest()
+          assert matched[0]["first_seen"]==checked["first_seen"]
+          print("ARZ_CAPTURE_IN_RUN_AUDIT=PASS_NO_GO")
+          print("ARZ_CAPTURE_FIRST_SEEN="+checked["first_seen"])
+          print("ARZ_COMPLETE_PAIR_BAR="+str(checked["two_asset_bar_received"]))
+          PY
+          echo "audit=$audit" >> "$GITHUB_OUTPUT"
+      - name: Commit validated source and its financial refusal audit together
         run: |
           set -eu
           file="${{ steps.capture.outputs.file }}"
+          audit="${{ steps.audit.outputs.audit }}"
+          test -s "$file"
+          test -s "$audit"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -- "$file"
-          git commit -m "evidence: read-only Base 4h first seen plus Quoter as-observed, not fill"
+          git add -- "$file" "$audit"
+          git diff --cached --quiet && exit 1
+          git commit -m "evidence: first-seen Base capture plus in-run NO-GO audit (no orders)"
           git push origin HEAD:main
-      - name: Archive capture also if main branch write is protected
+      - name: Preserve both files even when audit, push or branch permissions fail
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: arz-prospective-asof-readonly-capture
-          path: reports/strat01/forward/*.json
+          name: arz-prospective-capture-plus-investment-audit
+          path: |
+            reports/strat01/forward/*.json
+            reports/strat01/audits/*.json
           if-no-files-found: warn
           retention-days: 30

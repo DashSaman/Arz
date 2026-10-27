@@ -179,7 +179,7 @@ def snapshot_summary(doc:dict, *, filename:str) -> dict:
 def audit_capture_dir(source:Path) -> dict:
     if not source.exists():
         return {"file_count":0,"valid_source_files":0,"complete_both_asset_bar_starts":[],
-                "conflicts":[],"observed_candle_grid_gaps":[],
+                "conflicts":[],"observed_candle_grid_gaps":[],"source_manifest":[],
                 "missing_or_untrusted_capture":True,
                 "errors":["NO_SCHEDULED_APPEND_FILE_PRESENT"],
                 "first_schedule_run_independently_verified":False,
@@ -191,6 +191,7 @@ def audit_capture_dir(source:Path) -> dict:
         raise ValueError("Unbounded number of research captures")
     errors=[]
     captured=[]
+    manifest=[]
     grouped={}
     for path in files:
         try:
@@ -198,6 +199,13 @@ def audit_capture_dir(source:Path) -> dict:
             sample=snapshot_summary(item,filename=path.name)
             sample["file_sha256"]=sha
             captured.append(sample)
+            manifest.append({
+                "filename":path.name,
+                "sha256":sha,
+                "first_seen":sample["first_seen"],
+                "closed_bar_start":sample["bar_start"],
+                "two_asset_bar_received":sample["two_asset_bar_received"],
+            })
             bar=sample["bar_start"]
             if sample["two_asset_bar_received"]:
                 grouped.setdefault(bar,[]).append(sample)
@@ -219,6 +227,7 @@ def audit_capture_dir(source:Path) -> dict:
     # GitHub scheduler really ran. Independent job run/event verification is
     # required outside this offline auditor.
     return {"file_count":len(files),"valid_source_files":len(captured),
+            "source_manifest":manifest,
             "valid_both_market_bar_groups":len(grouped),
             "complete_both_asset_bar_starts":completed,
             "conflicts":conflicts,"observed_candle_grid_gaps":gaps,

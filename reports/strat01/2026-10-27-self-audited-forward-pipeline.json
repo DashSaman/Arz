@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "STRAT01-2026-10-27-SCHEDULED-IN-RUN-AUDIT-V1",
+  "problem": "A GITHUB_TOKEN git push does not fire another push-triggered GitHub Actions workflow; scheduled 4h forward collector previously relied on separate investment gate's push trigger.",
+  "authoritative_provider_reference": "https://docs.github.com/en/actions/concepts/security/github_token",
+  "fix_implementation": {
+    "source_workflow": ".github/workflows/strat01-base-forward.yml",
+    "self_audit_in_same_scheduled_job": true,
+    "source_file_pattern": "reports/strat01/forward/YYYYMMDDTHHMMSSZ.json",
+    "audit_file_pattern": "reports/strat01/audits/YYYYMMDDTHHMMSSZ.json",
+    "audit_run_before_commit": true,
+    "exact_sha256_and_first_seen_binding_before_commit": true,
+    "checks": [
+      "capture source clock/filename",
+      "two Base markets 4h bar status",
+      "conflicting revisions and source gaps",
+      "no executed fills or paid gas inferred",
+      "NO-GO and live DISABLED"
+    ],
+    "pair_committed_in_one_git_commit": true,
+    "artifact_fallback_even_on_failed_push": true,
+    "provenance_note": "A source-attested JSON file plus Actions run/artifact does NOT independently authenticate original provider publication time, qualify a trading paper day, or attest transaction execution.",
+    "unrelated_github_token_push_triggers_separate_investment_gate": false,
+    "future_capture_schedule_utc": "23 0,4,8,12,16,20 * * *",
+    "status_schedule_executed": "NOT_YET_OBSERVED",
+    "capital_authorization": false
+  },
+  "latest_observed_CI": {
+    "checkpoint_source_commit": "cdebb9404187f29b33867297c54cc55d3fb88e96",
+    "run_audit_workflow": "https://github.com/DashSaman/Arz/actions/runs/40445177286",
+    "run_independent_finance_gate": "https://github.com/DashSaman/Arz/actions/runs/40445177280",
+    "full_repository_test_methods": 1208,
+    "scheduled_job_path_tested_locally_via_static_contract_and_synthetic_source": true,
+    "actual_scheduled_workflow_event_verified": false,
+    "future_main_auto_push_verified": false
+  },
+  "evidence_not_trade": {
+    "new_real_4h_base_price_candles": 0,
+    "new_fee_inclusive_follower_orders": 0,
+    "actual_paid_network_gas_usdc": null,
+    "genuine_prospective_paper_days": 0,
+    "positive_net_account_geometric_return_verified": false,
+    "pending_first_cron_nominal_utc": "2026-10-27T04:23:00Z",
+    "financial_decision": "NO-GO",
+    "live_trading": "DISABLED"
+  }
+}
