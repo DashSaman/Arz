@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint_id": "ARZ-2026-10-27-CONTROL-06",
+  "checkpoint_id": "ARZ-2026-10-27-CONTROL-07",
   "observed_at_utc": "2026-10-27",
   "repository": "DashSaman/Arz",
   "canonical_branch": "main",
@@ -413,7 +413,7 @@
         "EV-007"
       ],
       "completion": "Separate H2 baseline and wallet-confirmed variant once wallet data arrives; baseline must pass realistic cost and OOS without retuning; CEX proxy never qualifies Base DEX H4",
-      "next_action": "STRAT-01 Issue #42: first verify GitHub Actions 04:23 UTC scheduled forward capture actually ran, appended unique first-seen JSON or produced an artifact; then collect complete 4h candles for WETH and cbBTC and exact same-block L1 oracle/L2 basefee with true source timestamps, fee paid from independently observed receipts and quote-to-inclusion impact, before unchanged S0/H2 and >=90 real future days. At 00:23 tick scheduled workflow was not yet on main (merged 00:23:20).",
+      "next_action": "STRAT-01 Issue #42: at/after scheduled 2026-10-27T04:23:00Z first confirm GitHub Actions schedule event, artifact and append-only file in reports/strat01/forward. CI source audit now automatically executes on every appended file. Do not count prior-day pilot or missing delayed data as observed first-seen, and do not issue GO without independent verified 90d net cost/stress account paper and user authorization.",
       "github_issue_url": "https://github.com/DashSaman/Arz/issues/42",
       "last_verified_subcheckpoint": {
         "id": "STRAT01-IMMUTABLE-NEGATIVE-CONTROL-2026-10-26",
@@ -584,6 +584,29 @@
           "actual_swap_fee_usdc": null,
           "actual_strategy_follower_quote_with_delay": false,
           "profit_qualified": false
+        },
+        {
+          "id": "STRAT01-INVESTMENT-READINESS-REAL-EVIDENCE-2026-10-27",
+          "merged_pr": 55,
+          "merged_sha": "f271102049cf8dbc61530db6f6504d93dd4e1c83",
+          "observed_ci_url": "https://github.com/DashSaman/Arz/actions/runs/40437993852",
+          "focused_test_methods_passed": 143,
+          "full_repo_test_methods_passed": 1189,
+          "machine_evidence": "reports/strat01/2026-10-27-investment-readiness-no-go.json",
+          "observed_forward_capture_files_on_main": 0,
+          "scheduled_first_run_attested": false,
+          "frozen_at_utc": "2026-10-27T00:00:00Z",
+          "required_two_market_continuous_4h_warmup_bars": 194,
+          "qualified_prospective_calendar_days": 0,
+          "min_required_real_forward_calendar_days": 90,
+          "archived_historical_strategies_qualified": 0,
+          "actual_full_L1_L2_failed_swap_slippage_costs_usd": null,
+          "exact_follower_time_fill_data_verified": false,
+          "OOS_double_cost_net_geometric_account_returns_verified": false,
+          "investment_decision": "NO-GO",
+          "capital_activation_authorized": false,
+          "live_trading": "DISABLED",
+          "source_scope": "REAL_GITHUB_CI_CHECKOUT_NO_FORWARD_APPEND_YET_SYNTHETIC_VALIDATION_TESTS_NOT_FINANCIAL_RESULTS"
         }
       ]
     },
@@ -669,7 +692,7 @@
     "No PR treated as merged unless GitHub checked",
     "No changes to main trading runtime while integrating governance files"
   ],
-  "verification_policy": "PR52 real Base Oracle only hypothetical unsigned transaction size/L2 gas assumptions; PR53 future snapshot captures basefee and oracle at same quote block but NO actual paid USD fees or observed first cron. PR50 initial cron deployed at 00:23:20Z after nominal 00:23 tick. Next tick 04:23Z best-effort, no asynchronous claim until checked. Financial NO-GO, live DISABLED.",
+  "verification_policy": "Main PR55 investment gate audits each future source file on push for 4h clock/revisions and paid-gas/PnL false promotion. Observed zero scheduled files before first possible Oct27 04:23 UTC tick. 194 warmup bars, 90 elapsed paper days and all-in signed execution costs are unverified. STRAT-01 in progress, PAPER/LIVE blocked, no automatic funding, no false GO.",
   "completed_milestones": [
     {
       "task": "OPS-01",
@@ -689,14 +712,13 @@
     }
   ],
   "last_verified_delivery": {
-    "pr": 53,
-    "merged_sha": "8f044b92266164d2116900fa383aa29e768e4a07",
-    "run_url": "https://github.com/DashSaman/Arz/actions/runs/40433472180",
-    "focused": 31,
-    "full_tests": 1045,
-    "real_network_paid_fee_verified": false,
-    "new_qualified_account_trades": 0,
-    "source": "reports/strat01/2026-10-27-forward-fee-source-integration.json"
+    "pr": 55,
+    "merged_sha": "f271102049cf8dbc61530db6f6504d93dd4e1c83",
+    "run_url": "https://github.com/DashSaman/Arz/actions/runs/40437993852",
+    "focused": 143,
+    "full_tests": 1189,
+    "net_alpha_verified": false,
+    "source": "reports/strat01/2026-10-27-investment-readiness-no-go.json"
   },
   "post_checkpoint_verified_deliveries": [
     {
