@@ -109,3 +109,13 @@ Standalone [PR #55](https://github.com/DashSaman/Arz/pull/55) **merged to main**
 At the verified checkout, **zero scheduled forward source files were committed**, so the result is missing-source evidence, not corrupted file or no-trade 0% return. No 194-bar warmup, historical approved trading alpha (0/3 source-hashed old Oct13 models), signal-linked 60-second exact-sized follower quotes, actual L1/L2/failed/impact fees, 90 elapsed future paper days, cost-stressed positive account return or capital approval. [Machine status](../../reports/strat01/2026-10-27-investment-readiness-no-go.json), [technical report](strat01_investment_readiness_20261027.md).
 
 **Next:** check first actual Cron run and file/Artifact after nominal **2026-10-27 04:23 UTC**, source timestamps, then collect complete real evidence and review objectively. Financial **NO-GO**, live **DISABLED**; no guaranteed profits or automated investment approval.
+
+## 27 Oct prospective collector same-run audit reliability fix
+
+[PR #57](https://github.com/DashSaman/Arz/pull/57) safely merged to main as `6c6bc98741adc07d5044c35c3c9368d523172a9d`. GitHub's [official GITHUB_TOKEN policy](https://docs.github.com/en/actions/concepts/security/github_token) prevents actions-bot git pushes from triggering another push-based Actions workflow. The previous 4h source collector could therefore commit a file without the intended automatic separate financial audit.
+
+The scheduled collector now validates its exact newly captured UTC first-seen source **in the same job before push**, checks SHA256+first-seen against the audit's per-source manifest, and commits both the forward JSON and the corresponding `NO-GO` audit JSON together. If main branch writes fail, both survive as a same-run Actions artifact. Human-initiated pushes still trigger the independent source gate.
+
+[CI 40445362421](https://github.com/DashSaman/Arz/actions/runs/40445362421) confirms **1,208 full repository software tests PASS**, including 18 newly added pipeline contract checks; [finance CI 40445362541](https://github.com/DashSaman/Arz/actions/runs/40445362541) also PASS. [Technical report](strat01_forward_self_audit_20261027.md), [machine record](../../reports/strat01/2026-10-27-self-audited-forward-pipeline.json).
+
+**No actual scheduled event / successful forward main append has been independently observed**. Next nominal Cron UTC 04:23 (best-effort) requires checking the real Actions run, source JSON, audit JSON or artifact. No qualified paper days, profits, paid gas or capital approval. Financial NO-GO, live DISABLED.
