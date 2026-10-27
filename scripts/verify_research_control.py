@@ -300,6 +300,43 @@ def validate(state: object) -> dict:
             proof.get("first_post_cutoff_utc") == "2026-10-27T00:14:13+00:00",
             "Identity source file or first-seen clock modified")
 
+    # The verified Base GasPriceOracle response is an estimate for assumed
+    # unsigned byte sizes; the forward integration has NOT yet observed a
+    # scheduled Cron run, a paid swap fee or a qualified paper calendar day.
+    for sid, number in (
+        ("STRAT01-REAL-BASE-ORACLE-L1-L2-SCENARIOS-2026-10-27",52),
+        ("STRAT01-FORWARD-SAME-BLOCK-GAS-ORACLE-ADDED-2026-10-27",53),
+    ):
+        matches = [x for x in strat_entries if type(x) is dict and x.get("id") == sid]
+        require(len(matches) == 1, "Missing or duplicate fee-source checkpoint: "+sid)
+        item = matches[0]
+        require(item.get("merged_pr") == number and
+                bool(COMMIT_SHA.fullmatch(str(item.get("merged_sha")))),
+                "Unverifiable fee-source merge")
+    l1_obs = next(x for x in strat_entries if type(x) is dict and
+                  x.get("id") == "STRAT01-REAL-BASE-ORACLE-L1-L2-SCENARIOS-2026-10-27")
+    require(l1_obs.get("observed_base_block") == 53137474 and
+            l1_obs.get("observed_block_basefee_wei") == 5000000 and
+            l1_obs.get("unsigned_tx_size_assumption_bytes") == [180,300,500] and
+            l1_obs.get("real_paid_network_fee_USDC") is None and
+            l1_obs.get("real_router_tx_length_bytes") is None and
+            l1_obs.get("net_geometric_daily_return_verified") is False and
+            l1_obs.get("real_swap_receipt_count") == 0,
+            "GasPriceOracle scenario incorrectly promoted to executed fee or profit")
+    schedule = next(x for x in strat_entries if type(x) is dict and
+                    x.get("id") == "STRAT01-FORWARD-SAME-BLOCK-GAS-ORACLE-ADDED-2026-10-27")
+    require(schedule.get("forward_read_only_source_call_max") == 8 and
+            schedule.get("unpaid_unserialized_assumed_L1_tx_size_bytes") == 300 and
+            schedule.get("same_pinned_block_read_L2_fee_and_L1_oracle") is True and
+            schedule.get("real_post_merge_scheduled_cron_capture_count_verified") == 0 and
+            schedule.get("actual_swap_fee_usdc") is None and
+            schedule.get("profit_qualified") is False and
+            schedule.get("earliest_next_nominal_cron_time_utc") ==
+            "2026-10-27T04:23:00Z" and
+            schedule.get("original_cron_merge_time_utc") ==
+            "2026-10-27T00:23:20Z",
+            "Cron/cost source configuration falsely represented as verified trading data")
+
     next_unfinished = next((name for name in order if tasks[name]["status"] != "DONE"), None)
     require(next_unfinished is not None, "No next research work defined")
     return {
