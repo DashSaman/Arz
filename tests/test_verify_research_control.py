@@ -172,6 +172,28 @@ class ControlPlaneTests(unittest.TestCase):
             with self.subTest(sid=sid,key=key),self.assertRaises(ValueError):
                 validate(damaged)
 
+    def test_investment_gate_passes_1189_checks_but_refuses_funded_go(self):
+        state=fresh()
+        self.assertEqual(validate(state)["financial_decision"],"NO-GO")
+        for field,newvalue in (
+            ("observed_forward_capture_files_on_main",1),
+            ("scheduled_first_run_attested",True),
+            ("qualified_prospective_calendar_days",90),
+            ("actual_full_L1_L2_failed_swap_slippage_costs_usd",0),
+            ("OOS_double_cost_net_geometric_account_returns_verified",True),
+            ("capital_activation_authorized",True),
+            ("investment_decision","GO"),
+            ("full_repo_test_methods_passed",9999),
+            ("min_required_real_forward_calendar_days",1),
+        ):
+            bad=fresh()
+            track=next(x for x in bad["tracks"] if x["id"]=="STRAT-01")
+            evidence=next(x for x in track["additional_verified_subcheckpoints"]
+                if x["id"]=="STRAT01-INVESTMENT-READINESS-REAL-EVIDENCE-2026-10-27")
+            evidence[field]=newvalue
+            with self.subTest(field=field),self.assertRaises(ValueError):
+                validate(bad)
+
     def test_pr_merge_status_and_duplicate_branch_rejected(self):
         s = fresh()
         s["research_prs"][-1]["state"] = "MERGED"
