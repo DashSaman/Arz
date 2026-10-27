@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint_id": "ARZ-2026-10-27-CONTROL-08",
+  "checkpoint_id": "ARZ-2026-10-27-CONTROL-09",
   "observed_at_utc": "2026-10-27",
   "repository": "DashSaman/Arz",
   "canonical_branch": "main",
@@ -413,7 +413,7 @@
         "EV-007"
       ],
       "completion": "Separate H2 baseline and wallet-confirmed variant once wallet data arrives; baseline must pass realistic cost and OOS without retuning; CEX proxy never qualifies Base DEX H4",
-      "next_action": "Issue #42: after Oct 27 04:23 UTC verify *actual* scheduled run of GitHub workflow strat01-base-forward.yml, its real first-seen source/audit pair or Actions artifact, then build source-continuous causal WETH/cbBTC observations. GITHUB_TOKEN pushes do not fire separate push workflow; in-job audit PR57 fixed. Do not count code CI as Cron, fills, paper days, or investment approval.",
+      "next_action": "Next STRAT-01 Issue #42: verify additional truly as-observed scheduled source/audit pairs beyond first 2026-10-27T09:53:59Z bot commit; note initial 00-04 UTC bar was not recorded and first actual 04-08 bar was seen 6839/6840 seconds late. Check independent GitHub Actions run event (bot commit alone does not prove schedule vs manual dispatch), enforce new leading-gap/latency criteria, collect 194 continuous timely complete dual-market 4h bars and genuine quote/inclusion/paid-gas failure evidence. Maintain 90 genuinely elapsed prospective paper days, stress-cost geometric GO criteria, and disabled live trading.",
       "github_issue_url": "https://github.com/DashSaman/Arz/issues/42",
       "last_verified_subcheckpoint": {
         "id": "STRAT01-IMMUTABLE-NEGATIVE-CONTROL-2026-10-26",
@@ -633,6 +633,46 @@
           "independent_investment_approval": false,
           "financial_decision": "NO-GO",
           "live_trading": "DISABLED"
+        },
+        {
+          "id": "STRAT01-FIRST-REAL-BASE-BOT-CAPTURE-MISSING-LEADING-OOS-2026-10-27",
+          "source_bot_commit_sha": "efc4e29d8e54b3a8523e64b7072d8b7f60a57c91",
+          "source_bot_commit_url": "https://github.com/DashSaman/Arz/commit/efc4e29d8e54b3a8523e64b7072d8b7f60a57c91",
+          "original_source_path": "reports/strat01/forward/20261027T095359Z.json",
+          "original_source_git_blob_sha": "694ca960e5c24f0e9294173272d00c80fad264cf",
+          "original_source_sha256": "34c7bc50dddcd93bfa0d4e4bf228094e54b957d82ba3e97ceb98baf759220d02",
+          "original_no_go_audit_path": "reports/strat01/audits/20261027T095359Z.json",
+          "original_audit_git_blob_sha": "6912c80a7dcd5aa7ae0d4964389e49f80d7665ed",
+          "original_bot_capture_audit_pair_verified": true,
+          "github_schedule_event_type_independently_verified": false,
+          "source_first_seen_at_utc": "2026-10-27T09:53:59Z",
+          "frozen_oos_cutoff_utc": "2026-10-27T00:00:00Z",
+          "first_missing_four_hour_bar": "2026-10-27T00:00:00Z–04:00:00Z",
+          "first_actual_weth_cbbtc_observed_four_hour_bar": "2026-10-27T04:00:00Z–08:00:00Z",
+          "source_weth_bar_close_lag_seconds": 6839,
+          "source_cbbtc_bar_close_lag_seconds": 6840,
+          "observed_source_pairs_in_repo_as_of_checkpoint": 1,
+          "operational_source_lag_diagnostic_threshold_seconds": 3600,
+          "diagnostic_threshold_not_ATR_strategy_rule": true,
+          "operationally_timely_4h_bar_pairs": 0,
+          "source_bar_has_quote_execution_eligibility": false,
+          "same_base_block": 53152746,
+          "WETH_20USDC_quoter_amount": "0.008669910559247304",
+          "cbBTC_20USDC_quoter_amount": "0.0002512",
+          "L2_basefee_per_gas_wei": 5000000,
+          "L1_unsigned_300byte_upperbound_wei": 1802952723,
+          "actual_paid_L1_L2_gas_USDC": null,
+          "real_trade_execution_count": 0,
+          "genuine_prospective_paper_days": 0,
+          "actual_geometric_account_profit_proven": false,
+          "new_integrity_fix_pr": 59,
+          "new_integrity_fix_merged_sha": "0320ab6458fcf1d18862714c9ac444c968909d8e",
+          "new_integrity_fix_ci_url": "https://github.com/DashSaman/Arz/actions/runs/40525201907",
+          "new_focused_test_methods_passed": 84,
+          "whole_repo_test_methods_passed": 1293,
+          "source_evidence": "reports/strat01/2026-10-27-first-capture-gap-latency-audit.json",
+          "financial_decision": "NO-GO",
+          "live_trading": "DISABLED"
         }
       ]
     },
@@ -718,7 +758,7 @@
     "No PR treated as merged unless GitHub checked",
     "No changes to main trading runtime while integrating governance files"
   ],
-  "verification_policy": "PR57 fixed documented GITHUB_TOKEN-initiated bot push blind spot with same-run audit and source SHA256/UTC manifest before commit, with artifact fallback. CI is NOT evidence a scheduled run happened. Next actual schedule at 2026-10-27 04:23 UTC still unobserved. Financial NO-GO and live DISABLED; 194 warmup 4h and 90 elapsed paper days missing.",
+  "verification_policy": "PR59 merged: actual GitHub bot source+NO-GO audit pair captured at 09:53:59Z for 04-08 UTC source candle; initial 00-04 UTC 4h interval missing, source lag 6839/6840s; no execution event/paper days or proven schedule event type. New leading-gap/latency diagnostics cannot change frozen ATR signals or fake event-time original publication. Net PnL and live funding NO-GO/DISABLED.",
   "completed_milestones": [
     {
       "task": "OPS-01",
@@ -738,13 +778,13 @@
     }
   ],
   "last_verified_delivery": {
-    "pr": 57,
-    "merged_sha": "6c6bc98741adc07d5044c35c3c9368d523172a9d",
-    "run_url": "https://github.com/DashSaman/Arz/actions/runs/40445362421",
-    "full_tests": 1208,
-    "focused": 18,
+    "pr": 59,
+    "merged_sha": "0320ab6458fcf1d18862714c9ac444c968909d8e",
+    "run_url": "https://github.com/DashSaman/Arz/actions/runs/40525201907",
+    "full_tests": 1293,
+    "focused": 84,
     "net_alpha_verified": false,
-    "source": "reports/strat01/2026-10-27-self-audited-forward-pipeline.json"
+    "source": "reports/strat01/2026-10-27-first-capture-gap-latency-audit.json"
   },
   "post_checkpoint_verified_deliveries": [
     {
