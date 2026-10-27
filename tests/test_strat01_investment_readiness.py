@@ -106,6 +106,7 @@ class RealProjectGateTests(unittest.TestCase):
             x=g.evaluate(Path(d))
             self.assertEqual(x["source_capture_audit"]["file_count"],0)
             self.assertIn("NO_SCHEDULED_SOURCE_CAPTURE_ON_MAIN_YET",x["blockers"])
+            self.assertNotIn("MALFORMED_OR_UNTRUSTED_CAPTURE",x["blockers"])
 
     def test_paper_days_not_inferred_from_calendar_since_oos(self):
         with TemporaryDirectory() as d:
