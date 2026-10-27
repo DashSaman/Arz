@@ -204,6 +204,39 @@ class IdentityTests(unittest.TestCase):
         self.assertEqual(d["source_fields"]["pair_id"],4564367)
 
 
+class OriginalActualSourceProofTests(unittest.TestCase):
+    def test_original_actual_metadata_independently_reconciles_without_new_calls(self):
+        from pathlib import Path
+        p=Path("reports/strat01/2026-10-27-base-identity-observed.json")
+        doc=json.loads(p.read_text(encoding="utf-8"))
+        self.assertEqual(doc["followup_offline_evidence_from_original_returned_metadata"]
+                         ["logical_result"],
+                         "BOTH_PROVIDER_PAIR_IDS_AND_BASE_V3_FACTORY_500PPM_POOLS_MATCH")
+        # The original first implementation correctly did NOT claim success,
+        # because it expected raw token0/token1 rather than naturalized
+        # base/quote. Revalidate captured exact public fields, no RPC.
+        original=doc["original_identity_response"]["data"]
+        self.assertFalse(original["provider_pair_to_onchain_pool_verified"])
+        for name,asset in original["assets"].items():
+            with self.subTest(name=name):
+                self.assertEqual(asset["status"],"ONCHAIN_FACTORY_POOL_VERIFIED")
+                ok,missing=m._valid_metadata(asset["provider_metadata"],
+                      pool=asset["onchain_pool"],asset=name)
+                self.assertTrue(ok,missing)
+        self.assertEqual(doc["financial_decision"],"NO-GO")
+
+    def test_forward_first_snapshot_has_zero_completed_4h_and_no_follower_signal(self):
+        from pathlib import Path
+        doc=json.loads(Path("reports/strat01/2026-10-27-base-forward-first-seen.json")
+                        .read_text(encoding="utf-8"))
+        data=doc["first_as_observed_snapshot"]["data"]
+        self.assertIsNone(data["requested_last_closed_bar"])
+        self.assertEqual(data["first_seen_sample_count"],0)
+        self.assertEqual(len(data["quotes"]),2)
+        self.assertTrue(all(q["signal_observed_time"] is None for q in data["quotes"]))
+        self.assertTrue(all(q["actual_L1_usd"] is None for q in data["quotes"]))
+        self.assertEqual(doc["prospective_calendar_days_qualified"],0)
+
 class ProspectiveNoFalseTradeTests(unittest.TestCase):
     def test_at_oos_start_no_closed_bar(self):
         self.assertIsNone(m._utc_bar_start(m.START_OOS))
