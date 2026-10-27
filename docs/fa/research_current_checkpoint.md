@@ -97,3 +97,13 @@ Trading Strategy برای بازارهای WETH ID 4564367 و cbBTC ID 4705508،
 محدودیت‌ها: احراز مجدد مستقل Pool و Tokenهای Pair IDها، هزینه L1/L2 واقعی، Slippage و Failure هنوز انجام نشده و شبیه‌سازی Quote به معنی سفارش یا سود نیست. ثبت فقط پایلوت **پیش از شروع پنجره OOS در ۲۰۲۶-۱۰-۲۷ ساعت ۰۰:۰۰ UTC** است؛ بک‌تست یا روز Paper تازه‌ای ساخته نشده. [گزارش کامل فارسی](strat01_base_real_pilot_20261027.md) و [JSON واقعی](../../reports/strat01/2026-10-27-base-pilot-observed.json).
 
 **گام بعدی STRAT-01 Issue #42:** اثبات هویت Poolها و شروع ثبت زمان مشاهده آینده‌نگر دو بازار با Quote سفارش ۲۰ دلاری و هزینه اجرایی قابل‌بررسی؛ بدون پرکردن شکاف قیمت با داده ساختگی. NO-GO / DISABLED.
+
+## مرحله ۲۷ اکتبر — احراز مستقل Base و ثبت نخستین Snapshot پس از OOS
+
+✅ [PR #50](https://github.com/DashSaman/Arz/pull/50) با SHA `60bec95cfec281c19a7fe08bb422d25ad79e2929` به main ادغام شد. [دریافت واقعی شبکه](https://github.com/DashSaman/Arz/actions/runs/40425075566) و [تست نهایی بدون تکرار شبکه](https://github.com/DashSaman/Arz/actions/runs/40425916606): **۲۸ تست اختصاصی و ۹۷۴ تست کامل PASS**.
+
+آدرس‌های واقعی Pool از Factory و Fee و Token0/Token1 از Base گرفته و با متادیتای `/pair-details` که مستقیماً با آدرس Pool درخواست شد تطبیق یافتند: WETH/USDC `0xd0b53d9277642d899df5c87a3966a349a798f224` ↔ ID 4564367 و cbBTC/USDC `0xfbb6eed8e7aa03b138556eedaf5d271a5e1e43ef` ↔ ID 4705508. تفاوت قالب `base_token_address`/ `quote_token_address` در پاسخ ارائه‌دهنده با بازبینی آفلاین همان منبع حل شد؛ رد اولیه کد حفظ شد.
+
+نخستین Snapshot در **۰۰:۱۴:۱۳ UTC** و بلاک Base **53,135,353** ثبت شد؛ **هیچ کندل OOS چهار‌ساعته‌ای هنوز بسته نشده بود**. خروجی شبیه‌سازی خواندنی ۲۰ USDC: `0.008596332884170224 WETH` و `0.00024938 cbBTC`، بدون معامله واقعی، Gas واقعی دلاری، یا PnL. گزارش‌ها: [هویت واقعی](../../reports/strat01/2026-10-27-base-identity-observed.json)، [اولین Snapshot](../../reports/strat01/2026-10-27-base-forward-first-seen.json)، [گزارش مفصل فارسی](strat01_base_identity_forward_20261027.md).
+
+زمان‌بندی `strat01-base-forward.yml` برای دقایق ۲۳ پس از بسته‌شدن هر ۴ ساعت UTC و Commitهای یکتای منبع‌دار در `reports/strat01/forward/` پیکربندی شده است؛ **اجرای آینده و موفقیت خودکار آن هنوز مشاهده نشده**. مرحله بعد Issue #42، تأیید اولین اجرا و داده واقعی دو بازار و هزینه‌های L1/L2/اسلیپیج است. STRAT-01 همچنان IN_PROGRESS، مالی NO-GO و معاملات DISABLED.

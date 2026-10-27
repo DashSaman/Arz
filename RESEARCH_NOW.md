@@ -1,6 +1,6 @@
 # ARZ RESEARCH NOW — single restart checkpoint
 
-**Latest checkpoint 2026-10-26 UTC · WAL-01 PARTIAL · Financial NO-GO · Live trading DISABLED**
+**Latest checkpoint 2026-10-27 UTC · STRAT-01 IN PROGRESS, WAL-01 PARTIAL · Financial NO-GO · Live trading DISABLED**
 
 > **Start here before doing anything in Arz.** This is the entry point on `main` even when newer research work lives in unmerged draft branches. `PROJECT_STATUS.md` begins with the older 2026-10-13 MVP checkpoint and must not be mistaken for the latest research status.
 
@@ -56,6 +56,16 @@ The merged `scripts/wal01_witness_gate.py` compares the public PR #33 derived tr
 Both 20 USDC single-pool Uniswap V3 `eth_call` QuoteV2 simulations used **Base block 53,134,288**, timestamp `1793057923`: WETH **0.008616692865956162**, cbBTC **0.00024981**. Quoter gas *units* were 86,263 / 100,765, NOT actual paid L1/L2 USD. Receipt/failure/MEV and quote-to-inclusion slippage remain **UNKNOWN**, and provider pair ID→Base pool/token contract mapping has not been independently re-attested. This was a bounded single block/one-day **pre-OOS source pilot**, NOT newly elapsed prospective paper, profitable trade, or a 12-month backtest. [Machine evidence](reports/strat01/2026-10-27-base-pilot-observed.json) · [Persian](docs/fa/strat01_base_real_pilot_20261027.md) · [English](docs/en/strat01_base_real_pilot_20261027.md).
 
 **NEXT in [STRAT-01 Issue #42](https://github.com/DashSaman/Arz/issues/42):** independently verify the historical provider pool/token identities; then acquire an immutable two-pair truly prospective as-observed feed **after 2026-10-27T00:00:00Z** and exact-size $20 follower Quoter quotes with separately evidenced real L1/L2 fee, slippage and failures. Keep unchanged frozen ATR S0, H2 entry-veto only, and cash/risk-matched holds. **Financial NO-GO, live DISABLED**.
+
+## STRAT-01 verified independent Base identities and first actual post-cutoff quote — 2026-10-27
+
+✅ [PR #50](https://github.com/DashSaman/Arz/pull/50) independently merged into `main` (SHA `60bec95cfec281c19a7fe08bb422d25ad79e2929`). [First actual network-source CI 40425075566](https://github.com/DashSaman/Arz/actions/runs/40425075566) and [final no-repeat CI 40425916606](https://github.com/DashSaman/Arz/actions/runs/40425916606) recorded **28 focused / 974 full-repository software tests PASS** (overlap). Source hashes, initial conservative parser outcome, and later no-new-network source normalization are preserved.
+
+**Canonical Uniswap v3 Base 500ppm factory+Trading Strategy IDs matched by contract address, NOT ticker:** WETH/USDC `0xd0b53d9277642d899df5c87a3966a349a798f224` ↔ Pair ID **4564367**; cbBTC/USDC `0xfbb6eed8e7aa03b138556eedaf5d271a5e1e43ef` ↔ **4705508**. Chain ID 8453; onchain pool token0/token1 and fee matched provider `base_token_address/quote_token_address` and pool address. [Identity evidence](reports/strat01/2026-10-27-base-identity-observed.json) · [FA](docs/fa/strat01_base_identity_forward_20261027.md) · [EN](docs/en/strat01_base_identity_forward_20261027.md).
+
+**First observed at 2026-10-27T00:14:13Z**, Base block **53,135,353**, after frozen OOS start but **BEFORE the first new four-hour candle closed**. Two read-only 20 USDC QuoterV2 same-block simulations: **0.008596332884170224 WETH** / **0.00024938 cbBTC**, estimated 86,243 / 100,765 **gas units**. Actual USD L1/L2 paid fees, inclusion, failure cost, 60s-after-ATR-signal price, real PnL and valid paper calendar days **UNKNOWN or zero qualified**. [First-as-seen evidence](reports/strat01/2026-10-27-base-forward-first-seen.json).
+
+**Four-hour first-seen capture schedule configured** in `.github/workflows/strat01-base-forward.yml` (UTC minute23 after 00/04/08/12/16/20 closed candles), append-only `reports/strat01/forward/` if authorized main push succeeds, Actions artifact fallback. As of this checkpoint, **first scheduled run and successful auto-append NOT VERIFIED**; GitHub may delay scheduling. No wallet keys/orders/approval. **NEXT [Issue #42](https://github.com/DashSaman/Arz/issues/42)**: verify first cron evidence, accumulate source-complete dual-market 4h bar records without fake first-seen, calibrate actual L1/L2 and slippage/failure USD, then frozen ATR S0/H2 cost-stressed OOS and truly elapsed forward paper. Financial **NO-GO / DISABLED**.
 
 ## PR topology (check remotely again before changing branches)
 
