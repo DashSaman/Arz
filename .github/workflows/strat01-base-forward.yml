@@ -94,6 +94,7 @@ jobs:
           SOURCE_FILE="$source" AUDIT_FILE="$audit" python - <<'PY'
           import json, os
           from pathlib import Path
+          import hashlib
           from scripts.strat01_investment_readiness import snapshot_summary
           source=Path(os.environ["SOURCE_FILE"])
           audit_path=Path(os.environ["AUDIT_FILE"])
@@ -111,6 +112,11 @@ jobs:
           assert ledger["valid_source_files"] == ledger["file_count"]
           assert ledger["conflicts"] == []
           assert ledger["errors"] == []
+          matched=[x for x in ledger["source_manifest"]
+                    if x["filename"] == source.name]
+          assert len(matched)==1
+          assert matched[0]["sha256"]==hashlib.sha256(source.read_bytes()).hexdigest()
+          assert matched[0]["first_seen"]==checked["first_seen"]
           print("ARZ_CAPTURE_IN_RUN_AUDIT=PASS_NO_GO")
           print("ARZ_CAPTURE_FIRST_SEEN="+checked["first_seen"])
           print("ARZ_COMPLETE_PAIR_BAR="+str(checked["two_asset_bar_received"]))
