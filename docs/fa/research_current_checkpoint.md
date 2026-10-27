@@ -123,3 +123,13 @@ Trading Strategy برای بازارهای WETH ID 4564367 و cbBTC ID 4705508،
 در CI این مرحله، **هیچ فایل ثبت‌شده زمان‌بندی‌شده‌ای در Checkout مخزن موجود نبود**، و این مسئله از داده خراب یا معامله صفر تفکیک شد. با این وضعیت: بازده خالص واجد شرایط صفر استراتژی، ۰ روز Paper واجد شرایط، هزینه واقعی L1/L2 و Slippage و Failure نامعلوم، ۱۹۴ کندل Warmup پیوسته وجود ندارد و عملکرد ۹۰ روزه هنوز امکان‌پذیر نیست. [نتیجه ماشینی](../../reports/strat01/2026-10-27-investment-readiness-no-go.json)، [گزارش فارسی](strat01_investment_readiness_20261027.md).
 
 **نوبت بعد:** پس از نخستین موعد Cron ۰۴:۲۳ UTC، اجرای واقعی، فایل/Artifact و زمان دریافت هر دو بازار را بررسی کنیم. هیچ‌گاه از سبزبودن تست‌ها «مجوز خرید» یا سود تضمینی استنتاج نکنیم. **NO-GO / DISABLED**.
+
+## اصلاح مرحله جمع‌آوری چهارساعته — ۲۷ اکتبر ۲۰۲۶
+
+[PR #57](https://github.com/DashSaman/Arz/pull/57) به main ادغام شد (SHA `6c6bc98741adc07d5044c35c3c9368d523172a9d`). مشکل واقعی آن بود که Push خودکار با `GITHUB_TOKEN` اجرای جداگانه Workflow مبتنی بر Push را فعال نمی‌کند؛ بنابراین فایل‌های ثبت‌شده ممکن بود بدون حسابرسی بمانند. مستند رسمی: https://docs.github.com/en/actions/concepts/security/github_token
+
+اکنون Job زمان‌بندی‌شده پیش از Push، فایل Snapshot واقعی را با `strat01_investment_readiness.py` بررسی و SHA-256 و زمان UTC همان فایل را با Manifest تطبیق می‌دهد. فایل اصلی `reports/strat01/forward/<UTC>.json` و خروجی تصمیم `reports/strat01/audits/<UTC>.json` با هم Commit می‌شوند؛ اگر Push مجاز نباشد، هر دو Artifact می‌شوند.
+
+[CI 40445362421](https://github.com/DashSaman/Arz/actions/runs/40445362421): **۱۲۰۸ تست کل ریپو PASS**، شامل **۱۸ تست افزوده کنترل Workflow**؛ [CI مالی 40445362541](https://github.com/DashSaman/Arz/actions/runs/40445362541) نیز موفق بود. **اینها اجرای واقعی Cron نیستند**؛ هنوز فایل جدید، روز Paper، گاز پرداخت‌شده یا سود تأیید نشده است. [گزارش](strat01_forward_self_audit_20261027.md) و [شاهد JSON](../../reports/strat01/2026-10-27-self-audited-forward-pipeline.json).
+
+**مرحله بعد Issue #42:** مشاهده واقعی اولین اجرای زمان‌بندی‌شده پس از ساعت ۰۴:۲۳ UTC و بررسی فایل داده و فایل حسابرسی/Artifact. تصمیم مالی NO-GO، اجرای واقعی DISABLED.
