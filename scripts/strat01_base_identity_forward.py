@@ -47,7 +47,7 @@ BAR = 14400
 START_OOS = 1793059200
 MAX_BODY = 250000
 MAX_CALLS_IDENTITY = 12  # chain, head, two factories, six pool calls, two metadata
-MAX_CALLS_FORWARD = 6    # head, header, two candles, two quote eth_call
+MAX_CALLS_FORWARD = 7    # chain ID, head, header, two candles, two quote eth_call
 ABI_GET_POOL = "1698ee82"
 ABI_TOKEN0 = "0dfe1681"
 ABI_TOKEN1 = "d21220a7"
@@ -190,9 +190,20 @@ def _valid_metadata(meta:dict, *, pool:str, asset:str) -> tuple[bool,list[str]]:
     address = fields.get("address",fields.get("pool_address"))
     if type(address) is not str or address.lower()!=pool.lower():
         fail.append("PROVIDER_POOL_ADDRESS_NOT_PROVEN")
-    tokens=(fields.get("token0_address"),fields.get("token1_address"))
-    if not all(type(v) is str for v in tokens) or {v.lower() for v in tokens}!={USDC.lower(),ASSETS[asset]["address"].lower()}:
-        fail.append("PROVIDER_TOKEN_ADDRESSES_NOT_PROVEN")
+    # Trading Strategy /pair-details returns human-naturalized base/quote
+    # addresses; it need not emit raw EVM token0/token1 fields. Prove BOTH
+    # direction and identity, and reject contradictory raw token0/1 if present.
+    base,quote=(fields.get("base_token_address"),fields.get("quote_token_address"))
+    if (type(base) is not str or type(quote) is not str or
+            base.lower()!=ASSETS[asset]["address"].lower() or
+            quote.lower()!=USDC.lower()):
+        fail.append("PROVIDER_BASE_QUOTE_ORIENTATION_NOT_PROVEN")
+    t0,t1=(fields.get("token0_address"),fields.get("token1_address"))
+    if t0 is not None or t1 is not None:
+        if (type(t0) is not str or type(t1) is not str or
+                {t0.lower(),t1.lower()} !=
+                {USDC.lower(),ASSETS[asset]["address"].lower()}):
+            fail.append("CONTRADICTORY_PROVIDER_TOKEN0_TOKEN1")
     # Provider fee convention (500 ppm vs 0.0005 fraction) varies; do not
     # assert it without documented normalized units. The onchain check is exact.
     return not fail,fail
@@ -384,7 +395,7 @@ def forward_snapshot(probe:Probe, at:int):
 def collect(mode:str):
     if mode not in ("identity","forward"):
         raise ValueError("Unknown collection mode")
-    probe=Probe(max_calls=MAX_CALLS_IDENTITY if mode=="identity" else MAX_CALLS_FORWARD+1)
+    probe=Probe(max_calls=MAX_CALLS_IDENTITY if mode=="identity" else MAX_CALLS_FORWARD)
     at=int(time.time())
     data=(audit_identity(probe) if mode=="identity" else forward_snapshot(probe,at))
     return {
