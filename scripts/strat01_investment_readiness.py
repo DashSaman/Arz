@@ -28,6 +28,9 @@ BAR_SECONDS = 14_400
 FULL_DAY_BARS = 6
 WARMUP_BARS = 194
 MIN_FORWARD_DAYS = 90
+# Operational source-lag diagnostic ONLY. NOT a frozen ATR signal parameter,
+# fresh executable quote, or authorization to trade.
+SOURCE_LAG_DIAGNOSTIC_SEC = 3600
 STRESSED_COST_FACTOR = Decimal(2)
 MIN_ORIGINAL_QUALIFIED_HOLDOUT = 1
 MAX_DRAWDOWN = Decimal("0.10")
@@ -112,6 +115,7 @@ def snapshot_summary(doc:dict, *, filename:str) -> dict:
     if type(candles) is not list or len(candles)!=2 or {c.get("asset") for c in candles if type(c) is dict}!=set(ASSETS):
         raise ValueError("Both market source records required")
     valid_bar={}
+    observed_lag_by_asset={}
     issues=[]
     for candle in candles:
         asset=candle["asset"]
@@ -131,6 +135,9 @@ def snapshot_summary(doc:dict, *, filename:str) -> dict:
             if candle.get("source_publication_at_original_bar_close_proven") is not False or candle.get("approved_as_execution_price") is not False:
                 raise ValueError("Untrusted provider source promoted to an executable fill")
             valid_bar[asset]={"ts":requested,"ohlcv_hash":bars[0]["source_line_sha256"]}
+            # Measure original source first-seen lateness from the bar CLOSE.
+            # A provider returned candle is not proven available at close.
+            observed_lag_by_asset[asset]=candle["first_observed_at"]-(requested+BAR_SECONDS)
         elif status in ("NO_FROZEN_OOS_4H_BAR_COMPLETED","MISSING_CANDLE_AMBIGUOUS","UNAVAILABLE"):
             issues.append(f"{asset}:{status}")
             if status=="NO_FROZEN_OOS_4H_BAR_COMPLETED" and requested is not None:
@@ -169,6 +176,11 @@ def snapshot_summary(doc:dict, *, filename:str) -> dict:
     ready=len(valid_bar)==2 and valid_bar["WETH"]["ts"]==valid_bar["cbBTC"]["ts"]
     return {"first_seen":observed.isoformat(),"bar_start":requested,"two_asset_bar_received":ready,
             "bar_hashes":{asset:row["ohlcv_hash"] for asset,row in valid_bar.items()},
+            "observed_bar_close_lag_seconds":observed_lag_by_asset,
+            "operational_timeliness_1h_both_assets":ready and
+                len(observed_lag_by_asset)==2 and
+                all(lag<=SOURCE_LAG_DIAGNOSTIC_SEC
+                    for lag in observed_lag_by_asset.values()),
             "quote_assets":sorted(seen_quotes),
             "same_block_cost_source_present":network is not None,
             "source_issues":issues,
@@ -180,6 +192,11 @@ def audit_capture_dir(source:Path) -> dict:
     if not source.exists():
         return {"file_count":0,"valid_source_files":0,"complete_both_asset_bar_starts":[],
                 "conflicts":[],"observed_candle_grid_gaps":[],"source_manifest":[],
+                "missing_leading_oos_bar_starts":[],
+                "late_both_market_bar_starts":[],
+                "operationally_timely_both_market_bar_starts":[],
+                "max_observed_bar_close_to_source_lag_seconds":None,
+                "max_consecutive_operationally_timely_bars":0,
                 "missing_or_untrusted_capture":True,
                 "errors":["NO_SCHEDULED_APPEND_FILE_PRESENT"],
                 "first_schedule_run_independently_verified":False,
@@ -205,6 +222,9 @@ def audit_capture_dir(source:Path) -> dict:
                 "first_seen":sample["first_seen"],
                 "closed_bar_start":sample["bar_start"],
                 "two_asset_bar_received":sample["two_asset_bar_received"],
+                "observed_bar_close_lag_seconds":sample["observed_bar_close_lag_seconds"],
+                "operational_timeliness_1h_both_assets":
+                    sample["operational_timeliness_1h_both_assets"],
             })
             bar=sample["bar_start"]
             if sample["two_asset_bar_received"]:
@@ -219,6 +239,37 @@ def audit_capture_dir(source:Path) -> dict:
             conflicts.append(start)
         else:
             completed.append(start)
+    # The previous detector only compared adjacent *present* bars. If the
+    # first captured bar is 04:00, it quietly lost the 00:00 bar after the
+    # originally preregistered OOS start. Always show leading gaps explicitly.
+    leading=[]
+    if completed:
+        first=completed[0]
+        if (first-int(FROZEN_START.timestamp()))%BAR_SECONDS!=0:
+            raise ValueError("Captured grid not aligned with frozen start")
+        missing_slots=(first-int(FROZEN_START.timestamp()))//BAR_SECONDS
+        if missing_slots > MAX_CAPTURE_FILES:
+            # Do not create an unbounded list to hide years of missing data.
+            raise ValueError("Unbounded leading OOS coverage gap")
+        leading=[int(FROZEN_START.timestamp())+i*BAR_SECONDS
+                 for i in range(missing_slots)]
+    lag_values=[lag for row in captured
+                 for lag in row["observed_bar_close_lag_seconds"].values()]
+    late=[]
+    timely=[]
+    for bar,items in sorted(grouped.items()):
+        if bar in conflicts or not items:
+            continue
+        if any(row["operational_timeliness_1h_both_assets"] for row in items):
+            timely.append(bar)
+        else:
+            late.append(bar)
+    longest=run=0
+    prev=None
+    for bar in timely:
+        run=run+1 if prev is not None and bar-prev==BAR_SECONDS else 1
+        longest=max(longest,run)
+        prev=bar
     gaps=[]
     for prev,nxt in zip(completed,completed[1:]):
         if nxt-prev!=BAR_SECONDS:
@@ -231,6 +282,12 @@ def audit_capture_dir(source:Path) -> dict:
             "valid_both_market_bar_groups":len(grouped),
             "complete_both_asset_bar_starts":completed,
             "conflicts":conflicts,"observed_candle_grid_gaps":gaps,
+            "missing_leading_oos_bar_starts":leading,
+            "late_both_market_bar_starts":late,
+            "operationally_timely_both_market_bar_starts":timely,
+            "max_observed_bar_close_to_source_lag_seconds":
+                max(lag_values) if lag_values else None,
+            "max_consecutive_operationally_timely_bars":longest,
             "errors":errors,"first_schedule_run_independently_verified":False,
             "original_publication_time_verified":False,
             "full_historical_continuous_warmup_verified":False,
@@ -266,6 +323,12 @@ def evaluate(source:Path=FORWARD) -> dict:
         blockers.append("MALFORMED_OR_UNTRUSTED_CAPTURE")
     if snaps["conflicts"] or snaps["observed_candle_grid_gaps"]:
         blockers.append("REVISED_OR_GAPPED_MARKET_BARS")
+    if snaps["missing_leading_oos_bar_starts"]:
+        blockers.append("MISSING_INITIAL_FROZEN_OOS_4H_BAR")
+    if snaps["late_both_market_bar_starts"]:
+        blockers.append("BAR_SOURCE_FIRST_SEEN_OVER_1H_AFTER_CLOSE_DIAGNOSTIC")
+    if snaps["max_consecutive_operationally_timely_bars"] < WARMUP_BARS:
+        blockers.append("LESS_THAN_194_TIMELY_CAUSAL_BOTH_ASSET_BARS")
     if len(snaps["complete_both_asset_bar_starts"]) < WARMUP_BARS:
         blockers.append("FROZEN_S0_NEEDS_194_CONSECUTIVE_DUAL_ASSET_4H_BARS")
     if not snaps["first_schedule_run_independently_verified"]:
@@ -282,6 +345,7 @@ def evaluate(source:Path=FORWARD) -> dict:
             "prior_historical_gate":history,"source_capture_audit":snaps,
             "requirements":{"min_consecutive_market_bars":WARMUP_BARS,
                             "min_prospective_days":MIN_FORWARD_DAYS,
+                            "source_lag_diagnostic_seconds_not_a_strategy_signal":SOURCE_LAG_DIAGNOSTIC_SEC,
                             "max_drawdown":str(MAX_DRAWDOWN),
                             "positive_primary_and_double_cost_geometric_returns":True,
                             "source_follower_latency_seconds":60,
