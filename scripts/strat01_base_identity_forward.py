@@ -47,12 +47,15 @@ BAR = 14400
 START_OOS = 1793059200
 MAX_BODY = 250000
 MAX_CALLS_IDENTITY = 12  # chain, head, two factories, six pool calls, two metadata
-MAX_CALLS_FORWARD = 7    # chain ID, head, header, two candles, two quote eth_call
+MAX_CALLS_FORWARD = 8    # chain ID, head, header, 2 candles, 2 quotes, ONE L1 oracle
 ABI_GET_POOL = "1698ee82"
 ABI_TOKEN0 = "0dfe1681"
 ABI_TOKEN1 = "d21220a7"
 ABI_FEE = "ddca3f43"
 ABI_QUOTE = "c6a5026a"
+GAS_ORACLE = "0x420000000000000000000000000000000000000F"
+L1_UPPER_BOUND_SELECTOR = "f1c7a58b"  # getL1FeeUpperBound(uint256)
+FROZEN_UNSIGNED_SIZE_SCENARIO = 300
 HEX = re.compile(r"^0x[0-9a-fA-F]+$")
 
 
@@ -349,6 +352,46 @@ def _quote(probe:Probe, asset:str, height_hex:str, block_time:int):
         return {"asset":asset,"status":"UNAVAILABLE","error":_safe_error(exc)}
 
 
+def _forward_fee_quote(probe:Probe, header:dict, height:str):
+    """Source-pinned L2 base fee and L1 size-only oracle; never paid USD fee."""
+    result={
+        "status":"UNAVAILABLE", "gas_oracle":GAS_ORACLE,
+        "unsigned_tx_size_assumption_bytes":FROZEN_UNSIGNED_SIZE_SCENARIO,
+        "l1_upper_bound_wei":None,"l2_basefee_per_gas_wei":None,
+        "actual_router_unsigned_transaction_bytes":None,
+        "actual_gas_used":None,"actual_L1_fee_usdc":None,
+        "actual_L2_fee_usdc":None,"actual_network_fee_usdc":None,
+        "actual_failed_attempt_cost_usdc":None,
+        "execution_fee_or_fill_proven":False,
+    }
+    try:
+        if type(header) is not dict or type(header.get("baseFeePerGas")) is not str:
+            raise ValueError("Missing pinned EIP1559 baseFeePerGas")
+        base_fee=int(header["baseFeePerGas"],16)
+        if not 0 < base_fee <= 10**14:
+            raise ValueError("Unbounded or zero L2 base fee")
+        result["l2_basefee_per_gas_wei"]=str(base_fee)
+        if probe.blocked:
+            raise BoundedError("PROVIDER_ACCESS_STOPPED")
+        raw,first_seen,sha=_direct_call(
+            probe,GAS_ORACLE,
+            "0x"+L1_UPPER_BOUND_SELECTOR+f"{FROZEN_UNSIGNED_SIZE_SCENARIO:064x}",
+            height)
+        upper=_word(raw)
+        if upper>10**20:
+            raise ValueError("Unbounded L1 oracle response")
+        result.update({
+            "status":"HYPOTHETICAL_SIZE_ONLY_PINNED_BLOCK_COST_SOURCE",
+            "l1_upper_bound_wei":str(upper),
+            "gas_oracle_rpc_sha256":sha,
+            "gas_oracle_first_seen_unix":first_seen,
+            "actual_fee_paid_proven":False,
+        })
+    except (ValueError,TypeError,BoundedError) as exc:
+        result["reason"]=_safe_error(exc)
+    return result
+
+
 def forward_snapshot(probe:Probe, at:int):
     if type(at) is not int or at<START_OOS:
         raise ValueError("Forward observation cannot precede preregistered start")
@@ -385,6 +428,9 @@ def forward_snapshot(probe:Probe, at:int):
             if probe.blocked:
                 break
             output["quotes"].append(_quote(probe,asset,height,timestamp))
+        # Captured using the SAME height as Quoter. One additional read-only
+        # call; still not a real SwapRouter tx receipt or fee in USD.
+        output["network_cost_source"]=_forward_fee_quote(probe,header,height)
     except (ValueError,BoundedError,KeyError) as exc:
         output["base_rpc_error"]=_safe_error(exc)
     output["first_seen_sample_count"]=sum(

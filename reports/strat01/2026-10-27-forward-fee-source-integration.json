@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "checkpoint": "STRAT01-PROSPECTIVE-GAS-SOURCE-INTEGRATION-2026-10-27",
+  "source_commit": "6235881c56a10b1fe84c03765d0826d3e7e39183",
+  "ci": "https://github.com/DashSaman/Arz/actions/runs/40433266636",
+  "ci_status": "SUCCESS",
+  "focused_tests_passed": 31,
+  "full_repo_tests_passed": 1045,
+  "subset_overlap": true,
+  "code_changed": [
+    "scripts/strat01_base_identity_forward.py",
+    "tests/test_strat01_base_identity_forward.py"
+  ],
+  "change_class": "READ_ONLY_ADDITIONAL_ORACLE_SOURCE_FOR_FUTURE_SCHEDULED_RUNS_NOT_NEW_OBSERVED_COST",
+  "base_GasPriceOracle_predeploy": "0x420000000000000000000000000000000000000F",
+  "oracle_selector": "0xf1c7a58b",
+  "oracle_function": "getL1FeeUpperBound(uint256)",
+  "unsigned_tx_size_hypothesis_bytes": 300,
+  "forward_network_call_cap": 8,
+  "same_pinned_block_with_both_quoter_calls": true,
+  "return_fields": [
+    "network_cost_source.l2_basefee_per_gas_wei",
+    "network_cost_source.l1_upper_bound_wei",
+    "network_cost_source.gas_oracle_rpc_sha256",
+    "network_cost_source.gas_oracle_first_seen_unix"
+  ],
+  "actual_signed_tx_size_bytes": null,
+  "actual_L1_paid_usdc": null,
+  "actual_L2_paid_usdc": null,
+  "actual_inclusion_slippage_usdc": null,
+  "new_source_calls_executed_in_this_deployment": 0,
+  "first_post_merge_schedule_completed_and_verified": false,
+  "scheduled_append_verified": false,
+  "prospective_paper_days_genuinely_qualified": 0,
+  "new_strategy_market_backtests": 0,
+  "net_profitable_geometric_return_verified": false,
+  "financial_decision": "NO-GO",
+  "live_trading": "DISABLED",
+  "limitation": "GasPriceOracle upper bound is model size scenario, base fee block is not actual transaction effective gas price. No strategy quote/filled transaction; no guaranteed return."
+}
