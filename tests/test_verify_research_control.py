@@ -194,6 +194,28 @@ class ControlPlaneTests(unittest.TestCase):
             with self.subTest(field=field),self.assertRaises(ValueError):
                 validate(bad)
 
+    def test_scheduled_self_audit_ci_never_substitutes_for_real_cron_or_funding(self):
+        state=fresh()
+        self.assertEqual(validate(state)["financial_decision"],"NO-GO")
+        for field,fake in (
+            ("actual_scheduled_run_verified",True),
+            ("actual_main_forward_file_verified",True),
+            ("actual_main_audit_file_verified",True),
+            ("paid_l1_l2_gas_usdc",0),
+            ("prospective_paper_days_qualified",90),
+            ("positive_net_compounded_return_verified",True),
+            ("independent_investment_approval",True),
+            ("github_token_push_triggers_separate_push_workflow",True),
+            ("now_audits_source_in_same_scheduled_job_before_commit",False),
+        ):
+            bad=fresh()
+            strat=next(t for t in bad["tracks"] if t["id"]=="STRAT-01")
+            proof=next(x for x in strat["additional_verified_subcheckpoints"]
+                if x["id"]=="STRAT01-INRUN-SELF-AUDITED-BASE-CAPTURE-2026-10-27")
+            proof[field]=fake
+            with self.subTest(field=field), self.assertRaises(ValueError):
+                validate(bad)
+
     def test_pr_merge_status_and_duplicate_branch_rejected(self):
         s = fresh()
         s["research_prs"][-1]["state"] = "MERGED"
