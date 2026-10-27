@@ -337,6 +337,39 @@ def validate(state: object) -> dict:
             "2026-10-27T00:23:20Z",
             "Cron/cost source configuration falsely represented as verified trading data")
 
+    # Investment evidence gate is an OFFLINE source audit. The initial run
+    # had zero appended 4h source files, zero approved strategy returns and
+    # zero qualified paper days. Preserve this immutable history even when
+    # NEW future evidence becomes available in subsequent independent runs.
+    financial_entries=[x for x in strat_entries if type(x) is dict and
+        x.get("id")=="STRAT01-INVESTMENT-READINESS-REAL-EVIDENCE-2026-10-27"]
+    require(len(financial_entries)==1,
+            "Missing or duplicated verified investment readiness checkpoint")
+    gate=financial_entries[0]
+    require(gate.get("merged_pr")==55 and
+            bool(COMMIT_SHA.fullmatch(str(gate.get("merged_sha")))),
+            "Investment gate merge evidence missing")
+    require(type(gate.get("observed_ci_url")) is str and
+            RUN_REF.fullmatch(gate["observed_ci_url"]) is not None and
+            gate.get("focused_test_methods_passed")==143 and
+            gate.get("full_repo_test_methods_passed")==1189,
+            "Latest capital safety tests were misrepresented")
+    require(gate.get("observed_forward_capture_files_on_main")==0 and
+            gate.get("scheduled_first_run_attested") is False and
+            gate.get("qualified_prospective_calendar_days")==0 and
+            gate.get("archived_historical_strategies_qualified")==0 and
+            gate.get("actual_full_L1_L2_failed_swap_slippage_costs_usd") is None and
+            gate.get("exact_follower_time_fill_data_verified") is False and
+            gate.get("OOS_double_cost_net_geometric_account_returns_verified") is False and
+            gate.get("capital_activation_authorized") is False and
+            gate.get("investment_decision")=="NO-GO" and
+            gate.get("live_trading")=="DISABLED",
+            "Source tests or missing trading fees falsely turned into investment GO")
+    require(controlled_path(gate.get("machine_evidence")) and
+            gate.get("required_two_market_continuous_4h_warmup_bars")==194 and
+            gate.get("min_required_real_forward_calendar_days")==90,
+            "Real S0 data and forward-time requirements changed")
+
     next_unfinished = next((name for name in order if tasks[name]["status"] != "DONE"), None)
     require(next_unfinished is not None, "No next research work defined")
     return {
