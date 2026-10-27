@@ -125,6 +125,27 @@ class ControlPlaneTests(unittest.TestCase):
             with self.subTest(key=key), self.assertRaises(ValueError):
                 validate(bad)
 
+    def test_first_oos_quoted_amount_cannot_turn_into_real_trade_or_finished_cron(self):
+        s = fresh()
+        self.assertEqual(validate(s)["financial_decision"],"NO-GO")
+        for key,wrong in [
+            ("completed_oos_4h_bars_at_first_capture",1),
+            ("actual_network_cost_L1_L2_usd",0),
+            ("realized_profit_usdc",100),
+            ("prospective_qualified_paper_days",90),
+            ("signal_bound_quote_execution_verified",True),
+            ("scheduled_workflow_first_run_verified",True),
+            ("scheduled_workflow_main_commit_verified",True),
+            ("source_identity_verified",False),
+        ]:
+            bad=fresh()
+            p=next(x for x in next(t for t in bad["tracks"]
+                    if t["id"]=="STRAT-01")["additional_verified_subcheckpoints"]
+                    if x["id"]=="STRAT01-BASE-FACTORY-PROVIDER-AND-FIRST-ASOF-2026-10-27")
+            p[key]=wrong
+            with self.subTest(key=key),self.assertRaises(ValueError):
+                validate(bad)
+
     def test_pr_merge_status_and_duplicate_branch_rejected(self):
         s = fresh()
         s["research_prs"][-1]["state"] = "MERGED"
