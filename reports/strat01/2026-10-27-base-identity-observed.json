@@ -1,0 +1,229 @@
+{
+  "schema_version": 1,
+  "evidence_category": "REAL_READ_ONLY_PROVIDER_AND_ONCHAIN_FROM_GITHUB_ACTIONS_NOT_EXECUTED_TRADE",
+  "source_run_url": "https://github.com/DashSaman/Arz/actions/runs/40425075566",
+  "observed_source_code_sha": "aa389205ca82f4dc116e66f95e0f48fcc8a99552",
+  "original_identity_response": {
+    "any_order_broadcast": false,
+    "calls_made": 12,
+    "chain": "Base",
+    "chain_id": 8453,
+    "collected_utc": "2026-10-27T00:14:11+00:00",
+    "data": {
+      "assets": {
+        "WETH": {
+          "factory_rpc_sha256": "fa63d30057ca91f198bd92ac510cba8412abd2f6da2ed702789aa0102e493ca8",
+          "fee_rpc_sha256": "087ddedb61b8c7702a038a998cb9f827f19cfaddbc2714361879742bc0ba8ded",
+          "first_rpc_observed_at": 1793060051,
+          "mismatch_reasons": [
+            "PROVIDER_TOKEN_ADDRESSES_NOT_PROVEN"
+          ],
+          "onchain_fee_ppm": 500,
+          "onchain_pool": "0xd0b53d9277642d899df5c87a3966a349a798f224",
+          "onchain_token0": "0x4200000000000000000000000000000000000006",
+          "onchain_token1": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+          "provider_metadata": {
+            "first_read_at_unix": 1793060052,
+            "requested_pool": "0xd0b53d9277642d899df5c87a3966a349a798f224",
+            "response_top_keys": [
+              "additional_details",
+              "daily",
+              "hourly",
+              "monthly",
+              "summary",
+              "weekly"
+            ],
+            "source_fields": {
+              "base_token_address": "0x4200000000000000000000000000000000000006",
+              "chain_id": 8453,
+              "pair_id": 4564367,
+              "pool_address": "0xd0b53d9277642d899df5c87a3966a349a798f224",
+              "quote_token_address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913"
+            },
+            "source_response_sha256": "8eea73f31a56c64be951196fd392a6daac0c14bd4e2bb90edd4664f0fac7b537",
+            "status": "METADATA_RETURNED",
+            "url": "https://tradingstrategy.ai/api/pair-details?chain_slug=base&exchange_slug=uniswap-v3&pair_slug=0xd0b53d9277642d899df5c87a3966a349a798f224"
+          },
+          "provider_old_id_matches_factory_pool": false,
+          "provider_old_pair_id": 4564367,
+          "status": "ONCHAIN_FACTORY_POOL_VERIFIED",
+          "token0_rpc_sha256": "2bf38853c8d1be7a698ac962f29f5c7ef6dc58ca930bb91585468c4ccacbe921",
+          "token1_rpc_sha256": "940ddb7059c0b26d7d82862b6ca468b17777a1ab7a5e1208d4012c2d4a804b87"
+        },
+        "cbBTC": {
+          "factory_rpc_sha256": "671e2030690ba417369a1ee4e29d57a8d0c1bc738a23d15dc4dc7663521be688",
+          "fee_rpc_sha256": "087ddedb61b8c7702a038a998cb9f827f19cfaddbc2714361879742bc0ba8ded",
+          "first_rpc_observed_at": 1793060052,
+          "mismatch_reasons": [
+            "PROVIDER_TOKEN_ADDRESSES_NOT_PROVEN"
+          ],
+          "onchain_fee_ppm": 500,
+          "onchain_pool": "0xfbb6eed8e7aa03b138556eedaf5d271a5e1e43ef",
+          "onchain_token0": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+          "onchain_token1": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+          "provider_metadata": {
+            "first_read_at_unix": 1793060053,
+            "requested_pool": "0xfbb6eed8e7aa03b138556eedaf5d271a5e1e43ef",
+            "response_top_keys": [
+              "additional_details",
+              "daily",
+              "hourly",
+              "monthly",
+              "summary",
+              "weekly"
+            ],
+            "source_fields": {
+              "base_token_address": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+              "chain_id": 8453,
+              "pair_id": 4705508,
+              "pool_address": "0xfbb6eed8e7aa03b138556eedaf5d271a5e1e43ef",
+              "quote_token_address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913"
+            },
+            "source_response_sha256": "3a8b8b3a41392e67733e712fbbb480e9fbe13d43913961a12cad1f73ad2d4ab6",
+            "status": "METADATA_RETURNED",
+            "url": "https://tradingstrategy.ai/api/pair-details?chain_slug=base&exchange_slug=uniswap-v3&pair_slug=0xfbb6eed8e7aa03b138556eedaf5d271a5e1e43ef"
+          },
+          "provider_old_id_matches_factory_pool": false,
+          "provider_old_pair_id": 4705508,
+          "status": "ONCHAIN_FACTORY_POOL_VERIFIED",
+          "token0_rpc_sha256": "940ddb7059c0b26d7d82862b6ca468b17777a1ab7a5e1208d4012c2d4a804b87",
+          "token1_rpc_sha256": "0619d09ec02f6a274d08a04c218f1e63ed006bd31dd8e5d1ca1ebb726fc9084b"
+        }
+      },
+      "chain_id_expected": 8453,
+      "cost_or_trading_return_derived": false,
+      "eth_calls_read_only": true,
+      "factory_fee_ppm": 500,
+      "mode": "IDENTITY",
+      "observed_block": 53135352,
+      "observed_chain_id": 8453,
+      "provider_pair_to_onchain_pool_verified": false,
+      "public_factory": "0x33128a8fC17869897dcE68Ed026d694621f6FDfD"
+    },
+    "financial_decision": "NO-GO",
+    "genuine_prospective_paper_days_qualified": 0,
+    "live_trading": "DISABLED",
+    "mode": "identity",
+    "positive_compounding_verified": false,
+    "real_trading_enabled": false,
+    "request_budget": 12,
+    "schema_version": 1,
+    "status": "SOURCE_OBSERVATION_NOT_FINANCIAL_BACKTEST"
+  },
+  "original_forward_response": {
+    "any_order_broadcast": false,
+    "calls_made": 5,
+    "chain": "Base",
+    "chain_id": 8453,
+    "collected_utc": "2026-10-27T00:14:13+00:00",
+    "data": {
+      "asof_bar_signal_exists": false,
+      "block": 53135353,
+      "block_header_rpc_sha256": "ff61b1e6e0382ed98bdedb6b00e1eb4606c7542e7407181471307e6a836bbcce",
+      "block_timestamp": 1793060053,
+      "first_seen_sample_count": 0,
+      "fixed_new_OOS_start": 1793059200,
+      "mode": "FORWARD_OBSERVATION",
+      "net_wallet_pnl_usdc": null,
+      "observed_at_utc": "2026-10-27T00:14:13+00:00",
+      "price_source_semantic": "SOURCE_CAPTURE_NOT_FOLLOWER_ORDER",
+      "prospective_day_count": 0,
+      "provider_candles": [
+        {
+          "asset": "WETH",
+          "status": "NO_FROZEN_OOS_4H_BAR_COMPLETED"
+        },
+        {
+          "asset": "cbBTC",
+          "status": "NO_FROZEN_OOS_4H_BAR_COMPLETED"
+        }
+      ],
+      "quotes": [
+        {
+          "actual_L1_usd": null,
+          "actual_L2_usd": null,
+          "amount_in_usdc": "20",
+          "amount_out_atomic": "8596332884170224",
+          "amount_out_tokens": "0.008596332884170224",
+          "asset": "WETH",
+          "block": 53135353,
+          "block_time": 1793060053,
+          "executed_order": false,
+          "failed_attempt_cost_usdc": null,
+          "first_observed_at": 1793060053,
+          "pool_fee_included_in_output": true,
+          "quote_to_inclusion_slippage_usdc": null,
+          "quoter_estimated_gas_units": "86243",
+          "realized_pnl_usdc": null,
+          "signal_observed_time": null,
+          "simulated_follower_delay_verified": false,
+          "source_response_sha256": "fb581a102a08da58433e79f60c47d50ce891a68ee5969e3cce8688bed7e8a124",
+          "status": "READ_ONLY_SNAPSHOT_NOT_ORDER"
+        },
+        {
+          "actual_L1_usd": null,
+          "actual_L2_usd": null,
+          "amount_in_usdc": "20",
+          "amount_out_atomic": "24938",
+          "amount_out_tokens": "0.00024938",
+          "asset": "cbBTC",
+          "block": 53135353,
+          "block_time": 1793060053,
+          "executed_order": false,
+          "failed_attempt_cost_usdc": null,
+          "first_observed_at": 1793060053,
+          "pool_fee_included_in_output": true,
+          "quote_to_inclusion_slippage_usdc": null,
+          "quoter_estimated_gas_units": "100765",
+          "realized_pnl_usdc": null,
+          "signal_observed_time": null,
+          "simulated_follower_delay_verified": false,
+          "source_response_sha256": "8012542e21750d255d1eeb0053c8f8e05e5374279714c39368f8bb0d1fe8555b",
+          "status": "READ_ONLY_SNAPSHOT_NOT_ORDER"
+        }
+      ],
+      "realized_profit_verified": false,
+      "requested_last_closed_bar": null
+    },
+    "financial_decision": "NO-GO",
+    "genuine_prospective_paper_days_qualified": 0,
+    "live_trading": "DISABLED",
+    "mode": "forward",
+    "positive_compounding_verified": false,
+    "real_trading_enabled": false,
+    "request_budget": 7,
+    "schema_version": 1,
+    "status": "SOURCE_OBSERVATION_NOT_FINANCIAL_BACKTEST"
+  },
+  "followup_offline_evidence_from_original_returned_metadata": {
+    "verified_no_new_requests": true,
+    "metadata_orientation_normalization": "Use base_token_address and quote_token_address returned in Trading Strategy summary; original parser required token0/token1 and therefore flagged identity false at first run.",
+    "checklist": {
+      "WETH": {
+        "chain_match": true,
+        "expected_old_pair_id_matches": true,
+        "requested_factory_pool_matches_provider": true,
+        "base_asset_address_matches_known": true,
+        "quote_token_is_USDC": true,
+        "factory_fee_is_500": true
+      },
+      "cbBTC": {
+        "chain_match": true,
+        "expected_old_pair_id_matches": true,
+        "requested_factory_pool_matches_provider": true,
+        "base_asset_address_matches_known": true,
+        "quote_token_is_USDC": true,
+        "factory_fee_is_500": true
+      }
+    },
+    "logical_result": "BOTH_PROVIDER_PAIR_IDS_AND_BASE_V3_FACTORY_500PPM_POOLS_MATCH",
+    "token_contract_symbol_names_alone_not_used": true,
+    "do_not_replace_original_source_result": true
+  },
+  "latest_first_seen_has_no_completed_oos_bars": true,
+  "real_usd_network_fees_known": false,
+  "signal_60s_follower_observed": false,
+  "qualified_future_paper_days": 0,
+  "financial_decision": "NO-GO",
+  "live_trading": "DISABLED"
+}
