@@ -1,0 +1,67 @@
+name: STRAT-01 bounded late gap recovery (historical NON-PAPER)
+
+on:
+  push:
+    branches:
+      - research/2026-10-28-gap-recovery-run-provenance
+    paths:
+      - scripts/strat01_late_gap_recovery.py
+      - scripts/strat01_base_identity_forward.py
+      - scripts/strat01_investment_readiness.py
+      - tests/test_strat01_late_gap_recovery.py
+      - .github/workflows/strat01-late-gap-recovery.yml
+  pull_request:
+    paths:
+      - scripts/strat01_late_gap_recovery.py
+      - scripts/strat01_base_identity_forward.py
+      - scripts/strat01_investment_readiness.py
+      - tests/test_strat01_late_gap_recovery.py
+      - .github/workflows/strat01-late-gap-recovery.yml
+
+permissions:
+  contents: read
+
+jobs:
+  offline_tests_and_one_source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    env:
+      PYTHONPATH: 'src:.'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Source gaps, late historical recovery and runner event tests
+        run: python -m unittest discover -s tests -p 'test_strat01_late_gap_recovery.py' -v
+      - name: Whole-repository offline regression
+        run: python -m unittest discover -s tests -q
+      - name: Original financial NO-GO and source clock checks
+        run: |
+          python -m compileall -q scripts/strat01_late_gap_recovery.py scripts/strat01_base_identity_forward.py scripts/strat01_investment_readiness.py
+          python scripts/verify_research_control.py
+          python scripts/strat01_investment_readiness.py --output /tmp/arz-real-prospective-status.json
+      - name: One bounded public historical-gap diagnostic (max 8 GETs)
+        if: hashFiles('reports/strat01/2026-10-28-late-recovery-observed.json') == ''
+        run: |
+          python scripts/strat01_late_gap_recovery.py --output /tmp/arz-late-source-only.json
+          python - <<'PY'
+          import json
+          p=json.load(open('/tmp/arz-late-source-only.json'))
+          assert p["investment_decision"] == "NO-GO"
+          assert p["live_trading"] == "DISABLED"
+          assert p["real_signal_bound_trades_qualified"] == 0
+          assert p["genuinely_elapsed_paper_calendar_days_qualified"] == 0
+          assert p["source_network_requests_made"] <= 8
+          assert p["historical_recovered_data_does_not_rewrite_original_forward"] is True
+          print("ARZ_LATE_BACKFILL_NOT_PAPER=PASS")
+          PY
+      - name: Archive immutable late-source evidence (not a trading fill)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: arz-missing-bar-late-historical-only
+          path: |
+            /tmp/arz-late-source-only.json
+            /tmp/arz-real-prospective-status.json
+          if-no-files-found: warn
+          retention-days: 30
