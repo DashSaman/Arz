@@ -21,6 +21,7 @@ from decimal import Decimal
 import hashlib
 import json
 import math
+import os
 from pathlib import Path
 import re
 import time
@@ -438,6 +439,39 @@ def forward_snapshot(probe:Probe, at:int):
     return output
 
 
+def _actions_runner_identity(environment:dict[str,str]|None=None) -> dict:
+    """Self-reported run context: independently verifiable URL, not attestation.
+
+    The GitHub-supplied run EVENT cannot be inferred from commit author alone.
+    A source snapshot stores the process's actual event/run ID without claiming
+    that the source provider originally published a candle at its bar close.
+    """
+    env=environment if environment is not None else os.environ
+    if env.get("GITHUB_ACTIONS")!="true":
+        return {"status":"NO_GITHUB_ACTIONS_RUN_CONTEXT"}
+    if env.get("GITHUB_REPOSITORY")!="DashSaman/Arz":
+        return {"status":"UNTRUSTED_REPOSITORY_RUN_CONTEXT"}
+    event=env.get("GITHUB_EVENT_NAME")
+    run=env.get("GITHUB_RUN_ID")
+    attempt=env.get("GITHUB_RUN_ATTEMPT")
+    sha=env.get("GITHUB_SHA")
+    if (event not in ("schedule","workflow_dispatch","push","pull_request")
+        or type(run) is not str or not run.isdecimal() or int(run)<=0
+        or type(attempt) is not str or not attempt.isdecimal() or int(attempt)<=0
+        or type(sha) is not str or not re.fullmatch(r"[0-9a-f]{40}",sha)):
+        return {"status":"INCOMPLETE_GITHUB_ACTIONS_RUN_CONTEXT"}
+    return {
+        "status":"GITHUB_RUNNER_REPORTED_PENDING_INDEPENDENT_RUN_VERIFICATION",
+        "runner_reported_event_name":event,
+        "actions_run_id":int(run),
+        "actions_run_attempt":int(attempt),
+        "actions_run_head_sha":sha,
+        "actions_run_url":f"https://github.com/DashSaman/Arz/actions/runs/{run}",
+        "schedule_event_independently_attested":False,
+        "nominal_cron_time_is_first_seen":False,
+    }
+
+
 def collect(mode:str):
     if mode not in ("identity","forward"):
         raise ValueError("Unknown collection mode")
@@ -447,6 +481,7 @@ def collect(mode:str):
     return {
         "schema_version":1, "collected_utc":datetime.fromtimestamp(at,timezone.utc).isoformat(),
         "mode":mode,"chain":"Base","chain_id":CHAIN_ID,
+        "runner_provenance":_actions_runner_identity(),
         "request_budget":probe.max_calls,"calls_made":probe.calls,
         "status":"SOURCE_OBSERVATION_NOT_FINANCIAL_BACKTEST",
         "data":data,
