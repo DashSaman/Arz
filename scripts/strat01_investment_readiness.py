@@ -172,6 +172,32 @@ def snapshot_summary(doc:dict, *, filename:str) -> dict:
                 raise ValueError("No Oracle source hash")
         elif network.get("status")!="UNAVAILABLE":
             raise ValueError("Unknown fee-source status")
+    # New runtime captures may carry a GitHub runner-reported event and run
+    # ID. The original old source files intentionally lack this extension.
+    # Event metadata is useful for a separate live GitHub run check; do NOT
+    # claim independent verification from the recorded source text alone.
+    runner=doc.get("runner_provenance")
+    run_id=None
+    event=None
+    if runner is not None:
+        if type(runner) is not dict:
+            raise ValueError("Malformed runner provenance")
+        status=runner.get("status")
+        if status=="GITHUB_RUNNER_REPORTED_PENDING_INDEPENDENT_RUN_VERIFICATION":
+            event=runner.get("runner_reported_event_name")
+            run_id=runner.get("actions_run_id")
+            url=runner.get("actions_run_url")
+            if (event not in ("schedule","workflow_dispatch","push","pull_request")
+                or type(run_id) is not int or run_id<=0
+                or url!=f"https://github.com/DashSaman/Arz/actions/runs/{run_id}"
+                or runner.get("schedule_event_independently_attested") is not False
+                or runner.get("nominal_cron_time_is_first_seen") is not False):
+                raise ValueError("Unverified/malformed source runner event")
+        elif status not in ("NO_GITHUB_ACTIONS_RUN_CONTEXT",
+                            "INCOMPLETE_GITHUB_ACTIONS_RUN_CONTEXT",
+                            "UNTRUSTED_REPOSITORY_RUN_CONTEXT"):
+            raise ValueError("Unknown claimed GitHub execution identity")
+
     # At most one fully observed both-asset 4h source pair for this invocation.
     ready=len(valid_bar)==2 and valid_bar["WETH"]["ts"]==valid_bar["cbBTC"]["ts"]
     return {"first_seen":observed.isoformat(),"bar_start":requested,"two_asset_bar_received":ready,
@@ -182,6 +208,9 @@ def snapshot_summary(doc:dict, *, filename:str) -> dict:
                 all(lag<=SOURCE_LAG_DIAGNOSTIC_SEC
                     for lag in observed_lag_by_asset.values()),
             "quote_assets":sorted(seen_quotes),
+            "runner_reported_event_name":event,
+            "runner_reported_run_id":run_id,
+            "run_event_independently_verified":False,
             "same_block_cost_source_present":network is not None,
             "source_issues":issues,
             "independent_original_publication_verification":False,
@@ -225,6 +254,8 @@ def audit_capture_dir(source:Path) -> dict:
                 "observed_bar_close_lag_seconds":sample["observed_bar_close_lag_seconds"],
                 "operational_timeliness_1h_both_assets":
                     sample["operational_timeliness_1h_both_assets"],
+                "runner_reported_event_name":sample["runner_reported_event_name"],
+                "runner_reported_run_id":sample["runner_reported_run_id"],
             })
             bar=sample["bar_start"]
             if sample["two_asset_bar_received"]:
