@@ -437,6 +437,40 @@ def validate(state: object) -> dict:
             evidence.get("live_trading")=="DISABLED",
             "Delayed source cannot establish an executed trade, safe fee or financial GO")
 
+    # Four real public GETs recovered old Base candles well AFTER bar close.
+    # Their original prospective availability remains unproved and source
+    # records must never be rewritten as trades or 90 elapsed paper days.
+    recovery=[x for x in strat_entries if type(x) is dict and x.get("id")==
+        "STRAT01-FOUR-REAL-LATE-BASE-SOURCE-QUERIES-2026-10-28"]
+    require(len(recovery)==1, "Missing/duplicate bounded real late-source recovery")
+    backfill=recovery[0]
+    require(backfill.get("merged_pr")==61 and
+            bool(COMMIT_SHA.fullmatch(str(backfill.get("merged_commit_sha")))) and
+            type(backfill.get("final_no_repeat_ci")) is str and
+            RUN_REF.fullmatch(backfill["final_no_repeat_ci"]) is not None and
+            backfill.get("new_focused_test_methods")==130 and
+            backfill.get("full_repo_test_methods")==1424 and
+            backfill.get("actual_limited_public_GET_requests")==4,
+            "Actual source/CI evidence for late recovery altered")
+    require(backfill.get("recovered_historical_4h_slots")==[
+                "2026-10-27T00:00:00Z","2026-10-27T08:00:00Z"] and
+            backfill.get("recovered_source_after_original_bar_close_seconds")==[76339,47540] and
+            backfill.get("actual_original_asof_forward_capture_count_confirmed")==3 and
+            backfill.get("asof_forward_snapshots_backdated_or_modified") is False and
+            backfill.get("late_candles_eligible_as_original_ATR_signal") is False and
+            backfill.get("independent_price_at_candle_close_proven_for_late_recovery") is False and
+            backfill.get("qualified_prospective_paper_days")==0 and
+            backfill.get("actual_gas_paid_usdc") is None and
+            backfill.get("independent_OOS_profitable_strategy_verified") is False and
+            backfill.get("funding_approval") is False and
+            backfill.get("financial_decision")=="NO-GO" and
+            backfill.get("live_trading")=="DISABLED",
+            "Retroactive historical 4h source falsely promoted to financial GO")
+    require(controlled_path(backfill.get("source_report")) and
+            backfill.get("github_runner_run_id_and_schedule_event_self_report_added_for_future") is True and
+            backfill.get("runner_event_independently_verified_on_original_three") is False,
+            "Missing source/report provenance or guessed GitHub schedule event")
+
     next_unfinished = next((name for name in order if tasks[name]["status"] != "DONE"), None)
     require(next_unfinished is not None, "No next research work defined")
     return {
