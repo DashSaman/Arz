@@ -1,0 +1,191 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "ARZ-STRAT01-2026-10-28-OBSERVED-LATE-HISTORIC-RECOVERY",
+  "actual_source_ci": "https://github.com/DashSaman/Arz/actions/runs/40613594527",
+  "source_code_commit": "82606f5cfba0268dd3113db01860e0f6d27ecf58",
+  "real_source_response": {
+    "collected_at_utc": "2026-10-28T01:12:20.657554+00:00",
+    "genuinely_elapsed_paper_calendar_days_qualified": 0,
+    "historical_recovered_data_does_not_rewrite_original_forward": true,
+    "investment_decision": "NO-GO",
+    "live_trading": "DISABLED",
+    "max_public_source_requests": 8,
+    "original_complete_paired_bar_starts": [
+      1793073600,
+      1793102400,
+      1793116800
+    ],
+    "original_forward_capture_file_count": 3,
+    "original_prospective_first_seen_preserved": true,
+    "original_source_interior_gaps": [
+      [
+        1793073600,
+        1793102400
+      ]
+    ],
+    "original_source_leading_gaps": [
+      1793059200
+    ],
+    "real_signal_bound_trades_qualified": 0,
+    "realized_profit_usdc": null,
+    "research_class": "LATE_HISTORICAL_GAP_RECOVERY_NEVER_PROSPECTIVE_OR_EXECUTED",
+    "schema_version": 1,
+    "selected_missing_OOS_bar_starts": [
+      1793059200,
+      1793088000
+    ],
+    "source_network_requests_made": 4,
+    "source_results": [
+      {
+        "asset": "WETH",
+        "delay_after_bar_close_seconds": 76339,
+        "eligible_as_signal_bound_follower_quote": false,
+        "eligible_for_90_day_paper_equity": false,
+        "eligible_for_original_prospective_4h_S0_ATR_signal": false,
+        "event_time_source_availability_at_bar_close_proven": false,
+        "executed_trade_pnl_usdc": null,
+        "expected_pair_id": 4564367,
+        "first_seen_late_at_unix": 1793149939,
+        "paid_L1_L2_fee_usdc": null,
+        "sha256_checked_at_request": "8b175cccb359dce3e5a356e4c65f48886fe8136892bddb103f4d21f79f998797",
+        "slot_close": 1793073600,
+        "slot_start": 1793059200,
+        "source_bar_count": 1,
+        "source_bars": [
+          {
+            "OHLCV": {
+              "c": 2310.7221752756122,
+              "h": 2329.5140898296745,
+              "l": 2307.2588633087253,
+              "o": 2320.6791749957006,
+              "v": 1441275.052064004
+            },
+            "source_line_sha256": "96830a71d93df09ecb07f842d9a6a8bd856917e150c53dafd70feb61a7425dba",
+            "ts": 1793059200
+          }
+        ],
+        "source_response_sha256": "8b175cccb359dce3e5a356e4c65f48886fe8136892bddb103f4d21f79f998797",
+        "source_status": "RECOVERED_LATE_RESEARCH_ONLY",
+        "source_url": "https://tradingstrategy.ai/api/candles-jsonl?pair_ids=4564367&time_bucket=4h&start=2026-10-27T00%3A00%3A00&end=2026-10-27T03%3A59%3A59&max_bytes=250000"
+      },
+      {
+        "asset": "cbBTC",
+        "delay_after_bar_close_seconds": 76339,
+        "eligible_as_signal_bound_follower_quote": false,
+        "eligible_for_90_day_paper_equity": false,
+        "eligible_for_original_prospective_4h_S0_ATR_signal": false,
+        "event_time_source_availability_at_bar_close_proven": false,
+        "executed_trade_pnl_usdc": null,
+        "expected_pair_id": 4705508,
+        "first_seen_late_at_unix": 1793149939,
+        "paid_L1_L2_fee_usdc": null,
+        "sha256_checked_at_request": "8ea12c7adf179bdfb8d7c028c0350ce67936e2c4b87c8ac41879c1c5032bb35e",
+        "slot_close": 1793073600,
+        "slot_start": 1793059200,
+        "source_bar_count": 1,
+        "source_bars": [
+          {
+            "OHLCV": {
+              "c": 79692.9300052733,
+              "h": 80244.68500077736,
+              "l": 79565.52963465113,
+              "o": 80012.3241182434,
+              "v": 1158913.4038049995
+            },
+            "source_line_sha256": "31957ebd167df0ff57700b8b08d9f30f9b47c911bc75338e820220dd0d2156bf",
+            "ts": 1793059200
+          }
+        ],
+        "source_response_sha256": "8ea12c7adf179bdfb8d7c028c0350ce67936e2c4b87c8ac41879c1c5032bb35e",
+        "source_status": "RECOVERED_LATE_RESEARCH_ONLY",
+        "source_url": "https://tradingstrategy.ai/api/candles-jsonl?pair_ids=4705508&time_bucket=4h&start=2026-10-27T00%3A00%3A00&end=2026-10-27T03%3A59%3A59&max_bytes=250000"
+      },
+      {
+        "asset": "WETH",
+        "delay_after_bar_close_seconds": 47540,
+        "eligible_as_signal_bound_follower_quote": false,
+        "eligible_for_90_day_paper_equity": false,
+        "eligible_for_original_prospective_4h_S0_ATR_signal": false,
+        "event_time_source_availability_at_bar_close_proven": false,
+        "executed_trade_pnl_usdc": null,
+        "expected_pair_id": 4564367,
+        "first_seen_late_at_unix": 1793149940,
+        "paid_L1_L2_fee_usdc": null,
+        "sha256_checked_at_request": "8775fcf79a6705b1927b36c8278f63c6cfea1d45d034ea05434ad7aa36744832",
+        "slot_close": 1793102400,
+        "slot_start": 1793088000,
+        "source_bar_count": 1,
+        "source_bars": [
+          {
+            "OHLCV": {
+              "c": 2313.0339375532017,
+              "h": 2320.9112429132,
+              "l": 2295.5223833814207,
+              "o": 2311.646602798296,
+              "v": 1586447.821695
+            },
+            "source_line_sha256": "ab9375d8fcf8f20cc4bbea70267e5637722e62d10be27560a2034beda7730df3",
+            "ts": 1793088000
+          }
+        ],
+        "source_response_sha256": "8775fcf79a6705b1927b36c8278f63c6cfea1d45d034ea05434ad7aa36744832",
+        "source_status": "RECOVERED_LATE_RESEARCH_ONLY",
+        "source_url": "https://tradingstrategy.ai/api/candles-jsonl?pair_ids=4564367&time_bucket=4h&start=2026-10-27T08%3A00%3A00&end=2026-10-27T11%3A59%3A59&max_bytes=250000"
+      },
+      {
+        "asset": "cbBTC",
+        "delay_after_bar_close_seconds": 47540,
+        "eligible_as_signal_bound_follower_quote": false,
+        "eligible_for_90_day_paper_equity": false,
+        "eligible_for_original_prospective_4h_S0_ATR_signal": false,
+        "event_time_source_availability_at_bar_close_proven": false,
+        "executed_trade_pnl_usdc": null,
+        "expected_pair_id": 4705508,
+        "first_seen_late_at_unix": 1793149940,
+        "paid_L1_L2_fee_usdc": null,
+        "sha256_checked_at_request": "cdf9054d683dd9db3a57fa3b4e8893aef18dcd09ae786db90fa65316868d18e6",
+        "slot_close": 1793102400,
+        "slot_start": 1793088000,
+        "source_bar_count": 1,
+        "source_bars": [
+          {
+            "OHLCV": {
+              "c": 79788.61413614982,
+              "h": 80004.32368587481,
+              "l": 79438.33293146137,
+              "o": 79708.86938820366,
+              "v": 1093773.6353990017
+            },
+            "source_line_sha256": "b84d15dce0b2e038b136bfbdda7c5fa1ae73ffb6c48d9e3563282ddf3709579a",
+            "ts": 1793088000
+          }
+        ],
+        "source_response_sha256": "cdf9054d683dd9db3a57fa3b4e8893aef18dcd09ae786db90fa65316868d18e6",
+        "source_status": "RECOVERED_LATE_RESEARCH_ONLY",
+        "source_url": "https://tradingstrategy.ai/api/candles-jsonl?pair_ids=4705508&time_bucket=4h&start=2026-10-27T08%3A00%3A00&end=2026-10-27T11%3A59%3A59&max_bytes=250000"
+      }
+    ]
+  },
+  "CI_observation": {
+    "targeted_distinct_tests": 130,
+    "whole_repository_distinct_tests": 1424,
+    "full_CI_pass": true,
+    "counts_overlap": true,
+    "source_requests": 4
+  },
+  "financial_boundary": {
+    "historical_gap_00UTC_recovered_late": true,
+    "historical_gap_08UTC_recovered_late": true,
+    "original_event_time_availability_at_bar_close_verified": false,
+    "added_as_original_forward_first_seen": false,
+    "prospective_trading_paper_days_added": 0,
+    "exact_signal_bound_60s_quotes_verified": false,
+    "signed_swap_fills_verified": 0,
+    "actual_paid_gas_fee_usdc": null,
+    "verified_positive_geometric_account_return": false,
+    "capital_authorized": false,
+    "financial_decision": "NO-GO",
+    "live_trading": "DISABLED"
+  },
+  "next": "Use historical recovered data solely for distribution/coverage diagnosis. Original forward sources remain 3 late real captures with missing original as-of first-seen slots. Collect future genuinely timely market first-seen with runner run_id/event metadata, independent verified actual paid gas and 90 elapsed prospective days."
+}
