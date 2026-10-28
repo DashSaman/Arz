@@ -1,6 +1,6 @@
 # ARZ RESEARCH NOW — single restart checkpoint
 
-**Latest checkpoint 2026-10-27 UTC · STRAT-01 IN PROGRESS, WAL-01 PARTIAL · Financial NO-GO · Live trading DISABLED**
+**Latest checkpoint 2026-10-28 UTC · STRAT-01 IN PROGRESS, WAL-01 PARTIAL · Financial NO-GO · Live trading DISABLED**
 
 > **Start here before doing anything in Arz.** This is the entry point on `main` even when newer research work lives in unmerged draft branches. `PROJECT_STATUS.md` begins with the older 2026-10-13 MVP checkpoint and must not be mistaken for the latest research status.
 
@@ -104,6 +104,16 @@ The collector now **runs the offline investment/source validator in the SAME sch
 [PR #59](https://github.com/DashSaman/Arz/pull/59) merged as `0320ab6458fcf1d18862714c9ac444c968909d8e`, added strict prefix-gap, per-asset first-seen latency and longest timely-bar diagnostics; the **one-hour lag marker is an operational diagnostic, NOT a newly tuned ATR trading parameter**. [Final Actions 40525201907](https://github.com/DashSaman/Arz/actions/runs/40525201907) **84 dedicated / 1,293 full suite PASS**, [collector CI 40525201933](https://github.com/DashSaman/Arz/actions/runs/40525201933) 31 source / 1,293 full tests PASS. Real source conclusion: **1 pair archived, 1 opening 4h bar absent, 0 timely pairs, 0 qualified paper days**. [Machine audit](reports/strat01/2026-10-27-first-capture-gap-latency-audit.json) · [FA](docs/fa/strat01_first_capture_gap_latency_20261027.md) · [EN](docs/en/strat01_first_capture_gap_latency_20261027.md).
 
 **NEXT [Issue #42](https://github.com/DashSaman/Arz/issues/42):** validate further true source+audit bot commits, source clock/coverage and independent schedule event, then collect sufficient real same-pair 4h history, 60s signal-bound follower-time execution economics, primary+2x stressed geometric account returns and >=90 truly elapsed paper days. **Financial NO-GO, live trading DISABLED.**
+
+## STRAT-01 real bounded recovery of previously missing Base bar windows — 2026-10-28
+
+[PR #61](https://github.com/DashSaman/Arz/pull/61) safely merged to `main` (`af6dd71085d0f16af096d427e60321bdf96f5cf2`). Actual [source GitHub Actions 40613594527](https://github.com/DashSaman/Arz/actions/runs/40613594527) made **four successful public GETs**: two previously missing **2026-10-27 4h intervals, 00–04 and 08–12 UTC**, for original verified Base WETH and cbBTC provider pair IDs. Recovered **00–04** closing WETH **2310.7221752756122**, cbBTC **79692.9300052733**; **08–12** WETH **2313.0339375532017**, cbBTC **79788.61413614982**. New actual first-seen was **2026-10-28 approx 01:12 UTC**, **76,339 / 47,540 seconds AFTER respective bar closes**. Source and line SHA256, actual late clock, provider response status, and original three forward capture dates preserved in [machine source proof](reports/strat01/2026-10-28-late-recovery-observed.json).
+
+**CRITICAL distinction: historically recovered gaps are NOT original prospective observations.** We retained these source bar results in a separate **late-only** report, NEVER modified `reports/strat01/forward/` or retroactively pretended the bot had observed a valid ATR/H2 entry or filled a transaction at candle close. Original true forward source ledger still has **3 late paired 4h captures**, zero genuine signal-bound execution, zero paper calendar days and unknown paid gas/inclusion costs. This is better **historical coverage**, not financial alpha or evidence of timely 194-bar warmup.
+
+GitHub Actions runner provenance added for future snapshots (reported `GITHUB_EVENT_NAME`, `GITHUB_RUN_ID`, attempt, SHA, run URL); its event remains **runner-reported and pending independent cross-check**, not unilaterally accepted schedule evidence. Old source files unchanged. [Final GitHub Actions 40613807845](https://github.com/DashSaman/Arz/actions/runs/40613807845) **130 focused / 1,424 full repo distinct unit tests PASS** (overlap), [finance CI 40613807785](https://github.com/DashSaman/Arz/actions/runs/40613807785) PASS. [FA report](docs/fa/strat01_late_recovery_20261028.md) · [EN report](docs/en/strat01_late_recovery_20261028.md).
+
+**NEXT in [STRAT-01 Issue #42](https://github.com/DashSaman/Arz/issues/42):** verify true future scheduled source+audit pairs via new runner run URLs, fix recurring latency/gaps, collect 194 genuine point-in-time completed WETH/cbBTC 4h bars, signal-locked exact $20 follower quotes with actual paid L1/L2/inclusion/failure costs, and 90 genuinely elapsed prospective paper account days. Do not relax the frozen original ATR S0/H2 or cost-stressed positive geometric net return requirement. **Investment NO-GO, live DISABLED**.
 
 ## PR topology (check remotely again before changing branches)
 
