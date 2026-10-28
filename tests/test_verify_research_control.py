@@ -239,6 +239,29 @@ class ControlPlaneTests(unittest.TestCase):
             with self.subTest(key=key),self.assertRaises(ValueError):
                 validate(v)
 
+    def test_historically_recovered_missing_bars_cannot_be_backdated_as_forward(self):
+        status=fresh()
+        self.assertEqual(validate(status)["financial_decision"],"NO-GO")
+        corruptions=(
+            ("actual_limited_public_GET_requests",50),
+            ("asof_forward_snapshots_backdated_or_modified",True),
+            ("late_candles_eligible_as_original_ATR_signal",True),
+            ("qualified_prospective_paper_days",90),
+            ("actual_gas_paid_usdc",0),
+            ("independent_OOS_profitable_strategy_verified",True),
+            ("runner_event_independently_verified_on_original_three",True),
+            ("funding_approval",True),
+            ("financial_decision","GO"),
+        )
+        for field,falsevalue in corruptions:
+            damaged=fresh()
+            stage=next(x for x in damaged["tracks"] if x["id"]=="STRAT-01")
+            proof=next(x for x in stage["additional_verified_subcheckpoints"]
+                       if x["id"]=="STRAT01-FOUR-REAL-LATE-BASE-SOURCE-QUERIES-2026-10-28")
+            proof[field]=falsevalue
+            with self.subTest(field=field),self.assertRaises(ValueError):
+                validate(damaged)
+
     def test_pr_merge_status_and_duplicate_branch_rejected(self):
         s = fresh()
         s["research_prs"][-1]["state"] = "MERGED"

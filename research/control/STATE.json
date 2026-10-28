@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "checkpoint_id": "ARZ-2026-10-27-CONTROL-09",
-  "observed_at_utc": "2026-10-27",
+  "checkpoint_id": "ARZ-2026-10-28-CONTROL-10",
+  "observed_at_utc": "2026-10-28",
   "repository": "DashSaman/Arz",
   "canonical_branch": "main",
   "purpose": "Evidence-linked restart-safe control plane; does not promote unmerged draft code to main",
@@ -413,7 +413,7 @@
         "EV-007"
       ],
       "completion": "Separate H2 baseline and wallet-confirmed variant once wallet data arrives; baseline must pass realistic cost and OOS without retuning; CEX proxy never qualifies Base DEX H4",
-      "next_action": "Next STRAT-01 Issue #42: verify additional truly as-observed scheduled source/audit pairs beyond first 2026-10-27T09:53:59Z bot commit; note initial 00-04 UTC bar was not recorded and first actual 04-08 bar was seen 6839/6840 seconds late. Check independent GitHub Actions run event (bot commit alone does not prove schedule vs manual dispatch), enforce new leading-gap/latency criteria, collect 194 continuous timely complete dual-market 4h bars and genuine quote/inclusion/paid-gas failure evidence. Maintain 90 genuinely elapsed prospective paper days, stress-cost geometric GO criteria, and disabled live trading.",
+      "next_action": "STRAT-01 Issue #42 after merged PR61: independently inspect NEW actual GitHub Actions 4h source capture run metadata (runner_reported_event_name, run id/url), verify paired forward source+audit files and lag/no gaps; collect genuinely timely prospective WETH/cbBTC bars, a full 194-bar original ATR S0 warmup, exact 60s source-time $20 follower quotes including real L1/L2/failed-fill costs, then 90 elapsed paper days and positive cost-stressed net geometric account return. Two formerly missing bars were fetched historically LATE (01:12 UTC 28 Oct) and must NEVER be backdated into forward paper.",
       "github_issue_url": "https://github.com/DashSaman/Arz/issues/42",
       "last_verified_subcheckpoint": {
         "id": "STRAT01-IMMUTABLE-NEGATIVE-CONTROL-2026-10-26",
@@ -673,6 +673,49 @@
           "source_evidence": "reports/strat01/2026-10-27-first-capture-gap-latency-audit.json",
           "financial_decision": "NO-GO",
           "live_trading": "DISABLED"
+        },
+        {
+          "id": "STRAT01-FOUR-REAL-LATE-BASE-SOURCE-QUERIES-2026-10-28",
+          "merged_pr": 61,
+          "merged_commit_sha": "af6dd71085d0f16af096d427e60321bdf96f5cf2",
+          "original_source_ci": "https://github.com/DashSaman/Arz/actions/runs/40613594527",
+          "final_no_repeat_ci": "https://github.com/DashSaman/Arz/actions/runs/40613807845",
+          "finance_ci": "https://github.com/DashSaman/Arz/actions/runs/40613807785",
+          "new_focused_test_methods": 130,
+          "full_repo_test_methods": 1424,
+          "actual_limited_public_GET_requests": 4,
+          "recovered_historical_4h_slots": [
+            "2026-10-27T00:00:00Z",
+            "2026-10-27T08:00:00Z"
+          ],
+          "recovered_pair_base_WETH_closes": [
+            "2310.7221752756122",
+            "2313.0339375532017"
+          ],
+          "recovered_pair_base_cbBTC_closes": [
+            "79692.9300052733",
+            "79788.61413614982"
+          ],
+          "recovery_UTC": "2026-10-28T01:12:00Z (approximate minute; exact first-seen unix within report)",
+          "recovered_source_after_original_bar_close_seconds": [
+            76339,
+            47540
+          ],
+          "actual_original_asof_forward_capture_count_confirmed": 3,
+          "actual_historically_recovered_bar_starts_count": 2,
+          "asof_forward_snapshots_backdated_or_modified": false,
+          "late_candles_eligible_as_original_ATR_signal": false,
+          "github_runner_run_id_and_schedule_event_self_report_added_for_future": true,
+          "runner_event_independently_verified_on_original_three": false,
+          "independent_price_at_candle_close_proven_for_late_recovery": false,
+          "actual_gas_paid_usdc": null,
+          "actual_signal_follower_inclusion_proven": false,
+          "qualified_prospective_paper_days": 0,
+          "independent_OOS_profitable_strategy_verified": false,
+          "funding_approval": false,
+          "live_trading": "DISABLED",
+          "financial_decision": "NO-GO",
+          "source_report": "reports/strat01/2026-10-28-late-recovery-observed.json"
         }
       ]
     },
@@ -758,7 +801,7 @@
     "No PR treated as merged unless GitHub checked",
     "No changes to main trading runtime while integrating governance files"
   ],
-  "verification_policy": "PR59 merged: actual GitHub bot source+NO-GO audit pair captured at 09:53:59Z for 04-08 UTC source candle; initial 00-04 UTC 4h interval missing, source lag 6839/6840s; no execution event/paper days or proven schedule event type. New leading-gap/latency diagnostics cannot change frozen ATR signals or fake event-time original publication. Net PnL and live funding NO-GO/DISABLED.",
+  "verification_policy": "PR61 real public source old missing 00-04 and 08-12 Base four-hour bars recovered at 2026-10-28 ~01:12 UTC; late source stays separate from immutable original forward. Original 3 4h paired bar captures remain late and not qualified prospective fills. GitHub runner event/run URL will be stored in future sources, still requires independent verification. Trading remains NO-GO/DISABLED, no paper days.",
   "completed_milestones": [
     {
       "task": "OPS-01",
@@ -778,13 +821,14 @@
     }
   ],
   "last_verified_delivery": {
-    "pr": 59,
-    "merged_sha": "0320ab6458fcf1d18862714c9ac444c968909d8e",
-    "run_url": "https://github.com/DashSaman/Arz/actions/runs/40525201907",
-    "full_tests": 1293,
-    "focused": 84,
-    "net_alpha_verified": false,
-    "source": "reports/strat01/2026-10-27-first-capture-gap-latency-audit.json"
+    "pr": 61,
+    "merged_sha": "af6dd71085d0f16af096d427e60321bdf96f5cf2",
+    "run_url": "https://github.com/DashSaman/Arz/actions/runs/40613807845",
+    "full_tests": 1424,
+    "focused": 130,
+    "new_actual_source_gets": 4,
+    "evidence": "reports/strat01/2026-10-28-late-recovery-observed.json",
+    "net_alpha_verified": false
   },
   "post_checkpoint_verified_deliveries": [
     {
