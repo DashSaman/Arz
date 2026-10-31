@@ -1,0 +1,102 @@
+[
+  {
+    "family": "old",
+    "pair": 4564367,
+    "url": "https://tradingstrategy.ai/api/candles-jsonl?pair_ids=4564367&time_bucket=4h&start=2024-09-01T00%3A00%3A00&end=2026-10-01T00%3A00%3A00&max_bytes=3000000",
+    "pin": "40f4a87937d09ab21f1f112444785c09d0119f7d8b91ce48f5bdd5ad27d56aa3",
+    "observed_sha256": "40f4a87937d09ab21f1f112444785c09d0119f7d8b91ce48f5bdd5ad27d56aa3",
+    "bytes": 1033372,
+    "status": 200,
+    "observed_at_utc": "2026-10-31T17:33:16.654735+00:00"
+  },
+  {
+    "family": "old",
+    "pair": 4705508,
+    "url": "https://tradingstrategy.ai/api/candles-jsonl?pair_ids=4705508&time_bucket=4h&start=2024-09-01T00%3A00%3A00&end=2026-10-01T00%3A00%3A00&max_bytes=3000000",
+    "pin": "427da056b70bfc67f1ae7ff6e1ca94f41df4ec238a225e34f621d4cb1072323e",
+    "observed_sha256": "427da056b70bfc67f1ae7ff6e1ca94f41df4ec238a225e34f621d4cb1072323e",
+    "bytes": 1008255,
+    "status": 200,
+    "observed_at_utc": "2026-10-31T17:33:21.147251+00:00"
+  },
+  {
+    "family": "old",
+    "pair": 1364813,
+    "url": "https://tradingstrategy.ai/api/candles-jsonl?pair_ids=1364813&time_bucket=4h&start=2024-09-01T00%3A00%3A00&end=2026-10-01T00%3A00%3A00&max_bytes=3000000",
+    "pin": "dee8ce776cd6bcf6c9ded918f9e152c2bf2b6a439849aea3b31fb269dee36f53",
+    "observed_sha256": "dee8ce776cd6bcf6c9ded918f9e152c2bf2b6a439849aea3b31fb269dee36f53",
+    "bytes": 826310,
+    "status": 200,
+    "observed_at_utc": "2026-10-31T17:33:25.319411+00:00"
+  },
+  {
+    "family": "old",
+    "pair": 2601348,
+    "url": "https://tradingstrategy.ai/api/candles-jsonl?pair_ids=2601348&time_bucket=4h&start=2024-09-01T00%3A00%3A00&end=2026-10-01T00%3A00%3A00&max_bytes=3000000",
+    "pin": "eafca55581c0fa42c111c1cec7b5d67d7eda3ffe90bb341f95325e08d023e708",
+    "observed_sha256": "eafca55581c0fa42c111c1cec7b5d67d7eda3ffe90bb341f95325e08d023e708",
+    "bytes": 794454,
+    "status": 200,
+    "observed_at_utc": "2026-10-31T17:33:30.020441+00:00"
+  },
+  {
+    "family": "old",
+    "pair": 2854997,
+    "url": "https://tradingstrategy.ai/api/candles-jsonl?pair_ids=2854997&time_bucket=4h&start=2024-09-01T00%3A00%3A00&end=2026-10-01T00%3A00%3A00&max_bytes=3000000",
+    "pin": "c23cdb0c07de450948d83133e369b70086f85c5814a1b5bceb9144ed33dc3466",
+    "observed_sha256": "c23cdb0c07de450948d83133e369b70086f85c5814a1b5bceb9144ed33dc3466",
+    "bytes": 1054568,
+    "status": 200,
+    "observed_at_utc": "2026-10-31T17:33:34.552715+00:00"
+  },
+  {
+    "family": "new",
+    "pair": 4564367,
+    "url": "https://tradingstrategy.ai/api/candles-jsonl?pair_ids=4564367&time_bucket=4h&start=2026-09-01T00%3A00%3A00&end=2026-10-16T00%3A00%3A00&max_bytes=1000000",
+    "pin": "36824b77b3882402000281707ec2833c914d15f4ca2ac494ac15c86b68e8816e",
+    "observed_sha256": "36824b77b3882402000281707ec2833c914d15f4ca2ac494ac15c86b68e8816e",
+    "bytes": 61527,
+    "status": 200,
+    "observed_at_utc": "2026-10-31T17:33:38.112065+00:00"
+  },
+  {
+    "family": "new",
+    "pair": 4705508,
+    "url": "https://tradingstrategy.ai/api/candles-jsonl?pair_ids=4705508&time_bucket=4h&start=2026-09-01T00%3A00%3A00&end=2026-10-16T00%3A00%3A00&max_bytes=1000000",
+    "pin": "8cda8264dc60f33d081174537ca84ab37d91723c0ed9d4a956aec7917e86054b",
+    "observed_sha256": "8cda8264dc60f33d081174537ca84ab37d91723c0ed9d4a956aec7917e86054b",
+    "bytes": 60875,
+    "status": 200,
+    "observed_at_utc": "2026-10-31T17:33:41.675846+00:00"
+  },
+  {
+    "family": "new",
+    "pair": 2854997,
+    "url": "https://tradingstrategy.ai/api/candles-jsonl?pair_ids=2854997&time_bucket=4h&start=2026-09-01T00%3A00%3A00&end=2026-10-16T00%3A00%3A00&max_bytes=1000000",
+    "pin": "81f15f518cd6869a0ab39bcac7f6f4c149f904b53312cd0f1446833b4c28de40",
+    "observed_sha256": "81f15f518cd6869a0ab39bcac7f6f4c149f904b53312cd0f1446833b4c28de40",
+    "bytes": 62826,
+    "status": 200,
+    "observed_at_utc": "2026-10-31T17:33:45.254734+00:00"
+  },
+  {
+    "family": "1h",
+    "pair": 4564367,
+    "url": "https://tradingstrategy.ai/api/candles-jsonl?pair_ids=4564367&time_bucket=1h&start=2024-09-01T00%3A00%3A00&end=2026-10-01T00%3A00%3A00&max_bytes=10000000",
+    "pin": "09025d023e030e4b6f8718e1c6d67d626c91241aed734672846701ebbf6925a5",
+    "observed_sha256": "09025d023e030e4b6f8718e1c6d67d626c91241aed734672846701ebbf6925a5",
+    "bytes": 4128525,
+    "status": 200,
+    "observed_at_utc": "2026-10-31T17:33:50.938380+00:00"
+  },
+  {
+    "family": "1h",
+    "pair": 4705508,
+    "url": "https://tradingstrategy.ai/api/candles-jsonl?pair_ids=4705508&time_bucket=1h&start=2024-09-01T00%3A00%3A00&end=2026-10-01T00%3A00%3A00&max_bytes=10000000",
+    "pin": "37257d3d096a02140088e83e1ebb68a1fbb00d0af63afdebcf1230969a9fa0b7",
+    "observed_sha256": "37257d3d096a02140088e83e1ebb68a1fbb00d0af63afdebcf1230969a9fa0b7",
+    "bytes": 4021163,
+    "status": 200,
+    "observed_at_utc": "2026-10-31T17:33:57.086743+00:00"
+  }
+]
