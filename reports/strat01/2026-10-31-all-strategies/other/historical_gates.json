@@ -1,0 +1,854 @@
+{
+  "pr_native_receipts": [
+    {
+      "pr": 18,
+      "scope": "frozen H1-H4 hypotheses",
+      "commit": "41a2ef4eb018f9c697efba0557923abad908d244",
+      "path": "research/multi_edge_spot/NEXT_EXPERIMENT_PROTOCOL.json",
+      "sha256": "88203411b4e64d96d8b8e1099f1af11dc8ca9b3b867cf982bac6673bd1ef5c52",
+      "bytes": 11098
+    },
+    {
+      "pr": 24,
+      "scope": "Phase A wallet/diagnostic code",
+      "commit": "0bab62ee331151a733a21bf3abe81aea143d667f",
+      "path": "reports/multi_edge_phase_a_20261020/phase_a_summary.json",
+      "sha256": "bf209a7def8687d498cabfa3efd0ef8d55d845d7125bba1dc0b43f36469f1323",
+      "bytes": 5669
+    },
+    {
+      "pr": 25,
+      "scope": "independent forensic gap audit; not part of stacked PR chain",
+      "commit": "a7d56fbdff78cc99f3c3084b7d291bab58e99cc6",
+      "path": "RESEARCH_GAP_AUDIT.md",
+      "sha256": "316299f3964c540258e2395cf64072699a6c21c73c02d6fc6ffc20801a7f338f",
+      "bytes": 13199
+    },
+    {
+      "pr": 26,
+      "scope": "time-of-follower paired quote diagnostics",
+      "commit": "9d698535ab567d6cae49ced4f99bbe81b9b561f4",
+      "path": "docs/en/follower_quote_replay_20261024.md",
+      "sha256": "95f5ae7bc910ab035a79b34835486bfcbe3e6657c93de1e3119b6ed1ee5f55e5",
+      "bytes": 5871
+    },
+    {
+      "pr": 27,
+      "scope": "long-run historical CEX proxy",
+      "commit": "7aeb5c1764666f9d67ea71d8eda11b0ac3a0b8d1",
+      "path": "reports/long_history_2026-10-25/verified_v2_nonoverlap.json",
+      "sha256": "4b558650fe38f2883b690af5c32c2cdd80c87050db01f2d6e3055f615aa58861",
+      "bytes": 14231
+    },
+    {
+      "pr": 28,
+      "scope": "Base spot quote and Solana 3-wallet sampled evidence",
+      "commit": "3c18794231354b5e1ce2a92fedf88ba7067b301b",
+      "path": "reports/onchain_2026-10-25/base_quotes_20usdc.csv",
+      "sha256": "c5888d46b234fa32831b3e03c1288033ab18abc95cabc3baadeb084f2ab7b9c0",
+      "bytes": 887
+    },
+    {
+      "pr": 29,
+      "scope": "Solana wallet mentioned versus fee payer",
+      "commit": "4beed1af08d04c612714710a8b157a09f09ac661",
+      "path": "reports/onchain_2026-10-25/wallet_pagination_rpc_observed.json",
+      "sha256": "064a4914d53c915a12e9af415c9a352243b1e12311e9921313abcfd161fb74f8",
+      "bytes": 14516
+    },
+    {
+      "pr": 30,
+      "scope": "offline archival verifier; no new real profitable history",
+      "commit": "ced85de48e4d19d4f5242ee1dda8f929d9090cfb",
+      "path": "reports/onchain_2026-10-25/archival_forensics_checkpoint.json",
+      "sha256": "fda353d55fe8a8325d28900c0c5795014abf6a22400f5ffdded6c55e27630530",
+      "bytes": 3342
+    },
+    {
+      "pr": 31,
+      "scope": "public SQD first verified access",
+      "commit": "7e32a16d52666bf862ea1e6230a887bd381cd424",
+      "path": "reports/onchain_2026-10-25/sqd_portal_smoke_observed.json",
+      "sha256": "7e16ff1099991a60cf03298aec0a8387d32fc9af03ed97a4f1e062f554e060e6",
+      "bytes": 6665
+    },
+    {
+      "pr": 32,
+      "scope": "SQD page continuation, only 10/75 explicit Mitch mentions",
+      "commit": "b778a1ecc4e81b02588197c11641d9e4f0040c0d",
+      "path": "reports/onchain_2026-10-25/sqd_continuation_observed.json",
+      "sha256": "12b0226c4ea4d7c5f1bb9b177780337a3eaf598c0a795394c1f772a266bfa77c",
+      "bytes": 19279
+    },
+    {
+      "pr": 33,
+      "scope": "Mitch one signature index20, signed Jupiter-related USDC receipt, FIFO fix",
+      "commit": "97bf3aa3957bff4c0eb636186f322055cf05feea",
+      "path": "reports/onchain_2026-10-25/solana_one_tx_route_attested.json",
+      "sha256": "499738b8cef97f506d4ba4cfa3b93dae6a248287ad364ed35f273787b145469e",
+      "bytes": 3252
+    }
+  ],
+  "base_same_block_roundtrip_20usd": [
+    {
+      "asset": "WETH",
+      "block": "53047410",
+      "gap_before_gas_usdc": 0.020015,
+      "actual_gas_usdc": null
+    },
+    {
+      "asset": "cbBTC",
+      "block": "53047410",
+      "gap_before_gas_usdc": 0.020629,
+      "actual_gas_usdc": null
+    }
+  ],
+  "wallet_proof_limit": "One successful signer-attributed Solana route (+402.799439 USDC owner balance, historical cost basis null); no full wallet profitability, Base voting cohort or target-time quote.",
+  "native_hypotheses": [
+    {
+      "id": "H1_SMART_WALLET_CONSENSUS_COPY",
+      "mechanism": "Copy public spot demand from independently selected wallets only if edge survives follower delay and costs.",
+      "network": "Base",
+      "universe": "Point-in-time tokens at least180days old with a qualified USDC route,30complete days, median daily DEX volume >=1,000,000USD and $20 quote impact <=10bps. Thresholds are eligibility, not optimized alpha features.",
+      "wallet_selection": "Monthly trailing90day WALLET_SCORING_SPEC gates; ProfitScore>=70 and CopyabilityScore>=70; related wallets clustered to one vote.",
+      "entry": "Three independent eligible wallets buy the same token within6hours; copy at first qualified quote60seconds after third vote.",
+      "delay_sensitivities": [
+        "NEXT_BLOCK",
+        15,
+        300,
+        900
+      ],
+      "sizing": "Lower of20% equity,25quote units and size whose planned stop loss plus all-in cost is <=0.5% equity.",
+      "exit": "Earliest of two contributing clusters net-selling in6hours, three-ATR trailing on completed1h bars, or14day time stop.",
+      "risk": "Independent risk engine may exit/veto; wallet signal cannot widen stop or increase size.",
+      "comparators": [
+        "cash",
+        "risk-matched hold",
+        "single-wallet copy reported but not selected",
+        "existing ATR-volatility where applicable"
+      ],
+      "minimum_historical_sample": {
+        "closed_follower_cycles": 100,
+        "calendar_months": 6,
+        "distinct_wallet_clusters": 20
+      },
+      "minimum_prospective_sample": {
+        "calendar_days": 90,
+        "closed_cycles": 30
+      },
+      "specific_acceptance": [
+        "Primary60-second delay passes general acceptance",
+        "At least50% of gross positive PnL remains after removing top3 winners",
+        "No token contributes more than50% of net PnL",
+        "Next-block result alone cannot qualify candidate"
+      ],
+      "reject_if": [
+        "Historical wallet labels are backfilled",
+        "Cost basis coverage below95%",
+        "No follower-time exact quote",
+        "Primary60-second stress result nonpositive",
+        "Consensus votes are related clusters"
+      ]
+    },
+    {
+      "id": "H2_SMART_FLOW_ATR_CONFIRMATION",
+      "mechanism": "Use independently selected wallet accumulation only to confirm/veto existing corrected ATR-volatility entries.",
+      "network": "Base",
+      "assets": [
+        "WETH/USDC",
+        "cbBTC/USDC"
+      ],
+      "baseline": "Existing corrected ATR plus volatility filter; same exit and sizing.",
+      "wallet_selection": "Same monthly wallet cohort and exclusions as H1.",
+      "entry": "An otherwise-valid baseline entry is allowed only if at least two independent eligible wallet clusters are net buyers over trailing24hours and cohort qualified buy notional exceeds sell notional. No wallet flow can create a new baseline signal.",
+      "exit": "Unchanged corrected ATR trailing/risk exit; smart sells are reported as a diagnostic, not used in primary exit.",
+      "comparators": [
+        "S0 corrected ATR-volatility",
+        "cash",
+        "20% hold"
+      ],
+      "minimum_historical_sample": {
+        "closed_cycles": 40,
+        "calendar_months": 12,
+        "assets": 2
+      },
+      "minimum_prospective_sample": {
+        "calendar_days": 90,
+        "closed_cycles": 10
+      },
+      "specific_acceptance": [
+        "Incremental net PnL above S0 at primary and stress costs",
+        "Drawdown no higher than S0",
+        "Does not improve solely by zero trading",
+        "Report entries blocked, winning entries lost and losing entries avoided"
+      ],
+      "reject_if": [
+        "Wallet cohort selected using future returns",
+        "Fewer cycles because data missing rather than deliberate veto",
+        "Stress result not above baseline",
+        "Known adverse regime worsens materially"
+      ]
+    },
+    {
+      "id": "H3_COST_AWARE_MEAN_REVERSION_SCALP",
+      "mechanism": "Temporary short-horizon price pressure reverts in highly liquid pairs after exact execution costs.",
+      "network": "Base",
+      "pairs": [
+        "WETH/USDC",
+        "cbBTC/USDC"
+      ],
+      "timeframe_primary": "5m",
+      "timeframe_sensitivity": "15m with clock-equivalent windows",
+      "data_gate": "Complete event-level swaps or one-minute bars plus exact-input quote/cost reconstruction; SCALPABILITY_SPEC score>=75.",
+      "entry": "On completed5m bar: z-score of close minus trailing1h VWAP over trailing2h deviations <=-2; current volume >=1.25x prior1h mean; close >=0.99x completed4h EMA-equivalent anchor; expected distance to VWAP >3x all-in round-trip cost. One position only.",
+      "sizing": "Risk <=0.25% equity to1.5ATR stop, capped at20quote units and reserve preserved.",
+      "exit": "First of z-score >=-0.25/VWAP recovery,1.5ATR stop, or30minute time stop. No averaging, grid or reentry in same30minute window.",
+      "comparators": [
+        "cash",
+        "no-cost diagnostic only as unattainable bound",
+        "same rule without cost gate for attribution"
+      ],
+      "minimum_historical_sample": {
+        "closed_cycles": 200,
+        "calendar_months": 6,
+        "minimum_cycles_per_pair": 50
+      },
+      "minimum_prospective_sample": {
+        "calendar_days": 90,
+        "closed_cycles": 100
+      },
+      "specific_acceptance": [
+        "Target win rate70-75% reported but not required if PF>=1.8",
+        "Stress cost net positive",
+        "Worst1% trade loss and longest losing streak within registered risk budget",
+        "At least50% of months with activity are net positive",
+        "No single day contributes more than25% annual net PnL"
+      ],
+      "reject_if": [
+        "Only OHLCV4h data available",
+        "Round-trip cost exceeds25% median5mATR",
+        "Follower/executable quote unavailable",
+        "Any averaging down or martingale",
+        "Primary5m result nonpositive after stress costs"
+      ]
+    },
+    {
+      "id": "H4_POINT_IN_TIME_LEADER_ROTATION",
+      "mechanism": "Hold the strongest absolute and cross-sectional major spot trend, otherwise cash.",
+      "network": "Base first; no bridge/cross-network switching in primary test.",
+      "universe": "At each weekly cutoff: token age>=180days, trailing30day complete data, median daily DEX volume>=1,000,000USD, qualified USDC route and $20 impact<=10bps. Universe membership is persisted point in time.",
+      "review_schedule": "Monday00:00UTC after completed bar.",
+      "score": "(0.5*30d_return + 0.5*90d_return) / max(30d_realized_volatility, preregistered_floor).",
+      "entry": "Top score only if90d return>0 and close above completed120d SMA; otherwise cash.",
+      "exit": "Weekly leader change, absolute filter failure, corrected ATR trailing stop or account risk halt. No atomic asset switch; sell then later qualified buy.",
+      "sizing": "Existing20% target,25quote-unit cap and10reserve.",
+      "comparators": [
+        "cash",
+        "risk-matched buy-and-hold each eligible major",
+        "existing ATR-volatility",
+        "prior ROT90 reported as seen-data control"
+      ],
+      "minimum_historical_sample": {
+        "calendar_years": 3,
+        "closed_cycles_or_rebalances": 36,
+        "market_regimes": 3
+      },
+      "minimum_prospective_sample": {
+        "calendar_days": 180,
+        "closed_cycles": 12
+      },
+      "specific_acceptance": [
+        "Positive primary/stress continuous account",
+        "Beats cash and existing ATR-volatility on net return without higher drawdown",
+        "No single asset contributes more than60% net PnL",
+        "Universe and ranking reproducible at every cutoff"
+      ],
+      "reject_if": [
+        "Required point-in-time universe shorter than3years",
+        "Present-day token list backfilled",
+        "Stress result nonpositive",
+        "Performance exists only in one asset or year"
+      ]
+    }
+  ],
+  "general_acceptance": {
+    "primary_and_stress_net_positive": true,
+    "net_expectancy_positive": true,
+    "profit_factor_min": 1.5,
+    "max_drawdown_pct_max": 10,
+    "geometric_return_positive": true,
+    "multiple_calendar_months_positive": true,
+    "no_hidden_failed_or_skipped_cases": true,
+    "prospective_required_before_funded_discussion": true,
+    "win_rate_target_range": [
+      0.7,
+      0.75
+    ],
+    "win_rate_is_not_sufficient": true,
+    "alternative_lower_win_rate_allowed_if_profit_factor_min": 1.8
+  },
+  "one_shared_account": {
+    "initial_hypothetical_capital": 100,
+    "quote_asset": "USDC_OR_EXPLICIT_STABLECOIN_WITH_DEPEG_SERIES",
+    "one_shared_account": true,
+    "max_open_positions_initial": 1,
+    "max_order_quote_units": 25,
+    "cash_reserve_quote_units": 10,
+    "leverage": 0,
+    "borrowing": false,
+    "martingale": false,
+    "averaging_down": false,
+    "capital_top_up": false,
+    "live_trading": "DISABLED",
+    "real_capital_authorized": 0
+  },
+  "quote_model": {
+    "primary": "Pool fee embedded in exact-input follower quote; separately add network L1/L2 or base/priority fee, quote-to-inclusion slippage/impact and empirically observed failure/expiry allowance.",
+    "stress": "Double observed network fee and slippage/impact components, plus one failed-transaction fee per 20 attempted broadcasts; do not double-count pool fee already in quote.",
+    "unknown_cost_action": "Cannot qualify as execution-ready; report historical price simulation separately.",
+    "quote_max_age_seconds": 30
+  },
+  "phase_A_recorded_blockers": {
+    "H1_SMART_WALLET_CONSENSUS_COPY": {
+      "hypothesis_id": "H1_SMART_WALLET_CONSENSUS_COPY",
+      "status": "INSUFFICIENT_DATA",
+      "candidate": false,
+      "blockers": [
+        "WALLET_HISTORY_LT_90_DAYS",
+        "FOLLOWER_CYCLES_LT_100",
+        "WALLET_CLUSTERS_LT_20",
+        "COST_BASIS_COVERAGE_LT_95PCT",
+        "NO_FOLLOWER_QUOTES"
+      ],
+      "acceptance_evaluated": false
+    },
+    "H2_SMART_FLOW_ATR_CONFIRMATION": {
+      "hypothesis_id": "H2_SMART_FLOW_ATR_CONFIRMATION",
+      "status": "INSUFFICIENT_DATA",
+      "candidate": false,
+      "blockers": [
+        "WALLET_HISTORY_LT_90_DAYS",
+        "WALLET_CYCLES_LT_40",
+        "WALLET_MONTHS_LT_12",
+        "COST_BASIS_COVERAGE_LT_95PCT"
+      ],
+      "acceptance_evaluated": false
+    },
+    "H3_COST_AWARE_MEAN_REVERSION_SCALP": {
+      "hypothesis_id": "H3_COST_AWARE_MEAN_REVERSION_SCALP",
+      "status": "INSUFFICIENT_DATA",
+      "candidate": false,
+      "blockers": [
+        "SCALP_HISTORY_LT_6_MONTHS",
+        "SCALP_CYCLES_LT_200",
+        "WETH_USDC_CYCLES_LT_50",
+        "cbBTC_USDC_CYCLES_LT_50",
+        "NO_EXACT_COSTS"
+      ],
+      "acceptance_evaluated": false
+    },
+    "H4_POINT_IN_TIME_LEADER_ROTATION": {
+      "hypothesis_id": "H4_POINT_IN_TIME_LEADER_ROTATION",
+      "status": "INSUFFICIENT_DATA",
+      "candidate": false,
+      "blockers": [
+        "ROTATION_HISTORY_LT_3_YEARS",
+        "ROTATION_CYCLES_LT_36",
+        "ROTATION_REGIMES_LT_3",
+        "NO_POINT_IN_TIME_UNIVERSE"
+      ],
+      "acceptance_evaluated": false
+    }
+  },
+  "historical_phase_A_h3": [
+    {
+      "scenario": "scenario_primary",
+      "evidence_class": "HISTORICAL_PRICE_SIMULATION",
+      "metrics": {
+        "initial_equity": 100.0,
+        "ending_equity": 100.0,
+        "cash": 100.0,
+        "net_profit": 0.0,
+        "closed_cycles": 0,
+        "wins": 0,
+        "losses": 0,
+        "win_rate": null,
+        "profit_factor": null,
+        "payoff_ratio": null,
+        "net_expectancy": null,
+        "maximum_drawdown": 0.0,
+        "fees": 0.0,
+        "buy_fills": 0,
+        "max_open_positions": 0
+      },
+      "diagnostics": {
+        "entry_signals": 0,
+        "cost_hurdle_vetoes": 35,
+        "volume_vetoes": 61,
+        "trend_vetoes": 10,
+        "zscore_vetoes": 1844
+      },
+      "open_position": false,
+      "averaging_down": false
+    },
+    {
+      "scenario": "scenario_stress",
+      "evidence_class": "HISTORICAL_PRICE_SIMULATION",
+      "metrics": {
+        "initial_equity": 100.0,
+        "ending_equity": 100.0,
+        "cash": 100.0,
+        "net_profit": 0.0,
+        "closed_cycles": 0,
+        "wins": 0,
+        "losses": 0,
+        "win_rate": null,
+        "profit_factor": null,
+        "payoff_ratio": null,
+        "net_expectancy": null,
+        "maximum_drawdown": 0.0,
+        "fees": 0.0,
+        "buy_fills": 0,
+        "max_open_positions": 0
+      },
+      "diagnostics": {
+        "entry_signals": 0,
+        "cost_hurdle_vetoes": 35,
+        "volume_vetoes": 61,
+        "trend_vetoes": 10,
+        "zscore_vetoes": 1844
+      },
+      "open_position": false,
+      "averaging_down": false
+    },
+    {
+      "scenario": "unattainable_zero_cost",
+      "evidence_class": "HISTORICAL_PRICE_SIMULATION",
+      "metrics": {
+        "initial_equity": 100.0,
+        "ending_equity": 99.72916621026994,
+        "cash": 99.72916621026994,
+        "net_profit": -0.27083378973006234,
+        "closed_cycles": 23,
+        "wins": 11,
+        "losses": 12,
+        "win_rate": 0.4782608695652174,
+        "profit_factor": 0.5976858515537864,
+        "payoff_ratio": 0.6520209289677671,
+        "net_expectancy": -0.011775382162175387,
+        "maximum_drawdown": 0.00453759676756893,
+        "fees": 0.0,
+        "buy_fills": 23,
+        "max_open_positions": 1
+      },
+      "diagnostics": {
+        "entry_signals": 23,
+        "cost_hurdle_vetoes": 0,
+        "volume_vetoes": 44,
+        "trend_vetoes": 5,
+        "zscore_vetoes": 1684
+      },
+      "open_position": false,
+      "averaging_down": false
+    }
+  ],
+  "new_h3_separate_account_diagnostic": [
+    {
+      "pair_id": 4564367,
+      "start": "2026-08-01",
+      "end_exclusive": "2026-10-01",
+      "bars": 17568,
+      "missing_5m": 0,
+      "scenario": "native_primary",
+      "fee_fraction": 0.0005,
+      "slippage_bps": 5,
+      "fixed_usd": 0.01,
+      "data_sha256": "d3ae59e0c1858c36687950afad57bffd4f371eb0ea8999bf0a0b3baf25b0155b",
+      "qualifying_results": false,
+      "volume": "native provider quote/USD volume used as weights",
+      "status": "SINGLE_PAIR_PRICE_DIAGNOSTIC",
+      "evidence_sha256": "c67d5803f411a9e77fc3149a376910ca2788483daf923449230c9be975b34693",
+      "geometric_daily_pct": -0.0020956608554945078,
+      "open_at_end": false,
+      "max_buy_fill_usd": 20.0,
+      "max_sell_fill_usd": 20.038033215883015,
+      "initial_equity": 100.0,
+      "ending_equity": 99.87224502453898,
+      "cash": 99.87224502453898,
+      "net_profit": -0.12775497546101633,
+      "closed_cycles": 2,
+      "wins": 0,
+      "losses": 2,
+      "win_rate": 0.0,
+      "profit_factor": 0.0,
+      "payoff_ratio": null,
+      "net_expectancy": -0.06387748773051172,
+      "maximum_drawdown": 0.0015576851561300842,
+      "fees": 0.07997611056755327,
+      "buy_fills": 2,
+      "max_open_positions": 1,
+      "entry_signals": 2,
+      "cost_hurdle_vetoes": 348,
+      "volume_vetoes": 313,
+      "trend_vetoes": 39,
+      "zscore_vetoes": 16791
+    },
+    {
+      "pair_id": 4564367,
+      "start": "2026-08-01",
+      "end_exclusive": "2026-10-01",
+      "bars": 17568,
+      "missing_5m": 0,
+      "scenario": "native_stress",
+      "fee_fraction": 0.0005,
+      "slippage_bps": 10,
+      "fixed_usd": 0.02,
+      "data_sha256": "d3ae59e0c1858c36687950afad57bffd4f371eb0ea8999bf0a0b3baf25b0155b",
+      "qualifying_results": false,
+      "volume": "native provider quote/USD volume used as weights",
+      "status": "SINGLE_PAIR_PRICE_DIAGNOSTIC",
+      "evidence_sha256": "69eda831b350962c85bd6aedd0f3ca1da649d629b9cddaeff605d13c2c1c161f",
+      "geometric_daily_pct": 0.0,
+      "open_at_end": false,
+      "max_buy_fill_usd": 0.0,
+      "max_sell_fill_usd": 0.0,
+      "initial_equity": 100.0,
+      "ending_equity": 100.0,
+      "cash": 100.0,
+      "net_profit": 0.0,
+      "closed_cycles": 0,
+      "wins": 0,
+      "losses": 0,
+      "win_rate": null,
+      "profit_factor": null,
+      "payoff_ratio": null,
+      "net_expectancy": null,
+      "maximum_drawdown": 0.0,
+      "fees": 0.0,
+      "buy_fills": 0,
+      "max_open_positions": 0,
+      "entry_signals": 0,
+      "cost_hurdle_vetoes": 350,
+      "volume_vetoes": 315,
+      "trend_vetoes": 39,
+      "zscore_vetoes": 16815
+    },
+    {
+      "pair_id": 4564367,
+      "start": "2026-08-01",
+      "end_exclusive": "2026-10-01",
+      "bars": 17568,
+      "missing_5m": 0,
+      "scenario": "zero_unattainable",
+      "fee_fraction": 0,
+      "slippage_bps": 0,
+      "fixed_usd": 0,
+      "data_sha256": "d3ae59e0c1858c36687950afad57bffd4f371eb0ea8999bf0a0b3baf25b0155b",
+      "qualifying_results": false,
+      "volume": "native provider quote/USD volume used as weights",
+      "status": "SINGLE_PAIR_PRICE_DIAGNOSTIC",
+      "evidence_sha256": "abb18820eae4374894a05dec6ea887b840de306a3a0bd68a0fefbaeb67d68813",
+      "geometric_daily_pct": 0.0121730005784082,
+      "open_at_end": false,
+      "max_buy_fill_usd": 20.000000000000004,
+      "max_sell_fill_usd": 20.142498145045863,
+      "initial_equity": 100.0,
+      "ending_equity": 100.7452712682604,
+      "cash": 100.7452712682604,
+      "net_profit": 0.7452712682603959,
+      "closed_cycles": 231,
+      "wins": 126,
+      "losses": 100,
+      "win_rate": 0.5454545454545454,
+      "profit_factor": 1.1661796769914163,
+      "payoff_ratio": 0.9255394261836637,
+      "net_expectancy": 0.0032262825465819234,
+      "maximum_drawdown": 0.008762402920833634,
+      "fees": 0.0,
+      "buy_fills": 231,
+      "max_open_positions": 1,
+      "entry_signals": 231,
+      "cost_hurdle_vetoes": 0,
+      "volume_vetoes": 191,
+      "trend_vetoes": 23,
+      "zscore_vetoes": 14843
+    },
+    {
+      "pair_id": 4705508,
+      "start": "2026-08-01",
+      "end_exclusive": "2026-10-01",
+      "bars": 16882,
+      "missing_5m": 686,
+      "scenario": "native_primary",
+      "fee_fraction": 0.0005,
+      "slippage_bps": 5,
+      "fixed_usd": 0.01,
+      "data_sha256": "17ce9043114fc893b2b7eb716171260d8f1c7bca8b7fdcb6b781b88203e174cc",
+      "qualifying_results": false,
+      "volume": "native provider quote/USD volume used as weights",
+      "status": "INCOMPLETE_5M_GRID"
+    },
+    {
+      "pair_id": 4705508,
+      "start": "2026-08-01",
+      "end_exclusive": "2026-10-01",
+      "bars": 16882,
+      "missing_5m": 686,
+      "scenario": "native_stress",
+      "fee_fraction": 0.0005,
+      "slippage_bps": 10,
+      "fixed_usd": 0.02,
+      "data_sha256": "17ce9043114fc893b2b7eb716171260d8f1c7bca8b7fdcb6b781b88203e174cc",
+      "qualifying_results": false,
+      "volume": "native provider quote/USD volume used as weights",
+      "status": "INCOMPLETE_5M_GRID"
+    },
+    {
+      "pair_id": 4705508,
+      "start": "2026-08-01",
+      "end_exclusive": "2026-10-01",
+      "bars": 16882,
+      "missing_5m": 686,
+      "scenario": "zero_unattainable",
+      "fee_fraction": 0,
+      "slippage_bps": 0,
+      "fixed_usd": 0,
+      "data_sha256": "17ce9043114fc893b2b7eb716171260d8f1c7bca8b7fdcb6b781b88203e174cc",
+      "qualifying_results": false,
+      "volume": "native provider quote/USD volume used as weights",
+      "status": "INCOMPLETE_5M_GRID"
+    }
+  ],
+  "realizable_shared_H3": "No one-minute/swaps and matched executable-price/failure histories. Two months and single-pair controls cannot satisfy six months and a shared portfolio.",
+  "cex_proxy": {
+    "head_sha": "358240d665158e72fbfdc5fcd50b58c82c45be84",
+    "run_id": 40136757544,
+    "artifact_id": 12577795755,
+    "artifact_url": "https://github.com/DashSaman/Arz/actions/runs/40136757544",
+    "artifact_zip_sha256": "7757695bb306bff86b0171cf7ec98ac079409d1d02102e984d7dda1f0014379e",
+    "archived_json_sha256": "d253051b6154a8e8baa26c34b868bb15655b704c96f937aafeea43ae7d27284a",
+    "verified_source_manifest_sha256": "8bee6f2212283e146472dfd13865944bb6106420065cf161cf2e507ee3494ae4",
+    "provider_files_in_original_run": 176,
+    "archived_fields_equal_to_git": 21,
+    "classification": "Exact archived execution output verified, no new CEX sample or new historical DEX replay.",
+    "H4_style": {
+      "fold_2024_Feb_Dec": {
+        "calendar_days": 335,
+        "closed_cycles": 11,
+        "net_return_pct": 1.903256,
+        "profit_factor": 1.23142,
+        "max_drawdown_pct": 12.521674,
+        "geometric_daily_pct": 0.0056281
+      },
+      "fold_2025_Jan_Dec": {
+        "calendar_days": 365,
+        "closed_cycles": 8,
+        "net_return_pct": -4.819817,
+        "profit_factor": 0.50107,
+        "max_drawdown_pct": 8.851001,
+        "geometric_daily_pct": -0.0135329
+      },
+      "fold_2026_Jan_Oct23": {
+        "calendar_days": 296,
+        "closed_cycles": 5,
+        "net_return_pct": -4.033961,
+        "profit_factor": 0.09856,
+        "max_drawdown_pct": 4.033961,
+        "geometric_daily_pct": -0.0139098
+      },
+      "full_baseline": {
+        "calendar_days": 999,
+        "closed_cycles": 25,
+        "net_return_pct": -6.837515,
+        "profit_factor": 0.71361,
+        "max_drawdown_pct": 13.989588,
+        "geometric_daily_pct": -0.0070893
+      },
+      "full_network_stress": {
+        "calendar_days": 999,
+        "closed_cycles": 25,
+        "net_return_pct": -8.259865,
+        "profit_factor": 0.66165,
+        "max_drawdown_pct": 15.122192,
+        "geometric_daily_pct": -0.0086293
+      }
+    },
+    "H3_per_pair": {
+      "BTCUSDT": {
+        "primary": {
+          "bar_count": 59328,
+          "diagnostics": {
+            "cost_hurdle_vetoes": 969,
+            "entry_signals": 3,
+            "trend_vetoes": 100,
+            "volume_vetoes": 1428,
+            "zscore_vetoes": 56746
+          },
+          "earliest_bar_ts": 1775001600,
+          "last_bar_ts": 1792799700,
+          "metrics": {
+            "buy_fills": 3,
+            "cash": 99.9465652438912,
+            "closed_cycles": 3,
+            "ending_equity": 99.9465652438912,
+            "fees": 0.1200332992715814,
+            "initial_equity": 100.0,
+            "losses": 2,
+            "max_open_positions": 1,
+            "maximum_drawdown": 0.0011812284170237275,
+            "net_expectancy": -0.017811585369603478,
+            "net_profit": -0.053434756108799775,
+            "payoff_ratio": 0.734378229057769,
+            "profit_factor": 0.3671891145288845,
+            "win_rate": 0.3333333333333333,
+            "wins": 1
+          },
+          "open_position": false,
+          "proxy_only": true
+        },
+        "stress": {
+          "bar_count": 59328,
+          "diagnostics": {
+            "cost_hurdle_vetoes": 972,
+            "entry_signals": 0,
+            "trend_vetoes": 100,
+            "volume_vetoes": 1431,
+            "zscore_vetoes": 56776
+          },
+          "earliest_bar_ts": 1775001600,
+          "last_bar_ts": 1792799700,
+          "metrics": {
+            "buy_fills": 0,
+            "cash": 100.0,
+            "closed_cycles": 0,
+            "ending_equity": 100.0,
+            "fees": 0.0,
+            "initial_equity": 100.0,
+            "losses": 0,
+            "max_open_positions": 0,
+            "maximum_drawdown": 0.0,
+            "net_expectancy": null,
+            "net_profit": 0.0,
+            "payoff_ratio": null,
+            "profit_factor": null,
+            "win_rate": null,
+            "wins": 0
+          },
+          "open_position": false,
+          "proxy_only": true
+        }
+      },
+      "ETHUSDT": {
+        "primary": {
+          "bar_count": 59328,
+          "diagnostics": {
+            "cost_hurdle_vetoes": 1063,
+            "entry_signals": 10,
+            "trend_vetoes": 216,
+            "volume_vetoes": 1142,
+            "zscore_vetoes": 56733
+          },
+          "earliest_bar_ts": 1775001600,
+          "last_bar_ts": 1792799700,
+          "metrics": {
+            "buy_fills": 10,
+            "cash": 100.1971731574912,
+            "closed_cycles": 10,
+            "ending_equity": 100.1971731574912,
+            "fees": 0.400298735946719,
+            "initial_equity": 100.0,
+            "losses": 4,
+            "max_open_positions": 1,
+            "maximum_drawdown": 0.0022469191695632107,
+            "net_expectancy": 0.019717315749115373,
+            "net_profit": 0.197173157491207,
+            "payoff_ratio": 1.2218674374448735,
+            "profit_factor": 1.83280115616731,
+            "win_rate": 0.6,
+            "wins": 6
+          },
+          "open_position": false,
+          "proxy_only": true
+        },
+        "stress": {
+          "bar_count": 59328,
+          "diagnostics": {
+            "cost_hurdle_vetoes": 1073,
+            "entry_signals": 0,
+            "trend_vetoes": 216,
+            "volume_vetoes": 1148,
+            "zscore_vetoes": 56842
+          },
+          "earliest_bar_ts": 1775001600,
+          "last_bar_ts": 1792799700,
+          "metrics": {
+            "buy_fills": 0,
+            "cash": 100.0,
+            "closed_cycles": 0,
+            "ending_equity": 100.0,
+            "fees": 0.0,
+            "initial_equity": 100.0,
+            "losses": 0,
+            "max_open_positions": 0,
+            "maximum_drawdown": 0.0,
+            "net_expectancy": null,
+            "net_profit": 0.0,
+            "payoff_ratio": null,
+            "profit_factor": null,
+            "win_rate": null,
+            "wins": 0
+          },
+          "open_position": false,
+          "proxy_only": true
+        }
+      }
+    }
+  },
+  "source_hashes": [
+    {
+      "commit": "41a2ef4eb018f9c697efba0557923abad908d244",
+      "path": "research/multi_edge_spot/NEXT_EXPERIMENT_PROTOCOL.json",
+      "sha256": "88203411b4e64d96d8b8e1099f1af11dc8ca9b3b867cf982bac6673bd1ef5c52"
+    },
+    {
+      "commit": "0bab62ee331151a733a21bf3abe81aea143d667f",
+      "path": "reports/multi_edge_phase_a_20261020/phase_a_summary.json",
+      "sha256": "bf209a7def8687d498cabfa3efd0ef8d55d845d7125bba1dc0b43f36469f1323"
+    },
+    {
+      "commit": "7aeb5c1764666f9d67ea71d8eda11b0ac3a0b8d1",
+      "path": "reports/long_history_2026-10-25/verified_v2_nonoverlap.json",
+      "sha256": "4b558650fe38f2883b690af5c32c2cdd80c87050db01f2d6e3055f615aa58861"
+    },
+    {
+      "commit": "97bf3aa3957bff4c0eb636186f322055cf05feea",
+      "path": "reports/onchain_2026-10-25/base_quotes_20usdc.csv",
+      "sha256": "c5888d46b234fa32831b3e03c1288033ab18abc95cabc3baadeb084f2ab7b9c0"
+    },
+    {
+      "commit": "97bf3aa3957bff4c0eb636186f322055cf05feea",
+      "path": "reports/onchain_2026-10-25/wallet_pagination_rpc_observed.json",
+      "sha256": "064a4914d53c915a12e9af415c9a352243b1e12311e9921313abcfd161fb74f8"
+    },
+    {
+      "commit": "97bf3aa3957bff4c0eb636186f322055cf05feea",
+      "path": "reports/onchain_2026-10-25/sqd_continuation_observed.json",
+      "sha256": "12b0226c4ea4d7c5f1bb9b177780337a3eaf598c0a795394c1f772a266bfa77c"
+    },
+    {
+      "commit": "97bf3aa3957bff4c0eb636186f322055cf05feea",
+      "path": "reports/onchain_2026-10-25/sqd_parent_context_observed.json",
+      "sha256": "c7126c0a9c840c9a69dd443874ffea04d0d7098ca118b491db5a02c3aeb4d333"
+    },
+    {
+      "commit": "97bf3aa3957bff4c0eb636186f322055cf05feea",
+      "path": "reports/onchain_2026-10-25/archival_forensics_checkpoint.json",
+      "sha256": "fda353d55fe8a8325d28900c0c5795014abf6a22400f5ffdded6c55e27630530"
+    },
+    {
+      "commit": "97bf3aa3957bff4c0eb636186f322055cf05feea",
+      "path": "reports/onchain_2026-10-25/solana_one_tx_route_attested.json",
+      "sha256": "499738b8cef97f506d4ba4cfa3b93dae6a248287ad364ed35f273787b145469e"
+    }
+  ]
+}

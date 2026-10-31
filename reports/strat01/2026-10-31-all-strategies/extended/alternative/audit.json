@@ -1,0 +1,97 @@
+{
+  "amendment": "64a8814",
+  "certified_usd_volume": false,
+  "engine": "db79545f5162518251eda73ec9fd3526411f9dc8",
+  "file_sha256": {
+    "candidate_decisions.csv": "573be5dd775336714d50b8ddd2e8f21415e64e747e84b4b447500f3dff64e2cf",
+    "original_order_limits.csv": "3230a4e926c2d25672eb09e0fc1ae8c45da6e47812904bb9a6f5859f7a557043",
+    "results.csv": "edb85b07ae072f1194ebd5d8b46021337e93b87712be7cef346e872734530063"
+  },
+  "local_journal_sha256": {
+    "WETH/2026Q2/extended.jsonl.gz": "22473b27ef93e83e2c5ad36afadec8d7482dc5e0570541359caa1c896dff0497",
+    "WETH/2026Q2/mvp.jsonl.gz": "f01e00715269388a256a65a718356a2e6551c119af672c364c1c3b488be45ce2",
+    "WETH/2026Q3/extended.jsonl.gz": "9fc67bfb3e414eea66e27a875f66b2a7090562f9e9df4a1908c718fad70029dc",
+    "WETH/2026Q3/mvp.jsonl.gz": "c60a6b50e994e19ca328457d6ea04f4ee65416690a7c0635074c3cf689feb98e",
+    "cbBTC/2026Q2/extended.jsonl.gz": "bea292e6f6eb0c06bb064ea94bed291f9c74675e98e196aaea5fbd6d08a4d767",
+    "cbBTC/2026Q2/mvp.jsonl.gz": "f850b04fcbfc41296389fa39054888947b98a36d216fdb5d1c23e848b9f273c4",
+    "cbBTC/2026Q3/extended.jsonl.gz": "d09f769be0077e6c903c89e25355cc815a39b0dfddfd17c24e3fe5ea524c4d9f",
+    "cbBTC/2026Q3/mvp.jsonl.gz": "f850b04fcbfc41296389fa39054888947b98a36d216fdb5d1c23e848b9f273c4"
+  },
+  "market_data_scope": "Four existing response files, zero new market requests. Dollar order caps checked at par. Number of Gate changes at 0.70 USD per volume unit is zero if all audited pages meet the inequality below.",
+  "original_archive_cases_tested": 1178,
+  "original_buys_over_25": 0,
+  "original_cases_with_fill_over_25": 124,
+  "original_distinct_orders_note": "Counts are repeated across cost cases, benchmarks and overlapping windows.",
+  "original_largest_buy": 23.460348068248116,
+  "original_largest_sell": 64.22679508637236,
+  "original_sells_over_25": 154,
+  "pages": [
+    {
+      "canonical_ohlcv_sha256": "335751c22d229a0a33b3cd83624439a9d244d7d4b35725a5cf7634c9487a662f",
+      "independently_observed_usd_weth_overlap_rows": 375,
+      "market": "WETH",
+      "min_usd_per_reported_volume_unit_for_25usd_order": 0.10273564951102297,
+      "minimum_reported_4h_volume": 243342.988719,
+      "period": "2026Q2",
+      "prefix_first_open": 1768464000,
+      "preperiod_4h_bars": 454,
+      "preperiod_complete_utc_days": 75,
+      "quote_page_to_usd_volume_ratio_max": 1.002938249435081,
+      "quote_page_to_usd_volume_ratio_min": 0.9952816975993409,
+      "raw_response_sha256": "4cd7ab73aa573cd8b03b533a32d7bf4648ce80527a11751bda061ce173671659"
+    },
+    {
+      "canonical_ohlcv_sha256": "b0ba35a7c8108665e21977214d21ccc1522f6c40cfd9c27d9d832cea6582c3c3",
+      "independently_observed_usd_weth_overlap_rows": 0,
+      "market": "cbBTC",
+      "min_usd_per_reported_volume_unit_for_25usd_order": 0.5807334103261558,
+      "minimum_reported_4h_volume": 43049.012775,
+      "period": "2026Q2",
+      "prefix_first_open": 1768464000,
+      "preperiod_4h_bars": 454,
+      "preperiod_complete_utc_days": 75,
+      "quote_page_to_usd_volume_ratio_max": null,
+      "quote_page_to_usd_volume_ratio_min": null,
+      "raw_response_sha256": "daf00ef6c4d8aef961425bcf3ba05bdab8a48da82b85f0376039aece25a10e69"
+    },
+    {
+      "canonical_ohlcv_sha256": "ba9cbefda429448e6206958bcc27a0a945520ee6a479ae34219bea3c620000dd",
+      "independently_observed_usd_weth_overlap_rows": 927,
+      "market": "WETH",
+      "min_usd_per_reported_volume_unit_for_25usd_order": 0.18968617237990212,
+      "minimum_reported_4h_volume": 131796.639082,
+      "period": "2026Q3",
+      "prefix_first_open": 1776412800,
+      "preperiod_4h_bars": 448,
+      "preperiod_complete_utc_days": 74,
+      "quote_page_to_usd_volume_ratio_max": 1.0040664234429826,
+      "quote_page_to_usd_volume_ratio_min": 0.9949273363780776,
+      "raw_response_sha256": "1a24f71bef0f1298a0cae11f738639cbbd9c1c157d6b887504b1799396e47d91"
+    },
+    {
+      "canonical_ohlcv_sha256": "e5cc6b426e1282c4bc0ac858d24338f0fdeca8723747bcca8c3df792b9bdb938",
+      "independently_observed_usd_weth_overlap_rows": 0,
+      "market": "cbBTC",
+      "min_usd_per_reported_volume_unit_for_25usd_order": 0.6540589114176807,
+      "minimum_reported_4h_volume": 38222.856632,
+      "period": "2026Q3",
+      "prefix_first_open": 1776412800,
+      "preperiod_4h_bars": 448,
+      "preperiod_complete_utc_days": 74,
+      "quote_page_to_usd_volume_ratio_max": null,
+      "quote_page_to_usd_volume_ratio_min": null,
+      "raw_response_sha256": "a93bd1b2a94f9328dcc9db35de85a38b62bf93f5f160f99aac327f1840afea7b"
+    }
+  ],
+  "paper_days_added": 0,
+  "qualified_paper": 0,
+  "row_status": {
+    "COMPLETE": 552,
+    "NATIVE_CONFIG_WETH_ONLY": 24
+  },
+  "runner_sha256": "2d44661921a8c6470ec9cd790d3d68e2000b6b6d6acb60dc909a22d359daec1e",
+  "source": "Native GeckoTerminal 4h. Each individual page seeded independently.",
+  "unit_assumption": "quote-token OHLCV in USDC, USDC/USD at par. No exact USD-liquidity or execution claim.",
+  "volume_gate_allows_full_25usd_orders_at_0_70_usd_per_reported_unit": true,
+  "volume_unit_source": "https://api.geckoterminal.com/docs/v2/swagger.json"
+}

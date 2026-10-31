@@ -9,6 +9,12 @@
 **Detailed English:** [docs/en/research_current_checkpoint.md](docs/en/research_current_checkpoint.md)  
 **Offline consistency check:** `PYTHONPATH=src:. python scripts/verify_research_control.py`
 
+## 31 October 2026 | All-strategy decision
+
+No performance-qualified Paper candidate. The cross-branch index records 164 items across 32 reporting families, including controls and untestable hypotheses. Fresh S0 annual output matched PR #64 byte-for-byte. The selected corrected payoff arm lost 4.85% at stress in the subsequent six months. WETH volatility_breakout_v2 made 4.09% under 2025 stress, falling to a $1.92 loss after removing its largest winner. The 185-row completed annual comparison shows a maximum modeled stress geometric daily return of 0.024216%. S0's original annual positive path includes sales above the $25 ceiling. Of 82 original clock groups with some data, 66 had both required periods and none passed all historical gates. Forward evidence is maintained separately.
+
+[Persian decision](docs/fa/strat01_all_strategies_20261031.md) · [English and reproduction](docs/en/strat01_all_strategies_20261031.md) · [All rows and blockers](reports/strat01/2026-10-31-all-strategies/registry.csv) · [Annual CSV](reports/strat01/2026-10-31-all-strategies/annual_comparison.csv).
+
 ## 31 October 2026 | S0 calendar backtests on Base
 
 Six of eight primary historical windows had complete native four-hour data. Of 12 independent market/window results at base costs, four made money, five lost money and three had no trades. Two quarters failed coverage because of the same 13 missing candles in June 2026. A separate uninterrupted 2025 run on a simulated $100 account returned +10.46% on WETH (8 cycles) and −0.80% on cbBTC (12 cycles). Doubling costs produced +9.74% and −1.75%. These historical simulations add zero qualified forward days. Funding remains NO-GO.

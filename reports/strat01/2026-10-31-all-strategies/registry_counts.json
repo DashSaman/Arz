@@ -1,0 +1,29 @@
+{
+  "identified_paper_candidates": [],
+  "indexed_items": 164,
+  "family_labels": 32,
+  "stage_counts": {
+    "CONTROL_OR_REFERENCE": 45,
+    "DATA_BLOCKED": 14,
+    "EXECUTED": 84,
+    "OUTSIDE_POLICY": 9,
+    "PRIOR_REPRODUCED": 5,
+    "RULE_BLOCKED": 7
+  },
+  "native_outcomes": {
+    "DIAGNOSTIC": 31,
+    "EXECUTED_AND_VERIFIED": 28,
+    "FAIL": 16,
+    "INSUFFICIENT": 2,
+    "INSUFFICIENT_DATA": 12,
+    "INSUFFICIENT_DEFINITION": 7,
+    "NONSTRATEGY_OR_DUPLICATE": 45,
+    "OUTSIDE_REQUESTED_SPOT_CONSTRAINTS": 2,
+    "OUTSIDE_SPOT": 7,
+    "RUN_VERIFIED": 9,
+    "VALID_PRIOR_REPRODUCED": 5
+  },
+  "scope": "Protocol-specific variants, controls, diagnostics, leads and work tracks. Seven shared intelligence registrations are joined. Economic aliases across different protocol engines are not independent hypotheses.",
+  "paper_recommendation": "NONE_QUALIFIED",
+  "real_capital_authorized_usd": 0
+}

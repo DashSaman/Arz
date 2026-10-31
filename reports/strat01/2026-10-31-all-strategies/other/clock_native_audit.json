@@ -1,0 +1,10 @@
+{
+  "matched_annual_later6m_gates": 66,
+  "passes_matched_gates": 0,
+  "matrix_rows": 10552,
+  "unique_runs": 990,
+  "aliases": 96,
+  "complete_nonalias": 990,
+  "failed_coverage_or_budget": 9466,
+  "max_mark_error_usd": 1.4210854715202004e-13
+}

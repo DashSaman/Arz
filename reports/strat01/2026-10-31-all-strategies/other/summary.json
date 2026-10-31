@@ -1,0 +1,173 @@
+{
+  "native_groups_with_any_complete_case": 82,
+  "native_groups_with_complete_annual_later6m_both_costs": 66,
+  "native_groups_missing_at_least_one_gate_window": 16,
+  "native_groups_passing": 0,
+  "rows_with_native_sale_above_25usd": {
+    "e01": 45,
+    "intelligence": 45,
+    "clock_native": 210,
+    "clock_common": 126
+  },
+  "order_cap_rule": "Only PASS_IN_SIMULATION rows satisfy the strict per-fill notional limit. Original full liquidation of an appreciated lot is diagnostic when flagged; no silent reuse as a compliant strategy.",
+  "native_E01_vs_WETH_intelligence_control_pairs": 24,
+  "max_E01_control_pair_difference": 5.684341886080802e-14,
+  "counts_by_status": {
+    "e01": {
+      "RUN_VERIFIED": 288,
+      "INSUFFICIENT_DATA": 72
+    },
+    "intelligence": {
+      "RUN_VERIFIED": 546,
+      "INSUFFICIENT_CANDLES": 84
+    },
+    "clock_native": {
+      "RUN_VERIFIED": 990,
+      "INCOMPLETE_WARMUP_OR_SCORED": 6826,
+      "RESOURCE_BUDGET": 240,
+      "COMPLETE_ALIAS": 96,
+      "NO_EQUAL_OR_FINER_SOURCE": 2400
+    },
+    "clock_common": {
+      "INCOMPLETE_WARMUP_OR_SCORED": 1389,
+      "RUN_VERIFIED": 1143,
+      "COMPLETE_ALIAS": 108
+    }
+  },
+  "native_coverage_expected_and_measured": [
+    972,
+    96,
+    9460,
+    18,
+    6
+  ],
+  "native_result_reference": "PR17 docs/en/timeframe_recovery_20261017.md",
+  "archived_representative_cells": [
+    {
+      "pair_id": 4564367,
+      "minutes": 5,
+      "variant": "ATR_bar_clock",
+      "start": "2026-09-01",
+      "end": "2026-10-01",
+      "mid_equity": 95.91607590934997,
+      "stress_equity": 89.95799288164214,
+      "closed_mid": 46,
+      "old_rounded_ending_mid": 95.9161,
+      "old_rounded_ending_stress": 89.958,
+      "old_closed_mid": 46,
+      "max_dollar_difference": 2.4090650029506833e-05,
+      "matches": true
+    },
+    {
+      "pair_id": 4564367,
+      "minutes": 5,
+      "variant": "ATR_wall_clock",
+      "start": "2026-09-01",
+      "end": "2026-10-01",
+      "mid_equity": 100.0305107101483,
+      "stress_equity": 99.47154019788996,
+      "closed_mid": 4,
+      "old_rounded_ending_mid": 100.0305,
+      "old_rounded_ending_stress": 99.4715,
+      "old_closed_mid": 4,
+      "max_dollar_difference": 4.019788995890394e-05,
+      "matches": true
+    },
+    {
+      "pair_id": 4564367,
+      "minutes": 240,
+      "variant": "ATR_vol_bar_clock",
+      "start": "2025-04-01",
+      "end": "2026-04-01",
+      "mid_equity": 107.31995814997735,
+      "stress_equity": 105.57266690383545,
+      "closed_mid": 12,
+      "old_rounded_ending_mid": 107.32,
+      "old_rounded_ending_stress": 105.5727,
+      "old_closed_mid": 12,
+      "max_dollar_difference": 4.1850022640232964e-05,
+      "matches": true
+    },
+    {
+      "pair_id": 4564367,
+      "minutes": 720,
+      "variant": "ATR_vol_bar_clock",
+      "start": "2025-04-01",
+      "end": "2026-04-01",
+      "mid_equity": 104.93312929684423,
+      "stress_equity": 104.33534023068285,
+      "closed_mid": 4,
+      "old_rounded_ending_mid": 104.9331,
+      "old_rounded_ending_stress": 104.3353,
+      "old_closed_mid": 4,
+      "max_dollar_difference": 4.0230682841979615e-05,
+      "matches": true
+    },
+    {
+      "pair_id": 4705508,
+      "minutes": 240,
+      "variant": "ATR_vol_bar_clock",
+      "start": "2025-04-01",
+      "end": "2026-04-01",
+      "mid_equity": 98.81534545067755,
+      "stress_equity": 96.89295832319952,
+      "closed_mid": 14,
+      "old_rounded_ending_mid": 98.8153,
+      "old_rounded_ending_stress": 96.893,
+      "old_closed_mid": 14,
+      "max_dollar_difference": 4.5450677561120756e-05,
+      "matches": true
+    },
+    {
+      "pair_id": 2854997,
+      "minutes": 240,
+      "variant": "ATR_vol_bar_clock",
+      "start": "2025-04-01",
+      "end": "2026-04-01",
+      "mid_equity": 104.86516834067,
+      "stress_equity": 103.98124142650366,
+      "closed_mid": 6,
+      "old_rounded_ending_mid": 104.8652,
+      "old_rounded_ending_stress": 103.9812,
+      "old_closed_mid": 6,
+      "max_dollar_difference": 4.142650365679401e-05,
+      "matches": true
+    },
+    {
+      "pair_id": 1364813,
+      "minutes": 1440,
+      "variant": "ATR_wall_clock",
+      "start": "2021-06-01",
+      "end": "2025-06-01",
+      "mid_equity": 110.12619253651951,
+      "stress_equity": 96.87296544090526,
+      "closed_mid": 18,
+      "old_rounded_ending_mid": 110.1262,
+      "old_rounded_ending_stress": 96.873,
+      "old_closed_mid": 18,
+      "max_dollar_difference": 3.4559094743258356e-05,
+      "matches": true
+    },
+    {
+      "pair_id": 1364813,
+      "minutes": 10080,
+      "variant": "ATR_wall_clock",
+      "start": "2021-06-01",
+      "end": "2025-06-01",
+      "mid_equity": 131.50105699116577,
+      "stress_equity": 129.0307587568928,
+      "closed_mid": 8,
+      "old_rounded_ending_mid": 131.5011,
+      "old_rounded_ending_stress": 129.0308,
+      "old_closed_mid": 8,
+      "max_dollar_difference": 4.30088342397994e-05,
+      "matches": true
+    }
+  ],
+  "full_archive_numeric_comparison": "Full original 10,528-cell numeric archive not published; compare recovered coverage counts and eight published rows at both costs.",
+  "compressed_matrix_sha256": {
+    "clock_native.csv.gz": "96bce8bb5b6c57c2626ef7b9fd7471c543480e4d19babbfd3566bcd9c24daf26",
+    "clock_common.csv.gz": "85d79d0396ba01f47726598defcbc893d6101c63992a8e4187836aba96e501a7"
+  },
+  "sample_accounting": "PR64 and native outputs overlap. Clock aliases, cost scenarios, individual tests and CF projections are not independent market samples."
+}

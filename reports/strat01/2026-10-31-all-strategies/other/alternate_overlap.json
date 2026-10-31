@@ -1,0 +1,28 @@
+[
+  {
+    "asset": "WETH",
+    "shared_starts": 448,
+    "mismatches": [
+      {
+        "at": "2026-04-17T08:00:00+00:00",
+        "fields": [
+          "open"
+        ]
+      }
+    ],
+    "E01_Q3_union": "REJECTED_OVERLAP_DISAGREEMENT"
+  },
+  {
+    "asset": "cbBTC",
+    "shared_starts": 448,
+    "mismatches": [
+      {
+        "at": "2026-04-17T08:00:00+00:00",
+        "fields": [
+          "open"
+        ]
+      }
+    ],
+    "E01_Q3_union": "REJECTED_OVERLAP_DISAGREEMENT"
+  }
+]

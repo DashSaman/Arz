@@ -1,0 +1,459 @@
+{
+  "source": "coinmetrics/data CC BY-NC 4.0",
+  "source_blobs": {
+    "aave": {
+      "group": "first_screen_blobs",
+      "git_blob": "49e840ab7fd902d99d521e1277e0dd456d16e52a",
+      "sha256": "c70e5f897e0a8896e5fc3416e87ccef1d5c7d03010f72f56ccc901fe85c481aa",
+      "usable_rows": 2053,
+      "first": "2020-10-10",
+      "last": "2026-05-24",
+      "nonconsecutive_price_dates": 0
+    },
+    "link": {
+      "group": "first_screen_blobs",
+      "git_blob": "4c7cd1db76ed3655bf4d7e45c116ba5c0f00c518",
+      "sha256": "721fd2c5f0e131357782f2a23585c16f9da5a394c1a6ab0de910f4375ad5fb34",
+      "usable_rows": 3160,
+      "first": "2017-09-29",
+      "last": "2026-05-24",
+      "nonconsecutive_price_dates": 0
+    },
+    "uni": {
+      "group": "first_screen_blobs",
+      "git_blob": "793af855e2ef44cab441c13140d8c250ce3f6f28",
+      "sha256": "33d05f333d4b8322631710b776c54b312f14542adabd551db19e9bf164df6a40",
+      "usable_rows": 2075,
+      "first": "2020-09-18",
+      "last": "2026-05-24",
+      "nonconsecutive_price_dates": 0
+    },
+    "mkr": {
+      "group": "first_screen_blobs",
+      "git_blob": "bd8159f6daec4b86d067d7e83e85ba8f82278119",
+      "sha256": "2a353e8ab3a84ef4970c608cc51521e764ea0cbf58f26f702189e1c6914fdcad",
+      "usable_rows": 3012,
+      "first": "2017-12-26",
+      "last": "2026-03-25",
+      "nonconsecutive_price_dates": 0
+    },
+    "comp": {
+      "group": "first_screen_blobs",
+      "git_blob": "ef20149917d77556b4e89f6227e3c04f34d76d44",
+      "sha256": "dd8705c855983e37b5da07702c768d6c4fc31078eb1f408449dd38561c2bdc6c",
+      "usable_rows": 2167,
+      "first": "2020-06-18",
+      "last": "2026-05-24",
+      "nonconsecutive_price_dates": 0
+    },
+    "crv": {
+      "group": "first_screen_blobs",
+      "git_blob": "a6902407db7133a12487cb384715574488e17e36",
+      "sha256": "43a60e9f30dbc62ba069af2690f60b1b32843cd83fd342505785bd6d14d58094",
+      "usable_rows": 2109,
+      "first": "2020-08-15",
+      "last": "2026-05-24",
+      "nonconsecutive_price_dates": 0
+    },
+    "sushi": {
+      "group": "first_screen_blobs",
+      "git_blob": "2c793b75223982cc7de3b07f63a88ca47bf2dc5b",
+      "sha256": "df8cf5e9018844722ea44ed372d33507a2cfe087ee59cedc0fda34772d219e5a",
+      "usable_rows": 2092,
+      "first": "2020-09-01",
+      "last": "2026-05-24",
+      "nonconsecutive_price_dates": 0
+    },
+    "snx": {
+      "group": "first_screen_blobs",
+      "git_blob": "8c7273a7535f60c01a589d89c92cd085a232e3a4",
+      "sha256": "5b2b35bc074466b779ff41c0920ad121adcde93f27a08a5e50e7b6ded5d94cec",
+      "usable_rows": 2237,
+      "first": "2020-04-09",
+      "last": "2026-05-24",
+      "nonconsecutive_price_dates": 0
+    },
+    "yfi": {
+      "group": "cross_asset_blobs",
+      "git_blob": "255823d29d6096068bb6af980dca62068076b214",
+      "sha256": "b8dfbe7959404bcf96ef0c24a4691d87e43139ade655ae7eb00cc733ad58fc2c",
+      "usable_rows": 2130,
+      "first": "2020-07-25",
+      "last": "2026-05-24",
+      "nonconsecutive_price_dates": 0
+    },
+    "bal": {
+      "group": "cross_asset_blobs",
+      "git_blob": "a31c4cb0ee1a2c9c3f435b32b86a4f819837863e",
+      "sha256": "955602be7754263f7c4b4a866ebf5496c16bf659e0f6e4540a87b09cdf76149f",
+      "usable_rows": 2160,
+      "first": "2020-06-25",
+      "last": "2026-05-24",
+      "nonconsecutive_price_dates": 0
+    },
+    "grt": {
+      "group": "cross_asset_blobs",
+      "git_blob": "65ac468a56e63614428838e47ecd7678563e9922",
+      "sha256": "e016c4c7b0f71ed5bbc953ce7034be4e044ac056de2aa0b213c9b94ec63842f5",
+      "usable_rows": 7,
+      "first": "2026-05-18",
+      "last": "2026-05-24",
+      "nonconsecutive_price_dates": 0
+    },
+    "ens": {
+      "group": "cross_asset_blobs",
+      "git_blob": "9c3e688c1d4cd9aa7f166f987a020de56917d568",
+      "sha256": "1a5b43dd3c377d5971a168e847393b7623f999968e9cae942bc925395a68237b",
+      "usable_rows": 7,
+      "first": "2026-05-18",
+      "last": "2026-05-24",
+      "nonconsecutive_price_dates": 0
+    },
+    "ldo": {
+      "group": "cross_asset_blobs",
+      "git_blob": "01d3697c93c35d1fe5a1233cf0d7d13bd83044ee",
+      "sha256": "fc2f047a7e00b90004bac830181a82560f4f074acf8121e1a73ce034ba19de6f",
+      "usable_rows": 1717,
+      "first": "2021-09-11",
+      "last": "2026-05-24",
+      "nonconsecutive_price_dates": 0
+    },
+    "rpl": {
+      "group": "cross_asset_blobs",
+      "git_blob": "9bf8e1fa3ae98512d100a95e09dec4a91a446a82",
+      "sha256": "afc116045a6d04635c968bec377a96005b70c9563d87005742ab9d0a3c5e7d89",
+      "usable_rows": 7,
+      "first": "2026-05-18",
+      "last": "2026-05-24",
+      "nonconsecutive_price_dates": 0
+    },
+    "dydx": {
+      "group": "cross_asset_blobs",
+      "git_blob": "62bf664d0b38cabb35c8923554f3408f66046b7f",
+      "sha256": "5692ca88c1d952506cbdff98e146339efa2f450b0e889c97d48b34bfb636beba",
+      "usable_rows": 7,
+      "first": "2026-05-18",
+      "last": "2026-05-24",
+      "nonconsecutive_price_dates": 0
+    },
+    "1inch": {
+      "group": "cross_asset_blobs",
+      "git_blob": "88c0f41cf2794e1999f2c568f4df98de64415bca",
+      "sha256": "e40ea69ee22ca925e96f20f33b9bd2396f9e9223364b377521cc63bba32e0902",
+      "usable_rows": 1976,
+      "first": "2020-12-26",
+      "last": "2026-05-24",
+      "nonconsecutive_price_dates": 0
+    }
+  },
+  "method": "Confirmed third pivot two right bars later. Anchor next available daily close. Native forward horizons count the anchor as observation one (20 closes span 19 intervals). Basket includes the anchor plus up to 30 subsequent daily closes, permits at most one new rung per close and stops at recovery. We independently isolated these two archived conventions from the exact blobs. The 20 elapsed close-interval return is reported separately.",
+  "results": {
+    "original": {
+      "n": 7,
+      "n_B": 0,
+      "n_C": 0,
+      "median_5d_return": 0.0022346217514326305,
+      "median_10d_return": 0.01882969761542541,
+      "median_20d_return": -0.01790247756512109,
+      "positive_20d_fraction": 0.42857142857142855,
+      "median_true_20_elapsed_close_intervals_return": -0.04522169428770151,
+      "median_20d_max_adverse_excursion": -0.08620212149759476,
+      "equal": {
+        "recovery_rate_30d": 0.8571428571428571,
+        "median_recovery_days": 2.0,
+        "median_steps": 2,
+        "final_step_rate": 0.2857142857142857,
+        "unrecovered_final_rate": 0.14285714285714285,
+        "median_worst_diagnostic_mark": -0.03172667719481603,
+        "worst_diagnostic_mark": -0.12032997900023046
+      },
+      "linear": {
+        "recovery_rate_30d": 1.0,
+        "median_recovery_days": 2,
+        "median_steps": 2,
+        "final_step_rate": 0.2857142857142857,
+        "unrecovered_final_rate": 0.0,
+        "median_worst_diagnostic_mark": -0.03021524253322294,
+        "worst_diagnostic_mark": -0.05559067233693704
+      }
+    },
+    "cross_asset": {
+      "n": 20,
+      "n_B": 0,
+      "n_C": 0,
+      "median_5d_return": -0.010651753134984898,
+      "median_10d_return": -0.003576910674472078,
+      "median_20d_return": 0.03596492183288924,
+      "positive_20d_fraction": 0.65,
+      "median_true_20_elapsed_close_intervals_return": 0.061118125971042714,
+      "median_20d_max_adverse_excursion": -0.08524472899600943,
+      "equal": {
+        "recovery_rate_30d": 0.95,
+        "median_recovery_days": 3,
+        "median_steps": 2.0,
+        "final_step_rate": 0.25,
+        "unrecovered_final_rate": 0.05,
+        "median_worst_diagnostic_mark": -0.026044639357381105,
+        "worst_diagnostic_mark": -0.14931868721926134
+      },
+      "linear": {
+        "recovery_rate_30d": 1.0,
+        "median_recovery_days": 5.0,
+        "median_steps": 3.0,
+        "final_step_rate": 0.25,
+        "unrecovered_final_rate": 0.0,
+        "median_worst_diagnostic_mark": -0.038465361946183774,
+        "worst_diagnostic_mark": -0.11300441984869602
+      }
+    }
+  },
+  "archive_comparison": [
+    {
+      "set": "original",
+      "metric": "n",
+      "measured": 7,
+      "archive": 7,
+      "matches_1e_10": true
+    },
+    {
+      "set": "original",
+      "metric": "median_5d_return",
+      "measured": 0.0022346217514326305,
+      "archive": 0.0022346217514326305,
+      "matches_1e_10": true
+    },
+    {
+      "set": "original",
+      "metric": "median_10d_return",
+      "measured": 0.01882969761542541,
+      "archive": 0.01882969761542541,
+      "matches_1e_10": true
+    },
+    {
+      "set": "original",
+      "metric": "median_20d_return",
+      "measured": -0.01790247756512109,
+      "archive": -0.01790247756512109,
+      "matches_1e_10": true
+    },
+    {
+      "set": "original",
+      "metric": "positive_20d_fraction",
+      "measured": 0.42857142857142855,
+      "archive": 0.42857142857142855,
+      "matches_1e_10": true
+    },
+    {
+      "set": "original",
+      "metric": "median_20d_max_adverse_excursion",
+      "measured": -0.08620212149759476,
+      "archive": -0.08620212149759476,
+      "matches_1e_10": true
+    },
+    {
+      "set": "original",
+      "metric": "equal_recovery_rate_30d",
+      "measured": 0.8571428571428571,
+      "archive": 0.8571428571428571,
+      "matches_1e_10": true
+    },
+    {
+      "set": "original",
+      "metric": "equal_median_recovery_days",
+      "measured": 2.0,
+      "archive": 2,
+      "matches_1e_10": true
+    },
+    {
+      "set": "original",
+      "metric": "equal_final_step_rate",
+      "measured": 0.2857142857142857,
+      "archive": 0.2857142857142857,
+      "matches_1e_10": true
+    },
+    {
+      "set": "original",
+      "metric": "equal_unrecovered_final_rate",
+      "measured": 0.14285714285714285,
+      "archive": 0.14285714285714285,
+      "matches_1e_10": true
+    },
+    {
+      "set": "original",
+      "metric": "equal_worst_diagnostic_mark",
+      "measured": -0.12032997900023046,
+      "archive": -0.1203299790002305,
+      "matches_1e_10": true
+    },
+    {
+      "set": "original",
+      "metric": "equal_median_steps",
+      "measured": 2,
+      "archive": 2,
+      "matches_1e_10": true
+    },
+    {
+      "set": "original",
+      "metric": "linear_recovery_rate_30d",
+      "measured": 1.0,
+      "archive": 1,
+      "matches_1e_10": true
+    },
+    {
+      "set": "original",
+      "metric": "linear_median_recovery_days",
+      "measured": 2,
+      "archive": 2,
+      "matches_1e_10": true
+    },
+    {
+      "set": "original",
+      "metric": "linear_final_step_rate",
+      "measured": 0.2857142857142857,
+      "archive": 0.2857142857142857,
+      "matches_1e_10": true
+    },
+    {
+      "set": "original",
+      "metric": "linear_unrecovered_final_rate",
+      "measured": 0.0,
+      "archive": 0,
+      "matches_1e_10": true
+    },
+    {
+      "set": "original",
+      "metric": "linear_worst_diagnostic_mark",
+      "measured": -0.05559067233693704,
+      "archive": -0.05559067233693703,
+      "matches_1e_10": true
+    },
+    {
+      "set": "original",
+      "metric": "linear_median_steps",
+      "measured": 2,
+      "archive": 2,
+      "matches_1e_10": true
+    },
+    {
+      "set": "cross_asset",
+      "metric": "median_20d_return",
+      "measured": 0.03596492183288924,
+      "archive": 0.03596492183288924,
+      "matches_1e_10": true
+    },
+    {
+      "set": "cross_asset",
+      "metric": "positive_20d_fraction",
+      "measured": 0.65,
+      "archive": 0.65,
+      "matches_1e_10": true
+    },
+    {
+      "set": "cross_asset",
+      "metric": "median_20d_max_adverse_excursion",
+      "measured": -0.08524472899600943,
+      "archive": -0.08524472899600943,
+      "matches_1e_10": true
+    },
+    {
+      "set": "cross_asset",
+      "metric": "equal_recovery_rate_30d",
+      "measured": 0.95,
+      "archive": 0.95,
+      "matches_1e_10": true
+    },
+    {
+      "set": "cross_asset",
+      "metric": "equal_median_recovery_days",
+      "measured": 3,
+      "archive": 3,
+      "matches_1e_10": true
+    },
+    {
+      "set": "cross_asset",
+      "metric": "equal_median_steps",
+      "measured": 2.0,
+      "archive": 2,
+      "matches_1e_10": true
+    },
+    {
+      "set": "cross_asset",
+      "metric": "equal_final_step_rate",
+      "measured": 0.25,
+      "archive": 0.25,
+      "matches_1e_10": true
+    },
+    {
+      "set": "cross_asset",
+      "metric": "equal_unrecovered_final_rate",
+      "measured": 0.05,
+      "archive": 0.05,
+      "matches_1e_10": true
+    },
+    {
+      "set": "cross_asset",
+      "metric": "equal_median_worst_diagnostic_mark",
+      "measured": -0.026044639357381105,
+      "archive": -0.026044639357381095,
+      "matches_1e_10": true
+    },
+    {
+      "set": "cross_asset",
+      "metric": "equal_worst_diagnostic_mark",
+      "measured": -0.14931868721926134,
+      "archive": -0.14931868721926136,
+      "matches_1e_10": true
+    },
+    {
+      "set": "cross_asset",
+      "metric": "linear_recovery_rate_30d",
+      "measured": 1.0,
+      "archive": 1,
+      "matches_1e_10": true
+    },
+    {
+      "set": "cross_asset",
+      "metric": "linear_median_recovery_days",
+      "measured": 5.0,
+      "archive": 5,
+      "matches_1e_10": true
+    },
+    {
+      "set": "cross_asset",
+      "metric": "linear_median_steps",
+      "measured": 3.0,
+      "archive": 3,
+      "matches_1e_10": true
+    },
+    {
+      "set": "cross_asset",
+      "metric": "linear_final_step_rate",
+      "measured": 0.25,
+      "archive": 0.25,
+      "matches_1e_10": true
+    },
+    {
+      "set": "cross_asset",
+      "metric": "linear_unrecovered_final_rate",
+      "measured": 0.0,
+      "archive": 0,
+      "matches_1e_10": true
+    },
+    {
+      "set": "cross_asset",
+      "metric": "linear_median_worst_diagnostic_mark",
+      "measured": -0.038465361946183774,
+      "archive": -0.0384653619461838,
+      "matches_1e_10": true
+    },
+    {
+      "set": "cross_asset",
+      "metric": "linear_worst_diagnostic_mark",
+      "measured": -0.11300441984869602,
+      "archive": -0.11300441984869602,
+      "matches_1e_10": true
+    }
+  ],
+  "all_compared_fields_match": true,
+  "evidence": "Previously opened descriptive spot-index signals; fixed $20 basket; no executable fills, account returns or Paper days."
+}

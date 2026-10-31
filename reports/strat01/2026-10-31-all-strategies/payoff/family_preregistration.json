@@ -1,0 +1,128 @@
+{
+  "common_costs": {
+    "double_mid": [
+      0.003,
+      0.02
+    ],
+    "mid": [
+      0.0015,
+      0.01
+    ],
+    "stress": [
+      0.003,
+      0.05
+    ]
+  },
+  "common_pairs": [
+    4564367,
+    4705508
+  ],
+  "common_planned": 2112,
+  "common_windows": [
+    [
+      "2025Q1",
+      "2025-01-01",
+      "2025-04-01"
+    ],
+    [
+      "2025Q2",
+      "2025-04-01",
+      "2025-07-01"
+    ],
+    [
+      "2025Q3",
+      "2025-07-01",
+      "2025-10-01"
+    ],
+    [
+      "2025Q4",
+      "2025-10-01",
+      "2026-01-01"
+    ],
+    [
+      "2026Q1",
+      "2026-01-01",
+      "2026-04-01"
+    ],
+    [
+      "2026Q2",
+      "2026-04-01",
+      "2026-07-01"
+    ],
+    [
+      "2026Q3",
+      "2026-07-01",
+      "2026-10-01"
+    ],
+    [
+      "2026Oct01-26",
+      "2026-10-01",
+      "2026-10-27"
+    ],
+    [
+      "2025Year",
+      "2025-01-01",
+      "2026-01-01"
+    ],
+    [
+      "2026AprMay",
+      "2026-04-01",
+      "2026-06-01"
+    ],
+    [
+      "2026AugSep",
+      "2026-08-01",
+      "2026-10-01"
+    ]
+  ],
+  "coverage_before_pnl": {
+    "no_registered_prediction_fold": 120,
+    "runnable": 1602,
+    "warmup_or_test_gap": 390
+  },
+  "engine_revision": "db79545f5162518251eda73ec9fd3526411f9dc8",
+  "frozen_before_this_matrix_performance": true,
+  "native_costs": "exact original cost, including market-specific pool floors",
+  "native_planned": {
+    "cross": 650,
+    "edge": 72,
+    "fresh": 96,
+    "intel": 168,
+    "payoff": 288,
+    "upstream": 1056
+  },
+  "order": "first native replays under original protocols, then compatible calendar matrix; compare immutable archived outcomes",
+  "original_windows": "Read referenced source JSON in original loop order, retain every native gap/skip",
+  "pristine_oos": false,
+  "profit_selection": "reuse the historical development selection slow_atr_trail only; no new parameter or winner selection",
+  "protocols": {
+    "cross": {
+      "path": "research/crossmarket_repeatability_protocol_20261016.json",
+      "sha256": "8857ae8afa5d0a96d99f6ae18bdd418ddbd2c000484903595276187726d7ce0f"
+    },
+    "edge": {
+      "path": "research/revenue_strategy/EDGELAB_PROTOCOL.json",
+      "sha256": "771ce76df70028eaad2c6a414ef5b87e553345eed53cbfe36a7991e83089d939"
+    },
+    "fresh": {
+      "path": "research/fresh_window_protocol_20261017.json",
+      "sha256": "da3b1357853db450b3d6f317dafb2e001a5b5d484ea5dcdece44e122598b146c"
+    },
+    "intel": {
+      "path": "research/market_intelligence_protocol_20261017.json",
+      "sha256": "3af3bdd4372fce5a218aeadd33e306f2f79de2ddb63fdb2a18775d2c78811470"
+    },
+    "payoff": {
+      "path": "research/payoff_protocol_20261017.json",
+      "sha256": "c8b58c74adb43b671463d6fdaed1849152bea1c14eaa5d7720b91b838730315b"
+    },
+    "upstream": {
+      "path": "research/upstream_benchmark_protocol_20261016.json",
+      "sha256": "d6bbc4f5f3ca1cc9310b766723f7c479916298ede86af361638cf4d412a3e718"
+    }
+  },
+  "real_capital": 0,
+  "segregated_native_legacy_units": 288,
+  "statistical_checks": "Fixed-ledger largest and top-three deletions; 1000 paired 7-calendar-day moving-block bootstrap samples, seed 17031; no reselection",
+  "wrapper_sha256": "75e4073ade9adb521f8c4b65bebc834ebb85cb8c758486ee480dc95e85d7f45f"
+}
