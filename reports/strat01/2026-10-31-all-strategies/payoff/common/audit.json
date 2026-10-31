@@ -1,0 +1,224 @@
+{
+  "archive_matches": [],
+  "artifacts_sha256": {
+    "annual_daily_block_intervals.csv": "f5d63bc091a0e558a813008559125543d3553818ab48384ca30a290abf8d7c59",
+    "forecast_scores.csv": "4f95b692614d6e30d98c3821a63145ac32cc242ed46e0e88466bd2de49db07ef",
+    "frozen_fold_fits.json": "4283632d8f08672398b330b5a5a078797d2c6182a41606b6b666386e0468bbd3",
+    "results.csv": "06bc97028357d8535f52ac65b6c8cdd5c22c0d0746ed437dbf79001cec0d586c"
+  },
+  "calendar_sources": {
+    "chain_id": 8453,
+    "end_exclusive_utc": "2026-10-27T00:00:00Z",
+    "exchange": "Uniswap V3",
+    "historical_observation_only": true,
+    "identity_evidence_path": "reports/strat01/2026-10-27-base-identity-observed.json",
+    "identity_evidence_sha256": "81d6b7597f4767f540bbfd4ec7b2a85d9b12f8122c93d1234145cb206597faa9",
+    "markets": {
+      "WETH": {
+        "expected_rows": 4536,
+        "fee_ppm": 500,
+        "first_open_utc": "2024-10-01T00:00:00Z",
+        "http_at_original_capture": 200,
+        "last_open_utc": "2026-10-26T20:00:00Z",
+        "missing_4h_opens_utc": [
+          "2026-06-25T16:00:00Z",
+          "2026-06-25T20:00:00Z",
+          "2026-06-26T00:00:00Z",
+          "2026-06-26T04:00:00Z",
+          "2026-06-26T08:00:00Z",
+          "2026-06-26T12:00:00Z",
+          "2026-06-26T16:00:00Z",
+          "2026-06-26T20:00:00Z",
+          "2026-06-27T00:00:00Z",
+          "2026-06-27T04:00:00Z",
+          "2026-06-27T08:00:00Z",
+          "2026-06-27T12:00:00Z",
+          "2026-06-27T16:00:00Z"
+        ],
+        "pair_id": 4564367,
+        "pool_address": "0xd0b53d9277642d899df5c87a3966a349a798f224",
+        "raw_filename": "WETH.jsonl",
+        "response_bytes": 1027713,
+        "response_sha256": "633f1681a8381d164ea05994e545f61ac4c5f2804428df7bf3cf7a09ca4abfd1",
+        "rows": 4523,
+        "scored_rows": 3971,
+        "url": "https://tradingstrategy.ai/api/candles-jsonl?pair_ids=4564367&time_bucket=4h&start=2024-10-01T00%3A00%3A00&end=2026-10-26T23%3A59%3A59&max_bytes=3000000",
+        "warmup_rows": 552,
+        "zero_volume_rows": 0
+      },
+      "cbBTC": {
+        "expected_rows": 4536,
+        "fee_ppm": 500,
+        "first_open_utc": "2024-10-01T00:00:00Z",
+        "http_at_original_capture": 200,
+        "last_open_utc": "2026-10-26T20:00:00Z",
+        "missing_4h_opens_utc": [
+          "2026-06-25T16:00:00Z",
+          "2026-06-25T20:00:00Z",
+          "2026-06-26T00:00:00Z",
+          "2026-06-26T04:00:00Z",
+          "2026-06-26T08:00:00Z",
+          "2026-06-26T12:00:00Z",
+          "2026-06-26T16:00:00Z",
+          "2026-06-26T20:00:00Z",
+          "2026-06-27T00:00:00Z",
+          "2026-06-27T04:00:00Z",
+          "2026-06-27T08:00:00Z",
+          "2026-06-27T12:00:00Z",
+          "2026-06-27T16:00:00Z"
+        ],
+        "pair_id": 4705508,
+        "pool_address": "0xfbb6eed8e7aa03b138556eedaf5d271a5e1e43ef",
+        "raw_filename": "cbBTC.jsonl",
+        "response_bytes": 1020875,
+        "response_sha256": "d14de847f54d0dee883fd1065bea1880f1a64d863998b3bbc09dadf5e52128f9",
+        "rows": 4523,
+        "scored_rows": 3971,
+        "url": "https://tradingstrategy.ai/api/candles-jsonl?pair_ids=4705508&time_bucket=4h&start=2024-10-01T00%3A00%3A00&end=2026-10-26T23%3A59%3A59&max_bytes=3000000",
+        "warmup_rows": 552,
+        "zero_volume_rows": 0
+      }
+    },
+    "missing_bar_treatment": "Retain gaps; no inferred price or volume.",
+    "provider": "Trading Strategy",
+    "score_start_utc": "2025-01-01T00:00:00Z",
+    "source_publication_time_known": false,
+    "source_snapshot_acquired_utc": "2026-10-31T17:12:12Z",
+    "time_bucket": "4h",
+    "warmup_start_utc": "2024-10-01T00:00:00Z"
+  },
+  "chain_replay": false,
+  "complete": 1602,
+  "engine": {
+    "git_blobs": {
+      "experiments/cost_aware_strategy/compare.py": "e52668da01ccb97b0003dc7f178c4de2e7c50e39",
+      "experiments/market_intelligence/forecast.py": "e9a72119b051141e8d84d68b537a7c611f39d80f",
+      "experiments/market_intelligence/intelligence.py": "9c0d7db3025522166bd5696d8bc0812f89c022c9",
+      "experiments/market_intelligence/run_study.py": "f457f39c9fb68111f5c55f7ea0bf32377368762b",
+      "experiments/payoff/logic.py": "b9e4e548d25a3ff5ff5d2c4ba9e84f43360ec6c9",
+      "experiments/payoff/study.py": "fb5422c0d1b86353d0274bc54da2cfb2e9c9ad6a",
+      "experiments/upstream_benchmark/benchmark.py": "a8f9b510cebc6322ed7908f85d686ca5945850d8",
+      "experiments/upstream_benchmark/requirements.lock": "05fa1da53cbf74dd180deecb18658f3dd9cc1fcd",
+      "research/payoff_protocol_20261017.json": "aecfb27cebac764a5ecdb80e064b9892aec209b1",
+      "research/revenue_strategy/EDGELAB_PROTOCOL.json": "ee3d36c780953736725e5cb805cf87a8e4ca4074"
+    },
+    "locked_versions": {
+      "Jinja2": "3.1.6",
+      "MarkupSafe": "3.0.4",
+      "PyYAML": "6.0.3",
+      "backtesting": "0.6.6",
+      "bokeh": "3.6.3",
+      "contourpy": "1.3.2",
+      "numpy": "2.2.6",
+      "packaging": "26.3",
+      "pandas": "2.2.3",
+      "pillow": "12.3.0",
+      "python-dateutil": "2.9.0.post0",
+      "pytz": "2026.5",
+      "six": "1.17.0",
+      "tornado": "6.5.10",
+      "tzdata": "2026.5",
+      "xyzservices": "2026.9.1"
+    },
+    "pr": 17,
+    "python": "3.12.14",
+    "repository": "https://github.com/DashSaman/Arz",
+    "source_tree": "db79545f5162518251eda73ec9fd3526411f9dc8"
+  },
+  "evidence_class": "REUSED HISTORICAL DEX CANDLES; HYPOTHETICAL NEXT OPEN AND COSTS",
+  "executable_quote": false,
+  "external_capital": 0,
+  "fresh_archive_precision": "original %.12g CSV then public 8-decimal extraction",
+  "group": "common",
+  "independent_oos": false,
+  "locked_legacy_selection": "slow_atr_trail",
+  "native_sources": [
+    {
+      "dataset": "old",
+      "local_filename": "old-4564367.jsonl",
+      "manifest": "reports/crossmarket_20261016/data_provenance.json",
+      "pair": 4564367,
+      "sha256": "40f4a87937d09ab21f1f112444785c09d0119f7d8b91ce48f5bdd5ad27d56aa3"
+    },
+    {
+      "dataset": "old",
+      "local_filename": "old-4705508.jsonl",
+      "manifest": "reports/crossmarket_20261016/data_provenance.json",
+      "pair": 4705508,
+      "sha256": "427da056b70bfc67f1ae7ff6e1ca94f41df4ec238a225e34f621d4cb1072323e"
+    },
+    {
+      "dataset": "old",
+      "local_filename": "old-1364813.jsonl",
+      "manifest": "reports/crossmarket_20261016/data_provenance.json",
+      "pair": 1364813,
+      "sha256": "dee8ce776cd6bcf6c9ded918f9e152c2bf2b6a439849aea3b31fb269dee36f53"
+    },
+    {
+      "dataset": "old",
+      "local_filename": "old-2601348.jsonl",
+      "manifest": "reports/crossmarket_20261016/data_provenance.json",
+      "pair": 2601348,
+      "sha256": "eafca55581c0fa42c111c1cec7b5d67d7eda3ffe90bb341f95325e08d023e708"
+    },
+    {
+      "dataset": "old",
+      "local_filename": "old-2854997.jsonl",
+      "manifest": "reports/crossmarket_20261016/data_provenance.json",
+      "pair": 2854997,
+      "sha256": "c23cdb0c07de450948d83133e369b70086f85c5814a1b5bceb9144ed33dc3466"
+    },
+    {
+      "dataset": "new",
+      "local_filename": "new-4564367.jsonl",
+      "manifest": "reports/fresh_window_20261017/data_provenance.json",
+      "pair": 4564367,
+      "sha256": "36824b77b3882402000281707ec2833c914d15f4ca2ac494ac15c86b68e8816e"
+    },
+    {
+      "dataset": "new",
+      "local_filename": "new-4705508.jsonl",
+      "manifest": "reports/fresh_window_20261017/data_provenance.json",
+      "pair": 4705508,
+      "sha256": "8cda8264dc60f33d081174537ca84ab37d91723c0ed9d4a956aec7917e86054b"
+    },
+    {
+      "dataset": "new",
+      "local_filename": "new-2854997.jsonl",
+      "manifest": "reports/fresh_window_20261017/data_provenance.json",
+      "pair": 2854997,
+      "sha256": "81f15f518cd6869a0ab39bcac7f6f4c149f904b53312cd0f1446833b4c28de40"
+    },
+    {
+      "dataset": "1h",
+      "local_filename": "1h-4564367.jsonl",
+      "manifest": "reports/upstream_benchmark_20261016/data_provenance.json",
+      "pair": 4564367,
+      "sha256": "09025d023e030e4b6f8718e1c6d67d626c91241aed734672846701ebbf6925a5"
+    },
+    {
+      "dataset": "1h",
+      "local_filename": "1h-4705508.jsonl",
+      "manifest": "reports/upstream_benchmark_20261016/data_provenance.json",
+      "pair": 4705508,
+      "sha256": "37257d3d096a02140088e83e1ebb68a1fbb00d0af63afdebcf1230969a9fa0b7"
+    }
+  ],
+  "paid_gas_observed": false,
+  "private_encoding": "fills and decisions: canonical JSON; equity sha256 over decompressed timestamp,17-digit-NAV CSV",
+  "protocol_blobs_sha256": {
+    "amend-pay": "a2e7dc78ef734b841d88284fea19a6c815ede81c73ed5473cd275eed22dc6eac",
+    "amend-up": "c90dcb582a28695f2347b85035c52abaf2384c0699978e167584d1c793b671ae",
+    "cross": "8857ae8afa5d0a96d99f6ae18bdd418ddbd2c000484903595276187726d7ce0f",
+    "edge": "771ce76df70028eaad2c6a414ef5b87e553345eed53cbfe36a7991e83089d939",
+    "fresh": "da3b1357853db450b3d6f317dafb2e001a5b5d484ea5dcdece44e122598b146c",
+    "intel": "3af3bdd4372fce5a218aeadd33e306f2f79de2ddb63fdb2a18775d2c78811470",
+    "payoff": "c8b58c74adb43b671463d6fdaed1849152bea1c14eaa5d7720b91b838730315b",
+    "upstream": "d6bbc4f5f3ca1cc9310b766723f7c479916298ede86af361638cf4d412a3e718"
+  },
+  "publication_wrapper_sha256": "4368e10fda45cee065b023be8d98d11100e2e0e2def001119ab280ff8fefbb18",
+  "qualified_forward_days_added": 0,
+  "rows": 2112,
+  "simulation_section_sha256": "c88bde44229bcaceb9cfc4d5d381c3fe4f7076603d6bc38d73eb6dc855ad1072",
+  "wrapper_sha256": "75e4073ade9adb521f8c4b65bebc834ebb85cb8c758486ee480dc95e85d7f45f"
+}

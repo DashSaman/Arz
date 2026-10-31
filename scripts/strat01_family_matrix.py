@@ -510,6 +510,10 @@ def compare_archive(rows, source):
             if expected is not None:
                 for key, val in zip(fields,expected,strict=True):
                     v = r[key]
+                    # The historical fresh runner first wrote %.12g; its public
+                    # extract then rounded that intermediate CSV to eight decimals.
+                    if family=="fresh" and v is not None:
+                        v = float(format(v,".12g"))
                     match = (v is None) if val is None else v is not None and abs(float(v)-val) <= .51*10**-digits
                     if not match:
                         raise ValueError(f"{family} {ident}: {key}={v} differs from {val}")
@@ -568,7 +572,7 @@ def compare_common_native(rows, file):
 
 
 def block_sensitivity(rows):
-    """Seven-calendar-day moving-block bootstrap on the two continuous annual accounts.
+    """Circular seven-day block bootstrap for eligible continuous annual accounts.
 
     Fixed seed and block length; this diagnostic does not produce independent trials.
     """
@@ -579,7 +583,8 @@ def block_sensitivity(rows):
     result = []
     paths = {}
     for r in rows:
-        if r["grid"] != "common" or r["period"]!="2025Year" or r["status"]!="COMPLETE":
+        if (r["grid"] != "common" or r["period"]!="2025Year" or r["status"]!="COMPLETE"
+                or r["calendar_days"]<180 or r["closed_cycles"]<10):
             continue
         blob = gzip.decompress((STATE["private"]/r["run_id"]/"marked_equity.csv.gz").read_bytes())
         if sha(blob)!=r["equity_sha256"]:
@@ -589,8 +594,8 @@ def block_sensitivity(rows):
         log_r = np.diff(np.log(np.r_[100.,daily]))
         # The same fixed block indices in every account support paired comparisons.
         rng = np.random.default_rng(17031)
-        starts = rng.integers(0,len(log_r)-6,size=(1000,math.ceil(len(log_r)/7)))
-        offsets = (starts[:,:,None]+np.arange(7)).reshape(1000,-1)[:,:len(log_r)]
+        starts = rng.integers(0,len(log_r),size=(1000,math.ceil(len(log_r)/7)))
+        offsets = ((starts[:,:,None]+np.arange(7)) % len(log_r)).reshape(1000,-1)[:,:len(log_r)]
         estimates = 100*np.expm1(log_r[offsets].mean(axis=1))
         lo,hi = np.quantile(estimates,[.025,.975])
         paths.setdefault((r["asset"],r["cost"]),{})[r["equity_sha256"]] = estimates
@@ -607,20 +612,87 @@ def block_sensitivity(rows):
     return result
 
 
+def alternate_grid(args, common, meta):
+    """Whole GeckoTerminal pages; never patch primary Trading Strategy bars."""
+    from dataclasses import replace
+    import pandas as pd
+    from scripts import strat01_alt_quarters as alt
+    pages = []
+    periods = {p for p,_,_ in alt.PERIODS}
+    for period,a,b in alt.PERIODS:
+        for pair in BASE:
+            asset = MARKETS[pair]
+            rows, digest, raw = alt.load_page(args.alternate_cache,"",asset,period,False)
+            group = "geckoterminal_"+period
+            frame = pd.DataFrame(rows,columns=["ts","Open","High","Low","Close","Volume"]).set_index("ts")
+            frame.index = pd.to_datetime(frame.index,unit="s",utc=True)
+            if frame.index[-1] >= pd.Timestamp(b,tz="UTC") or (frame.Volume<=0).any():
+                raise ValueError("Wrong alternate endpoint or missing reported volume")
+            # Shock implies HIGH volatility in the pinned formula. Replacing the
+            # raw volume column with positive constants must leave these three
+            # admitted entry gates identical. Never assign fictitious USD volume.
+            x = sys.modules["intelligence"].compute(frame)
+            y = sys.modules["intelligence"].compute(frame.assign(Volume=1.))
+            def entry_gates(f):
+                return (f.ready, f.ready & ~((f.volatility=="HIGH") | f.shock_proxy),
+                        f.ready & (f.trend_gap>0) & (f.trend_slope>0))
+            if not all(k.equals(v) for k,v in zip(entry_gates(x),entry_gates(y))):
+                raise ValueError("Volume unit changes gate; alternate transfer unsupported")
+            old = STATE["frames"]["calendar",pair,4].Volume
+            ratios = frame.Volume.div(old.reindex(frame.index)).dropna()
+            STATE["frames"][group,pair,4] = frame
+            STATE["hashes"][group,pair] = digest
+            pages.append(dict(asset=asset,period=period,raw_sha256=raw,candle_sha256=digest,rows=len(frame),
+                              common_volume_rows=len(ratios),median_alternate_primary_volume_ratio=float(ratios.median()),
+                              entry_gates_invariant_to_constant_volume=True))
+    meta.update(alternate_pages=pages,authorization_commit="64a8814",
+                alt_classification="POST_HOC_SEPARATE_PROVIDER_NOT_NEW_OOS",
+                volume_review="Primary volume is USD; alternate raw volume retained. Positive and same numerical scale on overlaps. Eligible gates empirically invariant to replacing volume by a positive constant; no fitted volume gate transferred.",
+                primary_volume_schema="https://tradingstrategy.ai/docs/_modules/tradingstrategy/candle.html",
+                provider_volume_reference="https://docs.coingecko.com/websocket/wssonchainohlcv")
+    return [replace(c,dataset="geckoterminal_"+c.period,grid="alternate_posthoc")
+            for c in common if c.period in periods]
+
+
+def alternate_worker(case):
+    if case.family=="upstream" and case.variant=="rsi_14_30_70_long":
+        rel,fixed = cost_for(case)
+        row = {**asdict(case),"asset":MARKETS[case.pair],"relative_each_leg":rel,"fixed_each_leg":fixed,
+               "warmup_bars":warmup(case),"source_sha256":STATE["hashes"][case.dataset,case.pair],
+               "engine_rev":ENGINE_REV}
+        row["run_id"] = sha(canonical(dict(identity=row,wrapper=STATE["wrapper"])))
+        return dict(**row,status="MISSING_ORIGINAL_RECURSIVE_SOURCE_PREFIX"),{}
+    return process_case(case)
+
+
 def run(args):
     from dataclasses import replace
     args.private.mkdir(parents=True,exist_ok=True)
     args.output.mkdir(parents=True,exist_ok=False)
     protocols, meta = setup(args.source,args.data,args.native,args.private)
+    # Preserve individual run IDs for a publication-only verifier amendment.
+    # This pin spans the data loading, case definitions, signal engine adapter,
+    # independent accounting and ledger serialization from commit bc5b67f.
+    source_bytes = Path(__file__).read_bytes()
+    engine_section = source_bytes.split(b"\ndef get_archive(",1)[0]
+    if sha(engine_section) != "c88bde44229bcaceb9cfc4d5d381c3fe4f7076603d6bc38d73eb6dc855ad1072":
+        raise ValueError("Frozen simulation changed; register a new run identity")
+    STATE["wrapper"] = "75e4073ade9adb521f8c4b65bebc834ebb85cb8c758486ee480dc95e85d7f45f"
+    meta.update(publication_wrapper_sha256=sha(source_bytes),simulation_section_sha256=sha(engine_section),
+                fresh_archive_precision="original %.12g CSV then public 8-decimal extraction")
     native = list(native_grid(protocols))
     common = list(common_grid(protocols))
     cases = (native + [replace(c,grid="native_legacy_units",historical_id=0) for c in native if c.family=="payoff"]
              if args.group=="native" else common)
+    if args.group=="alternate":
+        if args.alternate_cache is None:
+            raise ValueError("Provide the pinned --alternate-cache for this sensitivity")
+        cases = alternate_grid(args,common,meta)
     if args.family:
         cases = [c for c in cases if c.family in args.family]
     scores,fold_records = [],[]
     for ds in (["old"] if args.group=="native" else ["calendar"]):
-        if any(c.family=="intel" for c in cases):
+        if args.group!="alternate" and any(c.family=="intel" for c in cases):
             for pair in BASE:
                 if (ds,pair,4) in STATE["frames"]:
                     _, log, s = fit_folds(ds,pair)
@@ -632,7 +704,7 @@ def run(args):
     # Process-local engine patches in PR17 require isolated workers.
     rows,entries = [],{}
     with ProcessPoolExecutor(max_workers=args.workers,mp_context=multiprocessing.get_context("fork")) as pool:
-        for row,cycles in pool.map(process_case,cases,chunksize=2):
+        for row,cycles in pool.map(alternate_worker if args.group=="alternate" else process_case,cases,chunksize=2):
             rows.append(row)
             entries[row["run_id"]] = cycles
             if len(rows)%200 == 0:
@@ -674,7 +746,8 @@ if __name__=="__main__":
     parser.add_argument("--fetch-native",action="store_true",help="One public GET per missing registered native input, no retries")
     parser.add_argument("--private",type=Path,required=True)
     parser.add_argument("--output",type=Path,required=True)
-    parser.add_argument("--group",choices=("native","common"),required=True)
+    parser.add_argument("--group",choices=("native","common","alternate"),required=True)
+    parser.add_argument("--alternate-cache",type=Path,help="Four pinned GeckoTerminal pages, as verified by strat01_alt_quarters")
     parser.add_argument("--native-results",type=Path,help="Compare common overlapping cells with this verified native CSV")
     parser.add_argument("--family",action="append",choices=(*FAMILY_PROTOCOLS,"control"))
     parser.add_argument("--workers",type=int,default=4)
