@@ -1,0 +1,131 @@
+{
+  "collector_utc": "2026-10-31T17:55:55.472641+00:00",
+  "source": {
+    "repository": "https://github.com/DashSaman/Arz",
+    "pr": 17,
+    "source_tree": "db79545f5162518251eda73ec9fd3526411f9dc8",
+    "git_blobs": {
+      "experiments/payoff/logic.py": "b9e4e548d25a3ff5ff5d2c4ba9e84f43360ec6c9",
+      "experiments/market_intelligence/intelligence.py": "9c0d7db3025522166bd5696d8bc0812f89c022c9",
+      "experiments/market_intelligence/forecast.py": "e9a72119b051141e8d84d68b537a7c611f39d80f",
+      "experiments/payoff/study.py": "fb5422c0d1b86353d0274bc54da2cfb2e9c9ad6a",
+      "experiments/upstream_benchmark/benchmark.py": "a8f9b510cebc6322ed7908f85d686ca5945850d8",
+      "experiments/market_intelligence/run_study.py": "f457f39c9fb68111f5c55f7ea0bf32377368762b",
+      "experiments/cost_aware_strategy/compare.py": "e52668da01ccb97b0003dc7f178c4de2e7c50e39",
+      "experiments/upstream_benchmark/requirements.lock": "05fa1da53cbf74dd180deecb18658f3dd9cc1fcd",
+      "research/payoff_protocol_20261017.json": "aecfb27cebac764a5ecdb80e064b9892aec209b1",
+      "research/revenue_strategy/EDGELAB_PROTOCOL.json": "ee3d36c780953736725e5cb805cf87a8e4ca4074"
+    },
+    "locked_versions": {
+      "backtesting": "0.6.6",
+      "bokeh": "3.6.3",
+      "contourpy": "1.3.2",
+      "Jinja2": "3.1.6",
+      "MarkupSafe": "3.0.4",
+      "numpy": "2.2.6",
+      "packaging": "26.3",
+      "pandas": "2.2.3",
+      "pillow": "12.3.0",
+      "python-dateutil": "2.9.0.post0",
+      "pytz": "2026.5",
+      "PyYAML": "6.0.3",
+      "six": "1.17.0",
+      "tornado": "6.5.10",
+      "tzdata": "2026.5",
+      "xyzservices": "2026.9.1"
+    },
+    "python": "3.12.14"
+  },
+  "raw_cache_published": false,
+  "quote_currency": "USDC",
+  "historical_only": true,
+  "scope": "Alternate provider only; no splicing or change to paper or primary samples",
+  "cost_unit": "USDC per side",
+  "pages": [
+    {
+      "asset": "WETH",
+      "quarter": "2026Q2",
+      "url": "https://api.geckoterminal.com/api/v2/networks/base/pools/0xd0b53d9277642d899df5c87a3966a349a798f224/ohlcv/hour?aggregate=4&limit=1000&currency=token&token=0x4200000000000000000000000000000000000006&include_empty_intervals=false&before_timestamp=1782863999",
+      "raw_sha256": "4cd7ab73aa573cd8b03b533a32d7bf4648ce80527a11751bda061ce173671659",
+      "sorted_rows_sha256": "335751c22d229a0a33b3cd83624439a9d244d7d4b35725a5cf7634c9487a662f",
+      "source_rows": 1000,
+      "study_rows": 740,
+      "coverage": {
+        "status": "COMPLETE",
+        "required_warmup_bars": 194,
+        "expected_test_bars": 546,
+        "missing_warmup_bars": 0,
+        "missing_test_bars": 0,
+        "missing_warmup_opens_utc": [],
+        "missing_test_opens_utc": []
+      },
+      "shared_close_count": 727,
+      "median_abs_close_difference_bps": 4.889919490922434,
+      "max_abs_close_difference_bps": 69.22071408007602
+    },
+    {
+      "asset": "WETH",
+      "quarter": "2026Q3",
+      "url": "https://api.geckoterminal.com/api/v2/networks/base/pools/0xd0b53d9277642d899df5c87a3966a349a798f224/ohlcv/hour?aggregate=4&limit=1000&currency=token&token=0x4200000000000000000000000000000000000006&include_empty_intervals=false&before_timestamp=1790812799",
+      "raw_sha256": "1a24f71bef0f1298a0cae11f738639cbbd9c1c157d6b887504b1799396e47d91",
+      "sorted_rows_sha256": "ba9cbefda429448e6206958bcc27a0a945520ee6a479ae34219bea3c620000dd",
+      "source_rows": 1000,
+      "study_rows": 746,
+      "coverage": {
+        "status": "COMPLETE",
+        "required_warmup_bars": 194,
+        "expected_test_bars": 552,
+        "missing_warmup_bars": 0,
+        "missing_test_bars": 0,
+        "missing_warmup_opens_utc": [],
+        "missing_test_opens_utc": []
+      },
+      "shared_close_count": 733,
+      "median_abs_close_difference_bps": 5.0300772668765426,
+      "max_abs_close_difference_bps": 37.02188453236332
+    },
+    {
+      "asset": "cbBTC",
+      "quarter": "2026Q2",
+      "url": "https://api.geckoterminal.com/api/v2/networks/base/pools/0xfbb6eed8e7aa03b138556eedaf5d271a5e1e43ef/ohlcv/hour?aggregate=4&limit=1000&currency=token&token=0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf&include_empty_intervals=false&before_timestamp=1782863999",
+      "raw_sha256": "daf00ef6c4d8aef961425bcf3ba05bdab8a48da82b85f0376039aece25a10e69",
+      "sorted_rows_sha256": "b0ba35a7c8108665e21977214d21ccc1522f6c40cfd9c27d9d832cea6582c3c3",
+      "source_rows": 1000,
+      "study_rows": 740,
+      "coverage": {
+        "status": "COMPLETE",
+        "required_warmup_bars": 194,
+        "expected_test_bars": 546,
+        "missing_warmup_bars": 0,
+        "missing_test_bars": 0,
+        "missing_warmup_opens_utc": [],
+        "missing_test_opens_utc": []
+      },
+      "shared_close_count": 727,
+      "median_abs_close_difference_bps": 4.747450513082896,
+      "max_abs_close_difference_bps": 2501.301013868376
+    },
+    {
+      "asset": "cbBTC",
+      "quarter": "2026Q3",
+      "url": "https://api.geckoterminal.com/api/v2/networks/base/pools/0xfbb6eed8e7aa03b138556eedaf5d271a5e1e43ef/ohlcv/hour?aggregate=4&limit=1000&currency=token&token=0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf&include_empty_intervals=false&before_timestamp=1790812799",
+      "raw_sha256": "a93bd1b2a94f9328dcc9db35de85a38b62bf93f5f160f99aac327f1840afea7b",
+      "sorted_rows_sha256": "e5cc6b426e1282c4bc0ac858d24338f0fdeca8723747bcca8c3df792b9bdb938",
+      "source_rows": 1000,
+      "study_rows": 746,
+      "coverage": {
+        "status": "COMPLETE",
+        "required_warmup_bars": 194,
+        "expected_test_bars": 552,
+        "missing_warmup_bars": 0,
+        "missing_test_bars": 0,
+        "missing_warmup_opens_utc": [],
+        "missing_test_opens_utc": []
+      },
+      "shared_close_count": 733,
+      "median_abs_close_difference_bps": 4.9064890907424275,
+      "max_abs_close_difference_bps": 333.5344982489152
+    }
+  ],
+  "independent_cases_verified": 36
+}

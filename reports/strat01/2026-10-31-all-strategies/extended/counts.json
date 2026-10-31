@@ -1,0 +1,27 @@
+{
+  "calendar_complete": 2440,
+  "calendar_rows": 3168,
+  "calendar_zero_closed_cycle_complete_rows": 244,
+  "cash_authorized": 0,
+  "exclusions_by_reason": {
+    "NATIVE_CONFIG_WETH_ONLY": 132,
+    "TEST_GAP_13": 228,
+    "TEST_GAP_3": 48,
+    "WARMUP_19_REQUIRED_24": 4,
+    "WARMUP_19_REQUIRED_48": 4,
+    "WARMUP_19_REQUIRED_73": 208,
+    "WARMUP_19_REQUIRED_96": 8,
+    "WARMUP_34_REQUIRED_73": 48,
+    "WARMUP_3_REQUIRED_73": 48
+  },
+  "forward_days_added": 0,
+  "original": {
+    "extended": 516,
+    "followup": 174,
+    "mvp": 24,
+    "phase3": 464
+  },
+  "original_inputs_recovered_without_mixing_sources": true,
+  "raw_markets_published": false,
+  "unique_candidate_ids": 30
+}

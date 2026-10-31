@@ -1,0 +1,15 @@
+{
+  "adapter_sha256": "e66ee3433ec21433e43e73225445b63ece365eae80eacae5922d0cde091349ed",
+  "audit": "All completed cells independently verified each fill price and fee, every bar cash+units*close, reserve and hard $25 limits, and endpoint. Retrospective modeled costs; no observed chain fills.",
+  "engine_pr17": "db79545f5162518251eda73ec9fd3526411f9dc8",
+  "extended_independent_fresh_process_repeat": {
+    "comparison": "All result fields and every order/event/target/fill/cycle/bar equity equal; preparatory copy used a different run-ID derivation before final provenance annotation.",
+    "matrix_rows": 2904,
+    "nonblocked_fully_equal_journals": 2328
+  },
+  "main_market_mvp": "dfc9d7b76180f07e103dd413483a87524200b411",
+  "private_reproducible_journals": {
+    "extended.jsonl.gz": "237ccd252cc49abb022fd46eae66eda85ce56e6be291759746cb977285744e11",
+    "mvp.jsonl.gz": "05478bea1674bef91e128182f31757e704c0beffadb55c8a7b7302269110c07e"
+  }
+}

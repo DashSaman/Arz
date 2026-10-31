@@ -1,0 +1,49 @@
+# MVP, extended registry and Phase 3
+
+These are historical account simulations. All shared-calendar dates precede 2026-10-27 UTC and all windows were seen. Every single-market case starts with its own $100. The annual run carries cash and inventory through December. No case supplies a qualified forward day, an executable quote, an independently replayed swap or an actual L1/L2 fee.
+
+## Reproduction
+
+From the Arz repository root use the pinned PR17 checkout, the runtime used by PR64 and PyArrow 19.0.1 to decode the academic source. Run each command with a fresh interpreter. The first input command makes four bounded public requests when caches are empty. Do not publish the raw provider inputs or full private journals.
+
+```sh
+engine=/tmp/arz-pr17-engine
+python -m scripts.strat01_period_data --fetch
+python scripts/strat01_extended_matrix.py fetch_inputs --engine "$engine"
+for stage in mvp_original extended followup phase3 calendar_mvp calendar_extended; do
+  python scripts/strat01_extended_matrix.py "$stage" --engine "$engine"
+done
+python reports/strat01/2026-10-31-all-strategies/extended/summarize.py
+PYTHONPATH=src:. python -m unittest discover -s tests -p 'test_strat01_extended_matrix.py'
+```
+
+The extended and Phase 3 code comes from `db79545f5162518251eda73ec9fd3526411f9dc8`. The original MVP replay uses the historical risk semantics in that source tree. Calendar MVP uses the merged protective-exit rule from #40. Original ledgers and experiment configurations are verified against the PR17 tree and its manifests. For exact academic replay the script rereads the Parquet, checks its SHA-256, verifies pool identity and computes signals again. It refits the original ridge logistic model in its development slice and verifies the saved weights. Original-model labels end before the validation boundary, with no three-bar label crossing it. Calendar transfers use the frozen academic WETH/USDC 4h model, trained through 2023-07-02. There is no new validation-driven model selection or rolling refit on the Base test. Two frozen thresholds use this same trained model.
+
+## Calendar conventions
+
+- PR64 verified Base WETH/USDC and cbBTC/USDC, native 4-hour candles, provider volume as USD notional. For the three frozen daily finalists, aggregate all six observed 4-hour candles per UTC day. Drop incomplete days. Original protocol rows retain their actual 1h, 4h or daily source resolution.
+- Extended Stage A is 4h with a cap of five ordinary attempts, and the three original finalists are separately shown at daily resolution and cap one. Phase 3's adaptive momentum common comparator uses its registered 4h/cap-five combination. The two grid variants can add tranches. They are historical diagnostics outside the no-averaging decision.
+- Use the entire contiguous observed prefix before the period. MVP needs 48, 13 or 24 completed observations for trend, momentum or mean reversion. Extended needs at least 73 to enable an entry on the first scored open. Higher-timeframe confirmation additionally requires 12 or 16 completed UTC days. A scoring gap invalidates the period. A warmup gap is tested against each rule's own requirement. Ineligible rows have empty financial fields.
+- MVP uses $20 entries and a $25 order limit, $10 minimum cash, four ordinary attempts and no terminal liquidation. Its size-matched hold buys at the first open and marks the ending inventory under the same costs. Extended uses up to 20% of current equity; its unchanged signal functions target allocation using the previous completed bar. The bounded calendar adapter clips each order to $25 at reference, enforces at least $10 reserve, and marks residual units if a capped or rejected terminal sell leaves inventory open. Ordinary native sell, forced exit, volume rejection and final-bar closeout remain observable in the private journal. The extended hold20 uses the same costs, volume handling and terminal rule, with native risk halts disabled.
+- Native MVP cost per side is 5 basis points fee, 10 basis points adverse fill and $0.01. Native extended adds size divided by $10,000 effective depth and enforces lagged volume. Both Base pools report fee tier 500 ppm. The three common cost cases charge respectively 15 bp + $0.01, 30 bp + $0.02, and 30 bp + $0.05 on each modeled fill, with no additional spread or depth penalty. None incorporates measured follower-time execution. No failed transactions are injected into the common base cases. Old failure scenarios preserve their own attempted-transaction gas.
+- Closing inventory follows each engine's native endpoint convention. Drawdown is independently calculated from cash plus close-marked inventory including the $100 initial peak. The native extended risk statistic also marks opens. The lowest monthly return compares the last available mark with the preceding month's closing mark, or $100 for the first period. Top winner fractions use total positive cycle P&L. P&L after removing wins subtracts those realized outcomes without a counterfactual rerun.
+- All compared returns include idle days. Arithmetic attribution matches parent entries by exact fill timestamp. An unmatched cycle can arise from different earlier inventory or risk halts as well as a filter. These counts do not establish the causal outcome of a suppressed order. The 95% descriptive interval uses 500 seeded circular seven-day block resamples of calendar-day log returns if the account has at least 60 days and five closed cycles. It does not correct for correlation or repeated selection.
+- Calendar results include the cash comparator (zero), a matched-size hold benchmark and the simpler parent where both cells exist. Daily parent-control rows are marked separately. A candidate's PF with no losses, an empty no-cycle statistic and a blocked result are distinct. An open position marked at the end can have P&L even with zero closed cycles.
+
+The checksum-pinned academic dataset is CC BY 4.0. Attribution goes to Zhou, Liu and Brini (2025), Dataset for Graph Neural Networks for Bridge Swap Link Prediction in Uniswap v3, DOI 10.5281/zenodo.17302324. Recent transfer and MVP prices are powered by CoinGecko / GeckoTerminal. Published results are derived summaries. The two ETH pools share risk, cost cases reuse prices, and continuous annual results overlap quarterly accounts.
+
+The continuous GeckoTerminal WETH source used for the original MVP overlaps Trading Strategy at 986 timestamps. Absolute differences relative to Trading Strategy were 2.0952 bp at the median close and 61.2231 bp at the largest close. The largest low and volume deviations were 408.0958 bp and 1934.6236 bp. The two sources are kept separate throughout. Those overlapping original MVP observations do not repair the frozen PR64 June gap.
+
+## Decisions and limitations
+
+All 1,178 original cases replayed from matching normalized inputs. They consist of 24 MVP cases, 516 extended cases, 174 daily follow-ups and 464 Phase 3 cases. The 30 distinct candidate IDs include two laddered grid strategies kept as excluded historical diagnostics. The 28 in-policy versions all have historical simulations. None has sufficient evidence for an approved Paper candidate. Eight in-policy IDs showed a positive 2025 result at both shared base and stress costs in at least one market or clock. The comparisons reuse the same markets and dates.
+
+The shared calendar contains 3,168 attempted cells, 2,440 marked paths, 596 coverage exclusions and 132 MVP market-contract exclusions. It includes parent benchmarks and supplemental dates. The native MVP Config admits only Base WETH/USDC. Initial attempts to run cbBTC failed its reviewed market-identity allowlist. The matrix therefore reports those 132 entries as excluded with empty P&L. Unlike the longer rules, MVP momentum can score 2026-Q3 because its 13-bar warmup fits the 19 available 4h bars before July. Both primary markets lack 13 scored June 4h observations; daily aggregation consequently drops three UTC days.
+
+The highest annual stress geometric daily return in this lane was 0.016583% for WETH ensemble_v1. Its 2025 base scenario made $2.05 over 27 closed cycles. Under stress it made $6.24 over 18 cycles, but subtracting its single largest winner leaves −$2.83. In both cases the 7-day block interval includes zero. The different costs changed the residual after the $25 exit cap on August 17. Mid cleared its ~$0.687 residual at the next open and resumed. Stress rejected 515 ordinary attempts involving that dust before terminally selling ~$0.037 at December's last close. Neither case triggered a risk halt. WETH volatility_breakout_v2 returned +6.76% base and +4.09% stress on a 2025 account, with 16 base cycles and 6.37% close-marked drawdown. WETH atr_channel_v2 returned +7.01% and +3.94%, with 17 base cycles and 6.28% drawdown. The 2025 MVP mean-reversion outcome on WETH changed from +5.99% to −1.45% under stress, with 53 base cycles.
+
+### فارسی
+
+هر ۱٬۱۷۸ اجرای اصلی با دادهٔ قابل تطبیق بازاجرا شد. از ۳۰ نسخه، دو Grid پله‌ای فقط تشخیصی هستند. ۲۸ نسخهٔ دیگر شواهد تاریخی دارند و هیچ‌کدام برای ورود رسمی به Paper تأیید نشدند. بهترین نرخ هندسی روزانهٔ آزمون فشارِ سال ۲۰۲۵ در این مجموعه ۰٫۰۱۶۶٪ بود. در WETH، علامت بازده MVP بازگشت به میانگین از ۵٫۹۹٪ مثبت در هزینهٔ پایه به ۱٫۴۵٪ منفی در فشار تغییر کرد. ۵۳ چرخهٔ بستهٔ پایه ثبت شد. برای ۱۳۲ خانهٔ MVP در cbBTC، محدودیت بازار خود موتور اجازهٔ شبیه‌سازی نداد. ۵۹۶ خانهٔ دیگر پوشش کندل یا پیش‌نیاز کافی نداشتند. تمام نتایج تاریخی‌اند و روز Paper جدیدی ایجاد نمی‌کنند.
+
+برای ۲۰۲۵، شکست نوسان نسخهٔ دوم WETH در پایه ۶٫۷۶٪ و در فشار ۴٫۰۹٪ بازده داشت. افت پایه ۶٫۳۷٪ و شمار چرخه‌ها ۱۶ بود. مقدار فشار ۶٫۲۴٪ در ensemble_v1 با حذف بزرگ‌ترین برد به زیان ۲٫۸۳ دلاری تبدیل می‌شود. هزینه‌ها رفتار خروج با سقف ۲۵ دلار را تغییر دادند و ۵۱۵ تلاش خروج ماندهٔ کوچک رد شد. هزینه و قیمت قطعی اجرا، بازهٔ دست‌نخورده و سابقهٔ Paper برای تأیید در دست نیست.

@@ -1,0 +1,41 @@
+{
+  "academic": {
+    "attribution": "Zhou, Liu and Brini (2025), DOI 10.5281/zenodo.17302324",
+    "bytes": 14313055,
+    "license": "CC BY 4.0",
+    "sha256": "ed88166e388b3acf000783c354ba5888434f4c22a50c8e120cd8a6bb3dbdc58f",
+    "url": "https://zenodo.org/records/17302324/files/pool_hourly_data.parquet?download=1"
+  },
+  "calendar_data_manifest": "scripts/strat01_period_data.py",
+  "geckoterminal_daily_transfer": [
+    {
+      "market": "base_weth",
+      "normalized_sha256": "eba1cbe328f88b70afe87fced6cd3ea17c2f9ac01b997873c807272ca38bbfbf",
+      "response_sha256": "38cf4bc57c9dade712d4df9e4e8aa976e554a6534afe4c0a3421132408d99f92",
+      "rows": 183,
+      "url": "https://api.geckoterminal.com/api/v2/networks/base/pools/0xd0b53d9277642d899df5c87a3966a349a798f224/ohlcv/day?aggregate=1&limit=1000&currency=usd&token=0x4200000000000000000000000000000000000006&include_empty_intervals=false&before_timestamp=1791849599"
+    },
+    {
+      "market": "solana_sol",
+      "normalized_sha256": "f809ebc8a567b770f862f520cc78dd2a64a166da5481b881ade9c0490934fb6a",
+      "response_sha256": "09dd6265ee4d2d1160519eb39fdf11b9902a94b5651e02041c8d501c0d5bb71b",
+      "rows": 183,
+      "url": "https://api.geckoterminal.com/api/v2/networks/solana/pools/Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE/ohlcv/day?aggregate=1&limit=1000&currency=usd&token=So11111111111111111111111111111111111111112&include_empty_intervals=false&before_timestamp=1791849599"
+    }
+  ],
+  "missing_june_4h_bars": 13,
+  "mvp": {
+    "fresh_http_response_sha256": "dfbfe0ffd6effc0b359018a5a7e1c5cc8f57fdec4425bce260feb57b9bb0d3a3",
+    "matching_original_normalized_input": true,
+    "normalized_rows": 999,
+    "normalized_sha256": "283346087387fac0d312971e8c408c16d184212efe1458e06b692d0daf351e30",
+    "url": "https://api.geckoterminal.com/api/v2/networks/base/pools/0xd0b53d9277642d899df5c87a3966a349a798f224/ohlcv/hour?aggregate=4&limit=1000&currency=usd&token=0x4200000000000000000000000000000000000006&include_empty_intervals=false&before_timestamp=1791849600"
+  },
+  "original_ledgers": {
+    "run_60aeec0028f2/followup_ledgers.jsonl.gz": "36ef267c4fb312882a5ef3df23577957c217e318279311254737a4762a3fcf5f",
+    "run_e3812752665b/all_run_ledgers.jsonl.gz": "30c924753a41886e78dcc50b6f80057600d8144ac737812f2cec09e0131b1e14",
+    "run_phase3_ba0874428e9b/ledgers.jsonl.gz": "45515d4ac32759a83b302e1685577e9babacfe137079264f9bb72333085773ab"
+  },
+  "original_public_data_retrieval_utc_date": "2026-10-31",
+  "source_code": "db79545f5162518251eda73ec9fd3526411f9dc8"
+}
