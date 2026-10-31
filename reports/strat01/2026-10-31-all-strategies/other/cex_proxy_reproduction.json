@@ -1,0 +1,11 @@
+{
+  "native_pr": 27,
+  "source": "Binance Data Vision public SPOT archives",
+  "archive_count": 176,
+  "all_source_hashes_and_all_result_fields_equal": true,
+  "full_json_sha256": "d253051b6154a8e8baa26c34b868bb15655b704c96f937aafeea43ae7d27284a",
+  "first_source_date": "2023-10-01",
+  "end_exclusive": "2026-10-24",
+  "real_eligible_DEX_accounts": 0,
+  "classification": "CEX_PROXY_SEEN_HISTORY"
+}

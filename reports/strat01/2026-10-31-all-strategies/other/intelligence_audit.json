@@ -1,0 +1,10 @@
+{
+  "native_portfolio_rows_checked": 168,
+  "archive_max_difference": 4.973987222101073e-09,
+  "native_forecast_metrics_checked": 256,
+  "forecast_max_difference": 4.998419733670545e-10,
+  "native_locked_fits_per_market": 12,
+  "common_quarterly_fits_per_market": 24,
+  "purge": "label available before fit cutoff minus 24h embargo",
+  "new_holdout": false
+}

@@ -1,0 +1,985 @@
+{
+  "native_equity_paths_verified": 8,
+  "K01_paired_stationary_bootstrap": [
+    {
+      "pair_id": 4564367,
+      "cost": "mid",
+      "days": 365,
+      "expected_block_days": 7,
+      "draws": 4096,
+      "seed": 20261024,
+      "mean_log_advantage": 2.978454461113648e-05,
+      "observed_relative_wealth_advantage_pct": 1.093066672843106,
+      "mean_log_percentiles": [
+        1.889699501377151e-08,
+        2.97737423419757e-05,
+        9.04850733838431e-05
+      ],
+      "relative_wealth_percentiles": [
+        0.0006897426967174476,
+        1.0926680810303777,
+        3.357849902070164
+      ],
+      "resampled_share_nonpositive": 0.00537109375,
+      "classification": "CONDITIONAL_STATIONARY_PAIRED_RESAMPLING_NOT_NEW_BACKTEST",
+      "selection_adjusted": false,
+      "future_profit_probability": false,
+      "new_market_data": false,
+      "stationarity_empirically_established": false
+    },
+    {
+      "pair_id": 4564367,
+      "cost": "mid",
+      "days": 365,
+      "expected_block_days": 30,
+      "draws": 4096,
+      "seed": 20261047,
+      "mean_log_advantage": 2.978454461113648e-05,
+      "observed_relative_wealth_advantage_pct": 1.093066672843106,
+      "mean_log_percentiles": [
+        1.877041853964735e-08,
+        2.9779246656089332e-05,
+        8.928638610203602e-05
+      ],
+      "relative_wealth_percentiles": [
+        0.0006851226236517327,
+        1.0928711839512937,
+        3.312638576671274
+      ],
+      "resampled_share_nonpositive": 0.000732421875,
+      "classification": "CONDITIONAL_STATIONARY_PAIRED_RESAMPLING_NOT_NEW_BACKTEST",
+      "selection_adjusted": false,
+      "future_profit_probability": false,
+      "new_market_data": false,
+      "stationarity_empirically_established": false
+    },
+    {
+      "pair_id": 4564367,
+      "cost": "stress",
+      "days": 365,
+      "expected_block_days": 7,
+      "draws": 4096,
+      "seed": 20261024,
+      "mean_log_advantage": 3.3454383569177466e-05,
+      "observed_relative_wealth_advantage_pct": 1.2285706809764472,
+      "mean_log_percentiles": [
+        1.072537268640617e-07,
+        3.3393203356402705e-05,
+        0.00010309790714920759
+      ],
+      "relative_wealth_percentiles": [
+        0.003914837658314618,
+        1.226310193510769,
+        3.834773821513698
+      ],
+      "resampled_share_nonpositive": 0.00537109375,
+      "classification": "CONDITIONAL_STATIONARY_PAIRED_RESAMPLING_NOT_NEW_BACKTEST",
+      "selection_adjusted": false,
+      "future_profit_probability": false,
+      "new_market_data": false,
+      "stationarity_empirically_established": false
+    },
+    {
+      "pair_id": 4564367,
+      "cost": "stress",
+      "days": 365,
+      "expected_block_days": 30,
+      "draws": 4096,
+      "seed": 20261047,
+      "mean_log_advantage": 3.3454383569177466e-05,
+      "observed_relative_wealth_advantage_pct": 1.2285706809764472,
+      "mean_log_percentiles": [
+        1.0631099389508975e-07,
+        3.342452929268606e-05,
+        9.998186975388667e-05
+      ],
+      "relative_wealth_percentiles": [
+        0.003880426563808056,
+        1.2274676183920423,
+        3.716744049819388
+      ],
+      "resampled_share_nonpositive": 0.000732421875,
+      "classification": "CONDITIONAL_STATIONARY_PAIRED_RESAMPLING_NOT_NEW_BACKTEST",
+      "selection_adjusted": false,
+      "future_profit_probability": false,
+      "new_market_data": false,
+      "stationarity_empirically_established": false
+    },
+    {
+      "pair_id": 4705508,
+      "cost": "mid",
+      "days": 365,
+      "expected_block_days": 7,
+      "draws": 4096,
+      "seed": 20261024,
+      "mean_log_advantage": 2.221918550326931e-05,
+      "observed_relative_wealth_advantage_pct": 0.8142977863246763,
+      "mean_log_percentiles": [
+        -1.1096091180475317e-05,
+        2.221482667816189e-05,
+        7.775580904419479e-05
+      ],
+      "relative_wealth_percentiles": [
+        -0.4041882795169953,
+        0.8141373938115484,
+        2.8787444395566415
+      ],
+      "resampled_share_nonpositive": 0.1435546875,
+      "classification": "CONDITIONAL_STATIONARY_PAIRED_RESAMPLING_NOT_NEW_BACKTEST",
+      "selection_adjusted": false,
+      "future_profit_probability": false,
+      "new_market_data": false,
+      "stationarity_empirically_established": false
+    },
+    {
+      "pair_id": 4705508,
+      "cost": "mid",
+      "days": 365,
+      "expected_block_days": 30,
+      "draws": 4096,
+      "seed": 20261047,
+      "mean_log_advantage": 2.221918550326931e-05,
+      "observed_relative_wealth_advantage_pct": 0.8142977863246763,
+      "mean_log_percentiles": [
+        0.0,
+        2.221918550326931e-05,
+        6.665755650980793e-05
+      ],
+      "relative_wealth_percentiles": [
+        0.0,
+        0.8142977863246763,
+        2.4628397800480926
+      ],
+      "resampled_share_nonpositive": 0.21435546875,
+      "classification": "CONDITIONAL_STATIONARY_PAIRED_RESAMPLING_NOT_NEW_BACKTEST",
+      "selection_adjusted": false,
+      "future_profit_probability": false,
+      "new_market_data": false,
+      "stationarity_empirically_established": false
+    },
+    {
+      "pair_id": 4705508,
+      "cost": "stress",
+      "days": 365,
+      "expected_block_days": 7,
+      "draws": 4096,
+      "seed": 20261024,
+      "mean_log_advantage": 2.6049585589784194e-05,
+      "observed_relative_wealth_advantage_pct": 0.9553444313884191,
+      "mean_log_percentiles": [
+        -9.100588977153787e-06,
+        2.6023596462205705e-05,
+        8.727533487408486e-05
+      ],
+      "relative_wealth_percentiles": [
+        -0.331620418491652,
+        0.9543867703465803,
+        3.236831444404415
+      ],
+      "resampled_share_nonpositive": 0.143310546875,
+      "classification": "CONDITIONAL_STATIONARY_PAIRED_RESAMPLING_NOT_NEW_BACKTEST",
+      "selection_adjusted": false,
+      "future_profit_probability": false,
+      "new_market_data": false,
+      "stationarity_empirically_established": false
+    },
+    {
+      "pair_id": 4705508,
+      "cost": "stress",
+      "days": 365,
+      "expected_block_days": 30,
+      "draws": 4096,
+      "seed": 20261047,
+      "mean_log_advantage": 2.6049585589784194e-05,
+      "observed_relative_wealth_advantage_pct": 0.9553444313884191,
+      "mean_log_percentiles": [
+        0.0,
+        2.6049585589784194e-05,
+        7.814875676935258e-05
+      ],
+      "relative_wealth_percentiles": [
+        0.0,
+        0.9553444313884191,
+        2.893500976303307
+      ],
+      "resampled_share_nonpositive": 0.21435546875,
+      "classification": "CONDITIONAL_STATIONARY_PAIRED_RESAMPLING_NOT_NEW_BACKTEST",
+      "selection_adjusted": false,
+      "future_profit_probability": false,
+      "new_market_data": false,
+      "stationarity_empirically_established": false
+    }
+  ],
+  "K02_fixed_ledger_overlays": [
+    {
+      "path": [
+        4564367,
+        "mid",
+        "ATR_baseline"
+      ],
+      "scenario": {
+        "monthly": 0.0,
+        "extra_per_leg": 0.0
+      },
+      "net_after_extra_cost_usd": 6.161638878225261,
+      "archived_ending": 106.16163887822526
+    },
+    {
+      "path": [
+        4564367,
+        "mid",
+        "ATR_baseline"
+      ],
+      "scenario": {
+        "monthly": 0.25,
+        "extra_per_leg": 0.0
+      },
+      "net_after_extra_cost_usd": 3.1616388782252614,
+      "archived_ending": 103.16163887822526
+    },
+    {
+      "path": [
+        4564367,
+        "mid",
+        "ATR_baseline"
+      ],
+      "scenario": {
+        "monthly": 0.5,
+        "extra_per_leg": 0.0
+      },
+      "net_after_extra_cost_usd": 0.16163887822526135,
+      "archived_ending": 100.16163887822526
+    },
+    {
+      "path": [
+        4564367,
+        "mid",
+        "ATR_baseline"
+      ],
+      "scenario": {
+        "monthly": 1.0,
+        "extra_per_leg": 0.0
+      },
+      "net_after_extra_cost_usd": -5.838361121774739,
+      "archived_ending": 94.16163887822526
+    },
+    {
+      "path": [
+        4564367,
+        "mid",
+        "ATR_baseline"
+      ],
+      "scenario": {
+        "monthly": 0.0,
+        "extra_per_leg": 0.01
+      },
+      "net_after_extra_cost_usd": 5.901638878225256,
+      "archived_ending": 105.90163887822526
+    },
+    {
+      "path": [
+        4564367,
+        "mid",
+        "ATR_baseline"
+      ],
+      "scenario": {
+        "monthly": 0.0,
+        "extra_per_leg": 0.05
+      },
+      "net_after_extra_cost_usd": 4.861638878225264,
+      "archived_ending": 104.86163887822526
+    },
+    {
+      "path": [
+        4564367,
+        "mid",
+        "ATR_baseline"
+      ],
+      "scenario": {
+        "monthly": 0.0,
+        "extra_per_leg": 0.1
+      },
+      "net_after_extra_cost_usd": 3.561638878225267,
+      "archived_ending": 103.56163887822527
+    },
+    {
+      "path": [
+        4564367,
+        "mid",
+        "ATR_avoid_volatility_shock"
+      ],
+      "scenario": {
+        "monthly": 0.0,
+        "extra_per_leg": 0.0
+      },
+      "net_after_extra_cost_usd": 7.322056372147145,
+      "archived_ending": 107.32205637214714
+    },
+    {
+      "path": [
+        4564367,
+        "mid",
+        "ATR_avoid_volatility_shock"
+      ],
+      "scenario": {
+        "monthly": 0.25,
+        "extra_per_leg": 0.0
+      },
+      "net_after_extra_cost_usd": 4.322056372147145,
+      "archived_ending": 104.32205637214714
+    },
+    {
+      "path": [
+        4564367,
+        "mid",
+        "ATR_avoid_volatility_shock"
+      ],
+      "scenario": {
+        "monthly": 0.5,
+        "extra_per_leg": 0.0
+      },
+      "net_after_extra_cost_usd": 1.322056372147145,
+      "archived_ending": 101.32205637214714
+    },
+    {
+      "path": [
+        4564367,
+        "mid",
+        "ATR_avoid_volatility_shock"
+      ],
+      "scenario": {
+        "monthly": 1.0,
+        "extra_per_leg": 0.0
+      },
+      "net_after_extra_cost_usd": -4.677943627852855,
+      "archived_ending": 95.32205637214714
+    },
+    {
+      "path": [
+        4564367,
+        "mid",
+        "ATR_avoid_volatility_shock"
+      ],
+      "scenario": {
+        "monthly": 0.0,
+        "extra_per_leg": 0.01
+      },
+      "net_after_extra_cost_usd": 7.08205637214715,
+      "archived_ending": 107.08205637214715
+    },
+    {
+      "path": [
+        4564367,
+        "mid",
+        "ATR_avoid_volatility_shock"
+      ],
+      "scenario": {
+        "monthly": 0.0,
+        "extra_per_leg": 0.05
+      },
+      "net_after_extra_cost_usd": 6.122056372147142,
+      "archived_ending": 106.12205637214714
+    },
+    {
+      "path": [
+        4564367,
+        "mid",
+        "ATR_avoid_volatility_shock"
+      ],
+      "scenario": {
+        "monthly": 0.0,
+        "extra_per_leg": 0.1
+      },
+      "net_after_extra_cost_usd": 4.922056372147139,
+      "archived_ending": 104.92205637214714
+    },
+    {
+      "path": [
+        4564367,
+        "stress",
+        "ATR_baseline"
+      ],
+      "scenario": {
+        "monthly": 0.0,
+        "extra_per_leg": 0.0
+      },
+      "net_after_extra_cost_usd": 4.293415052815902,
+      "archived_ending": 104.2934150528159
+    },
+    {
+      "path": [
+        4564367,
+        "stress",
+        "ATR_baseline"
+      ],
+      "scenario": {
+        "monthly": 0.25,
+        "extra_per_leg": 0.0
+      },
+      "net_after_extra_cost_usd": 1.2934150528159023,
+      "archived_ending": 101.2934150528159
+    },
+    {
+      "path": [
+        4564367,
+        "stress",
+        "ATR_baseline"
+      ],
+      "scenario": {
+        "monthly": 0.5,
+        "extra_per_leg": 0.0
+      },
+      "net_after_extra_cost_usd": -1.7065849471840977,
+      "archived_ending": 98.2934150528159
+    },
+    {
+      "path": [
+        4564367,
+        "stress",
+        "ATR_baseline"
+      ],
+      "scenario": {
+        "monthly": 1.0,
+        "extra_per_leg": 0.0
+      },
+      "net_after_extra_cost_usd": -7.706584947184098,
+      "archived_ending": 92.2934150528159
+    },
+    {
+      "path": [
+        4564367,
+        "stress",
+        "ATR_baseline"
+      ],
+      "scenario": {
+        "monthly": 0.0,
+        "extra_per_leg": 0.01
+      },
+      "net_after_extra_cost_usd": 4.033415052815897,
+      "archived_ending": 104.0334150528159
+    },
+    {
+      "path": [
+        4564367,
+        "stress",
+        "ATR_baseline"
+      ],
+      "scenario": {
+        "monthly": 0.0,
+        "extra_per_leg": 0.05
+      },
+      "net_after_extra_cost_usd": 2.993415052815905,
+      "archived_ending": 102.9934150528159
+    },
+    {
+      "path": [
+        4564367,
+        "stress",
+        "ATR_baseline"
+      ],
+      "scenario": {
+        "monthly": 0.0,
+        "extra_per_leg": 0.1
+      },
+      "net_after_extra_cost_usd": 1.693415052815908,
+      "archived_ending": 101.69341505281591
+    },
+    {
+      "path": [
+        4564367,
+        "stress",
+        "ATR_avoid_volatility_shock"
+      ],
+      "scenario": {
+        "monthly": 0.0,
+        "extra_per_leg": 0.0
+      },
+      "net_after_extra_cost_usd": 5.574733372343843,
+      "archived_ending": 105.57473337234384
+    },
+    {
+      "path": [
+        4564367,
+        "stress",
+        "ATR_avoid_volatility_shock"
+      ],
+      "scenario": {
+        "monthly": 0.25,
+        "extra_per_leg": 0.0
+      },
+      "net_after_extra_cost_usd": 2.574733372343843,
+      "archived_ending": 102.57473337234384
+    },
+    {
+      "path": [
+        4564367,
+        "stress",
+        "ATR_avoid_volatility_shock"
+      ],
+      "scenario": {
+        "monthly": 0.5,
+        "extra_per_leg": 0.0
+      },
+      "net_after_extra_cost_usd": -0.42526662765615697,
+      "archived_ending": 99.57473337234384
+    },
+    {
+      "path": [
+        4564367,
+        "stress",
+        "ATR_avoid_volatility_shock"
+      ],
+      "scenario": {
+        "monthly": 1.0,
+        "extra_per_leg": 0.0
+      },
+      "net_after_extra_cost_usd": -6.425266627656157,
+      "archived_ending": 93.57473337234384
+    },
+    {
+      "path": [
+        4564367,
+        "stress",
+        "ATR_avoid_volatility_shock"
+      ],
+      "scenario": {
+        "monthly": 0.0,
+        "extra_per_leg": 0.01
+      },
+      "net_after_extra_cost_usd": 5.334733372343848,
+      "archived_ending": 105.33473337234385
+    },
+    {
+      "path": [
+        4564367,
+        "stress",
+        "ATR_avoid_volatility_shock"
+      ],
+      "scenario": {
+        "monthly": 0.0,
+        "extra_per_leg": 0.05
+      },
+      "net_after_extra_cost_usd": 4.37473337234384,
+      "archived_ending": 104.37473337234384
+    },
+    {
+      "path": [
+        4564367,
+        "stress",
+        "ATR_avoid_volatility_shock"
+      ],
+      "scenario": {
+        "monthly": 0.0,
+        "extra_per_leg": 0.1
+      },
+      "net_after_extra_cost_usd": 3.1747333723438373,
+      "archived_ending": 103.17473337234384
+    },
+    {
+      "path": [
+        4705508,
+        "mid",
+        "ATR_baseline"
+      ],
+      "scenario": {
+        "monthly": 0.0,
+        "extra_per_leg": 0.0
+      },
+      "net_after_extra_cost_usd": -1.9828231764018511,
+      "archived_ending": 98.01717682359816
+    },
+    {
+      "path": [
+        4705508,
+        "mid",
+        "ATR_baseline"
+      ],
+      "scenario": {
+        "monthly": 0.25,
+        "extra_per_leg": 0.0
+      },
+      "net_after_extra_cost_usd": -4.982823176401851,
+      "archived_ending": 95.01717682359816
+    },
+    {
+      "path": [
+        4705508,
+        "mid",
+        "ATR_baseline"
+      ],
+      "scenario": {
+        "monthly": 0.5,
+        "extra_per_leg": 0.0
+      },
+      "net_after_extra_cost_usd": -7.982823176401851,
+      "archived_ending": 92.01717682359816
+    },
+    {
+      "path": [
+        4705508,
+        "mid",
+        "ATR_baseline"
+      ],
+      "scenario": {
+        "monthly": 1.0,
+        "extra_per_leg": 0.0
+      },
+      "net_after_extra_cost_usd": -13.982823176401851,
+      "archived_ending": 86.01717682359816
+    },
+    {
+      "path": [
+        4705508,
+        "mid",
+        "ATR_baseline"
+      ],
+      "scenario": {
+        "monthly": 0.0,
+        "extra_per_leg": 0.01
+      },
+      "net_after_extra_cost_usd": -2.2828231764018483,
+      "archived_ending": 97.71717682359817
+    },
+    {
+      "path": [
+        4705508,
+        "mid",
+        "ATR_baseline"
+      ],
+      "scenario": {
+        "monthly": 0.0,
+        "extra_per_leg": 0.05
+      },
+      "net_after_extra_cost_usd": -3.482823176401851,
+      "archived_ending": 96.51717682359816
+    },
+    {
+      "path": [
+        4705508,
+        "mid",
+        "ATR_baseline"
+      ],
+      "scenario": {
+        "monthly": 0.0,
+        "extra_per_leg": 0.1
+      },
+      "net_after_extra_cost_usd": -4.982823176401851,
+      "archived_ending": 95.01717682359816
+    },
+    {
+      "path": [
+        4705508,
+        "mid",
+        "ATR_avoid_volatility_shock"
+      ],
+      "scenario": {
+        "monthly": 0.0,
+        "extra_per_leg": 0.0
+      },
+      "net_after_extra_cost_usd": -1.1846714753093437,
+      "archived_ending": 98.81532852469066
+    },
+    {
+      "path": [
+        4705508,
+        "mid",
+        "ATR_avoid_volatility_shock"
+      ],
+      "scenario": {
+        "monthly": 0.25,
+        "extra_per_leg": 0.0
+      },
+      "net_after_extra_cost_usd": -4.184671475309344,
+      "archived_ending": 95.81532852469066
+    },
+    {
+      "path": [
+        4705508,
+        "mid",
+        "ATR_avoid_volatility_shock"
+      ],
+      "scenario": {
+        "monthly": 0.5,
+        "extra_per_leg": 0.0
+      },
+      "net_after_extra_cost_usd": -7.184671475309344,
+      "archived_ending": 92.81532852469066
+    },
+    {
+      "path": [
+        4705508,
+        "mid",
+        "ATR_avoid_volatility_shock"
+      ],
+      "scenario": {
+        "monthly": 1.0,
+        "extra_per_leg": 0.0
+      },
+      "net_after_extra_cost_usd": -13.184671475309344,
+      "archived_ending": 86.81532852469066
+    },
+    {
+      "path": [
+        4705508,
+        "mid",
+        "ATR_avoid_volatility_shock"
+      ],
+      "scenario": {
+        "monthly": 0.0,
+        "extra_per_leg": 0.01
+      },
+      "net_after_extra_cost_usd": -1.4646714753093448,
+      "archived_ending": 98.53532852469066
+    },
+    {
+      "path": [
+        4705508,
+        "mid",
+        "ATR_avoid_volatility_shock"
+      ],
+      "scenario": {
+        "monthly": 0.0,
+        "extra_per_leg": 0.05
+      },
+      "net_after_extra_cost_usd": -2.5846714753093494,
+      "archived_ending": 97.41532852469065
+    },
+    {
+      "path": [
+        4705508,
+        "mid",
+        "ATR_avoid_volatility_shock"
+      ],
+      "scenario": {
+        "monthly": 0.0,
+        "extra_per_leg": 0.1
+      },
+      "net_after_extra_cost_usd": -3.984671475309341,
+      "archived_ending": 96.01532852469066
+    },
+    {
+      "path": [
+        4705508,
+        "stress",
+        "ATR_baseline"
+      ],
+      "scenario": {
+        "monthly": 0.0,
+        "extra_per_leg": 0.0
+      },
+      "net_after_extra_cost_usd": -4.023945266197586,
+      "archived_ending": 95.9760547338024
+    },
+    {
+      "path": [
+        4705508,
+        "stress",
+        "ATR_baseline"
+      ],
+      "scenario": {
+        "monthly": 0.25,
+        "extra_per_leg": 0.0
+      },
+      "net_after_extra_cost_usd": -7.023945266197586,
+      "archived_ending": 92.9760547338024
+    },
+    {
+      "path": [
+        4705508,
+        "stress",
+        "ATR_baseline"
+      ],
+      "scenario": {
+        "monthly": 0.5,
+        "extra_per_leg": 0.0
+      },
+      "net_after_extra_cost_usd": -10.023945266197586,
+      "archived_ending": 89.9760547338024
+    },
+    {
+      "path": [
+        4705508,
+        "stress",
+        "ATR_baseline"
+      ],
+      "scenario": {
+        "monthly": 1.0,
+        "extra_per_leg": 0.0
+      },
+      "net_after_extra_cost_usd": -16.023945266197586,
+      "archived_ending": 83.9760547338024
+    },
+    {
+      "path": [
+        4705508,
+        "stress",
+        "ATR_baseline"
+      ],
+      "scenario": {
+        "monthly": 0.0,
+        "extra_per_leg": 0.01
+      },
+      "net_after_extra_cost_usd": -4.323945266197583,
+      "archived_ending": 95.6760547338024
+    },
+    {
+      "path": [
+        4705508,
+        "stress",
+        "ATR_baseline"
+      ],
+      "scenario": {
+        "monthly": 0.0,
+        "extra_per_leg": 0.05
+      },
+      "net_after_extra_cost_usd": -5.523945266197586,
+      "archived_ending": 94.4760547338024
+    },
+    {
+      "path": [
+        4705508,
+        "stress",
+        "ATR_baseline"
+      ],
+      "scenario": {
+        "monthly": 0.0,
+        "extra_per_leg": 0.1
+      },
+      "net_after_extra_cost_usd": -7.023945266197586,
+      "archived_ending": 92.9760547338024
+    },
+    {
+      "path": [
+        4705508,
+        "stress",
+        "ATR_avoid_volatility_shock"
+      ],
+      "scenario": {
+        "monthly": 0.0,
+        "extra_per_leg": 0.0
+      },
+      "net_after_extra_cost_usd": -3.107043371831921,
+      "archived_ending": 96.89295662816808
+    },
+    {
+      "path": [
+        4705508,
+        "stress",
+        "ATR_avoid_volatility_shock"
+      ],
+      "scenario": {
+        "monthly": 0.25,
+        "extra_per_leg": 0.0
+      },
+      "net_after_extra_cost_usd": -6.107043371831921,
+      "archived_ending": 93.89295662816808
+    },
+    {
+      "path": [
+        4705508,
+        "stress",
+        "ATR_avoid_volatility_shock"
+      ],
+      "scenario": {
+        "monthly": 0.5,
+        "extra_per_leg": 0.0
+      },
+      "net_after_extra_cost_usd": -9.10704337183192,
+      "archived_ending": 90.89295662816808
+    },
+    {
+      "path": [
+        4705508,
+        "stress",
+        "ATR_avoid_volatility_shock"
+      ],
+      "scenario": {
+        "monthly": 1.0,
+        "extra_per_leg": 0.0
+      },
+      "net_after_extra_cost_usd": -15.10704337183192,
+      "archived_ending": 84.89295662816808
+    },
+    {
+      "path": [
+        4705508,
+        "stress",
+        "ATR_avoid_volatility_shock"
+      ],
+      "scenario": {
+        "monthly": 0.0,
+        "extra_per_leg": 0.01
+      },
+      "net_after_extra_cost_usd": -3.387043371831922,
+      "archived_ending": 96.61295662816808
+    },
+    {
+      "path": [
+        4705508,
+        "stress",
+        "ATR_avoid_volatility_shock"
+      ],
+      "scenario": {
+        "monthly": 0.0,
+        "extra_per_leg": 0.05
+      },
+      "net_after_extra_cost_usd": -4.5070433718319265,
+      "archived_ending": 95.49295662816807
+    },
+    {
+      "path": [
+        4705508,
+        "stress",
+        "ATR_avoid_volatility_shock"
+      ],
+      "scenario": {
+        "monthly": 0.0,
+        "extra_per_leg": 0.1
+      },
+      "net_after_extra_cost_usd": -5.907043371831918,
+      "archived_ending": 94.09295662816808
+    }
+  ],
+  "K03_numerical_examples": [
+    {
+      "independent_trials": 100,
+      "skew": -3,
+      "raw_kurtosis": 10,
+      "dsr": 0.9003968344493904,
+      "benchmark_sharpe": 0.11317200186513214,
+      "z": 1.2838160365336546,
+      "recomputed_DSR": 0.9003968344493904
+    },
+    {
+      "independent_trials": 46,
+      "skew": -3,
+      "raw_kurtosis": 10,
+      "dsr": 0.9505017068755786,
+      "benchmark_sharpe": 0.10036237061765357,
+      "z": 1.649737746957031,
+      "recomputed_DSR": 0.9505017068755786
+    },
+    {
+      "independent_trials": 88,
+      "skew": 0,
+      "raw_kurtosis": 3,
+      "dsr": 0.9504908166760138,
+      "benchmark_sharpe": 0.11114576178358426,
+      "z": 1.6496313122924988,
+      "recomputed_DSR": 0.9504908166760138
+    }
+  ],
+  "Arz_DSR_PBO": {
+    "dsr": null,
+    "pbo": null,
+    "status": "NOT_IDENTIFIABLE_FROM_CURRENT_TRIAL_LINEAGE",
+    "missing": [
+      "complete comparable hypothesis-selection history",
+      "defensible effective independent trial count",
+      "same-period trial-Sharpe dispersion and dependence model"
+    ],
+    "dependent_run_rows_are_independent_trials": false,
+    "funded_approval": false
+  },
+  "status": "Archived methods and numbers reproduced from fresh account paths; no new evidence or independent market sample."
+}

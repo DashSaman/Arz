@@ -1,0 +1,57 @@
+[
+  {
+    "pair_id": 4564367,
+    "url": "https://tradingstrategy.ai/api/candles-jsonl?pair_ids=4564367&time_bucket=5m&start=2026-08-01T00%3A00%3A00&end=2026-10-01T00%3A00%3A00&max_bytes=8000000",
+    "filename": "4564367-5m.jsonl",
+    "minutes": 5,
+    "sha256": "d3ae59e0c1858c36687950afad57bffd4f371eb0ea8999bf0a0b3baf25b0155b",
+    "bytes": 3956888,
+    "rows": 17569,
+    "status": "OK",
+    "observed_at_utc": "2026-10-31T17:35:58.234121+00:00"
+  },
+  {
+    "pair_id": 4705508,
+    "url": "https://tradingstrategy.ai/api/candles-jsonl?pair_ids=4705508&time_bucket=5m&start=2026-08-01T00%3A00%3A00&end=2026-10-01T00%3A00%3A00&max_bytes=8000000",
+    "filename": "4705508-5m.jsonl",
+    "minutes": 5,
+    "sha256": "17ce9043114fc893b2b7eb716171260d8f1c7bca8b7fdcb6b781b88203e174cc",
+    "bytes": 3743222,
+    "rows": 16883,
+    "status": "OK",
+    "observed_at_utc": "2026-10-31T17:36:03.019886+00:00"
+  },
+  {
+    "pair_id": 2854997,
+    "url": "https://tradingstrategy.ai/api/candles-jsonl?pair_ids=2854997&time_bucket=5m&start=2026-08-01T00%3A00%3A00&end=2026-10-01T00%3A00%3A00&max_bytes=8000000",
+    "filename": "2854997-5m.jsonl",
+    "minutes": 5,
+    "sha256": "3251f4248ba0deb834233b266a07f8206b89f0c24430ede5b05487447e7c263a",
+    "bytes": 3925224,
+    "rows": 17243,
+    "status": "OK",
+    "observed_at_utc": "2026-10-31T17:36:08.077968+00:00"
+  },
+  {
+    "pair_id": 1364813,
+    "url": "https://tradingstrategy.ai/api/candles-jsonl?pair_ids=1364813&time_bucket=1d&start=2021-04-01T00%3A00%3A00&end=2026-10-01T00%3A00%3A00&max_bytes=1500000",
+    "filename": "1364813-1d.jsonl",
+    "minutes": 1440,
+    "sha256": "5527fb83ee99ccb72398060d076cc7161bb4b4c11623d0d3305afbfc8604506b",
+    "bytes": 453921,
+    "rows": 1774,
+    "status": "OK",
+    "observed_at_utc": "2026-10-31T17:36:12.234906+00:00"
+  },
+  {
+    "pair_id": 1,
+    "url": "https://tradingstrategy.ai/api/candles-jsonl?pair_ids=1&time_bucket=1d&start=2020-06-01T00%3A00%3A00&end=2026-10-01T00%3A00%3A00&max_bytes=1500000",
+    "filename": "1-1d.jsonl",
+    "minutes": 1440,
+    "sha256": "2b5406327cb0ea0aa13bd5c41fe7cfd54480f242c1e469379bd5e95880f1277f",
+    "bytes": 570387,
+    "rows": 2314,
+    "status": "OK",
+    "observed_at_utc": "2026-10-31T17:36:16.576041+00:00"
+  }
+]
