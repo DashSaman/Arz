@@ -1,0 +1,289 @@
+{
+  "queried_at_utc": "2026-10-31 18:06:23 UTC",
+  "repository": "DashSaman/Arz",
+  "base_main": "dfc9d7b76180f07e103dd413483a87524200b411",
+  "examined_pull_refs": [
+    {
+      "number": 33,
+      "head": "97bf3aa3957bff4c0eb636186f322055cf05feea",
+      "branch": "research/2026-10-25-sqd-parent-context-recovery",
+      "base": "research/2026-10-25-sqd-continuation-evidence",
+      "state": "open",
+      "draft": true,
+      "required_ref": true,
+      "url": "https://github.com/DashSaman/Arz/pull/33"
+    },
+    {
+      "number": 32,
+      "head": "b778a1ecc4e81b02588197c11641d9e4f0040c0d",
+      "branch": "research/2026-10-25-sqd-continuation-evidence",
+      "base": "research/2026-10-25-sqd-portal-archival-probe",
+      "state": "open",
+      "draft": true,
+      "required_ref": true,
+      "url": "https://github.com/DashSaman/Arz/pull/32"
+    },
+    {
+      "number": 31,
+      "head": "7e32a16d52666bf862ea1e6230a887bd381cd424",
+      "branch": "research/2026-10-25-sqd-portal-archival-probe",
+      "base": "research/2026-10-25-offline-archive-forensics",
+      "state": "open",
+      "draft": true,
+      "required_ref": true,
+      "url": "https://github.com/DashSaman/Arz/pull/31"
+    },
+    {
+      "number": 30,
+      "head": "ced85de48e4d19d4f5242ee1dda8f929d9090cfb",
+      "branch": "research/2026-10-25-offline-archive-forensics",
+      "base": "research/2026-10-25-wallet-pagination-feepayer",
+      "state": "open",
+      "draft": true,
+      "required_ref": true,
+      "url": "https://github.com/DashSaman/Arz/pull/30"
+    },
+    {
+      "number": 29,
+      "head": "4beed1af08d04c612714710a8b157a09f09ac661",
+      "branch": "research/2026-10-25-wallet-pagination-feepayer",
+      "base": "research/2026-10-25-real-chain-bounded",
+      "state": "open",
+      "draft": true,
+      "required_ref": true,
+      "url": "https://github.com/DashSaman/Arz/pull/29"
+    },
+    {
+      "number": 28,
+      "head": "3c18794231354b5e1ce2a92fedf88ba7067b301b",
+      "branch": "research/2026-10-25-real-chain-bounded",
+      "base": "research/2026-10-25-long-history-proxy",
+      "state": "open",
+      "draft": true,
+      "required_ref": true,
+      "url": "https://github.com/DashSaman/Arz/pull/28"
+    },
+    {
+      "number": 27,
+      "head": "7aeb5c1764666f9d67ea71d8eda11b0ac3a0b8d1",
+      "branch": "research/2026-10-25-long-history-proxy",
+      "base": "research/2026-10-24-follower-quote-gates",
+      "state": "open",
+      "draft": true,
+      "required_ref": true,
+      "url": "https://github.com/DashSaman/Arz/pull/27"
+    },
+    {
+      "number": 26,
+      "head": "9d698535ab567d6cae49ced4f99bbe81b9b561f4",
+      "branch": "research/2026-10-24-follower-quote-gates",
+      "base": "research/2026-10-20-multi-edge-phase-a",
+      "state": "open",
+      "draft": true,
+      "required_ref": true,
+      "url": "https://github.com/DashSaman/Arz/pull/26"
+    },
+    {
+      "number": 25,
+      "head": "a7d56fbdff78cc99f3c3084b7d291bab58e99cc6",
+      "branch": "research/2026-10-20-master-quant-forensic-audit",
+      "base": "main",
+      "state": "open",
+      "draft": true,
+      "required_ref": true,
+      "url": "https://github.com/DashSaman/Arz/pull/25"
+    },
+    {
+      "number": 24,
+      "head": "0bab62ee331151a733a21bf3abe81aea143d667f",
+      "branch": "research/2026-10-20-multi-edge-phase-a",
+      "base": "research/2026-10-20-multi-edge-spot",
+      "state": "open",
+      "draft": true,
+      "required_ref": true,
+      "url": "https://github.com/DashSaman/Arz/pull/24"
+    },
+    {
+      "number": 18,
+      "head": "41a2ef4eb018f9c697efba0557923abad908d244",
+      "branch": "research/2026-10-20-multi-edge-spot",
+      "base": "research/2026-10-19-edgelab-recovery",
+      "state": "open",
+      "draft": true,
+      "required_ref": true,
+      "url": "https://github.com/DashSaman/Arz/pull/18"
+    },
+    {
+      "number": 17,
+      "head": "db79545f5162518251eda73ec9fd3526411f9dc8",
+      "branch": "research/2026-10-19-edgelab-recovery",
+      "base": "research/2026-10-18-real-trading-edge",
+      "state": "open",
+      "draft": true,
+      "required_ref": true,
+      "url": "https://github.com/DashSaman/Arz/pull/17"
+    },
+    {
+      "number": 16,
+      "head": "40b22eb4b15fb426d4e66416b3e6116035a8c11e",
+      "branch": "research/2026-10-19-edgelab-delivery-1085bc2",
+      "base": "research/2026-10-18-real-trading-edge",
+      "state": "open",
+      "draft": true,
+      "required_ref": false,
+      "url": "https://github.com/DashSaman/Arz/pull/16"
+    },
+    {
+      "number": 15,
+      "head": "6cc530dc0da5b16be0b2a39ea3a580682920737c",
+      "branch": "research/2026-10-18-real-trading-edge",
+      "base": "research/2026-10-17-timeframe-recovery",
+      "state": "open",
+      "draft": true,
+      "required_ref": true,
+      "url": "https://github.com/DashSaman/Arz/pull/15"
+    },
+    {
+      "number": 14,
+      "head": "15bd6af0218e35eb20bf8186abee115cb27a694f",
+      "branch": "research/2026-10-17-timeframe-recovery",
+      "base": "research/2026-10-17-timeframe-matrix",
+      "state": "open",
+      "draft": true,
+      "required_ref": false,
+      "url": "https://github.com/DashSaman/Arz/pull/14"
+    },
+    {
+      "number": 13,
+      "head": "6576497954106f29cd48167a499e3acc2c60360c",
+      "branch": "research/2026-10-17-knowledge-validation",
+      "base": "research/2026-10-17-market-intelligence",
+      "state": "open",
+      "draft": true,
+      "required_ref": false,
+      "url": "https://github.com/DashSaman/Arz/pull/13"
+    },
+    {
+      "number": 12,
+      "head": "fcba813b0f17ad5a87da3339c54c6cce4f4ca933",
+      "branch": "research/2026-10-17-market-intelligence",
+      "base": "research/2026-10-17-payoff-ablation",
+      "state": "open",
+      "draft": true,
+      "required_ref": false,
+      "url": "https://github.com/DashSaman/Arz/pull/12"
+    },
+    {
+      "number": 11,
+      "head": "c38a6f3f828bb2750328846212a14f9df0cd8eb5",
+      "branch": "research/2026-10-17-payoff-ablation",
+      "base": "research/2026-10-17-fresh-window-check",
+      "state": "open",
+      "draft": true,
+      "required_ref": false,
+      "url": "https://github.com/DashSaman/Arz/pull/11"
+    },
+    {
+      "number": 9,
+      "head": "1c40fc2fdd1e4c4abbcc81f3284b5e44fa588aee",
+      "branch": "research/2026-10-17-fresh-window-check",
+      "base": "research/2026-10-16-crossmarket-repeatability",
+      "state": "open",
+      "draft": true,
+      "required_ref": false,
+      "url": "https://github.com/DashSaman/Arz/pull/9"
+    },
+    {
+      "number": 8,
+      "head": "79669af0b8bdd6e25000411008217a370a886c02",
+      "branch": "research/2026-10-16-crossmarket-repeatability",
+      "base": "research/2026-10-16-upstream-backtests",
+      "state": "open",
+      "draft": true,
+      "required_ref": false,
+      "url": "https://github.com/DashSaman/Arz/pull/8"
+    },
+    {
+      "number": 7,
+      "head": "e7a809cbb209f24a31c67602c296a1fffbf98132",
+      "branch": "research/2026-10-16-upstream-backtests",
+      "base": "research/2026-10-15-phase6-economic-evidence",
+      "state": "open",
+      "draft": true,
+      "required_ref": false,
+      "url": "https://github.com/DashSaman/Arz/pull/7"
+    },
+    {
+      "number": 5,
+      "head": "2926f35038de681722f0dd92d8630d14778a80e5",
+      "branch": "research/2026-10-15-phase6-economic-evidence",
+      "base": "research/2026-10-15-phase5-wallet-policy",
+      "state": "open",
+      "draft": true,
+      "required_ref": false,
+      "url": "https://github.com/DashSaman/Arz/pull/5"
+    },
+    {
+      "number": 4,
+      "head": "fdbf4c54bb7cf6bb694d39f9364f67483aedf51c",
+      "branch": "research/2026-10-15-phase5-wallet-policy",
+      "base": "research/2026-10-13-phase4-exact-quotes",
+      "state": "open",
+      "draft": true,
+      "required_ref": false,
+      "url": "https://github.com/DashSaman/Arz/pull/4"
+    },
+    {
+      "number": 3,
+      "head": "e5994a1374d22403921d9839cc1473afe48afd3b",
+      "branch": "research/2026-10-13-phase4-exact-quotes",
+      "base": "research/2026-10-13-phase3-forensic-validation",
+      "state": "open",
+      "draft": false,
+      "required_ref": false,
+      "url": "https://github.com/DashSaman/Arz/pull/3"
+    },
+    {
+      "number": 2,
+      "head": "7c61ca1e83ba46e2b3ff8b8337e6c51c195fe323",
+      "branch": "research/2026-10-13-phase3-forensic-validation",
+      "base": "main",
+      "state": "open",
+      "draft": false,
+      "required_ref": false,
+      "url": "https://github.com/DashSaman/Arz/pull/2"
+    },
+    {
+      "number": 1,
+      "head": "c445c3a093cdd208a4048f26dbd62031af014638",
+      "branch": "research/2026-10-13-extended-results-review",
+      "base": "research/2026-10-13-extended-validation",
+      "state": "open",
+      "draft": false,
+      "required_ref": false,
+      "url": "https://github.com/DashSaman/Arz/pull/1"
+    }
+  ],
+  "s0_control": {
+    "source_main": "dfc9d7b76180f07e103dd413483a87524200b411",
+    "runtime": "Python 3.12.14, PR17 exact lock",
+    "command": "python -m scripts.strat01_period_backtest --supplemental --source /tmp/arz-pr17-engine --data /tmp/arz-period-data --output NEW_DIRECTORY",
+    "verified_before_family_performance": true,
+    "comparison": "Fresh results.csv AND audit.json byte-identical to PR64 supplemental files",
+    "results_sha256": "3ae1c43fc59b7b9472c25a3344a621230ce384ad2e08abc1f91139084ad912de",
+    "hypothetical_base_annual_weth": 110.46478095184152,
+    "hypothetical_base_annual_cbbtc": 99.19990123600407,
+    "eligible_prospective_days_added": 0
+  },
+  "initial_remote_research_commit": "86f83a620cfef4d436d8b61fd900c25e51f478c8",
+  "first_new_cells_commit": "55524bd956b137b461e44f0595bfbe90d4f47b16",
+  "local_verification": {
+    "python": "3.12.14",
+    "test_command": "ARZ_PERIOD_ENGINE=/tmp/arz-pr17-engine PYTHONPATH=src:. /tmp/arz-period-venv/bin/python -m unittest discover -s tests -q",
+    "observed_tests": 1440,
+    "result": "PASS",
+    "verify_research_control_exit": 0,
+    "replayed_s0_expected_sha256": "3ae1c43fc59b7b9472c25a3344a621230ce384ad2e08abc1f91139084ad912de",
+    "financial_decision": "NO-GO"
+  }
+}

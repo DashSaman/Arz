@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint_id": "ARZ-2026-10-31-CONTROL-12",
+  "checkpoint_id": "ARZ-2026-10-31-CONTROL-13",
   "observed_at_utc": "2026-10-31",
   "repository": "DashSaman/Arz",
   "canonical_branch": "main",
@@ -765,6 +765,23 @@
           "untouched_oos": false,
           "financial_decision": "NO-GO",
           "live_trading": "DISABLED"
+        },
+        {
+          "id": "STRAT01-2026-10-31-ALL-STRATEGIES",
+          "base_main": "dfc9d7b76180f07e103dd413483a87524200b411",
+          "source_engine_commit": "db79545f5162518251eda73ec9fd3526411f9dc8",
+          "s0_reproduced_byte_identical": true,
+          "study": "HISTORICAL_SCENARIOS_WITH_NATIVE_REPLAYS_AND_POSTHOC_SOURCE_SENSITIVITY",
+          "registry_items": 164,
+          "paper_candidates": 0,
+          "paper_calendar_days_added": 0,
+          "real_capital_authorized_usd": 0,
+          "live_trading": "DISABLED",
+          "financial_decision": "NO-GO",
+          "registry": "reports/strat01/2026-10-31-all-strategies/registry.csv",
+          "annual_decisions": "reports/strat01/2026-10-31-all-strategies/annual_comparison.csv",
+          "decision_report": "docs/en/strat01_all_strategies_20261031.md",
+          "next_step": "After genuine contiguous 194-bar warmup, log time-aligned $20 quotes +60s at S0 signals and all cost evidence. Forward source pilot and other track priorities continue."
         }
       ]
     },
