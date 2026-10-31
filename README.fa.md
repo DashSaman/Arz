@@ -72,3 +72,9 @@ GitHub Actions برای Commit اصلاح‌شدهٔ هسته، [`73f32d8`](http
 عامل جدید ابتدا [AGENTS.md](AGENTS.md)، [PROJECT_STATUS.md](PROJECT_STATUS.md)، [WORK_LOG.md](WORK_LOG.md)، [DECISIONS.md](DECISIONS.md)، آخرین آزمون و وضعیت واقعی Git را بخواند. کار هم‌زمان روز اول، شامل [نقشهٔ راه سی‌روزه](docs/fa/30-day-roadmap.md)، ابزار حسابداری و آزمون مصنوعی آن، حفظ شده است. بازده روزانهٔ فرضیِ آن انتظار سود نیست؛ سی روز برنامه‌ریزی، سی روز مشاهدهٔ سپری‌شده نیست.
 
 کد مستقل با [مجوز MIT](LICENSE) منتشر می‌شود. مجوزهای شخص ثالث و حقوق داده جداست. آزمایش واقعی آینده به شواهد کافی، مسیر مجاز و تأییدشده، طراحی بررسی‌شدهٔ اجرا/امنیت و **مجوز صریح جداگانه** نیاز دارد. معاملهٔ واقعی همچنان **DISABLED** است.
+
+## حسابرسی جامع کیف‌پول‌ها و استراتژی‌ها — ۲۰ اکتبر ۲۰۲۶
+
+گزارش جدید در شاخهٔ پژوهشی **`research/2026-10-20-master-quant-forensic-audit`** ثبت شده است: [حسابرسی شکاف‌ها](RESEARCH_GAP_AUDIT.md)، [رجیستری ۵۹ رکوردی با منبع و نقش](research/wallets/verified_wallet_registry.csv)، [پوشش داده](research/wallets/data_coverage.csv)، [مغایرت‌های محاسباتی سرویس‌ها](research/wallets/reconciliation_exceptions_2026-10-20.csv)، [عملکرد تأییدنشدهٔ کیف‌پول‌ها](research/wallets/wallet_performance.csv)، [سه فروش ثبت‌شدهٔ GEMS](research/tradecitypro/data/gems_sale_legs_source_audited_2026-10-20.csv)، [۲۴ بک‌تست قدیمی](reports/backtests/strategy_results.csv)، [هفت فرضیهٔ **آزمون‌نشده**](research/strategies/strategy_registry.json) و [Manifest شواهد](reports/backtests/validation_manifest.json). [گزارش فارسی](docs/fa/complete_wallet_forensics.md) و [راهنمای شِما/تکرارپذیری](docs/fa/research_artifact_schemas.md) نیز آماده شده‌اند.
+
+این لینک‌ها فعلاً مربوط به شاخهٔ تحقیقاتی هستند و پیش از ادغام الزاماً روی `main` دیده نمی‌شوند. هنوز هیچ سود مرکب کل حساب، سود خالص معاملات کپی‌شده با تأخیر و هزینه، یا اعتبارسنجی جدید آینده‌نگر اثبات نشده است. **تصمیم NO-GO و ممنوعیت معاملهٔ واقعی حفظ می‌شود.**
