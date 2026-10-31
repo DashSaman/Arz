@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint_id": "ARZ-2026-10-31-CONTROL-13",
+  "checkpoint_id": "ARZ-2026-10-31-CONTROL-14",
   "observed_at_utc": "2026-10-31",
   "repository": "DashSaman/Arz",
   "canonical_branch": "main",
@@ -917,5 +917,39 @@
       "new_test_methods": 43,
       "scope": "24 already-seen Oct13 historical simulations: three candidates 0 financial qualifications"
     }
-  ]
+  ],
+  "post_audit_20261031": {
+    "classification": "MERGED_SOFTWARE_SAFETY_AND_RETROSPECTIVE_FINANCIAL_SCREEN_NOT_TRADING_ALPHA",
+    "risk_numeric": {
+      "pr": 66,
+      "merged_sha": "92ead1e48303f02657032851864dba3e23868619",
+      "ci_url": "https://github.com/DashSaman/Arz/actions/runs/41234664530",
+      "full_repo_methods_run": 1445,
+      "skipped": 4,
+      "new_test_methods": 5
+    },
+    "historical_shortlist": {
+      "pr": 67,
+      "merged_sha": "feec53bb4ee22f8c7241efe1072d67672cc11639",
+      "ci_url": "https://github.com/DashSaman/Arz/actions/runs/41234823684",
+      "full_repo_methods_run": 1451,
+      "skipped": 4,
+      "new_test_methods": 6,
+      "annual_rows": 185,
+      "stress_positive": 55,
+      "stress_negative": 116,
+      "stress_flat": 14,
+      "strict_order_cap_pass_rows": 46,
+      "strict_cap_and_stress_positive": 9,
+      "preliminary_research_leads": 2,
+      "native_later_period_qualified": 0,
+      "paper_qualified": 0
+    },
+    "next_issue": "https://github.com/DashSaman/Arz/issues/68",
+    "new_historical_backtests": 0,
+    "new_prospective_paper_days": 0,
+    "proven_positive_net_daily_account_growth": false,
+    "financial_decision": "NO-GO",
+    "live_trading": "DISABLED"
+  }
 }
