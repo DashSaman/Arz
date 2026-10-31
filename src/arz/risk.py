@@ -18,7 +18,8 @@ class Risk:
         if isinstance(ts,bool) or not isinstance(ts,(int,float)) or not math.isfinite(ts) or ts<0:
             raise ValueError("Invalid risk clock")
         if self.last_ts is not None and ts<self.last_ts:raise ValueError("Risk clock cannot move backwards")
-        if not math.isfinite(equity) or equity<0:raise ValueError("Invalid marked equity")
+        if isinstance(equity, bool) or not isinstance(equity, (int, float)) or not math.isfinite(equity) or equity < 0:
+            raise ValueError("Invalid marked equity")
         self.last_ts=ts
         day=int(ts//86400)
         if self.day!=day:
@@ -31,7 +32,8 @@ class Risk:
     def check(self,side,notional,cash,position_value,previous_volume,estimated_cost):
         c=self.config
         if side not in ("buy","sell"):return "unknown_side"
-        if any(not isinstance(v,(int,float)) or not math.isfinite(v) or v<0 for v in (notional,cash,position_value,previous_volume,estimated_cost)):
+        if any(isinstance(v, bool) or not isinstance(v, (int, float)) or not math.isfinite(v) or v < 0
+               for v in (notional, cash, position_value, previous_volume, estimated_cost)):
             return "invalid_order"
         if side=="buy" and self.halt_reason:return self.halt_reason
         if c.slippage_bps>c.max_slippage_bps:return "slippage_cap"
@@ -53,7 +55,8 @@ class Risk:
         return None
 
     def record_fill(self,cost):
-        if not math.isfinite(cost) or cost<0:raise ValueError("Invalid cost")
+        if isinstance(cost, bool) or not isinstance(cost, (int, float)) or not math.isfinite(cost) or cost < 0:
+            raise ValueError("Invalid cost")
         self.count+=1;self.fees+=cost
 
     def snapshot(self):
