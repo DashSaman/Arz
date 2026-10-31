@@ -1,5 +1,5 @@
 {
-  "adapter_sha256": "e66ee3433ec21433e43e73225445b63ece365eae80eacae5922d0cde091349ed",
+  "adapter_sha256": "68042cf0741f9a33cf90e721e653d9a251a0a7b150d18827d4b9c2ca9c334964",
   "audit": "All completed cells independently verified each fill price and fee, every bar cash+units*close, reserve and hard $25 limits, and endpoint. Retrospective modeled costs; no observed chain fills.",
   "engine_pr17": "db79545f5162518251eda73ec9fd3526411f9dc8",
   "extended_independent_fresh_process_repeat": {
@@ -8,8 +8,24 @@
     "nonblocked_fully_equal_journals": 2328
   },
   "main_market_mvp": "dfc9d7b76180f07e103dd413483a87524200b411",
+  "preregistered_uncertainty_correction": {
+    "comparison_reference": "archived pre-correction primary commit 3f232c3; local pre-correction alternate journal",
+    "corrected_adapter_sha256": "68042cf0741f9a33cf90e721e653d9a251a0a7b150d18827d4b9c2ca9c334964",
+    "exact_native_replays_including_controls": 1178,
+    "full_private_primary_and_alternate_paths_identical": 2992,
+    "old_adapter_sha256": "e66ee3433ec21433e43e73225445b63ece365eae80eacae5922d0cde091349ed",
+    "original_followup_hold20_controls": 18,
+    "source_note": "Independent processes reproduced all orders, targets, fills, equity and cycles before/after changing interval eligibility and draws. The separate numerical verifier checked daily path samples and all return fields."
+  },
   "private_reproducible_journals": {
-    "extended.jsonl.gz": "237ccd252cc49abb022fd46eae66eda85ce56e6be291759746cb977285744e11",
-    "mvp.jsonl.gz": "05478bea1674bef91e128182f31757e704c0beffadb55c8a7b7302269110c07e"
+    "extended.jsonl.gz": "10a727d93707454f2579a353da46b8bad5af43d2595c9e8dbfb9d7d7247227dd",
+    "mvp.jsonl.gz": "a324350eaf76066600f9092f6fb175e69a7489c47f687034460a0a6954908692"
+  },
+  "public_sha256": {
+    "alternative/results.csv": "edb85b07ae072f1194ebd5d8b46021337e93b87712be7cef346e872734530063",
+    "bootstrap_verification.json": "dea062e9a712df76ad1c3259fb6f31dd801a5dd182ae167dbcbfc6b5327477d3",
+    "calendar_extended.csv.gz": "b82c2086e63db186bf0bcebf249e0fe5177378381984a839172f1a33bfe184f4",
+    "calendar_mvp.csv": "dcf2516c9c5e0b0a6bc697e1b5a8fd55f43a13101d343d5eed9aa2fdfaa391b5",
+    "candidate_decisions.csv": "32cc83bb158ac9fb99a2b5e4bebbeec36e83e5d006391baf24382251020448b0"
   }
 }

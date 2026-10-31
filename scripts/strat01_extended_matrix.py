@@ -253,6 +253,31 @@ def bounded_simulator(common):
     return namespace['simulate']
 
 
+def calendar_uncertainty(daily_equity, cycles):
+    """Frozen descriptive interval: 1,000 circular 7-day block resamples."""
+    days=len(daily_equity)
+    if days<180 or cycles<10:
+        return None,None
+    previous=100.
+    returns=[]
+    for equity in daily_equity:
+        returns.append(math.log(equity/previous))
+        previous=equity
+    rng=random.Random(20261031)
+    full,remainder=divmod(days,7)
+    blocks=[sum(returns[(i+j)%days] for j in range(7)) for i in range(days)]
+    tails=[sum(returns[(i+j)%days] for j in range(remainder)) for i in range(days)]
+    estimates=[]
+    for _ in range(1000):
+        total=sum(rng.choice(blocks) for _ in range(full))
+        if remainder: total+=rng.choice(tails)
+        estimates.append(100*math.expm1(total/days))
+    estimates.sort()
+    # Linear empirical 2.5th/97.5th percentiles, like NumPy's default quantile.
+    return (estimates[24]*.025+estimates[25]*.975,
+            estimates[974]*.975+estimates[975]*.025)
+
+
 def audit_metrics(bars, period, result, interval, is_mvp):
     """Independent cash/inventory ledger and mark every bar, including terminal residuals."""
     m=result['metrics']
@@ -293,18 +318,7 @@ def audit_metrics(bars, period, result, interval, is_mvp):
     if abs(units)<1e-12: close(previous-100,sum(pnls))
     close(m['total_fees' if is_mvp else 'explicit_fees'],fees)
     worst=min(months,key=lambda k:months[k][1]/months[k][0])
-    p=100.; logdaily=[]
-    for eq in day_values.values(): logdaily.append(math.log(eq/p)); p=eq
-    # Fixed circular 7-calendar-day blocks; conditional on this series.
-    ci=(None,None)
-    if days>=60 and len(cycles)>=5:
-        rng=random.Random(20261031)
-        sums=[sum(logdaily[(i+j)%days] for j in range(7)) for i in range(days)]
-        rem=days%7
-        tail=[sum(logdaily[(i+j)%days] for j in range(rem)) for i in range(days)]
-        samples=sorted(math.expm1((sum(rng.choice(sums) for _ in range(days//7))+
-                                   (rng.choice(tail) if rem else 0.))/days)*100 for _ in range(500))
-        ci=(samples[12],samples[487])
+    ci=calendar_uncertainty(list(day_values.values()),len(cycles))
     return dict(final_equity_usd=previous,net_usd=previous-100,net_pct=previous-100,
                 geometric_daily_pct=100*math.expm1(math.log(previous/100)/days),
                 dd_close_pct=dd*100,native_dd_pct=m['max_drawdown']*100,closed_cycles=len(cycles),

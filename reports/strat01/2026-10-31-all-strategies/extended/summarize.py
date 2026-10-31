@@ -87,7 +87,8 @@ def main():
         engine={'MVP':'MVP','P3':'PHASE3','EXT':'EXTENDED'}[prefix]
         matching=[r for r in rows if r['engine']==engine and r['strategy']==name and r['role']=='candidate']
         original_names={'MVP':['mvp'],'P3':['phase3'],'EXT':['extended','followup','phase3']}[prefix]
-        original_count=sum(r['strategy']==name for origin in original_names for r in origins[origin])
+        original_count=sum(r['strategy']==name and not (origin=='followup' and r['case']=='buy_hold20')
+                           for origin in original_names for r in origins[origin])
         annual=[r for r in result if r['engine']==engine and r['candidate']==name]
         excluded=name.startswith('grid_')
         primary_stress=[r for r in matching if r['status']=='COMPLETE' and r['window'] in PRIMARY and r['cost']=='stress']

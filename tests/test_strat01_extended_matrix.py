@@ -1,7 +1,7 @@
 """Coverage, independent accounting and cost-scenario invariants (no external data)."""
 from collections import namedtuple
 import unittest
-from scripts.strat01_extended_matrix import BAR, COSTS, DAY, audit_metrics, contiguous
+from scripts.strat01_extended_matrix import BAR, COSTS, DAY, audit_metrics, contiguous, calendar_uncertainty
 
 Bar = namedtuple('Bar', 'ts close')
 
@@ -51,3 +51,27 @@ class ExtendedMatrixTests(unittest.TestCase):
         self.assertEqual(len(valid),98)
         self.assertEqual(valid[0].ts,0)
         self.assertEqual(max(b.close for b in valid),1.)
+
+    def test_preregistered_bootstrap_eligibility_and_draws(self):
+        import math
+        import random
+        path=[100*math.exp(.0001*(i+1)+.006*math.sin(i)) for i in range(180)]
+        self.assertEqual(calendar_uncertainty(path[:-1],10),(None,None))
+        self.assertEqual(calendar_uncertainty(path,9),(None,None))
+        # Independent raw-index sampler, without precomputed block sums.
+        rng=random.Random(20261031)
+        returns=[math.log(x/y) for x,y in zip(path,[100.]+path[:-1])]
+        sample=[]
+        for _ in range(1000):
+            draw=[]
+            while len(draw)<len(path):
+                i=rng.randrange(len(path))
+                draw.extend(returns[(i+j)%len(path)] for j in range(7))
+            sample.append(100*math.expm1(sum(draw[:len(path)])/len(path)))
+        sample.sort()
+        actual=calendar_uncertainty(path,10)
+        for p,value in zip((.025,.975),actual):
+            rank=p*(len(sample)-1)
+            pos=int(rank)
+            expected=sample[pos]+(rank-pos)*(sample[pos+1]-sample[pos])
+            self.assertAlmostEqual(value,expected,places=12)

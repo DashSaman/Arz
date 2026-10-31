@@ -1,0 +1,33 @@
+{
+  "protocol": "1,000 seeded circular seven-day block samples; 180 daily marks and ten cycles minimum",
+  "results": [
+    {
+      "blocked": 152,
+      "economic_fields_sha256": "7f1da8be202e0702db17520df73c111cecd18b100b614ac68b386366c1942b87",
+      "eligible": 12,
+      "ineligible_complete": 100,
+      "same_as_pre_correction_financial_fields": true,
+      "table": "calendar_mvp.csv"
+    },
+    {
+      "blocked": 576,
+      "economic_fields_sha256": "72f31021a2957b63eeb7262d355dcc79a8bb8e653cd86c354ef06767daa069ed",
+      "eligible": 185,
+      "ineligible_complete": 2143,
+      "same_as_pre_correction_financial_fields": true,
+      "table": "calendar_extended.csv"
+    },
+    {
+      "blocked": 24,
+      "economic_fields_sha256": "dc16e7d489c2aaf912d0f5aac09e1f74d57d0bc347c8d5e9b486a44194608daa",
+      "eligible": 0,
+      "ineligible_complete": 552,
+      "same_as_pre_correction_financial_fields": true,
+      "table": "results.csv"
+    }
+  ],
+  "seed": 20261031,
+  "source": "68042cf0741f9a33cf90e721e653d9a251a0a7b150d18827d4b9c2ca9c334964",
+  "verification": "Independent daily extraction and raw-index resampling using NumPy linear quantiles",
+  "verifier_sha256": "b6a6c40487d7c9007de549603506a3c7059e60b3627f01e4d73c64e30e2df89d"
+}
