@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "checkpoint_id": "ARZ-2026-10-28-CONTROL-10",
-  "observed_at_utc": "2026-10-28",
+  "checkpoint_id": "ARZ-2026-10-31-CONTROL-11",
+  "observed_at_utc": "2026-10-31",
   "repository": "DashSaman/Arz",
   "canonical_branch": "main",
   "purpose": "Evidence-linked restart-safe control plane; does not promote unmerged draft code to main",
@@ -413,7 +413,7 @@
         "EV-007"
       ],
       "completion": "Separate H2 baseline and wallet-confirmed variant once wallet data arrives; baseline must pass realistic cost and OOS without retuning; CEX proxy never qualifies Base DEX H4",
-      "next_action": "STRAT-01 Issue #42 after merged PR61: independently inspect NEW actual GitHub Actions 4h source capture run metadata (runner_reported_event_name, run id/url), verify paired forward source+audit files and lag/no gaps; collect genuinely timely prospective WETH/cbBTC bars, a full 194-bar original ATR S0 warmup, exact 60s source-time $20 follower quotes including real L1/L2/failed-fill costs, then 90 elapsed paper days and positive cost-stressed net geometric account return. Two formerly missing bars were fetched historically LATE (01:12 UTC 28 Oct) and must NEVER be backdated into forward paper.",
+      "next_action": "Issue #42: validate collection on an independent clock against all six daily 4h closes. Corroborated 14 GitHub schedule runs have only one paired receipt within an hour. The Oct 31 manual observation adds a second timely slot. Track missing and consecutive slots separately. Require 194 consecutive paired bars, causal $20 quotes 60s after signals, cost evidence, and 90 elapsed paper days with positive stressed net geometric returns before any funding review.",
       "github_issue_url": "https://github.com/DashSaman/Arz/issues/42",
       "last_verified_subcheckpoint": {
         "id": "STRAT01-IMMUTABLE-NEGATIVE-CONTROL-2026-10-26",
@@ -716,6 +716,28 @@
           "live_trading": "DISABLED",
           "financial_decision": "NO-GO",
           "source_report": "reports/strat01/2026-10-28-late-recovery-observed.json"
+        },
+        {
+          "id": "STRAT01-2026-10-31-SOURCE-TIMING",
+          "source_cutoff_main_sha": "503c4ea168d20fe587715ead88a95d11e43805e8",
+          "through_bar_close_utc": "2026-10-31T16:00:00Z",
+          "first_seen_utc": "2026-10-31T16:42:06Z",
+          "scheduled_runs_independently_matched": 14,
+          "manual_forward_captures": 1,
+          "closed_grid_windows": 28,
+          "observed_paired_windows": 15,
+          "missing_prospective_windows": 13,
+          "operationally_timely_paired_windows": 2,
+          "longest_complete_paired_run": 2,
+          "longest_timely_paired_run": 1,
+          "manual_source_sha256": "5b3a81f2a8ee08c414d5c77373514f57dd390b6bb96058f8553b381812964c0e",
+          "source_report": "reports/strat01/forward/20261031T164206Z.json",
+          "paired_audit": "reports/strat01/audits/20261031T164206Z.json",
+          "schedule_run_evidence": "reports/strat01/2026-10-31-scheduled-run-crosscheck.json",
+          "qualified_prospective_paper_days": 0,
+          "net_account_return": null,
+          "financial_decision": "NO-GO",
+          "live_trading": "DISABLED"
         }
       ]
     },

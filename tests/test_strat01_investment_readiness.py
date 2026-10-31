@@ -19,11 +19,11 @@ SHA="a"*64
 SECOND_SHA="b"*64
 
 
-def sample_capture(offset:int=0, *, completed:bool=True) -> dict:
+def sample_capture(offset:int=0, *, completed:bool=True, bar_index:int=0) -> dict:
     # One real-looking synthetic capture strictly after the first 4h close.
-    now=START+g.BAR_SECONDS+180+offset
+    begin=START+bar_index*g.BAR_SECONDS
+    now=begin+g.BAR_SECONDS+180+offset
     t=datetime.fromtimestamp(now,timezone.utc).isoformat()
-    begin=START
     candles=[]
     for asset in g.ASSETS:
         if completed:
@@ -82,6 +82,31 @@ def stamp(data:dict) -> str:
 
 
 class RealProjectGateTests(unittest.TestCase):
+    def test_194_complete_pairs_split_by_gap_do_not_satisfy_warmup(self):
+        with TemporaryDirectory() as d:
+            folder=Path(d)
+            for bar_index in (*range(193),194):
+                capture=sample_capture(bar_index=bar_index)
+                (folder/stamp(capture)).write_text(json.dumps(capture))
+            report=g.evaluate(folder)
+            audit=report["source_capture_audit"]
+            self.assertEqual(len(audit["complete_both_asset_bar_starts"]),194)
+            self.assertIn("FROZEN_S0_NEEDS_194_CONSECUTIVE_DUAL_ASSET_4H_BARS",report["blockers"])
+            self.assertEqual(audit["max_consecutive_complete_both_asset_bars"],193)
+
+    def test_194_consecutive_pairs_satisfy_warmup_even_if_one_arrives_late(self):
+        with TemporaryDirectory() as d:
+            folder=Path(d)
+            for bar_index in range(194):
+                capture=sample_capture(bar_index=bar_index,offset=3600 if bar_index==193 else 0)
+                (folder/stamp(capture)).write_text(json.dumps(capture))
+            report=g.evaluate(folder)
+            audit=report["source_capture_audit"]
+            self.assertNotIn("FROZEN_S0_NEEDS_194_CONSECUTIVE_DUAL_ASSET_4H_BARS",report["blockers"])
+            self.assertIn("LESS_THAN_194_TIMELY_CAUSAL_BOTH_ASSET_BARS",report["blockers"])
+            self.assertEqual(audit["max_consecutive_operationally_timely_bars"],193)
+            self.assertEqual(audit.get("max_consecutive_complete_both_asset_bars"),194)
+
     def test_actual_project_status_is_not_investment_approved(self):
         report=g.evaluate()
         self.assertEqual(report["investment_recommendation"],"NO-GO")
@@ -103,10 +128,14 @@ class RealProjectGateTests(unittest.TestCase):
 
     def test_empty_folder_not_silent_success(self):
         with TemporaryDirectory() as d:
-            x=g.evaluate(Path(d))
-            self.assertEqual(x["source_capture_audit"]["file_count"],0)
-            self.assertIn("NO_SCHEDULED_SOURCE_CAPTURE_ON_MAIN_YET",x["blockers"])
-            self.assertNotIn("MALFORMED_OR_UNTRUSTED_CAPTURE",x["blockers"])
+            for folder in (Path(d),Path(d)/"missing"):
+                with self.subTest(folder=folder):
+                    x=g.evaluate(folder)
+                    self.assertEqual(x["source_capture_audit"]["file_count"],0)
+                    self.assertIn("NO_SCHEDULED_SOURCE_CAPTURE_ON_MAIN_YET",x["blockers"])
+                    self.assertNotIn("MALFORMED_OR_UNTRUSTED_CAPTURE",x["blockers"])
+                    self.assertIn("FROZEN_S0_NEEDS_194_CONSECUTIVE_DUAL_ASSET_4H_BARS",x["blockers"])
+                    self.assertEqual(x["source_capture_audit"].get("max_consecutive_complete_both_asset_bars"),0)
 
     def test_paper_days_not_inferred_from_calendar_since_oos(self):
         with TemporaryDirectory() as d:
@@ -225,6 +254,7 @@ for k in range(32):
                 (folder/stamp(y)).write_text(json.dumps(y))
                 proof=g.audit_capture_dir(folder)
                 self.assertEqual(proof["conflicts"],[START])
+                self.assertEqual(proof.get("max_consecutive_complete_both_asset_bars"),0)
             elif typ==2:
                 (folder/"invalid-name.json").write_text(json.dumps(x))
                 proof=g.audit_capture_dir(folder)
@@ -250,6 +280,7 @@ for k in range(32):
                 proof=g.audit_capture_dir(folder)
                 self.assertEqual(proof["valid_both_market_bar_groups"],1)
                 self.assertEqual(proof["conflicts"],[])
+                self.assertEqual(proof.get("max_consecutive_complete_both_asset_bars"),1)
     add(AppendAuditCases,"prospective_append_or_conflict_%03d"%k,case)
 
 

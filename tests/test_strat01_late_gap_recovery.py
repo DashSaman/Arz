@@ -21,6 +21,18 @@ from scripts.strat01_investment_readiness import audit_capture_dir, FORWARD
 T0=gap.START_OOS
 ONE=gap.BAR
 SHA="a"*40
+OCT_27_CAPTURES = {
+    "20261027T095359Z.json": "34c7bc50dddcd93bfa0d4e4bf228094e54b957d82ba3e97ceb98baf759220d02",
+    "20261027T180617Z.json": "a18be33ace52e39e40eacba47811a7c2e0273eb9dc97faee43f62022a4434424",
+    "20261027T235127Z.json": "aa978726baba81fa12b76b0261557df8b76c3eb3a4ac2e80e8eb6bf41543b7d4",
+}
+
+
+def october_27_forward_dir(test):
+    folder = Path(test.enterContext(TemporaryDirectory()))
+    for filename in OCT_27_CAPTURES:
+        (folder / filename).write_bytes((FORWARD / filename).read_bytes())
+    return folder
 
 
 class FakeProvider(src.Probe):
@@ -47,7 +59,8 @@ class FakeProvider(src.Probe):
         elif self.response_mode=="zero_rows":value=""
         else:value=json.dumps(data)+"\n"
         raw=value.encode()
-        return raw, T0+4*ONE+120, "f"*64
+        # Synthetic recovery on Oct 28, after the last archived Oct 27 capture.
+        return raw, T0+6*ONE+120, "f"*64
 
 
 def valid_ledger(known):
@@ -65,12 +78,15 @@ class RealSourceRecovery(unittest.TestCase):
     def test_actual_main_three_read_only_captures_exist(self):
         d=audit_capture_dir(FORWARD)
         self.assertGreaterEqual(d["file_count"],3)
+        manifest = {row["filename"]: row["sha256"] for row in d["source_manifest"]}
+        for filename, digest in OCT_27_CAPTURES.items():
+            self.assertEqual(manifest[filename], digest)
         self.assertIn(T0+ONE,d["complete_both_asset_bar_starts"])
         self.assertIn(T0+3*ONE,d["complete_both_asset_bar_starts"])
         self.assertIn(T0+4*ONE,d["complete_both_asset_bar_starts"])
 
     def test_actual_missed_original_source_intervals_not_trades(self):
-        d=audit_capture_dir(FORWARD)
+        d=audit_capture_dir(october_27_forward_dir(self))
         recovered=gap.missing_closed_slots(d)
         self.assertIn(T0,recovered)
         self.assertIn(T0+2*ONE,recovered)
@@ -79,13 +95,14 @@ class RealSourceRecovery(unittest.TestCase):
         self.assertEqual(d["qualified_trading_days"],0)
 
     def test_actual_first_three_real_sources_all_late_beyond_one_hour(self):
-        d=audit_capture_dir(FORWARD)
+        d=audit_capture_dir(october_27_forward_dir(self))
         for t in (T0+ONE,T0+3*ONE,T0+4*ONE):
             self.assertIn(t,d["late_both_market_bar_starts"])
         self.assertEqual(d["max_consecutive_operationally_timely_bars"],0)
 
     def test_real_captured_sources_cannot_be_modified_by_gap_collector(self):
         d=audit_capture_dir(FORWARD)
+        self.assertEqual(len(d["source_manifest"]), d["file_count"])
         for r in d["source_manifest"]:
             self.assertRegex(r["sha256"],r"^[0-9a-f]{64}$")
             self.assertIn("first_seen",r)
@@ -126,17 +143,20 @@ class CheckNewGitHubProvenance(unittest.TestCase):
 
 
 class FixedSourceSafety(unittest.TestCase):
+    def setUp(self):
+        self.forward_dir = october_27_forward_dir(self)
+
     def test_no_forward_files_is_no_backfill_not_a_profitable_result(self):
         self.assertEqual(gap.missing_closed_slots(valid_ledger([T0])),[])
 
     def test_unbounded_public_rpc_not_allowed(self):
         p=src.Probe(max_calls=50)
         with self.assertRaisesRegex(ValueError,"Unbounded"):
-            gap.collect(forward_dir=FORWARD,probe=p)
+            gap.collect(forward_dir=self.forward_dir,probe=p)
 
     def test_429_stops_all_remaining_gap_calls(self):
         p=FakeProvider(response_mode="HTTP_429")
-        result=gap.collect(forward_dir=FORWARD,probe=p)
+        result=gap.collect(forward_dir=self.forward_dir,probe=p)
         self.assertEqual(p.calls,1)
         self.assertEqual(result["source_results"][0]["source_status"],"SOURCE_UNAVAILABLE")
         self.assertEqual(result["investment_decision"],"NO-GO")
@@ -144,8 +164,8 @@ class FixedSourceSafety(unittest.TestCase):
 
     def test_valid_late_source_with_two_missing_slots_is_not_paper(self):
         p=FakeProvider()
-        r=gap.collect(forward_dir=FORWARD,probe=p)
-        self.assertEqual(r["selected_missing_OOS_bar_starts"][:2],[T0,T0+2*ONE])
+        r=gap.collect(forward_dir=self.forward_dir,probe=p)
+        self.assertEqual(r["selected_missing_OOS_bar_starts"],[T0,T0+2*ONE])
         self.assertEqual(r["source_network_requests_made"],2*len(r["selected_missing_OOS_bar_starts"]))
         self.assertTrue(all(v["source_status"]=="RECOVERED_LATE_RESEARCH_ONLY"
                             for v in r["source_results"]))
@@ -156,18 +176,18 @@ class FixedSourceSafety(unittest.TestCase):
 
     def test_source_absent_does_not_mean_no_volume_trades(self):
         p=FakeProvider(response_mode="zero_rows")
-        r=gap.collect(forward_dir=FORWARD,probe=p)
+        r=gap.collect(forward_dir=self.forward_dir,probe=p)
         self.assertTrue(all(v["source_status"]=="MISSING_SOURCE_AMBIGUOUS" for v in r["source_results"]))
         self.assertEqual(r["investment_decision"],"NO-GO")
 
     def test_wrong_market_response_rejected_not_merged_into_asof(self):
         p=FakeProvider(response_mode="wrong_market")
-        r=gap.collect(forward_dir=FORWARD,probe=p)
+        r=gap.collect(forward_dir=self.forward_dir,probe=p)
         self.assertTrue(all(v["source_status"]=="SOURCE_UNAVAILABLE" for v in r["source_results"]))
 
     def test_double_same_bar_response_never_accepted(self):
         p=FakeProvider(response_mode="duplicate")
-        r=gap.collect(forward_dir=FORWARD,probe=p)
+        r=gap.collect(forward_dir=self.forward_dir,probe=p)
         self.assertTrue(all(v["source_status"]=="SOURCE_UNAVAILABLE" for v in r["source_results"]))
 
     def test_network_url_is_bounded_public_trading_strategy(self):

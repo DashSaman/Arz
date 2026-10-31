@@ -217,6 +217,17 @@ def snapshot_summary(doc:dict, *, filename:str) -> dict:
             "execution_verified":False}
 
 
+def _longest_bar_run(sorted_starts: list[int]) -> int:
+    """Count the longest gap-free run on the frozen four-hour grid."""
+    longest = run = 0
+    previous = None
+    for start in sorted_starts:
+        run = run + 1 if previous is not None and start - previous == BAR_SECONDS else 1
+        longest = max(longest, run)
+        previous = start
+    return longest
+
+
 def audit_capture_dir(source:Path) -> dict:
     if not source.exists():
         return {"file_count":0,"valid_source_files":0,"complete_both_asset_bar_starts":[],
@@ -225,6 +236,7 @@ def audit_capture_dir(source:Path) -> dict:
                 "late_both_market_bar_starts":[],
                 "operationally_timely_both_market_bar_starts":[],
                 "max_observed_bar_close_to_source_lag_seconds":None,
+                "max_consecutive_complete_both_asset_bars":0,
                 "max_consecutive_operationally_timely_bars":0,
                 "missing_or_untrusted_capture":True,
                 "errors":["NO_SCHEDULED_APPEND_FILE_PRESENT"],
@@ -295,12 +307,6 @@ def audit_capture_dir(source:Path) -> dict:
             timely.append(bar)
         else:
             late.append(bar)
-    longest=run=0
-    prev=None
-    for bar in timely:
-        run=run+1 if prev is not None and bar-prev==BAR_SECONDS else 1
-        longest=max(longest,run)
-        prev=bar
     gaps=[]
     for prev,nxt in zip(completed,completed[1:]):
         if nxt-prev!=BAR_SECONDS:
@@ -318,7 +324,8 @@ def audit_capture_dir(source:Path) -> dict:
             "operationally_timely_both_market_bar_starts":timely,
             "max_observed_bar_close_to_source_lag_seconds":
                 max(lag_values) if lag_values else None,
-            "max_consecutive_operationally_timely_bars":longest,
+            "max_consecutive_complete_both_asset_bars":_longest_bar_run(completed),
+            "max_consecutive_operationally_timely_bars":_longest_bar_run(timely),
             "errors":errors,"first_schedule_run_independently_verified":False,
             "original_publication_time_verified":False,
             "full_historical_continuous_warmup_verified":False,
@@ -360,7 +367,7 @@ def evaluate(source:Path=FORWARD) -> dict:
         blockers.append("BAR_SOURCE_FIRST_SEEN_OVER_1H_AFTER_CLOSE_DIAGNOSTIC")
     if snaps["max_consecutive_operationally_timely_bars"] < WARMUP_BARS:
         blockers.append("LESS_THAN_194_TIMELY_CAUSAL_BOTH_ASSET_BARS")
-    if len(snaps["complete_both_asset_bar_starts"]) < WARMUP_BARS:
+    if snaps["max_consecutive_complete_both_asset_bars"] < WARMUP_BARS:
         blockers.append("FROZEN_S0_NEEDS_194_CONSECUTIVE_DUAL_ASSET_4H_BARS")
     if not snaps["first_schedule_run_independently_verified"]:
         blockers.append("ACTUAL_GITHUB_CRON_JOB_NOT_INDEPENDENTLY_ATTESTED")

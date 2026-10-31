@@ -1,6 +1,6 @@
 # ARZ RESEARCH NOW — single restart checkpoint
 
-**Latest checkpoint 2026-10-28 UTC · STRAT-01 IN PROGRESS, WAL-01 PARTIAL · Financial NO-GO · Live trading DISABLED**
+**Latest checkpoint 2026-10-31 UTC · STRAT-01 IN PROGRESS, WAL-01 PARTIAL · Financial NO-GO · Live trading DISABLED**
 
 > **Start here before doing anything in Arz.** This is the entry point on `main` even when newer research work lives in unmerged draft branches. `PROJECT_STATUS.md` begins with the older 2026-10-13 MVP checkpoint and must not be mistaken for the latest research status.
 
@@ -8,6 +8,12 @@
 **Detailed Persian:** [docs/fa/research_current_checkpoint.md](docs/fa/research_current_checkpoint.md)  
 **Detailed English:** [docs/en/research_current_checkpoint.md](docs/en/research_current_checkpoint.md)  
 **Offline consistency check:** `PYTHONPATH=src:. python scripts/verify_research_control.py`
+
+## 31 October 2026 | STRAT-01 collection timing
+
+As of the 16:00 UTC close, 15 of 28 four-hour windows have paired WETH and cbBTC observations. Two met the one-hour collection diagnostic. The longest complete sequence is two bars and the longest timely sequence is one (194 required). The latest manual observation was received at 16:42:06 UTC. All 14 earlier samples were independently matched to GitHub scheduled runs. On each of October 28–30 GitHub created three scheduled runs against six configured daily times. The offline audit now measures contiguous coverage directly.
+
+Qualified paper days: 0. Account P&L: unknown. The next operational check is whether an independently timed collector can cover all six daily closes. [English](docs/en/strat01_source_timing_20261031.md) · [فارسی](docs/fa/strat01_source_timing_20261031.md) · [Run evidence](reports/strat01/2026-10-31-scheduled-run-crosscheck.json) · [Capture audit](reports/strat01/audits/20261031T164206Z.json).
 
 ## Current facts, not claims of investment returns
 
