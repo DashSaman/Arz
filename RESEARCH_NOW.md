@@ -9,6 +9,14 @@
 **Detailed English:** [docs/en/research_current_checkpoint.md](docs/en/research_current_checkpoint.md)  
 **Offline consistency check:** `PYTHONPATH=src:. python scripts/verify_research_control.py`
 
+## 31 October 2026 | Post-audit correctness and qualification gates
+
+**Financial decision unchanged: NO-GO; live orders DISABLED.** [PR #66](https://github.com/DashSaman/Arz/pull/66) merged fail-closed validation of numeric risk/cash/fee arguments; the [offline CI run](https://github.com/DashSaman/Arz/actions/runs/41234664530) executed 1,445 methods (4 skipped, no failures). [PR #67](https://github.com/DashSaman/Arz/pull/67) merged a second **historical evidence classification**, not a new strategy backtest: 185 annual rows include 55 stress positive, 116 negative and 14 flat; 46 have explicit per-leg order-cap PASS, nine of those are stress-positive, and **two** WETH 60m clock variants also have at least ten base-cost cycles and <=10% base drawdown. Both of those are **not** native annual-and-later-six-month qualified. [CI](https://github.com/DashSaman/Arz/actions/runs/41234823684) observed 1,451 methods (4 skipped, no failures).
+
+[Reproducible classification](scripts/strat01_annual_candidates.py) · [Persian decision](docs/fa/strat01_annual_eligibility_followup_20261031.md) · [Next research task graph Issue #68](https://github.com/DashSaman/Arz/issues/68).
+
+**This work added 0 fresh historical backtests, 0 verified executable fills, 0 prospective paper days, and 0 real trading authorizations.** Do not conflate CI tests or reclassification of existing results with an improved economic edge.
+
 ## 31 October 2026 | All-strategy decision
 
 No performance-qualified Paper candidate. The cross-branch index records 164 items across 32 reporting families, including controls and untestable hypotheses. Fresh S0 annual output matched PR #64 byte-for-byte. The selected corrected payoff arm lost 4.85% at stress in the subsequent six months. WETH volatility_breakout_v2 made 4.09% under 2025 stress, falling to a $1.92 loss after removing its largest winner. The 185-row completed annual comparison shows a maximum modeled stress geometric daily return of 0.024216%. S0's original annual positive path includes sales above the $25 ceiling. Of 82 original clock groups with some data, 66 had both required periods and none passed all historical gates. Forward evidence is maintained separately.
