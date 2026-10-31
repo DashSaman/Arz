@@ -35,7 +35,9 @@ def finite(v, name, positive=False):
 def split_exit_notional(held_value):
     """Leave >=$5 for the following bar if closing fully would exceed $25."""
     total = finite(held_value, "held value")
-    if total < MIN_ORDER:
+    # Floating-point unit/price multiplication can produce 4.999999999999999
+    # for an economically exact $5 remainder. Only tolerate sub-nano rounding.
+    if total < MIN_ORDER - 1e-9:
         return 0.0
     if total <= CAP:
         return total
