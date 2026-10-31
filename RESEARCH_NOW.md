@@ -9,6 +9,12 @@
 **Detailed English:** [docs/en/research_current_checkpoint.md](docs/en/research_current_checkpoint.md)  
 **Offline consistency check:** `PYTHONPATH=src:. python scripts/verify_research_control.py`
 
+## 31 October 2026 | S0 calendar backtests on Base
+
+Six of eight primary historical windows had complete native four-hour data. Of 12 independent market/window results at base costs, four made money, five lost money and three had no trades. Two quarters failed coverage because of the same 13 missing candles in June 2026. A separate uninterrupted 2025 run on a simulated $100 account returned +10.46% on WETH (8 cycles) and −0.80% on cbBTC (12 cycles). Doubling costs produced +9.74% and −1.75%. These historical simulations add zero qualified forward days. Funding remains NO-GO.
+
+[Persian results](docs/fa/strat01_calendar_backtests_20261031.md) · [English results and reproduction](docs/en/strat01_calendar_backtests_20261031.md) · [Primary CSV](reports/strat01/2026-10-31-calendar-backtests/primary/results.csv) · [Supplemental CSV](reports/strat01/2026-10-31-calendar-backtests/supplemental/results.csv)
+
 ## 31 October 2026 | STRAT-01 collection timing
 
 As of the 16:00 UTC close, 15 of 28 four-hour windows have paired WETH and cbBTC observations. Two met the one-hour collection diagnostic. The longest complete sequence is two bars and the longest timely sequence is one (194 required). The latest manual observation was received at 16:42:06 UTC. All 14 earlier samples were independently matched to GitHub scheduled runs. On each of October 28–30 GitHub created three scheduled runs against six configured daily times. The offline audit now measures contiguous coverage directly.

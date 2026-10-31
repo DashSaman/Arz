@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint_id": "ARZ-2026-10-31-CONTROL-11",
+  "checkpoint_id": "ARZ-2026-10-31-CONTROL-12",
   "observed_at_utc": "2026-10-31",
   "repository": "DashSaman/Arz",
   "canonical_branch": "main",
@@ -736,6 +736,33 @@
           "schedule_run_evidence": "reports/strat01/2026-10-31-scheduled-run-crosscheck.json",
           "qualified_prospective_paper_days": 0,
           "net_account_return": null,
+          "financial_decision": "NO-GO",
+          "live_trading": "DISABLED"
+        },
+        {
+          "id": "STRAT01-2026-10-31-CALENDAR-BACKTESTS",
+          "classification": "RETROSPECTIVE_PRE_CUTOFF_SIMULATED_COSTS",
+          "frozen_engine_commit": "db79545f5162518251eda73ec9fd3526411f9dc8",
+          "base_main_sha": "f1add765c1700a343ff7c1501e882bc4c2f157cf",
+          "primary_periods": 8,
+          "eligible_primary_periods": 6,
+          "supplemental_periods": 3,
+          "eligible_primary_s0_cases_all_costs": 36,
+          "eligible_supplemental_s0_cases_all_costs": 18,
+          "year_2025_independent_accounts_no_quarterly_reset": {
+            "WETH": {
+              "mid_net_pct": 10.464780951841519,
+              "closed_simulated_cycles": 8
+            },
+            "cbBTC": {
+              "mid_net_pct": -0.8000987639959334,
+              "closed_simulated_cycles": 12
+            }
+          },
+          "primary_report": "reports/strat01/2026-10-31-calendar-backtests/primary/results.csv",
+          "supplemental_report": "reports/strat01/2026-10-31-calendar-backtests/supplemental/results.csv",
+          "forward_ledger_modified": false,
+          "untouched_oos": false,
           "financial_decision": "NO-GO",
           "live_trading": "DISABLED"
         }
