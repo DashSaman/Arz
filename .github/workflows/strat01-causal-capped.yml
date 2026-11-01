@@ -1,0 +1,74 @@
+name: ARZ STRAT01 stateful causal capped S0 historical diagnostic (NO-GO)
+
+on:
+  pull_request:
+    paths:
+      - 'research/strat01/2026-11-01-stateful-cap-protocol.json'
+      - 'scripts/strat01_causal_capped_replay.py'
+      - 'tests/test_strat01_causal_capped_replay.py'
+      - '.github/workflows/strat01-causal-capped.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  stateful-historical:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    env:
+      PYTHONPATH: src:.
+      PYTHONFAULTHANDLER: "1"
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Stable Python for frozen scientific binary dependencies
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+        with:
+          python-version: '3.12'
+      - name: Verify source freeze, financial safety and syntax
+        run: |
+          python -m compileall -q scripts/strat01_causal_capped_replay.py tests/test_strat01_causal_capped_replay.py
+          python scripts/verify_research_control.py
+          python -m unittest discover -s tests -p test_strat01_causal_capped_replay.py -v
+      - name: Clone precisely frozen original PR17 engine into isolated environment
+        run: |
+          git clone --filter=blob:none https://github.com/DashSaman/Arz.git /tmp/arz-pr17-original
+          git -C /tmp/arz-pr17-original fetch origin db79545f5162518251eda73ec9fd3526411f9dc8
+          git -C /tmp/arz-pr17-original checkout --detach db79545f5162518251eda73ec9fd3526411f9dc8
+          python -m venv /tmp/arz-stateful-venv
+          /tmp/arz-stateful-venv/bin/python -m pip install -r /tmp/arz-pr17-original/experiments/upstream_benchmark/requirements.lock
+      - name: Source-pinned read-only historical Base data acquisition
+        run: |
+          /tmp/arz-stateful-venv/bin/python -m scripts.strat01_period_data --fetch --cache /tmp/arz-stateful-source
+      - name: State-dependent S0 new independent capped account replay
+        run: |
+          /tmp/arz-stateful-venv/bin/python -m scripts.strat01_causal_capped_replay \
+            --source /tmp/arz-pr17-original \
+            --data /tmp/arz-stateful-source \
+            --output /tmp/arz-stateful-artifact
+      - name: Enforce audit NEVER promotes historical candles to verified DEX fills
+        run: |
+          /tmp/arz-stateful-venv/bin/python - <<'PY'
+          import json
+          from pathlib import Path
+          audit=json.loads(Path('/tmp/arz-stateful-artifact/audit.json').read_text())
+          assert audit['financial_decision']=='NO-GO'
+          assert audit['live_trading']=='DISABLED'
+          assert audit['capital_authorized_usd']==0
+          assert audit['prospective_qualified_paper_days']==0
+          assert audit['independent_alpha_out_of_sample'] is False
+          assert audit['candle_open_fills_not_executable_dex_quotes'] is True
+          assert audit['real_gas_l1_l2_slippage_inclusion'] is None
+          assert audit['result_count']==18
+          print('STATEFUL_HISTORY_NO_GO_VERIFIED=PASS')
+          PY
+      - name: Save raw evidence, ledgers, rejects, marks and source audit
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: arz-strat01-stateful-historical-capped-no-go
+          path: /tmp/arz-stateful-artifact
+          retention-days: 30
+          if-no-files-found: warn

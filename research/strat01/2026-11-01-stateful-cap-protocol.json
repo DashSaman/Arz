@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "registered_utc_date": "2026-11-01",
+  "research_class": "RETROSPECTIVE_ALREADY_SEEN_PRICE_HISTORY_NOT_OOS",
+  "purpose": "Recompute corrected frozen S0 entry/exit decisions against the ACTUAL evolving capped per-leg hypothetical account. Falsify PR70 fixed-signal results; no profits promised.",
+  "original_engine_commit": "db79545f5162518251eda73ec9fd3526411f9dc8",
+  "data_source_sha256": {
+    "WETH": "633f1681a8381d164ea05994e545f61ac4c5f2804428df7bf3cf7a09ca4abfd1",
+    "cbBTC": "d14de847f54d0dee883fd1065bea1880f1a64d863998b3bbc09dadf5e52128f9"
+  },
+  "markets": ["WETH", "cbBTC"],
+  "windows": [
+    {"id":"year_2025","start":"2025-01-01","end_exclusive":"2026-01-01"},
+    {"id":"q1_2026","start":"2026-01-01","end_exclusive":"2026-04-01"},
+    {"id":"aug_sep_2026","start":"2026-08-01","end_exclusive":"2026-10-01"}
+  ],
+  "cost_profiles": {
+    "mid":{"relative":0.0015,"fixed_usd_per_leg":0.01},
+    "double_mid":{"relative":0.003,"fixed_usd_per_leg":0.02},
+    "stress":{"relative":0.003,"fixed_usd_per_leg":0.05}
+  },
+  "account": {
+    "starting_usdc":100,
+    "buy_and_sell_leg_max_usd":25,
+    "minimum_leg_usd":5,
+    "entry_cash_reserve_usd":10,
+    "fractional_unit":0.00000001,
+    "max_entry_intents_per_utc_day":2,
+    "leverage":false,
+    "martingale":false
+  },
+  "no_future_volume": "Use only the last fully completed bar's quoted-volume proxy for capped-leg veto; never current bar completed volume at its open. This is not on-chain order-book liquidity or an executable AMM quote.",
+  "source_timing": "Signal after completed four-hour bar t; hypothetical attempt at next 4h candle OPEN. Actual next-open gaps may cause quantity reduction or veto. Pending risk-reducing exits continue, one <=25USD sell per observed next-open; never force-liquidate terminal inventory.",
+  "original_signal_policy": "Use immutable SHA/blob pinned PR17 S0 ScreenPolicy and its frozen features, recomputing decisions from evolving cash, actual entered quantity and modeled marked equity. Alternate account ledger independent from original fixed-signal engine.",
+  "close_policy": "A frozen original exit signal switches to persistent pending liquidation. Stop logic is evaluated only when position is not already pending exit; exit attempts do not consume entry quota. Every actual sell leg accrues separate cost.",
+  "caveats": [
+    "Previously observed history, no independent final OOS",
+    "Original policy reused, alternative order-fill engine independent",
+    "Fills are next-open candle-price hypothetical with model costs, not validated DEX execution",
+    "Market impact, L1/L2, failed broadcast gas and quote-to-inclusion slippage UNKNOWN",
+    "Posthoc winner removal is concentration diagnosis, not executable counterfactual",
+    "No forward paper days and no capital authorization"
+  ],
+  "predeclared_decision": "Financial NO-GO regardless of signs. Compare to 2025 fixed-signal transfer only descriptively, cash and 20pct buy-and-hold where source-valid. Any missing data/gas is INSUFFICIENT_DATA for execution readiness.",
+  "live_trading":"DISABLED",
+  "capital_authorized_usd":0
+}
