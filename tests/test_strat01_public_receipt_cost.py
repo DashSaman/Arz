@@ -173,5 +173,18 @@ class ActualPublishedProviderLimitEvidenceTests(unittest.TestCase):
         self.assertEqual(observed["real_capital_authorized_usd"],0)
 
 
+class NetworkAccessWorkflowContractTests(unittest.TestCase):
+    def test_no_automatic_pr_network_retries_after_429(self):
+        from pathlib import Path
+        workflow=(Path(__file__).resolve().parents[1] /
+                  ".github/workflows/strat01-public-receipt-cost.yml").read_text()
+        run=workflow.index("- name: One bounded Base public RPC unrelated swap receipt observation")
+        assert workflow.index("if: github.event_name == 'workflow_dispatch'",run) > run
+        self.assertIn("if: github.event_name == 'workflow_dispatch'",workflow[run:run+160])
+        self.assertIn("if: always()",workflow)
+        self.assertIn("python -m unittest discover -s tests",workflow)
+        self.assertNotIn("eth_sendRawTransaction",workflow)
+
+
 if __name__=="__main__":
     unittest.main()
