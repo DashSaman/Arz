@@ -117,6 +117,8 @@ class IndependentReadOnlyTests(unittest.TestCase):
             self.assertTrue(heartbeat_healthy(root,at+10))
             self.assertFalse(heartbeat_healthy(root,at+181))
             self.assertFalse(heartbeat_healthy(root,at-1))
+            _write_heartbeat(root,now_unix=at,state="REFUSED_FAIL_CLOSED")
+            self.assertFalse(heartbeat_healthy(root,at+1))
 
     def test_compose_is_rootless_and_read_only(self):
         yml=(Path(__file__).resolve().parents[1]/
