@@ -98,8 +98,7 @@ def heartbeat_healthy(root: Path, now_unix: int) -> bool:
                 and value.get("capital_authorized_usd") == 0
                 and value.get("live_trading") == "DISABLED"
                 and value.get("status") in (
-                    "ALIVE_READONLY", "NETWORK_DISABLED", "COLLECTION_HEALTHY",
-                    "REFUSED_FAIL_CLOSED"))
+                    "ALIVE_READONLY", "NETWORK_DISABLED", "COLLECTION_HEALTHY"))
     except (ValueError, OSError, TypeError):
         return False
 
