@@ -413,7 +413,7 @@
         "EV-007"
       ],
       "completion": "Separate H2 baseline and wallet-confirmed variant once wallet data arrives; baseline must pass realistic cost and OOS without retuning; CEX proxy never qualifies Base DEX H4",
-      "next_action": "PR80 real operational clock audit merged: Oct28-30 9/18 GitHub scheduled runs and only 1/18 timely WETH+cbBTC close; confirms severe collection reliability deficit, does NOT uniquely identify dropped cron nor fix scheduling. Both PR76 crons share GitHub and independent host deployment needs separate authorization; previous frozen cohort gaps cannot be repaired by retroactive timestamps. Public Base receipt pilot PR78 HTTP429 remains blocked, paid exact +60s $20 follower fees UNKNOWN, 194 contiguous qualifying dual-market bars and 90 genuinely elapsed paper days unachieved; NO-GO, live DISABLED, capital $0.",
+      "next_action": "V5 collector PR82 and offline HTML monitor PR83 merged on main; 10+7 focused tests and 1521 full offline suite PASS (4 skipped). Independent local Docker UTC four-hour clock and locally generated dashboard are NOT deployed to an approved host, have network disabled by default and do not sync automatically to GitHub. Actual offline dashboard over frozen 22 source files observed 18 dual-asset bars, 5 timely; 194 contiguous warmup, exact 60s follower $20 costs, 90 elapsed qualifying paper days and proven positive net geometric account returns remain unmet. Next: authorize isolated independent host/provider access and deploy+measure six actual daily closes, also build/validate prospective shadow observation journal. Financial NO-GO, $0 funded.",
       "github_issue_url": "https://github.com/DashSaman/Arz/issues/42",
       "last_verified_subcheckpoint": {
         "id": "STRAT01-IMMUTABLE-NEGATIVE-CONTROL-2026-10-26",
@@ -976,6 +976,26 @@
       "all_tests_passed": 1504,
       "new_test_methods": 8,
       "scope": "Actual full-API 17-run read-only GitHub cron metadata and 22 SHA-checked archived source snapshots: Oct28-30 only 9/18 schedule creations, 1/18 timely dual-market 4h closes; 8 adversarial tests, 1504 full suite; no actual lost-event identity inference, no independent host, no market orders or profits."
+    },
+    {
+      "pr": 82,
+      "status": "MERGED_TO_MAIN_VERIFIED",
+      "merged_sha": "fdcf5a3ff07553b44d20264b87c69bc5b0aa8e5e",
+      "run_url": "https://github.com/DashSaman/Arz/actions/runs/41319933479",
+      "report": "docs/fa/strat01_v5_independent_collector_20261101.md",
+      "all_tests_passed": 1514,
+      "new_test_methods": 10,
+      "scope": "V5 independent local UTC clock-based Base read-only source collector scaffold, non-root Docker Compose, atomic O_EXCL evidence, local lock, no-network default and fail-closed heartbeat; offline CI 1514 tests with 4 skipped. No authorized host deployment, real network source collection, or qualified prospective evidence."
+    },
+    {
+      "pr": 83,
+      "status": "MERGED_TO_MAIN_VERIFIED",
+      "merged_sha": "54bebfadd28dff50ab4552bb6ab7522039737282",
+      "run_url": "https://github.com/DashSaman/Arz/actions/runs/41320307049",
+      "report": "docs/fa/strat01_v5_local_monitor_20261101.md",
+      "all_tests_passed": 1521,
+      "new_test_methods": 7,
+      "scope": "V5 standalone local HTML+JSON read-only monitoring, safe HTML escaping, corruption and event fail-closed cases; 7 focused tests and full 1521 offline suite, 4 skipped. Genuine repo captured source offline dashboard CI #41320307079: 22 valid files, 18 paired 4h bars, 5 timely, no heartbeat (expected no independent service), financial NO-GO."
     }
   ],
   "post_audit_20261031": {
@@ -1242,5 +1262,47 @@
     "focused_ci": "https://github.com/DashSaman/Arz/actions/runs/41318341470",
     "full_ci": "https://github.com/DashSaman/Arz/actions/runs/41318341436",
     "remaining": "Secure an explicitly authorized independent scheduler/host; do not fabricate missed first-seen bars, continue real-time strict SHA source checks, require 194 consecutive paired 4h bars, source-bound +60-sec $20 follower quote and fully source-backed execution costs, then independently validated elapsed paper."
+  },
+  "post_audit_20261101_v5_operational_product": {
+    "classification": "ENGINEERING_SCAFFOLD_LOCAL_READONLY_COLLECTOR_AND_STATIC_OPERATIONAL_MONITOR_NOT_FINANCIAL_VALIDATION",
+    "base_sha": "62d3b808ad75cf0b2ddeb3471cc023b1aacb38e3",
+    "collector_pr": 82,
+    "collector_merged_sha": "fdcf5a3ff07553b44d20264b87c69bc5b0aa8e5e",
+    "collector_source": "scripts/strat01_independent_collector.py",
+    "collector_compose": "deploy/collector/docker-compose.yml",
+    "collector_protocol": "research/strat01/2026-11-01-v5-independent-collector-protocol.json",
+    "monitor_pr": 83,
+    "monitor_merged_sha": "54bebfadd28dff50ab4552bb6ab7522039737282",
+    "monitor_source": "scripts/strat01_local_monitor.py",
+    "monitor_protocol": "research/strat01/2026-11-01-v5-local-monitor-protocol.json",
+    "actual_ci_dashboard_run": "https://github.com/DashSaman/Arz/actions/runs/41320307079",
+    "local_clock_test_run": "https://github.com/DashSaman/Arz/actions/runs/41319933479",
+    "monitor_full_test_run": "https://github.com/DashSaman/Arz/actions/runs/41320307049",
+    "read_only_network_default_disabled": true,
+    "explicit_network_opt_in": "ARZ_COLLECTOR_NETWORK=explicit-readonly",
+    "no_host_deployment_in_current_mission": true,
+    "docker_runtime_on_authorized_host_verified": false,
+    "docker_image_digest_pinned": false,
+    "source_immutable_local_files": true,
+    "source_local_event_fail_closed": true,
+    "local_monitor_html_browser_view": true,
+    "monitor_auto_web_service": false,
+    "source_pushed_automatically_to_github": false,
+    "original_20261027_cohort_retroactively_rewritten": false,
+    "observed_source_files_at_offline_ci": 22,
+    "observed_valid_dual_asset_four_hour_bars_at_offline_ci": 18,
+    "observed_within_1h_two_asset_bars_at_offline_ci": 5,
+    "observed_genuine_independent_host_heartbeat": false,
+    "new_actual_market_network_calls": 0,
+    "new_historical_strategy_backtests": 0,
+    "new_genuine_qualified_prospective_paper_days": 0,
+    "exact_delay_20usdc_follower_execution_cost_verified": false,
+    "real_fee_usdc": null,
+    "strategies_qualified_for_funding": 0,
+    "software_state": "PARTIAL_ENGINEERING_SCAFFOLD_NOT_DEPLOYED",
+    "financial_decision": "NO-GO",
+    "live_trading": "DISABLED",
+    "real_capital_authorized_usd": 0,
+    "next": "Verify container on authorized independent host; pin digest; consent-based lawful data access and safe immutable sync; measure independent six UTC captures; register new future cohort if original timing gap makes it impossible; solve follower +60s all-in costs; complete shadow/paper runtime and independent financial audit."
   }
 }
