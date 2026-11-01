@@ -1,0 +1,59 @@
+name: ARZ S0 historical strict per-leg transfer (read only)
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/strat01_strict_cap_transfer.py'
+      - 'tests/test_strat01_strict_cap_transfer.py'
+      - '.github/workflows/strat01-strict-cap-transfer.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  capped-signal-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    env:
+      PYTHONFAULTHANDLER: "1"
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Pin tested Python runtime (avoid runner default 3.14 native crash)
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+        with:
+          python-version: '3.12'
+      - name: Separate pinned research environment
+        run: |
+          git clone --filter=blob:none https://github.com/DashSaman/Arz.git /tmp/arz-pr17-engine
+          git -C /tmp/arz-pr17-engine fetch origin db79545f5162518251eda73ec9fd3526411f9dc8
+          git -C /tmp/arz-pr17-engine checkout --detach db79545f5162518251eda73ec9fd3526411f9dc8
+          python -m venv /tmp/arz-strict-cap-venv
+          /tmp/arz-strict-cap-venv/bin/python -m pip install -r /tmp/arz-pr17-engine/experiments/upstream_benchmark/requirements.lock
+      - name: Run synthetic strict leg and dust tests
+        env:
+          PYTHONPATH: src:.
+        run: |
+          /tmp/arz-strict-cap-venv/bin/python -m unittest discover -s tests -p test_strat01_strict_cap_transfer.py -v
+      - name: Fetch only the two existing SHA-pinned Base sources (abort on revision)
+        env:
+          PYTHONPATH: src:.
+        run: |
+          /tmp/arz-strict-cap-venv/bin/python -m scripts.strat01_period_data --fetch --cache /tmp/arz-cap-data
+      - name: Run historical S0 fixed-signal cap transfer (not executable fills)
+        env:
+          PYTHONPATH: src:.
+        run: |
+          /tmp/arz-strict-cap-venv/bin/python -m scripts.strat01_strict_cap_transfer \
+            --source /tmp/arz-pr17-engine \
+            --data /tmp/arz-cap-data \
+            --output /tmp/arz-cap-output
+      - name: Publish research evidence artifact; no orders or repository write
+        if: success()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: arz-s0-historical-capped-signal-replay
+          path: /tmp/arz-cap-output
+          retention-days: 14

@@ -1,0 +1,4 @@
+asset,period,cost,original_S0_base_net_pct,original_S0_closed_cycles,initial_equity,final_marked_equity,net_marked_return_pct,max_close_drawdown_pct,total_modeled_fees_usd,buy_legs,sell_legs,completed_cycles,unsold_inventory_units,unsold_inventory_mark_usd,skipped_signals_or_vetoes,strict_per_leg_cap_breaches
+WETH,2025-01-01/2026-01-01,mid,10.464780951841519,8,100.0,110.53056124034703,10.530561240347026,4.252925441844613,0.7108932894263001,8,10,8,0.0,0.0,6,0
+WETH,2025-01-01/2026-01-01,double_mid,9.74304246152164,8,100.0,109.7886938862988,9.788693886298802,4.448615700562297,1.4165762568796108,8,10,8,0.0,0.0,6,0
+WETH,2025-01-01/2026-01-01,stress,9.240080967116398,8,100.0,109.2257323918935,9.225732391893501,4.60811400169675,1.9529029173001984,8,10,8,0.0,0.0,6,0
