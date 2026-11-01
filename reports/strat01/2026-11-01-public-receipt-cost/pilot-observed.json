@@ -1,0 +1,40 @@
+{
+  "actual_arz_follower_FEE_and_MEVM_cost_proven": false,
+  "actual_arz_follower_size_specific_execution_fee_usdc": null,
+  "calls_made": 3,
+  "captured_at_utc": "2026-11-01T13:41:15+00:00",
+  "classification": "UNRELATED_PUBLIC_SWAP_RECEIPT_GAS_NOT_FOLLOWER_QUOTE",
+  "conclusion": "INSUFFICIENT_PUBLIC_RECEIPT_DATA",
+  "factory_identity_evidence": "reports/strat01/2026-10-27-base-identity-observed.json",
+  "financial_decision": "NO-GO",
+  "live_trading": "DISABLED",
+  "max_rpc_calls": 8,
+  "observed_third_party_full_tx_receipt_count": 0,
+  "pin_head": {
+    "chain_first_seen_unix": 1793540476,
+    "chain_id_rpc_sha256": "395c4282d446999297cdcba9e50c3df13687008bc4eecc206a5d616be7f6d227",
+    "height_first_seen_unix": 1793540476,
+    "height_rpc_sha256": "e51dc4e836bc1a0ff934fa9ae2170478cf061fd660e7de1cf49e709fa3b95e2f",
+    "observed_height": 53375564,
+    "scan_to_height": 53375552
+  },
+  "prospective_paper_days": 0,
+  "read_only_source_host": "https://mainnet.base.org",
+  "real_capital_authorized_usd": 0,
+  "realized_bot_pnl_usdc": null,
+  "samples": {
+    "WETH": {
+      "from_block": 53375488,
+      "market": "WETH",
+      "pool_address": "0xd0b53d9277642d899df5c87a3966a349a798f224",
+      "reason": "BoundedError:HTTP_429",
+      "sampling_rule": "LATEST_LOG_IN_FIXED_BOUNDED_WINDOW",
+      "status": "UNAVAILABLE_OR_INVALID_SOURCE_NO_COST_CLAIM",
+      "to_block": 53375552
+    }
+  },
+  "schema_version": 1,
+  "source_chain_id": 8453,
+  "target_confirmations": 12,
+  "third_party_transaction_fee_evidence_only": true
+}
