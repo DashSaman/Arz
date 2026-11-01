@@ -35,6 +35,7 @@ class FakeReceiptProbe(ReceiptProbe):
     def __init__(self, omit_one=False):
         super().__init__(max_calls=MAX_CALLS)
         self.omit_one=omit_one
+        self.last_pool=POOLS["WETH"]["pool"]
 
     def rpc(self,method,params):
         self.calls+=1
@@ -45,6 +46,7 @@ class FakeReceiptProbe(ReceiptProbe):
         if method=="eth_blockNumber":
             return hex(BLOCK+12),at,sha
         if method=="eth_getLogs":
+            self.last_pool=params[0]["address"]
             name=next(name for name,v in POOLS.items()
                       if v["pool"]==params[0]["address"])
             if self.omit_one and name=="cbBTC":
@@ -52,10 +54,10 @@ class FakeReceiptProbe(ReceiptProbe):
             log,_,_=synthetic(params[0]["address"])
             return [log],at,sha
         if method=="eth_getTransactionReceipt":
-            _,receipt,_=synthetic(POOLS["WETH"]["pool"])
+            _,receipt,_=synthetic(self.last_pool)
             return receipt,at,sha
         if method=="eth_getBlockByNumber":
-            _,_,head=synthetic(POOLS["WETH"]["pool"])
+            _,_,head=synthetic(self.last_pool)
             return head,at,sha
         raise AssertionError("Unexpected read-only call")
 
