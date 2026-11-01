@@ -1,0 +1,46 @@
+# Standalone independent UTC clock only: never trades, never writes to GitHub.
+# Network OFF by default. Use ONLY with an explicitly authorized Arz host.
+services:
+  arz-readonly-collector:
+    image: python:3.12-slim-bookworm
+    user: '65534:65534'
+    working_dir: /app
+    command:
+      - python
+      - -m
+      - scripts.strat01_independent_collector
+      - serve
+      - --data-root
+      - /data
+    environment:
+      PYTHONPATH: /app:/app/src
+      PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONUNBUFFERED: '1'
+      ARZ_COLLECTOR_NETWORK: ${ARZ_COLLECTOR_NETWORK:-disabled}
+    volumes:
+      - ../../:/app:ro
+      - ../../runtime/arz-collector:/data:rw
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=16m
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 64
+    mem_limit: 256m
+    restart: unless-stopped
+    stop_grace_period: 15s
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -m
+        - scripts.strat01_independent_collector
+        - health
+        - --data-root
+        - /data
+      interval: 45s
+      timeout: 10s
+      retries: 4
+      start_period: 75s
