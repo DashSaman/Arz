@@ -97,5 +97,41 @@ class RuntimeSlotRedundancyTests(unittest.TestCase):
         self.assertEqual(result["real_capital_authorized_usd"],0)
 
 
+class BackstopWorkflowContractTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.source=(Path(__file__).resolve().parents[1] /
+                    ".github/workflows/strat01-base-forward.yml").read_text(encoding="utf-8")
+
+    def test_primary_and_backup_are_after_close_and_bounded(self):
+        self.assertIn("23 0,4,8,12,16,20 * * *",self.source)
+        self.assertIn("47 0,4,8,12,16,20 * * *",self.source)
+        self.assertIn("cancel-in-progress: false",self.source)
+
+    def test_preflight_from_actual_clock_precedes_capture(self):
+        pre=self.source.index("- name: Decide current slot at actual UTC runner clock")
+        cap=self.source.index("- name: Capture one observed-at-runtime sample")
+        self.assertLess(pre,cap)
+        self.assertIn("python scripts/strat01_capture_slot_preflight.py --output",self.source[pre:cap])
+        self.assertIn("if: steps.slot.outputs.capture == 'true'",self.source[cap:])
+
+    def test_source_same_closed_slot_and_runtime_first_seen_are_rechecked(self):
+        a=self.source.index("- name: Audit the captured source")
+        b=self.source.index("- name: Commit validated source")
+        self.assertLess(a,b)
+        portion=self.source[a:b]
+        self.assertIn("checked['bar_start']==decision['target_bar_start_unix']",portion)
+        self.assertIn("0 <= (seen-wall).total_seconds() <= 90",portion)
+        self.assertIn('result["investment_recommendation"] == "NO-GO"',portion)
+
+    def test_backup_writes_no_keys_or_orders_and_preserves_decision_artifact(self):
+        for bad in ("eth_sendRawTransaction","private_key","secrets.PAT","approve_spender"):
+            with self.subTest(bad=bad):
+                self.assertNotIn(bad,self.source)
+        self.assertIn("/tmp/arz-source-slot-decision.json",self.source)
+        self.assertIn("if: always()",self.source)
+        self.assertIn('git push origin HEAD:main',self.source)
+
+
 if __name__=="__main__":
     unittest.main()
