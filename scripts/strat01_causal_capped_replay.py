@@ -108,7 +108,10 @@ def replay(rows, policy, relative, fixed):
             elif amount > liquidity_proxy + 1e-8:
                 events.append({"ts":ts,"kind":"exit_veto_prior_volume","amount_usd":amount})
             else:
-                qty = min(units, floor_units(wanted / opening))
+                # A full-position sell uses the exact already-quantized inventory.
+                # Flooring it again can leave 1e-8 token dust even when the
+                # entire remainder was >=$5 and under $25.
+                qty = units if market_value <= CAP else min(units, floor_units(wanted / opening))
                 amount = qty * opening
                 fee = amount * relative + fixed
                 if amount < MINIMUM - 1e-8 or fee > amount:
