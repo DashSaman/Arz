@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "registered_utc_date": "2026-11-01",
+  "classification": "PROSPECTIVE_COLLECTOR_RELIABILITY_FIX_NOT_STRATEGY_BACKTEST_OR_PAPER",
+  "base_main_sha": "c189d41d89e8c2c7fca4ab4103f5861dc9a63006",
+  "problem_statement": "A six-times daily GitHub Actions cron has missed or materially delayed slots. The immutable first-seen Base WETH/cbBTC ledger contains 22 captures and only 3 contiguous timely paired 4h bars as of the 2026-11-01 12:49:45Z capture (actual source file and audit). No 194-bar causal warmup or execution cost proof.",
+  "reliability_change": {
+    "old_schedule_cron": "23 0,4,8,12,16,20 * * *",
+    "additional_backup_cron": "47 0,4,8,12,16,20 * * *",
+    "backup_goal": "Increase independent opportunities for a timely source capture within one hour after the UTC 4h close; two schedules share one GitHub Actions service and therefore do NOT prove scheduler independence.",
+    "slot_guard": "At actual runtime wall-clock, compute last completed 4h Base slot. If already exactly observed, unconflicted and both-asset paired within 3600 seconds of close, skip a duplicate. Otherwise capture once read-only at actual clock time; never assign cron time as first-seen.",
+    "evidence_on_skip": "Preserve exact slot decision JSON as CI artifact even when no market source added. Never count skip as valid bar or paper day.",
+    "evidence_on_capture": "Preserve in-run strict NO-GO audit and source SHA; persist source+financial refusal together only if verified.",
+    "failure_handling": "Any malformed or contradictory saved capture fails closed rather than being silently ignored. GitHub schedule can still be delayed/dropped, and an external independent timer is not introduced in this change."
+  },
+  "negative_controls": [
+    "no source files => capture",
+    "valid timely matching source => skip",
+    "late matching source => capture; old timestamp remains unchanged",
+    "missing one asset => capture",
+    "invalid/malformed/conflicting source => fail closed",
+    "no completed bar => skip rather than fabricated candle",
+    "near 4h rollover => target last completed bar not nominal schedule",
+    "no signing/broadcast, financial NO-GO"
+  ],
+  "constraints": {
+    "market_sources": [
+      "Base WETH/USDC",
+      "Base cbBTC/USDC"
+    ],
+    "required_contiguous_4h_bars": 194,
+    "source_lag_diagnostic_sec": 3600,
+    "follower_quote_delay_sec": 60,
+    "min_elapsed_paper_days": 90,
+    "real_capital_usd": 0,
+    "live_trading": "DISABLED"
+  },
+  "outcome_contract": "Do not call this fix profitable or qualifying. Report actual clock coverage over the next genuinely elapsed slots and GitHub CI result; retain exact adverse, missing, or late evidence."
+}
