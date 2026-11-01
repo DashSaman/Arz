@@ -413,7 +413,7 @@
         "EV-007"
       ],
       "completion": "Separate H2 baseline and wallet-confirmed variant once wallet data arrives; baseline must pass realistic cost and OOS without retuning; CEX proxy never qualifies Base DEX H4",
-      "next_action": "PR76 merged read-only dual GitHub cron backup at 23 and 47 minutes after all six 4h UTC closes with actual-clock idempotent slot guard. 2026-11-01 12:49Z archive 22 source files, 18 paired bars, 5 timely, max 3 consecutive of 194 required. A real PR CI dry-run skipped an already matched timely pair; no backup scheduled run yet independently verified. Compare actual future 6-slot UTC coverage and source first-seen; retain NO-GO, no real L1/L2/inclusion costs, +60s follower quotes missing, 0 elapsed paper days and $0 funded.",
+      "next_action": "PR76+77 merged redundant 4h scheduled source collector (still 3/194 consecutive first-seen paired bars); PR78 merged read-only unrelated public swap receipt pilot: 3 separate runs / 9 Base RPC calls, each stopped at WETH eth_getLogs HTTP429, zero sampled receipts, cbBTC unqueried. Network calls blocked on automatic PR events, dispatch only with provider quota. Genuine +60s follower $20 gas/slippage/failure evidence UNKNOWN; first-seen 194-bar coverage, 90 actually elapsed paper days and independent net returns still missing. Financial NO-GO, $0 funded.",
       "github_issue_url": "https://github.com/DashSaman/Arz/issues/42",
       "last_verified_subcheckpoint": {
         "id": "STRAT01-IMMUTABLE-NEGATIVE-CONTROL-2026-10-26",
@@ -956,6 +956,16 @@
       "all_tests_passed": 1486,
       "new_test_methods": 13,
       "scope": "Read-only two-UTC-cron 4h Base bar redundancy and actual runtime source-slot dedupe; no first-seen backdating, partial ongoing coverage 3/194, not independent scheduler or trading alpha."
+    },
+    {
+      "pr": 78,
+      "status": "MERGED_TO_MAIN_VERIFIED",
+      "merged_sha": "a692b537d72df90efb4e57e11cbfa42026d55d7a",
+      "run_url": "https://github.com/DashSaman/Arz/actions/runs/41312926119",
+      "report": "docs/fa/strat01_public_receipt_cost_20261101.md",
+      "all_tests_passed": 1496,
+      "new_test_methods": 10,
+      "scope": "One bounded Base public unrelated Swap receipt fee observation, not strategy quote: three separate GitHub Actions runs, each 3 RPC calls, chain+height success then HTTP429 eth_getLogs, zero receipt fees; automatic PR network disabled, explicit manual dispatch only; financial NO-GO."
     }
   ],
   "post_audit_20261031": {
@@ -1150,5 +1160,43 @@
     "live_trading": "DISABLED",
     "real_capital_authorized_usd": 0,
     "remaining": "Verify actual backup schedule against all six closes on genuinely elapsed UTC dates; get 194 contiguous first-seen dual-asset bars, exact signal-bound $20 follower quotes +60s with all L1/L2/slippage/failure/MEV, then 90 genuinely elapsed prospective paper days if financial gates allow."
+  },
+  "post_audit_20261101_public_receipt_gas": {
+    "classification": "UNRELATED_PUBLIC_BASE_SWAP_RECEIPT_PILOT_RATE_LIMITED_INSUFFICIENT_DATA_NOT_ALPHA",
+    "pr": 78,
+    "merged_sha": "a692b537d72df90efb4e57e11cbfa42026d55d7a",
+    "preregistered_protocol_sha": "dc047f4a92547cf069ffc3ec9c6d0e0ecf37c42d",
+    "public_rpc": "https://mainnet.base.org",
+    "original_raw_json": "reports/strat01/2026-11-01-public-receipt-cost/pilot-observed.json",
+    "original_raw_sha256": "8a9110e1a3c5a3c55a6ccaf1528a52e159ceb45b479adfd900a7d3482b5e1f89",
+    "all_attempts_provenance": "reports/strat01/2026-11-01-public-receipt-cost/source-attempt-audit.json",
+    "first_source_run_url": "https://github.com/DashSaman/Arz/actions/runs/41312449552",
+    "final_offline_pass_url": "https://github.com/DashSaman/Arz/actions/runs/41312926119",
+    "full_offline_software_test_methods": 1496,
+    "skipped": 4,
+    "new_focused_methods": 10,
+    "actual_distinct_action_runs": 3,
+    "total_public_rpc_calls": 9,
+    "public_rpc_calls_each_run": 3,
+    "received_chain_id": 8453,
+    "first_seen_source_date_utc": "2026-11-01T13:41:15Z",
+    "first_observed_block": 53375564,
+    "failure": "ETH_GETLOGS_HTTP429_ON_WETH_POOL",
+    "third_party_receipt_count": 0,
+    "cbBTC_queried": false,
+    "real_tx_l1_l2_receipt_wei": null,
+    "verified_usd_follower_cost": null,
+    "exact_20_usdc_signal_bound_delayed_execution": false,
+    "no_retry_or_host_rotation_within_each_run": true,
+    "unexpected_automatic_pr_reruns_seen": 2,
+    "automatic_pr_network_disabled_after_observation": true,
+    "future_manual_dispatch_requires_respecting_provider_rate_limit": true,
+    "new_historical_strategy_backtests": 0,
+    "new_prospective_paper_days": 0,
+    "qualified_trading_candidates": 0,
+    "financial_decision": "NO-GO",
+    "live_trading": "DISABLED",
+    "real_capital_authorized_usd": 0,
+    "next": "Do not retry or rotate around HTTP429. Independently establish permitted provider access or other lawful sources; improve actual first-seen dual-market 194-bar coverage and exact +60s $20 follower-time on-chain fee and failed/swap slippage evidence. Keep Paper Trading blocked pending positive independent verified economics."
   }
 }
