@@ -37,11 +37,17 @@ def inspect():
         rows=[x for x in csv.DictReader(f) if x["pair_id"]=="4564367"
               and x["minutes"]=="60" and x["variant"] in VALUES and
               x["cost"] in ("mid","stress")]
-    print(json.dumps({"classification":"ALREADY_SEEN_NATIVE_PERIOD_RECONCILIATION_NOT_NEW_BACKTEST",
+    selected={("2025-04-01","2026-04-01"),("2025-10-01","2026-04-01"),
+              ("2026-04-01","2026-10-01"),("2026-09-01","2026-10-01")}
+    output={"classification":"ALREADY_SEEN_NATIVE_PERIOD_RECONCILIATION_NOT_NEW_BACKTEST",
        "gates":gate,"annual_shortlist":annual,
        "native_periods":[{"start":key[0],"end":key[1],"count":n} for key,n in sorted(Counter((r["start"],r["end"]) for r in rows).items())],
-       "native_rows":[{k:r[k] for k in ("variant","cost","start","end","status","net_pct","closed","dd_close_pct","strict_per_leg_order_limit","drawdown_halted","hold20_net_usd","net_excl_top3")} for r in rows],
-       "no_live_orders":True,"financial_decision":"NO-GO"},sort_keys=True,allow_nan=False))
+       "native_rows":[{k:r[k] for k in ("variant","cost","start","end","status","net_pct","closed","dd_close_pct","strict_per_leg_order_limit","drawdown_halted","hold20_net_usd","net_excl_top3")} for r in rows if (r["start"],r["end"]) in selected],
+       "no_live_orders":True,"financial_decision":"NO-GO"}
+    content=json.dumps(output,sort_keys=True,allow_nan=False,indent=2)+"\\n"
+    Path("/tmp/arz_60m_native_gates.json").write_text(content,encoding="utf-8")
+    print(content)
+    return output
 
 if __name__=="__main__":
     inspect()
