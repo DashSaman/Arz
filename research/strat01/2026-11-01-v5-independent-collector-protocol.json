@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "registered_utc_date": "2026-11-01",
+  "project": "DashSaman/Arz",
+  "base_main_sha": "62d3b808ad75cf0b2ddeb3471cc023b1aacb38e3",
+  "purpose": "Implement an independently clocked, no-trade, no-wallet, read-only, locally persisted Base WETH/cbBTC four-hour observation collector with Docker Compose scaffold. Engineering work, not OOS strategy evidence or proof of scheduler uptime.",
+  "baseline": "PR80 verified 9/18 GitHub schedule-run creations and 1/18 timely paired bars in Oct28–30. Same-GitHub 23m/47m crons cannot ensure six daily closes.",
+  "architecture": {
+    "runner": "Container continuously awakened by its own UTC wall-clock, single candidate at 12 minutes after 00/04/08/12/16/20 UTC close, no guessed prior timestamps.",
+    "source_integrity": "Reuse existing PR76 slot guard, original read-only Base provider collector and strict snapshot_summary; store original collected_utc and raw response hashes without alteration.",
+    "persistent_artifacts": "Local bind-mounted forward/*.json plus operational events and heartbeat; not automatically uploaded to GitHub or counted as 194-bar qualification.",
+    "safe_defaults": "NETWORK DISABLED unless explicit ARZ_COLLECTOR_NETWORK=explicit-readonly; no keys, signing, swapping, allowance or order broadcast; Docker container non-root and read-only.",
+    "race_recovery": "Atomic O_EXCL file writes and PID lock; stale lock requires manual review; fail closed on invalid source; exceptions recorded without revealing provider payload."
+  },
+  "tests": [
+    "Fresh empty volume",
+    "Network off by default",
+    "Valid runtime snapshot accepted with source timestamp unchanged",
+    "Wrong bar or future timestamp rejected",
+    "Duplicate timely pair skipped",
+    "Invalid historic input fails closed",
+    "Concurrent lock refused",
+    "Provider exception persisted as refusal",
+    "UTC next-slot computation handles exact boundaries",
+    "Cannot make live transaction",
+    "Heartbeat freshness check"
+  ],
+  "acceptance": "PR CI runs targeted synthetic tests and whole suite, no real market API or RPC calls in CI; source snapshots never promoted to executable prices or qualified investment paper.",
+  "limitations": "No independently authorized deployment host, no third party cost API authorization, no validated future uninterrupted 194-bar run, no +60s real follower fill, no 90-day prospective paper, no financial approval.",
+  "financial_decision": "NO-GO",
+  "live_trading": "DISABLED",
+  "real_capital_authorized_usd": 0
+}
