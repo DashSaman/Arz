@@ -1,0 +1,25 @@
+name: ARZ STRAT01 WETH 60m prior native result falsification (NO-GO)
+on:
+  push:
+    branches: [research/2026-11-01-60m-native-falsification]
+    paths:
+      - 'scripts/strat01_60m_native_probe.py'
+      - '.github/workflows/strat01-60m-native-audit.yml'
+  pull_request:
+    paths:
+      - 'scripts/strat01_60m_native_probe.py'
+      - '.github/workflows/strat01-60m-native-audit.yml'
+permissions:
+  contents: read
+jobs:
+  existing-history-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Verify Git tree identity and show existing native rows only
+        run: python scripts/strat01_60m_native_probe.py
+      - name: Core safety
+        run: python scripts/verify_research_control.py
