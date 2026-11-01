@@ -9,6 +9,16 @@
 **Detailed English:** [docs/en/research_current_checkpoint.md](docs/en/research_current_checkpoint.md)  
 **Offline consistency check:** `PYTHONPATH=src:. python scripts/verify_research_control.py`
 
+## 1 November 2026 | PR #74 — two WETH 60m hypotheses falsified on native historical intervals
+
+**Confirmed, NOT a new backtest:** [PR #74](https://github.com/DashSaman/Arz/pull/74) merged at [`8862b217`](https://github.com/DashSaman/Arz/commit/8862b217b4c0a16cc7463120ecb561c9d4172f9c), preserving a source-blob-pinned *read-only* audit of the two remaining WETH 60m preliminary annual leads. Original **Jan–Dec 2025** modeled stress was +4.933693% (`ATR_vol_wall_clock`) and +2.618278% (`ATR_wall_clock`). This is **not** the native registered annual window.
+
+Native **Apr 2025–Apr 2026** modeled mid/stress results: vol variant **+4.943679% / +2.083493%** (20 cycles), non-vol **+3.060505% / −0.182042%** (23 cycles). Both native **Oct 2025–Apr 2026 final-six-month window** returns were **−2.299217% mid / −3.389134% stress** (8 cycles). The terminal six months **OVERLAP** the native annual window; they are not a pristine next six months OOS. Registered `positive_annual_and_later6m_mid_stress=False`, while annual min-ten-cycles and no-risk-halt gates both pass. The separate **Apr–Oct 2026** interval is `INCOMPLETE_WARMUP_OR_SCORED`, **not a measured loss or zero**. September 2026 (two-cycle only) was −0.472949% mid / −0.750070% stress for both.
+
+[SHA-pinned 16 native rows](reports/strat01/2026-11-01-weth-60m-native/observed_native_periods.csv) · [Machine audit](reports/strat01/2026-11-01-weth-60m-native/audit.json) · [Detailed Persian](docs/fa/strat01_weth_60m_native_falsification_20261101.md) · [English](docs/en/strat01_weth_60m_native_falsification_20261101.md) · [Observed read-only CI](https://github.com/DashSaman/Arz/actions/runs/41309769500) and [full offline 1,473-method verification (4 skipped)](https://github.com/DashSaman/Arz/actions/runs/41309769503). This adds **zero new strategy backtests, zero new prospective paper days and zero trade authorizations**. No performance-qualified Paper Trading candidates. Financial **NO-GO**, live **DISABLED**, real capital **$0**.
+
+**NEXT practical research:** [Issue #68](https://github.com/DashSaman/Arz/issues/68) — independent prospective collector timing, 194 continuous first-seen two-asset 4h bars (no artificial backfill), +60sec follower $20 time-of-signal executable quote, real L1/L2 gas/slippage/failed-attempt/MEV cost evidence, then actually elapsed 90-day prospective paper only after prior gates; WAL-01 still PARTIAL.
+
 ## 1 November 2026 | PR #72 state-dependent S0 historical replay completed (new checkpoint)
 
 **Merged and source-verifiable:** [PR #72](https://github.com/DashSaman/Arz/pull/72) is on `main` at [`740c535b`](https://github.com/DashSaman/Arz/commit/740c535babb2b0e3040bb6198db5c72812e9abc3). A [pre-scored frozen protocol](research/strat01/2026-11-01-stateful-cap-protocol.json) initiated an **independent stateful account replay**, using the original pinned S0 decision policy but recomputing each entry, exit, stop, risk clock and position after previous partial exits. This supersedes PR70's *fixed-original-signal* diagnostic for testing that one execution-policy question; it does NOT supersede raw previous results.

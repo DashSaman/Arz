@@ -413,7 +413,7 @@
         "EV-007"
       ],
       "completion": "Separate H2 baseline and wallet-confirmed variant once wallet data arrives; baseline must pass realistic cost and OOS without retuning; CEX proxy never qualifies Base DEX H4",
-      "next_action": "PR72 stateful capped historical S0 replay merged, still not qualified: WETH 2025 Stress +9.225% but Q1 2026 -3.388%; cbBTC Stress negative 3/3 windows. Next issue #68: falsify two WETH 60m leads on separately frozen native annual + later-6m evidence; independently improve prospective 6-per-day UTC close coverage to 194 continuous paired bars, as-of exact $20 quote at +60s, actual L1/L2 slippage/failure evidence and 90 elapsed paper days. Financial NO-GO.",
+      "next_action": "PR72 merged stateful capped historical S0: WETH year2025 stress positive but 2026Q1 negative; cbBTC negative. PR74 confirmed two WETH 60m native historical leads fail registered positive annual+overlapping terminal 6m gate (-2.299% mid/-3.389% stress in Oct2025-Apr2026), Apr-Oct2026 incomplete. Next: source-time 194 consecutive paired first-seen 4h WETH/cbBTC, exact 20USD follower quote 60s later, real L1/L2/fail/slippage costs, then 90 genuinely elapsed prospective paper days if warranted. Financial NO-GO and zero funded authorizations.",
       "github_issue_url": "https://github.com/DashSaman/Arz/issues/42",
       "last_verified_subcheckpoint": {
         "id": "STRAT01-IMMUTABLE-NEGATIVE-CONTROL-2026-10-26",
@@ -936,6 +936,16 @@
       "all_tests_passed": 1468,
       "new_test_methods": 9,
       "scope": "New 18-arm SHA-pinned historical stateful S0 per-leg-cap retrospective replay; true evolving account instead of PR70 frozen old trade times; 192 modeled legs, 93 overlapping cycles, no real execution or untouched OOS; financial NO-GO remains"
+    },
+    {
+      "pr": 74,
+      "status": "MERGED_TO_MAIN_VERIFIED",
+      "merged_sha": "8862b217b4c0a16cc7463120ecb561c9d4172f9c",
+      "run_url": "https://github.com/DashSaman/Arz/actions/runs/41309769503",
+      "report": "docs/fa/strat01_weth_60m_native_falsification_20261101.md",
+      "all_tests_passed": 1473,
+      "new_test_methods": 5,
+      "scope": "Read-only source-verified comparison of two previously seen WETH 60m native clock hypotheses; 2025-10 to 2026-04 both -2.299% mid/-3.389% stress; separate Apr-Oct 2026 incomplete, no new backtest/OOS/paper"
     }
   ],
   "post_audit_20261031": {
@@ -1052,5 +1062,45 @@
     "live_trading": "DISABLED",
     "real_capital_authorized_usd": 0,
     "next_research": "Investigate why two WETH 60m annual stress positive controls fail paired native annual+later-six-month gates, without tuning; independently validate 194 consecutive dual-market 4h first-seen bars and +60-second size-specific follower quotes, all-inclusive costs, then 90 genuinely elapsed paper days"
+  },
+  "post_audit_20261101_60m_falsification": {
+    "classification": "MERGED_NATIVE_HISTORICAL_NEGATIVE_AND_INCOMPLETE_EVIDENCE_NOT_FRESH_BACKTEST",
+    "pr": 74,
+    "merge_sha": "8862b217b4c0a16cc7463120ecb561c9d4172f9c",
+    "native_probe_run_url": "https://github.com/DashSaman/Arz/actions/runs/41309769500",
+    "full_offline_run_url": "https://github.com/DashSaman/Arz/actions/runs/41309769503",
+    "original_source_git_blob_sha": "9042e6b893e4eea4f4014dba727b3e81e517d87d",
+    "original_gate_git_blob_sha": "4f277d84e1558056eb7a05120d8c4762626b59ab",
+    "original_calendar_2025_weth_60m_stress_pct": {
+      "ATR_vol_wall_clock": 4.933692775980077,
+      "ATR_wall_clock": 2.6182781813877654
+    },
+    "native_12month_2025_04_2026_04_stress_pct": {
+      "ATR_vol_wall_clock": 2.08349333279115,
+      "ATR_wall_clock": -0.18204172295379806
+    },
+    "native_terminal_6month_2025_10_2026_04": {
+      "mid_pct": -2.2992169449831152,
+      "stress_pct": -3.389134120820458,
+      "closed_cycles": 8,
+      "applies_to_both": true
+    },
+    "native_gate_periods_overlap": true,
+    "genuine_following_6month_2026_04_2026_10": "INSUFFICIENT_DATA_INCOMPLETE_WARMUP_OR_SCORED",
+    "native_september_2026_stress_pct": -0.7500703319833946,
+    "native_september_2026_closed_cycles": 2,
+    "annual_count_min10_passes": true,
+    "drawdown_no_halt_passes": true,
+    "positive_annual_and_terminal6month_mid_stress_passes": false,
+    "qualified_paper_candidates": 0,
+    "fresh_new_backtests": 0,
+    "qualified_new_paper_days": 0,
+    "real_executable_quote_or_fill_proven": false,
+    "real_capital_authorized_usd": 0,
+    "financial_decision": "NO-GO",
+    "live_trading": "DISABLED",
+    "recorded_native_rows": "reports/strat01/2026-11-01-weth-60m-native/observed_native_periods.csv",
+    "source_audit": "reports/strat01/2026-11-01-weth-60m-native/audit.json",
+    "next": "Independent first-seen 194 contiguous paired 4h Base WETH/cbBTC bars, exact-size 20USD follower-time quote +60sec and L1/L2/slippage/failure/MEV cost evidence; forward paper only if gates actually qualified"
   }
 }
