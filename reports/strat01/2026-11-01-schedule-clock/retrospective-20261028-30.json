@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "classification": "RETROSPECTIVE_OPERATIONAL_RELIABILITY_ONLY_NO_FINANCIAL_GATE",
+  "source_api": "https://api.github.com/repos/DashSaman/Arz/actions/runs?event=schedule&branch=main&per_page=100",
+  "source_metadata_retrieved_at_utc": "2026-11-01T14:49:47.303Z",
+  "source_metadata_complete_for_query": true,
+  "query_total_schedule_runs": 17,
+  "workflow_path": ".github/workflows/strat01-base-forward.yml",
+  "period_utc": {
+    "start": "2026-10-28",
+    "end_inclusive": "2026-10-30"
+  },
+  "expected_nominal_opportunities_in_full_days": 18,
+  "observed_schedule_runs_created_on_selected_utc_dates": 9,
+  "observed_daily_run_count_shortfall": 9,
+  "timely_paired_source_4h_closes": 1,
+  "source_run_id_matches_not_job_log_attestation": 14,
+  "source_files_validated": 22,
+  "days": [
+    {
+      "utc_date": "2026-10-28",
+      "expected_nominal_daily_cron_opportunities": 6,
+      "actual_schedule_runs_created_that_utc_day": 3,
+      "successful_schedule_runs_created_that_utc_day": 3,
+      "failed_or_incomplete_runs_created_that_utc_day": 0,
+      "github_run_ids": [
+        40640850173,
+        40713707997,
+        40769755224
+      ],
+      "timely_dual_market_bar_closes_that_utc_day": 0,
+      "timely_4h_close_hours_utc": [],
+      "unobserved_timely_4h_close_hours_utc": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        20
+      ],
+      "run_count_shortfall_not_proof_of_specific_cron_drop": 3
+    },
+    {
+      "utc_date": "2026-10-29",
+      "expected_nominal_daily_cron_opportunities": 6,
+      "actual_schedule_runs_created_that_utc_day": 3,
+      "successful_schedule_runs_created_that_utc_day": 3,
+      "failed_or_incomplete_runs_created_that_utc_day": 0,
+      "github_run_ids": [
+        40826716778,
+        40900191539,
+        40956071086
+      ],
+      "timely_dual_market_bar_closes_that_utc_day": 0,
+      "timely_4h_close_hours_utc": [],
+      "unobserved_timely_4h_close_hours_utc": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        20
+      ],
+      "run_count_shortfall_not_proof_of_specific_cron_drop": 3
+    },
+    {
+      "utc_date": "2026-10-30",
+      "expected_nominal_daily_cron_opportunities": 6,
+      "actual_schedule_runs_created_that_utc_day": 3,
+      "successful_schedule_runs_created_that_utc_day": 3,
+      "failed_or_incomplete_runs_created_that_utc_day": 0,
+      "github_run_ids": [
+        41011697097,
+        41077719623,
+        41126803641
+      ],
+      "timely_dual_market_bar_closes_that_utc_day": 1,
+      "timely_4h_close_hours_utc": [
+        20
+      ],
+      "unobserved_timely_4h_close_hours_utc": [
+        0,
+        4,
+        8,
+        12,
+        16
+      ],
+      "run_count_shortfall_not_proof_of_specific_cron_drop": 3
+    }
+  ],
+  "limits": [
+    "GitHub creation date cannot uniquely identify which nominal cron fired.",
+    "An absent run by date alone does not prove which nominal event was dropped.",
+    "A timely first-seen file does not prove original provider candle availability at close.",
+    "Stored runner identity is not independent job log verification.",
+    "No demonstrated exact +60s follower $20 quote, paid fee, fill, alpha or paper day."
+  ],
+  "qualifying_forward_paper_days": 0,
+  "investment_readiness": "NO-GO",
+  "live_trading": "DISABLED",
+  "real_capital_authorized_usd": 0
+}

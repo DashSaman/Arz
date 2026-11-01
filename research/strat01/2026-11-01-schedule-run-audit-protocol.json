@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "dated_utc": "2026-11-01",
+  "classification": "RETROSPECTIVE_OPERATIONAL_SCHEDULER_AUDIT_NOT_FORWARD_PROFIT_EVIDENCE",
+  "base_main_sha": "224f38bbff853976d27dce07e90a54f95b72267c",
+  "related_issue": 68,
+  "problem": "A single GitHub Actions hosted cron produced fewer than six intended capture runs on several complete UTC days; two cron lines in the same service cannot guarantee reliable coverage. Run creation time must not be equated with the source candle publication timestamp.",
+  "scope": "Read-only, bounded, fully observed historical UTC days and source-archive measurements. No new market query, execution, paid RPC or real capital.",
+  "precommitment": "This is a retrospective engineering diagnostic registered before implementing a general offline auditing program; it is NOT preregistration of a new strategy or of an untouched OOS interval.",
+  "inputs": {
+    "github": "Single complete GitHub REST GET /repos/DashSaman/Arz/actions/runs?event=schedule&branch=main&per_page=100 (or all pages in later runs). Preserve normalized metadata, URL and complete total_count.",
+    "market": "Original immutable reports/strat01/forward/*.json independently validated by existing audit_capture_dir."
+  },
+  "checks": [
+    "Reject incomplete paginated run metadata; cannot infer missed runs from truncated lists",
+    "Filter exact workflow path, schedule event and main branch only",
+    "Reject duplicate IDs, malformed UTC timestamps, non-successful run as source success",
+    "Count run creation by complete UTC date without assigning ambiguous nominal cron occurrences",
+    "Count independently recorded timely paired-market bar closes by UTC close date, preserving late/missing rows",
+    "No source publication time, successful follower quote, paid execution or profit claims",
+    "Include negative controls: truncated response, wrong workflow, duplicate run, days with zero runs, late-only evidence, incomplete current day, invalid source"
+  ],
+  "expected": "For Oct 28-30 (if same six daily cron events configured), compare expected six daily nominal opportunities with verified GitHub schedule run records; sources are distinct from scheduler metadata.",
+  "financial_decision": "NO-GO",
+  "live_trading": "DISABLED",
+  "capital_authorized_usd": 0,
+  "acceptance": "Offline tests plus actual GitHub Actions CI and audit reports; never auto-promote PAPER_READY, do not invent 194 bars."
+}
