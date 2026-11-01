@@ -4,6 +4,7 @@ on:
     branches: [research/2026-11-01-60m-native-falsification]
     paths:
       - 'scripts/strat01_60m_native_probe.py'
+      - 'tests/test_strat01_60m_native_probe.py'
       - '.github/workflows/strat01-60m-native-audit.yml'
   pull_request:
     paths:
@@ -23,6 +24,8 @@ jobs:
         run: python scripts/strat01_60m_native_probe.py
       - name: Core safety
         run: python scripts/verify_research_control.py
+      - name: Adversarial native 60m WETH gate tests
+        run: python -m unittest discover -s tests -p test_strat01_60m_native_probe.py -v
       - name: Audit paired native gate status strictly without promotional claims
         run: |
           python - <<'PY'
