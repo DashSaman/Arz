@@ -1,6 +1,6 @@
 # ARZ RESEARCH NOW — single restart checkpoint
 
-**Latest checkpoint 2026-10-31 UTC · STRAT-01 IN PROGRESS, WAL-01 PARTIAL · Financial NO-GO · Live trading DISABLED**
+**Latest observed research delivery 2026-11-01 UTC (base control checkpoint 2026-10-31) · STRAT-01 IN PROGRESS, WAL-01 PARTIAL · Financial NO-GO · Live trading DISABLED**
 
 > **Start here before doing anything in Arz.** This is the entry point on `main` even when newer research work lives in unmerged draft branches. `PROJECT_STATUS.md` begins with the older 2026-10-13 MVP checkpoint and must not be mistaken for the latest research status.
 
@@ -8,6 +8,16 @@
 **Detailed Persian:** [docs/fa/research_current_checkpoint.md](docs/fa/research_current_checkpoint.md)  
 **Detailed English:** [docs/en/research_current_checkpoint.md](docs/en/research_current_checkpoint.md)  
 **Offline consistency check:** `PYTHONPATH=src:. python scripts/verify_research_control.py`
+
+## 1 November 2026 | PR #70 historical capped-exit replay verified and merged
+
+**Research delivery, NOT trade qualification.** [PR #70](https://github.com/DashSaman/Arz/pull/70) merged as [`ea9fe94`](https://github.com/DashSaman/Arz/commit/ea9fe94b7b49e0d873f8577f88eedeaba73b9bf0). An earlier actual GitHub Actions historical replay crashed with exit 139; pinning Python 3.12 removed the crash. [Successful real-source replay](https://github.com/DashSaman/Arz/actions/runs/41305629760) and [independent repeat](https://github.com/DashSaman/Arz/actions/runs/41306046205) generated identical scenarios from the pinned 2025 Base WETH/USDC source. [Full offline CI](https://github.com/DashSaman/Arz/actions/runs/41306046251) observed 1,459 tests (4 skipped), plus eight focused regression methods in the historical replay.
+
+On a hypothetical $100 account, the **fixed-original-S0-signal / $25-per-leg** transfer net marked returns were mid **+10.530561%**, double_mid **+9.788694%**, stress **+9.225732%**: each had 8 buys, 10 sells, 8 closed cycles, 6 dust vetoes, 0 cap breaches. The exported artifact's per-file hashes, 54 transaction legs, cash/units, fees, cycles, and equity/drawdown reconciled; **only 3 of 8 cycles made money**. After retrospectively removing the top three winning cycles, stress performance is **−5.440010%**. The transfer uses **old immutable signals**, not a separate causally consistent strategy and not actual executable fills. Historical models and cost assumptions have not been approved for investment.
+
+[Persian details](docs/fa/strat01_strict_cap_transfer_20261101.md) · [English details](docs/en/strat01_strict_cap_transfer_20261101.md) · [real summary CSV](reports/strat01/2026-11-01-strict-cap-transfer/results.csv) · [winner concentration CSV](reports/strat01/2026-11-01-strict-cap-transfer/concentration.csv) · [FIN-01 Issue #68](https://github.com/DashSaman/Arz/issues/68).
+
+**NEXT:** implement independent *causal* capped-exit S0 and falsify two old WETH 60m leads without retuning. Separately repair prospective 4h source timing: 194 continuous valid paired bars plus exact $20 follower quote at +60s, L1/L2/MEV/slippage/failed attempts, 90 genuinely elapsed paper days, cost-stressed calendar-day geometric return. This run adds **zero** qualifying forward days, **zero** verified executable fills, **zero** fundable strategies. Financial **NO-GO**; live **DISABLED**, capital authorization **$0**.
 
 ## 31 October 2026 | Post-audit correctness and qualification gates
 
