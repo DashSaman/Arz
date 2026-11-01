@@ -1,0 +1,59 @@
+name: ARZ Base public third-party pool Swap receipt fee pilot (NO-GO)
+
+on:
+  pull_request:
+    paths:
+      - 'research/strat01/2026-11-01-public-receipt-gas-protocol.json'
+      - 'scripts/strat01_public_receipt_cost.py'
+      - 'tests/test_strat01_public_receipt_cost.py'
+      - '.github/workflows/strat01-public-receipt-cost.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  bounded-unrelated-receipt:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      PYTHONPATH: src:.
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Run adversarial source, fee, no-wallet tests
+        run: python -m unittest discover -s tests -p 'test_strat01_public_receipt_cost.py' -v
+      - name: Run complete standard-library regression suite
+        run: python -m unittest discover -s tests -q
+      - name: Enforce frozen research NO-GO before network
+        run: |
+          python -m compileall -q scripts/strat01_public_receipt_cost.py
+          python scripts/verify_research_control.py
+      - name: One bounded Base public RPC unrelated swap receipt observation
+        run: |
+          python scripts/strat01_public_receipt_cost.py --output /tmp/arz-receipt-observed.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path('/tmp/arz-receipt-observed.json').read_text())
+          assert r['financial_decision']=='NO-GO'
+          assert r['live_trading']=='DISABLED'
+          assert r['real_capital_authorized_usd']==0
+          assert r['prospective_paper_days']==0
+          assert r['realized_bot_pnl_usdc'] is None
+          assert r['actual_arz_follower_size_specific_execution_fee_usdc'] is None
+          assert r['actual_arz_follower_FEE_and_MEVM_cost_proven'] is False
+          assert r['third_party_transaction_fee_evidence_only'] is True
+          assert r['calls_made'] <= 8
+          assert set(r['samples']).issubset({'WETH','cbBTC'})
+          print('ARZ_UNRELATED_PUBLIC_RECEIPT_ONLY_NO_GO=PASS')
+          PY
+      - name: Preserve source hashes, all unknowns and actual receipts if returned
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: arz-2026-11-01-public-unrelated-receipt-native-gas
+          path: /tmp/arz-receipt-observed.json
+          if-no-files-found: warn
+          retention-days: 30
