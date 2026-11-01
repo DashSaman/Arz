@@ -98,8 +98,10 @@ def replay(rows, policy, relative, fixed):
                 raise AssertionError("Pending exit without position")
             market_value = units * opening
             wanted = min(CAP, market_value)
-            if 0 < market_value - wanted < MINIMUM:
-                wanted = market_value - MINIMUM
+            if 0 < market_value - wanted < MINIMUM + 2*UNIT*opening:
+                # Leave >$5 after unit rounding; exact $5 can become
+                # $4.99999985 and silently strand a saleable position.
+                wanted = market_value - (MINIMUM + 2*UNIT*opening)
             amount = floor_units(wanted / opening) * opening
             if amount < MINIMUM - 1e-8:
                 events.append({"ts":ts,"kind":"exit_veto_dust","marked_usd":market_value})
