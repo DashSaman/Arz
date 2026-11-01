@@ -9,6 +9,18 @@
 **Detailed English:** [docs/en/research_current_checkpoint.md](docs/en/research_current_checkpoint.md)  
 **Offline consistency check:** `PYTHONPATH=src:. python scripts/verify_research_control.py`
 
+## 1 November 2026 | PR #76 redundant read-only first-seen collector (ops, NOT investment qualification)
+
+[PR #76](https://github.com/DashSaman/Arz/pull/76) merged as [`8cadb30`](https://github.com/DashSaman/Arz/commit/8cadb30c12444363d17ed8314e9e6aac4beb9db8). The SHA-pinned [preregistered reliability protocol](research/strat01/2026-11-01-collector-reliability-protocol.json) preserved existing six 4h UTC closes and the `23 0,4,8,12,16,20 * * *` primary GitHub Actions cron; it added a **same-GitHub-service** backstop at `47 0,4,8,12,16,20 * * *`. This is not a separately independent scheduler or a guarantee that GitHub will issue either run on time.
+
+The new [actual-clock source-slot preflight](scripts/strat01_capture_slot_preflight.py) reads validated first-seen source receipts and skips a backup only when the very same last completed 4h bar has already been captured, as a valid timely WETH+cbBTC pair with no source conflicts. Late/missing market data can trigger one new read-only attempt; corruption/revisions fail closed. Runtime slot/UTC timestamp are checked again against exact newly observed source before source+NO-GO audit commit. A source-free skip record is preserved in CI artifacts, not counted as a candle or paper day.
+
+[Actual read-only PR CI run #41311602799](https://github.com/DashSaman/Arz/actions/runs/41311602799) executed **1,486 offline test methods (4 skipped, zero failures)** and ran the new guard against the *real existing archive* at 2026-11-01 **13:30 UTC**, yielding `ALREADY_PAIRED_TIMELY_SKIP_DUPLICATE`, `capture=false`, last bar start `1793520000` and 18 historical valid paired starts. [Post-merge offline](https://github.com/DashSaman/Arz/actions/runs/41311674788) and [research checks](https://github.com/DashSaman/Arz/actions/runs/41311674810) succeeded. The last saved source as of **12:49:45 UTC** had 22 files, 18 complete paired windows, five within the one-hour operational diagnostic, and **only three consecutive timely 4h bars** versus 194 required. No **future backup scheduled runs** have yet been independently observed in this increment.
+
+[Full Persian report](docs/fa/strat01_collector_redundancy_20261101.md) · [English](docs/en/strat01_collector_redundancy_20261101.md) · [source audit](reports/strat01/audits/20261101T124945Z.json) · [Issue #68](https://github.com/DashSaman/Arz/issues/68).
+
+**NEXT:** independently check next genuinely elapsed six daily UTC closes and actual 23/47 minute cron run receipts, source availability, true first-seen and quote failures. Do not backfill gaps or count duplicates. Even if 194 bars eventually become available, still require time-bound exact $20 follower +60s quote and real L1/L2 slippage/failure costs, then 90 genuinely elapsed frozen prospective paper days. Added **zero qualifying bars, zero paper days, zero capital approvals** in this PR. Financial **NO-GO**, live **DISABLED**, funded capital **$0**.
+
 ## 1 November 2026 | PR #74 — two WETH 60m hypotheses falsified on native historical intervals
 
 **Confirmed, NOT a new backtest:** [PR #74](https://github.com/DashSaman/Arz/pull/74) merged at [`8862b217`](https://github.com/DashSaman/Arz/commit/8862b217b4c0a16cc7463120ecb561c9d4172f9c), preserving a source-blob-pinned *read-only* audit of the two remaining WETH 60m preliminary annual leads. Original **Jan–Dec 2025** modeled stress was +4.933693% (`ATR_vol_wall_clock`) and +2.618278% (`ATR_wall_clock`). This is **not** the native registered annual window.
