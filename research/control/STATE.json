@@ -413,7 +413,7 @@
         "EV-007"
       ],
       "completion": "Separate H2 baseline and wallet-confirmed variant once wallet data arrives; baseline must pass realistic cost and OOS without retuning; CEX proxy never qualifies Base DEX H4",
-      "next_action": "Issue #42: validate collection on an independent clock against all six daily 4h closes. Corroborated 14 GitHub schedule runs have only one paired receipt within an hour. The Oct 31 manual observation adds a second timely slot. Track missing and consecutive slots separately. Require 194 consecutive paired bars, causal $20 quotes 60s after signals, cost evidence, and 90 elapsed paper days with positive stressed net geometric returns before any funding review.",
+      "next_action": "PR72 stateful capped historical S0 replay merged, still not qualified: WETH 2025 Stress +9.225% but Q1 2026 -3.388%; cbBTC Stress negative 3/3 windows. Next issue #68: falsify two WETH 60m leads on separately frozen native annual + later-6m evidence; independently improve prospective 6-per-day UTC close coverage to 194 continuous paired bars, as-of exact $20 quote at +60s, actual L1/L2 slippage/failure evidence and 90 elapsed paper days. Financial NO-GO.",
       "github_issue_url": "https://github.com/DashSaman/Arz/issues/42",
       "last_verified_subcheckpoint": {
         "id": "STRAT01-IMMUTABLE-NEGATIVE-CONTROL-2026-10-26",
@@ -926,6 +926,16 @@
       "all_tests_passed": 1459,
       "new_test_methods": 8,
       "scope": "Historical 2025 WETH fixed-S0-signal $25-per-leg partial-exit accounting with modeled costs; run 41305629760 actual CSV; profit concentration fails removing top 3 winners; not autonomous causal strategy or qualifying forward paper"
+    },
+    {
+      "pr": 72,
+      "status": "MERGED_TO_MAIN_VERIFIED",
+      "merged_sha": "740c535babb2b0e3040bb6198db5c72812e9abc3",
+      "run_url": "https://github.com/DashSaman/Arz/actions/runs/41308328344",
+      "report": "docs/fa/strat01_stateful_causal_20261101.md",
+      "all_tests_passed": 1468,
+      "new_test_methods": 9,
+      "scope": "New 18-arm SHA-pinned historical stateful S0 per-leg-cap retrospective replay; true evolving account instead of PR70 frozen old trade times; 192 modeled legs, 93 overlapping cycles, no real execution or untouched OOS; financial NO-GO remains"
     }
   ],
   "post_audit_20261031": {
@@ -996,5 +1006,51 @@
     "live_trading": "DISABLED",
     "real_capital_authorized_usd": 0,
     "remaining": "Independent causal S0 under capped partial exits, new untouched as-of OOS, 194 uninterrupted dual market 4h bars, +60s execution route quotations, L1/L2/slippage/failure cost, 90 elapsed prospective paper days"
+  },
+  "post_audit_20261101_stateful": {
+    "classification": "MERGED_HISTORICAL_STATEFUL_CANDLE_MODEL_STRONG_FALSIFICATION_NOT_EXECUTABLE_ALPHA",
+    "pr": 72,
+    "merge_sha": "740c535babb2b0e3040bb6198db5c72812e9abc3",
+    "protocol_sha": "dbbce1769a531ba8acaf363f7f965cc423e8cae9",
+    "original_engine_sha": "db79545f5162518251eda73ec9fd3526411f9dc8",
+    "real_source_replay_run_url": "https://github.com/DashSaman/Arz/actions/runs/41308328518",
+    "same_current_pr_head_replay_url": "https://github.com/DashSaman/Arz/actions/runs/41308737885",
+    "full_offline_ci_url": "https://github.com/DashSaman/Arz/actions/runs/41308328344",
+    "full_offline_test_methods": 1468,
+    "skipped": 4,
+    "focused_regression_methods": 9,
+    "market_windows": 6,
+    "cost_profiles": 3,
+    "actual_historical_scenarios": 18,
+    "historical_account_start_usd": 100,
+    "hard_leg_cap_usd": 25,
+    "cash_reserve_usd": 10,
+    "source_and_ledger_reconciliation": "reports/strat01/2026-11-01-stateful-causal/independent_reconciliation.json",
+    "rounded_results": "reports/strat01/2026-11-01-stateful-causal/historical_summary.csv",
+    "real_output_artifact_url": "https://github.com/DashSaman/Arz/actions/runs/41308328518/artifacts/13084406841",
+    "zip_sha256": "85d3e7bd9941ccdcf58cba8391dd482296421485ec494b7e9cd3452156d83af7",
+    "counted_simulated_legs": 192,
+    "counted_overlapping_scenario_cycles": 93,
+    "counted_mark_rows": 18576,
+    "counted_fill_vetoes": 18,
+    "all_stateful_cash_and_units_reconciled": true,
+    "all_capped_leg_values_within_bounds": true,
+    "weth_2025_stress_net_pct": 9.225076784536455,
+    "weth_2026_q1_stress_net_pct": -3.388058170069854,
+    "weth_2026_augsep_stress_net_pct": 2.153511003510772,
+    "cbbtc_2025_stress_net_pct": -2.4603974599358196,
+    "cbbtc_2026_q1_stress_net_pct": -1.416537331871723,
+    "cbbtc_2026_augsep_stress_net_pct": -1.2128505026280862,
+    "weth_2025_stress_3_winners_out_of": 8,
+    "weth_stress_remove_three_winners_pct": -5.438908,
+    "independent_untouched_oos": false,
+    "actual_dex_execution_verified": false,
+    "real_slippage_l1_l2_paid_gas_verified": false,
+    "genuine_new_prospective_paper_days": 0,
+    "qualified_new_strategy_count": 0,
+    "financial_decision": "NO-GO",
+    "live_trading": "DISABLED",
+    "real_capital_authorized_usd": 0,
+    "next_research": "Investigate why two WETH 60m annual stress positive controls fail paired native annual+later-six-month gates, without tuning; independently validate 194 consecutive dual-market 4h first-seen bars and +60-second size-specific follower quotes, all-inclusive costs, then 90 genuinely elapsed paper days"
   }
 }
