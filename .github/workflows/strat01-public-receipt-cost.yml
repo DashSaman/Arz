@@ -30,7 +30,10 @@ jobs:
         run: |
           python -m compileall -q scripts/strat01_public_receipt_cost.py
           python scripts/verify_research_control.py
+      # A pull-request re-run must NEVER repeat source probing after HTTP429.
+      # Only an explicitly authorized workflow_dispatch may perform a new read.
       - name: One bounded Base public RPC unrelated swap receipt observation
+        if: github.event_name == 'workflow_dispatch'
         run: |
           python scripts/strat01_public_receipt_cost.py --output /tmp/arz-receipt-observed.json
           python - <<'PY'
