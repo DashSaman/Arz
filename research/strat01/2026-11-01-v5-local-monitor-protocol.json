@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "registered_utc_date": "2026-11-01",
+  "base_main_sha": "fdcf5a3ff07553b44d20264b87c69bc5b0aa8e5e",
+  "branch": "feature/arz-v5-local-collector-monitor",
+  "classification": "READ_ONLY_OPERATIONAL_DASHBOARD_NOT_TRADING_DASHBOARD_OR_FINANCIAL_SUCCESS",
+  "goal": "Produce an offline, browser-readable HTML status page and JSON snapshot based exclusively on local PR82 Base source evidence, event errors and heartbeat, without network, wallets, or source rewriting.",
+  "checks": [
+    "No generated fake candles or inferred fills",
+    "Read-only strict audit of original local source files",
+    "FAIL CLOSED on corrupt events/source/heartbeat",
+    "Show operationally timely as a diagnostic, NOT market data publication proof",
+    "Expose 194-bar gap and financial NO-GO",
+    "Local-only HTML with HTML escaping and no external JavaScript",
+    "Optional static snapshot without webserver",
+    "No real costs/profits shown except UNKNOWN",
+    "CI targeted negative cases and whole repo tests"
+  ],
+  "acceptance": "Local CLI generate, machine JSON and HTML reports with independently verifiable source counts and refusals. No shell/js injection, original data unchanged.",
+  "safety": {
+    "live_trading": "DISABLED",
+    "capital_authorized_usd": 0,
+    "qualifying_paper_days": 0
+  },
+  "limits": [
+    "No live service host deployed",
+    "Dashboard is an on-demand snapshot, not continuous uptime evidence",
+    "No strategy performance or paper eligibility derived"
+  ]
+}
