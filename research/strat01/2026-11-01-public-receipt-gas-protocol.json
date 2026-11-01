@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "date_utc": "2026-11-01",
+  "classification": "ONE_SHOT_READ_ONLY_PUBLIC_UNISWAP_V3_POOL_SWAP_RECEIPT_COST_PILOT_NOT_FOLLOWER_EXECUTION",
+  "base_commit": "650f67bec8f9ae1b39a7b770b3991bb3b9b2a19d",
+  "verified_source_identity": "reports/strat01/2026-10-27-base-identity-observed.json",
+  "chain_id": 8453,
+  "public_base_rpc": "https://mainnet.base.org",
+  "pool_identity": {
+    "WETH": {
+      "pool": "0xd0b53d9277642d899df5c87a3966a349a798f224",
+      "asset": "WETH/USDC",
+      "fee_ppm": 500,
+      "lookback_blocks": 64
+    },
+    "cbBTC": {
+      "pool": "0xfbb6eed8e7aa03b138556eedaf5d271a5e1e43ef",
+      "asset": "cbBTC/USDC",
+      "fee_ppm": 500,
+      "lookback_blocks": 512
+    }
+  },
+  "confirmation_offset_blocks": 12,
+  "max_total_rpc_calls": 8,
+  "max_response_bytes": 250000,
+  "sample_rule": "At observed Base head select one newest previously mined Uniswap V3 Swap event per listed factory-verified pool inside fixed block range; link its precise event, successful transaction receipt and block header by hash, never an imagined source row or strategy fill. If none or unavailable, record status, not a zero fee.",
+  "native_fee_math": "L2 transaction receipt fee = gasUsed*effectiveGasPrice in wei; L1 paid fee only if receipt explicitly returns l1Fee. Store separate native wei/ETH; no USD conversion without independently time-valid ETHUSDC price, and do not silently impute absent L1.",
+  "required_integrity": [
+    "chainId 8453",
+    "event topic matches Swap(address,address,int256,int256,uint160,uint128,int24)",
+    "event pool address exact",
+    "event and receipt transaction and block hashes exact",
+    "receipt contains the sampled event",
+    "receipt status 1",
+    "header hash and block number/time match; no future timestamps",
+    "numeric gas components finite bounded",
+    "all first-seen RPC response SHA256 and runtime timestamp"
+  ],
+  "limits": [
+    "public other-account historical transaction, not a $20 follower swap",
+    "tx gas is for entire unrelated transaction, may involve multiple pools",
+    "cannot infer own actual router gas, L1 data bytes, failed attempt rate, price impact, adverse selection or MEV",
+    "cannot establish +60 second follower execution",
+    "cannot count OOS returns or prospective paper days",
+    "MAX 8 read-only RPC calls, no retry/paid service/key/signing/broadcast"
+  ],
+  "output": "One report JSON with full raw source response hashes, chosen public transaction hashes, observed block timestamps, actual on-chain gas wei evidence if returned, and every unknown explicitly null; a compact CSV listing per-pool status/cost",
+  "financial_decision": "NO-GO",
+  "live_trading": "DISABLED",
+  "real_capital_authorized_usd": 0
+}

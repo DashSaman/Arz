@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "classification": "THREE_HISTORICAL_PR_ACTIONS_RATE_LIMIT_ATTEMPTS_NOT_SWAP_EXECUTION_OR_ALPHA",
+  "source_mode": "EXPLICITLY_PREDECLARED_ONE_PER_RUN_BOUNDED_PUBLIC_RPC_BUT_PR_UPDATES_RETRIGGERED_BEFORE_CI_CIRCUIT_BREAKER",
+  "source_protocol_commit": "dc047f4a92547cf069ffc3ec9c6d0e0ecf37c42d",
+  "eth_chain_id": 8453,
+  "source_host": "https://mainnet.base.org",
+  "observations": [
+    {
+      "run": 41312449552,
+      "artifact_id": 13085686633,
+      "observed_at_utc": "2026-11-01T13:41:15+00:00",
+      "bytes": 1544,
+      "json_sha256": "8a9110e1a3c5a3c55a6ccaf1528a52e159ceb45b479adfd900a7d3482b5e1f89",
+      "rpc_calls": 3,
+      "failed_method": "eth_getLogs",
+      "failure": "HTTP_429",
+      "asset": "WETH",
+      "sampled_receipts": 0
+    },
+    {
+      "run": 41312558899,
+      "artifact_id": 13086575190,
+      "observed_at_utc": "2026-11-01T13:42:40+00:00",
+      "bytes": 1544,
+      "json_sha256": "7a641e0e9114826c27d794243d1c00dbff8a28e25e5cd70974389cbc8272bd5c",
+      "rpc_calls": 3,
+      "failed_method": "eth_getLogs",
+      "failure": "HTTP_429",
+      "asset": "WETH",
+      "sampled_receipts": 0
+    },
+    {
+      "run": 41312609719,
+      "artifact_id": 13086306522,
+      "observed_at_utc": "2026-11-01T13:43:19+00:00",
+      "bytes": 1544,
+      "json_sha256": "8596c2c06e885675162759c5026d969844fc7dbc3f151bf1a82648166c8bcb8c",
+      "rpc_calls": 3,
+      "failed_method": "eth_getLogs",
+      "failure": "HTTP_429",
+      "asset": "WETH",
+      "sampled_receipts": 0
+    }
+  ],
+  "total_rpc_calls_across_all_actions": 9,
+  "per_run_source_rpc_retries": 0,
+  "separate_action_runs_caused_by_pr_updates": 2,
+  "cbBTC_log_queried": false,
+  "rate_limit_host_rotated": false,
+  "provider_rate_limit_bypassed": false,
+  "artifact_retention_days": 30,
+  "circuit_breaker_commit": "c86ff89bd9484bfd0663a06cf2ad5c28c33c5035",
+  "automatic_pr_rpc_disabled": true,
+  "explicit_workflow_dispatch_only_for_future_network_sample": true,
+  "latest_pr_head_offline_only_ci_run": "https://github.com/DashSaman/Arz/actions/runs/41312844970",
+  "public_receipt_gas_evidence_count": 0,
+  "bot_follower_execution_cost_usdc": null,
+  "qualifying_paper_days": 0,
+  "financial_decision": "NO-GO",
+  "live_trading": "DISABLED",
+  "real_capital_authorized_usd": 0
+}
