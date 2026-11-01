@@ -49,6 +49,8 @@ jobs:
         run: |
           python -m compileall -q scripts/strat01_base_identity_forward.py
           python scripts/verify_research_control.py
+      - name: Read-only actual-clock slot preflight against saved genuine source files
+        run: python scripts/strat01_capture_slot_preflight.py --output /tmp/arz-slot-dry-run.json
       - name: One bounded identity check
         if: hashFiles('reports/strat01/2026-10-27-base-identity-observed.json') == ''
         run: python scripts/strat01_base_identity_forward.py --mode identity --output /tmp/arz-identity.json
@@ -63,6 +65,7 @@ jobs:
           path: |
             /tmp/arz-identity.json
             /tmp/arz-first-seen.json
+            /tmp/arz-slot-dry-run.json
           if-no-files-found: warn
           retention-days: 30
 
