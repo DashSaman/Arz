@@ -1,0 +1,62 @@
+name: Arz local collector operational HTML dashboard (NO-GO)
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/strat01_local_monitor.py'
+      - 'tests/test_strat01_local_monitor.py'
+      - '.github/workflows/strat01-local-monitor.yml'
+      - 'reports/strat01/forward/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  offline-source-dashboard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    env:
+      PYTHONPATH: 'src:.'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Run local monitor negative controls (no internet providers)
+        run: python -m unittest discover -s tests -p 'test_strat01_local_monitor.py' -v
+      - name: Generate actual offline HTML/JSON using existing repository captures
+        run: |
+          mkdir -p /tmp/arz-v5-monitor/forward /tmp/arz-v5-monitor/events /tmp/arz-v5-monitor/monitor
+          cp reports/strat01/forward/*.json /tmp/arz-v5-monitor/forward/
+          python scripts/strat01_local_monitor.py \
+            --data-root /tmp/arz-v5-monitor \
+            --html /tmp/arz-v5-monitor/monitor/index.html \
+            --json /tmp/arz-v5-monitor/monitor/status.json
+      - name: Verify no false funding, paper or source-time qualification
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('/tmp/arz-v5-monitor/monitor/status.json')
+          d=json.loads(p.read_text())
+          assert d['source_files_checked']>=22
+          assert d['valid_source_files']==d['source_files_checked']
+          assert d['complete_paired_bar_count']>=18
+          assert d['financial_decision']=='NO-GO'
+          assert d['live_trading']=='DISABLED'
+          assert d['real_capital_authorized_usd']==0
+          assert d['qualified_paper_calendar_days']==0
+          assert d['exact_plus60s_follower_paid_execution_usdc'] is None
+          assert d['max_consecutive_timely_paired_bars'] < 194
+          assert d['health']=='NO_RECENT_HEARTBEAT'
+          assert Path('/tmp/arz-v5-monitor/monitor/index.html').stat().st_size>1000
+          print('V5_REAL_LOCAL_DASHBOARD_EVIDENCE=PASS_NO_GO')
+          PY
+      - name: Preserve real offline HTML and JSON snapshot as artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: arz-v5-real-archive-local-dashboard
+          path: /tmp/arz-v5-monitor/monitor/
+          if-no-files-found: warn
+          retention-days: 30
