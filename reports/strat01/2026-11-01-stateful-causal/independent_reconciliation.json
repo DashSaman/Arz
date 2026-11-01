@@ -1,0 +1,97 @@
+{
+  "schema": 1,
+  "observed_at_utc": "2026-11-01",
+  "classification": "REAL_SOURCE_HISTORICAL_CANDLE_SIMULATION_NOT_VERIFIED_DEX_EXECUTION",
+  "preregistered_protocol": "research/strat01/2026-11-01-stateful-cap-protocol.json",
+  "preregistered_protocol_commit": "dbbce1769a531ba8acaf363f7f965cc423e8cae9",
+  "source_engine_sha": "db79545f5162518251eda73ec9fd3526411f9dc8",
+  "source_provider_sha256": {
+    "WETH": "633f1681a8381d164ea05994e545f61ac4c5f2804428df7bf3cf7a09ca4abfd1",
+    "cbBTC": "d14de847f54d0dee883fd1065bea1880f1a64d863998b3bbc09dadf5e52128f9"
+  },
+  "github_run": "https://github.com/DashSaman/Arz/actions/runs/41308328518",
+  "github_artifact": "https://github.com/DashSaman/Arz/actions/runs/41308328518/artifacts/13084406841",
+  "archive_sha256": "85d3e7bd9941ccdcf58cba8391dd482296421485ec494b7e9cd3452156d83af7",
+  "artifact_files_sha256": {
+    "coverage.csv": "5c72a6ee5ee4eb9b6b5060015bdd6f08f676e1de80e56eddff9a125aab70f3cb",
+    "cycles.csv": "94b37053af9cdbf01cbdea281afd523a6fb7ab4b32148c3bec19527cb933e315",
+    "legs.csv": "3d5914c4f899dfb6008ad29e3deb06487c1337956cbfd365092fe2ec510df4a2",
+    "marks.csv": "79473233abe7e06339687594288e7517e7b93281ff5aef0eaf890dc7e2acecf7",
+    "results.csv": "927e7003a4d99e4c9cd853bf26c6bb9ac23a1a673e97604553cb41140a0a76b9",
+    "vetoes.csv": "26553c9fcbf0acc1e12c06380b74823055d530e2984d5901f500a844094e2c9f"
+  },
+  "source_artifact_retention_days": 30,
+  "independent_reconciliation": {
+    "all_file_hashes_match": true,
+    "scenarios_verified": 18,
+    "complete_source_windows": 6,
+    "actual_historical_csv_rows": 18,
+    "legs": 192,
+    "cycles": 93,
+    "marks": 18576,
+    "vetoes": 18,
+    "all_legs_between_5_and_25_usd": true,
+    "all_leg_cash_and_fees_reconciled": true,
+    "all_cycles_pnl_reconciled": true,
+    "zero_sourced_onchain_orders": true
+  },
+  "scenario_count": 18,
+  "stress_by_market_window": [
+    {
+      "market": "WETH",
+      "period": "2025",
+      "net_account_return_pct": 9.225076784536455,
+      "cycles": 8,
+      "wins": 3,
+      "losses": 5,
+      "remove_three_wins_fixed_ledger_pct": -5.438908
+    },
+    {
+      "market": "WETH",
+      "period": "2026Q1",
+      "net_account_return_pct": -3.388058170069854,
+      "cycles": 4,
+      "wins": 0,
+      "losses": 4
+    },
+    {
+      "market": "WETH",
+      "period": "2026AugSep",
+      "net_account_return_pct": 2.153511003510772,
+      "cycles": 2,
+      "wins": 1,
+      "losses": 1
+    },
+    {
+      "market": "cbBTC",
+      "period": "2025",
+      "net_account_return_pct": -2.4603974599358196,
+      "cycles": 12,
+      "wins": 4,
+      "losses": 8
+    },
+    {
+      "market": "cbBTC",
+      "period": "2026Q1",
+      "net_account_return_pct": -1.416537331871723,
+      "cycles": 3,
+      "wins": 0,
+      "losses": 3
+    },
+    {
+      "market": "cbBTC",
+      "period": "2026AugSep",
+      "net_account_return_pct": -1.2128505026280862,
+      "cycles": 2,
+      "wins": 0,
+      "losses": 2
+    }
+  ],
+  "proven_profitable_after_real_dex_costs": false,
+  "untouched_out_of_sample": false,
+  "qualified_paper_days_added": 0,
+  "qualified_strategies": 0,
+  "financial_decision": "NO-GO",
+  "live_trading": "DISABLED",
+  "real_capital_authorized_usd": 0
+}
