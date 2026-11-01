@@ -23,3 +23,27 @@ jobs:
         run: python scripts/strat01_60m_native_probe.py
       - name: Core safety
         run: python scripts/verify_research_control.py
+      - name: Audit paired native gate status strictly without promotional claims
+        run: |
+          python - <<'PY'
+          import json
+          with open('/tmp/arz_60m_native_gates.json') as f:
+              d=json.load(f)
+          assert d['financial_decision']=='NO-GO'
+          assert d['no_live_orders'] is True
+          assert len(d['gates'])==2
+          assert len(d['annual_shortlist'])==2
+          assert len(d['native_rows'])==16
+          assert all(x['positive_annual_and_later6m_mid_stress']=='False'
+                     and x['passes_all']=='False'
+                     for x in d['gates'])
+          print('READ_ONLY_NATIVE_WETH_60M_AUDIT_PASS_NO_GO')
+          PY
+      - name: Preserve exact prior-data audit
+        if: success()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: arz-prior-native-weth-60m-gate-falsification
+          path: /tmp/arz_60m_native_gates.json
+          retention-days: 30
+          if-no-files-found: error
