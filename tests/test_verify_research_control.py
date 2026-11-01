@@ -91,13 +91,18 @@ class ControlPlaneTests(unittest.TestCase):
         self.assertEqual(result["financial_decision"], "NO-GO")
         self.assertEqual(next(t for t in s["tracks"] if t["id"] == "STRAT-01")["status"],
                          "IN_PROGRESS")
-        self.assertEqual({x["pr"] for x in s["post_checkpoint_verified_deliveries"]},
-                         {40,41})
+        # Later verified merges are append-only; retaining old negative-control
+        # evidence must not prevent recording new non-qualifying PRs.
+        observed = {x["pr"] for x in s["post_checkpoint_verified_deliveries"]}
+        self.assertTrue({40, 41, 70}.issubset(observed))
+        self.assertEqual(s["post_audit_20261101"]["financial_decision"], "NO-GO")
+        self.assertFalse(s["post_audit_20261101"]["net_profitable_strategy_verified"])
         for corrupt in [
             lambda d: d["post_checkpoint_verified_deliveries"][0].__setitem__("status", "DRAFT"),
             lambda d: d["post_checkpoint_verified_deliveries"][1].__setitem__("report", "../no-evidence"),
             lambda d: d["post_checkpoint_verified_deliveries"][1].__setitem__("merged_sha", "invalid"),
             lambda d: d["post_checkpoint_verified_deliveries"][0].__setitem__("all_tests_passed", 0),
+            lambda d: next(x for x in d["post_checkpoint_verified_deliveries"] if x["pr"] == 70).__setitem__("run_url", "https://invalid.example/claim"),
             lambda d: next(t for t in d["tracks"] if t["id"] == "STRAT-01").__setitem__("status", "DONE"),
         ]:
             bad = fresh()
