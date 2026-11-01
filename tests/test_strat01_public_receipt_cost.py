@@ -150,5 +150,28 @@ class SourceReceiptEvidenceTests(unittest.TestCase):
         self.assertEqual(probe.calls,0)
 
 
+class ActualPublishedProviderLimitEvidenceTests(unittest.TestCase):
+    def test_20261101_real_source_http429_is_not_reclassified_as_zero_gas(self):
+        import hashlib, json
+        from pathlib import Path
+        root=Path(__file__).resolve().parents[1]
+        source=root/"reports/strat01/2026-11-01-public-receipt-cost/pilot-observed.json"
+        raw=source.read_bytes()
+        self.assertEqual(
+            hashlib.sha256(raw).hexdigest(),
+            "8a9110e1a3c5a3c55a6ccaf1528a52e159ceb45b479adfd900a7d3482b5e1f89")
+        observed=json.loads(raw)
+        self.assertEqual(observed["conclusion"],"INSUFFICIENT_PUBLIC_RECEIPT_DATA")
+        self.assertEqual(observed["calls_made"],3)
+        self.assertEqual(observed["samples"]["WETH"]["reason"],"BoundedError:HTTP_429")
+        self.assertNotIn("cbBTC",observed["samples"])
+        self.assertEqual(observed["observed_third_party_full_tx_receipt_count"],0)
+        self.assertIsNone(observed["actual_arz_follower_size_specific_execution_fee_usdc"])
+        self.assertIsNone(observed["realized_bot_pnl_usdc"])
+        self.assertEqual(observed["prospective_paper_days"],0)
+        self.assertEqual(observed["financial_decision"],"NO-GO")
+        self.assertEqual(observed["real_capital_authorized_usd"],0)
+
+
 if __name__=="__main__":
     unittest.main()
