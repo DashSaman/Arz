@@ -1,0 +1,59 @@
+name: STRAT-01 offline historical schedule clock reconciliation (NO-GO)
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/strat01_schedule_clock_audit.py'
+      - 'tests/test_strat01_schedule_clock_audit.py'
+      - 'reports/strat01/2026-11-01-schedule-clock/**'
+      - '.github/workflows/strat01-schedule-clock-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  offline-scheduler-source-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      PYTHONPATH: 'src:.'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Unit and negative controls (NO network)
+        run: python -m unittest discover -s tests -p 'test_strat01_schedule_clock_audit.py' -v
+      - name: Reconcile pinned real GitHub metadata against original append-only source
+        run: |
+          python scripts/strat01_schedule_clock_audit.py \
+            --runs-json reports/strat01/2026-11-01-schedule-clock/runs-normalized.json \
+            --source-dir reports/strat01/forward \
+            --start 2026-10-28 \
+            --end 2026-10-30 \
+            --output /tmp/arz-schedule-clock-audit.json
+      - name: Assert exact machine report and preserve financial refusal
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          actual=json.loads(Path('/tmp/arz-schedule-clock-audit.json').read_text())
+          expected=json.loads(Path('reports/strat01/2026-11-01-schedule-clock/retrospective-20261028-30.json').read_text())
+          assert actual==expected, 'Pinned retrospective report drift'
+          assert actual['expected_nominal_opportunities_in_full_days']==18
+          assert actual['observed_schedule_runs_created_on_selected_utc_dates']==9
+          assert actual['timely_paired_source_4h_closes']==1
+          assert actual['investment_readiness']=='NO-GO'
+          assert actual['qualifying_forward_paper_days']==0
+          assert actual['real_capital_authorized_usd']==0
+          assert actual['live_trading']=='DISABLED'
+          print('SCHEDULE_CLOCK_RECONCILIATION=PASS_NO_GO')
+          PY
+      - name: Archive independently recomputed read-only artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: arz-strat01-offline-schedule-clock-audit
+          path: /tmp/arz-schedule-clock-audit.json
+          if-no-files-found: warn
+          retention-days: 30
