@@ -916,6 +916,16 @@
       "all_tests_passed": 751,
       "new_test_methods": 43,
       "scope": "24 already-seen Oct13 historical simulations: three candidates 0 financial qualifications"
+    },
+    {
+      "pr": 70,
+      "status": "MERGED_TO_MAIN_VERIFIED",
+      "merged_sha": "ea9fe94b7b49e0d873f8577f88eedeaba73b9bf0",
+      "run_url": "https://github.com/DashSaman/Arz/actions/runs/41306046251",
+      "report": "docs/fa/strat01_strict_cap_transfer_20261101.md",
+      "all_tests_passed": 1459,
+      "new_test_methods": 8,
+      "scope": "Historical 2025 WETH fixed-S0-signal $25-per-leg partial-exit accounting with modeled costs; run 41305629760 actual CSV; profit concentration fails removing top 3 winners; not autonomous causal strategy or qualifying forward paper"
     }
   ],
   "post_audit_20261031": {
@@ -951,5 +961,40 @@
     "proven_positive_net_daily_account_growth": false,
     "financial_decision": "NO-GO",
     "live_trading": "DISABLED"
+  },
+  "post_audit_20261101": {
+    "classification": "MERGED_REPRODUCIBLE_HISTORICAL_SENSITIVITY_NOT_INVESTABLE_ALPHA",
+    "pr": 70,
+    "merged_sha": "ea9fe94b7b49e0d873f8577f88eedeaba73b9bf0",
+    "failing_prior_run": "https://github.com/DashSaman/Arz/actions/runs/41235352959",
+    "successful_real_source_run": "https://github.com/DashSaman/Arz/actions/runs/41305629760",
+    "matching_replay_run": "https://github.com/DashSaman/Arz/actions/runs/41306046205",
+    "offline_suite_run": "https://github.com/DashSaman/Arz/actions/runs/41306046251",
+    "offline_test_methods": 1459,
+    "offline_skipped": 4,
+    "separate_focused_regression_methods": 8,
+    "simulated_account_usd": 100,
+    "strict_buy_and_sell_leg_cap_usd": 25,
+    "market": "Base WETH/USDC",
+    "period": "2025-01-01/2026-01-01",
+    "frozen_engine_sha": "db79545f5162518251eda73ec9fd3526411f9dc8",
+    "original_source_jsonl_sha256": "633f1681a8381d164ea05994e545f61ac4c5f2804428df7bf3cf7a09ca4abfd1",
+    "artifact_url": "https://github.com/DashSaman/Arz/actions/runs/41305629760/artifacts/13082374845",
+    "artifact_zip_sha256": "b756d2366fc8208ab7486fb41bb9df974bea58448b325e59fbb25abb02a29722",
+    "real_csv": "reports/strat01/2026-11-01-strict-cap-transfer/results.csv",
+    "concentration_csv": "reports/strat01/2026-11-01-strict-cap-transfer/concentration.csv",
+    "positive_completed_cycles": 3,
+    "negative_completed_cycles": 5,
+    "simulated_stress_net_return_pct": 9.225732391893501,
+    "simulated_stress_remove_top3_winners_net_pct": -5.4400101011,
+    "simulated_leg_cap_breaches": 0,
+    "qualified_forward_paper_days": 0,
+    "real_follower_fills_verified": 0,
+    "net_profitable_strategy_verified": false,
+    "independent_causal_partial_exit_replay": false,
+    "financial_decision": "NO-GO",
+    "live_trading": "DISABLED",
+    "real_capital_authorized_usd": 0,
+    "remaining": "Independent causal S0 under capped partial exits, new untouched as-of OOS, 194 uninterrupted dual market 4h bars, +60s execution route quotations, L1/L2/slippage/failure cost, 90 elapsed prospective paper days"
   }
 }
