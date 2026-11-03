@@ -1,0 +1,35 @@
+{
+  "date_utc": "2026-10-20T02:23:42Z",
+  "execution_environment": "isolated local Python 3.11+ interpreter, synthetic fixtures only; not GitHub Actions",
+  "command": "python -m unittest discover -s /mnt/data/arz_quant_audit/tests -v",
+  "source_check": {
+    "github_script": "scripts/verify_wallet_evidence.py",
+    "script_bytes": 8814,
+    "local_script_sha256": "094fc2b157763ca14b59fd0308f5141401ea6d0e9c2acc2a017df6105678c817",
+    "github_test": "tests/test_verify_wallet_evidence.py",
+    "test_bytes": 2672,
+    "local_test_sha256": "b2131c115a198954f80546189855d9a45f8eca948af8f649cd281f3a205368d0",
+    "github_content_re_read": true,
+    "github_char_counts_match_local_bytes": true
+  },
+  "test_name": "test_verify_wallet_evidence.SourceIntegrityTests",
+  "tests_executed": 7,
+  "passed": 7,
+  "failed": 0,
+  "errors": 0,
+  "exit_code": 0,
+  "executed_cases": [
+    "test_base58_length_not_just_regex",
+    "test_chain_is_part_of_transaction_identity",
+    "test_nonfinite_not_silently_zero",
+    "test_pnl_is_not_inferred_from_missing_quotes",
+    "test_rounding_not_a_confirmed_pnl",
+    "test_same_hash_different_time_flagged",
+    "test_tcat_discrepancy_exact"
+  ],
+  "independent_live_blockchain_rpc_calls": 0,
+  "independent_full_historical_market_replay_runs": 0,
+  "scope_limit": "Only validates source parsing/math invariants against artificial input; no market or profit inference; older seven wallet_trade_audit tests and original 56 core tests were NOT rerun in this local mini-suite.",
+  "result": "PASS_SYNTHETIC_ONLY",
+  "decision": "NO-GO"
+}

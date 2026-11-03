@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "date_utc": "2026-10-20",
+  "research_branch": "research/2026-10-20-master-quant-forensic-audit",
+  "original_main_audit_start": "f7f40a0dd19679f097815806351ab61eb8e136dd",
+  "execution_boundary": "no_funded_trading_no_keys_no_sanctions_bypass",
+  "primary_transactions": {
+    "solana_signature_rpc_completeness": "NOT_ACQUIRED",
+    "evm_raw_indexer_rows": {
+      "normal": 586,
+      "erc20_transfer": 494,
+      "internal_operation": 641
+    },
+    "evm_classified_candidate_swaps": {
+      "main": 44,
+      "deficity": 6,
+      "team": 4
+    },
+    "independent_rpc_receipt_verification": "NOT_EXECUTED",
+    "ethereum_gems_sale_subset": {
+      "source": "research/tradecitypro/data/gems_sale_legs_source_audited_2026-10-20.csv",
+      "rows": 3,
+      "ETH_in": "5.5590334061816876",
+      "GEMS_out": "90902.81449086",
+      "ETH_gas": "0.000861284492280117",
+      "USD_realized_profit": "UNKNOWN",
+      "source_quality": "Routescan indexed records plus partial explorer public listing"
+    }
+  },
+  "wallet_scope": {
+    "verified_wallet_registry_rows": 59,
+    "solana_public_lead_addresses": 50,
+    "evm_public_leads_and_roles": 8,
+    "tron_team_payment_addresses": 1,
+    "full_history_verified_wallets": 0,
+    "confirmed_wallet_daily_geometric_positive": 0
+  },
+  "historic_backtests": {
+    "source": "reports/backtests/summary.csv",
+    "run_date_utc": "2026-10-13",
+    "count_earlier_runs": 24,
+    "final_holdout_closed_trades_by_strategy": {
+      "trend": 6,
+      "momentum": 6,
+      "mean_reversion": 4
+    },
+    "raw_source_ohlcv_in_public_repo": false,
+    "exact_independent_replay_during_current_session": false,
+    "real_exec_or_price_impact_verified": false,
+    "final_holdout_already_seen": true,
+    "experimentally_new_strategy_runs_this_session": 0
+  },
+  "requirements": {
+    "historical_archive_and_time_accurate_executed_prices": "MISSING",
+    "full_fifo_and_unknown_cost_basis": "NOT_QUALIFIED",
+    "deposits_withdrawals_and_equity": "MISSING",
+    "copy_delay_stress": "NOT_EXECUTED",
+    "wallet_selection_time": "MISSING",
+    "chronological_future_unseen_holdout": "NOT_ACQUIRED",
+    "current_funded_trading": "PROHIBITED"
+  },
+  "charts": {
+    "wallet_equity": "NOT_POSSIBLE_UNVERIFIED_EQUITY",
+    "daily_compounded_equity": "NOT_POSSIBLE_MISSING_CASHFLOWS_AND_MARKS",
+    "portfolio_drawdown": "NOT_POSSIBLE_MISSING_EQUITY",
+    "monthly_wallet_return": "NOT_POSSIBLE_NO_CALENDAR_MARKS",
+    "trade_PNL_distribution": "NOT_POSSIBLE_UNKNOWN_COST_BASIS",
+    "wallet_comparison": "UNVERIFIED_PROVIDER_CLAIMS_ONLY",
+    "strategy_comparison": "ARCHIVED_OHLCV_ONLY_CAN_DISPLAY_PRIOR_ROWS",
+    "fee_sensitivity": "PRESERVED_OLD_STRESS_ONLY",
+    "copy_latency_sensitivity": "NOT_POSSIBLE_NO_SECOND_LEVEL_QUOTES"
+  },
+  "status": "NO-GO",
+  "last_observed_evidence": "Repository-sourced wallet indexing and seven synthetic verifier unit tests, no independent full on-chain history or fresh qualifying strategy PnL",
+  "derived_archived_endpoint_only": {
+    "csv": "reports/backtests/compounding_results.csv",
+    "rows": 3,
+    "starting_capital_simulated_usd": 100,
+    "sample_days": 33.333333333333336,
+    "measurement": "implied fixed daily equivalent from historical start/end equity, NOT independently observed calendar daily wallet marks",
+    "other_requested_capitals_not_run": [
+      300,
+      500,
+      1000,
+      3000
+    ],
+    "independent_quote_replay": false
+  },
+  "explicit_empty_tables": {
+    "normalized_trades": "research/wallets/normalized_trades.csv",
+    "position_ledger": "research/wallets/position_ledger.csv",
+    "wallet_copy_backtests": "reports/backtests/wallet_copy_results.csv",
+    "all_record_counts": 0,
+    "manifest": "research/wallets/ledger_manifest_2026-10-20.json"
+  },
+  "wallet_ranking": "research/wallets/wallet_ranking.csv — 59 unranked; research triage only"
+}

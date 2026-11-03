@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-10-20",
+  "kind": "repository_data_integrity_only_not_rpc_validation",
+  "execution_method": "live authenticated GitHub fetch_file payloads, independent inline deterministic JS CSV parse and arithmetic checks",
+  "source_inputs": {
+    "research/wallet_consistency_2026-10-20.csv": {
+      "github_blob_sha1": "e76a323a705ca1ff81e7a7debb99af66bb7afa67",
+      "bytes": 2157
+    },
+    "research/wallet_trade_examples_2026-10-20.csv": {
+      "github_blob_sha1": "e7c92ff90c6c12aa63b06c7f926afd7e6ec8d46e",
+      "bytes": 3932
+    },
+    "research/wallets/public_position_examples.csv": {
+      "github_blob_sha1": "955eb4d894d37281fb94347e4139e9fd0594dd88",
+      "bytes": 3308
+    },
+    "research/wallets/source_snapshots.csv": {
+      "github_blob_sha1": "e28f9ea56c895526429aae2aa5e66a7a241aac48",
+      "bytes": 8497
+    },
+    "research/wallets/public_research_registry_crosswalk_2026-10-20.csv": {
+      "github_blob_sha1": "950bb1ba5c9bdf88526745aa58fd0ba638e74a72",
+      "bytes": 11225
+    },
+    "reports/backtests/summary.csv": {
+      "github_blob_sha1": "a2afaff3e9b4a6e1af8223eef4862cbd134b2d17",
+      "bytes": 13790
+    },
+    "reports/backtests/manifest.json": {
+      "github_blob_sha1": "8488f3fffe4d45146c222e8ca98e95e0030affd5",
+      "bytes": 1330
+    },
+    "research/xmoon/daily_screen_results.json": {
+      "github_blob_sha1": "1115293bfe32045cc7c87d6b8f877ff6b320d9b5",
+      "bytes": 6564
+    },
+    "research/tradecitypro/data/routescan_main_transactions.csv": {
+      "github_blob_sha1": "6bb7e5bdf64bdced2480c2f7af6ec92afc9e0d8b",
+      "bytes": 148826
+    }
+  },
+  "observations": {
+    "crosswalk_rows": 55,
+    "crosswalk_solana": 50,
+    "crosswalk_evm": 5,
+    "snapshot_claim_rows": 37,
+    "distinct_snapshot_addresses": 10,
+    "legacy_trader_summary_rows": 8,
+    "provider_position_rows": 10,
+    "provider_position_signed_swap_count": 0,
+    "old_example_rows": 17,
+    "old_example_with_tx_signature": 0,
+    "documented_30day_pnl_gaps": 8,
+    "provider_position_arithmetic_conflicts": [
+      {
+        "wallet": "CyaE1VxvBrahnPWkqm5VsdCvyS2QmNht2UFrKJHga54o",
+        "token": "TCAT",
+        "delta_usd": -727
+      }
+    ],
+    "raw_duplicate_same_tx_hash_rows": 2,
+    "duplicate_tx_hash": "0x319ee8a89f89f2d61cb048bc0ef56a3acbdce29ec74918d2f0843c1b2cbd440f",
+    "duplicate_timestamp_values": [
+      "2024-02-18T20:00:23.000Z",
+      "2024-02-18T20:00:35.000Z"
+    ],
+    "first_existing_summary_holdout": [
+      {
+        "strategy": "trend",
+        "return_pct": -2.4443091133341532,
+        "closed_trades": 6
+      },
+      {
+        "strategy": "momentum",
+        "return_pct": -1.846312960128893,
+        "closed_trades": 6
+      },
+      {
+        "strategy": "mean_reversion",
+        "return_pct": 0.1427320607440885,
+        "closed_trades": 4
+      }
+    ],
+    "existing_summary_runs": 24,
+    "cupsey_concentration_token_aggregate_percent": 92.82517697523147
+  },
+  "data_limitations": [
+    "Results derived from repository-stored provider indexed and secondary source rows; no independently acquired full Solana/EVM wallet signature history.",
+    "Existing price-bar backtests not rerun because exact OHLCV raw input is absent/redistribution unresolved.",
+    "Recorded hashes are Git blob SHA1, NOT SHA-256 of raw contents; no claiming cryptographic attestation of provider.",
+    "Provider cost-basis gaps must not be converted to losses or zeros."
+  ],
+  "decision": "NO-GO"
+}
