@@ -1311,7 +1311,7 @@
     "verified_production_commit_sha": "909a20fe753aa2a32b6fb37f48bbecf5b8aba942",
     "branch": "research/validation-before-deployment-20261104",
     "pr": 85,
-    "publication_status_at_observation": "OPEN_DRAFT; resolve live PR status before next work",
+    "publication_status_at_observation": "PR85_MERGED_TO_MAIN_VERIFIED",
     "decision_report": "reports/strat01/2026-11-04-validation/validation-decision.json",
     "reports": {
       "en": "docs/en/strat01_validation_20261104.md",
@@ -1347,6 +1347,16 @@
       "Suitable untouched OOS, sufficient completed cycles and positive dependence-aware base/stress financial evidence.",
       "At least90 genuinely elapsed qualified paper calendar days;180 where required.",
       "Separate user financial decision and a separately reviewed execution implementation; none exists in this release."
-    ]
+    ],
+    "primary_merge_sha": "fce7d500af835e93677078ed0f74fcfea6c8c834",
+    "reviewed_final_pr_head": "cad634ecf5af17da799b1f156f548a2bf5b52a09",
+    "final_head_successful_workflows": [
+      41889622903,
+      41889622824,
+      41889622710,
+      41889623047,
+      41889622694
+    ],
+    "primary_merge_observed_at_utc": "2026-11-04T18:47:15.764294+00:00"
   }
 }

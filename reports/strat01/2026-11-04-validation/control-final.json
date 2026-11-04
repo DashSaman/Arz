@@ -1,8 +1,8 @@
 {
   "command": "PYTHONPATH=src:. python scripts/verify_research_control.py",
   "exit_code": 0,
-  "observed_at_utc": "2026-11-04T18:37:07.259912+00:00",
+  "observed_at_utc": "2026-11-04T18:47:47.249190+00:00",
   "stdout": "{\n  \"checkpoint_id\": \"ARZ-2026-10-31-CONTROL-14\",\n  \"evidence_count\": 38,\n  \"financial_decision\": \"NO-GO\",\n  \"live_trading\": \"DISABLED\",\n  \"next_work\": \"WAL-01\",\n  \"pr_count\": 13,\n  \"scope\": \"OFFLINE_CONSISTENCY_ONLY_REMOTE_FRESHNESS_NOT_PROVED\",\n  \"task_count\": 9\n}\n",
   "stderr": "",
-  "scope": "ADDITIVE_VERIFIED_CHECKPOINT_CONSISTENCY_NOT_FINANCIAL_QUALIFICATION"
+  "scope": "POST_MERGE_CHECKPOINT_AND_EXISTING_QUOTA_DOCUMENTATION_ONLY"
 }

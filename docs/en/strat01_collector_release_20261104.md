@@ -83,9 +83,9 @@ This proposal is conditional on historical/OOS acceptance, actual cost/route evi
 | Allocation | **Proposal only:** at most 95 USDC plus at most $5 equivalent Base ETH for gas, counted together; final sizing needs current route costs and approval |
 | Order | Reference 20 USDC; <=$25 each buy and sell leg; minimum existing research order $5 |
 | Reserve | >=10 USDC inside the total budget |
-| Activity | Existing maximum four fills/failed attempts per UTC day; no trade quota |
+| Activity | Existing BUY entry guard refuses new entry after four recorded fills/charged failed attempts in a UTC day. Risk-reducing SELL remains eligible past that count; hard execution limits still apply. The frozen S0 study's stricter two entry intents/day remains separate and unchanged. |
 | Stops | Existing 3% daily marked-equity loss trigger and 10% peak drawdown trigger; these trigger a stop and do not guarantee an execution loss bound |
-| Cost limits | Existing modeled maximum gas $0.10/attempt, total fees $2/day and adverse slippage 50 bps; unknown or unverified cost refuses entry |
+| Cost limits | Existing modeled maximum gas $0.10/attempt and adverse slippage 50 bps apply to both sides. The $2/day aggregate fee budget gates new BUY entries; it does not lock a risk-reducing SELL. Unknown or unverified cost refuses entry. |
 | Wallet | New dedicated wallet; no principal wallet, seed in reports, automated replenishment or leverage |
 | Review period | **Proposal only:** 14 calendar days before a review, with no automatic capital increase |
 | Immediate hold | Missing/revised prices, persistent collection fault, stale quote, unknown cost, unexplained balance difference, duplicate/pending execution, access restriction or failed reconciliation |

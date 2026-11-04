@@ -117,7 +117,8 @@
     "proposed_gas_asset_usd_max": 5,
     "proposed_review_days": 14,
     "proposed_new_terms_applied": false,
-    "automatic_capital_increase": false
+    "automatic_capital_increase": false,
+    "existing_daily_quota_scope": "The daily count and aggregate-fee budgets gate BUY entries only; risk-reducing SELL retains hard order/minimum/gas/slippage/liquidity checks and is not locked by those entry quotas. Frozen study-specific stricter entry limits remain unchanged."
   },
   "remaining_dependencies": [
     "Lawfully retained exact original provider bytes if current Engine performance rerun is needed.",
@@ -137,8 +138,25 @@
       "final-source-integrity.json",
       "control-final.json"
     ],
-    "unfinished_current_delivery": "No reproduced implementation blocker; final publication/merge state must be resolved from PR85. Research and forward-data dependencies remain as listed.",
+    "unfinished_current_delivery": "Primary release PR85 merged after all five final-head workflows passed. Only external research/data/elapsed-time/host/financial dependencies remain; subsequent documentation records clarify existing BUY-only quota semantics.",
     "next_command": "PYTHONPATH=src:. python scripts/verify_research_control.py",
-    "next_action_after_remote_reconciliation": "Review only new source/permission/input evidence; do not repeat old strategy search or infer fresh OOS."
+    "next_action_after_remote_reconciliation": "Review only new source/permission/input evidence; do not repeat old strategy search or infer fresh OOS.",
+    "publication_sha": "fce7d500af835e93677078ed0f74fcfea6c8c834"
+  },
+  "publication": {
+    "observed_at_utc": "2026-11-04T18:47:15.764294+00:00",
+    "primary_pr": 85,
+    "primary_pr_merged": true,
+    "merged_at_utc": "2026-11-04T18:44:41Z",
+    "primary_merge_sha": "fce7d500af835e93677078ed0f74fcfea6c8c834",
+    "reviewed_final_pr_head": "cad634ecf5af17da799b1f156f548a2bf5b52a09",
+    "verified_tree_sha": "217af0506e03d4b6eafa5b9eedb29b8d8489f6b8",
+    "all_five_final_head_workflows_success": [
+      41889622903,
+      41889622824,
+      41889622710,
+      41889623047,
+      41889622694
+    ]
   }
 }

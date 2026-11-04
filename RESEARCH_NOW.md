@@ -11,6 +11,8 @@
 
 ## 4 November 2026 | Validation before deployment — verified code, financial NO-GO
 
+**Publication verified:** [PR85](https://github.com/DashSaman/Arz/pull/85) merged to main as `fce7d500af835e93677078ed0f74fcfea6c8c834` on 2026-11-04 at 18:44:41 UTC. All five workflows on final PR head `cad634ecf5af17da799b1f156f548a2bf5b52a09` passed; the merged source tree is byte-identical. The later checkpoint clarification records existing BUY-only daily quotas; no risk rule or code changed.
+
 [PR #85](https://github.com/DashSaman/Arz/pull/85), branch `research/validation-before-deployment-20261104`, continues independently verified main `22242f9daa2dea7cee17f93c42fb1f08a49a23fe`. Production-fix commit `909a20fe753aa2a32b6fb37f48bbecf5b8aba942` corrects avoidable sub-minimum sell remainders, durable collector failure visibility and incomplete-restore refusal; adds offline hash-verified backup/recovery and a digest-pinned, network-isolated release package. No user host, wallet, market-provider request or capital was activated.
 
 **Actual validation:** local full suite 1,540 tests / 1 skipped / zero failures; [PR CI](https://github.com/DashSaman/Arz/actions/runs/41887593253) 1,540 / 4 skipped / zero failures; [real isolated container](https://github.com/DashSaman/Arz/actions/runs/41887597158) healthy as UID 65534, read-only root, network `none`, zero captures; collector/monitor/backup integration 33 passed. The four CI skips need separate pinned research dependencies. These are software checks, not profitable fills or 24-hour operation.

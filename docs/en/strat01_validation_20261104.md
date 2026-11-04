@@ -4,6 +4,8 @@
 
 ## Verified delivery
 
+**Publication:** PR85 merged as `fce7d500af835e93677078ed0f74fcfea6c8c834`; final PR head `cad634ecf5af17da799b1f156f548a2bf5b52a09` passed all five workflows. The merge preserves the exact reviewed tree.
+
 The starting `main` was independently verified at `22242f9daa2dea7cee17f93c42fb1f08a49a23fe`: 689 file blobs, tree `67f7d6e16a77f866682f257a1b1e0cbb8883d068`, and exact reconstructed commit matched GitHub. PR82–84 were already merged. Work is isolated in [PR85](https://github.com/DashSaman/Arz/pull/85), branch `research/validation-before-deployment-20261104`. The reviewed production fixes are at `909a20fe753aa2a32b6fb37f48bbecf5b8aba942`; later documentation/evidence commits do not turn old historical results into results for the revised Engine.
 
 Three independent work tracks checked accounting, collection and saved financial evidence. A separate final reviewer inspected the integrated change. Exact findings, failures, commands and source hashes are in the [accounting review](strat01_accounting_review_20261104.md), [collector review](strat01_collector_review_20261104.md), [quantitative audit](strat01_quant_validation_20261104.md) and the [delivery evidence directory](../../reports/strat01/2026-11-04-validation/).

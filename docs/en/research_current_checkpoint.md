@@ -2,6 +2,8 @@
 
 ## Latest verified update — 4 November 2026
 
+**Primary release merged:** PR85 → `fce7d500af835e93677078ed0f74fcfea6c8c834`; all five final-head workflows passed on `cad634ecf5af17da799b1f156f548a2bf5b52a09`, with identical merged source tree. Daily count and aggregate-fee quotas apply to BUY entry eligibility; risk-reducing SELL retains hard execution constraints and is not locked by those quotas. This checkpoint clarifies the existing policy.
+
 PR85 carries the validation-before-deployment work on branch `research/validation-before-deployment-20261104`, based on verified main `22242f9daa2dea7cee17f93c42fb1f08a49a23fe`. Production commit `909a20fe753aa2a32b6fb37f48bbecf5b8aba942` has successful actual container, full-suite and monitor CI. Local: 1,540 tests, 1 skipped; CI: 1,540 tests, 4 skipped; no failures. Saved financial reconciliation: 103 checks, no new strategy backtest. See [the complete decision](strat01_validation_20261104.md) and [machine receipt](../../reports/strat01/2026-11-04-validation/validation-decision.json) for final review/publication status and exact commands.
 
 The shared Engine avoids creating a sub-minimum residual when a valid capped split exists; collector refusal persists across waits/restarts, recovery binds to source hashes, incomplete restores are quarantined, and offline backups preserve original evidence. Runtime changes invalidate old paper journals. The pinned historical engine/stateful replay were not rerun. Real network-isolated CI is not a user-host deployment or permanent operation; alert delivery remains unconfigured.
