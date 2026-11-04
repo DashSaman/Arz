@@ -1,0 +1,12 @@
+test_backup_and_restore_never_overwrite_existing_paths (tests.test_strat01_collector_backup.CollectorBackupTests.test_backup_and_restore_never_overwrite_existing_paths) ... ok
+test_backup_inside_evidence_volume_is_refused (tests.test_strat01_collector_backup.CollectorBackupTests.test_backup_inside_evidence_volume_is_refused) ... ok
+test_bad_source_symlink_or_in_progress_write_is_refused (tests.test_strat01_collector_backup.CollectorBackupTests.test_bad_source_symlink_or_in_progress_write_is_refused) ... ok
+test_corrupt_payload_is_rejected_before_destination_created (tests.test_strat01_collector_backup.CollectorBackupTests.test_corrupt_payload_is_rejected_before_destination_created) ... ok
+test_rehashed_financial_promotion_is_rejected (tests.test_strat01_collector_backup.CollectorBackupTests.test_rehashed_financial_promotion_is_rejected) ... ok
+test_round_trip_preserves_original_bytes_and_never_restores_health (tests.test_strat01_collector_backup.CollectorBackupTests.test_round_trip_preserves_original_bytes_and_never_restores_health) ... ok
+test_unsafe_or_unlisted_archive_path_never_extracts (tests.test_strat01_collector_backup.CollectorBackupTests.test_unsafe_or_unlisted_archive_path_never_extracts) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.102s
+
+OK

@@ -1,0 +1,69 @@
+{
+  "kind": "RETROSPECTIVE_OPERATIONS_INSPECTION_NOT_FINANCIAL_EXPERIMENT",
+  "reason": "New Nov1-Nov3 fully elapsed operational dates after the prior Oct28-Oct30 audit; fixed existing source-audit algorithm, no strategy rerun or tuning.",
+  "input_schedule_sha256": "3a3612a552bdf722dc507c8d991d343b1fbb9c9a568c6c7377ada840056c1e31",
+  "source_main_sha": "22242f9daa2dea7cee17f93c42fb1f08a49a23fe",
+  "days": [
+    {
+      "utc_date": "2026-11-01",
+      "required_distinct_four_hour_closes": 6,
+      "scheduled_runs_created": 4,
+      "successful_runs": 4,
+      "timely_paired_closes_any_recorded_source": 5,
+      "timely_close_hours_utc": [
+        4,
+        8,
+        12,
+        16,
+        20
+      ],
+      "run_ids": [
+        41348903379,
+        41347776146,
+        41320466424,
+        41280778576
+      ]
+    },
+    {
+      "utc_date": "2026-11-02",
+      "required_distinct_four_hour_closes": 6,
+      "scheduled_runs_created": 4,
+      "successful_runs": 4,
+      "timely_paired_closes_any_recorded_source": 0,
+      "timely_close_hours_utc": [],
+      "run_ids": [
+        41504374569,
+        41501400148,
+        41402675317,
+        41399973463
+      ]
+    },
+    {
+      "utc_date": "2026-11-03",
+      "required_distinct_four_hour_closes": 6,
+      "scheduled_runs_created": 6,
+      "successful_runs": 6,
+      "timely_paired_closes_any_recorded_source": 1,
+      "timely_close_hours_utc": [
+        12
+      ],
+      "run_ids": [
+        41706964624,
+        41705200334,
+        41635309199,
+        41632683971,
+        41567458071,
+        41566278846
+      ]
+    }
+  ],
+  "limits": [
+    "Actual run creation is not unique attribution to configured primary/backup cron ticks.",
+    "Six refers to distinct market closes, not number of scheduled primary+backup jobs.",
+    "Timely closes include all archived sources, not necessarily GitHub-only captures.",
+    "No publication-time proof, exact +60-second follower costs, new paper days or profitability inferred."
+  ],
+  "financial_decision": "NO-GO",
+  "live_trading": "DISABLED",
+  "real_capital_authorized_usd": 0
+}

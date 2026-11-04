@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "image": "python:3.12-slim-bookworm",
+  "index_digest": "sha256:e697c81897302a4c4333bade000d98038fbb21eb064f8ee1fd42d02ebcd9d337",
+  "linux_amd64_manifest_digest": "sha256:623674a14ef93d052bb9b0de4dbf5f28eb578a35263838941cc8aa43213c1487",
+  "linux_amd64_image_id": "sha256:37ccb536022bb36c4570856b55ebfa85bf07827e3c2fa3eba37f0dac62eebc05",
+  "python_version_upstream_reported": "3.12.16",
+  "source_repository": "docker-library/repo-info",
+  "source_commit": "c42041158bdc54accabfa176497df786dcdd905b",
+  "source_blob": "986793187c493fd2123102d20e74d0bc360f1f6b",
+  "source_url": "https://github.com/docker-library/repo-info/blob/c42041158bdc54accabfa176497df786dcdd905b/repos/python/remote/3.12-slim-bookworm.md",
+  "retrieved_at_utc": "2026-11-04T18:03:31.173008+00:00",
+  "verification": "UPSTREAM_PINNED_SOURCE_READ; NOT_A_LOCAL_REGISTRY_PULL_OR_CONTAINER_RUN",
+  "local_docker_executable_available": false,
+  "host_deployment_authorized": false,
+  "live_trading": "DISABLED"
+}

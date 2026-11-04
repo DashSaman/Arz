@@ -2,7 +2,10 @@
 # Network OFF by default. Use ONLY with an explicitly authorized Arz host.
 services:
   arz-readonly-collector:
-    image: python:3.12-slim-bookworm
+    # Verified upstream identity: image-provenance.json. Source code must also
+    # come from an immutable reviewed Arz release directory (see runbook).
+    image: python:3.12-slim-bookworm@sha256:e697c81897302a4c4333bade000d98038fbb21eb064f8ee1fd42d02ebcd9d337
+    network_mode: none
     user: '65534:65534'
     working_dir: /app
     command:
@@ -31,6 +34,11 @@ services:
     mem_limit: 256m
     restart: unless-stopped
     stop_grace_period: 15s
+    logging:
+      driver: json-file
+      options:
+        max-size: '5m'
+        max-file: '3'
     healthcheck:
       test:
         - CMD
