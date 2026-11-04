@@ -55,7 +55,14 @@ jobs:
           provenance=json.loads(Path('deploy/collector/image-provenance.json').read_text())
           image=json.loads((out/'image-inspect.json').read_text())
           assert image['Architecture']=='amd64'
-          assert actual['Image']==provenance['linux_amd64_image_id']
+          # containerd-backed Docker reports the OCI index as Id; legacy Docker
+          # reports the platform config Id. Bind the container to the inspected
+          # image and the immutable pulled RepoDigest, not one Id representation.
+          assert actual['Image']==image['Id']
+          assert 'python@'+provenance['index_digest'] in image['RepoDigests']
+          identity={'container_image_id':actual['Image'],'image_id':image['Id'],
+                    'repo_digests':image['RepoDigests'],'architecture':image['Architecture']}
+          (out/'verified-image-identity.json').write_text(json.dumps(identity,indent=2)+'\n')
           assert (out/'python-version.txt').read_text().strip()=='Python '+provenance['python_version_upstream_reported']
           assert actual['HostConfig']['NetworkMode']=='none'
           assert actual['HostConfig']['ReadonlyRootfs'] is True

@@ -1,0 +1,22 @@
+{
+  "run_url": "https://github.com/DashSaman/Arz/actions/runs/41884913066",
+  "run_conclusion": "failure",
+  "failure_step": "Assert real container isolation and no paper or market capture",
+  "root_cause": "Checker incorrectly equated Docker containerd index Id to upstream per-platform config image Id. Actual Id is index digest; existing immutable RepoDigest matches.",
+  "artifact_id": 13350812531,
+  "artifact_sha256": "94b750d32fe1e4e53b1d465bd81f08a175dbee0d02bfaac54cfcdf913711d7d4",
+  "observed_image_id": "sha256:e697c81897302a4c4333bade000d98038fbb21eb064f8ee1fd42d02ebcd9d337",
+  "upstream_platform_config_id": "sha256:37ccb536022bb36c4570856b55ebfa85bf07827e3c2fa3eba37f0dac62eebc05",
+  "repo_digests": [
+    "python@sha256:e697c81897302a4c4333bade000d98038fbb21eb064f8ee1fd42d02ebcd9d337"
+  ],
+  "architecture": "amd64",
+  "python_version": "Python 3.12.16",
+  "container_health": "healthy",
+  "container_networks": "none",
+  "dry_run_network_used": false,
+  "new_check": "Container.Image must equal inspected image.Id; RepoDigests must contain exact pinned upstream index; architecture and Python version also checked.",
+  "fixed_ci_execution": "PENDING",
+  "financial_decision": "NO-GO",
+  "new_paper_days": 0
+}
