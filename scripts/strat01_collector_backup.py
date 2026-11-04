@@ -20,6 +20,7 @@ import time
 import zipfile
 
 from scripts.strat01_local_monitor import status, MAX_EVENTS, MAX_EVENT_BYTES
+from scripts.strat01_independent_collector import require_complete_restore
 from scripts.strat01_investment_readiness import MAX_CAPTURE_FILES, MAX_BYTES_PER_CAPTURE
 
 KIND = 'OFFLINE_COLLECTOR_EVIDENCE_BACKUP_NOT_PAPER'
@@ -61,6 +62,7 @@ def _limit(name: str) -> int:
 def _inventory(root: Path) -> dict[str, bytes]:
     if not root.is_dir() or root.is_symlink():
         raise ValueError('Expected real evidence root')
+    require_complete_restore(root)
     lock = root / '.collector.lock'
     if lock.exists() or lock.is_symlink():
         raise ValueError('Active or stale writer lock; inspect before backup')

@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "kind": "BOUNDED_OFFLINE_COLLECTOR_REVIEW_NOT_FINANCIAL_QUALIFICATION",
+  "review_date_utc": "2026-11-04",
+  "verified_at_utc": "2026-11-04T18:25:40+00:00",
+  "baseline_main": "22242f9daa2dea7cee17f93c42fb1f08a49a23fe",
+  "financial_decision": "NO-GO",
+  "live_trading": "DISABLED",
+  "real_capital_authorized_usd": 0,
+  "new_market_observations": 0,
+  "new_qualified_paper_days": 0,
+  "real_provider_calls": 0,
+  "server_deployments": 0,
+  "scope": [
+    "Collector refusal persistence across loop iterations and restart",
+    "Recovery ordering and source digest binding",
+    "Incomplete restore rejection by collector and monitor",
+    "Compatibility with separately owned backup helper imports and tests"
+  ],
+  "findings": [
+    {
+      "id": "COLLECTOR-REVIEW-20261104-01",
+      "status": "FIXED_WITH_REPRODUCED_REGRESSION",
+      "title": "Service heartbeat erased a durable collector refusal",
+      "root_cause": "The service wrote ALIVE_READONLY or NETWORK_DISABLED unconditionally on every wait; health accepted that heartbeat without reading failure events.",
+      "reproduction": "A synthetic RuntimeError produced REFUSED_COLLECTOR_ERROR; the next service wait wrote ALIVE_READONLY. A later neutral event plus fresh NETWORK_DISABLED heartbeat also returned healthy.",
+      "fix": "Read bounded validated immutable events for every heartbeat and health check; preserve refusal through neutral events and restart. Clear only for a strictly later successful event bound to existing source bytes by SHA-256. Failure wins equal-second ordering. Monitor reports COLLECTOR_FAIL_CLOSED and exit 2.",
+      "new_fault_metadata_outside_forward_or_events": false
+    },
+    {
+      "id": "COLLECTOR-REVIEW-20261104-02",
+      "status": "FIXED_WITH_REPRODUCED_REGRESSION",
+      "title": "Incomplete restore marker did not block collector or monitor",
+      "root_cause": "Trust-root validation checked directories but did not inspect the recovery helper's .restore-incomplete marker.",
+      "reproduction": "With the marker present, run_once reached the injected fetcher and monitor status accepted the volume.",
+      "fix": "Reject a present marker, including dangling symlink, in collection, dry-run, heartbeat writing/health, and monitoring. Never clear the marker.",
+      "backup_integration_note": "Release owner notified to guard _inventory before snapshot staging, because staging only forward/events can otherwise discard the marker. Backup helper changes are outside this patch's ownership."
+    }
+  ],
+  "verification": [
+    {
+      "phase": "RED_BEFORE_PRODUCTION_FIX",
+      "command": "PYTHONPATH=src:. python -m unittest tests.test_strat01_independent_collector tests.test_strat01_local_monitor",
+      "exit_code": 1,
+      "tests_run": 21,
+      "failures": 4,
+      "failed_tests": [
+        "test_serve_keeps_failure_visible_on_next_wait_and_restart",
+        "test_refusal_survives_neutral_event_and_fresh_heartbeat_until_success",
+        "test_incomplete_restore_blocks_collection_and_health",
+        "test_incomplete_restore_is_rejected_even_with_fresh_heartbeat"
+      ]
+    },
+    {
+      "phase": "GREEN_AFTER_PRODUCTION_FIX",
+      "command": "PYTHONPATH=src:. python -m unittest tests.test_strat01_independent_collector tests.test_strat01_local_monitor",
+      "exit_code": 0,
+      "tests_run": 21,
+      "failures": 0
+    },
+    {
+      "phase": "GREEN_INITIAL_BACKUP_INTEGRATION",
+      "command": "PYTHONPATH=src:. python -m unittest tests.test_strat01_independent_collector tests.test_strat01_local_monitor tests.test_strat01_collector_backup",
+      "exit_code": 0,
+      "tests_run": 32,
+      "failures": 0
+    },
+    {
+      "phase": "GREEN_FINAL_OWNED_SCOPE",
+      "command": "PYTHONPATH=src:. python -m unittest tests.test_strat01_independent_collector tests.test_strat01_local_monitor",
+      "exit_code": 0,
+      "tests_run": 25,
+      "failures": 0
+    },
+    {
+      "phase": "FINAL_DIFF_WHITESPACE",
+      "command": "git diff --check",
+      "exit_code": 0,
+      "output": ""
+    }
+  ],
+  "remaining_limits": [
+    "Root task owns full-suite and real container integration verification; this review ran only the focused suites.",
+    "Event history fails closed beyond 10000 records or 32000 bytes per event.",
+    "Heartbeat validation is not a complete source archive audit; monitor retains the complete source audit.",
+    "Source SHA-256 binding does not detect coordinated rewriting of both source and event by an actor with filesystem write access.",
+    "Existing stale-lock manual review and process signal handling were not changed.",
+    "No server deployment, market-data reliability, execution, profitability, or paper-day qualification was tested."
+  ],
+  "changed_files": [
+    "scripts/strat01_independent_collector.py",
+    "scripts/strat01_local_monitor.py",
+    "tests/test_strat01_independent_collector.py",
+    "tests/test_strat01_local_monitor.py",
+    "docs/en/strat01_collector_review_20261104.md",
+    "docs/fa/strat01_collector_review_20261104.md",
+    "reports/strat01/2026-11-04-validation/collector-review.json"
+  ],
+  "reviewed_file_sha256": {
+    "scripts/strat01_independent_collector.py": "582415e36d43002f363bec01d87ec5f11681d5906184b527d26a7f6f890e32ce",
+    "scripts/strat01_local_monitor.py": "930e6cc40c13125507f947a60987cccd8a2b2929ab5dc2cf08fa6ec78a5597e5",
+    "tests/test_strat01_independent_collector.py": "3f7bd9b8ac3cc5b255d94d1634ccfa897dc360d849ab97d68208d9b28d391cea",
+    "tests/test_strat01_local_monitor.py": "d8259a7966250db43ad3d42c75f8e4b1f056a605056e6321c42a5ee2fcafe2f2",
+    "docs/en/strat01_collector_review_20261104.md": "e70c3cc52ae1ce1607ddacd6c60c702228f288b553fece50311099997ed4fd67",
+    "docs/fa/strat01_collector_review_20261104.md": "1b1304d9cc4c65aedc0672f614564b7f99db4df525b7017267a9123bd05d88b6"
+  }
+}

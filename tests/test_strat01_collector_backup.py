@@ -147,6 +147,16 @@ class CollectorBackupTests(unittest.TestCase):
                 helper.backup(root, root / 'backup.zip', now_unix=at)
             self.assertFalse((root / 'backup.zip').exists())
 
+    def test_incomplete_restore_cannot_be_repackaged_without_its_marker(self):
+        helper = self.helper()
+        with TemporaryDirectory() as d:
+            base = Path(d); root, at = self.prepare(base)
+            (root / '.restore-incomplete').write_text('Interrupted restore')
+            with self.assertRaises(ValueError):
+                helper.backup(root, base / 'evidence.zip', now_unix=at)
+            self.assertFalse((base / 'evidence.zip').exists())
+            self.assertEqual((root / '.restore-incomplete').read_text(), 'Interrupted restore')
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -1,0 +1,15 @@
+test_incomplete_restore_cannot_be_repackaged_without_its_marker (tests.test_strat01_collector_backup.CollectorBackupTests.test_incomplete_restore_cannot_be_repackaged_without_its_marker) ... FAIL
+
+======================================================================
+FAIL: test_incomplete_restore_cannot_be_repackaged_without_its_marker (tests.test_strat01_collector_backup.CollectorBackupTests.test_incomplete_restore_cannot_be_repackaged_without_its_marker)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/2b157164c85c/Arz/tests/test_strat01_collector_backup.py", line 155, in test_incomplete_restore_cannot_be_repackaged_without_its_marker
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 0.013s
+
+FAILED (failures=1)

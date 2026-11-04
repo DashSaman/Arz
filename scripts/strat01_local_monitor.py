@@ -17,11 +17,12 @@ import tempfile
 import time
 
 from scripts.strat01_base_identity_forward import BAR, START_OOS, _utc_bar_start
-from scripts.strat01_independent_collector import heartbeat_healthy
+from scripts.strat01_independent_collector import (
+    MAX_EVENTS, MAX_EVENT_BYTES, collection_failed, heartbeat_healthy,
+    read_events, require_complete_restore,
+)
 from scripts.strat01_investment_readiness import audit_capture_dir
 
-MAX_EVENTS = 10_000
-MAX_EVENT_BYTES = 32_000
 WARMUP_REQUIRED = 194
 
 
@@ -36,6 +37,7 @@ def status(root: Path, now_unix: int) -> dict:
     root = Path(root)
     if not root.is_dir() or root.is_symlink():
         raise ValueError("Missing trusted collector volume")
+    require_complete_restore(root)
     source_dir = root / "forward"
     event_dir = root / "events"
     if not source_dir.is_dir() or source_dir.is_symlink():
@@ -46,26 +48,7 @@ def status(root: Path, now_unix: int) -> dict:
     errors = [e for e in audit.get("errors", [])
               if e != "NO_SCHEDULED_APPEND_FILE_PRESENT"]
     conflicts = audit.get("conflicts", [])
-    files = sorted(event_dir.glob("*.json"))
-    if len(files) > MAX_EVENTS:
-        raise ValueError("Unbounded event evidence directory")
-    events = []
-    for p in files:
-        if (not p.is_file() or p.is_symlink()
-                or p.stat().st_size > MAX_EVENT_BYTES):
-            raise ValueError("Invalid collector event record")
-        event = json.loads(p.read_text(encoding="utf-8"))
-        if (type(event) is not dict
-                or event.get("kind") != "INDEPENDENT_LOCAL_CLOCK_OBSERVATION_NOT_ELIGIBLE_PAPER"
-                or event.get("financial_decision") != "NO-GO"
-                or event.get("live_trading") != "DISABLED"
-                or type(event.get("actual_clock_unix")) is not int
-                or event["actual_clock_unix"] > now_unix
-                or event.get("executed_transaction") is not False
-                or event.get("paper_days_qualified") != 0):
-            raise ValueError("Invalid event safety/provenance evidence")
-        events.append(event)
-    events.sort(key=lambda e:e["actual_clock_unix"])
+    events = read_events(root, now_unix)
     complete = set(audit.get("complete_both_asset_bar_starts", []))
     timely = set(audit.get("operationally_timely_both_market_bar_starts", []))
     slot = _utc_bar_start(now_unix)
@@ -90,6 +73,8 @@ def status(root: Path, now_unix: int) -> dict:
     )
     if errors or conflicts or audit.get("valid_source_files") != audit.get("file_count"):
         health = "SOURCE_FAIL_CLOSED"
+    elif collection_failed(root, events):
+        health = "COLLECTOR_FAIL_CLOSED"
     elif not heartbeat_healthy(root, now_unix):
         health = "NO_RECENT_HEARTBEAT"
     else:
@@ -216,7 +201,7 @@ def main() -> int:
                       "paired":report["complete_paired_bar_count"],
                       "timely":report["timely_paired_bar_count"],
                       "financial_decision":"NO-GO"}))
-    return 2 if report["health"]=="SOURCE_FAIL_CLOSED" else 0
+    return 2 if report["health"] in ("SOURCE_FAIL_CLOSED", "COLLECTOR_FAIL_CLOSED") else 0
 
 
 if __name__=="__main__":

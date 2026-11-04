@@ -69,6 +69,12 @@ class Engine:
                 slip = c.slippage_bps / 10000
                 price = reference * (1 + slip if side == "buy" else 1 - slip)
                 units = min(p.units, c.max_order / price) if side == "sell" else c.target_order / price
+                if side == "sell" and units < p.units and (p.units - units) * price < c.min_order:
+                    # Keep a saleable remainder when both legs can meet the minimum.
+                    # Round this leg down; the existing risk tolerance also covers exact two-minimum splits.
+                    smaller_units = math.nextafter(p.units - c.min_order / price, 0.0)
+                    if smaller_units * price >= c.min_order - 1e-10:
+                        units = min(units, smaller_units)
                 notional = units * price
                 cost = notional * c.fee_bps / 10000 + c.gas_usd
                 rejection = self.risk.check(side, notional, p.cash, p.units * price, self.history[-1].volume, cost)
