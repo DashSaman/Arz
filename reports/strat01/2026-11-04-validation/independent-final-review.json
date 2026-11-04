@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "observed_at_utc": "2026-11-04T18:39:23.771948+00:00",
+  "reviewer_role": "INDEPENDENT_READ_ONLY_FINAL_PRODUCTION_REVIEW",
+  "reviewed_production_commit_sha": "909a20fe753aa2a32b6fb37f48bbecf5b8aba942",
+  "decision": "APPROVE_VALIDATION_RELEASE",
+  "material_reproduced_findings": [],
+  "changes_requested": false,
+  "scope": [
+    "Capped sell sizing and genuine open dust",
+    "Durable collector refusal and strictly later hash-bound recovery",
+    "Monitor refusal visibility and financial/source separation",
+    "Incomplete restore marker guards",
+    "Offline backup and restore parsing, paths, sizes, hashes, atomic publication and no overwrite",
+    "Pinned container identity, UID, read-only root, network-off default and actual CI assertions"
+  ],
+  "independently_ran_tests": false,
+  "independently_authenticated_remote_ci": false,
+  "review_limits": [
+    "Read-only source/test/configuration review, not exhaustive concurrency proof.",
+    "No additional adversarial reproduction completed.",
+    "Overall bilingual checkpoint documents and saved-quant verifier were subsequently checked by the root, not certified by this reviewer."
+  ],
+  "test_counts_from_root_verified_receipts": {
+    "local_methods": 1540,
+    "local_skipped": 1,
+    "local_passed": 1539,
+    "ci_methods": 1540,
+    "ci_skipped": 4,
+    "ci_passed": 1536,
+    "failures": 0
+  },
+  "count_clarification": "Reviewer prose called1540 passed plus1 skipped; authoritative executed total is1540, of which1539 passed locally and1 skipped. No independent rerun is claimed.",
+  "reviewed_file_sha256": {
+    "src/arz/engine.py": "d73b13a2b5b376e23a561891c2c66d7e511024055f3743f91ce13994f32a8d6c",
+    "tests/test_engine.py": "ac203aafebe2970e8f9b04ae985ea8919e7a096ef046c8f209e19561ae228479",
+    "scripts/strat01_independent_collector.py": "582415e36d43002f363bec01d87ec5f11681d5906184b527d26a7f6f890e32ce",
+    "scripts/strat01_local_monitor.py": "930e6cc40c13125507f947a60987cccd8a2b2929ab5dc2cf08fa6ec78a5597e5",
+    "scripts/strat01_collector_backup.py": "8875971d2a7f8e9daa97bddc5a65ad1873a8a0eb404ac4263907f93350b520fe",
+    "tests/test_strat01_independent_collector.py": "3f7bd9b8ac3cc5b255d94d1634ccfa897dc360d849ab97d68208d9b28d391cea",
+    "tests/test_strat01_local_monitor.py": "d8259a7966250db43ad3d42c75f8e4b1f056a605056e6321c42a5ee2fcafe2f2",
+    "tests/test_strat01_collector_backup.py": "01888e385569b44eac0c67aac42ef70cfda296eee857314ebf99b0e8c56bc07e",
+    "deploy/collector/docker-compose.yml": "184b9c30d4f0d892a66b6837a92777f97cb82c08627c80fd2a51ecb9f07c2bec",
+    "deploy/collector/docker-compose.readonly-network.yml": "b648c8a9b9a647f9812e4dd357a3f7fe22c59a8d53373ff5714aa47a773eab4f",
+    ".github/workflows/strat01-collector-release.yml": "6f469b79824896e38b906b6b285c87d525f1ef8b4cb65e135f2eb8cb2c55d1bf"
+  },
+  "financial_decision": "NO-GO",
+  "live_trading": "DISABLED",
+  "real_capital_authorized_usd": 0,
+  "deployment_authorized": false
+}

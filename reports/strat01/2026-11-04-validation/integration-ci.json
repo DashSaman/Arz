@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "tested_code_sha": "909a20fe753aa2a32b6fb37f48bbecf5b8aba942",
+  "pull_request": 85,
+  "runs": [
+    {
+      "id": 41887593253,
+      "name": "Arz offline-only tests",
+      "conclusion": "success",
+      "test_methods": 1540,
+      "skipped": 4,
+      "failures": 0
+    },
+    {
+      "id": 41887593881,
+      "name": "Research-only checks",
+      "conclusion": "success",
+      "test_methods": 1540,
+      "skipped": 4,
+      "failures": 0
+    },
+    {
+      "id": 41887597158,
+      "name": "Collector release recovery and network-isolated container",
+      "conclusion": "success",
+      "backup_tests": 8,
+      "network_mode": "none",
+      "uid_gid": "65534:65534",
+      "readonly_root": true,
+      "new_source_files": 0
+    },
+    {
+      "id": 41887593306,
+      "name": "Existing-source local dashboard",
+      "conclusion": "success",
+      "tests": 9,
+      "source_files": 35,
+      "paired_bars": 27,
+      "timely_bars": 10,
+      "health": "NO_RECENT_HEARTBEAT"
+    }
+  ],
+  "container_artifact": {
+    "id": 13350754127,
+    "name": "arz-collector-release-check",
+    "size_in_bytes": 3943,
+    "url": "https://api.github.com/repos/DashSaman/Arz/actions/artifacts/13350754127",
+    "archive_download_url": "https://api.github.com/repos/DashSaman/Arz/actions/artifacts/13350754127/zip",
+    "expired": false,
+    "created_at": "2026-11-04T18:29:37Z",
+    "expires_at": "2026-12-04T18:29:36Z",
+    "updated_at": "2026-11-04T18:29:37Z",
+    "digest": "sha256:24c978570146429c3be3ab7c3a948268504d50ce3541c85f4a0ef5a172d71f84",
+    "workflow_run": {
+      "id": 41887597158,
+      "repository_id": 1416266043,
+      "head_repository_id": 1416266043,
+      "head_branch": "research/validation-before-deployment-20261104",
+      "head_sha": "909a20fe753aa2a32b6fb37f48bbecf5b8aba942"
+    }
+  },
+  "actual_log_excerpts": [
+    {
+      "job_id": 126776123157,
+      "excerpt": "2026-11-04T18:29:08.6401645Z test_declared_warmup_changes_gap_eligibility (test_strat01_family_matrix.FamilyAuditTests.test_declared_warmup_changes_gap_eligibility) ... skipped 'install upstream research lock to exercise offline matrix'\n2026-11-04T18:29:08.6404809Z test_independent_cashflow_marks_loss_and_reserve (test_strat01_family_matrix.FamilyAuditTests.test_independent_cashflow_marks_loss_and_reserve) ... skipped 'install upstream research lock to exercise offline matrix'\n2026-11-04T18:29:08.6408022Z test_zero_trade_has_no_expectancy_or_win_rate (test_strat01_family_matrix.FamilyAuditTests.test_zero_trade_has_no_expectancy_or_win_rate) ... skipped 'install upstream research lock to exercise offline matrix'\n2026-11-04T18:29:08.8776553Z test_frozen_strategy_uses_only_in_window_orders_and_next_open_fills (test_strat01_period_backtest.PeriodChecks.test_frozen_strategy_uses_only_in_window_orders_and_next_open_fills) ... skipped 'requires pinned research engine and its locked dependencies'\n2026-11-04T18:29:09.4400409Z Ran 1540 tests in 1.619s\n2026-11-04T18:29:09.4400656Z OK (skipped=4)"
+    },
+    {
+      "job_id": 126776138286,
+      "excerpt": "2026-11-04T18:29:09.7306398Z Ran 8 tests in 0.112s\n2026-11-04T18:29:09.7307438Z OK\n2026-11-04T18:29:20.8373734Z \u001b[36;1m        'network_mode':'none','source_files':0,'new_paper_days':0,\u001b[0m\n2026-11-04T18:29:20.8374240Z \u001b[36;1m        'financial_decision':'NO-GO','live_trading':'DISABLED',\u001b[0m\n2026-11-04T18:29:21.1371031Z {\"kind\": \"EPHEMERAL_NETWORK_ISOLATED_CONTAINER_SMOKE_NOT_DEPLOYMENT\", \"network_mode\": \"none\", \"source_files\": 0, \"new_paper_days\": 0, \"financial_decision\": \"NO-GO\", \"live_trading\": \"DISABLED\", \"real_capital_authorized_usd\": 0, \"image_id\": \"sha256:e697c81897302a4c4333bade000d98038fbb21eb064f8ee1fd42d02ebcd9d337\"}\n2026-11-04T18:29:37.4670861Z Artifact arz-collector-release-check.zip successfully finalized. Artifact ID 13350754127"
+    },
+    {
+      "job_id": 126776122706,
+      "excerpt": "2026-11-04T18:29:07.6969038Z Ran 9 tests in 0.018s\n2026-11-04T18:29:07.6970009Z OK\n2026-11-04T18:29:07.8212734Z {\"health\": \"NO_RECENT_HEARTBEAT\", \"paired\": 27, \"timely\": 10, \"financial_decision\": \"NO-GO\"}\n2026-11-04T18:29:07.8456002Z \u001b[36;1massert d['financial_decision']=='NO-GO'\u001b[0m\n2026-11-04T18:29:08.8352475Z Artifact arz-v5-real-archive-local-dashboard.zip successfully finalized. Artifact ID 13352895483"
+    },
+    {
+      "job_id": 126776124863,
+      "excerpt": "2026-11-04T18:29:11.8844894Z test_declared_warmup_changes_gap_eligibility (test_strat01_family_matrix.FamilyAuditTests.test_declared_warmup_changes_gap_eligibility) ... skipped 'install upstream research lock to exercise offline matrix'\n2026-11-04T18:29:11.8845952Z test_independent_cashflow_marks_loss_and_reserve (test_strat01_family_matrix.FamilyAuditTests.test_independent_cashflow_marks_loss_and_reserve) ... skipped 'install upstream research lock to exercise offline matrix'\n2026-11-04T18:29:11.8846999Z test_zero_trade_has_no_expectancy_or_win_rate (test_strat01_family_matrix.FamilyAuditTests.test_zero_trade_has_no_expectancy_or_win_rate) ... skipped 'install upstream research lock to exercise offline matrix'\n2026-11-04T18:29:12.1954157Z test_frozen_strategy_uses_only_in_window_orders_and_next_open_fills (test_strat01_period_backtest.PeriodChecks.test_frozen_strategy_uses_only_in_window_orders_and_next_open_fills) ... skipped 'requires pinned research engine and its locked dependencies'\n2026-11-04T18:29:12.6222291Z Ran 1540 tests in 1.476s\n2026-11-04T18:29:12.6222487Z OK (skipped=4)"
+    }
+  ],
+  "local_full_suite": {
+    "test_methods": 1540,
+    "skipped": 1,
+    "failures": 0,
+    "report": "release-final-suite.json"
+  },
+  "limits": [
+    "Real ephemeral CI runner, not a user host deployment or 24-hour operation.",
+    "Three family matrix tests and one pinned period engine test skipped in CI for absent upstream research dependencies; local suite skipped only the pinned period engine test.",
+    "Two pre-existing ResourceWarnings remain in the native summary CSV reader.",
+    "No new provider observation, prospective paper day or capital authority."
+  ],
+  "financial_decision": "NO-GO",
+  "live_trading": "DISABLED",
+  "real_capital_authorized_usd": 0
+}

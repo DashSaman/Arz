@@ -91,3 +91,11 @@ This proposal is conditional on historical/OOS acceptance, actual cost/route evi
 | Immediate hold | Missing/revised prices, persistent collection fault, stale quote, unknown cost, unexplained balance difference, duplicate/pending execution, access restriction or failed reconciliation |
 
 The proposed 95/5 split and 14-day review are not applied to frozen research configurations. Whole-account valuation must include both USDC/inventory and the gas asset before a future executor can use the $100 cap. Infrastructure is a separate economic line: on a $100 account, hypothetical monthly fixed costs of $5 or $10 require an additional $5 or $10 net trading profit merely to break even, equivalent to 5% or 10% of initial capital. These are arithmetic scenarios, not observed provider prices or expected returns. The current proposal is **NO-GO for funds** and makes no host or purchase request.
+
+### First real isolated container result
+
+[CI 41885528935](https://github.com/DashSaman/Arz/actions/runs/41885528935) passed on PR85 head `cd5486140aec75cd794359461c50cd87ee3f398c`: real startup/health, pinned image/RepoDigest and Python 3.12.16, UID 65534, read-only root, network `none`, and zero captured market files were checked. `container-ci.json` records the artifact and digest. The earlier run failed only because its checker expected a legacy per-platform config Id while the runner uses the OCI index Id; original failure evidence remains in `container-initial-failure.json`. This is an ephemeral CI check, not a deployed independent host or 24-hour uptime. Later source changes need their own current-head checks.
+
+### Integrated production-fix verification
+
+After the durable-fault, incomplete-restore and capped-exit fixes, [CI 41887597158](https://github.com/DashSaman/Arz/actions/runs/41887597158) passed on `909a20fe753aa2a32b6fb37f48bbecf5b8aba942`, including all eight recovery tests and actual network-isolated startup. The local combined collector/monitor/recovery suite passed 33 tests; the full local suite ran 1540 with 1 skipped and CI ran 1540 with 4 skipped. See `integration-ci.json` and the bilingual overall validation report. This supersedes the earlier seven-test recovery scope, without erasing its RED/GREEN record. `.restore-incomplete` now explicitly blocks backup as well as collector/monitor use.

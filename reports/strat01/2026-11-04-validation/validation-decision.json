@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "observed_at_utc": "2026-11-04T18:36:06.237549+00:00",
+  "mission": "ARZ-VALIDATION-BEFORE-DEPLOYMENT",
+  "baseline_main_sha": "22242f9daa2dea7cee17f93c42fb1f08a49a23fe",
+  "verified_production_commit_sha": "909a20fe753aa2a32b6fb37f48bbecf5b8aba942",
+  "branch": "research/validation-before-deployment-20261104",
+  "pull_request_url": "https://github.com/DashSaman/Arz/pull/85",
+  "financial_decision": "NO-GO",
+  "report_stage_capital": "NO_GO",
+  "profitability_stage": "INSUFFICIENT_EVIDENCE",
+  "research_pass": false,
+  "paper_validated": false,
+  "ready_for_user_funding_approval": false,
+  "live_trading": "DISABLED",
+  "real_capital_authorized_usd": 0,
+  "qualified_candidates": 0,
+  "qualified_prospective_calendar_days": 0,
+  "bounded_research": {
+    "new_strategy_experiments": 0,
+    "new_parameter_trials_budget": 0,
+    "new_bootstrap_runs": 0,
+    "registry_items_reviewed": 164,
+    "reason": "No verified suitable untouched input and executable follower-cost data; reconcile existing evidence and preserve all prior failures."
+  },
+  "engineering": {
+    "local_full_suite": {
+      "run": 1540,
+      "skipped": 1,
+      "failures": 0,
+      "receipt": "release-final-suite.json"
+    },
+    "focused_collector_monitor_backup": 33,
+    "relevant_accounting_tests": 39,
+    "saved_quant_checks": 103,
+    "independent_final_review": "APPROVE_VALIDATION_RELEASE; read-only production review, no separate test rerun",
+    "ci_code_sha": "909a20fe753aa2a32b6fb37f48bbecf5b8aba942",
+    "actual_ci_receipt": "integration-ci.json",
+    "source_files_unchanged": 35,
+    "source_integrity_receipt": "final-source-integrity.json",
+    "independent_final_review_receipt": "independent-final-review.json"
+  },
+  "financial_gates_preserved": {
+    "closed_cycles_default": 100,
+    "H3_closed_cycles": 200,
+    "profit_factor_min": 1.5,
+    "max_drawdown_pct": 10,
+    "positive_base_and_stress_account_geometric_return": true,
+    "positive_temporal_uncertainty_lower_bound": true,
+    "fresh_untouched_oos": true,
+    "S0_contiguous_eligible_dual_market_4h_bars": 194,
+    "real_elapsed_paper_days_default": 90,
+    "H4_real_elapsed_paper_days": 180
+  },
+  "observed_forward_source": {
+    "valid_files": 35,
+    "paired_4h_bars": 27,
+    "operationally_timely_bars_within_1h": 10,
+    "max_contiguous_complete": 5,
+    "max_contiguous_operationally_timely": 5,
+    "qualified_194_bar_warmup": false,
+    "original_publication_time_verified": false,
+    "source_exact_20USDC_execution_fee_paid_verified": false,
+    "source_receipt": "source-audit.json"
+  },
+  "new_operational_window": {
+    "start_utc": "2026-11-01",
+    "end_exclusive_utc": "2026-11-04",
+    "created_successful_jobs": 14,
+    "distinct_timely_market_closes_all_sources": 6,
+    "distinct_market_close_opportunities": 18,
+    "receipt": "operational-coverage.json",
+    "not_cron_attempt_denominator": true
+  },
+  "durable_stateful_artifact": {
+    "path": "reports/strat01/2026-11-01-stateful-causal/stateful-historical-ledgers.zip",
+    "sha256": "85d3e7bd9941ccdcf58cba8391dd482296421485ec494b7e9cd3452156d83af7",
+    "bytes": 116736,
+    "original_artifact_id": 13084406841,
+    "raw_provider_candles_included": false
+  },
+  "sources_and_reproduction": {
+    "quant_audit": "quant-audit.json",
+    "quant_reproduction": "quant-reproduction.json",
+    "strategy_disposition": "strategy-disposition.csv",
+    "commands": [
+      "PYTHONPATH=src:. python scripts/verify_research_control.py",
+      "PYTHONPATH=src:. python -m unittest discover -s tests -q",
+      "python scripts/verify_strat01_saved_quant.py --output runtime/quant-reproduction.json",
+      "PYTHONPATH=src:. python scripts/strat01_investment_readiness.py --output runtime/investment-readiness.json"
+    ]
+  },
+  "historical_scope": "Saved old-runtime results reconciled; revised shared Engine requires separately preregistered rerun with original lawfully retained inputs if used for performance. Frozen historical Engine and independent stateful ledger unchanged. Seen history stays seen.",
+  "release": {
+    "real_ephemeral_network_isolated_container_passed": true,
+    "user_host_deployed": false,
+    "network_default": "none",
+    "unattended_host_ready": false,
+    "alert_delivery_configured_or_tested": false,
+    "off_host_backup_destination_or_cadence_configured": false,
+    "continuous_24h_uptime_verified": false,
+    "wallet_connected": false,
+    "executed_transactions": 0,
+    "new_market_provider_requests": 0,
+    "host_or_funds_authorized": false,
+    "runbook_en": "docs/en/strat01_collector_release_20261104.md",
+    "runbook_fa": "docs/fa/strat01_collector_release_20261104.md"
+  },
+  "pilot_proposal_only": {
+    "total_initial_capital_and_gas_max_usd": 100,
+    "reference_order_usdc": 20,
+    "each_leg_max_usd": 25,
+    "minimum_order_usd": 5,
+    "cash_reserve_min_usd": 10,
+    "stricter_registered_policies_prevail": true,
+    "proposed_usdc_max": 95,
+    "proposed_gas_asset_usd_max": 5,
+    "proposed_review_days": 14,
+    "proposed_new_terms_applied": false,
+    "automatic_capital_increase": false
+  },
+  "remaining_dependencies": [
+    "Lawfully retained exact original provider bytes if current Engine performance rerun is needed.",
+    "Stable permitted timely dual-market input and an explicitly approved supervised host if operational collection is chosen.",
+    "Actual delivered alert and off-host backup/recovery operation before unattended operation.",
+    "Timestamped exact20USDC buy/sell routes at signal+60s with complete costs, without bypassing recorded429 restrictions.",
+    "Suitable untouched OOS, sufficient completed cycles and positive dependence-aware base/stress financial evidence.",
+    "At least90 genuinely elapsed qualified paper calendar days;180 where required.",
+    "Separate user financial decision and a separately reviewed execution implementation; none exists in this release."
+  ],
+  "recommendation_today": "CONTINUE_RESEARCH; separately review supervised read-only infrastructure only to resolve data gaps. NO_CAPITAL_PILOT.",
+  "checkpoint": {
+    "last_successful_outputs": [
+      "release-final-suite.json",
+      "integration-ci.json",
+      "quant-reproduction.json",
+      "final-source-integrity.json",
+      "control-final.json"
+    ],
+    "unfinished_current_delivery": "No reproduced implementation blocker; final publication/merge state must be resolved from PR85. Research and forward-data dependencies remain as listed.",
+    "next_command": "PYTHONPATH=src:. python scripts/verify_research_control.py",
+    "next_action_after_remote_reconciliation": "Review only new source/permission/input evidence; do not repeat old strategy search or infer fresh OOS."
+  }
+}
