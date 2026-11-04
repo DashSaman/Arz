@@ -1,0 +1,7 @@
+# Apply only on a separately authorized Arz host with permitted data access.
+# This allows public READ-ONLY market requests; it never enables orders.
+services:
+  arz-readonly-collector:
+    network_mode: bridge
+    environment:
+      ARZ_COLLECTOR_NETWORK: explicit-readonly

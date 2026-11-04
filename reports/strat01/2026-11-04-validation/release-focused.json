@@ -1,0 +1,17 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "tests.test_strat01_collector_backup",
+    "tests.test_strat01_independent_collector",
+    "tests.test_strat01_local_monitor",
+    "-v"
+  ],
+  "environment": {
+    "PYTHONPATH": "src:."
+  },
+  "exit_code": 0,
+  "observed_at_utc": "2026-11-04T18:11:14.541612+00:00",
+  "scope": "SYNTHETIC_OFFLINE_RELEASE_AND_EXISTING_COLLECTOR_MONITOR_TESTS_NOT_PROFIT"
+}

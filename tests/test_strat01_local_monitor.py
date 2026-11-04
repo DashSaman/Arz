@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 from tempfile import TemporaryDirectory
 import unittest
+from unittest.mock import Mock
 
 from scripts.strat01_base_identity_forward import START_OOS, BAR
 from scripts.strat01_independent_collector import _write_heartbeat, run_once
@@ -98,6 +99,26 @@ class MonitorTests(unittest.TestCase):
             for now in (True,START_OOS-1,"2026-11-01"):
                 with self.subTest(now=now),self.assertRaises(ValueError):
                     status(root,now)
+
+    def test_incomplete_restore_is_rejected_even_with_fresh_heartbeat(self):
+        with TemporaryDirectory() as d:
+            root=Path(d);prepare(root);now=START_OOS+BAR+720
+            _write_heartbeat(root,now_unix=now,state="NETWORK_DISABLED")
+            (root/".restore-incomplete").write_text("restore in progress")
+            with self.assertRaises(ValueError):
+                status(root,now)
+
+    def test_durable_failure_visible_despite_fresh_heartbeat_and_network_opt_out(self):
+        with TemporaryDirectory() as d:
+            root=Path(d);prepare(root);now=START_OOS+BAR+720
+            run_once(root,now_unix=now,network_enabled=True,
+                     fetcher=Mock(side_effect=RuntimeError("offline fault")))
+            run_once(root,now_unix=now+1,network_enabled=False)
+            _write_heartbeat(root,now_unix=now+1,state="NETWORK_DISABLED")
+            report=status(root,now+1)
+            self.assertEqual(report["health"],"COLLECTOR_FAIL_CLOSED")
+            self.assertEqual(report["latest_event_outcome"],"REFUSED_NETWORK_DISABLED")
+            self.assertEqual(report["financial_decision"],"NO-GO")
 
 
 if __name__=="__main__":

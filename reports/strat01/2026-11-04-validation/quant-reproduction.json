@@ -1,0 +1,2021 @@
+{
+  "schema_version": 1,
+  "observed_at_utc": "2026-11-04T18:33:00.528178Z",
+  "scope": "EXISTING_SAVED_EVIDENCE_ONLY_NO_STRATEGY_OR_BOOTSTRAP_RERUN",
+  "artifact_sha256": "85d3e7bd9941ccdcf58cba8391dd482296421485ec494b7e9cd3452156d83af7",
+  "artifact_bytes": 116736,
+  "verifier_sha256": "37ad2bd1275e45d4ea36b014cad1f414b385cc06935533000fa1e4d4f45a7eff",
+  "check_count": 103,
+  "checks": [
+    {
+      "check": "stateful_zip_matches_GitHub_digest_and_prior_record",
+      "passed": true
+    },
+    {
+      "check": "six_saved_csv_hashes_match_artifact_audit",
+      "passed": true
+    },
+    {
+      "check": "six_saved_csv_hashes_match_prior_independent_reconciliation",
+      "passed": true
+    },
+    {
+      "check": "artifact_counts",
+      "passed": true
+    },
+    {
+      "check": "six_windows_have_complete_reported_warmup_and_scored_grids",
+      "passed": true
+    },
+    {
+      "check": "stateful_accounting:WETH:year_2025:mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_summary_matches:WETH:year_2025:mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_accounting:WETH:year_2025:double_mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_summary_matches:WETH:year_2025:double_mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_accounting:WETH:year_2025:stress",
+      "passed": true
+    },
+    {
+      "check": "stateful_summary_matches:WETH:year_2025:stress",
+      "passed": true
+    },
+    {
+      "check": "stateful_accounting:WETH:q1_2026:mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_summary_matches:WETH:q1_2026:mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_accounting:WETH:q1_2026:double_mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_summary_matches:WETH:q1_2026:double_mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_accounting:WETH:q1_2026:stress",
+      "passed": true
+    },
+    {
+      "check": "stateful_summary_matches:WETH:q1_2026:stress",
+      "passed": true
+    },
+    {
+      "check": "stateful_accounting:WETH:aug_sep_2026:mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_summary_matches:WETH:aug_sep_2026:mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_accounting:WETH:aug_sep_2026:double_mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_summary_matches:WETH:aug_sep_2026:double_mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_accounting:WETH:aug_sep_2026:stress",
+      "passed": true
+    },
+    {
+      "check": "stateful_summary_matches:WETH:aug_sep_2026:stress",
+      "passed": true
+    },
+    {
+      "check": "stateful_accounting:cbBTC:year_2025:mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_summary_matches:cbBTC:year_2025:mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_accounting:cbBTC:year_2025:double_mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_summary_matches:cbBTC:year_2025:double_mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_accounting:cbBTC:year_2025:stress",
+      "passed": true
+    },
+    {
+      "check": "stateful_summary_matches:cbBTC:year_2025:stress",
+      "passed": true
+    },
+    {
+      "check": "stateful_accounting:cbBTC:q1_2026:mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_summary_matches:cbBTC:q1_2026:mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_accounting:cbBTC:q1_2026:double_mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_summary_matches:cbBTC:q1_2026:double_mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_accounting:cbBTC:q1_2026:stress",
+      "passed": true
+    },
+    {
+      "check": "stateful_summary_matches:cbBTC:q1_2026:stress",
+      "passed": true
+    },
+    {
+      "check": "stateful_accounting:cbBTC:aug_sep_2026:mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_summary_matches:cbBTC:aug_sep_2026:mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_accounting:cbBTC:aug_sep_2026:double_mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_summary_matches:cbBTC:aug_sep_2026:double_mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_accounting:cbBTC:aug_sep_2026:stress",
+      "passed": true
+    },
+    {
+      "check": "stateful_summary_matches:cbBTC:aug_sep_2026:stress",
+      "passed": true
+    },
+    {
+      "check": "all_stateful_legs_within_5_to_25_usd",
+      "passed": true
+    },
+    {
+      "check": "all_stateful_marked_cash_reserve_at_least_10",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:full_exploratory_trend",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:full_exploratory_momentum",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:full_exploratory_mean_reversion",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:development_trend",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:development_momentum",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:development_mean_reversion",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:walk_forward_1_trend",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:walk_forward_1_momentum",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:walk_forward_1_mean_reversion",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:walk_forward_2_trend",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:walk_forward_2_momentum",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:walk_forward_2_mean_reversion",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:final_holdout_trend",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:final_holdout_momentum",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:final_holdout_mean_reversion",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:holdout_double_cost_trend",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:holdout_double_cost_momentum",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:holdout_double_cost_mean_reversion",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:holdout_gas_010_trend",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:holdout_gas_010_momentum",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:holdout_gas_010_mean_reversion",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:holdout_gas_100_rejected_trend",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:holdout_gas_100_rejected_momentum",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:holdout_gas_100_rejected_mean_reversion",
+      "passed": true
+    },
+    {
+      "check": "native_selected_unique:ATR_wall_clockmid2026-09-012026-10-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_matches_compressed_source:ATR_wall_clockmid2026-09-012026-10-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_unique:ATR_wall_clockstress2026-09-012026-10-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_matches_compressed_source:ATR_wall_clockstress2026-09-012026-10-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_unique:ATR_vol_wall_clockmid2026-09-012026-10-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_matches_compressed_source:ATR_vol_wall_clockmid2026-09-012026-10-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_unique:ATR_vol_wall_clockstress2026-09-012026-10-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_matches_compressed_source:ATR_vol_wall_clockstress2026-09-012026-10-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_unique:ATR_wall_clockmid2026-04-012026-10-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_matches_compressed_source:ATR_wall_clockmid2026-04-012026-10-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_unique:ATR_wall_clockstress2026-04-012026-10-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_matches_compressed_source:ATR_wall_clockstress2026-04-012026-10-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_unique:ATR_vol_wall_clockmid2026-04-012026-10-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_matches_compressed_source:ATR_vol_wall_clockmid2026-04-012026-10-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_unique:ATR_vol_wall_clockstress2026-04-012026-10-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_matches_compressed_source:ATR_vol_wall_clockstress2026-04-012026-10-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_unique:ATR_wall_clockmid2025-04-012026-04-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_matches_compressed_source:ATR_wall_clockmid2025-04-012026-04-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_unique:ATR_wall_clockstress2025-04-012026-04-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_matches_compressed_source:ATR_wall_clockstress2025-04-012026-04-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_unique:ATR_vol_wall_clockmid2025-04-012026-04-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_matches_compressed_source:ATR_vol_wall_clockmid2025-04-012026-04-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_unique:ATR_vol_wall_clockstress2025-04-012026-04-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_matches_compressed_source:ATR_vol_wall_clockstress2025-04-012026-04-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_unique:ATR_wall_clockmid2025-10-012026-04-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_matches_compressed_source:ATR_wall_clockmid2025-10-012026-04-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_unique:ATR_wall_clockstress2025-10-012026-04-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_matches_compressed_source:ATR_wall_clockstress2025-10-012026-04-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_unique:ATR_vol_wall_clockmid2025-10-012026-04-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_matches_compressed_source:ATR_vol_wall_clockmid2025-10-012026-04-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_unique:ATR_vol_wall_clockstress2025-10-012026-04-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_matches_compressed_source:ATR_vol_wall_clockstress2025-10-012026-04-01",
+      "passed": true
+    },
+    {
+      "check": "registry164_matches_counts",
+      "passed": true
+    },
+    {
+      "check": "native_gate66_none_pass",
+      "passed": true
+    },
+    {
+      "check": "registry_none_qualified",
+      "passed": true
+    },
+    {
+      "check": "offline_control_verifier_exit0",
+      "passed": true
+    }
+  ],
+  "failed_checks": [],
+  "stateful_results": [
+    {
+      "strategy": "S0_stateful",
+      "asset": "WETH",
+      "window": "year_2025",
+      "cost": "mid",
+      "start": "2025-01-01",
+      "end_exclusive": "2026-01-01",
+      "net_return_pct": 10.531376231409453,
+      "geometric_daily_pct": 0.027436432267835542,
+      "profit_factor": 3.2111166322751528,
+      "max_marked_close_drawdown_pct": 4.253304283939697,
+      "closed_cycles": 8,
+      "hold20_return_pct": -2.3405312081649896,
+      "remove_top3_fixed_ledger_pct": -4.762922080945607,
+      "max_leg_usd": 23.95488204276001,
+      "min_marked_cash_usd": 80.00001061948767,
+      "uncertainty_interval": null,
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "S0_stateful",
+      "asset": "WETH",
+      "window": "year_2025",
+      "cost": "double_mid",
+      "start": "2025-01-01",
+      "end_exclusive": "2026-01-01",
+      "net_return_pct": 9.789025795033197,
+      "geometric_daily_pct": 0.02558968205832457,
+      "profit_factor": 2.897866744738321,
+      "max_marked_close_drawdown_pct": 4.4487841233408325,
+      "closed_cycles": 8,
+      "hold20_return_pct": -2.412273798137278,
+      "remove_top3_fixed_ledger_pct": -5.157909965055454,
+      "max_leg_usd": 23.80356305068606,
+      "min_marked_cash_usd": 80.00001556599678,
+      "uncertainty_interval": null,
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "S0_stateful",
+      "asset": "WETH",
+      "window": "year_2025",
+      "cost": "stress",
+      "start": "2025-01-01",
+      "end_exclusive": "2026-01-01",
+      "net_return_pct": 9.225076784536455,
+      "geometric_daily_pct": 0.02417839972135294,
+      "profit_factor": 2.6961265315883804,
+      "max_marked_close_drawdown_pct": 4.607603848090314,
+      "closed_cycles": 8,
+      "hold20_return_pct": -2.468708705882946,
+      "remove_top3_fixed_ledger_pct": -5.438908367229775,
+      "max_leg_usd": 23.68760351854623,
+      "min_marked_cash_usd": 80.0000076983107,
+      "uncertainty_interval": null,
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "S0_stateful",
+      "asset": "WETH",
+      "window": "q1_2026",
+      "cost": "mid",
+      "start": "2026-01-01",
+      "end_exclusive": "2026-04-01",
+      "net_return_pct": -2.8523523085104614,
+      "geometric_daily_pct": -0.032148413087607075,
+      "profit_factor": 0.0,
+      "max_marked_close_drawdown_pct": 3.4859966734849923,
+      "closed_cycles": 4,
+      "hold20_return_pct": -5.980670216602292,
+      "remove_top3_fixed_ledger_pct": -2.8523523085104614,
+      "max_leg_usd": 19.960049876297884,
+      "min_marked_cash_usd": 78.11353774278652,
+      "uncertainty_interval": null,
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "S0_stateful",
+      "asset": "WETH",
+      "window": "q1_2026",
+      "cost": "double_mid",
+      "start": "2026-01-01",
+      "end_exclusive": "2026-04-01",
+      "net_return_pct": -3.155792983558115,
+      "geometric_daily_pct": -0.035623222200509286,
+      "profit_factor": 0.0,
+      "max_marked_close_drawdown_pct": 3.7480513841244845,
+      "closed_cycles": 4,
+      "hold20_return_pct": -6.039689756831095,
+      "remove_top3_fixed_ledger_pct": -3.155792983558115,
+      "max_leg_usd": 19.920229741012907,
+      "min_marked_cash_usd": 77.93122249002249,
+      "uncertainty_interval": null,
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "S0_stateful",
+      "asset": "WETH",
+      "window": "q1_2026",
+      "cost": "stress",
+      "start": "2026-01-01",
+      "end_exclusive": "2026-04-01",
+      "net_return_pct": -3.388058170069854,
+      "geometric_daily_pct": -0.03829025738940617,
+      "profit_factor": 0.0,
+      "max_marked_close_drawdown_pct": 3.9493464222980723,
+      "closed_cycles": 4,
+      "hold20_return_pct": -6.090688200431927,
+      "remove_top3_fixed_ledger_pct": -3.388058170069854,
+      "max_leg_usd": 19.890316855386832,
+      "min_marked_cash_usd": 77.79199001558713,
+      "uncertainty_interval": null,
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "S0_stateful",
+      "asset": "WETH",
+      "window": "aug_sep_2026",
+      "cost": "mid",
+      "start": "2026-08-01",
+      "end_exclusive": "2026-10-01",
+      "net_return_pct": 2.4462878783383957,
+      "geometric_daily_pct": 0.03962826720993462,
+      "profit_factor": 4.734326395845167,
+      "max_marked_close_drawdown_pct": 1.6344405099572135,
+      "closed_cycles": 2,
+      "hold20_return_pct": 8.461799695171223,
+      "remove_top3_fixed_ledger_pct": -0.6550814307662312,
+      "max_leg_usd": 23.146078447204058,
+      "min_marked_cash_usd": 80.00000997957137,
+      "uncertainty_interval": null,
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "S0_stateful",
+      "asset": "WETH",
+      "window": "aug_sep_2026",
+      "cost": "double_mid",
+      "start": "2026-08-01",
+      "end_exclusive": "2026-10-01",
+      "net_return_pct": 2.2766427444555433,
+      "geometric_daily_pct": 0.036910317938976256,
+      "profit_factor": 4.101825099281544,
+      "max_marked_close_drawdown_pct": 1.751880368109604,
+      "closed_cycles": 2,
+      "hold20_return_pct": 8.35231434696719,
+      "remove_top3_fixed_ledger_pct": -0.7339687672856994,
+      "max_leg_usd": 23.099898476207773,
+      "min_marked_cash_usd": 80.0000127309621,
+      "uncertainty_interval": null,
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "S0_stateful",
+      "asset": "WETH",
+      "window": "aug_sep_2026",
+      "cost": "stress",
+      "start": "2026-08-01",
+      "end_exclusive": "2026-10-01",
+      "net_return_pct": 2.153511003510772,
+      "geometric_daily_pct": 0.03493479871807814,
+      "profit_factor": 3.7172894148214546,
+      "max_marked_close_drawdown_pct": 1.8360412222673594,
+      "closed_cycles": 2,
+      "hold20_return_pct": 8.27971066369794,
+      "remove_top3_fixed_ledger_pct": -0.7925217651695449,
+      "max_leg_usd": 23.065227230967633,
+      "min_marked_cash_usd": 80.00000121940559,
+      "uncertainty_interval": null,
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "S0_stateful",
+      "asset": "cbBTC",
+      "window": "year_2025",
+      "cost": "mid",
+      "start": "2025-01-01",
+      "end_exclusive": "2026-01-01",
+      "net_return_pct": -0.8002518172383759,
+      "geometric_daily_pct": -0.002201266232249033,
+      "profit_factor": 0.7960189339269675,
+      "max_marked_close_drawdown_pct": 2.6072430331114727,
+      "closed_cycles": 12,
+      "hold20_return_pct": -1.387834230995864,
+      "remove_top3_fixed_ledger_pct": -3.4999453529117415,
+      "max_leg_usd": 21.283769466529357,
+      "min_marked_cash_usd": 79.02123649402452,
+      "uncertainty_interval": null,
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "S0_stateful",
+      "asset": "cbBTC",
+      "window": "year_2025",
+      "cost": "double_mid",
+      "start": "2025-01-01",
+      "end_exclusive": "2026-01-01",
+      "net_return_pct": -1.7478407797160855,
+      "geometric_daily_pct": -0.004830830896107585,
+      "profit_factor": 0.6141964445662156,
+      "max_marked_close_drawdown_pct": 3.2970342289074805,
+      "closed_cycles": 12,
+      "hold20_return_pct": -1.4629268206137596,
+      "remove_top3_fixed_ledger_pct": -4.19120098825886,
+      "max_leg_usd": 21.138704626476965,
+      "min_marked_cash_usd": 78.33118713470105,
+      "uncertainty_interval": null,
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "S0_stateful",
+      "asset": "cbBTC",
+      "window": "year_2025",
+      "cost": "stress",
+      "start": "2025-01-01",
+      "end_exclusive": "2026-01-01",
+      "net_return_pct": -2.4603974599358196,
+      "geometric_daily_pct": -0.006824893272994181,
+      "profit_factor": 0.5069626335052109,
+      "max_marked_close_drawdown_pct": 3.822052368383755,
+      "closed_cycles": 12,
+      "hold20_return_pct": -1.5207867793363334,
+      "remove_top3_fixed_ledger_pct": -4.714188462407883,
+      "max_leg_usd": 21.030805158669406,
+      "min_marked_cash_usd": 77.81123559410696,
+      "uncertainty_interval": null,
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "S0_stateful",
+      "asset": "cbBTC",
+      "window": "q1_2026",
+      "cost": "mid",
+      "start": "2026-01-01",
+      "end_exclusive": "2026-04-01",
+      "net_return_pct": -1.0050242989026401,
+      "geometric_daily_pct": -0.011222800902488395,
+      "profit_factor": 0.08573555025303088,
+      "max_marked_close_drawdown_pct": 1.616355815794368,
+      "closed_cycles": 3,
+      "hold20_return_pct": -4.605606298488439,
+      "remove_top3_fixed_ledger_pct": -1.0992708938653246,
+      "max_leg_usd": 20.132175643224972,
+      "min_marked_cash_usd": 79.977592142595,
+      "uncertainty_interval": null,
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "S0_stateful",
+      "asset": "cbBTC",
+      "window": "q1_2026",
+      "cost": "double_mid",
+      "start": "2026-01-01",
+      "end_exclusive": "2026-04-01",
+      "net_return_pct": -1.2395363193844844,
+      "geometric_daily_pct": -0.013857735835598461,
+      "profit_factor": 0.011170592006689052,
+      "max_marked_close_drawdown_pct": 1.8092668706416015,
+      "closed_cycles": 3,
+      "hold20_return_pct": -4.669508286247108,
+      "remove_top3_fixed_ledger_pct": -1.253539093158594,
+      "max_leg_usd": 20.091671951944594,
+      "min_marked_cash_usd": 79.85009739028816,
+      "uncertainty_interval": null,
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "S0_stateful",
+      "asset": "cbBTC",
+      "window": "q1_2026",
+      "cost": "stress",
+      "start": "2026-01-01",
+      "end_exclusive": "2026-04-01",
+      "net_return_pct": -1.416537331871723,
+      "geometric_daily_pct": -0.015850587955867912,
+      "profit_factor": 0.0,
+      "max_marked_close_drawdown_pct": 1.955118369561959,
+      "closed_cycles": 3,
+      "hold20_return_pct": -4.722573915493683,
+      "remove_top3_fixed_ledger_pct": -1.416537331871723,
+      "max_leg_usd": 20.061294183484307,
+      "min_marked_cash_usd": 79.7544213654837,
+      "uncertainty_interval": null,
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "S0_stateful",
+      "asset": "cbBTC",
+      "window": "aug_sep_2026",
+      "cost": "mid",
+      "start": "2026-08-01",
+      "end_exclusive": "2026-10-01",
+      "net_return_pct": -0.9387443248058673,
+      "geometric_daily_pct": -0.015460744052753217,
+      "profit_factor": 0.0,
+      "max_marked_close_drawdown_pct": 0.9387443248058625,
+      "closed_cycles": 2,
+      "hold20_return_pct": 6.436314662178205,
+      "remove_top3_fixed_ledger_pct": -0.9387443248058673,
+      "max_leg_usd": 19.955810534378646,
+      "min_marked_cash_usd": 79.56455987614885,
+      "uncertainty_interval": null,
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "S0_stateful",
+      "asset": "cbBTC",
+      "window": "aug_sep_2026",
+      "cost": "double_mid",
+      "start": "2026-08-01",
+      "end_exclusive": "2026-10-01",
+      "net_return_pct": -1.0946187837010086,
+      "geometric_daily_pct": -0.018041877436447695,
+      "profit_factor": 0.0,
+      "max_marked_close_drawdown_pct": 1.0946187837010068,
+      "closed_cycles": 2,
+      "hold20_return_pct": 6.333754063617732,
+      "remove_top3_fixed_ledger_pct": -1.0946187837010086,
+      "max_leg_usd": 19.915748476193436,
+      "min_marked_cash_usd": 79.50209790771845,
+      "uncertainty_interval": null,
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "S0_stateful",
+      "asset": "cbBTC",
+      "window": "aug_sep_2026",
+      "cost": "stress",
+      "start": "2026-08-01",
+      "end_exclusive": "2026-10-01",
+      "net_return_pct": -1.2128505026280862,
+      "geometric_daily_pct": -0.020002352557146885,
+      "profit_factor": 0.0,
+      "max_marked_close_drawdown_pct": 1.2128505026280822,
+      "closed_cycles": 2,
+      "hold20_return_pct": 6.264286696163396,
+      "remove_top3_fixed_ledger_pct": -1.2128505026280862,
+      "max_leg_usd": 19.88631512732267,
+      "min_marked_cash_usd": 79.45465566644621,
+      "uncertainty_interval": null,
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    }
+  ],
+  "stateful_descriptive_metrics": [
+    {
+      "asset": "WETH",
+      "window": "year_2025",
+      "cost": "mid",
+      "expectancy_usd_per_closed_cycle": 1.31642202892618,
+      "max_consecutive_losing_closed_cycles": 2,
+      "worst_calendar_day_return_pct": -1.1082692632329416,
+      "worst_calendar_day_utc": "2025-07-23",
+      "daily_mark_method": "UTC date of saved mark ts; last saved equity per date; first return versus100. Mark timestamp semantics not independently checked against absent provider candles.",
+      "max_drawdown_peak_utc": "2025-05-13T16:00:00Z",
+      "max_drawdown_trough_utc": "2025-06-13T00:00:00Z",
+      "max_drawdown_first_recovery_utc": "2025-07-16T16:00:00Z",
+      "peak_to_recovery_calendar_days": 64.0,
+      "trough_to_recovery_calendar_days": 33.666666666666664,
+      "unrecovered_peak_to_window_end_days": null,
+      "recovery_scope": "Largest observed close-mark drawdown; unresolved recovery is right-censored at window end.",
+      "terminal_remaining_units": 0.0,
+      "terminal_marked_inventory_usd": 0.0,
+      "terminal_inventory_net_liquidation_value_usd": 0.0,
+      "liquidation_status": "NOT_APPLICABLE_NO_OPEN_INVENTORY",
+      "real_execution_delay_stress": null,
+      "intrabar_drawdown": null
+    },
+    {
+      "asset": "WETH",
+      "window": "year_2025",
+      "cost": "double_mid",
+      "expectancy_usd_per_closed_cycle": 1.2236282243791472,
+      "max_consecutive_losing_closed_cycles": 2,
+      "worst_calendar_day_return_pct": -1.1459737750319277,
+      "worst_calendar_day_utc": "2025-07-23",
+      "daily_mark_method": "UTC date of saved mark ts; last saved equity per date; first return versus100. Mark timestamp semantics not independently checked against absent provider candles.",
+      "max_drawdown_peak_utc": "2025-05-13T16:00:00Z",
+      "max_drawdown_trough_utc": "2025-06-13T00:00:00Z",
+      "max_drawdown_first_recovery_utc": "2025-07-16T16:00:00Z",
+      "peak_to_recovery_calendar_days": 64.0,
+      "trough_to_recovery_calendar_days": 33.666666666666664,
+      "unrecovered_peak_to_window_end_days": null,
+      "recovery_scope": "Largest observed close-mark drawdown; unresolved recovery is right-censored at window end.",
+      "terminal_remaining_units": 0.0,
+      "terminal_marked_inventory_usd": 0.0,
+      "terminal_inventory_net_liquidation_value_usd": 0.0,
+      "liquidation_status": "NOT_APPLICABLE_NO_OPEN_INVENTORY",
+      "real_execution_delay_stress": null,
+      "intrabar_drawdown": null
+    },
+    {
+      "asset": "WETH",
+      "window": "year_2025",
+      "cost": "stress",
+      "expectancy_usd_per_closed_cycle": 1.153134598067057,
+      "max_consecutive_losing_closed_cycles": 2,
+      "worst_calendar_day_return_pct": -1.171474708875131,
+      "worst_calendar_day_utc": "2025-07-23",
+      "daily_mark_method": "UTC date of saved mark ts; last saved equity per date; first return versus100. Mark timestamp semantics not independently checked against absent provider candles.",
+      "max_drawdown_peak_utc": "2025-05-13T16:00:00Z",
+      "max_drawdown_trough_utc": "2025-06-13T00:00:00Z",
+      "max_drawdown_first_recovery_utc": "2025-07-16T16:00:00Z",
+      "peak_to_recovery_calendar_days": 64.0,
+      "trough_to_recovery_calendar_days": 33.666666666666664,
+      "unrecovered_peak_to_window_end_days": null,
+      "recovery_scope": "Largest observed close-mark drawdown; unresolved recovery is right-censored at window end.",
+      "terminal_remaining_units": 0.0,
+      "terminal_marked_inventory_usd": 0.0,
+      "terminal_inventory_net_liquidation_value_usd": 0.0,
+      "liquidation_status": "NOT_APPLICABLE_NO_OPEN_INVENTORY",
+      "real_execution_delay_stress": null,
+      "intrabar_drawdown": null
+    },
+    {
+      "asset": "WETH",
+      "window": "q1_2026",
+      "cost": "mid",
+      "expectancy_usd_per_closed_cycle": -0.7130880771276129,
+      "max_consecutive_losing_closed_cycles": 4,
+      "worst_calendar_day_return_pct": -1.1914429423167783,
+      "worst_calendar_day_utc": "2026-03-18",
+      "daily_mark_method": "UTC date of saved mark ts; last saved equity per date; first return versus100. Mark timestamp semantics not independently checked against absent provider candles.",
+      "max_drawdown_peak_utc": "2026-01-06T20:00:00Z",
+      "max_drawdown_trough_utc": "2026-03-18T16:00:00Z",
+      "max_drawdown_first_recovery_utc": null,
+      "peak_to_recovery_calendar_days": null,
+      "trough_to_recovery_calendar_days": null,
+      "unrecovered_peak_to_window_end_days": 84.16666666666667,
+      "recovery_scope": "Largest observed close-mark drawdown; unresolved recovery is right-censored at window end.",
+      "terminal_remaining_units": 0.0,
+      "terminal_marked_inventory_usd": 0.0,
+      "terminal_inventory_net_liquidation_value_usd": 0.0,
+      "liquidation_status": "NOT_APPLICABLE_NO_OPEN_INVENTORY",
+      "real_execution_delay_stress": null,
+      "intrabar_drawdown": null
+    },
+    {
+      "asset": "WETH",
+      "window": "q1_2026",
+      "cost": "double_mid",
+      "expectancy_usd_per_closed_cycle": -0.7889482458895307,
+      "max_consecutive_losing_closed_cycles": 4,
+      "worst_calendar_day_return_pct": -1.2288343223293752,
+      "worst_calendar_day_utc": "2026-03-18",
+      "daily_mark_method": "UTC date of saved mark ts; last saved equity per date; first return versus100. Mark timestamp semantics not independently checked against absent provider candles.",
+      "max_drawdown_peak_utc": "2026-01-06T20:00:00Z",
+      "max_drawdown_trough_utc": "2026-03-18T16:00:00Z",
+      "max_drawdown_first_recovery_utc": null,
+      "peak_to_recovery_calendar_days": null,
+      "trough_to_recovery_calendar_days": null,
+      "unrecovered_peak_to_window_end_days": 84.16666666666667,
+      "recovery_scope": "Largest observed close-mark drawdown; unresolved recovery is right-censored at window end.",
+      "terminal_remaining_units": 0.0,
+      "terminal_marked_inventory_usd": 0.0,
+      "terminal_inventory_net_liquidation_value_usd": 0.0,
+      "liquidation_status": "NOT_APPLICABLE_NO_OPEN_INVENTORY",
+      "real_execution_delay_stress": null,
+      "intrabar_drawdown": null
+    },
+    {
+      "asset": "WETH",
+      "window": "q1_2026",
+      "cost": "stress",
+      "expectancy_usd_per_closed_cycle": -0.8470145425174596,
+      "max_consecutive_losing_closed_cycles": 4,
+      "worst_calendar_day_return_pct": -1.2580539064873553,
+      "worst_calendar_day_utc": "2026-03-18",
+      "daily_mark_method": "UTC date of saved mark ts; last saved equity per date; first return versus100. Mark timestamp semantics not independently checked against absent provider candles.",
+      "max_drawdown_peak_utc": "2026-01-06T20:00:00Z",
+      "max_drawdown_trough_utc": "2026-03-18T16:00:00Z",
+      "max_drawdown_first_recovery_utc": null,
+      "peak_to_recovery_calendar_days": null,
+      "trough_to_recovery_calendar_days": null,
+      "unrecovered_peak_to_window_end_days": 84.16666666666667,
+      "recovery_scope": "Largest observed close-mark drawdown; unresolved recovery is right-censored at window end.",
+      "terminal_remaining_units": 0.0,
+      "terminal_marked_inventory_usd": 0.0,
+      "terminal_inventory_net_liquidation_value_usd": 0.0,
+      "liquidation_status": "NOT_APPLICABLE_NO_OPEN_INVENTORY",
+      "real_execution_delay_stress": null,
+      "intrabar_drawdown": null
+    },
+    {
+      "asset": "WETH",
+      "window": "aug_sep_2026",
+      "cost": "mid",
+      "expectancy_usd_per_closed_cycle": 1.2231439391691936,
+      "max_consecutive_losing_closed_cycles": 1,
+      "worst_calendar_day_return_pct": -0.8379534901144847,
+      "worst_calendar_day_utc": "2026-08-22",
+      "daily_mark_method": "UTC date of saved mark ts; last saved equity per date; first return versus100. Mark timestamp semantics not independently checked against absent provider candles.",
+      "max_drawdown_peak_utc": "2026-08-27T12:00:00Z",
+      "max_drawdown_trough_utc": "2026-09-24T12:00:00Z",
+      "max_drawdown_first_recovery_utc": null,
+      "peak_to_recovery_calendar_days": null,
+      "trough_to_recovery_calendar_days": null,
+      "unrecovered_peak_to_window_end_days": 34.5,
+      "recovery_scope": "Largest observed close-mark drawdown; unresolved recovery is right-censored at window end.",
+      "terminal_remaining_units": 0.0,
+      "terminal_marked_inventory_usd": 0.0,
+      "terminal_inventory_net_liquidation_value_usd": 0.0,
+      "liquidation_status": "NOT_APPLICABLE_NO_OPEN_INVENTORY",
+      "real_execution_delay_stress": null,
+      "intrabar_drawdown": null
+    },
+    {
+      "asset": "WETH",
+      "window": "aug_sep_2026",
+      "cost": "double_mid",
+      "expectancy_usd_per_closed_cycle": 1.1383213722277685,
+      "max_consecutive_losing_closed_cycles": 1,
+      "worst_calendar_day_return_pct": -0.8366677512865461,
+      "worst_calendar_day_utc": "2026-08-22",
+      "daily_mark_method": "UTC date of saved mark ts; last saved equity per date; first return versus100. Mark timestamp semantics not independently checked against absent provider candles.",
+      "max_drawdown_peak_utc": "2026-08-27T12:00:00Z",
+      "max_drawdown_trough_utc": "2026-09-24T12:00:00Z",
+      "max_drawdown_first_recovery_utc": null,
+      "peak_to_recovery_calendar_days": null,
+      "trough_to_recovery_calendar_days": null,
+      "unrecovered_peak_to_window_end_days": 34.5,
+      "recovery_scope": "Largest observed close-mark drawdown; unresolved recovery is right-censored at window end.",
+      "terminal_remaining_units": 0.0,
+      "terminal_marked_inventory_usd": 0.0,
+      "terminal_inventory_net_liquidation_value_usd": 0.0,
+      "liquidation_status": "NOT_APPLICABLE_NO_OPEN_INVENTORY",
+      "real_execution_delay_stress": null,
+      "intrabar_drawdown": null
+    },
+    {
+      "asset": "WETH",
+      "window": "aug_sep_2026",
+      "cost": "stress",
+      "expectancy_usd_per_closed_cycle": 1.0767555017553923,
+      "max_consecutive_losing_closed_cycles": 1,
+      "worst_calendar_day_return_pct": -0.835701765974306,
+      "worst_calendar_day_utc": "2026-08-22",
+      "daily_mark_method": "UTC date of saved mark ts; last saved equity per date; first return versus100. Mark timestamp semantics not independently checked against absent provider candles.",
+      "max_drawdown_peak_utc": "2026-08-27T12:00:00Z",
+      "max_drawdown_trough_utc": "2026-09-24T12:00:00Z",
+      "max_drawdown_first_recovery_utc": null,
+      "peak_to_recovery_calendar_days": null,
+      "trough_to_recovery_calendar_days": null,
+      "unrecovered_peak_to_window_end_days": 34.5,
+      "recovery_scope": "Largest observed close-mark drawdown; unresolved recovery is right-censored at window end.",
+      "terminal_remaining_units": 0.0,
+      "terminal_marked_inventory_usd": 0.0,
+      "terminal_inventory_net_liquidation_value_usd": 0.0,
+      "liquidation_status": "NOT_APPLICABLE_NO_OPEN_INVENTORY",
+      "real_execution_delay_stress": null,
+      "intrabar_drawdown": null
+    },
+    {
+      "asset": "cbBTC",
+      "window": "year_2025",
+      "cost": "mid",
+      "expectancy_usd_per_closed_cycle": -0.06668765143652992,
+      "max_consecutive_losing_closed_cycles": 4,
+      "worst_calendar_day_return_pct": -0.8649928606891399,
+      "worst_calendar_day_utc": "2025-08-14",
+      "daily_mark_method": "UTC date of saved mark ts; last saved equity per date; first return versus100. Mark timestamp semantics not independently checked against absent provider candles.",
+      "max_drawdown_peak_utc": "2025-05-10T20:00:00Z",
+      "max_drawdown_trough_utc": "2025-09-19T16:00:00Z",
+      "max_drawdown_first_recovery_utc": null,
+      "peak_to_recovery_calendar_days": null,
+      "trough_to_recovery_calendar_days": null,
+      "unrecovered_peak_to_window_end_days": 235.16666666666666,
+      "recovery_scope": "Largest observed close-mark drawdown; unresolved recovery is right-censored at window end.",
+      "terminal_remaining_units": 0.0,
+      "terminal_marked_inventory_usd": 0.0,
+      "terminal_inventory_net_liquidation_value_usd": 0.0,
+      "liquidation_status": "NOT_APPLICABLE_NO_OPEN_INVENTORY",
+      "real_execution_delay_stress": null,
+      "intrabar_drawdown": null
+    },
+    {
+      "asset": "cbBTC",
+      "window": "year_2025",
+      "cost": "double_mid",
+      "expectancy_usd_per_closed_cycle": -0.14565339830967713,
+      "max_consecutive_losing_closed_cycles": 4,
+      "worst_calendar_day_return_pct": -0.9024812763535617,
+      "worst_calendar_day_utc": "2025-08-14",
+      "daily_mark_method": "UTC date of saved mark ts; last saved equity per date; first return versus100. Mark timestamp semantics not independently checked against absent provider candles.",
+      "max_drawdown_peak_utc": "2025-05-10T20:00:00Z",
+      "max_drawdown_trough_utc": "2025-10-02T04:00:00Z",
+      "max_drawdown_first_recovery_utc": null,
+      "peak_to_recovery_calendar_days": null,
+      "trough_to_recovery_calendar_days": null,
+      "unrecovered_peak_to_window_end_days": 235.16666666666666,
+      "recovery_scope": "Largest observed close-mark drawdown; unresolved recovery is right-censored at window end.",
+      "terminal_remaining_units": 0.0,
+      "terminal_marked_inventory_usd": 0.0,
+      "terminal_inventory_net_liquidation_value_usd": 0.0,
+      "liquidation_status": "NOT_APPLICABLE_NO_OPEN_INVENTORY",
+      "real_execution_delay_stress": null,
+      "intrabar_drawdown": null
+    },
+    {
+      "asset": "cbBTC",
+      "window": "year_2025",
+      "cost": "stress",
+      "expectancy_usd_per_closed_cycle": -0.2050331216613166,
+      "max_consecutive_losing_closed_cycles": 4,
+      "worst_calendar_day_return_pct": -0.9318097435025874,
+      "worst_calendar_day_utc": "2025-08-14",
+      "daily_mark_method": "UTC date of saved mark ts; last saved equity per date; first return versus100. Mark timestamp semantics not independently checked against absent provider candles.",
+      "max_drawdown_peak_utc": "2025-05-10T20:00:00Z",
+      "max_drawdown_trough_utc": "2025-10-02T04:00:00Z",
+      "max_drawdown_first_recovery_utc": null,
+      "peak_to_recovery_calendar_days": null,
+      "trough_to_recovery_calendar_days": null,
+      "unrecovered_peak_to_window_end_days": 235.16666666666666,
+      "recovery_scope": "Largest observed close-mark drawdown; unresolved recovery is right-censored at window end.",
+      "terminal_remaining_units": 0.0,
+      "terminal_marked_inventory_usd": 0.0,
+      "terminal_inventory_net_liquidation_value_usd": 0.0,
+      "liquidation_status": "NOT_APPLICABLE_NO_OPEN_INVENTORY",
+      "real_execution_delay_stress": null,
+      "intrabar_drawdown": null
+    },
+    {
+      "asset": "cbBTC",
+      "window": "q1_2026",
+      "cost": "mid",
+      "expectancy_usd_per_closed_cycle": -0.33500809963421263,
+      "max_consecutive_losing_closed_cycles": 2,
+      "worst_calendar_day_return_pct": -0.6918911953194717,
+      "worst_calendar_day_utc": "2026-03-18",
+      "daily_mark_method": "UTC date of saved mark ts; last saved equity per date; first return versus100. Mark timestamp semantics not independently checked against absent provider candles.",
+      "max_drawdown_peak_utc": "2026-01-05T16:00:00Z",
+      "max_drawdown_trough_utc": "2026-03-18T16:00:00Z",
+      "max_drawdown_first_recovery_utc": null,
+      "peak_to_recovery_calendar_days": null,
+      "trough_to_recovery_calendar_days": null,
+      "unrecovered_peak_to_window_end_days": 85.33333333333333,
+      "recovery_scope": "Largest observed close-mark drawdown; unresolved recovery is right-censored at window end.",
+      "terminal_remaining_units": 0.0,
+      "terminal_marked_inventory_usd": 0.0,
+      "terminal_inventory_net_liquidation_value_usd": 0.0,
+      "liquidation_status": "NOT_APPLICABLE_NO_OPEN_INVENTORY",
+      "real_execution_delay_stress": null,
+      "intrabar_drawdown": null
+    },
+    {
+      "asset": "cbBTC",
+      "window": "q1_2026",
+      "cost": "double_mid",
+      "expectancy_usd_per_closed_cycle": -0.4131787731281602,
+      "max_consecutive_losing_closed_cycles": 2,
+      "worst_calendar_day_return_pct": -0.7294903298742161,
+      "worst_calendar_day_utc": "2026-03-18",
+      "daily_mark_method": "UTC date of saved mark ts; last saved equity per date; first return versus100. Mark timestamp semantics not independently checked against absent provider candles.",
+      "max_drawdown_peak_utc": "2026-01-05T16:00:00Z",
+      "max_drawdown_trough_utc": "2026-03-18T16:00:00Z",
+      "max_drawdown_first_recovery_utc": null,
+      "peak_to_recovery_calendar_days": null,
+      "trough_to_recovery_calendar_days": null,
+      "unrecovered_peak_to_window_end_days": 85.33333333333333,
+      "recovery_scope": "Largest observed close-mark drawdown; unresolved recovery is right-censored at window end.",
+      "terminal_remaining_units": 0.0,
+      "terminal_marked_inventory_usd": 0.0,
+      "terminal_inventory_net_liquidation_value_usd": 0.0,
+      "liquidation_status": "NOT_APPLICABLE_NO_OPEN_INVENTORY",
+      "real_execution_delay_stress": null,
+      "intrabar_drawdown": null
+    },
+    {
+      "asset": "cbBTC",
+      "window": "q1_2026",
+      "cost": "stress",
+      "expectancy_usd_per_closed_cycle": -0.47217911062390955,
+      "max_consecutive_losing_closed_cycles": 3,
+      "worst_calendar_day_return_pct": -0.7588578224410836,
+      "worst_calendar_day_utc": "2026-03-18",
+      "daily_mark_method": "UTC date of saved mark ts; last saved equity per date; first return versus100. Mark timestamp semantics not independently checked against absent provider candles.",
+      "max_drawdown_peak_utc": "2026-01-05T16:00:00Z",
+      "max_drawdown_trough_utc": "2026-03-18T16:00:00Z",
+      "max_drawdown_first_recovery_utc": null,
+      "peak_to_recovery_calendar_days": null,
+      "trough_to_recovery_calendar_days": null,
+      "unrecovered_peak_to_window_end_days": 85.33333333333333,
+      "recovery_scope": "Largest observed close-mark drawdown; unresolved recovery is right-censored at window end.",
+      "terminal_remaining_units": 0.0,
+      "terminal_marked_inventory_usd": 0.0,
+      "terminal_inventory_net_liquidation_value_usd": 0.0,
+      "liquidation_status": "NOT_APPLICABLE_NO_OPEN_INVENTORY",
+      "real_execution_delay_stress": null,
+      "intrabar_drawdown": null
+    },
+    {
+      "asset": "cbBTC",
+      "window": "aug_sep_2026",
+      "cost": "mid",
+      "expectancy_usd_per_closed_cycle": -0.46937216240293034,
+      "max_consecutive_losing_closed_cycles": 2,
+      "worst_calendar_day_return_pct": -0.42016812401859394,
+      "worst_calendar_day_utc": "2026-09-23",
+      "daily_mark_method": "UTC date of saved mark ts; last saved equity per date; first return versus100. Mark timestamp semantics not independently checked against absent provider candles.",
+      "max_drawdown_peak_utc": "2026-09-03T16:00:00Z",
+      "max_drawdown_trough_utc": "2026-09-24T12:00:00Z",
+      "max_drawdown_first_recovery_utc": null,
+      "peak_to_recovery_calendar_days": null,
+      "trough_to_recovery_calendar_days": null,
+      "unrecovered_peak_to_window_end_days": 27.333333333333332,
+      "recovery_scope": "Largest observed close-mark drawdown; unresolved recovery is right-censored at window end.",
+      "terminal_remaining_units": 0.0,
+      "terminal_marked_inventory_usd": 0.0,
+      "terminal_inventory_net_liquidation_value_usd": 0.0,
+      "liquidation_status": "NOT_APPLICABLE_NO_OPEN_INVENTORY",
+      "real_execution_delay_stress": null,
+      "intrabar_drawdown": null
+    },
+    {
+      "asset": "cbBTC",
+      "window": "aug_sep_2026",
+      "cost": "double_mid",
+      "expectancy_usd_per_closed_cycle": -0.547309391850501,
+      "max_consecutive_losing_closed_cycles": 2,
+      "worst_calendar_day_return_pct": -0.41949926501386736,
+      "worst_calendar_day_utc": "2026-09-23",
+      "daily_mark_method": "UTC date of saved mark ts; last saved equity per date; first return versus100. Mark timestamp semantics not independently checked against absent provider candles.",
+      "max_drawdown_peak_utc": "2026-09-03T16:00:00Z",
+      "max_drawdown_trough_utc": "2026-09-24T12:00:00Z",
+      "max_drawdown_first_recovery_utc": null,
+      "peak_to_recovery_calendar_days": null,
+      "trough_to_recovery_calendar_days": null,
+      "unrecovered_peak_to_window_end_days": 27.333333333333332,
+      "recovery_scope": "Largest observed close-mark drawdown; unresolved recovery is right-censored at window end.",
+      "terminal_remaining_units": 0.0,
+      "terminal_marked_inventory_usd": 0.0,
+      "terminal_inventory_net_liquidation_value_usd": 0.0,
+      "liquidation_status": "NOT_APPLICABLE_NO_OPEN_INVENTORY",
+      "real_execution_delay_stress": null,
+      "intrabar_drawdown": null
+    },
+    {
+      "asset": "cbBTC",
+      "window": "aug_sep_2026",
+      "cost": "stress",
+      "expectancy_usd_per_closed_cycle": -0.6064252513140391,
+      "max_consecutive_losing_closed_cycles": 2,
+      "worst_calendar_day_return_pct": -0.418995492237928,
+      "worst_calendar_day_utc": "2026-09-23",
+      "daily_mark_method": "UTC date of saved mark ts; last saved equity per date; first return versus100. Mark timestamp semantics not independently checked against absent provider candles.",
+      "max_drawdown_peak_utc": "2026-09-03T16:00:00Z",
+      "max_drawdown_trough_utc": "2026-09-24T12:00:00Z",
+      "max_drawdown_first_recovery_utc": null,
+      "peak_to_recovery_calendar_days": null,
+      "trough_to_recovery_calendar_days": null,
+      "unrecovered_peak_to_window_end_days": 27.333333333333332,
+      "recovery_scope": "Largest observed close-mark drawdown; unresolved recovery is right-censored at window end.",
+      "terminal_remaining_units": 0.0,
+      "terminal_marked_inventory_usd": 0.0,
+      "terminal_inventory_net_liquidation_value_usd": 0.0,
+      "liquidation_status": "NOT_APPLICABLE_NO_OPEN_INVENTORY",
+      "real_execution_delay_stress": null,
+      "intrabar_drawdown": null
+    }
+  ],
+  "original_backtest_results": [
+    {
+      "strategy": "trend",
+      "case": "full_exploratory",
+      "first_candle_utc": "2026-04-29T12:00:00Z",
+      "last_candle_open_utc": "2026-10-12T20:00:00Z",
+      "sample_days": 166.5,
+      "net_return_pct": 5.202300983415675,
+      "geometric_daily_pct": 0.03046409073863554,
+      "profit_factor": 0.8615018236991109,
+      "max_marked_close_drawdown_pct": 3.0320901936258804,
+      "closed_cycles": 8,
+      "mean_daily_return_block_interval_pct": [
+        -0.026801273651391948,
+        0.1096112283602239
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "momentum",
+      "case": "full_exploratory",
+      "first_candle_utc": "2026-04-29T12:00:00Z",
+      "last_candle_open_utc": "2026-10-12T20:00:00Z",
+      "sample_days": 166.5,
+      "net_return_pct": 4.307176280072222,
+      "geometric_daily_pct": 0.025330521671640405,
+      "profit_factor": 0.7132496544929666,
+      "max_marked_close_drawdown_pct": 3.7310140505695366,
+      "closed_cycles": 20,
+      "mean_daily_return_block_interval_pct": [
+        -0.02694420673675752,
+        0.10108043818344359
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "mean_reversion",
+      "case": "full_exploratory",
+      "first_candle_utc": "2026-04-29T12:00:00Z",
+      "last_candle_open_utc": "2026-10-12T20:00:00Z",
+      "sample_days": 166.5,
+      "net_return_pct": -1.681506702194413,
+      "geometric_daily_pct": -0.010184493549936224,
+      "profit_factor": 0.7370365760191036,
+      "max_marked_close_drawdown_pct": 5.1970907640847,
+      "closed_cycles": 20,
+      "mean_daily_return_block_interval_pct": [
+        -0.06115757156892922,
+        0.031863738949154334
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "trend",
+      "case": "development",
+      "first_candle_utc": "2026-04-29T12:00:00Z",
+      "last_candle_open_utc": "2026-07-04T20:00:00Z",
+      "sample_days": 66.5,
+      "net_return_pct": 1.3428321315984704,
+      "geometric_daily_pct": 0.020060599083637776,
+      "profit_factor": 0.5828711546143087,
+      "max_marked_close_drawdown_pct": 1.9947971968401257,
+      "closed_cycles": 3,
+      "mean_daily_return_block_interval_pct": [
+        -0.035121545704195574,
+        0.08238277613871026
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "momentum",
+      "case": "development",
+      "first_candle_utc": "2026-04-29T12:00:00Z",
+      "last_candle_open_utc": "2026-07-04T20:00:00Z",
+      "sample_days": 66.5,
+      "net_return_pct": -0.7782285660106525,
+      "geometric_daily_pct": -0.011747769559566912,
+      "profit_factor": 0.2945584271685575,
+      "max_marked_close_drawdown_pct": 3.7310140505695366,
+      "closed_cycles": 13,
+      "mean_daily_return_block_interval_pct": [
+        -0.0707660930699011,
+        0.04970375410185952
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "mean_reversion",
+      "case": "development",
+      "first_candle_utc": "2026-04-29T12:00:00Z",
+      "last_candle_open_utc": "2026-07-04T20:00:00Z",
+      "sample_days": 66.5,
+      "net_return_pct": -4.336877930455163,
+      "geometric_daily_pct": -0.06665042703066781,
+      "profit_factor": 0.22588964345189047,
+      "max_marked_close_drawdown_pct": 5.1970907640847,
+      "closed_cycles": 8,
+      "mean_daily_return_block_interval_pct": [
+        -0.17362535108626764,
+        0.018170952692998725
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "trend",
+      "case": "walk_forward_1",
+      "first_candle_utc": "2026-07-05T00:00:00Z",
+      "last_candle_open_utc": "2026-08-07T04:00:00Z",
+      "sample_days": 33.333333333333336,
+      "net_return_pct": -1.2481843395738768,
+      "geometric_daily_pct": -0.037674089355621554,
+      "profit_factor": 0.3273546368163653,
+      "max_marked_close_drawdown_pct": 2.431123399448254,
+      "closed_cycles": 4,
+      "mean_daily_return_block_interval_pct": [
+        -0.13682841319611583,
+        0.06323011781646254
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "momentum",
+      "case": "walk_forward_1",
+      "first_candle_utc": "2026-07-05T00:00:00Z",
+      "last_candle_open_utc": "2026-08-07T04:00:00Z",
+      "sample_days": 33.333333333333336,
+      "net_return_pct": -0.68442777633132,
+      "geometric_daily_pct": -0.020601299407052576,
+      "profit_factor": 0.49327736592959615,
+      "max_marked_close_drawdown_pct": 1.3077871559290632,
+      "closed_cycles": 6,
+      "mean_daily_return_block_interval_pct": [
+        -0.06296059139113686,
+        0.03111322312676275
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "mean_reversion",
+      "case": "walk_forward_1",
+      "first_candle_utc": "2026-07-05T00:00:00Z",
+      "last_candle_open_utc": "2026-08-07T04:00:00Z",
+      "sample_days": 33.333333333333336,
+      "net_return_pct": 0.6876971801027532,
+      "geometric_daily_pct": 0.020562413628444354,
+      "profit_factor": null,
+      "max_marked_close_drawdown_pct": 0.4255192971498456,
+      "closed_cycles": 3,
+      "mean_daily_return_block_interval_pct": [
+        -0.0005782369712988909,
+        0.04143856891416628
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "trend",
+      "case": "walk_forward_2",
+      "first_candle_utc": "2026-08-07T08:00:00Z",
+      "last_candle_open_utc": "2026-09-09T12:00:00Z",
+      "sample_days": 33.333333333333336,
+      "net_return_pct": 5.073716782905202,
+      "geometric_daily_pct": 0.14858622741709127,
+      "profit_factor": 0.0,
+      "max_marked_close_drawdown_pct": 1.2892653530026554,
+      "closed_cycles": 1,
+      "mean_daily_return_block_interval_pct": [
+        -0.0590063927051426,
+        0.47072370922240014
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "momentum",
+      "case": "walk_forward_2",
+      "first_candle_utc": "2026-08-07T08:00:00Z",
+      "last_candle_open_utc": "2026-09-09T12:00:00Z",
+      "sample_days": 33.333333333333336,
+      "net_return_pct": 5.56309000444819,
+      "geometric_daily_pct": 0.16254775902138086,
+      "profit_factor": 0.0,
+      "max_marked_close_drawdown_pct": 1.2804744691775283,
+      "closed_cycles": 1,
+      "mean_daily_return_block_interval_pct": [
+        -0.017089757541963343,
+        0.46565120095647067
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "mean_reversion",
+      "case": "walk_forward_2",
+      "first_candle_utc": "2026-08-07T08:00:00Z",
+      "last_candle_open_utc": "2026-09-09T12:00:00Z",
+      "sample_days": 33.333333333333336,
+      "net_return_pct": 1.8249419874138972,
+      "geometric_daily_pct": 0.05426941397459473,
+      "profit_factor": null,
+      "max_marked_close_drawdown_pct": 0.3703257613791866,
+      "closed_cycles": 5,
+      "mean_daily_return_block_interval_pct": [
+        0.01055058160454461,
+        0.10657158290614402
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "trend",
+      "case": "final_holdout",
+      "first_candle_utc": "2026-09-09T16:00:00Z",
+      "last_candle_open_utc": "2026-10-12T20:00:00Z",
+      "sample_days": 33.333333333333336,
+      "net_return_pct": -2.4443091133341532,
+      "geometric_daily_pct": -0.07421279608019749,
+      "profit_factor": 0.0882937246760768,
+      "max_marked_close_drawdown_pct": 2.4443091133341532,
+      "closed_cycles": 6,
+      "mean_daily_return_block_interval_pct": [
+        -0.13983588877542377,
+        0.01158999075375396
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "momentum",
+      "case": "final_holdout",
+      "first_candle_utc": "2026-09-09T16:00:00Z",
+      "last_candle_open_utc": "2026-10-12T20:00:00Z",
+      "sample_days": 33.333333333333336,
+      "net_return_pct": -1.846312960128893,
+      "geometric_daily_pct": -0.0558914767318508,
+      "profit_factor": 0.5149614562676602,
+      "max_marked_close_drawdown_pct": 2.6856572718233496,
+      "closed_cycles": 6,
+      "mean_daily_return_block_interval_pct": [
+        -0.13972863910496838,
+        0.05493015253595422
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "mean_reversion",
+      "case": "final_holdout",
+      "first_candle_utc": "2026-09-09T16:00:00Z",
+      "last_candle_open_utc": "2026-10-12T20:00:00Z",
+      "sample_days": 33.333333333333336,
+      "net_return_pct": 0.1427320607440885,
+      "geometric_daily_pct": 0.004279000407447775,
+      "profit_factor": 1.1802062759129794,
+      "max_marked_close_drawdown_pct": 1.4294785579438418,
+      "closed_cycles": 4,
+      "mean_daily_return_block_interval_pct": [
+        -0.06974243649154364,
+        0.07797744769182119
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "trend",
+      "case": "holdout_double_cost",
+      "first_candle_utc": "2026-09-09T16:00:00Z",
+      "last_candle_open_utc": "2026-10-12T20:00:00Z",
+      "sample_days": 33.333333333333336,
+      "net_return_pct": -2.918325345909012,
+      "geometric_daily_pct": -0.08881320279912064,
+      "profit_factor": 0.05077577308686637,
+      "max_marked_close_drawdown_pct": 2.918325345909012,
+      "closed_cycles": 6,
+      "mean_daily_return_block_interval_pct": [
+        -0.1585468976896513,
+        0.001998362198972889
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "momentum",
+      "case": "holdout_double_cost",
+      "first_candle_utc": "2026-09-09T16:00:00Z",
+      "last_candle_open_utc": "2026-10-12T20:00:00Z",
+      "sample_days": 33.333333333333336,
+      "net_return_pct": -2.3629150405409693,
+      "geometric_daily_pct": -0.07171266184683445,
+      "profit_factor": 0.40787041853430844,
+      "max_marked_close_drawdown_pct": 3.0039417648632494,
+      "closed_cycles": 6,
+      "mean_daily_return_block_interval_pct": [
+        -0.15739672799885354,
+        0.039540625250263986
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "mean_reversion",
+      "case": "holdout_double_cost",
+      "first_candle_utc": "2026-09-09T16:00:00Z",
+      "last_candle_open_utc": "2026-10-12T20:00:00Z",
+      "sample_days": 33.333333333333336,
+      "net_return_pct": -0.1777045776188646,
+      "geometric_daily_pct": -0.005335737429779108,
+      "profit_factor": 0.8129642806629278,
+      "max_marked_close_drawdown_pct": 1.5941118262017162,
+      "closed_cycles": 4,
+      "mean_daily_return_block_interval_pct": [
+        -0.07829429904694439,
+        0.06535477137609158
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "trend",
+      "case": "holdout_gas_010",
+      "first_candle_utc": "2026-09-09T16:00:00Z",
+      "last_candle_open_utc": "2026-10-12T20:00:00Z",
+      "sample_days": 33.333333333333336,
+      "net_return_pct": -3.524309113334123,
+      "geometric_daily_pct": -0.10757944364366834,
+      "profit_factor": 0.01583843340221041,
+      "max_marked_close_drawdown_pct": 3.524309113334123,
+      "closed_cycles": 6,
+      "mean_daily_return_block_interval_pct": [
+        -0.18398328174029807,
+        -0.00887908273922025
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "momentum",
+      "case": "holdout_gas_010",
+      "first_candle_utc": "2026-09-09T16:00:00Z",
+      "last_candle_open_utc": "2026-10-12T20:00:00Z",
+      "sample_days": 33.333333333333336,
+      "net_return_pct": -3.016312960128875,
+      "geometric_daily_pct": -0.09183999066482151,
+      "profit_factor": 0.3124059453361994,
+      "max_marked_close_drawdown_pct": 3.4147352222733907,
+      "closed_cycles": 6,
+      "mean_daily_return_block_interval_pct": [
+        -0.181031135134795,
+        0.020648234147936893
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "mean_reversion",
+      "case": "holdout_gas_010",
+      "first_candle_utc": "2026-09-09T16:00:00Z",
+      "last_candle_open_utc": "2026-10-12T20:00:00Z",
+      "sample_days": 33.333333333333336,
+      "net_return_pct": -0.5772679392558877,
+      "geometric_daily_pct": -0.017366708935706576,
+      "profit_factor": 0.49892033392431445,
+      "max_marked_close_drawdown_pct": 1.8928865121099037,
+      "closed_cycles": 4,
+      "mean_daily_return_block_interval_pct": [
+        -0.08823625542556733,
+        0.05147429951601269
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "trend",
+      "case": "holdout_gas_100_rejected",
+      "first_candle_utc": "2026-09-09T16:00:00Z",
+      "last_candle_open_utc": "2026-10-12T20:00:00Z",
+      "sample_days": 33.333333333333336,
+      "net_return_pct": 0.0,
+      "geometric_daily_pct": 0.0,
+      "profit_factor": null,
+      "max_marked_close_drawdown_pct": 0.0,
+      "closed_cycles": 0,
+      "mean_daily_return_block_interval_pct": [
+        0.0,
+        0.0
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "momentum",
+      "case": "holdout_gas_100_rejected",
+      "first_candle_utc": "2026-09-09T16:00:00Z",
+      "last_candle_open_utc": "2026-10-12T20:00:00Z",
+      "sample_days": 33.333333333333336,
+      "net_return_pct": 0.0,
+      "geometric_daily_pct": 0.0,
+      "profit_factor": null,
+      "max_marked_close_drawdown_pct": 0.0,
+      "closed_cycles": 0,
+      "mean_daily_return_block_interval_pct": [
+        0.0,
+        0.0
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "mean_reversion",
+      "case": "holdout_gas_100_rejected",
+      "first_candle_utc": "2026-09-09T16:00:00Z",
+      "last_candle_open_utc": "2026-10-12T20:00:00Z",
+      "sample_days": 33.333333333333336,
+      "net_return_pct": 0.0,
+      "geometric_daily_pct": 0.0,
+      "profit_factor": null,
+      "max_marked_close_drawdown_pct": 0.0,
+      "closed_cycles": 0,
+      "mean_daily_return_block_interval_pct": [
+        0.0,
+        0.0
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    }
+  ],
+  "original_partial_exit_reconciliation": [
+    {
+      "case": "full_exploratory_trend",
+      "closed_cycle_net_pnl": -0.3782436622176206,
+      "realized_from_all_saved_fills": 5.067098924780666,
+      "reported_realized_pnl": 5.067098924780666,
+      "still_open_partial_exit_realized_pnl": 5.4453425869982865,
+      "explanation": "Realized PnL includes partial sells of a still-open cycle; PF and completed counts use closed cycles only."
+    },
+    {
+      "case": "full_exploratory_momentum",
+      "closed_cycle_net_pnl": -1.2962238849991827,
+      "realized_from_all_saved_fills": 4.168660724617638,
+      "reported_realized_pnl": 4.168660724617638,
+      "still_open_partial_exit_realized_pnl": 5.464884609616821,
+      "explanation": "Realized PnL includes partial sells of a still-open cycle; PF and completed counts use closed cycles only."
+    },
+    {
+      "case": "walk_forward_2_trend",
+      "closed_cycle_net_pnl": -0.5184155988327177,
+      "realized_from_all_saved_fills": 4.926926988165569,
+      "reported_realized_pnl": 4.926926988165569,
+      "still_open_partial_exit_realized_pnl": 5.4453425869982865,
+      "explanation": "Realized PnL includes partial sells of a still-open cycle; PF and completed counts use closed cycles only."
+    },
+    {
+      "case": "walk_forward_2_momentum",
+      "closed_cycle_net_pnl": -0.05232297658305285,
+      "realized_from_all_saved_fills": 5.412561633033768,
+      "reported_realized_pnl": 5.412561633033768,
+      "still_open_partial_exit_realized_pnl": 5.464884609616821,
+      "explanation": "Realized PnL includes partial sells of a still-open cycle; PF and completed counts use closed cycles only."
+    }
+  ],
+  "native_selected_results": [
+    {
+      "strategy": "ATR_wall_clock",
+      "asset": "WETH",
+      "minutes": 60,
+      "cost": "mid",
+      "start": "2026-09-01",
+      "end_exclusive": "2026-10-01",
+      "status": "RUN_VERIFIED",
+      "net_return_pct": -0.4729492647313549,
+      "geometric_daily_pct": -0.015801125112298992,
+      "profit_factor": 0.2377489550874141,
+      "max_marked_close_drawdown_pct": 0.9476125002320535,
+      "closed_cycles": 2,
+      "net_return_block_interval_pct": null,
+      "hold20_return_pct": 1.6666517764224464,
+      "ledger_plaintext_sha256": "c6d3b4948c94c558693e5727655f758192f717e7a87ec2517e5d59457ea450ab",
+      "source_sha256": "09025d023e030e4b6f8718e1c6d67d626c91241aed734672846701ebbf6925a5",
+      "verification": "saved_selected_summary_matches_compressed_source; raw_native_ledger_not_retrieved",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "ATR_wall_clock",
+      "asset": "WETH",
+      "minutes": 60,
+      "cost": "stress",
+      "start": "2026-09-01",
+      "end_exclusive": "2026-10-01",
+      "status": "RUN_VERIFIED",
+      "net_return_pct": -0.7500703319833946,
+      "geometric_daily_pct": -0.02509343458969546,
+      "profit_factor": 0.009452145896796884,
+      "max_marked_close_drawdown_pct": 1.1524283846124472,
+      "closed_cycles": 2,
+      "net_return_block_interval_pct": null,
+      "hold20_return_pct": 1.5184670256411024,
+      "ledger_plaintext_sha256": "aa2018ccd14a976fcbb497ac9651a2082bfaeec4af0d6331f5dae2302d360a74",
+      "source_sha256": "09025d023e030e4b6f8718e1c6d67d626c91241aed734672846701ebbf6925a5",
+      "verification": "saved_selected_summary_matches_compressed_source; raw_native_ledger_not_retrieved",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "ATR_vol_wall_clock",
+      "asset": "WETH",
+      "minutes": 60,
+      "cost": "mid",
+      "start": "2026-09-01",
+      "end_exclusive": "2026-10-01",
+      "status": "RUN_VERIFIED",
+      "net_return_pct": -0.4729492647313549,
+      "geometric_daily_pct": -0.015801125112298992,
+      "profit_factor": 0.2377489550874141,
+      "max_marked_close_drawdown_pct": 0.9476125002320535,
+      "closed_cycles": 2,
+      "net_return_block_interval_pct": null,
+      "hold20_return_pct": 1.6666517764224464,
+      "ledger_plaintext_sha256": "385c262fd214ae1deae6c88d4bc12742afea9101cd02ae42d4fe98f0e4d3febe",
+      "source_sha256": "09025d023e030e4b6f8718e1c6d67d626c91241aed734672846701ebbf6925a5",
+      "verification": "saved_selected_summary_matches_compressed_source; raw_native_ledger_not_retrieved",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "ATR_vol_wall_clock",
+      "asset": "WETH",
+      "minutes": 60,
+      "cost": "stress",
+      "start": "2026-09-01",
+      "end_exclusive": "2026-10-01",
+      "status": "RUN_VERIFIED",
+      "net_return_pct": -0.7500703319833946,
+      "geometric_daily_pct": -0.02509343458969546,
+      "profit_factor": 0.009452145896796884,
+      "max_marked_close_drawdown_pct": 1.1524283846124472,
+      "closed_cycles": 2,
+      "net_return_block_interval_pct": null,
+      "hold20_return_pct": 1.5184670256411024,
+      "ledger_plaintext_sha256": "9566033352b0edc72d52bc5d9e40b57e6921e907942f1fcba45613a2929904d8",
+      "source_sha256": "09025d023e030e4b6f8718e1c6d67d626c91241aed734672846701ebbf6925a5",
+      "verification": "saved_selected_summary_matches_compressed_source; raw_native_ledger_not_retrieved",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "ATR_wall_clock",
+      "asset": "WETH",
+      "minutes": 60,
+      "cost": "mid",
+      "start": "2026-04-01",
+      "end_exclusive": "2026-10-01",
+      "status": "INCOMPLETE_WARMUP_OR_SCORED",
+      "net_return_pct": null,
+      "geometric_daily_pct": null,
+      "profit_factor": null,
+      "max_marked_close_drawdown_pct": null,
+      "closed_cycles": null,
+      "net_return_block_interval_pct": null,
+      "hold20_return_pct": null,
+      "ledger_plaintext_sha256": "",
+      "source_sha256": "",
+      "verification": "saved_selected_summary_matches_compressed_source; raw_native_ledger_not_retrieved",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "ATR_wall_clock",
+      "asset": "WETH",
+      "minutes": 60,
+      "cost": "stress",
+      "start": "2026-04-01",
+      "end_exclusive": "2026-10-01",
+      "status": "INCOMPLETE_WARMUP_OR_SCORED",
+      "net_return_pct": null,
+      "geometric_daily_pct": null,
+      "profit_factor": null,
+      "max_marked_close_drawdown_pct": null,
+      "closed_cycles": null,
+      "net_return_block_interval_pct": null,
+      "hold20_return_pct": null,
+      "ledger_plaintext_sha256": "",
+      "source_sha256": "",
+      "verification": "saved_selected_summary_matches_compressed_source; raw_native_ledger_not_retrieved",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "ATR_vol_wall_clock",
+      "asset": "WETH",
+      "minutes": 60,
+      "cost": "mid",
+      "start": "2026-04-01",
+      "end_exclusive": "2026-10-01",
+      "status": "INCOMPLETE_WARMUP_OR_SCORED",
+      "net_return_pct": null,
+      "geometric_daily_pct": null,
+      "profit_factor": null,
+      "max_marked_close_drawdown_pct": null,
+      "closed_cycles": null,
+      "net_return_block_interval_pct": null,
+      "hold20_return_pct": null,
+      "ledger_plaintext_sha256": "",
+      "source_sha256": "",
+      "verification": "saved_selected_summary_matches_compressed_source; raw_native_ledger_not_retrieved",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "ATR_vol_wall_clock",
+      "asset": "WETH",
+      "minutes": 60,
+      "cost": "stress",
+      "start": "2026-04-01",
+      "end_exclusive": "2026-10-01",
+      "status": "INCOMPLETE_WARMUP_OR_SCORED",
+      "net_return_pct": null,
+      "geometric_daily_pct": null,
+      "profit_factor": null,
+      "max_marked_close_drawdown_pct": null,
+      "closed_cycles": null,
+      "net_return_block_interval_pct": null,
+      "hold20_return_pct": null,
+      "ledger_plaintext_sha256": "",
+      "source_sha256": "",
+      "verification": "saved_selected_summary_matches_compressed_source; raw_native_ledger_not_retrieved",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "ATR_wall_clock",
+      "asset": "WETH",
+      "minutes": 60,
+      "cost": "mid",
+      "start": "2025-04-01",
+      "end_exclusive": "2026-04-01",
+      "status": "RUN_VERIFIED",
+      "net_return_pct": 3.0605047151675677,
+      "geometric_daily_pct": 0.00825953401071847,
+      "profit_factor": 1.3919067308364652,
+      "max_marked_close_drawdown_pct": 4.5082317130737515,
+      "closed_cycles": 23,
+      "net_return_block_interval_pct": [
+        -6.089445129194847,
+        14.635597732194288
+      ],
+      "hold20_return_pct": 2.7869179951518466,
+      "ledger_plaintext_sha256": "805c30325dcf5d5eba88673e35c8cf885b3e6a9ea8a0ab69e6dd4d0bcef3c2fb",
+      "source_sha256": "09025d023e030e4b6f8718e1c6d67d626c91241aed734672846701ebbf6925a5",
+      "verification": "saved_selected_summary_matches_compressed_source; raw_native_ledger_not_retrieved",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "ATR_wall_clock",
+      "asset": "WETH",
+      "minutes": 60,
+      "cost": "stress",
+      "start": "2025-04-01",
+      "end_exclusive": "2026-04-01",
+      "status": "RUN_VERIFIED",
+      "net_return_pct": -0.18204172295379806,
+      "geometric_daily_pct": -0.0004991977136307233,
+      "profit_factor": 0.9815477119537355,
+      "max_marked_close_drawdown_pct": 5.776809580342901,
+      "closed_cycles": 23,
+      "net_return_block_interval_pct": [
+        -9.062594197926835,
+        11.053329328305097
+      ],
+      "hold20_return_pct": 2.6331498320665205,
+      "ledger_plaintext_sha256": "4928d0bd238f27ab79e79f27d2b361780ea48a9a2da461b242f03228e8a7cbe2",
+      "source_sha256": "09025d023e030e4b6f8718e1c6d67d626c91241aed734672846701ebbf6925a5",
+      "verification": "saved_selected_summary_matches_compressed_source; raw_native_ledger_not_retrieved",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "ATR_vol_wall_clock",
+      "asset": "WETH",
+      "minutes": 60,
+      "cost": "mid",
+      "start": "2025-04-01",
+      "end_exclusive": "2026-04-01",
+      "status": "RUN_VERIFIED",
+      "net_return_pct": 4.943679005754234,
+      "geometric_daily_pct": 0.013221046462017966,
+      "profit_factor": 1.8216305439693457,
+      "max_marked_close_drawdown_pct": 4.002499988946495,
+      "closed_cycles": 20,
+      "net_return_block_interval_pct": [
+        -4.68080611617536,
+        17.63127067006037
+      ],
+      "hold20_return_pct": 2.7869179951518466,
+      "ledger_plaintext_sha256": "f786272d7188d99045080a737e6158c180c35c43aa56984157cfea364eef0bd3",
+      "source_sha256": "09025d023e030e4b6f8718e1c6d67d626c91241aed734672846701ebbf6925a5",
+      "verification": "saved_selected_summary_matches_compressed_source; raw_native_ledger_not_retrieved",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "ATR_vol_wall_clock",
+      "asset": "WETH",
+      "minutes": 60,
+      "cost": "stress",
+      "start": "2025-04-01",
+      "end_exclusive": "2026-04-01",
+      "status": "RUN_VERIFIED",
+      "net_return_pct": 2.08349333279115,
+      "geometric_daily_pct": 0.005649708779935581,
+      "profit_factor": 1.2706198271507243,
+      "max_marked_close_drawdown_pct": 5.134671288128079,
+      "closed_cycles": 20,
+      "net_return_block_interval_pct": [
+        -7.177407503415775,
+        14.226154372725349
+      ],
+      "hold20_return_pct": 2.6331498320665205,
+      "ledger_plaintext_sha256": "5f0f304620fe94a8b09127ca08e5caaef97a05015e56682356419de1e0d03b70",
+      "source_sha256": "09025d023e030e4b6f8718e1c6d67d626c91241aed734672846701ebbf6925a5",
+      "verification": "saved_selected_summary_matches_compressed_source; raw_native_ledger_not_retrieved",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "ATR_wall_clock",
+      "asset": "WETH",
+      "minutes": 60,
+      "cost": "mid",
+      "start": "2025-10-01",
+      "end_exclusive": "2026-04-01",
+      "status": "RUN_VERIFIED",
+      "net_return_pct": -2.2992169449831152,
+      "geometric_daily_pct": -0.012779739408960494,
+      "profit_factor": 0.13177872054402764,
+      "max_marked_close_drawdown_pct": 2.8429344681897284,
+      "closed_cycles": 8,
+      "net_return_block_interval_pct": null,
+      "hold20_return_pct": -9.94296171283146,
+      "ledger_plaintext_sha256": "8979726c0c4df9f93ea9ec9fe2499f38c676e7328dbbebc632f6ba5548fa3478",
+      "source_sha256": "09025d023e030e4b6f8718e1c6d67d626c91241aed734672846701ebbf6925a5",
+      "verification": "saved_selected_summary_matches_compressed_source; raw_native_ledger_not_retrieved",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "ATR_wall_clock",
+      "asset": "WETH",
+      "minutes": 60,
+      "cost": "stress",
+      "start": "2025-10-01",
+      "end_exclusive": "2026-04-01",
+      "status": "RUN_VERIFIED",
+      "net_return_pct": -3.389134120820458,
+      "geometric_daily_pct": -0.018942693488105258,
+      "profit_factor": 0.021939295670775117,
+      "max_marked_close_drawdown_pct": 3.6239086896245443,
+      "closed_cycles": 8,
+      "net_return_block_interval_pct": null,
+      "hold20_return_pct": -10.033185627848528,
+      "ledger_plaintext_sha256": "5d75f21c1bc6b6d2d70be3c9a058ff17aec06b6682f2fa626e35b0125053f31a",
+      "source_sha256": "09025d023e030e4b6f8718e1c6d67d626c91241aed734672846701ebbf6925a5",
+      "verification": "saved_selected_summary_matches_compressed_source; raw_native_ledger_not_retrieved",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "ATR_vol_wall_clock",
+      "asset": "WETH",
+      "minutes": 60,
+      "cost": "mid",
+      "start": "2025-10-01",
+      "end_exclusive": "2026-04-01",
+      "status": "RUN_VERIFIED",
+      "net_return_pct": -2.2992169449831152,
+      "geometric_daily_pct": -0.012779739408960494,
+      "profit_factor": 0.13177872054402764,
+      "max_marked_close_drawdown_pct": 2.8429344681897284,
+      "closed_cycles": 8,
+      "net_return_block_interval_pct": null,
+      "hold20_return_pct": -9.94296171283146,
+      "ledger_plaintext_sha256": "b82b6e9a5e583df47ddd5f6ae43ff423e589fe71c6675fcb0aea830811046f10",
+      "source_sha256": "09025d023e030e4b6f8718e1c6d67d626c91241aed734672846701ebbf6925a5",
+      "verification": "saved_selected_summary_matches_compressed_source; raw_native_ledger_not_retrieved",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "ATR_vol_wall_clock",
+      "asset": "WETH",
+      "minutes": 60,
+      "cost": "stress",
+      "start": "2025-10-01",
+      "end_exclusive": "2026-04-01",
+      "status": "RUN_VERIFIED",
+      "net_return_pct": -3.389134120820458,
+      "geometric_daily_pct": -0.018942693488105258,
+      "profit_factor": 0.021939295670775117,
+      "max_marked_close_drawdown_pct": 3.6239086896245443,
+      "closed_cycles": 8,
+      "net_return_block_interval_pct": null,
+      "hold20_return_pct": -10.033185627848528,
+      "ledger_plaintext_sha256": "606a9a80e08bc93123871a901f644d59e635dcaac47cfffb99009aa3ec2e42e0",
+      "source_sha256": "09025d023e030e4b6f8718e1c6d67d626c91241aed734672846701ebbf6925a5",
+      "verification": "saved_selected_summary_matches_compressed_source; raw_native_ledger_not_retrieved",
+      "fresh_oos": false
+    }
+  ],
+  "offline_control_verifier": {
+    "exit_code": 0,
+    "stdout": "{\n  \"checkpoint_id\": \"ARZ-2026-10-31-CONTROL-14\",\n  \"evidence_count\": 38,\n  \"financial_decision\": \"NO-GO\",\n  \"live_trading\": \"DISABLED\",\n  \"next_work\": \"WAL-01\",\n  \"pr_count\": 13,\n  \"scope\": \"OFFLINE_CONSISTENCY_ONLY_REMOTE_FRESHNESS_NOT_PROVED\",\n  \"task_count\": 9\n}",
+    "stderr": ""
+  },
+  "financial_decision": "NO-GO",
+  "live_trading": "DISABLED",
+  "capital_authorized_usd": 0,
+  "new_backtests": 0,
+  "new_bootstrap_runs": 0,
+  "new_market_provider_requests": 0,
+  "limitations": [
+    "Provider raw candles absent; no engine or executable-price reproduction.",
+    "Native raw ledgers not retrieved; selected summary/source consistency only.",
+    "Saved mark paths omit executable liquidation costs and intrabar/delay outcomes.",
+    "Conditional fixed-history arithmetic is not fresh OOS or elapsed forward evidence."
+  ]
+}

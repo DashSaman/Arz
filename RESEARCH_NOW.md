@@ -1,6 +1,6 @@
 # ARZ RESEARCH NOW — single restart checkpoint
 
-**Latest observed research delivery 2026-11-01 UTC (base control checkpoint 2026-10-31) · STRAT-01 IN PROGRESS, WAL-01 PARTIAL · Financial NO-GO · Live trading DISABLED**
+**Latest observed research delivery 2026-11-04 UTC (base control checkpoint 2026-10-31) · STRAT-01 IN PROGRESS, WAL-01 PARTIAL · Financial NO-GO · Live trading DISABLED**
 
 > **Start here before doing anything in Arz.** This is the entry point on `main` even when newer research work lives in unmerged draft branches. `PROJECT_STATUS.md` begins with the older 2026-10-13 MVP checkpoint and must not be mistaken for the latest research status.
 
@@ -8,6 +8,20 @@
 **Detailed Persian:** [docs/fa/research_current_checkpoint.md](docs/fa/research_current_checkpoint.md)  
 **Detailed English:** [docs/en/research_current_checkpoint.md](docs/en/research_current_checkpoint.md)  
 **Offline consistency check:** `PYTHONPATH=src:. python scripts/verify_research_control.py`
+
+## 4 November 2026 | Validation before deployment — verified code, financial NO-GO
+
+[PR #85](https://github.com/DashSaman/Arz/pull/85), branch `research/validation-before-deployment-20261104`, continues independently verified main `22242f9daa2dea7cee17f93c42fb1f08a49a23fe`. Production-fix commit `909a20fe753aa2a32b6fb37f48bbecf5b8aba942` corrects avoidable sub-minimum sell remainders, durable collector failure visibility and incomplete-restore refusal; adds offline hash-verified backup/recovery and a digest-pinned, network-isolated release package. No user host, wallet, market-provider request or capital was activated.
+
+**Actual validation:** local full suite 1,540 tests / 1 skipped / zero failures; [PR CI](https://github.com/DashSaman/Arz/actions/runs/41887593253) 1,540 / 4 skipped / zero failures; [real isolated container](https://github.com/DashSaman/Arz/actions/runs/41887597158) healthy as UID 65534, read-only root, network `none`, zero captures; collector/monitor/backup integration 33 passed. The four CI skips need separate pinned research dependencies. These are software checks, not profitable fills or 24-hour operation.
+
+**Independent financial evidence reconciliation:** 103 checks pass across 24 original saved result sets, 18 stateful scenarios and 16 native selected rows. The exact original stateful ZIP is preserved with its original SHA256. All 164 registry entries remain classified with zero qualified candidates. Positive WETH 2025 S0 stress +9.2251% has only 8 cycles; Q1 2026 WETH and all cbBTC periods lose. The terminal hourly six-month interval overlaps its annual window. No new financial experiment or tuning was run; available raw provider candles/untouched OOS and executable follower costs remain insufficient.
+
+**Current source baseline:** 35 unchanged files, 27 distinct paired 4h bars, 10 within the one-hour operational diagnostic, maximum complete/timely chain 5 versus 194 eligible required, 0 qualified paper days. Fully elapsed Nov 1–3 has 14 created successful schedule jobs but only 6/18 distinct timely paired closes across all sources. A successful job is not complete market coverage. The finished six-slot observation experiment and daily-review automation do not certify a permanent independent collector.
+
+[فارسی](docs/fa/strat01_validation_20261104.md) · [English](docs/en/strat01_validation_20261104.md) · [machine decision and restart record](reports/strat01/2026-11-04-validation/validation-decision.json) · [EN release/pilot proposal](docs/en/strat01_collector_release_20261104.md) · [FA release/pilot proposal](docs/fa/strat01_collector_release_20261104.md). Final PR publication/review status must be resolved from the PR and decision receipt; historical draft stacks below are not implicitly merged.
+
+**Next:** `PYTHONPATH=src:. python scripts/verify_research_control.py`, then reconcile only later main/source changes. Obtain exact retained provider inputs if a revised-engine rerun is necessary, permitted stable source/quote data and a separately authorized supervised host if chosen; test alert delivery before unattended operation. Keep the ≥100-cycle/PF≥1.5/DD≤10%/positive base and stress uncertainty/OOS gates, 194 eligible paired bars and ≥90 genuinely elapsed paper days. H3/H4 stricter gates remain. Financial **NO-GO**, live **DISABLED**, real capital **$0**; no funding approval request is supported by current evidence.
 
 ## 1 November 2026 | V5 operational build — independent read-only collector + offline dashboard
 

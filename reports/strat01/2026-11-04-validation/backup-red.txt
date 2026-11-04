@@ -1,0 +1,89 @@
+test_backup_and_restore_never_overwrite_existing_paths (tests.test_strat01_collector_backup.CollectorBackupTests.test_backup_and_restore_never_overwrite_existing_paths) ... FAIL
+test_backup_inside_evidence_volume_is_refused (tests.test_strat01_collector_backup.CollectorBackupTests.test_backup_inside_evidence_volume_is_refused) ... FAIL
+test_bad_source_symlink_or_in_progress_write_is_refused (tests.test_strat01_collector_backup.CollectorBackupTests.test_bad_source_symlink_or_in_progress_write_is_refused) ... FAIL
+test_corrupt_payload_is_rejected_before_destination_created (tests.test_strat01_collector_backup.CollectorBackupTests.test_corrupt_payload_is_rejected_before_destination_created) ... FAIL
+test_rehashed_financial_promotion_is_rejected (tests.test_strat01_collector_backup.CollectorBackupTests.test_rehashed_financial_promotion_is_rejected) ... FAIL
+test_round_trip_preserves_original_bytes_and_never_restores_health (tests.test_strat01_collector_backup.CollectorBackupTests.test_round_trip_preserves_original_bytes_and_never_restores_health) ... FAIL
+test_unsafe_or_unlisted_archive_path_never_extracts (tests.test_strat01_collector_backup.CollectorBackupTests.test_unsafe_or_unlisted_archive_path_never_extracts) ... FAIL
+
+======================================================================
+FAIL: test_backup_and_restore_never_overwrite_existing_paths (tests.test_strat01_collector_backup.CollectorBackupTests.test_backup_and_restore_never_overwrite_existing_paths)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/2b157164c85c/Arz/tests/test_strat01_collector_backup.py", line 63, in test_backup_and_restore_never_overwrite_existing_paths
+    helper = self.helper()
+             ^^^^^^^^^^^^^
+  File "/workspace/scratch/2b157164c85c/Arz/tests/test_strat01_collector_backup.py", line 20, in helper
+    self.assertIsNotNone(importlib.util.find_spec(name),
+AssertionError: unexpectedly None : The offline evidence recovery helper is missing
+
+======================================================================
+FAIL: test_backup_inside_evidence_volume_is_refused (tests.test_strat01_collector_backup.CollectorBackupTests.test_backup_inside_evidence_volume_is_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/2b157164c85c/Arz/tests/test_strat01_collector_backup.py", line 143, in test_backup_inside_evidence_volume_is_refused
+    helper = self.helper()
+             ^^^^^^^^^^^^^
+  File "/workspace/scratch/2b157164c85c/Arz/tests/test_strat01_collector_backup.py", line 20, in helper
+    self.assertIsNotNone(importlib.util.find_spec(name),
+AssertionError: unexpectedly None : The offline evidence recovery helper is missing
+
+======================================================================
+FAIL: test_bad_source_symlink_or_in_progress_write_is_refused (tests.test_strat01_collector_backup.CollectorBackupTests.test_bad_source_symlink_or_in_progress_write_is_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/2b157164c85c/Arz/tests/test_strat01_collector_backup.py", line 106, in test_bad_source_symlink_or_in_progress_write_is_refused
+    helper = self.helper()
+             ^^^^^^^^^^^^^
+  File "/workspace/scratch/2b157164c85c/Arz/tests/test_strat01_collector_backup.py", line 20, in helper
+    self.assertIsNotNone(importlib.util.find_spec(name),
+AssertionError: unexpectedly None : The offline evidence recovery helper is missing
+
+======================================================================
+FAIL: test_corrupt_payload_is_rejected_before_destination_created (tests.test_strat01_collector_backup.CollectorBackupTests.test_corrupt_payload_is_rejected_before_destination_created)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/2b157164c85c/Arz/tests/test_strat01_collector_backup.py", line 78, in test_corrupt_payload_is_rejected_before_destination_created
+    helper = self.helper()
+             ^^^^^^^^^^^^^
+  File "/workspace/scratch/2b157164c85c/Arz/tests/test_strat01_collector_backup.py", line 20, in helper
+    self.assertIsNotNone(importlib.util.find_spec(name),
+AssertionError: unexpectedly None : The offline evidence recovery helper is missing
+
+======================================================================
+FAIL: test_rehashed_financial_promotion_is_rejected (tests.test_strat01_collector_backup.CollectorBackupTests.test_rehashed_financial_promotion_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/2b157164c85c/Arz/tests/test_strat01_collector_backup.py", line 122, in test_rehashed_financial_promotion_is_rejected
+    helper = self.helper()
+             ^^^^^^^^^^^^^
+  File "/workspace/scratch/2b157164c85c/Arz/tests/test_strat01_collector_backup.py", line 20, in helper
+    self.assertIsNotNone(importlib.util.find_spec(name),
+AssertionError: unexpectedly None : The offline evidence recovery helper is missing
+
+======================================================================
+FAIL: test_round_trip_preserves_original_bytes_and_never_restores_health (tests.test_strat01_collector_backup.CollectorBackupTests.test_round_trip_preserves_original_bytes_and_never_restores_health)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/2b157164c85c/Arz/tests/test_strat01_collector_backup.py", line 42, in test_round_trip_preserves_original_bytes_and_never_restores_health
+    helper = self.helper()
+             ^^^^^^^^^^^^^
+  File "/workspace/scratch/2b157164c85c/Arz/tests/test_strat01_collector_backup.py", line 20, in helper
+    self.assertIsNotNone(importlib.util.find_spec(name),
+AssertionError: unexpectedly None : The offline evidence recovery helper is missing
+
+======================================================================
+FAIL: test_unsafe_or_unlisted_archive_path_never_extracts (tests.test_strat01_collector_backup.CollectorBackupTests.test_unsafe_or_unlisted_archive_path_never_extracts)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/2b157164c85c/Arz/tests/test_strat01_collector_backup.py", line 92, in test_unsafe_or_unlisted_archive_path_never_extracts
+    helper = self.helper()
+             ^^^^^^^^^^^^^
+  File "/workspace/scratch/2b157164c85c/Arz/tests/test_strat01_collector_backup.py", line 20, in helper
+    self.assertIsNotNone(importlib.util.find_spec(name),
+AssertionError: unexpectedly None : The offline evidence recovery helper is missing
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.001s
+
+FAILED (failures=7)

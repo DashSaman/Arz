@@ -1,0 +1,34 @@
+{
+  "classification": "OFFLINE_EXISTING_REAL_SOURCE_BACKUP_RESTORE_REHEARSAL_NOT_NEW_OBSERVATIONS",
+  "observed_at_utc": "2026-11-04T18:05:04.871332+00:00",
+  "source_main_sha": "22242f9daa2dea7cee17f93c42fb1f08a49a23fe",
+  "backup": {
+    "kind": "OFFLINE_COLLECTOR_EVIDENCE_BACKUP_NOT_PAPER",
+    "file_count": 35,
+    "archive_sha256": "d2717863f0f934406192ea08029ff6589786db13635113bdcfb12274cadba1a7",
+    "valid_source_files": 35,
+    "financial_decision": "NO-GO",
+    "live_trading": "DISABLED",
+    "real_capital_authorized_usd": 0,
+    "qualified_paper_calendar_days": 0,
+    "new_observations_created": 0,
+    "heartbeat_restored": false
+  },
+  "restore": {
+    "kind": "OFFLINE_COLLECTOR_EVIDENCE_BACKUP_NOT_PAPER",
+    "file_count": 35,
+    "archive_sha256": "d2717863f0f934406192ea08029ff6589786db13635113bdcfb12274cadba1a7",
+    "valid_source_files": 35,
+    "financial_decision": "NO-GO",
+    "live_trading": "DISABLED",
+    "real_capital_authorized_usd": 0,
+    "qualified_paper_calendar_days": 0,
+    "new_observations_created": 0,
+    "heartbeat_restored": false
+  },
+  "byte_identical": true,
+  "new_market_calls": 0,
+  "new_paper_days": 0,
+  "container_runtime_tested_locally": false,
+  "live_trading": "DISABLED"
+}

@@ -1,0 +1,17 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-q"
+  ],
+  "environment": {
+    "PYTHONPATH": "src:."
+  },
+  "exit_code": 0,
+  "observed_at_utc": "2026-11-04T18:11:23.657876+00:00",
+  "scope": "INITIAL_RELEASE_PATCH_FULL_OFFLINE_SUITE_BEFORE_INDEPENDENT_REVIEW_FIXES"
+}

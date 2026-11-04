@@ -1,0 +1,93 @@
+name: Arz collector release recovery and isolated container checks
+
+on:
+  pull_request:
+    paths:
+      - 'deploy/collector/**'
+      - 'scripts/strat01_independent_collector.py'
+      - 'scripts/strat01_local_monitor.py'
+      - 'scripts/strat01_collector_backup.py'
+      - 'tests/test_strat01_collector_backup.py'
+      - '.github/workflows/strat01-collector-release.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  offline-release-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      PYTHONPATH: 'src:.'
+      ARZ_COLLECTOR_NETWORK: disabled
+      COMPOSE_PROJECT_NAME: arz-release-check
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Recovery negative controls with synthetic records
+        run: python -m unittest tests.test_strat01_collector_backup -v
+      - name: Validate and start network-isolated collector on ephemeral CI runner
+        run: |
+          mkdir -p runtime/arz-collector/forward runtime/arz-collector/events
+          sudo chown -R 65534:65534 runtime/arz-collector
+          sudo chmod 700 runtime/arz-collector runtime/arz-collector/forward runtime/arz-collector/events
+          mkdir -p artifacts/local/collector-release
+          docker compose -f deploy/collector/docker-compose.yml config --format json > artifacts/local/collector-release/compose.json
+          docker compose -f deploy/collector/docker-compose.yml up -d --wait --wait-timeout 90
+          docker compose -f deploy/collector/docker-compose.yml exec -T arz-readonly-collector python -m scripts.strat01_independent_collector dry-run --data-root /data > artifacts/local/collector-release/dry-run.json
+          docker compose -f deploy/collector/docker-compose.yml exec -T arz-readonly-collector python --version > artifacts/local/collector-release/python-version.txt
+          docker compose -f deploy/collector/docker-compose.yml ps --format json > artifacts/local/collector-release/container.json
+          docker image inspect python:3.12-slim-bookworm@sha256:e697c81897302a4c4333bade000d98038fbb21eb064f8ee1fd42d02ebcd9d337 --format '{{json .}}' > artifacts/local/collector-release/image-inspect.json
+      - name: Assert real container isolation and no paper or market capture
+        run: |
+          python - <<'PY'
+          import json, subprocess
+          from pathlib import Path
+          out=Path('artifacts/local/collector-release')
+          compose=json.loads((out/'compose.json').read_text())
+          service=compose['services']['arz-readonly-collector']
+          assert service['network_mode']=='none'
+          assert service['environment']['ARZ_COLLECTOR_NETWORK']=='disabled'
+          cid=subprocess.check_output(['docker','compose','-f','deploy/collector/docker-compose.yml','ps','-q'],text=True).strip()
+          actual=json.loads(subprocess.check_output(['docker','inspect',cid],text=True))[0]
+          provenance=json.loads(Path('deploy/collector/image-provenance.json').read_text())
+          image=json.loads((out/'image-inspect.json').read_text())
+          assert image['Architecture']=='amd64'
+          # containerd-backed Docker reports the OCI index as Id; legacy Docker
+          # reports the platform config Id. Bind the container to the inspected
+          # image and the immutable pulled RepoDigest, not one Id representation.
+          assert actual['Image']==image['Id']
+          assert 'python@'+provenance['index_digest'] in image['RepoDigests']
+          identity={'container_image_id':actual['Image'],'image_id':image['Id'],
+                    'repo_digests':image['RepoDigests'],'architecture':image['Architecture']}
+          (out/'verified-image-identity.json').write_text(json.dumps(identity,indent=2)+'\n')
+          assert (out/'python-version.txt').read_text().strip()=='Python '+provenance['python_version_upstream_reported']
+          assert actual['HostConfig']['NetworkMode']=='none'
+          assert actual['HostConfig']['ReadonlyRootfs'] is True
+          assert actual['Config']['User']=='65534:65534'
+          assert actual['State']['Health']['Status']=='healthy'
+          check=json.loads((out/'dry-run.json').read_text())
+          assert check['network_used'] is False
+          count=subprocess.check_output(['docker','compose','-f','deploy/collector/docker-compose.yml','exec','-T','arz-readonly-collector','python','-c','from pathlib import Path; print(len(list(Path("/data/forward").glob("*.json"))))'],text=True).strip()
+          assert count=='0'
+          report={'kind':'EPHEMERAL_NETWORK_ISOLATED_CONTAINER_SMOKE_NOT_DEPLOYMENT',
+                  'network_mode':'none','source_files':0,'new_paper_days':0,
+                  'financial_decision':'NO-GO','live_trading':'DISABLED',
+                  'real_capital_authorized_usd':0,'image_id':actual['Image']}
+          (out/'result.json').write_text(json.dumps(report,indent=2)+'\n')
+          print(json.dumps(report))
+          PY
+      - name: Stop ephemeral container and preserve logs
+        if: always()
+        run: |
+          docker compose -f deploy/collector/docker-compose.yml logs --no-color > artifacts/local/collector-release/container-log.txt 2>&1 || true
+          docker compose -f deploy/collector/docker-compose.yml down
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: arz-collector-release-check
+          path: artifacts/local/collector-release/
+          if-no-files-found: warn
+          retention-days: 30

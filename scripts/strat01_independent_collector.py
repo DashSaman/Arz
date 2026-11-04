@@ -23,19 +23,116 @@ import uuid
 from scripts.strat01_base_identity_forward import BAR, START_OOS, collect
 from scripts.strat01_capture_slot_preflight import decide
 from scripts.strat01_investment_readiness import (
-    audit_capture_dir, snapshot_summary,
+    MAX_BYTES_PER_CAPTURE, audit_capture_dir, snapshot_summary,
 )
 
 NETWORK_FLAG = "explicit-readonly"
 DEFAULT_OFFSET_SECONDS = 12 * 60
 MAX_RUNTIME_LAG_SECONDS = 90
 HEALTH_MAX_AGE_SECONDS = 180
+MAX_EVENTS = 10_000
+MAX_EVENT_BYTES = 32_000
+FAILURE_OUTCOMES = frozenset({
+    "REFUSED_INVALID_ARCHIVE", "REFUSED_COLLECTOR_ERROR", "REFUSED_POSTWRITE_AUDIT",
+})
+SUCCESS_OUTCOME = "SOURCE_ARCHIVED_REQUIRES_INDEPENDENT_AUDIT"
 
 
 def _utc(value: int) -> str:
     if type(value) is not int or value < 0:
         raise ValueError("Invalid UTC clock")
     return datetime.fromtimestamp(value, tz=timezone.utc).isoformat()
+
+
+def require_complete_restore(root: Path) -> None:
+    """An interrupted restore is never an operational evidence volume."""
+    marker = root / ".restore-incomplete"
+    if marker.exists() or marker.is_symlink():
+        raise ValueError("Collector restore is incomplete")
+
+
+def read_events(root: Path, now_unix: int) -> list[dict]:
+    """Read the bounded durable operational history, including safety flags."""
+    if not root.is_dir() or root.is_symlink():
+        raise ValueError("Missing trusted collector root")
+    require_complete_restore(root)
+    folder = root / "events"
+    if not folder.is_dir() or folder.is_symlink():
+        raise ValueError("Missing trusted collector event directory")
+    paths = sorted(folder.glob("*.json"))
+    if len(paths) > MAX_EVENTS:
+        raise ValueError("Unbounded event evidence directory")
+    events = []
+    for path in paths:
+        if not path.is_file() or path.is_symlink() or path.stat().st_size > MAX_EVENT_BYTES:
+            raise ValueError("Invalid collector event record")
+        event = json.loads(path.read_text(encoding="utf-8"))
+        if (type(event) is not dict or event.get("schema_version") != 1
+                or event.get("kind") != "INDEPENDENT_LOCAL_CLOCK_OBSERVATION_NOT_ELIGIBLE_PAPER"
+                or type(event.get("actual_clock_unix")) is not int
+                or not START_OOS <= event["actual_clock_unix"] <= now_unix
+                or event.get("observed_at_utc") != _utc(event["actual_clock_unix"])
+                or event.get("financial_decision") != "NO-GO"
+                or event.get("live_trading") != "DISABLED"
+                or event.get("executed_transaction") is not False
+                or event.get("market_data_publication_time_verified") is not False
+                or event.get("follower_plus_60s_execution_verified") is not False
+                or event.get("paid_fee_usdc_verified") is not False
+                or type(event.get("paper_days_qualified")) is not int
+                or event["paper_days_qualified"] != 0
+                or type(event.get("real_capital_authorized_usd")) is not int
+                or event["real_capital_authorized_usd"] != 0
+                or event.get("outcome") not in FAILURE_OUTCOMES | {
+                    SUCCESS_OUTCOME, "SKIPPED_NO_CAPTURE", "REFUSED_NETWORK_DISABLED"}):
+            raise ValueError("Invalid event safety/provenance evidence")
+        events.append(event)
+    return sorted(events, key=lambda event: event["actual_clock_unix"])
+
+
+def collection_failed(root: Path, events: list[dict]) -> bool:
+    """Only a strictly later, source-bound success can clear a durable fault.
+
+    Equal-second events have no reliable ordering, so failure wins the tie.
+    Neutral skips/network opt-out do not establish recovery.
+    """
+    failed_at = max((e["actual_clock_unix"] for e in events
+                     if e["outcome"] in FAILURE_OUTCOMES), default=-1)
+    successes = [e for e in events if e["outcome"] == SUCCESS_OUTCOME]
+    if not successes:
+        return failed_at >= 0
+    latest = successes[-1]
+    if failed_at >= latest["actual_clock_unix"]:
+        return True
+    source = latest.get("source")
+    if type(source) is not dict:
+        return True
+    name = source.get("filename")
+    if (not isinstance(name, str) or Path(name).name != name
+            or name.startswith(".") or not name.endswith(".json")):
+        return True
+    folder = root / "forward"
+    path = folder / name
+    if (not folder.is_dir() or folder.is_symlink()
+            or not path.is_file() or path.is_symlink()):
+        return True
+    fd = os.open(path, os.O_RDONLY | os.O_NOFOLLOW)
+    with os.fdopen(fd, "rb") as stream:
+        raw = stream.read(MAX_BYTES_PER_CAPTURE + 1)
+    return (len(raw) > MAX_BYTES_PER_CAPTURE
+            or hashlib.sha256(raw).hexdigest() != source.get("sha256"))
+
+
+def operational_state(root: Path, now_unix: int, network_enabled: bool) -> str:
+    try:
+        events = read_events(root, now_unix)
+        if collection_failed(root, events):
+            return "REFUSED_FAIL_CLOSED"
+    except (ValueError, OSError, TypeError, OverflowError):
+        return "REFUSED_FAIL_CLOSED"
+    if not network_enabled:
+        return "NETWORK_DISABLED"
+    return ("COLLECTION_HEALTHY" if any(e["outcome"] == SUCCESS_OUTCOME for e in events)
+            else "ALIVE_READONLY")
 
 
 def next_due(now_unix: int, offset_seconds: int = DEFAULT_OFFSET_SECONDS) -> int:
@@ -68,6 +165,7 @@ def _write_new(folder: Path, name: str, obj: dict) -> Path:
 def _write_heartbeat(root: Path, *, now_unix: int, state: str) -> None:
     if not root.is_dir() or root.is_symlink():
         raise ValueError("Expected trusted persistent data directory")
+    require_complete_restore(root)
     temporary = root / ("heartbeat-" + uuid.uuid4().hex + ".tmp")
     body = {"schema_version": 1, "actual_utc": _utc(now_unix),
             "observed_unix": now_unix, "status": state,
@@ -93,12 +191,15 @@ def heartbeat_healthy(root: Path, now_unix: int) -> bool:
         return False
     try:
         value = json.loads(path.read_text(encoding="utf-8"))
+        if type(value) is not dict:
+            return False
         at = value.get("observed_unix")
         return (type(at) is int and 0 <= now_unix - at <= HEALTH_MAX_AGE_SECONDS
                 and value.get("capital_authorized_usd") == 0
                 and value.get("live_trading") == "DISABLED"
                 and value.get("status") in (
-                    "ALIVE_READONLY", "NETWORK_DISABLED", "COLLECTION_HEALTHY"))
+                    "ALIVE_READONLY", "NETWORK_DISABLED", "COLLECTION_HEALTHY")
+                and operational_state(root, now_unix, True) != "REFUSED_FAIL_CLOSED")
     except (ValueError, OSError, TypeError):
         return False
 
@@ -159,6 +260,7 @@ def run_once(root: Path, *, now_unix: int,
     if type(now_unix) is not int or now_unix < START_OOS:
         raise ValueError("Invalid actual UTC collector clock")
     root = Path(root)
+    require_complete_restore(root)
     sources, events = root / "forward", root / "events"
     for folder in (sources, events):
         if not folder.is_dir() or folder.is_symlink():
@@ -230,6 +332,7 @@ def main() -> int:
     if args.command == "health":
         return 0 if heartbeat_healthy(args.data_root, now) else 1
     if args.command == "dry-run":
+        require_complete_restore(args.data_root)
         result = decide(args.data_root / "forward", now)
         print(json.dumps({"slot": result, "network_used": False}, sort_keys=True))
         return 0
@@ -247,21 +350,19 @@ def main() -> int:
             now = int(time.time())
             due = next_due(now, args.offset_seconds)
             _write_heartbeat(args.data_root, now_unix=now,
-                             state="ALIVE_READONLY" if network else "NETWORK_DISABLED")
+                             state=operational_state(args.data_root, now, network))
             while int(time.time()) < due:
                 now = int(time.time())
                 _write_heartbeat(args.data_root, now_unix=now,
-                                 state="ALIVE_READONLY" if network else "NETWORK_DISABLED")
+                                 state=operational_state(args.data_root, now, network))
                 time.sleep(min(30, max(1, due - now)))
             result = run_once(args.data_root, now_unix=int(time.time()),
                               network_enabled=network)
             print(json.dumps(result, sort_keys=True), flush=True)
-            # A refused/error source must NOT be marked a healthy collector.
-            state = ("COLLECTION_HEALTHY"
-                     if result["outcome"] == "SOURCE_ARCHIVED_REQUIRES_INDEPENDENT_AUDIT"
-                     else "NETWORK_DISABLED" if not network
-                     else "REFUSED_FAIL_CLOSED")
-            _write_heartbeat(args.data_root, now_unix=int(time.time()), state=state)
+            # Reconstruct status from durable evidence on every loop/restart.
+            now = int(time.time())
+            _write_heartbeat(args.data_root, now_unix=now,
+                             state=operational_state(args.data_root, now, network))
     except KeyboardInterrupt:
         return 0
 

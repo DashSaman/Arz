@@ -72,6 +72,57 @@ class EngineTests(unittest.TestCase):
         self.assertIsNone(r["metrics"]["profit_factor"])
         self.assertEqual(r["metrics"]["open_positions"],1)
 
+    def test_capped_exit_reserves_minimum_for_final_leg(self):
+        for config in (self.config(), Config()):
+            with self.subTest(fee_bps=config.fee_bps, slippage_bps=config.slippage_bps):
+                result=run_backtest(bars([(10,10),(10,10),(14,14),(14,14)]),
+                                    config,SequenceSignal({1:True}))
+                self.assertEqual([fill["side"] for fill in result["fills"]],["buy","sell","sell"])
+                slip=config.slippage_bps/10000
+                gross_exit=(20/(10*(1+slip)))*(14*(1-slip))
+                self.assertAlmostEqual(result["fills"][1]["notional"],gross_exit-config.min_order)
+                self.assertAlmostEqual(result["fills"][2]["notional"],config.min_order)
+                for fill in result["fills"]:
+                    self.assertGreaterEqual(fill["notional"],config.min_order-1e-10)
+                    self.assertLessEqual(fill["notional"],config.max_order+1e-10)
+                expected_fees=(20+gross_exit)*config.fee_bps/10000
+                expected_pnl=gross_exit-20-expected_fees-3*config.gas_usd
+                self.assertEqual(result["portfolio"]["units"],0)
+                self.assertEqual(result["metrics"]["closed_trades"],1)
+                self.assertEqual(result["metrics"]["open_positions"],0)
+                self.assertEqual(result["metrics"]["blocked_exit_attempts"],0)
+                self.assertAlmostEqual(result["metrics"]["ending_equity"],100+expected_pnl)
+                self.assertAlmostEqual(result["metrics"]["realized_pnl"],expected_pnl)
+                self.assertAlmostEqual(result["closed_trades"][0]["net_pnl"],expected_pnl)
+                self.assertAlmostEqual(result["metrics"]["commission"],expected_fees)
+                self.assertAlmostEqual(result["metrics"]["network_fees"],3*config.gas_usd)
+                self.assertAlmostEqual(result["metrics"]["total_fees"],expected_fees+3*config.gas_usd)
+
+    def test_capped_exit_price_drop_can_leave_open_dust(self):
+        result=run_backtest(bars([(10,10),(10,10),(14,14),(7,7)]),
+                            self.config(),SequenceSignal({1:True}))
+        self.assertAlmostEqual(result["fills"][1]["notional"],23)
+        self.assertAlmostEqual(result["portfolio"]["units"]*7,2.5)
+        self.assertEqual(result["metrics"]["closed_trades"],0)
+        self.assertEqual(result["metrics"]["open_positions"],1)
+        self.assertEqual(result["metrics"]["blocked_exit_attempts"],1)
+        self.assertEqual(result["events"][-1]["reason"],"dust_or_min_order")
+        self.assertFalse(result["metrics"]["exit_fill_guaranteed"])
+
+    def test_capped_exit_minimum_feasibility(self):
+        config=self.config(min_order=14)
+        for exit_price,closed,first_sell in ((13,0,25),(14,1,14)):
+            with self.subTest(exit_price=exit_price):
+                result=run_backtest(bars([(10,10),(10,10),(exit_price,exit_price),
+                                          (exit_price,exit_price)]),config,SequenceSignal({1:True}))
+                self.assertAlmostEqual(result["fills"][1]["notional"],first_sell)
+                for fill in result["fills"]:
+                    self.assertGreaterEqual(fill["notional"],config.min_order-1e-10)
+                    self.assertLessEqual(fill["notional"],config.max_order+1e-10)
+                self.assertEqual(result["metrics"]["closed_trades"],closed)
+                self.assertEqual(result["metrics"]["open_positions"],1-closed)
+                self.assertEqual(result["metrics"]["blocked_exit_attempts"],1-closed)
+
     def test_duplicate_bar_is_idempotent_and_conflict_rejected(self):
         e=Engine(self.config(),SequenceSignal({1:True}));bs=bars([(10,10),(10,10)])
         for b in bs:e.step(b)

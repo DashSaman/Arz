@@ -1,4 +1,14 @@
-# Arz current research checkpoint and action ledger — 25 October 2026
+# Arz current research checkpoint and action ledger — 4 November 2026
+
+## Latest verified update — 4 November 2026
+
+PR85 carries the validation-before-deployment work on branch `research/validation-before-deployment-20261104`, based on verified main `22242f9daa2dea7cee17f93c42fb1f08a49a23fe`. Production commit `909a20fe753aa2a32b6fb37f48bbecf5b8aba942` has successful actual container, full-suite and monitor CI. Local: 1,540 tests, 1 skipped; CI: 1,540 tests, 4 skipped; no failures. Saved financial reconciliation: 103 checks, no new strategy backtest. See [the complete decision](strat01_validation_20261104.md) and [machine receipt](../../reports/strat01/2026-11-04-validation/validation-decision.json) for final review/publication status and exact commands.
+
+The shared Engine avoids creating a sub-minimum residual when a valid capped split exists; collector refusal persists across waits/restarts, recovery binds to source hashes, incomplete restores are quarantined, and offline backups preserve original evidence. Runtime changes invalidate old paper journals. The pinned historical engine/stateful replay were not rerun. Real network-isolated CI is not a user-host deployment or permanent operation; alert delivery remains unconfigured.
+
+The unchanged source baseline has 35 valid files, 27 paired 4h bars and maximum five consecutive operational bars versus 194 eligible required. Qualified paper days 0, candidates 0, live DISABLED and capital $0. All 164 registrations remain accounted for; WETH 2025's modeled +9.2251% stressed S0 return has only 8 cycles and no fresh OOS. New parameter-search budget 0 because required untouched inputs/cost evidence are absent. The supervised read-only host package and ≤$100-total future pilot proposal require separate decisions; financial gates are not passed.
+
+**Next command:** `PYTHONPATH=src:. python scripts/verify_research_control.py`. Then compare only subsequent main/source changes and pursue the specific source/quote/elapsed-time dependencies in the decision, without repeating seen-history tuning. The sections below preserve earlier dated checkpoints and do not override this update.
 
 **Authoritative restart entry:** [RESEARCH_NOW.md](../../RESEARCH_NOW.md) and [machine state](../../research/control/STATE.json). `PROJECT_STATUS.md` opens with an older Oct 13 MVP status; do not mistake it for latest draft-branch research.
 

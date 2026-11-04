@@ -1,0 +1,339 @@
+{
+  "schema_version": 1,
+  "review_id": "ARZ-ACCOUNTING-REVIEW-2026-11-04",
+  "date_utc": "2026-11-04",
+  "baseline_commit": "22242f9daa2dea7cee17f93c42fb1f08a49a23fe",
+  "parent_head_at_verification": "423b3867c692ef0665f1617618278810c1f65c44",
+  "working_tree_runtime_fingerprint": "a89185ea4d6058b570d6e288ef372d3dbfbca1f1e516fb2bb88ee2f97b3421e1",
+  "status": "ONE_MATERIAL_EXECUTION_DEFECT_FIXED_TARGETED_VALIDATION_PASSED",
+  "financial_decision": "NO-GO",
+  "live_trading": "DISABLED",
+  "actual_capital_usdc": 0,
+  "fixed_constraints": {
+    "reference_order_usdc": 20,
+    "max_buy_or_sell_usdc": 25,
+    "min_cash_reserve_usdc": 10,
+    "hypothetical_initial_total_including_gas_usdc": 100,
+    "risk_thresholds_changed": false,
+    "strategy_tuning": false
+  },
+  "finding": {
+    "id": "ARZ-ACCT-20261104-01",
+    "classification": "avoidable sub-minimum residual created by capped exit sizing",
+    "status": "fixed",
+    "baseline_locations": [
+      "src/arz/engine.py:71",
+      "src/arz/risk.py:48",
+      "src/arz/engine.py:100",
+      "src/arz/metrics.py:31",
+      "src/arz/metrics.py:45"
+    ],
+    "patched_location": "src/arz/engine.py:72-77",
+    "conditions": "A position's executable value exceeds the sell cap, but a maximum-sized leg would leave a positive remainder below min_order, and a smaller first leg can still meet min_order.",
+    "baseline_result": {
+      "classification": "SYNTHETIC_CHARACTERIZATION_NOT_PERFORMANCE_EVIDENCE",
+      "fills": [
+        {
+          "side": "buy",
+          "units": 2,
+          "price": 10,
+          "notional": 20,
+          "commission": 0,
+          "gas": 0,
+          "realized_pnl": 0,
+          "ts": 14400,
+          "bar_ts": 14400,
+          "signal_ts": 0,
+          "reference_price": 10,
+          "slippage_cost": 0,
+          "observed_at": null,
+          "order_id": "base:0xd0b53d9277642d899df5c87a3966a349a798f224:fixture:14400:buy"
+        },
+        {
+          "side": "sell",
+          "units": 1.7857142857142858,
+          "price": 14,
+          "notional": 25,
+          "commission": 0,
+          "gas": 0,
+          "realized_pnl": 7.142857142857142,
+          "ts": 28800,
+          "bar_ts": 28800,
+          "signal_ts": 14400,
+          "reference_price": 14,
+          "slippage_cost": 0,
+          "observed_at": null,
+          "order_id": "base:0xd0b53d9277642d899df5c87a3966a349a798f224:fixture:28800:sell"
+        }
+      ],
+      "events": [
+        {
+          "ts": 43200,
+          "bar_ts": 43200,
+          "event": "rejected",
+          "reason": "dust_or_min_order",
+          "side": "sell"
+        }
+      ],
+      "portfolio": {
+        "cash": 105,
+        "units": 0.2142857142857142,
+        "cost_basis": 2.1428571428571423,
+        "realized_pnl": 7.142857142857142,
+        "total_commission": 0,
+        "total_gas": 0
+      },
+      "metrics": {
+        "ending_equity": 108,
+        "net_profit": 8,
+        "closed_trades": 0,
+        "open_positions": 1,
+        "blocked_exit_attempts": 1,
+        "exit_fill_guaranteed": false,
+        "realized_pnl": 7.142857142857142,
+        "unrealized_pnl": 0.8571428571428577,
+        "profit_factor": null,
+        "win_rate": null
+      }
+    },
+    "patched_zero_cost_result": {
+      "entry_notional_usdc": 20,
+      "entry_price": 10,
+      "exit_price": 14,
+      "sell_legs_usdc": [
+        23,
+        5
+      ],
+      "sell_legs_note": "Within floating-point precision; the first leg is rounded down with math.nextafter.",
+      "cash_usdc": 108,
+      "units": 0,
+      "ending_equity_usdc": 108,
+      "closed_cycles": 1,
+      "open_positions": 0,
+      "blocked_exits": 0,
+      "realized_pnl_usdc": 8
+    },
+    "correction": "Reduce only the capped sale that would strand sub-minimum inventory. Preserve a minimum-sized remainder when the reduced first leg is itself permitted. Use the existing risk tolerance without changing thresholds; leave infeasible splits under the original cap and OPEN.",
+    "accounting_integrity": "Baseline correctly kept residual inventory OPEN and did not fabricate a closed winner. The defect was avoidable incomplete execution. Costed regressions reconcile entry and both exit legs, fees, gas, realized PnL and whole-account equity.",
+    "limitations": [
+      "A later adverse price change can make the retained quantity worth less than the minimum.",
+      "If a capped position is worth less than twice the minimum, two valid sale legs are impossible; do not invent an undersized fill.",
+      "Liquidity, gas, stale data and other existing gates still apply; exit_fill_guaranteed remains false."
+    ]
+  },
+  "reviewed_inputs": [
+    {
+      "path": "AGENTS.md",
+      "coverage": "instructions",
+      "sha256": "0ff522d107e9e927781abb8ad84b8b589ae04f052edff53ecbebcbca8470d02c",
+      "base_sha256": "0ff522d107e9e927781abb8ad84b8b589ae04f052edff53ecbebcbca8470d02c",
+      "matches_base": true
+    },
+    {
+      "path": "RESEARCH_NOW.md",
+      "coverage": "current research control",
+      "sha256": "102120793668a019d7b1baf44f7114a07f8d55a17d06c2219041bebe4c30c324",
+      "base_sha256": "102120793668a019d7b1baf44f7114a07f8d55a17d06c2219041bebe4c30c324",
+      "matches_base": true
+    },
+    {
+      "path": "research/control/STATE.json",
+      "coverage": "current research control",
+      "sha256": "2ecfe691febef4cfff3157fa53a0e61359f267b184c46502d5045a096c7c0330",
+      "base_sha256": "2ecfe691febef4cfff3157fa53a0e61359f267b184c46502d5045a096c7c0330",
+      "matches_base": true
+    },
+    {
+      "path": "src/arz/engine.py",
+      "coverage": "source review and minimal capped-exit sizing fix",
+      "sha256": "d73b13a2b5b376e23a561891c2c66d7e511024055f3743f91ce13994f32a8d6c",
+      "base_sha256": "133cbda822fc897ba9e9d3fc1d4d55ea82a0d99e0690ced12c501c10dddcb9bd",
+      "matches_base": false
+    },
+    {
+      "path": "src/arz/accounting.py",
+      "coverage": "source review",
+      "sha256": "8ad66ddc4195a6cbca5b8cd5bd7be172febb226b1ec4f4ce0e8be86287a2f77c",
+      "base_sha256": "8ad66ddc4195a6cbca5b8cd5bd7be172febb226b1ec4f4ce0e8be86287a2f77c",
+      "matches_base": true
+    },
+    {
+      "path": "src/arz/risk.py",
+      "coverage": "source review",
+      "sha256": "cad442c0757fd10ea22988583dcf2f7f5d5380b02af05e9fe9da307f3f3934ba",
+      "base_sha256": "cad442c0757fd10ea22988583dcf2f7f5d5380b02af05e9fe9da307f3f3934ba",
+      "matches_base": true
+    },
+    {
+      "path": "src/arz/metrics.py",
+      "coverage": "source review",
+      "sha256": "4680fe16eda90c9374283c4a20fcda419cb0c2f49304f8b0c2b2a4bbb56cad05",
+      "base_sha256": "4680fe16eda90c9374283c4a20fcda419cb0c2f49304f8b0c2b2a4bbb56cad05",
+      "matches_base": true
+    },
+    {
+      "path": "src/arz/paper.py",
+      "coverage": "source review",
+      "sha256": "490863bcde8fc0b193f1a6dcaf8212265f3473bcc3db5e72760498012c428a44",
+      "base_sha256": "490863bcde8fc0b193f1a6dcaf8212265f3473bcc3db5e72760498012c428a44",
+      "matches_base": true
+    },
+    {
+      "path": "src/arz/config.py",
+      "coverage": "source review",
+      "sha256": "dfba26eb55babf03cc28ccce19556126b0fa5ef502b826ce5cb5f92494e7ea15",
+      "base_sha256": "dfba26eb55babf03cc28ccce19556126b0fa5ef502b826ce5cb5f92494e7ea15",
+      "matches_base": true
+    },
+    {
+      "path": "src/arz/__main__.py",
+      "coverage": "source review",
+      "sha256": "c870bbaf045fbab1df35aa66f0af496eba2ad3712d83c89c64691d4072153d95",
+      "base_sha256": "c870bbaf045fbab1df35aa66f0af496eba2ad3712d83c89c64691d4072153d95",
+      "matches_base": true
+    },
+    {
+      "path": "tests/test_engine.py",
+      "coverage": "existing tests plus three new regression methods executed",
+      "sha256": "ac203aafebe2970e8f9b04ae985ea8919e7a096ef046c8f209e19561ae228479",
+      "base_sha256": "861aa79d225a15517840cb11bfd610bc14eddf9eccbe91214fa2633f387d0cba",
+      "matches_base": false
+    },
+    {
+      "path": "tests/test_review_regressions.py",
+      "coverage": "existing relevant tests reviewed and executed",
+      "sha256": "5a928ea1e2af7946c664931ed7344404f4b4330553ed65c77cf41130ce32b890",
+      "base_sha256": "5a928ea1e2af7946c664931ed7344404f4b4330553ed65c77cf41130ce32b890",
+      "matches_base": true
+    },
+    {
+      "path": "scripts/strat01_causal_capped_replay.py",
+      "coverage": "partial source review; capped exit sizing inspected; report pipeline not fully audited",
+      "sha256": "b1c2f47b1ce00036273fefb99b2e931eece13fef1533bc40b1db127c3557fe56",
+      "base_sha256": "b1c2f47b1ce00036273fefb99b2e931eece13fef1533bc40b1db127c3557fe56",
+      "matches_base": true
+    },
+    {
+      "coverage": "existing relevant tests executed",
+      "path": "tests/test_operations.py",
+      "sha256": "9997af1f855f8b448f4b46fd76d5063e50b1a6c3e0fcbafa7f3db2841f66c0fd",
+      "base_sha256": "9997af1f855f8b448f4b46fd76d5063e50b1a6c3e0fcbafa7f3db2841f66c0fd",
+      "matches_base": true
+    },
+    {
+      "coverage": "caller/dependency review",
+      "path": "scripts/run_research.py",
+      "sha256": "96ea855719bb4359846656387560573129797a1a73b219b664474272a1800243",
+      "base_sha256": "96ea855719bb4359846656387560573129797a1a73b219b664474272a1800243",
+      "matches_base": true
+    },
+    {
+      "coverage": "caller/dependency review",
+      "path": "scripts/strat01_extended_matrix.py",
+      "sha256": "68042cf0741f9a33cf90e721e653d9a251a0a7b150d18827d4b9c2ca9c334964",
+      "base_sha256": "68042cf0741f9a33cf90e721e653d9a251a0a7b150d18827d4b9c2ca9c334964",
+      "matches_base": true
+    }
+  ],
+  "validation": {
+    "red": {
+      "command": "PYTHONPATH=src:tests:. python - <<'PY'\nimport subprocess, sys, types, unittest\nbaseline = '22242f9daa2dea7cee17f93c42fb1f08a49a23fe'\nsource = subprocess.check_output(['git', 'show', baseline + ':src/arz/engine.py'], text=True)\nmodule = types.ModuleType('arz.engine')\nmodule.__package__ = 'arz'\nmodule.__file__ = 'src/arz/engine.py'\nsys.modules['arz.engine'] = module\nexec(compile(source, 'baseline/src/arz/engine.py', 'exec'), module.__dict__)\nsuite = unittest.defaultTestLoader.loadTestsFromNames([\"test_engine.EngineTests.test_capped_exit_reserves_minimum_for_final_leg\",\"test_engine.EngineTests.test_capped_exit_price_drop_can_leave_open_dust\",\"test_engine.EngineTests.test_capped_exit_minimum_feasibility\"])\nresult = unittest.TextTestRunner(verbosity=2).run(suite)\nraise SystemExit(0 if result.wasSuccessful() else 1)\nPY",
+      "exit_code": 1,
+      "test_methods": 3,
+      "assertion_failures": 4,
+      "errors": 0,
+      "method": "Final regression tests run against baseline Engine source loaded in an isolated interpreter; shared working tree was not reverted.",
+      "output": "test_capped_exit_reserves_minimum_for_final_leg (test_engine.EngineTests.test_capped_exit_reserves_minimum_for_final_leg) ... \n  test_capped_exit_reserves_minimum_for_final_leg (test_engine.EngineTests.test_capped_exit_reserves_minimum_for_final_leg) (fee_bps=0, slippage_bps=0) ... FAIL\n  test_capped_exit_reserves_minimum_for_final_leg (test_engine.EngineTests.test_capped_exit_reserves_minimum_for_final_leg) (fee_bps=5.0, slippage_bps=10.0) ... FAIL\ntest_capped_exit_price_drop_can_leave_open_dust (test_engine.EngineTests.test_capped_exit_price_drop_can_leave_open_dust) ... FAIL\ntest_capped_exit_minimum_feasibility (test_engine.EngineTests.test_capped_exit_minimum_feasibility) ... \n  test_capped_exit_minimum_feasibility (test_engine.EngineTests.test_capped_exit_minimum_feasibility) (exit_price=14) ... FAIL\n\n======================================================================\nFAIL: test_capped_exit_reserves_minimum_for_final_leg (test_engine.EngineTests.test_capped_exit_reserves_minimum_for_final_leg) (fee_bps=0, slippage_bps=0)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/scratch/2b157164c85c/Arz/tests/test_engine.py\", line 80, in test_capped_exit_reserves_minimum_for_final_leg\n    self.assertEqual([fill[\"side\"] for fill in result[\"fills\"]],[\"buy\",\"sell\",\"sell\"])\nAssertionError: Lists differ: ['buy', 'sell'] != ['buy', 'sell', 'sell']\n\nSecond list contains 1 additional elements.\nFirst extra element 2:\n'sell'\n\n- ['buy', 'sell']\n+ ['buy', 'sell', 'sell']\n?         ++++++++\n\n\n======================================================================\nFAIL: test_capped_exit_reserves_minimum_for_final_leg (test_engine.EngineTests.test_capped_exit_reserves_minimum_for_final_leg) (fee_bps=5.0, slippage_bps=10.0)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/scratch/2b157164c85c/Arz/tests/test_engine.py\", line 80, in test_capped_exit_reserves_minimum_for_final_leg\n    self.assertEqual([fill[\"side\"] for fill in result[\"fills\"]],[\"buy\",\"sell\",\"sell\"])\nAssertionError: Lists differ: ['buy', 'sell'] != ['buy', 'sell', 'sell']\n\nSecond list contains 1 additional elements.\nFirst extra element 2:\n'sell'\n\n- ['buy', 'sell']\n+ ['buy', 'sell', 'sell']\n?         ++++++++\n\n\n======================================================================\nFAIL: test_capped_exit_price_drop_can_leave_open_dust (test_engine.EngineTests.test_capped_exit_price_drop_can_leave_open_dust)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/scratch/2b157164c85c/Arz/tests/test_engine.py\", line 104, in test_capped_exit_price_drop_can_leave_open_dust\n    self.assertAlmostEqual(result[\"fills\"][1][\"notional\"],23)\nAssertionError: 25.0 != 23 within 7 places (2.0 difference)\n\n======================================================================\nFAIL: test_capped_exit_minimum_feasibility (test_engine.EngineTests.test_capped_exit_minimum_feasibility) (exit_price=14)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/scratch/2b157164c85c/Arz/tests/test_engine.py\", line 118, in test_capped_exit_minimum_feasibility\n    self.assertAlmostEqual(result[\"fills\"][1][\"notional\"],first_sell)\nAssertionError: 25.0 != 14 within 7 places (11.0 difference)\n\n----------------------------------------------------------------------\nRan 3 tests in 0.015s\n\nFAILED (failures=4)\n"
+    },
+    "green": {
+      "command": "PYTHONPATH=src:tests:. python -m unittest test_engine test_review_regressions test_operations -v",
+      "exit_code": 0,
+      "test_methods": 39,
+      "failures": 0,
+      "errors": 0,
+      "output": "test_capped_exit_minimum_feasibility (test_engine.EngineTests.test_capped_exit_minimum_feasibility) ... ok\ntest_capped_exit_price_drop_can_leave_open_dust (test_engine.EngineTests.test_capped_exit_price_drop_can_leave_open_dust) ... ok\ntest_capped_exit_reserves_minimum_for_final_leg (test_engine.EngineTests.test_capped_exit_reserves_minimum_for_final_leg) ... ok\ntest_cash_benchmark_is_zero_return_and_no_ratio_claim (test_engine.EngineTests.test_cash_benchmark_is_zero_return_and_no_ratio_claim) ... ok\ntest_costed_flat_market_roundtrip_loses_money (test_engine.EngineTests.test_costed_flat_market_roundtrip_loses_money) ... ok\ntest_duplicate_bar_is_idempotent_and_conflict_rejected (test_engine.EngineTests.test_duplicate_bar_is_idempotent_and_conflict_rejected) ... ok\ntest_execution_uses_previous_liquidity_not_future_volume (test_engine.EngineTests.test_execution_uses_previous_liquidity_not_future_volume) ... ok\ntest_failed_tx_cost_without_fake_fill (test_engine.EngineTests.test_failed_tx_cost_without_fake_fill) ... ok\ntest_fixed_strategies_warm_up_and_have_no_short_targets (test_engine.EngineTests.test_fixed_strategies_warm_up_and_have_no_short_targets) ... ok\ntest_future_perturbation_cannot_change_earlier_fills (test_engine.EngineTests.test_future_perturbation_cannot_change_earlier_fills) ... ok\ntest_gap_loss_can_exceed_stop_limit (test_engine.EngineTests.test_gap_loss_can_exceed_stop_limit) ... ok\ntest_open_position_not_counted_as_closed_winner (test_engine.EngineTests.test_open_position_not_counted_as_closed_winner) ... ok\ntest_signal_executes_at_next_open_not_known_close (test_engine.EngineTests.test_signal_executes_at_next_open_not_known_close) ... ok\ntest_any_overlapping_source_revision_is_rejected_and_sticky (test_review_regressions.ReviewRegressionTests.test_any_overlapping_source_revision_is_rejected_and_sticky) ... ok\ntest_changed_strategy_parameters_cannot_resume_a_journal (test_review_regressions.ReviewRegressionTests.test_changed_strategy_parameters_cannot_resume_a_journal) ... ok\ntest_cli_state_output_collision_is_rejected_before_fetch (test_review_regressions.ReviewRegressionTests.test_cli_state_output_collision_is_rejected_before_fetch) ... ok\ntest_complete_four_hour_feed_remains_healthy_between_closes (test_review_regressions.ReviewRegressionTests.test_complete_four_hour_feed_remains_healthy_between_closes) ... ok\ntest_direct_api_validation_failure_persists_a_halt (test_review_regressions.ReviewRegressionTests.test_direct_api_validation_failure_persists_a_halt) ... ok\ntest_failed_exit_gas_changes_the_closed_trade_from_win_to_loss (test_review_regressions.ReviewRegressionTests.test_failed_exit_gas_changes_the_closed_trade_from_win_to_loss) ... ok\ntest_first_invalid_candle_keeps_the_explicit_observation_clock (test_review_regressions.ReviewRegressionTests.test_first_invalid_candle_keeps_the_explicit_observation_clock) ... ok\ntest_halted_open_position_has_a_current_explicit_valuation (test_review_regressions.ReviewRegressionTests.test_halted_open_position_has_a_current_explicit_valuation) ... ok\ntest_historical_api_rejects_future_candles (test_review_regressions.ReviewRegressionTests.test_historical_api_rejects_future_candles) ... ok\ntest_historical_cutoff_never_includes_a_later_completed_bar (test_review_regressions.ReviewRegressionTests.test_historical_cutoff_never_includes_a_later_completed_bar) ... ok\ntest_journal_metadata_requires_finite_ordered_observation_times (test_review_regressions.ReviewRegressionTests.test_journal_metadata_requires_finite_ordered_observation_times) ... ok\ntest_late_observation_of_a_new_bar_cannot_claim_a_fresh_fill (test_review_regressions.ReviewRegressionTests.test_late_observation_of_a_new_bar_cannot_claim_a_fresh_fill) ... ok\ntest_observed_utc_day_blocks_new_entry_but_allows_protective_exit (test_review_regressions.ReviewRegressionTests.test_observed_utc_day_blocks_new_entry_but_allows_protective_exit) ... ok\ntest_research_runner_rejects_incomplete_future_input (test_review_regressions.ReviewRegressionTests.test_research_runner_rejects_incomplete_future_input) ... ok\ntest_restore_rejects_inconsistent_ledger_and_unsafe_types (test_review_regressions.ReviewRegressionTests.test_restore_rejects_inconsistent_ledger_and_unsafe_types) ... ok\ntest_restore_replays_legitimate_profit_without_a_deposit (test_review_regressions.ReviewRegressionTests.test_restore_replays_legitimate_profit_without_a_deposit) ... ok\ntest_hypothetical_growth_literal_periods (test_operations.OperationsTests.test_hypothetical_growth_literal_periods) ... ok\ntest_loss_recovery_and_total_loss (test_operations.OperationsTests.test_loss_recovery_and_total_loss) ... ok\ntest_paper_fill_uses_newly_observed_price_not_retrospective_open (test_operations.OperationsTests.test_paper_fill_uses_newly_observed_price_not_retrospective_open) ... ok\ntest_paper_missing_one_or_more_observed_bars_halts (test_operations.OperationsTests.test_paper_missing_one_or_more_observed_bars_halts) ... ok\ntest_paper_stale_fault_is_persistent_and_no_fake_gap_fills (test_operations.OperationsTests.test_paper_stale_fault_is_persistent_and_no_fake_gap_fills) ... ok\ntest_paper_warms_without_historical_fills_and_restarts_idempotently (test_operations.OperationsTests.test_paper_warms_without_historical_fills_and_restarts_idempotently) ... ok\ntest_parse_rejects_wrong_market_duplicates_gaps (test_operations.OperationsTests.test_parse_rejects_wrong_market_duplicates_gaps) ... ok\ntest_parse_sorts_completed_candles_and_removes_current (test_operations.OperationsTests.test_parse_sorts_completed_candles_and_removes_current) ... ok\ntest_target_income_and_withdrawal (test_operations.OperationsTests.test_target_income_and_withdrawal) ... ok\ntest_transport_rejects_arbitrary_hosts_before_network (test_operations.OperationsTests.test_transport_rejects_arbitrary_hosts_before_network) ... ok\n\n----------------------------------------------------------------------\nRan 39 tests in 0.248s\n\nOK\n"
+    },
+    "new_regressions": [
+      "test_engine.EngineTests.test_capped_exit_reserves_minimum_for_final_leg",
+      "test_engine.EngineTests.test_capped_exit_price_drop_can_leave_open_dust",
+      "test_engine.EngineTests.test_capped_exit_minimum_feasibility"
+    ],
+    "control": {
+      "command": "PYTHONPATH=src:. python scripts/verify_research_control.py",
+      "exit_code": 0,
+      "result": {
+        "checkpoint_id": "ARZ-2026-10-31-CONTROL-14",
+        "evidence_count": 38,
+        "financial_decision": "NO-GO",
+        "live_trading": "DISABLED",
+        "next_work": "WAL-01",
+        "pr_count": 13,
+        "scope": "OFFLINE_CONSISTENCY_ONLY_REMOTE_FRESHNESS_NOT_PROVED",
+        "task_count": 9
+      }
+    },
+    "diff_check": {
+      "command": "git diff --check -- src/arz/engine.py tests/test_engine.py",
+      "exit_code": 0
+    },
+    "full_suite_run_by_this_reviewer": false
+  },
+  "historical_impact": [
+    {
+      "entry_point": "scripts/run_research.py",
+      "study_or_output": "Original MVP reports/backtests: fixed trend, momentum and mean_reversion across full/development/forward/holdout/cost cases.",
+      "dependency": "Current src/arz/engine.py when this command is run.",
+      "impact": "Affected execution path. Archived results describe their original runtime and are not evidence that this revised runtime reproduces them.",
+      "rerun": "Not performed. Any current-runtime reuse requires a preregistered rerun of the relevant cases with the exact original authorized input; preserve archived outputs."
+    },
+    {
+      "entry_point": "src/arz/__main__.py backtest",
+      "study_or_output": "Ad-hoc shared-engine historical runs.",
+      "dependency": "Current src/arz/engine.py.",
+      "impact": "Future capped-exit paths can differ; no ad-hoc study was run."
+    },
+    {
+      "entry_point": "scripts/strat01_extended_matrix.py mvp_original / calendar_mvp",
+      "study_or_output": "reports/strat01/2026-10-31-all-strategies/extended",
+      "dependency": "Separately verified source checkout db79545f5162518251eda73ec9fd3526411f9dc8, inserted by source_setup before MVP imports.",
+      "original_mvp_input_sha256": "283346087387fac0d312971e8c408c16d184212efe1458e06b692d0daf351e30",
+      "impact": "Pinned historical engine is unchanged by this working-tree fix. Do not reinterpret this reconstruction as validation of the revised current Engine.",
+      "rerun": "Not needed for this fix; not performed."
+    },
+    {
+      "entry_point": "scripts/strat01_causal_capped_replay.py",
+      "study_or_output": "reports/strat01/2026-11-01-stateful-causal",
+      "dependency": "Independent stateful capped-leg ledger with frozen policy/features; already protects the minimum residual at source lines 100-105.",
+      "impact": "No shared Engine dependency or script edit. Existing historical/stress results were not recomputed.",
+      "rerun": "Not needed for this fix; not performed."
+    },
+    {
+      "entry_point": "src/arz/paper.py",
+      "study_or_output": "Prospective paper journals.",
+      "dependency": "Current Engine plus runtime fingerprint and replay reconciliation.",
+      "impact": "This source change changes the runtime fingerprint. Preserve existing journals; do not migrate, clear faults or reinterpret old observations automatically."
+    }
+  ],
+  "reviewed_behavior_and_bounds": [
+    "Existing causal-next-bar and prior-volume tests pass; future-bar perturbation remains unable to alter earlier fills in the covered fixture.",
+    "Partial-sale cost basis and closed-cycle counts are checked by the new costed regression. Existing failed-exit-gas regression passes.",
+    "Metrics report whole-account equity, realized/unrealized PnL, commission and network fees; no new historical daily/stress metric computation was performed.",
+    "Existing independent journal replay, sticky source/data faults, observed execution timing and paper restart/idempotency tests pass in the 39-test bounded run.",
+    "Historical stateful report code was only partly reviewed. This is not a comprehensive stress, daily-return, all-strategy or economic validation."
+  ],
+  "historical_backtests_rerun": 0,
+  "new_prospective_observations": 0,
+  "live_network_requests": 0,
+  "runtime_files_changed": [
+    "src/arz/engine.py"
+  ],
+  "test_files_changed": [
+    "tests/test_engine.py"
+  ],
+  "report_files": [
+    "reports/strat01/2026-11-04-validation/accounting-review.json",
+    "docs/en/strat01_accounting_review_20261104.md",
+    "docs/fa/strat01_accounting_review_20261104.md"
+  ],
+  "commit_or_push_performed_by_reviewer": false
+}

@@ -1304,5 +1304,49 @@
     "live_trading": "DISABLED",
     "real_capital_authorized_usd": 0,
     "next": "Verify container on authorized independent host; pin digest; consent-based lawful data access and safe immutable sync; measure independent six UTC captures; register new future cohort if original timing gap makes it impossible; solve follower +60s all-in costs; complete shadow/paper runtime and independent financial audit."
+  },
+  "post_audit_20261104_validation": {
+    "observed_at_utc": "2026-11-04T18:36:06.237549+00:00",
+    "source_main_sha": "22242f9daa2dea7cee17f93c42fb1f08a49a23fe",
+    "verified_production_commit_sha": "909a20fe753aa2a32b6fb37f48bbecf5b8aba942",
+    "branch": "research/validation-before-deployment-20261104",
+    "pr": 85,
+    "publication_status_at_observation": "OPEN_DRAFT; resolve live PR status before next work",
+    "decision_report": "reports/strat01/2026-11-04-validation/validation-decision.json",
+    "reports": {
+      "en": "docs/en/strat01_validation_20261104.md",
+      "fa": "docs/fa/strat01_validation_20261104.md"
+    },
+    "engineering_verified": {
+      "local_tests": 1540,
+      "local_skipped": 1,
+      "ci_tests": 1540,
+      "ci_skipped": 4,
+      "focused_recovery": 33,
+      "quant_reconciliation_checks": 103,
+      "actual_network_isolated_container_ci": 41887597158
+    },
+    "independent_final_review": "APPROVE_VALIDATION_RELEASE; reports/strat01/2026-11-04-validation/independent-final-review.json",
+    "financial_decision": "NO-GO",
+    "live_trading": "DISABLED",
+    "real_capital_authorized_usd": 0,
+    "new_strategy_experiments": 0,
+    "qualified_forward_days": 0,
+    "source_files": 35,
+    "paired_bars": 27,
+    "max_contiguous_operational_bars": 5,
+    "eligible_warmup_required": 194,
+    "runtime_change_invalidates_old_paper_journals": true,
+    "immutable_source_hashes_preserved": true,
+    "next_command": "PYTHONPATH=src:. python scripts/verify_research_control.py",
+    "remaining_dependencies": [
+      "Lawfully retained exact original provider bytes if current Engine performance rerun is needed.",
+      "Stable permitted timely dual-market input and an explicitly approved supervised host if operational collection is chosen.",
+      "Actual delivered alert and off-host backup/recovery operation before unattended operation.",
+      "Timestamped exact20USDC buy/sell routes at signal+60s with complete costs, without bypassing recorded429 restrictions.",
+      "Suitable untouched OOS, sufficient completed cycles and positive dependence-aware base/stress financial evidence.",
+      "At least90 genuinely elapsed qualified paper calendar days;180 where required.",
+      "Separate user financial decision and a separately reviewed execution implementation; none exists in this release."
+    ]
   }
 }

@@ -1,0 +1,2963 @@
+{
+  "schema_version": 1,
+  "observed_at_utc": "2026-11-04T18:25:20.526022Z",
+  "source_repository": "DashSaman/Arz",
+  "source_main_sha": "22242f9daa2dea7cee17f93c42fb1f08a49a23fe",
+  "audit_kind": "EXISTING_SAVED_EVIDENCE_HASH_AND_ARITHMETIC_RECONCILIATION",
+  "new_backtests": 0,
+  "new_strategy_experiments": 0,
+  "new_market_provider_requests": 0,
+  "financial_decision": "NO-GO",
+  "live_trading": "DISABLED",
+  "capital_authorized_usd": 0,
+  "qualified_candidates": 0,
+  "qualified_prospective_calendar_days": 0,
+  "authoritative_gates": {
+    "hypothetical_total_capital_usd_including_gas": 100,
+    "reference_notional_usdc": 20,
+    "each_buy_and_sell_leg_max_usd": 25,
+    "minimum_cash_reserve_usd": 10,
+    "historical_closed_cycles_default": 100,
+    "H3_historical_closed_cycles": 200,
+    "profit_factor_minimum": 1.5,
+    "maximum_drawdown_pct": 10,
+    "positive_base_and_stress_whole_account_geometric_return_required": true,
+    "positive_time_dependent_uncertainty_lower_bound_required": true,
+    "fresh_untouched_oos_required": true,
+    "prospective_elapsed_calendar_days_minimum": 90,
+    "H4_prospective_days_minimum": 180,
+    "S0_contiguous_dual_market_4h_warmup_bars": 194,
+    "sources": [
+      "docs/en/profit_qualification_20261026.md",
+      "research/control/STATE.json",
+      "research/strat01/2026-11-01-stateful-cap-protocol.json"
+    ],
+    "branch_protocol_reference": {
+      "source_pr": 18,
+      "immutable_source": "research/multi_edge_spot/NEXT_EXPERIMENT_PROTOCOL.json",
+      "source_branch": "research/2026-10-20-multi-edge-spot",
+      "min_prospective_days_default": 90,
+      "min_prospective_days_H4": 180,
+      "h1_min_historical_cycles": 100,
+      "h3_min_historical_cycles": 200,
+      "require_primary_and_cost_stress_positive": true
+    },
+    "immutable_branch_protocol_file_locally_present": false,
+    "budget_is_authorization": false
+  },
+  "artifact_retrieval": {
+    "artifact_id": 13084406841,
+    "workflow_run_id": 41308328518,
+    "repository": "DashSaman/Arz",
+    "name": "arz-strat01-stateful-historical-capped-no-go",
+    "metadata_expired": false,
+    "expires_at": "2026-12-01T12:50:17Z",
+    "download_connector_success": true,
+    "download_exit_code": 0,
+    "github_digest": "85d3e7bd9941ccdcf58cba8391dd482296421485ec494b7e9cd3452156d83af7",
+    "download_sha256": "85d3e7bd9941ccdcf58cba8391dd482296421485ec494b7e9cd3452156d83af7",
+    "size_bytes": 116736,
+    "files": [
+      {
+        "name": "audit.json",
+        "bytes": 6181,
+        "sha256": "0ffe15bf3a21b5c1b7f1d7dca52c460eadab72c4551b642931ed21da7751fa05"
+      },
+      {
+        "name": "coverage.csv",
+        "bytes": 231,
+        "sha256": "5c72a6ee5ee4eb9b6b5060015bdd6f08f676e1de80e56eddff9a125aab70f3cb"
+      },
+      {
+        "name": "cycles.csv",
+        "bytes": 13681,
+        "sha256": "94b37053af9cdbf01cbdea281afd523a6fb7ab4b32148c3bec19527cb933e315"
+      },
+      {
+        "name": "legs.csv",
+        "bytes": 26845,
+        "sha256": "3d5914c4f899dfb6008ad29e3deb06487c1337956cbfd365092fe2ec510df4a2"
+      },
+      {
+        "name": "marks.csv",
+        "bytes": 1419928,
+        "sha256": "79473233abe7e06339687594288e7517e7b93281ff5aef0eaf890dc7e2acecf7"
+      },
+      {
+        "name": "results.csv",
+        "bytes": 8965,
+        "sha256": "927e7003a4d99e4c9cd853bf26c6bb9ac23a1a673e97604553cb41140a0a76b9"
+      },
+      {
+        "name": "vetoes.csv",
+        "bytes": 1236,
+        "sha256": "26553c9fcbf0acc1e12c06380b74823055d530e2984d5901f500a844094e2c9f"
+      }
+    ],
+    "temporary_local_archive": "/tmp/arz-quant-audit/stateful13084406841.zip",
+    "raw_provider_candles_in_archive": false,
+    "signed_download_url_omitted": true,
+    "durable_repository_archive": "reports/strat01/2026-11-01-stateful-causal/stateful-historical-ledgers.zip",
+    "durable_archive_sha256": "85d3e7bd9941ccdcf58cba8391dd482296421485ec494b7e9cd3452156d83af7",
+    "durable_archive_size_bytes": 116736,
+    "upstream_expiry_no_longer_blocks_preserved_evidence": true
+  },
+  "checks": [
+    {
+      "check": "stateful_zip_matches_GitHub_digest_and_prior_record",
+      "passed": true
+    },
+    {
+      "check": "six_saved_csv_hashes_match_artifact_audit",
+      "passed": true
+    },
+    {
+      "check": "six_saved_csv_hashes_match_prior_independent_reconciliation",
+      "passed": true
+    },
+    {
+      "check": "artifact_counts",
+      "passed": true
+    },
+    {
+      "check": "six_windows_have_complete_reported_warmup_and_scored_grids",
+      "passed": true
+    },
+    {
+      "check": "stateful_accounting:WETH:year_2025:mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_summary_matches:WETH:year_2025:mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_accounting:WETH:year_2025:double_mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_summary_matches:WETH:year_2025:double_mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_accounting:WETH:year_2025:stress",
+      "passed": true
+    },
+    {
+      "check": "stateful_summary_matches:WETH:year_2025:stress",
+      "passed": true
+    },
+    {
+      "check": "stateful_accounting:WETH:q1_2026:mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_summary_matches:WETH:q1_2026:mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_accounting:WETH:q1_2026:double_mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_summary_matches:WETH:q1_2026:double_mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_accounting:WETH:q1_2026:stress",
+      "passed": true
+    },
+    {
+      "check": "stateful_summary_matches:WETH:q1_2026:stress",
+      "passed": true
+    },
+    {
+      "check": "stateful_accounting:WETH:aug_sep_2026:mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_summary_matches:WETH:aug_sep_2026:mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_accounting:WETH:aug_sep_2026:double_mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_summary_matches:WETH:aug_sep_2026:double_mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_accounting:WETH:aug_sep_2026:stress",
+      "passed": true
+    },
+    {
+      "check": "stateful_summary_matches:WETH:aug_sep_2026:stress",
+      "passed": true
+    },
+    {
+      "check": "stateful_accounting:cbBTC:year_2025:mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_summary_matches:cbBTC:year_2025:mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_accounting:cbBTC:year_2025:double_mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_summary_matches:cbBTC:year_2025:double_mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_accounting:cbBTC:year_2025:stress",
+      "passed": true
+    },
+    {
+      "check": "stateful_summary_matches:cbBTC:year_2025:stress",
+      "passed": true
+    },
+    {
+      "check": "stateful_accounting:cbBTC:q1_2026:mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_summary_matches:cbBTC:q1_2026:mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_accounting:cbBTC:q1_2026:double_mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_summary_matches:cbBTC:q1_2026:double_mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_accounting:cbBTC:q1_2026:stress",
+      "passed": true
+    },
+    {
+      "check": "stateful_summary_matches:cbBTC:q1_2026:stress",
+      "passed": true
+    },
+    {
+      "check": "stateful_accounting:cbBTC:aug_sep_2026:mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_summary_matches:cbBTC:aug_sep_2026:mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_accounting:cbBTC:aug_sep_2026:double_mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_summary_matches:cbBTC:aug_sep_2026:double_mid",
+      "passed": true
+    },
+    {
+      "check": "stateful_accounting:cbBTC:aug_sep_2026:stress",
+      "passed": true
+    },
+    {
+      "check": "stateful_summary_matches:cbBTC:aug_sep_2026:stress",
+      "passed": true
+    },
+    {
+      "check": "all_stateful_legs_within_5_to_25_usd",
+      "passed": true
+    },
+    {
+      "check": "all_stateful_marked_cash_reserve_at_least_10",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:full_exploratory_trend",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:full_exploratory_momentum",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:full_exploratory_mean_reversion",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:development_trend",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:development_momentum",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:development_mean_reversion",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:walk_forward_1_trend",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:walk_forward_1_momentum",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:walk_forward_1_mean_reversion",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:walk_forward_2_trend",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:walk_forward_2_momentum",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:walk_forward_2_mean_reversion",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:final_holdout_trend",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:final_holdout_momentum",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:final_holdout_mean_reversion",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:holdout_double_cost_trend",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:holdout_double_cost_momentum",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:holdout_double_cost_mean_reversion",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:holdout_gas_010_trend",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:holdout_gas_010_momentum",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:holdout_gas_010_mean_reversion",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:holdout_gas_100_rejected_trend",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:holdout_gas_100_rejected_momentum",
+      "passed": true
+    },
+    {
+      "check": "original_saved_ledgers:holdout_gas_100_rejected_mean_reversion",
+      "passed": true
+    },
+    {
+      "check": "native_selected_unique:ATR_wall_clockmid2026-09-012026-10-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_matches_compressed_source:ATR_wall_clockmid2026-09-012026-10-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_unique:ATR_wall_clockstress2026-09-012026-10-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_matches_compressed_source:ATR_wall_clockstress2026-09-012026-10-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_unique:ATR_vol_wall_clockmid2026-09-012026-10-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_matches_compressed_source:ATR_vol_wall_clockmid2026-09-012026-10-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_unique:ATR_vol_wall_clockstress2026-09-012026-10-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_matches_compressed_source:ATR_vol_wall_clockstress2026-09-012026-10-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_unique:ATR_wall_clockmid2026-04-012026-10-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_matches_compressed_source:ATR_wall_clockmid2026-04-012026-10-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_unique:ATR_wall_clockstress2026-04-012026-10-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_matches_compressed_source:ATR_wall_clockstress2026-04-012026-10-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_unique:ATR_vol_wall_clockmid2026-04-012026-10-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_matches_compressed_source:ATR_vol_wall_clockmid2026-04-012026-10-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_unique:ATR_vol_wall_clockstress2026-04-012026-10-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_matches_compressed_source:ATR_vol_wall_clockstress2026-04-012026-10-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_unique:ATR_wall_clockmid2025-04-012026-04-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_matches_compressed_source:ATR_wall_clockmid2025-04-012026-04-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_unique:ATR_wall_clockstress2025-04-012026-04-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_matches_compressed_source:ATR_wall_clockstress2025-04-012026-04-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_unique:ATR_vol_wall_clockmid2025-04-012026-04-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_matches_compressed_source:ATR_vol_wall_clockmid2025-04-012026-04-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_unique:ATR_vol_wall_clockstress2025-04-012026-04-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_matches_compressed_source:ATR_vol_wall_clockstress2025-04-012026-04-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_unique:ATR_wall_clockmid2025-10-012026-04-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_matches_compressed_source:ATR_wall_clockmid2025-10-012026-04-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_unique:ATR_wall_clockstress2025-10-012026-04-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_matches_compressed_source:ATR_wall_clockstress2025-10-012026-04-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_unique:ATR_vol_wall_clockmid2025-10-012026-04-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_matches_compressed_source:ATR_vol_wall_clockmid2025-10-012026-04-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_unique:ATR_vol_wall_clockstress2025-10-012026-04-01",
+      "passed": true
+    },
+    {
+      "check": "native_selected_matches_compressed_source:ATR_vol_wall_clockstress2025-10-012026-04-01",
+      "passed": true
+    },
+    {
+      "check": "registry164_matches_counts",
+      "passed": true
+    },
+    {
+      "check": "native_gate66_none_pass",
+      "passed": true
+    },
+    {
+      "check": "registry_none_qualified",
+      "passed": true
+    },
+    {
+      "check": "offline_control_verifier_exit0",
+      "passed": true
+    }
+  ],
+  "check_count": 103,
+  "failed_checks": [],
+  "stateful_results": [
+    {
+      "strategy": "S0_stateful",
+      "asset": "WETH",
+      "window": "year_2025",
+      "cost": "mid",
+      "start": "2025-01-01",
+      "end_exclusive": "2026-01-01",
+      "net_return_pct": 10.531376231409453,
+      "geometric_daily_pct": 0.027436432267835542,
+      "profit_factor": 3.2111166322751528,
+      "max_marked_close_drawdown_pct": 4.253304283939697,
+      "closed_cycles": 8,
+      "hold20_return_pct": -2.3405312081649896,
+      "remove_top3_fixed_ledger_pct": -4.762922080945607,
+      "max_leg_usd": 23.95488204276001,
+      "min_marked_cash_usd": 80.00001061948767,
+      "uncertainty_interval": null,
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "S0_stateful",
+      "asset": "WETH",
+      "window": "year_2025",
+      "cost": "double_mid",
+      "start": "2025-01-01",
+      "end_exclusive": "2026-01-01",
+      "net_return_pct": 9.789025795033197,
+      "geometric_daily_pct": 0.02558968205832457,
+      "profit_factor": 2.897866744738321,
+      "max_marked_close_drawdown_pct": 4.4487841233408325,
+      "closed_cycles": 8,
+      "hold20_return_pct": -2.412273798137278,
+      "remove_top3_fixed_ledger_pct": -5.157909965055454,
+      "max_leg_usd": 23.80356305068606,
+      "min_marked_cash_usd": 80.00001556599678,
+      "uncertainty_interval": null,
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "S0_stateful",
+      "asset": "WETH",
+      "window": "year_2025",
+      "cost": "stress",
+      "start": "2025-01-01",
+      "end_exclusive": "2026-01-01",
+      "net_return_pct": 9.225076784536455,
+      "geometric_daily_pct": 0.02417839972135294,
+      "profit_factor": 2.6961265315883804,
+      "max_marked_close_drawdown_pct": 4.607603848090314,
+      "closed_cycles": 8,
+      "hold20_return_pct": -2.468708705882946,
+      "remove_top3_fixed_ledger_pct": -5.438908367229775,
+      "max_leg_usd": 23.68760351854623,
+      "min_marked_cash_usd": 80.0000076983107,
+      "uncertainty_interval": null,
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "S0_stateful",
+      "asset": "WETH",
+      "window": "q1_2026",
+      "cost": "mid",
+      "start": "2026-01-01",
+      "end_exclusive": "2026-04-01",
+      "net_return_pct": -2.8523523085104614,
+      "geometric_daily_pct": -0.032148413087607075,
+      "profit_factor": 0.0,
+      "max_marked_close_drawdown_pct": 3.4859966734849923,
+      "closed_cycles": 4,
+      "hold20_return_pct": -5.980670216602292,
+      "remove_top3_fixed_ledger_pct": -2.8523523085104614,
+      "max_leg_usd": 19.960049876297884,
+      "min_marked_cash_usd": 78.11353774278652,
+      "uncertainty_interval": null,
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "S0_stateful",
+      "asset": "WETH",
+      "window": "q1_2026",
+      "cost": "double_mid",
+      "start": "2026-01-01",
+      "end_exclusive": "2026-04-01",
+      "net_return_pct": -3.155792983558115,
+      "geometric_daily_pct": -0.035623222200509286,
+      "profit_factor": 0.0,
+      "max_marked_close_drawdown_pct": 3.7480513841244845,
+      "closed_cycles": 4,
+      "hold20_return_pct": -6.039689756831095,
+      "remove_top3_fixed_ledger_pct": -3.155792983558115,
+      "max_leg_usd": 19.920229741012907,
+      "min_marked_cash_usd": 77.93122249002249,
+      "uncertainty_interval": null,
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "S0_stateful",
+      "asset": "WETH",
+      "window": "q1_2026",
+      "cost": "stress",
+      "start": "2026-01-01",
+      "end_exclusive": "2026-04-01",
+      "net_return_pct": -3.388058170069854,
+      "geometric_daily_pct": -0.03829025738940617,
+      "profit_factor": 0.0,
+      "max_marked_close_drawdown_pct": 3.9493464222980723,
+      "closed_cycles": 4,
+      "hold20_return_pct": -6.090688200431927,
+      "remove_top3_fixed_ledger_pct": -3.388058170069854,
+      "max_leg_usd": 19.890316855386832,
+      "min_marked_cash_usd": 77.79199001558713,
+      "uncertainty_interval": null,
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "S0_stateful",
+      "asset": "WETH",
+      "window": "aug_sep_2026",
+      "cost": "mid",
+      "start": "2026-08-01",
+      "end_exclusive": "2026-10-01",
+      "net_return_pct": 2.4462878783383957,
+      "geometric_daily_pct": 0.03962826720993462,
+      "profit_factor": 4.734326395845167,
+      "max_marked_close_drawdown_pct": 1.6344405099572135,
+      "closed_cycles": 2,
+      "hold20_return_pct": 8.461799695171223,
+      "remove_top3_fixed_ledger_pct": -0.6550814307662312,
+      "max_leg_usd": 23.146078447204058,
+      "min_marked_cash_usd": 80.00000997957137,
+      "uncertainty_interval": null,
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "S0_stateful",
+      "asset": "WETH",
+      "window": "aug_sep_2026",
+      "cost": "double_mid",
+      "start": "2026-08-01",
+      "end_exclusive": "2026-10-01",
+      "net_return_pct": 2.2766427444555433,
+      "geometric_daily_pct": 0.036910317938976256,
+      "profit_factor": 4.101825099281544,
+      "max_marked_close_drawdown_pct": 1.751880368109604,
+      "closed_cycles": 2,
+      "hold20_return_pct": 8.35231434696719,
+      "remove_top3_fixed_ledger_pct": -0.7339687672856994,
+      "max_leg_usd": 23.099898476207773,
+      "min_marked_cash_usd": 80.0000127309621,
+      "uncertainty_interval": null,
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "S0_stateful",
+      "asset": "WETH",
+      "window": "aug_sep_2026",
+      "cost": "stress",
+      "start": "2026-08-01",
+      "end_exclusive": "2026-10-01",
+      "net_return_pct": 2.153511003510772,
+      "geometric_daily_pct": 0.03493479871807814,
+      "profit_factor": 3.7172894148214546,
+      "max_marked_close_drawdown_pct": 1.8360412222673594,
+      "closed_cycles": 2,
+      "hold20_return_pct": 8.27971066369794,
+      "remove_top3_fixed_ledger_pct": -0.7925217651695449,
+      "max_leg_usd": 23.065227230967633,
+      "min_marked_cash_usd": 80.00000121940559,
+      "uncertainty_interval": null,
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "S0_stateful",
+      "asset": "cbBTC",
+      "window": "year_2025",
+      "cost": "mid",
+      "start": "2025-01-01",
+      "end_exclusive": "2026-01-01",
+      "net_return_pct": -0.8002518172383759,
+      "geometric_daily_pct": -0.002201266232249033,
+      "profit_factor": 0.7960189339269675,
+      "max_marked_close_drawdown_pct": 2.6072430331114727,
+      "closed_cycles": 12,
+      "hold20_return_pct": -1.387834230995864,
+      "remove_top3_fixed_ledger_pct": -3.4999453529117415,
+      "max_leg_usd": 21.283769466529357,
+      "min_marked_cash_usd": 79.02123649402452,
+      "uncertainty_interval": null,
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "S0_stateful",
+      "asset": "cbBTC",
+      "window": "year_2025",
+      "cost": "double_mid",
+      "start": "2025-01-01",
+      "end_exclusive": "2026-01-01",
+      "net_return_pct": -1.7478407797160855,
+      "geometric_daily_pct": -0.004830830896107585,
+      "profit_factor": 0.6141964445662156,
+      "max_marked_close_drawdown_pct": 3.2970342289074805,
+      "closed_cycles": 12,
+      "hold20_return_pct": -1.4629268206137596,
+      "remove_top3_fixed_ledger_pct": -4.19120098825886,
+      "max_leg_usd": 21.138704626476965,
+      "min_marked_cash_usd": 78.33118713470105,
+      "uncertainty_interval": null,
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "S0_stateful",
+      "asset": "cbBTC",
+      "window": "year_2025",
+      "cost": "stress",
+      "start": "2025-01-01",
+      "end_exclusive": "2026-01-01",
+      "net_return_pct": -2.4603974599358196,
+      "geometric_daily_pct": -0.006824893272994181,
+      "profit_factor": 0.5069626335052109,
+      "max_marked_close_drawdown_pct": 3.822052368383755,
+      "closed_cycles": 12,
+      "hold20_return_pct": -1.5207867793363334,
+      "remove_top3_fixed_ledger_pct": -4.714188462407883,
+      "max_leg_usd": 21.030805158669406,
+      "min_marked_cash_usd": 77.81123559410696,
+      "uncertainty_interval": null,
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "S0_stateful",
+      "asset": "cbBTC",
+      "window": "q1_2026",
+      "cost": "mid",
+      "start": "2026-01-01",
+      "end_exclusive": "2026-04-01",
+      "net_return_pct": -1.0050242989026401,
+      "geometric_daily_pct": -0.011222800902488395,
+      "profit_factor": 0.08573555025303088,
+      "max_marked_close_drawdown_pct": 1.616355815794368,
+      "closed_cycles": 3,
+      "hold20_return_pct": -4.605606298488439,
+      "remove_top3_fixed_ledger_pct": -1.0992708938653246,
+      "max_leg_usd": 20.132175643224972,
+      "min_marked_cash_usd": 79.977592142595,
+      "uncertainty_interval": null,
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "S0_stateful",
+      "asset": "cbBTC",
+      "window": "q1_2026",
+      "cost": "double_mid",
+      "start": "2026-01-01",
+      "end_exclusive": "2026-04-01",
+      "net_return_pct": -1.2395363193844844,
+      "geometric_daily_pct": -0.013857735835598461,
+      "profit_factor": 0.011170592006689052,
+      "max_marked_close_drawdown_pct": 1.8092668706416015,
+      "closed_cycles": 3,
+      "hold20_return_pct": -4.669508286247108,
+      "remove_top3_fixed_ledger_pct": -1.253539093158594,
+      "max_leg_usd": 20.091671951944594,
+      "min_marked_cash_usd": 79.85009739028816,
+      "uncertainty_interval": null,
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "S0_stateful",
+      "asset": "cbBTC",
+      "window": "q1_2026",
+      "cost": "stress",
+      "start": "2026-01-01",
+      "end_exclusive": "2026-04-01",
+      "net_return_pct": -1.416537331871723,
+      "geometric_daily_pct": -0.015850587955867912,
+      "profit_factor": 0.0,
+      "max_marked_close_drawdown_pct": 1.955118369561959,
+      "closed_cycles": 3,
+      "hold20_return_pct": -4.722573915493683,
+      "remove_top3_fixed_ledger_pct": -1.416537331871723,
+      "max_leg_usd": 20.061294183484307,
+      "min_marked_cash_usd": 79.7544213654837,
+      "uncertainty_interval": null,
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "S0_stateful",
+      "asset": "cbBTC",
+      "window": "aug_sep_2026",
+      "cost": "mid",
+      "start": "2026-08-01",
+      "end_exclusive": "2026-10-01",
+      "net_return_pct": -0.9387443248058673,
+      "geometric_daily_pct": -0.015460744052753217,
+      "profit_factor": 0.0,
+      "max_marked_close_drawdown_pct": 0.9387443248058625,
+      "closed_cycles": 2,
+      "hold20_return_pct": 6.436314662178205,
+      "remove_top3_fixed_ledger_pct": -0.9387443248058673,
+      "max_leg_usd": 19.955810534378646,
+      "min_marked_cash_usd": 79.56455987614885,
+      "uncertainty_interval": null,
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "S0_stateful",
+      "asset": "cbBTC",
+      "window": "aug_sep_2026",
+      "cost": "double_mid",
+      "start": "2026-08-01",
+      "end_exclusive": "2026-10-01",
+      "net_return_pct": -1.0946187837010086,
+      "geometric_daily_pct": -0.018041877436447695,
+      "profit_factor": 0.0,
+      "max_marked_close_drawdown_pct": 1.0946187837010068,
+      "closed_cycles": 2,
+      "hold20_return_pct": 6.333754063617732,
+      "remove_top3_fixed_ledger_pct": -1.0946187837010086,
+      "max_leg_usd": 19.915748476193436,
+      "min_marked_cash_usd": 79.50209790771845,
+      "uncertainty_interval": null,
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "S0_stateful",
+      "asset": "cbBTC",
+      "window": "aug_sep_2026",
+      "cost": "stress",
+      "start": "2026-08-01",
+      "end_exclusive": "2026-10-01",
+      "net_return_pct": -1.2128505026280862,
+      "geometric_daily_pct": -0.020002352557146885,
+      "profit_factor": 0.0,
+      "max_marked_close_drawdown_pct": 1.2128505026280822,
+      "closed_cycles": 2,
+      "hold20_return_pct": 6.264286696163396,
+      "remove_top3_fixed_ledger_pct": -1.2128505026280862,
+      "max_leg_usd": 19.88631512732267,
+      "min_marked_cash_usd": 79.45465566644621,
+      "uncertainty_interval": null,
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    }
+  ],
+  "original_backtest_results": [
+    {
+      "strategy": "trend",
+      "case": "full_exploratory",
+      "first_candle_utc": "2026-04-29T12:00:00Z",
+      "last_candle_open_utc": "2026-10-12T20:00:00Z",
+      "sample_days": 166.5,
+      "net_return_pct": 5.202300983415675,
+      "geometric_daily_pct": 0.03046409073863554,
+      "profit_factor": 0.8615018236991109,
+      "max_marked_close_drawdown_pct": 3.0320901936258804,
+      "closed_cycles": 8,
+      "mean_daily_return_block_interval_pct": [
+        -0.026801273651391948,
+        0.1096112283602239
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "momentum",
+      "case": "full_exploratory",
+      "first_candle_utc": "2026-04-29T12:00:00Z",
+      "last_candle_open_utc": "2026-10-12T20:00:00Z",
+      "sample_days": 166.5,
+      "net_return_pct": 4.307176280072222,
+      "geometric_daily_pct": 0.025330521671640405,
+      "profit_factor": 0.7132496544929666,
+      "max_marked_close_drawdown_pct": 3.7310140505695366,
+      "closed_cycles": 20,
+      "mean_daily_return_block_interval_pct": [
+        -0.02694420673675752,
+        0.10108043818344359
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "mean_reversion",
+      "case": "full_exploratory",
+      "first_candle_utc": "2026-04-29T12:00:00Z",
+      "last_candle_open_utc": "2026-10-12T20:00:00Z",
+      "sample_days": 166.5,
+      "net_return_pct": -1.681506702194413,
+      "geometric_daily_pct": -0.010184493549936224,
+      "profit_factor": 0.7370365760191036,
+      "max_marked_close_drawdown_pct": 5.1970907640847,
+      "closed_cycles": 20,
+      "mean_daily_return_block_interval_pct": [
+        -0.06115757156892922,
+        0.031863738949154334
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "trend",
+      "case": "development",
+      "first_candle_utc": "2026-04-29T12:00:00Z",
+      "last_candle_open_utc": "2026-07-04T20:00:00Z",
+      "sample_days": 66.5,
+      "net_return_pct": 1.3428321315984704,
+      "geometric_daily_pct": 0.020060599083637776,
+      "profit_factor": 0.5828711546143087,
+      "max_marked_close_drawdown_pct": 1.9947971968401257,
+      "closed_cycles": 3,
+      "mean_daily_return_block_interval_pct": [
+        -0.035121545704195574,
+        0.08238277613871026
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "momentum",
+      "case": "development",
+      "first_candle_utc": "2026-04-29T12:00:00Z",
+      "last_candle_open_utc": "2026-07-04T20:00:00Z",
+      "sample_days": 66.5,
+      "net_return_pct": -0.7782285660106525,
+      "geometric_daily_pct": -0.011747769559566912,
+      "profit_factor": 0.2945584271685575,
+      "max_marked_close_drawdown_pct": 3.7310140505695366,
+      "closed_cycles": 13,
+      "mean_daily_return_block_interval_pct": [
+        -0.0707660930699011,
+        0.04970375410185952
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "mean_reversion",
+      "case": "development",
+      "first_candle_utc": "2026-04-29T12:00:00Z",
+      "last_candle_open_utc": "2026-07-04T20:00:00Z",
+      "sample_days": 66.5,
+      "net_return_pct": -4.336877930455163,
+      "geometric_daily_pct": -0.06665042703066781,
+      "profit_factor": 0.22588964345189047,
+      "max_marked_close_drawdown_pct": 5.1970907640847,
+      "closed_cycles": 8,
+      "mean_daily_return_block_interval_pct": [
+        -0.17362535108626764,
+        0.018170952692998725
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "trend",
+      "case": "walk_forward_1",
+      "first_candle_utc": "2026-07-05T00:00:00Z",
+      "last_candle_open_utc": "2026-08-07T04:00:00Z",
+      "sample_days": 33.333333333333336,
+      "net_return_pct": -1.2481843395738768,
+      "geometric_daily_pct": -0.037674089355621554,
+      "profit_factor": 0.3273546368163653,
+      "max_marked_close_drawdown_pct": 2.431123399448254,
+      "closed_cycles": 4,
+      "mean_daily_return_block_interval_pct": [
+        -0.13682841319611583,
+        0.06323011781646254
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "momentum",
+      "case": "walk_forward_1",
+      "first_candle_utc": "2026-07-05T00:00:00Z",
+      "last_candle_open_utc": "2026-08-07T04:00:00Z",
+      "sample_days": 33.333333333333336,
+      "net_return_pct": -0.68442777633132,
+      "geometric_daily_pct": -0.020601299407052576,
+      "profit_factor": 0.49327736592959615,
+      "max_marked_close_drawdown_pct": 1.3077871559290632,
+      "closed_cycles": 6,
+      "mean_daily_return_block_interval_pct": [
+        -0.06296059139113686,
+        0.03111322312676275
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "mean_reversion",
+      "case": "walk_forward_1",
+      "first_candle_utc": "2026-07-05T00:00:00Z",
+      "last_candle_open_utc": "2026-08-07T04:00:00Z",
+      "sample_days": 33.333333333333336,
+      "net_return_pct": 0.6876971801027532,
+      "geometric_daily_pct": 0.020562413628444354,
+      "profit_factor": null,
+      "max_marked_close_drawdown_pct": 0.4255192971498456,
+      "closed_cycles": 3,
+      "mean_daily_return_block_interval_pct": [
+        -0.0005782369712988909,
+        0.04143856891416628
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "trend",
+      "case": "walk_forward_2",
+      "first_candle_utc": "2026-08-07T08:00:00Z",
+      "last_candle_open_utc": "2026-09-09T12:00:00Z",
+      "sample_days": 33.333333333333336,
+      "net_return_pct": 5.073716782905202,
+      "geometric_daily_pct": 0.14858622741709127,
+      "profit_factor": 0.0,
+      "max_marked_close_drawdown_pct": 1.2892653530026554,
+      "closed_cycles": 1,
+      "mean_daily_return_block_interval_pct": [
+        -0.0590063927051426,
+        0.47072370922240014
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "momentum",
+      "case": "walk_forward_2",
+      "first_candle_utc": "2026-08-07T08:00:00Z",
+      "last_candle_open_utc": "2026-09-09T12:00:00Z",
+      "sample_days": 33.333333333333336,
+      "net_return_pct": 5.56309000444819,
+      "geometric_daily_pct": 0.16254775902138086,
+      "profit_factor": 0.0,
+      "max_marked_close_drawdown_pct": 1.2804744691775283,
+      "closed_cycles": 1,
+      "mean_daily_return_block_interval_pct": [
+        -0.017089757541963343,
+        0.46565120095647067
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "mean_reversion",
+      "case": "walk_forward_2",
+      "first_candle_utc": "2026-08-07T08:00:00Z",
+      "last_candle_open_utc": "2026-09-09T12:00:00Z",
+      "sample_days": 33.333333333333336,
+      "net_return_pct": 1.8249419874138972,
+      "geometric_daily_pct": 0.05426941397459473,
+      "profit_factor": null,
+      "max_marked_close_drawdown_pct": 0.3703257613791866,
+      "closed_cycles": 5,
+      "mean_daily_return_block_interval_pct": [
+        0.01055058160454461,
+        0.10657158290614402
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "trend",
+      "case": "final_holdout",
+      "first_candle_utc": "2026-09-09T16:00:00Z",
+      "last_candle_open_utc": "2026-10-12T20:00:00Z",
+      "sample_days": 33.333333333333336,
+      "net_return_pct": -2.4443091133341532,
+      "geometric_daily_pct": -0.07421279608019749,
+      "profit_factor": 0.0882937246760768,
+      "max_marked_close_drawdown_pct": 2.4443091133341532,
+      "closed_cycles": 6,
+      "mean_daily_return_block_interval_pct": [
+        -0.13983588877542377,
+        0.01158999075375396
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "momentum",
+      "case": "final_holdout",
+      "first_candle_utc": "2026-09-09T16:00:00Z",
+      "last_candle_open_utc": "2026-10-12T20:00:00Z",
+      "sample_days": 33.333333333333336,
+      "net_return_pct": -1.846312960128893,
+      "geometric_daily_pct": -0.0558914767318508,
+      "profit_factor": 0.5149614562676602,
+      "max_marked_close_drawdown_pct": 2.6856572718233496,
+      "closed_cycles": 6,
+      "mean_daily_return_block_interval_pct": [
+        -0.13972863910496838,
+        0.05493015253595422
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "mean_reversion",
+      "case": "final_holdout",
+      "first_candle_utc": "2026-09-09T16:00:00Z",
+      "last_candle_open_utc": "2026-10-12T20:00:00Z",
+      "sample_days": 33.333333333333336,
+      "net_return_pct": 0.1427320607440885,
+      "geometric_daily_pct": 0.004279000407447775,
+      "profit_factor": 1.1802062759129794,
+      "max_marked_close_drawdown_pct": 1.4294785579438418,
+      "closed_cycles": 4,
+      "mean_daily_return_block_interval_pct": [
+        -0.06974243649154364,
+        0.07797744769182119
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "trend",
+      "case": "holdout_double_cost",
+      "first_candle_utc": "2026-09-09T16:00:00Z",
+      "last_candle_open_utc": "2026-10-12T20:00:00Z",
+      "sample_days": 33.333333333333336,
+      "net_return_pct": -2.918325345909012,
+      "geometric_daily_pct": -0.08881320279912064,
+      "profit_factor": 0.05077577308686637,
+      "max_marked_close_drawdown_pct": 2.918325345909012,
+      "closed_cycles": 6,
+      "mean_daily_return_block_interval_pct": [
+        -0.1585468976896513,
+        0.001998362198972889
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "momentum",
+      "case": "holdout_double_cost",
+      "first_candle_utc": "2026-09-09T16:00:00Z",
+      "last_candle_open_utc": "2026-10-12T20:00:00Z",
+      "sample_days": 33.333333333333336,
+      "net_return_pct": -2.3629150405409693,
+      "geometric_daily_pct": -0.07171266184683445,
+      "profit_factor": 0.40787041853430844,
+      "max_marked_close_drawdown_pct": 3.0039417648632494,
+      "closed_cycles": 6,
+      "mean_daily_return_block_interval_pct": [
+        -0.15739672799885354,
+        0.039540625250263986
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "mean_reversion",
+      "case": "holdout_double_cost",
+      "first_candle_utc": "2026-09-09T16:00:00Z",
+      "last_candle_open_utc": "2026-10-12T20:00:00Z",
+      "sample_days": 33.333333333333336,
+      "net_return_pct": -0.1777045776188646,
+      "geometric_daily_pct": -0.005335737429779108,
+      "profit_factor": 0.8129642806629278,
+      "max_marked_close_drawdown_pct": 1.5941118262017162,
+      "closed_cycles": 4,
+      "mean_daily_return_block_interval_pct": [
+        -0.07829429904694439,
+        0.06535477137609158
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "trend",
+      "case": "holdout_gas_010",
+      "first_candle_utc": "2026-09-09T16:00:00Z",
+      "last_candle_open_utc": "2026-10-12T20:00:00Z",
+      "sample_days": 33.333333333333336,
+      "net_return_pct": -3.524309113334123,
+      "geometric_daily_pct": -0.10757944364366834,
+      "profit_factor": 0.01583843340221041,
+      "max_marked_close_drawdown_pct": 3.524309113334123,
+      "closed_cycles": 6,
+      "mean_daily_return_block_interval_pct": [
+        -0.18398328174029807,
+        -0.00887908273922025
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "momentum",
+      "case": "holdout_gas_010",
+      "first_candle_utc": "2026-09-09T16:00:00Z",
+      "last_candle_open_utc": "2026-10-12T20:00:00Z",
+      "sample_days": 33.333333333333336,
+      "net_return_pct": -3.016312960128875,
+      "geometric_daily_pct": -0.09183999066482151,
+      "profit_factor": 0.3124059453361994,
+      "max_marked_close_drawdown_pct": 3.4147352222733907,
+      "closed_cycles": 6,
+      "mean_daily_return_block_interval_pct": [
+        -0.181031135134795,
+        0.020648234147936893
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "mean_reversion",
+      "case": "holdout_gas_010",
+      "first_candle_utc": "2026-09-09T16:00:00Z",
+      "last_candle_open_utc": "2026-10-12T20:00:00Z",
+      "sample_days": 33.333333333333336,
+      "net_return_pct": -0.5772679392558877,
+      "geometric_daily_pct": -0.017366708935706576,
+      "profit_factor": 0.49892033392431445,
+      "max_marked_close_drawdown_pct": 1.8928865121099037,
+      "closed_cycles": 4,
+      "mean_daily_return_block_interval_pct": [
+        -0.08823625542556733,
+        0.05147429951601269
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "trend",
+      "case": "holdout_gas_100_rejected",
+      "first_candle_utc": "2026-09-09T16:00:00Z",
+      "last_candle_open_utc": "2026-10-12T20:00:00Z",
+      "sample_days": 33.333333333333336,
+      "net_return_pct": 0.0,
+      "geometric_daily_pct": 0.0,
+      "profit_factor": null,
+      "max_marked_close_drawdown_pct": 0.0,
+      "closed_cycles": 0,
+      "mean_daily_return_block_interval_pct": [
+        0.0,
+        0.0
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "momentum",
+      "case": "holdout_gas_100_rejected",
+      "first_candle_utc": "2026-09-09T16:00:00Z",
+      "last_candle_open_utc": "2026-10-12T20:00:00Z",
+      "sample_days": 33.333333333333336,
+      "net_return_pct": 0.0,
+      "geometric_daily_pct": 0.0,
+      "profit_factor": null,
+      "max_marked_close_drawdown_pct": 0.0,
+      "closed_cycles": 0,
+      "mean_daily_return_block_interval_pct": [
+        0.0,
+        0.0
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "mean_reversion",
+      "case": "holdout_gas_100_rejected",
+      "first_candle_utc": "2026-09-09T16:00:00Z",
+      "last_candle_open_utc": "2026-10-12T20:00:00Z",
+      "sample_days": 33.333333333333336,
+      "net_return_pct": 0.0,
+      "geometric_daily_pct": 0.0,
+      "profit_factor": null,
+      "max_marked_close_drawdown_pct": 0.0,
+      "closed_cycles": 0,
+      "mean_daily_return_block_interval_pct": [
+        0.0,
+        0.0
+      ],
+      "verification": "saved_ledger_arithmetic_reconciled",
+      "fresh_oos": false
+    }
+  ],
+  "original_partial_exit_reconciliation": [
+    {
+      "case": "full_exploratory_trend",
+      "closed_cycle_net_pnl": -0.3782436622176206,
+      "realized_from_all_saved_fills": 5.067098924780666,
+      "reported_realized_pnl": 5.067098924780666,
+      "still_open_partial_exit_realized_pnl": 5.4453425869982865,
+      "explanation": "Realized PnL includes partial sells of a still-open cycle; PF and completed counts use closed cycles only."
+    },
+    {
+      "case": "full_exploratory_momentum",
+      "closed_cycle_net_pnl": -1.2962238849991827,
+      "realized_from_all_saved_fills": 4.168660724617638,
+      "reported_realized_pnl": 4.168660724617638,
+      "still_open_partial_exit_realized_pnl": 5.464884609616821,
+      "explanation": "Realized PnL includes partial sells of a still-open cycle; PF and completed counts use closed cycles only."
+    },
+    {
+      "case": "walk_forward_2_trend",
+      "closed_cycle_net_pnl": -0.5184155988327177,
+      "realized_from_all_saved_fills": 4.926926988165569,
+      "reported_realized_pnl": 4.926926988165569,
+      "still_open_partial_exit_realized_pnl": 5.4453425869982865,
+      "explanation": "Realized PnL includes partial sells of a still-open cycle; PF and completed counts use closed cycles only."
+    },
+    {
+      "case": "walk_forward_2_momentum",
+      "closed_cycle_net_pnl": -0.05232297658305285,
+      "realized_from_all_saved_fills": 5.412561633033768,
+      "reported_realized_pnl": 5.412561633033768,
+      "still_open_partial_exit_realized_pnl": 5.464884609616821,
+      "explanation": "Realized PnL includes partial sells of a still-open cycle; PF and completed counts use closed cycles only."
+    }
+  ],
+  "native_60m_results": [
+    {
+      "strategy": "ATR_wall_clock",
+      "asset": "WETH",
+      "minutes": 60,
+      "cost": "mid",
+      "start": "2026-09-01",
+      "end_exclusive": "2026-10-01",
+      "status": "RUN_VERIFIED",
+      "net_return_pct": -0.4729492647313549,
+      "geometric_daily_pct": -0.015801125112298992,
+      "profit_factor": 0.2377489550874141,
+      "max_marked_close_drawdown_pct": 0.9476125002320535,
+      "closed_cycles": 2,
+      "net_return_block_interval_pct": null,
+      "hold20_return_pct": 1.6666517764224464,
+      "ledger_plaintext_sha256": "c6d3b4948c94c558693e5727655f758192f717e7a87ec2517e5d59457ea450ab",
+      "source_sha256": "09025d023e030e4b6f8718e1c6d67d626c91241aed734672846701ebbf6925a5",
+      "verification": "saved_selected_summary_matches_compressed_source; raw_native_ledger_not_retrieved",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "ATR_wall_clock",
+      "asset": "WETH",
+      "minutes": 60,
+      "cost": "stress",
+      "start": "2026-09-01",
+      "end_exclusive": "2026-10-01",
+      "status": "RUN_VERIFIED",
+      "net_return_pct": -0.7500703319833946,
+      "geometric_daily_pct": -0.02509343458969546,
+      "profit_factor": 0.009452145896796884,
+      "max_marked_close_drawdown_pct": 1.1524283846124472,
+      "closed_cycles": 2,
+      "net_return_block_interval_pct": null,
+      "hold20_return_pct": 1.5184670256411024,
+      "ledger_plaintext_sha256": "aa2018ccd14a976fcbb497ac9651a2082bfaeec4af0d6331f5dae2302d360a74",
+      "source_sha256": "09025d023e030e4b6f8718e1c6d67d626c91241aed734672846701ebbf6925a5",
+      "verification": "saved_selected_summary_matches_compressed_source; raw_native_ledger_not_retrieved",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "ATR_vol_wall_clock",
+      "asset": "WETH",
+      "minutes": 60,
+      "cost": "mid",
+      "start": "2026-09-01",
+      "end_exclusive": "2026-10-01",
+      "status": "RUN_VERIFIED",
+      "net_return_pct": -0.4729492647313549,
+      "geometric_daily_pct": -0.015801125112298992,
+      "profit_factor": 0.2377489550874141,
+      "max_marked_close_drawdown_pct": 0.9476125002320535,
+      "closed_cycles": 2,
+      "net_return_block_interval_pct": null,
+      "hold20_return_pct": 1.6666517764224464,
+      "ledger_plaintext_sha256": "385c262fd214ae1deae6c88d4bc12742afea9101cd02ae42d4fe98f0e4d3febe",
+      "source_sha256": "09025d023e030e4b6f8718e1c6d67d626c91241aed734672846701ebbf6925a5",
+      "verification": "saved_selected_summary_matches_compressed_source; raw_native_ledger_not_retrieved",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "ATR_vol_wall_clock",
+      "asset": "WETH",
+      "minutes": 60,
+      "cost": "stress",
+      "start": "2026-09-01",
+      "end_exclusive": "2026-10-01",
+      "status": "RUN_VERIFIED",
+      "net_return_pct": -0.7500703319833946,
+      "geometric_daily_pct": -0.02509343458969546,
+      "profit_factor": 0.009452145896796884,
+      "max_marked_close_drawdown_pct": 1.1524283846124472,
+      "closed_cycles": 2,
+      "net_return_block_interval_pct": null,
+      "hold20_return_pct": 1.5184670256411024,
+      "ledger_plaintext_sha256": "9566033352b0edc72d52bc5d9e40b57e6921e907942f1fcba45613a2929904d8",
+      "source_sha256": "09025d023e030e4b6f8718e1c6d67d626c91241aed734672846701ebbf6925a5",
+      "verification": "saved_selected_summary_matches_compressed_source; raw_native_ledger_not_retrieved",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "ATR_wall_clock",
+      "asset": "WETH",
+      "minutes": 60,
+      "cost": "mid",
+      "start": "2026-04-01",
+      "end_exclusive": "2026-10-01",
+      "status": "INCOMPLETE_WARMUP_OR_SCORED",
+      "net_return_pct": null,
+      "geometric_daily_pct": null,
+      "profit_factor": null,
+      "max_marked_close_drawdown_pct": null,
+      "closed_cycles": null,
+      "net_return_block_interval_pct": null,
+      "hold20_return_pct": null,
+      "ledger_plaintext_sha256": "",
+      "source_sha256": "",
+      "verification": "saved_selected_summary_matches_compressed_source; raw_native_ledger_not_retrieved",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "ATR_wall_clock",
+      "asset": "WETH",
+      "minutes": 60,
+      "cost": "stress",
+      "start": "2026-04-01",
+      "end_exclusive": "2026-10-01",
+      "status": "INCOMPLETE_WARMUP_OR_SCORED",
+      "net_return_pct": null,
+      "geometric_daily_pct": null,
+      "profit_factor": null,
+      "max_marked_close_drawdown_pct": null,
+      "closed_cycles": null,
+      "net_return_block_interval_pct": null,
+      "hold20_return_pct": null,
+      "ledger_plaintext_sha256": "",
+      "source_sha256": "",
+      "verification": "saved_selected_summary_matches_compressed_source; raw_native_ledger_not_retrieved",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "ATR_vol_wall_clock",
+      "asset": "WETH",
+      "minutes": 60,
+      "cost": "mid",
+      "start": "2026-04-01",
+      "end_exclusive": "2026-10-01",
+      "status": "INCOMPLETE_WARMUP_OR_SCORED",
+      "net_return_pct": null,
+      "geometric_daily_pct": null,
+      "profit_factor": null,
+      "max_marked_close_drawdown_pct": null,
+      "closed_cycles": null,
+      "net_return_block_interval_pct": null,
+      "hold20_return_pct": null,
+      "ledger_plaintext_sha256": "",
+      "source_sha256": "",
+      "verification": "saved_selected_summary_matches_compressed_source; raw_native_ledger_not_retrieved",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "ATR_vol_wall_clock",
+      "asset": "WETH",
+      "minutes": 60,
+      "cost": "stress",
+      "start": "2026-04-01",
+      "end_exclusive": "2026-10-01",
+      "status": "INCOMPLETE_WARMUP_OR_SCORED",
+      "net_return_pct": null,
+      "geometric_daily_pct": null,
+      "profit_factor": null,
+      "max_marked_close_drawdown_pct": null,
+      "closed_cycles": null,
+      "net_return_block_interval_pct": null,
+      "hold20_return_pct": null,
+      "ledger_plaintext_sha256": "",
+      "source_sha256": "",
+      "verification": "saved_selected_summary_matches_compressed_source; raw_native_ledger_not_retrieved",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "ATR_wall_clock",
+      "asset": "WETH",
+      "minutes": 60,
+      "cost": "mid",
+      "start": "2025-04-01",
+      "end_exclusive": "2026-04-01",
+      "status": "RUN_VERIFIED",
+      "net_return_pct": 3.0605047151675677,
+      "geometric_daily_pct": 0.00825953401071847,
+      "profit_factor": 1.3919067308364652,
+      "max_marked_close_drawdown_pct": 4.5082317130737515,
+      "closed_cycles": 23,
+      "net_return_block_interval_pct": [
+        -6.089445129194847,
+        14.635597732194288
+      ],
+      "hold20_return_pct": 2.7869179951518466,
+      "ledger_plaintext_sha256": "805c30325dcf5d5eba88673e35c8cf885b3e6a9ea8a0ab69e6dd4d0bcef3c2fb",
+      "source_sha256": "09025d023e030e4b6f8718e1c6d67d626c91241aed734672846701ebbf6925a5",
+      "verification": "saved_selected_summary_matches_compressed_source; raw_native_ledger_not_retrieved",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "ATR_wall_clock",
+      "asset": "WETH",
+      "minutes": 60,
+      "cost": "stress",
+      "start": "2025-04-01",
+      "end_exclusive": "2026-04-01",
+      "status": "RUN_VERIFIED",
+      "net_return_pct": -0.18204172295379806,
+      "geometric_daily_pct": -0.0004991977136307233,
+      "profit_factor": 0.9815477119537355,
+      "max_marked_close_drawdown_pct": 5.776809580342901,
+      "closed_cycles": 23,
+      "net_return_block_interval_pct": [
+        -9.062594197926835,
+        11.053329328305097
+      ],
+      "hold20_return_pct": 2.6331498320665205,
+      "ledger_plaintext_sha256": "4928d0bd238f27ab79e79f27d2b361780ea48a9a2da461b242f03228e8a7cbe2",
+      "source_sha256": "09025d023e030e4b6f8718e1c6d67d626c91241aed734672846701ebbf6925a5",
+      "verification": "saved_selected_summary_matches_compressed_source; raw_native_ledger_not_retrieved",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "ATR_vol_wall_clock",
+      "asset": "WETH",
+      "minutes": 60,
+      "cost": "mid",
+      "start": "2025-04-01",
+      "end_exclusive": "2026-04-01",
+      "status": "RUN_VERIFIED",
+      "net_return_pct": 4.943679005754234,
+      "geometric_daily_pct": 0.013221046462017966,
+      "profit_factor": 1.8216305439693457,
+      "max_marked_close_drawdown_pct": 4.002499988946495,
+      "closed_cycles": 20,
+      "net_return_block_interval_pct": [
+        -4.68080611617536,
+        17.63127067006037
+      ],
+      "hold20_return_pct": 2.7869179951518466,
+      "ledger_plaintext_sha256": "f786272d7188d99045080a737e6158c180c35c43aa56984157cfea364eef0bd3",
+      "source_sha256": "09025d023e030e4b6f8718e1c6d67d626c91241aed734672846701ebbf6925a5",
+      "verification": "saved_selected_summary_matches_compressed_source; raw_native_ledger_not_retrieved",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "ATR_vol_wall_clock",
+      "asset": "WETH",
+      "minutes": 60,
+      "cost": "stress",
+      "start": "2025-04-01",
+      "end_exclusive": "2026-04-01",
+      "status": "RUN_VERIFIED",
+      "net_return_pct": 2.08349333279115,
+      "geometric_daily_pct": 0.005649708779935581,
+      "profit_factor": 1.2706198271507243,
+      "max_marked_close_drawdown_pct": 5.134671288128079,
+      "closed_cycles": 20,
+      "net_return_block_interval_pct": [
+        -7.177407503415775,
+        14.226154372725349
+      ],
+      "hold20_return_pct": 2.6331498320665205,
+      "ledger_plaintext_sha256": "5f0f304620fe94a8b09127ca08e5caaef97a05015e56682356419de1e0d03b70",
+      "source_sha256": "09025d023e030e4b6f8718e1c6d67d626c91241aed734672846701ebbf6925a5",
+      "verification": "saved_selected_summary_matches_compressed_source; raw_native_ledger_not_retrieved",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "ATR_wall_clock",
+      "asset": "WETH",
+      "minutes": 60,
+      "cost": "mid",
+      "start": "2025-10-01",
+      "end_exclusive": "2026-04-01",
+      "status": "RUN_VERIFIED",
+      "net_return_pct": -2.2992169449831152,
+      "geometric_daily_pct": -0.012779739408960494,
+      "profit_factor": 0.13177872054402764,
+      "max_marked_close_drawdown_pct": 2.8429344681897284,
+      "closed_cycles": 8,
+      "net_return_block_interval_pct": null,
+      "hold20_return_pct": -9.94296171283146,
+      "ledger_plaintext_sha256": "8979726c0c4df9f93ea9ec9fe2499f38c676e7328dbbebc632f6ba5548fa3478",
+      "source_sha256": "09025d023e030e4b6f8718e1c6d67d626c91241aed734672846701ebbf6925a5",
+      "verification": "saved_selected_summary_matches_compressed_source; raw_native_ledger_not_retrieved",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "ATR_wall_clock",
+      "asset": "WETH",
+      "minutes": 60,
+      "cost": "stress",
+      "start": "2025-10-01",
+      "end_exclusive": "2026-04-01",
+      "status": "RUN_VERIFIED",
+      "net_return_pct": -3.389134120820458,
+      "geometric_daily_pct": -0.018942693488105258,
+      "profit_factor": 0.021939295670775117,
+      "max_marked_close_drawdown_pct": 3.6239086896245443,
+      "closed_cycles": 8,
+      "net_return_block_interval_pct": null,
+      "hold20_return_pct": -10.033185627848528,
+      "ledger_plaintext_sha256": "5d75f21c1bc6b6d2d70be3c9a058ff17aec06b6682f2fa626e35b0125053f31a",
+      "source_sha256": "09025d023e030e4b6f8718e1c6d67d626c91241aed734672846701ebbf6925a5",
+      "verification": "saved_selected_summary_matches_compressed_source; raw_native_ledger_not_retrieved",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "ATR_vol_wall_clock",
+      "asset": "WETH",
+      "minutes": 60,
+      "cost": "mid",
+      "start": "2025-10-01",
+      "end_exclusive": "2026-04-01",
+      "status": "RUN_VERIFIED",
+      "net_return_pct": -2.2992169449831152,
+      "geometric_daily_pct": -0.012779739408960494,
+      "profit_factor": 0.13177872054402764,
+      "max_marked_close_drawdown_pct": 2.8429344681897284,
+      "closed_cycles": 8,
+      "net_return_block_interval_pct": null,
+      "hold20_return_pct": -9.94296171283146,
+      "ledger_plaintext_sha256": "b82b6e9a5e583df47ddd5f6ae43ff423e589fe71c6675fcb0aea830811046f10",
+      "source_sha256": "09025d023e030e4b6f8718e1c6d67d626c91241aed734672846701ebbf6925a5",
+      "verification": "saved_selected_summary_matches_compressed_source; raw_native_ledger_not_retrieved",
+      "fresh_oos": false
+    },
+    {
+      "strategy": "ATR_vol_wall_clock",
+      "asset": "WETH",
+      "minutes": 60,
+      "cost": "stress",
+      "start": "2025-10-01",
+      "end_exclusive": "2026-04-01",
+      "status": "RUN_VERIFIED",
+      "net_return_pct": -3.389134120820458,
+      "geometric_daily_pct": -0.018942693488105258,
+      "profit_factor": 0.021939295670775117,
+      "max_marked_close_drawdown_pct": 3.6239086896245443,
+      "closed_cycles": 8,
+      "net_return_block_interval_pct": null,
+      "hold20_return_pct": -10.033185627848528,
+      "ledger_plaintext_sha256": "606a9a80e08bc93123871a901f644d59e635dcaac47cfffb99009aa3ec2e42e0",
+      "source_sha256": "09025d023e030e4b6f8718e1c6d67d626c91241aed734672846701ebbf6925a5",
+      "verification": "saved_selected_summary_matches_compressed_source; raw_native_ledger_not_retrieved",
+      "fresh_oos": false
+    }
+  ],
+  "registry_summary": {
+    "identified_paper_candidates": [],
+    "indexed_items": 164,
+    "family_labels": 32,
+    "stage_counts": {
+      "CONTROL_OR_REFERENCE": 45,
+      "DATA_BLOCKED": 14,
+      "EXECUTED": 84,
+      "OUTSIDE_POLICY": 9,
+      "PRIOR_REPRODUCED": 5,
+      "RULE_BLOCKED": 7
+    },
+    "native_outcomes": {
+      "DIAGNOSTIC": 31,
+      "EXECUTED_AND_VERIFIED": 28,
+      "FAIL": 16,
+      "INSUFFICIENT": 2,
+      "INSUFFICIENT_DATA": 12,
+      "INSUFFICIENT_DEFINITION": 7,
+      "NONSTRATEGY_OR_DUPLICATE": 45,
+      "OUTSIDE_REQUESTED_SPOT_CONSTRAINTS": 2,
+      "OUTSIDE_SPOT": 7,
+      "RUN_VERIFIED": 9,
+      "VALID_PRIOR_REPRODUCED": 5
+    },
+    "scope": "Protocol-specific variants, controls, diagnostics, leads and work tracks. Seven shared intelligence registrations are joined. Economic aliases across different protocol engines are not independent hypotheses.",
+    "paper_recommendation": "NONE_QUALIFIED",
+    "real_capital_authorized_usd": 0
+  },
+  "annual_index": {
+    "rows": 185,
+    "max_saved_stress_geometric_daily_pct": 0.02421604169305161,
+    "independent_hypotheses": false
+  },
+  "native_gate_summary": {
+    "evaluated_groups": 66,
+    "passing_groups": 0,
+    "native_trade_threshold": 10,
+    "satisfies_authoritative_trade_threshold": false,
+    "annual_and_terminal_six_month_windows_overlap": true
+  },
+  "data_availability": {
+    "historical_raw_provider_candles_in_data_directory": false,
+    "data_directory_files": [
+      "data/SYNTHETIC_example_daily_returns.csv"
+    ],
+    "original_saved_backtest_ledgers": {
+      "runs": 24,
+      "files": 125,
+      "reconciled_from_saved_csvs": true,
+      "provider_sha256": "283346087387fac0d312971e8c408c16d184212efe1458e06b692d0daf351e30"
+    },
+    "stateful_saved_ledgers_downloaded_and_hash_verified": true,
+    "stateful_raw_provider_sources": {
+      "chain_id": 8453,
+      "end_exclusive_utc": "2026-10-27T00:00:00Z",
+      "exchange": "Uniswap V3",
+      "historical_observation_only": true,
+      "identity_evidence_path": "reports/strat01/2026-10-27-base-identity-observed.json",
+      "identity_evidence_sha256": "81d6b7597f4767f540bbfd4ec7b2a85d9b12f8122c93d1234145cb206597faa9",
+      "markets": {
+        "WETH": {
+          "expected_rows": 4536,
+          "fee_ppm": 500,
+          "first_open_utc": "2024-10-01T00:00:00Z",
+          "http_at_original_capture": 200,
+          "last_open_utc": "2026-10-26T20:00:00Z",
+          "missing_4h_opens_utc": [
+            "2026-06-25T16:00:00Z",
+            "2026-06-25T20:00:00Z",
+            "2026-06-26T00:00:00Z",
+            "2026-06-26T04:00:00Z",
+            "2026-06-26T08:00:00Z",
+            "2026-06-26T12:00:00Z",
+            "2026-06-26T16:00:00Z",
+            "2026-06-26T20:00:00Z",
+            "2026-06-27T00:00:00Z",
+            "2026-06-27T04:00:00Z",
+            "2026-06-27T08:00:00Z",
+            "2026-06-27T12:00:00Z",
+            "2026-06-27T16:00:00Z"
+          ],
+          "pair_id": 4564367,
+          "pool_address": "0xd0b53d9277642d899df5c87a3966a349a798f224",
+          "raw_filename": "WETH.jsonl",
+          "response_bytes": 1027713,
+          "response_sha256": "633f1681a8381d164ea05994e545f61ac4c5f2804428df7bf3cf7a09ca4abfd1",
+          "rows": 4523,
+          "scored_rows": 3971,
+          "url": "https://tradingstrategy.ai/api/candles-jsonl?pair_ids=4564367&time_bucket=4h&start=2024-10-01T00%3A00%3A00&end=2026-10-26T23%3A59%3A59&max_bytes=3000000",
+          "warmup_rows": 552,
+          "zero_volume_rows": 0
+        },
+        "cbBTC": {
+          "expected_rows": 4536,
+          "fee_ppm": 500,
+          "first_open_utc": "2024-10-01T00:00:00Z",
+          "http_at_original_capture": 200,
+          "last_open_utc": "2026-10-26T20:00:00Z",
+          "missing_4h_opens_utc": [
+            "2026-06-25T16:00:00Z",
+            "2026-06-25T20:00:00Z",
+            "2026-06-26T00:00:00Z",
+            "2026-06-26T04:00:00Z",
+            "2026-06-26T08:00:00Z",
+            "2026-06-26T12:00:00Z",
+            "2026-06-26T16:00:00Z",
+            "2026-06-26T20:00:00Z",
+            "2026-06-27T00:00:00Z",
+            "2026-06-27T04:00:00Z",
+            "2026-06-27T08:00:00Z",
+            "2026-06-27T12:00:00Z",
+            "2026-06-27T16:00:00Z"
+          ],
+          "pair_id": 4705508,
+          "pool_address": "0xfbb6eed8e7aa03b138556eedaf5d271a5e1e43ef",
+          "raw_filename": "cbBTC.jsonl",
+          "response_bytes": 1020875,
+          "response_sha256": "d14de847f54d0dee883fd1065bea1880f1a64d863998b3bbc09dadf5e52128f9",
+          "rows": 4523,
+          "scored_rows": 3971,
+          "url": "https://tradingstrategy.ai/api/candles-jsonl?pair_ids=4705508&time_bucket=4h&start=2024-10-01T00%3A00%3A00&end=2026-10-26T23%3A59%3A59&max_bytes=3000000",
+          "warmup_rows": 552,
+          "zero_volume_rows": 0
+        }
+      },
+      "missing_bar_treatment": "Retain gaps; no inferred price or volume.",
+      "provider": "Trading Strategy",
+      "score_start_utc": "2025-01-01T00:00:00Z",
+      "source_publication_time_known": false,
+      "source_snapshot_acquired_utc": "2026-10-31T17:12:12Z",
+      "time_bucket": "4h",
+      "warmup_start_utc": "2024-10-01T00:00:00Z"
+    },
+    "stateful_provider_source_hashes": {
+      "WETH": "633f1681a8381d164ea05994e545f61ac4c5f2804428df7bf3cf7a09ca4abfd1",
+      "cbBTC": "d14de847f54d0dee883fd1065bea1880f1a64d863998b3bbc09dadf5e52128f9"
+    },
+    "native_clock_raw_execution_ledgers": "NOT_RETRIEVED; only saved metrics and ledger SHA references verified",
+    "complete_engine_backtest_reproduction": "NOT_PERFORMED; raw provider candles absent",
+    "raw_wallet_trade_evidence": "NOT_ACQUIRED; no independently qualified whole-wallet cashflow-adjusted geometric equity"
+  },
+  "limitations": [
+    "All reviewed history already seen. Reconciliation supplies no fresh OOS, paper days or live fills.",
+    "Stateful93 cycles sum three cost copies of31 asset-window cycles; same candles across methods/costs and separate reset accounts are not independent opportunities or continuous compounded performance.",
+    "S0 recovered marks allow arithmetic drawdown validation; raw candle prices and intrabar executable prices were not independently verified.",
+    "Original moving-block intervals describe mean daily return, not a selection-adjusted geometric-profit lower bound. Native block intervals describe saved log-return-path net returns and exclude selection uncertainty.",
+    "Native incomplete windows have NULL metrics; zero-trade rejected-order scenarios are measured flat accounts, not profitable strategies.",
+    "Historical cost scenarios do not establish actual +60-second follower quotes, full L1/L2 gas, failed attempts, slippage, impact or inclusion costs.",
+    "The older all-strategy phrase subsequent six-month is temporally misleading: native six-month windows end on the same date as and overlap their annual windows.",
+    "Hypothetical100-dollar total budget authorizes no deposit or live transaction."
+  ],
+  "remaining_work": {
+    "new_financial_experiment_preregistered": false,
+    "new_financial_experiment_justified_now": false,
+    "reason": "No fresh untouched source or executable follower-cost dataset has been verified. Repeating the seen candles or tuning would not resolve qualification.",
+    "bounded_evidence_preservation": [
+      "COMPLETED: exact116736-byte ZIP preserved in reports/strat01/2026-11-01-stateful-causal/stateful-historical-ledgers.zip; upstream artifact expiry does not remove this copy.",
+      "If exact engine reproduction is later required, recover lawfully retained provider bytes with recorded hashes and the frozen source/engine; do not relabel it OOS.",
+      "For native60m, obtain the original ledger artifact only to validate reported PF/mark accounting; selected summary cross-check is complete."
+    ],
+    "qualification_dependencies": [
+      "194 genuinely contiguous eligible paired4h observations",
+      "Exact20-USDC quotes at signal+60s with independently recorded executable total costs",
+      "Frozen untouched OOS followed by90 genuinely elapsed prospective calendar days",
+      "Sufficient independent completed cycles, PF>=1.5, DD<=10%, positive base and stress geometric account results with temporal uncertainty"
+    ]
+  },
+  "commands": [
+    {
+      "command": "python /tmp/arz-quant-audit/audit_saved_results.py (initial draft check)",
+      "exit_code": 1,
+      "failure_preserved": "Initial audit incorrectly equated closed-cycle PnL with all realized PnL in4 original scenarios. Saved fills prove partial sells in still-open cycles. Audit corrected to reconcile all saved fill realized PnL plus marked unrealized PnL, preserving the4 case details; no source result modified."
+    },
+    {
+      "command": "PYTHONPATH=src:. python scripts/verify_research_control.py",
+      "exit_code": 0,
+      "stdout": "{\n  \"checkpoint_id\": \"ARZ-2026-10-31-CONTROL-14\",\n  \"evidence_count\": 38,\n  \"financial_decision\": \"NO-GO\",\n  \"live_trading\": \"DISABLED\",\n  \"next_work\": \"WAL-01\",\n  \"pr_count\": 13,\n  \"scope\": \"OFFLINE_CONSISTENCY_ONLY_REMOTE_FRESHNESS_NOT_PROVED\",\n  \"task_count\": 9\n}",
+      "stderr": "",
+      "scope": "offline consistency only; no remote freshness or financial reproduction claimed"
+    },
+    {
+      "command": "GitHub fetch_workflow_run_artifacts(repo_full_name=DashSaman/Arz,run_id=41308328518)",
+      "success": true
+    },
+    {
+      "command": "GitHub download_workflow_artifact(repo_full_name=DashSaman/Arz,artifact_id=13084406841,file_name=arz-strat01-stateful-historical-capped-no-go.zip)",
+      "success": true
+    },
+    {
+      "command": "Python urllib.request.urlopen(connector-provided permitted download URL,timeout=45), save ZIP, hashlib.sha256, zipfile CSV extraction",
+      "exit_code": 0
+    },
+    {
+      "command": "python /tmp/arz-quant-audit/audit_saved_results.py",
+      "exit_code": 0,
+      "script_sha256": "b76001cccdf3f65e662ea18e593a1eab8ef23c01224924c611de3e94b24261a9",
+      "scope": "read existing CSV/JSON; accounting/hash/summary checks only; no strategy engine calls"
+    },
+    {
+      "command": "rg --files reports/strat01 reports/backtests research/strat01 research/multi_edge_spot | sort",
+      "shell_exit_code": 0,
+      "failure_preserved": "rg reported missing research/multi_edge_spot; pipeline exit masked rg error. Inventory was subsequently read with pathlib; absence preserved."
+    },
+    {
+      "command": "sed -n '1,110p' docs/en/roadmap.md && sed -n '1,110p' docs/fa/roadmap.md && cat reports/tests/latest.json",
+      "exit_code": 2,
+      "failure_preserved": "wrong guessed roadmap path; subsequently read actual docs/en/30-day-roadmap.md"
+    },
+    {
+      "command": "cat reports/strat01/2026-11-01-stateful-cap/historical_summary.csv reports/strat01/2026-11-01-stateful-cap/independent_reconciliation.json reports/strat01/2026-11-01-weth-60m-native/audit.json reports/strat01/2026-11-01-weth-60m-native/observed_native_periods.csv",
+      "exit_code": 1,
+      "failure_preserved": "first two guessed paths absent; subsequently read correct stateful-causal paths"
+    },
+    {
+      "command": "Python parse JSON, count164 strategy-disposition CSV records, verify all relative EN/FA document links",
+      "exit_code": 0
+    },
+    {
+      "command": "python -m py_compile scripts/verify_strat01_saved_quant.py",
+      "exit_code": 0,
+      "scope": "syntax only; root will run the durable verifier once"
+    }
+  ],
+  "verification_algorithm": "SHA256 of original bytes; independently sum saved buy/sell notional and fees by cycle and account; check cash/inventory transfers and causal timestamp ordering; verify close-mark drawdown from saved equity, final account return, closed counts, PF=sum positive closed net PnL/abs(sum negative closed net PnL), and geometric return=(final_equity/100)^(1/calendar_days)-1. Compare selected native16 rows to compressed original source. No strategy or bootstrap rerun.",
+  "local_hashed_manifest": [
+    {
+      "path": "data/SYNTHETIC_example_daily_returns.csv",
+      "size_bytes": 127,
+      "sha256": "fd02c2cdd690d807fb7184d4820e77fbbf6a948205c3086eb51a0b65e2349513"
+    },
+    {
+      "path": "docs/en/profit_qualification_20261026.md",
+      "size_bytes": 2554,
+      "sha256": "d4197f6271c37f0881f46691efc676e1f7355f87a5d69c309795cc9a4d4e10cb"
+    },
+    {
+      "path": "docs/en/strat01_stateful_causal_20261101.md",
+      "size_bytes": 3869,
+      "sha256": "27560b6fe6e2a5c5a02b96fe7bf3b815e254fa5a93e96319106a6d45e38bd3b1"
+    },
+    {
+      "path": "docs/en/strat01_weth_60m_native_falsification_20261101.md",
+      "size_bytes": 2804,
+      "sha256": "9244ecbbabaf5cedcda8a5793aeaf734e3d04fbf8e33eb5eb2d1bf4ddd049353"
+    },
+    {
+      "path": "reports/backtests/benchmarks.csv",
+      "size_bytes": 6937,
+      "sha256": "b9e6ffa2f45b1b17bb9470999ebb2e9578dd16be1087be6ef73c92b7ca15e61c"
+    },
+    {
+      "path": "reports/backtests/development_mean_reversion.json",
+      "size_bytes": 3705,
+      "sha256": "b45c83aa180c1d63d2fb6f0e9983b1c2a56711bef1f59a802d3c7e1c2050002c"
+    },
+    {
+      "path": "reports/backtests/development_mean_reversion_closed_trades.csv",
+      "size_bytes": 804,
+      "sha256": "0b8f02e5d5dd580e91b4b26992172f7658508ada158693ea2b07a83c51bf2f41"
+    },
+    {
+      "path": "reports/backtests/development_mean_reversion_equity.csv",
+      "size_bytes": 29347,
+      "sha256": "c839ae6c450e160f539dea531a64357f35af306249241f07a6bbe97e930d1a22"
+    },
+    {
+      "path": "reports/backtests/development_mean_reversion_events.csv",
+      "size_bytes": 11,
+      "sha256": "27ca1cadc8c07dfdb79bccee18eaf4da4825f0217c7e7a4e95faa66c23211360"
+    },
+    {
+      "path": "reports/backtests/development_mean_reversion_fills.csv",
+      "size_bytes": 3700,
+      "sha256": "07b9124a2620cde5d22781681f8bfc9556164cd6526e763071ca5b9e95c74ef1"
+    },
+    {
+      "path": "reports/backtests/development_momentum.json",
+      "size_bytes": 3676,
+      "sha256": "8547790c91d006287b0bd47c792b29e91896911b7c18e9b6773eecc0a1284261"
+    },
+    {
+      "path": "reports/backtests/development_momentum_closed_trades.csv",
+      "size_bytes": 1276,
+      "sha256": "5919778bf558b715e06356337670bf90fb0d2e379b6b5a8b289de34fe58e85b0"
+    },
+    {
+      "path": "reports/backtests/development_momentum_equity.csv",
+      "size_bytes": 28792,
+      "sha256": "7fe8546838f3093474f531659c5f19a5b15426928e21398c59522685acba1004"
+    },
+    {
+      "path": "reports/backtests/development_momentum_events.csv",
+      "size_bytes": 11,
+      "sha256": "27ca1cadc8c07dfdb79bccee18eaf4da4825f0217c7e7a4e95faa66c23211360"
+    },
+    {
+      "path": "reports/backtests/development_momentum_fills.csv",
+      "size_bytes": 6003,
+      "sha256": "9b7edebf7108433c814ce0f3a312dfea5901f56b6b35cf80b5ee8610bc603dde"
+    },
+    {
+      "path": "reports/backtests/development_trend.json",
+      "size_bytes": 3321,
+      "sha256": "162f6700402bf10374beb2116132e8d29cd481aa17f0df869ba16ac7afa24ebd"
+    },
+    {
+      "path": "reports/backtests/development_trend_closed_trades.csv",
+      "size_bytes": 355,
+      "sha256": "4def40c5a21d81b647322a3573070667f520fe6441377de02982624c79becbf0"
+    },
+    {
+      "path": "reports/backtests/development_trend_equity.csv",
+      "size_bytes": 26181,
+      "sha256": "3e8fd94ef0c2aef0bee593a414f7fa2fd22a49152051f1846b797d1fd613254d"
+    },
+    {
+      "path": "reports/backtests/development_trend_events.csv",
+      "size_bytes": 11,
+      "sha256": "27ca1cadc8c07dfdb79bccee18eaf4da4825f0217c7e7a4e95faa66c23211360"
+    },
+    {
+      "path": "reports/backtests/development_trend_fills.csv",
+      "size_bytes": 1638,
+      "sha256": "42174c6abb1d6855d7d1a5f70a4b4503ebe1ee9e56e517eee5c62114b5f6e6cb"
+    },
+    {
+      "path": "reports/backtests/equity_overview.png",
+      "size_bytes": 132424,
+      "sha256": "4cf5f12ef2de41544869888298f48f27ae89481b6f9c17367af79144485841c4"
+    },
+    {
+      "path": "reports/backtests/final_holdout_mean_reversion.json",
+      "size_bytes": 2887,
+      "sha256": "05472ac2947dda8d54c4e8959ac751235961180e2eb8728f391cb9c0ff74f3f1"
+    },
+    {
+      "path": "reports/backtests/final_holdout_mean_reversion_closed_trades.csv",
+      "size_bytes": 437,
+      "sha256": "4494d64417d81db538400ac5d10d6dcf59ef4f5b499f121149102805483b0c6b"
+    },
+    {
+      "path": "reports/backtests/final_holdout_mean_reversion_equity.csv",
+      "size_bytes": 14702,
+      "sha256": "4126e8caf07b88af114b2e4a62caa4da9b41a8d97c9180dad499dd904fa88ed6"
+    },
+    {
+      "path": "reports/backtests/final_holdout_mean_reversion_events.csv",
+      "size_bytes": 11,
+      "sha256": "27ca1cadc8c07dfdb79bccee18eaf4da4825f0217c7e7a4e95faa66c23211360"
+    },
+    {
+      "path": "reports/backtests/final_holdout_mean_reversion_fills.csv",
+      "size_bytes": 1909,
+      "sha256": "17966742101ea18b928fdd9e3696061f8ecbaeb112b2a0a1eeeb290db421b533"
+    },
+    {
+      "path": "reports/backtests/final_holdout_momentum.json",
+      "size_bytes": 3019,
+      "sha256": "6ceaac66faabf9721a156ba23d0e2c47f6a970bc07782a0581a6ba1a3ba439d9"
+    },
+    {
+      "path": "reports/backtests/final_holdout_momentum_closed_trades.csv",
+      "size_bytes": 625,
+      "sha256": "d91b3b7e0812f558810cb2a3c1393dde4779a7978bc48c3a50ef307d758ef664"
+    },
+    {
+      "path": "reports/backtests/final_holdout_momentum_equity.csv",
+      "size_bytes": 14458,
+      "sha256": "a19f0275354a910eaa57afc6b17dc7a287e7da36c85c42f616c5fa1a648bf02a"
+    },
+    {
+      "path": "reports/backtests/final_holdout_momentum_events.csv",
+      "size_bytes": 11,
+      "sha256": "27ca1cadc8c07dfdb79bccee18eaf4da4825f0217c7e7a4e95faa66c23211360"
+    },
+    {
+      "path": "reports/backtests/final_holdout_momentum_fills.csv",
+      "size_bytes": 2956,
+      "sha256": "9356769db943d8d1417800ba2a795c370439a452971eef9a82282b6cc5a764da"
+    },
+    {
+      "path": "reports/backtests/final_holdout_trend.json",
+      "size_bytes": 3129,
+      "sha256": "706e7567b47eeac6c1f96e56da3235e5bf9946291df8e8f1e88ff6b4a68cc13c"
+    },
+    {
+      "path": "reports/backtests/final_holdout_trend_closed_trades.csv",
+      "size_bytes": 623,
+      "sha256": "c46a3fe97c64273c973abca7ec308a3c75437b711c9f484158559dfb53a02e48"
+    },
+    {
+      "path": "reports/backtests/final_holdout_trend_equity.csv",
+      "size_bytes": 16237,
+      "sha256": "2f9d847ea098b41e72d8f461c3d07b4ccc3dbbbb12b9a30c1e6d16d9e287bb77"
+    },
+    {
+      "path": "reports/backtests/final_holdout_trend_events.csv",
+      "size_bytes": 11,
+      "sha256": "27ca1cadc8c07dfdb79bccee18eaf4da4825f0217c7e7a4e95faa66c23211360"
+    },
+    {
+      "path": "reports/backtests/final_holdout_trend_fills.csv",
+      "size_bytes": 2708,
+      "sha256": "487099371c7d144f0e4311cfb8a58379f67dec15a8357e28ea36a3501b3338f6"
+    },
+    {
+      "path": "reports/backtests/full_exploratory_mean_reversion.json",
+      "size_bytes": 5481,
+      "sha256": "1f6ba4d2c84f1b36140674be434902f8240ffa7577bbea756182a0723a6a2217"
+    },
+    {
+      "path": "reports/backtests/full_exploratory_mean_reversion_closed_trades.csv",
+      "size_bytes": 1899,
+      "sha256": "34fd4c89cf950bf81513a8062be2ff0bc01099c8d5c1ca987e082816782158b7"
+    },
+    {
+      "path": "reports/backtests/full_exploratory_mean_reversion_equity.csv",
+      "size_bytes": 71263,
+      "sha256": "ddebe1973eada0924937a7aa86e56374e46fde35472c502191786b218b23663c"
+    },
+    {
+      "path": "reports/backtests/full_exploratory_mean_reversion_events.csv",
+      "size_bytes": 11,
+      "sha256": "27ca1cadc8c07dfdb79bccee18eaf4da4825f0217c7e7a4e95faa66c23211360"
+    },
+    {
+      "path": "reports/backtests/full_exploratory_mean_reversion_fills.csv",
+      "size_bytes": 9102,
+      "sha256": "d51a67cefc4c5c80d159ccc6c7e5a6d4424390a2c7dcb8e661ee7af79b905921"
+    },
+    {
+      "path": "reports/backtests/full_exploratory_momentum.json",
+      "size_bytes": 6199,
+      "sha256": "10092224e289380755c9d0494ef5fb4d4fa71c38f03be511e19dbfb87d647521"
+    },
+    {
+      "path": "reports/backtests/full_exploratory_momentum_closed_trades.csv",
+      "size_bytes": 1923,
+      "sha256": "f294e3be554fb752d3e7039c1b36623d50625d0f6bc847f9f837b927834e69e3"
+    },
+    {
+      "path": "reports/backtests/full_exploratory_momentum_equity.csv",
+      "size_bytes": 80924,
+      "sha256": "750ddc9ab2de9c15c319461b9f99de3ca866addfc69aa441783ced0a87e05321"
+    },
+    {
+      "path": "reports/backtests/full_exploratory_momentum_events.csv",
+      "size_bytes": 7839,
+      "sha256": "93e1efbed765bfaededade6eb32b93322cc75ee8735dadef279235239e7453bf"
+    },
+    {
+      "path": "reports/backtests/full_exploratory_momentum_fills.csv",
+      "size_bytes": 9281,
+      "sha256": "a0117fc115545ec57e983a03b2766cb1097dc97e96a80201d3b020ac399d88e2"
+    },
+    {
+      "path": "reports/backtests/full_exploratory_trend.json",
+      "size_bytes": 6081,
+      "sha256": "0aac29133dca2eb2c74fe6ff49112aa25a01df0e499e4844a018756cc93c859d"
+    },
+    {
+      "path": "reports/backtests/full_exploratory_trend_closed_trades.csv",
+      "size_bytes": 804,
+      "sha256": "6b67adf7087cd57a59240ec5187644cbe016f94a56e720105944e2f90fff37b1"
+    },
+    {
+      "path": "reports/backtests/full_exploratory_trend_equity.csv",
+      "size_bytes": 80857,
+      "sha256": "df06ff14758e3aa6d962eaa4e4d3881c31900bb483be6fcf4d0f5eb0c4b43fa9"
+    },
+    {
+      "path": "reports/backtests/full_exploratory_trend_events.csv",
+      "size_bytes": 6629,
+      "sha256": "9b999d122f5469222b6b237f91168cc1297c07648caf4d13c261c88206988341"
+    },
+    {
+      "path": "reports/backtests/full_exploratory_trend_fills.csv",
+      "size_bytes": 3984,
+      "sha256": "e902ca438aeed7dab380ed1b7ce066c8ed8d8576cac68aca643c8283604ebf3a"
+    },
+    {
+      "path": "reports/backtests/holdout_cost_stress.png",
+      "size_bytes": 46538,
+      "sha256": "5abd3c5ea5f3d4798796ceda081199699a490f979946f8b9a2a6f3fe4e9ba875"
+    },
+    {
+      "path": "reports/backtests/holdout_double_cost_mean_reversion.json",
+      "size_bytes": 2902,
+      "sha256": "55084c05c67bc7321295bf1a238b05b4bf43a0b3947d3901da905b1b2046ffcb"
+    },
+    {
+      "path": "reports/backtests/holdout_double_cost_mean_reversion_closed_trades.csv",
+      "size_bytes": 447,
+      "sha256": "7b8d2b635f82b682cd18762c0c957464221feb18fd330aba8603ad5486996486"
+    },
+    {
+      "path": "reports/backtests/holdout_double_cost_mean_reversion_equity.csv",
+      "size_bytes": 14492,
+      "sha256": "695c49680746505ef0cc94aae5d31d62976a921065c8af50c2df79ccd47fef82"
+    },
+    {
+      "path": "reports/backtests/holdout_double_cost_mean_reversion_events.csv",
+      "size_bytes": 11,
+      "sha256": "27ca1cadc8c07dfdb79bccee18eaf4da4825f0217c7e7a4e95faa66c23211360"
+    },
+    {
+      "path": "reports/backtests/holdout_double_cost_mean_reversion_fills.csv",
+      "size_bytes": 1933,
+      "sha256": "ff325cc77d7995fe56bada02adfa5bac85889330d677f532f5980fe3b8a88679"
+    },
+    {
+      "path": "reports/backtests/holdout_double_cost_momentum.json",
+      "size_bytes": 3003,
+      "sha256": "3cded6b1c2ff3f297313a058500a88db531b6c42432848435877667f4fa5eb1b"
+    },
+    {
+      "path": "reports/backtests/holdout_double_cost_momentum_closed_trades.csv",
+      "size_bytes": 616,
+      "sha256": "4f839dd1a1841a388895a359b529863da9682eb18cb37c27baa6c999ad7017fc"
+    },
+    {
+      "path": "reports/backtests/holdout_double_cost_momentum_equity.csv",
+      "size_bytes": 14089,
+      "sha256": "d7c5febb8f41b202a46dd1f563e9ec5347b7a44c7d4b804d3952f4cdf1a922ec"
+    },
+    {
+      "path": "reports/backtests/holdout_double_cost_momentum_events.csv",
+      "size_bytes": 11,
+      "sha256": "27ca1cadc8c07dfdb79bccee18eaf4da4825f0217c7e7a4e95faa66c23211360"
+    },
+    {
+      "path": "reports/backtests/holdout_double_cost_momentum_fills.csv",
+      "size_bytes": 2918,
+      "sha256": "3e536a67823d2ad5c7841499027b76e1674ccb5f73608b3ab9f316553db146ea"
+    },
+    {
+      "path": "reports/backtests/holdout_double_cost_trend.json",
+      "size_bytes": 3135,
+      "sha256": "101fa39e422e5d3a28edfe629d42697020a664d4330e52b2ef5a56004edaa056"
+    },
+    {
+      "path": "reports/backtests/holdout_double_cost_trend_closed_trades.csv",
+      "size_bytes": 606,
+      "sha256": "dcc8ad5a37e5585fec9e7231c155147fe132350afdd30323cda87f916dccec0a"
+    },
+    {
+      "path": "reports/backtests/holdout_double_cost_trend_equity.csv",
+      "size_bytes": 16221,
+      "sha256": "c4cccd0d9f78ee0ea05ff54a11aa18ae8002604645dc5c431041af18f36da7b4"
+    },
+    {
+      "path": "reports/backtests/holdout_double_cost_trend_events.csv",
+      "size_bytes": 11,
+      "sha256": "27ca1cadc8c07dfdb79bccee18eaf4da4825f0217c7e7a4e95faa66c23211360"
+    },
+    {
+      "path": "reports/backtests/holdout_double_cost_trend_fills.csv",
+      "size_bytes": 2664,
+      "sha256": "0828775e0037142dd1a6d6bf41d30bfb246215e7904ff0581b75d1074e821042"
+    },
+    {
+      "path": "reports/backtests/holdout_gas_010_mean_reversion.json",
+      "size_bytes": 2922,
+      "sha256": "a24bad3942652f13e217fbcaff475427e7b7371da0f1b8ecf51dea3b06115d6e"
+    },
+    {
+      "path": "reports/backtests/holdout_gas_010_mean_reversion_closed_trades.csv",
+      "size_bytes": 438,
+      "sha256": "ebc4975983ab110337248ba301567ba44cbd3320c0ef51ae430570729737b094"
+    },
+    {
+      "path": "reports/backtests/holdout_gas_010_mean_reversion_equity.csv",
+      "size_bytes": 14559,
+      "sha256": "81d134f6b0cdf522d41bbfc3ed1100f8466862da6600fce27578b8682c462908"
+    },
+    {
+      "path": "reports/backtests/holdout_gas_010_mean_reversion_events.csv",
+      "size_bytes": 11,
+      "sha256": "27ca1cadc8c07dfdb79bccee18eaf4da4825f0217c7e7a4e95faa66c23211360"
+    },
+    {
+      "path": "reports/backtests/holdout_gas_010_mean_reversion_fills.csv",
+      "size_bytes": 1902,
+      "sha256": "86543c6850b9897898bbc8e450288a10096996df80bfac9e168a8e87456144be"
+    },
+    {
+      "path": "reports/backtests/holdout_gas_010_momentum.json",
+      "size_bytes": 2981,
+      "sha256": "8ccf827e490f8e52786c5fbf27b0f14fe9e6ba44b74b362e03166d12bcc791bf"
+    },
+    {
+      "path": "reports/backtests/holdout_gas_010_momentum_closed_trades.csv",
+      "size_bytes": 621,
+      "sha256": "38a2d01c0ed2bc25cf592c7ea7fc9a4719865afa7168361018dd5e1f739efbaa"
+    },
+    {
+      "path": "reports/backtests/holdout_gas_010_momentum_equity.csv",
+      "size_bytes": 14309,
+      "sha256": "f0989ed06b835ea2b9d010178dc8d7e9906313f36e38dfc88fc12d5add56715a"
+    },
+    {
+      "path": "reports/backtests/holdout_gas_010_momentum_events.csv",
+      "size_bytes": 11,
+      "sha256": "27ca1cadc8c07dfdb79bccee18eaf4da4825f0217c7e7a4e95faa66c23211360"
+    },
+    {
+      "path": "reports/backtests/holdout_gas_010_momentum_fills.csv",
+      "size_bytes": 2939,
+      "sha256": "401b6ec24e653195c48738d4784c0fb62cf2297befb0a0c3997b3a4932987d24"
+    },
+    {
+      "path": "reports/backtests/holdout_gas_010_trend.json",
+      "size_bytes": 3101,
+      "sha256": "2d6fa4d0988cbd48dd682b07a6763d891ebe5216cefa612ac0c9a246ed718287"
+    },
+    {
+      "path": "reports/backtests/holdout_gas_010_trend_closed_trades.csv",
+      "size_bytes": 625,
+      "sha256": "0c7e022fdfbfffaa02ea86a77f5059d49917d20aeaa836dc9f00c9656db6f15b"
+    },
+    {
+      "path": "reports/backtests/holdout_gas_010_trend_equity.csv",
+      "size_bytes": 16148,
+      "sha256": "3e5f629098d26dde857cbce7be7b94765c2da30d6b67fd8ec7f2c63fe9b6cde2"
+    },
+    {
+      "path": "reports/backtests/holdout_gas_010_trend_events.csv",
+      "size_bytes": 11,
+      "sha256": "27ca1cadc8c07dfdb79bccee18eaf4da4825f0217c7e7a4e95faa66c23211360"
+    },
+    {
+      "path": "reports/backtests/holdout_gas_010_trend_fills.csv",
+      "size_bytes": 2698,
+      "sha256": "f45db2df3d93e63de53ac7036daf6506949225c7cd2d3896b20970e2ec00ba75"
+    },
+    {
+      "path": "reports/backtests/holdout_gas_100_rejected_mean_reversion.json",
+      "size_bytes": 2340,
+      "sha256": "cb1eee4122c0caccd5c59049374cf7b5a08d22a72122314cee474e6543f4cae2"
+    },
+    {
+      "path": "reports/backtests/holdout_gas_100_rejected_mean_reversion_closed_trades.csv",
+      "size_bytes": 11,
+      "sha256": "27ca1cadc8c07dfdb79bccee18eaf4da4825f0217c7e7a4e95faa66c23211360"
+    },
+    {
+      "path": "reports/backtests/holdout_gas_100_rejected_mean_reversion_equity.csv",
+      "size_bytes": 7856,
+      "sha256": "15494135d639148aff60c5aba53dd4e981d72df4895b7919657e8bacf55d86e1"
+    },
+    {
+      "path": "reports/backtests/holdout_gas_100_rejected_mean_reversion_events.csv",
+      "size_bytes": 1485,
+      "sha256": "8ae4fbee4883e4f317d6a389b7be9c4e50cf9e1b2ad6dd0b6b3b0018ccc67f3f"
+    },
+    {
+      "path": "reports/backtests/holdout_gas_100_rejected_mean_reversion_fills.csv",
+      "size_bytes": 11,
+      "sha256": "27ca1cadc8c07dfdb79bccee18eaf4da4825f0217c7e7a4e95faa66c23211360"
+    },
+    {
+      "path": "reports/backtests/holdout_gas_100_rejected_momentum.json",
+      "size_bytes": 2334,
+      "sha256": "d7d999aab260aafaa1e0797af7cc544ca42f2fd811585c2c5a529b1111858a75"
+    },
+    {
+      "path": "reports/backtests/holdout_gas_100_rejected_momentum_closed_trades.csv",
+      "size_bytes": 11,
+      "sha256": "27ca1cadc8c07dfdb79bccee18eaf4da4825f0217c7e7a4e95faa66c23211360"
+    },
+    {
+      "path": "reports/backtests/holdout_gas_100_rejected_momentum_equity.csv",
+      "size_bytes": 7856,
+      "sha256": "15494135d639148aff60c5aba53dd4e981d72df4895b7919657e8bacf55d86e1"
+    },
+    {
+      "path": "reports/backtests/holdout_gas_100_rejected_momentum_events.csv",
+      "size_bytes": 2265,
+      "sha256": "fc64490dcf9737a57b9c8f3a685cede9c1a0730e15ee15df647ab146a3e20970"
+    },
+    {
+      "path": "reports/backtests/holdout_gas_100_rejected_momentum_fills.csv",
+      "size_bytes": 11,
+      "sha256": "27ca1cadc8c07dfdb79bccee18eaf4da4825f0217c7e7a4e95faa66c23211360"
+    },
+    {
+      "path": "reports/backtests/holdout_gas_100_rejected_trend.json",
+      "size_bytes": 2332,
+      "sha256": "12cf00ac0bfd462bf1be8f0f0650a96702fd5dfc4e0523d05f6c664e593c5087"
+    },
+    {
+      "path": "reports/backtests/holdout_gas_100_rejected_trend_closed_trades.csv",
+      "size_bytes": 11,
+      "sha256": "27ca1cadc8c07dfdb79bccee18eaf4da4825f0217c7e7a4e95faa66c23211360"
+    },
+    {
+      "path": "reports/backtests/holdout_gas_100_rejected_trend_equity.csv",
+      "size_bytes": 7856,
+      "sha256": "15494135d639148aff60c5aba53dd4e981d72df4895b7919657e8bacf55d86e1"
+    },
+    {
+      "path": "reports/backtests/holdout_gas_100_rejected_trend_events.csv",
+      "size_bytes": 5957,
+      "sha256": "9437dbe102f7d6ebfc61c8fa70bed342c572cd4d1fc4945c055619ce04253d2b"
+    },
+    {
+      "path": "reports/backtests/holdout_gas_100_rejected_trend_fills.csv",
+      "size_bytes": 11,
+      "sha256": "27ca1cadc8c07dfdb79bccee18eaf4da4825f0217c7e7a4e95faa66c23211360"
+    },
+    {
+      "path": "reports/backtests/manifest.json",
+      "size_bytes": 1330,
+      "sha256": "b89ce47b46577b81ad1f526d2e6298318091466c154303240d3fefdf079acd2e"
+    },
+    {
+      "path": "reports/backtests/summary.csv",
+      "size_bytes": 13790,
+      "sha256": "25d5ccf029171ba16b7b87ce697110cabd53d4cb3fa8d43c3edf8ada9a2f502c"
+    },
+    {
+      "path": "reports/backtests/walk_forward_1_mean_reversion.json",
+      "size_bytes": 2849,
+      "sha256": "85431087e8989e017eb6bc4e69a328f4e06173bb207fca6725e3695ea49898ef"
+    },
+    {
+      "path": "reports/backtests/walk_forward_1_mean_reversion_closed_trades.csv",
+      "size_bytes": 341,
+      "sha256": "43b4e567f76bb5c7c87fbccca2955bcc231f69c98b1c52ba39f85474433eca51"
+    },
+    {
+      "path": "reports/backtests/walk_forward_1_mean_reversion_equity.csv",
+      "size_bytes": 13842,
+      "sha256": "85b721bcc95d1897f86f0add548fcac38e76a7df68dd92945fef32588c8f3276"
+    },
+    {
+      "path": "reports/backtests/walk_forward_1_mean_reversion_events.csv",
+      "size_bytes": 11,
+      "sha256": "27ca1cadc8c07dfdb79bccee18eaf4da4825f0217c7e7a4e95faa66c23211360"
+    },
+    {
+      "path": "reports/backtests/walk_forward_1_mean_reversion_fills.csv",
+      "size_bytes": 1451,
+      "sha256": "72e42a32612424d7d3692fe325a6a316f132508245264a4480ddcff321821e79"
+    },
+    {
+      "path": "reports/backtests/walk_forward_1_momentum.json",
+      "size_bytes": 3152,
+      "sha256": "bdb622cc1a41df9d5f0bca4f457b6e58ad95d0cee79d37e46742f45afcf98228"
+    },
+    {
+      "path": "reports/backtests/walk_forward_1_momentum_closed_trades.csv",
+      "size_bytes": 635,
+      "sha256": "7b43da36a551877981e686324c1a4af4b2f1b4d31103c79ad5d0ff2d62ad58a3"
+    },
+    {
+      "path": "reports/backtests/walk_forward_1_momentum_equity.csv",
+      "size_bytes": 15042,
+      "sha256": "caca07aea279f4e4086657c0e386ee57a36c28477a23fe6ea84ecad344aca4f6"
+    },
+    {
+      "path": "reports/backtests/walk_forward_1_momentum_events.csv",
+      "size_bytes": 11,
+      "sha256": "27ca1cadc8c07dfdb79bccee18eaf4da4825f0217c7e7a4e95faa66c23211360"
+    },
+    {
+      "path": "reports/backtests/walk_forward_1_momentum_fills.csv",
+      "size_bytes": 2954,
+      "sha256": "7eb676a9083973d2a9442bf15d7af296203e23a7bae7ea0908fa95e8eec0fb20"
+    },
+    {
+      "path": "reports/backtests/walk_forward_1_trend.json",
+      "size_bytes": 3200,
+      "sha256": "decd8a192fc526a79a6b73fc77aac1930e3992619fc1a416bb9c953618fe41cd"
+    },
+    {
+      "path": "reports/backtests/walk_forward_1_trend_closed_trades.csv",
+      "size_bytes": 436,
+      "sha256": "462e4e7144cbe01eb29f2c1adc2faa837692287fc98242040e367069ab5fa227"
+    },
+    {
+      "path": "reports/backtests/walk_forward_1_trend_equity.csv",
+      "size_bytes": 17383,
+      "sha256": "9e2106ee7993741eabb153dd764a44edc5781484947000b8c089ed8e5e2a0d5e"
+    },
+    {
+      "path": "reports/backtests/walk_forward_1_trend_events.csv",
+      "size_bytes": 11,
+      "sha256": "27ca1cadc8c07dfdb79bccee18eaf4da4825f0217c7e7a4e95faa66c23211360"
+    },
+    {
+      "path": "reports/backtests/walk_forward_1_trend_fills.csv",
+      "size_bytes": 2032,
+      "sha256": "526d211c091c65177b706be2d26b539bbb0a5169f4067a35129746531824c02c"
+    },
+    {
+      "path": "reports/backtests/walk_forward_2_mean_reversion.json",
+      "size_bytes": 2835,
+      "sha256": "53fd4dc0a44781358483ea584143fc5eca0e1058a2148619757f868cac1d2509"
+    },
+    {
+      "path": "reports/backtests/walk_forward_2_mean_reversion_closed_trades.csv",
+      "size_bytes": 554,
+      "sha256": "a392f6f2d25c35b8ac3166cc801946200bb71fae168ac6c8fd803e114519bb0d"
+    },
+    {
+      "path": "reports/backtests/walk_forward_2_mean_reversion_equity.csv",
+      "size_bytes": 13601,
+      "sha256": "cbf8beb77bd957be4f0dabc4321bf4ac6cc3d0bae5d163b85c37e13deb56be10"
+    },
+    {
+      "path": "reports/backtests/walk_forward_2_mean_reversion_events.csv",
+      "size_bytes": 11,
+      "sha256": "27ca1cadc8c07dfdb79bccee18eaf4da4825f0217c7e7a4e95faa66c23211360"
+    },
+    {
+      "path": "reports/backtests/walk_forward_2_mean_reversion_fills.csv",
+      "size_bytes": 2420,
+      "sha256": "93c6c30e6f9932d2d5445bca1148cfbbb5f42755b4fc2c82a82396014abfb0c9"
+    },
+    {
+      "path": "reports/backtests/walk_forward_2_momentum.json",
+      "size_bytes": 3081,
+      "sha256": "8e5ae58c1453298ffde590cdab5bf4a55fd2c16e1f6e215195985806817020c5"
+    },
+    {
+      "path": "reports/backtests/walk_forward_2_momentum_closed_trades.csv",
+      "size_bytes": 173,
+      "sha256": "112748f502578ae100cd459ac455ae534a0754e78ec4ab90dadf6e96dbb24a2f"
+    },
+    {
+      "path": "reports/backtests/walk_forward_2_momentum_equity.csv",
+      "size_bytes": 17237,
+      "sha256": "1f372b77cc10f8bcb7bb67b505ac4911ab24193f85ce7750c3423b54af997105"
+    },
+    {
+      "path": "reports/backtests/walk_forward_2_momentum_events.csv",
+      "size_bytes": 2284,
+      "sha256": "21a91b1b317af794e29281b4150b0900c640b63bb16cf21fab3709f60dad39f8"
+    },
+    {
+      "path": "reports/backtests/walk_forward_2_momentum_fills.csv",
+      "size_bytes": 978,
+      "sha256": "fa2d0ec6dc48d284f12e33d96f6092562cf72994f9f4972e41fae9828f9afc3f"
+    },
+    {
+      "path": "reports/backtests/walk_forward_2_trend.json",
+      "size_bytes": 3183,
+      "sha256": "66d3a7c89065bf378cc233dd6a1cdf95aeda9f6db59e5470dac80fb52f84cbc2"
+    },
+    {
+      "path": "reports/backtests/walk_forward_2_trend_closed_trades.csv",
+      "size_bytes": 172,
+      "sha256": "53a894752b92f627ec826a2897ddf4174b063c0863b86544bd2c0143d4d661f3"
+    },
+    {
+      "path": "reports/backtests/walk_forward_2_trend_equity.csv",
+      "size_bytes": 17971,
+      "sha256": "835156db88615b5c51c21a204f8ef21c7f0d3e32b37a6ae13408610029beead9"
+    },
+    {
+      "path": "reports/backtests/walk_forward_2_trend_events.csv",
+      "size_bytes": 1899,
+      "sha256": "38c8720d3ba796d96a49254e8c32073aeba5f9a4cb0fe056cc49a87a3523885d"
+    },
+    {
+      "path": "reports/backtests/walk_forward_2_trend_fills.csv",
+      "size_bytes": 955,
+      "sha256": "e79ac4e2cf1ae6a6781529434329212cb811a1ce7c0e8c4b3326cdabb1c0cf64"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/alternate/provenance.json",
+      "size_bytes": 5911,
+      "sha256": "c615f27b9643d3580b68de1c493659a44600bfdb956f9d7d0b326d8ee28d5b6b"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/alternate/results.csv",
+      "size_bytes": 8949,
+      "sha256": "9f8d1841e709d41f35ea902f087b4d29d578ad2a1107ab8c0d0c4602dabd3311"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/annual_comparison.csv",
+      "size_bytes": 47197,
+      "sha256": "42d1d2cd5b7b36793470871dff7d327a0a6e62971ab441bf65149ef6e1429b40"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/extended/README.md",
+      "size_bytes": 11308,
+      "sha256": "4f0efa3b3973bf447dba0c2bda1b10967e107ad399d971e753a1231d2cb5f4c8"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/extended/alternative/README.md",
+      "size_bytes": 4840,
+      "sha256": "dc997a3426b3fbe12bbc983459b50d963a7f27b0e08e9231fc48c515bbfd8210"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/extended/alternative/audit.json",
+      "size_bytes": 5129,
+      "sha256": "7ebcfc2c95c24a25cb6b7af35e56b20d678f82c979ba41ce198ace5e9e90882b"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/extended/alternative/candidate_decisions.csv",
+      "size_bytes": 2420,
+      "sha256": "573be5dd775336714d50b8ddd2e8f21415e64e747e84b4b447500f3dff64e2cf"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/extended/alternative/original_order_limits.csv",
+      "size_bytes": 158465,
+      "sha256": "3230a4e926c2d25672eb09e0fc1ae8c45da6e47812904bb9a6f5859f7a557043"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/extended/alternative/results.csv",
+      "size_bytes": 469407,
+      "sha256": "edb85b07ae072f1194ebd5d8b46021337e93b87712be7cef346e872734530063"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/extended/annual_candidate_summary.csv",
+      "size_bytes": 17612,
+      "sha256": "476148562e7e8032b4a5a179bb1f19bc4c50574727ed298fdf5da7707a2963f9"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/extended/bootstrap_verification.json",
+      "size_bytes": 1258,
+      "sha256": "dea062e9a712df76ad1c3259fb6f31dd801a5dd182ae167dbcbfc6b5327477d3"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/extended/calendar_extended.csv.gz",
+      "size_bytes": 438267,
+      "sha256": "b82c2086e63db186bf0bcebf249e0fe5177378381984a839172f1a33bfe184f4"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/extended/calendar_mvp.csv",
+      "size_bytes": 122227,
+      "sha256": "dcf2516c9c5e0b0a6bc697e1b5a8fd55f43a13101d343d5eed9aa2fdfaa391b5"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/extended/candidate_decisions.csv",
+      "size_bytes": 10292,
+      "sha256": "32cc83bb158ac9fb99a2b5e4bebbeec36e83e5d006391baf24382251020448b0"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/extended/counts.json",
+      "size_bytes": 688,
+      "sha256": "e766abf9f99b1d52de70acccff88b4df0cf55957d0eca2ec99a0de453d117689"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/extended/definitions.csv",
+      "size_bytes": 21609,
+      "sha256": "2065a194b711bb7bdbf60405cc63daa83d0960186631339b1d4f493994af5bf5"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/extended/original_extended.csv",
+      "size_bytes": 285020,
+      "sha256": "981dc1676a76b879283dfeca3bf227938e6022bd4472be57f997a0122e60f4fc"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/extended/original_followup.csv",
+      "size_bytes": 75385,
+      "sha256": "04a78f5261fa1bb163dc26b01724389bc6d605932d1ca4cf8b2715f0d21b7c32"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/extended/original_mvp.csv",
+      "size_bytes": 11626,
+      "sha256": "b4b8013d95ed4890ce7e4ce347177e16fc57c4541526e0c40ab88ee82823475d"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/extended/original_phase3.csv",
+      "size_bytes": 268349,
+      "sha256": "bb4b86872f88c2d88552472a0d99aa358e044868ceb7148efb14df0bc758b669"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/extended/provenance.json",
+      "size_bytes": 2551,
+      "sha256": "ca3a12b847f118f271c80d59f733a01911eb65ba561bad11c4768d75f482f552"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/extended/reconciliation.json",
+      "size_bytes": 2231,
+      "sha256": "90e4760d08fc706881e7eecbac382da30aae856e6128e584709667ec2cb8a089"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/extended/summarize.py",
+      "size_bytes": 9813,
+      "sha256": "43e9eeba7be1d3ff99e53fd57ce4020c547711234025010f7e4a32e00feb8ee4"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/extended/verify_uncertainty.py",
+      "size_bytes": 4796,
+      "sha256": "b6a6c40487d7c9007de549603506a3c7059e60b3627f01e4d73c64e30e2df89d"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/other/README.md",
+      "size_bytes": 8684,
+      "sha256": "ec78ed7c2601168608e2f537afb91f1d34781c496827781236c4141d2b9a7e15"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/other/alternate_overlap.json",
+      "size_bytes": 486,
+      "sha256": "7e5e804bd782390265e6d4a2f5bce53e8f7326a7389965c21a6ddf6c67dbc99e"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/other/alternate_quarters.csv",
+      "size_bytes": 70109,
+      "sha256": "2c76f506cae0571f9cb862ff0fefe874456f96752c629d5bec6a4f81843ebc69"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/other/candidates.csv",
+      "size_bytes": 53922,
+      "sha256": "f00273bc1975a3047330d3340cb0e8a8a9c8be4f96bb974ae9a864bb264b2441"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/other/cex_proxy_reproduction.json",
+      "size_bytes": 400,
+      "sha256": "76164ad9dcd0a7f6e0932be4ff1c9b84f394ceab05418d12b9cf3f6af9d5e5c6"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/other/clock_common.csv.gz",
+      "size_bytes": 173416,
+      "sha256": "85d79d0396ba01f47726598defcbc893d6101c63992a8e4187836aba96e501a7"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/other/clock_common_audit.json",
+      "size_bytes": 246,
+      "sha256": "73f0026b6d655eb366e0197a14eefb35085374230a9fa0bf9a9972a2405c23e0"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/other/clock_common_coverage_audit.json",
+      "size_bytes": 124,
+      "sha256": "9fe1fac7cc1573f4e17d1e69e6ced235196998fcc253a75d2f895c12806ed441"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/other/clock_native.csv.gz",
+      "size_bytes": 221225,
+      "sha256": "96bce8bb5b6c57c2626ef7b9fd7471c543480e4d19babbfd3566bcd9c24daf26"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/other/clock_native_audit.json",
+      "size_bytes": 246,
+      "sha256": "ec25998ce2567f7329b6cbe0b1a9521dd02b041c6476f115bc69b5dbd453d48a"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/other/clock_native_coverage_audit.json",
+      "size_bytes": 124,
+      "sha256": "d0c070755ed31d7b05dd39c2fa08424ff9f820bfdb29bc1fdd4805685bdc9630"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/other/clock_native_gates.csv",
+      "size_bytes": 4221,
+      "sha256": "9287a158321c51e068b23edffefaf69e2353952d0ab3121044a6358dc014e916"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/other/decisions.csv",
+      "size_bytes": 9265,
+      "sha256": "16189f1476c0410eef2b34783ee376355d5da565d0367b099d5baa28a2e34152"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/other/e01.csv",
+      "size_bytes": 256176,
+      "sha256": "96d1201e2c99b715717a6fa9c50d452737de63fa14c934be675807dc36d25e7f"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/other/e01_audit.json",
+      "size_bytes": 242,
+      "sha256": "86058be2ef0c782ddccb1302d5ada49632d29fbeba9b4b9daa995b38e14dae07"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/other/e02_fixed_cost.csv",
+      "size_bytes": 17372,
+      "sha256": "56cd4d9e04733bedf3b328c3ea45a1fa2d48034d5ef229ce23c1cc4ed2eecf02"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/other/e03_fee_hurdles.csv",
+      "size_bytes": 1037,
+      "sha256": "094866756f738865baace7d8fe4dfdc3b2907be91c226d34e35a450fa632d4aa"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/other/forecast_training.json",
+      "size_bytes": 68579,
+      "sha256": "c47a1e912d705124eda555cecc80a21f089f3da7e91698379b95322fa7e00a93"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/other/historical_gates.json",
+      "size_bytes": 31651,
+      "sha256": "1c2d16712a11080da8719459ed16a0bb3a07161fccfcdbaf6ed100d02ef748f4"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/other/intelligence.csv",
+      "size_bytes": 344260,
+      "sha256": "55879860f950c12156da607ed12c8e79ead2a8b4f538804d40aaef5e478265fe"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/other/intelligence_audit.json",
+      "size_bytes": 359,
+      "sha256": "d31655f4315c92eda1c24a1591cf2c685e32f0f9f37d535b3130134e9fb69455"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/other/knowledge_diagnostics.json",
+      "size_bytes": 23808,
+      "sha256": "4d03fd288e3f71242b7a7d19cf392d6e007ac7b09c211ea4efdf4a0c6b2a3978"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/other/matrix_extra_sources.json",
+      "size_bytes": 2261,
+      "sha256": "9fdc8969578d0558c698fd2db2b756d8ee72a8f438113361279e98d826d4b3bb"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/other/summary.json",
+      "size_bytes": 5529,
+      "sha256": "646e735ce9d4539af7418abf8123ef5ad3ac2be065469c990291e7f90365860d"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/other/xmoon_reproduction.json",
+      "size_bytes": 14055,
+      "sha256": "1c428638795eabb2a685f38aff47d33924d29bd44b7ae9086631dc07e00181a6"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/payoff/README.fa.md",
+      "size_bytes": 4969,
+      "sha256": "bba1e7340db741cfc85123a71088b201c00f27de8564956153ae722b68dc67bb"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/payoff/README.md",
+      "size_bytes": 11585,
+      "sha256": "027c296030e55fdd45138e14e0d0a3ba3941ceff244919724bdfa10ec3e2b1af"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/payoff/alternate/audit.json",
+      "size_bytes": 11375,
+      "sha256": "68fd8f654d75c4241ee24c47268ac50adfbbfa0fb393557303f06e69c12605c5"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/payoff/alternate/results.csv",
+      "size_bytes": 318156,
+      "sha256": "7903bd603d5465e5b0a2c0f38bddfaab59ef97e88018733651abfbfa160fcb11"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/payoff/annual_2025.csv",
+      "size_bytes": 27658,
+      "sha256": "1da80ef45e79f732fe09fd4d0c12212e5b817703d97fc21eedc990dd32a3a66f"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/payoff/candidates.csv",
+      "size_bytes": 29353,
+      "sha256": "5b23679a88aa21af804d137c67eb360bba6c862b456ba39f87be1dc54898ec07"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/payoff/common/annual_daily_block_intervals.csv",
+      "size_bytes": 20869,
+      "sha256": "f5d63bc091a0e558a813008559125543d3553818ab48384ca30a290abf8d7c59"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/payoff/common/audit.json",
+      "size_bytes": 9453,
+      "sha256": "5eb09ac3663b80006c038544481f1d3f27f21ad17a83994d4c796691cbabb4c1"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/payoff/common/forecast_scores.csv",
+      "size_bytes": 7771,
+      "sha256": "4f95b692614d6e30d98c3821a63145ac32cc242ed46e0e88466bd2de49db07ef"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/payoff/common/frozen_fold_fits.json",
+      "size_bytes": 14665,
+      "sha256": "4283632d8f08672398b330b5a5a078797d2c6182a41606b6b666386e0468bbd3"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/payoff/common/results.csv.gz",
+      "size_bytes": 299822,
+      "sha256": "602596ca75dcba4afd0c4abcad3e5132e4917ad0ab2de6af1ed50412078e6930"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/payoff/delivery_audit.json",
+      "size_bytes": 6816,
+      "sha256": "6b4c075b66c6b54909f65b5ef2921ccc58d2c527a27fe014c86b3567c2723329"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/payoff/family_preregistration.json",
+      "size_bytes": 3237,
+      "sha256": "e5b8245773689aa93663e358ba729a5120aba002dc3305cdbec0c5f9655ec396"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/payoff/first_new_cells.csv",
+      "size_bytes": 3400,
+      "sha256": "c7d019b4940740af85e9f969c53f6f61b27556341770fe5342153b007a2129d2"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/payoff/native/audit.json",
+      "size_bytes": 11611,
+      "sha256": "eb5d6f400db1d2f8784e36c20f9c8c5c60c4df7b0c063881326c5ac5976f79b4"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/payoff/native/forecast_scores.csv",
+      "size_bytes": 7449,
+      "sha256": "d63a4d8f4aaf17d693b6fd14cacd5d1cb6d737338175b4480552ff81ae615d2c"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/payoff/native/frozen_fold_fits.json",
+      "size_bytes": 14622,
+      "sha256": "1044b3d866ac66c49ec567bf80c3f940a7070448d25e2330de6bcc933f188ec4"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/payoff/native/results.csv.gz",
+      "size_bytes": 451808,
+      "sha256": "5bcbd2858086f67cca8ecb8355d894be9efd4a5f62e9a4b631acdb41932f3853"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/payoff/native_calendar_overlap.csv",
+      "size_bytes": 54505,
+      "sha256": "590ce9c783fbcf8b5048cb466428e5122f6d141546b9ef5c581fd2d4aaf27abf"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/payoff/native_source_receipts.json",
+      "size_bytes": 4865,
+      "sha256": "58f57e361edce54721bdae61cc95410656c9a9e92d1fb77b0b12eca862395afc"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/registry.csv",
+      "size_bytes": 93310,
+      "sha256": "8c2c3b2965637cdc11bc18aadf9a5746abb5edc37946e74d0e7c29f2ea862ce4"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/registry_counts.json",
+      "size_bytes": 909,
+      "sha256": "cd91305a0725216bfe994ac4974be7483707d2ca0c54b5a013a80a1a620ffaf4"
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/source_refs.json",
+      "size_bytes": 10144,
+      "sha256": "baf532296800cf5858016e5882d4edb5395cb816aa7a10e82e1372cc596435ff"
+    },
+    {
+      "path": "reports/strat01/2026-11-01-stateful-causal/historical_summary.csv",
+      "size_bytes": 1781,
+      "sha256": "628e5a2a55ab62e3dd185d17d6e09ecb6ed26e1dfdd414d1a6d8b9ed045362a5"
+    },
+    {
+      "path": "reports/strat01/2026-11-01-stateful-causal/independent_reconciliation.json",
+      "size_bytes": 3232,
+      "sha256": "12b8c3d01e0af3dcbc7c9e39896e60084be0bb1131c690d248519eb0cc9e18f2"
+    },
+    {
+      "path": "reports/strat01/2026-11-01-weth-60m-native/audit.json",
+      "size_bytes": 10243,
+      "sha256": "7b1e4167059f24c5cedcf4d2038f9444a29b8a3926ce83440096fe14d37cc362"
+    },
+    {
+      "path": "reports/strat01/2026-11-01-weth-60m-native/observed_native_periods.csv",
+      "size_bytes": 2460,
+      "sha256": "d264f0afcc4be0f80ef088d73ae37c06cbd5ee41e1c6d64fca551a67aa493ab2"
+    },
+    {
+      "path": "research/control/STATE.json",
+      "size_bytes": 63572,
+      "sha256": "2ecfe691febef4cfff3157fa53a0e61359f267b184c46502d5045a096c7c0330"
+    },
+    {
+      "path": "research/strat01/2026-11-01-stateful-cap-protocol.json",
+      "size_bytes": 3135,
+      "sha256": "ac1b04a132b8f3592e9c33ac7b014a8d80d5b8a502924798fbc216348d756f58"
+    }
+  ],
+  "local_hashed_manifest_scope": "Observed baseline-source files before root checkpoint update. In particular research/control/STATE.json is the BASELINE22242f9daa2dea7cee17f93c42fb1f08a49a23fe version, not a promised hash of the final changed checkpoint.",
+  "durable_verifier": {
+    "path": "scripts/verify_strat01_saved_quant.py",
+    "sha256": "37ad2bd1275e45d4ea36b014cad1f414b385cc06935533000fa1e4d4f45a7eff",
+    "dependencies": "Python standard library only; existing repository saved CSV/JSON plus exact artifact13084406841 ZIP",
+    "command_template": "python scripts/verify_strat01_saved_quant.py --output reports/strat01/2026-11-04-validation/quant-reproduction.json",
+    "execution_status": "ROOT_FIRST_RUN_EXIT0_103_CHECKS_18_DESCRIPTIVE_ROWS; root final rerun pending after archive identity precheck and inventory-value field clarification",
+    "added_descriptive_outputs": [
+      "stateful saved-mark worst UTC daily return",
+      "closed-cycle expectancy and maximum loss streak",
+      "largest close-mark drawdown peak/trough and recovery or right-censored duration",
+      "terminal marked inventory; executable liquidation value UNKNOWN if inventory open"
+    ],
+    "new_financial_experiment": false,
+    "default_artifact": "reports/strat01/2026-11-01-stateful-causal/stateful-historical-ledgers.zip"
+  }
+}
