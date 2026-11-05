@@ -105,6 +105,13 @@ def collection_failed(root: Path, events: list[dict]) -> bool:
     # or process restart is not authorization to resume access.
     if any(e["outcome"] == PROVIDER_STOP_OUTCOME for e in events):
         return True
+    # A source can outlive its event (interruption), or have been labeled a
+    # success by an older collector. Health must see that refusal immediately.
+    try:
+        if _retained_provider_access_stopped(root / "forward"):
+            return True
+    except (ValueError, OSError, TypeError, KeyError, OverflowError):
+        return True
     failed_at = max((e["actual_clock_unix"] for e in events
                      if e["outcome"] in FAILURE_OUTCOMES), default=-1)
     successes = [e for e in events if e["outcome"] == SUCCESS_OUTCOME]
@@ -149,10 +156,13 @@ def _provider_access_stopped(evidence: dict) -> bool:
 
 
 def _retained_provider_access_stopped(sources: Path) -> bool:
-    """Check audited retained captures, including pre-fix or interrupted events."""
+    """Strictly audit bounded retained captures before trusting stop evidence."""
+    if not sources.is_dir() or sources.is_symlink():
+        raise ValueError("Missing trusted source evidence directory")
     paths = sorted(sources.glob("*.json"))
     if len(paths) > MAX_CAPTURE_FILES:
         raise ValueError("Unbounded source evidence directory")
+    stopped = False
     for path in paths:
         if not path.is_file() or path.is_symlink():
             raise ValueError("Unsafe source evidence")
@@ -161,9 +171,15 @@ def _retained_provider_access_stopped(sources: Path) -> bool:
             raw = stream.read(MAX_BYTES_PER_CAPTURE + 1)
         if len(raw) > MAX_BYTES_PER_CAPTURE:
             raise ValueError("Unbounded source evidence")
-        if _provider_access_stopped(json.loads(raw)):
-            return True
-    return False
+        evidence = json.loads(raw)
+        if type(evidence) is not dict:
+            raise ValueError("Expected source JSON object")
+        stopped = stopped or _provider_access_stopped(evidence)
+    audit = audit_capture_dir(sources)
+    if (audit["errors"] or audit["conflicts"]
+            or audit["file_count"] != audit["valid_source_files"]):
+        raise ValueError("Untrusted retained source evidence")
+    return stopped
 
 
 def operational_state(root: Path, now_unix: int, network_enabled: bool) -> str:
