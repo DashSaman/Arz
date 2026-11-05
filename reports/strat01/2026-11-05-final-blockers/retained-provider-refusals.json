@@ -1,0 +1,9 @@
+{
+  "interpretation": "Valid candle coverage and provider execution-access refusal are different statuses. Existing retained refusal requires explicit operator/provider review before independent-collector network use; no old source is deleted or reclassified as paid cost.",
+  "kind": "OFFLINE_CLASSIFICATION_OF_UNCHANGED_ARCHIVE",
+  "new_provider_requests": 0,
+  "observations": [],
+  "provider_refusal_source_files": 0,
+  "source_files_checked": 38,
+  "source_main_sha": "cf018928c761fb19e2e296bd2840e55ee3fd3cc0"
+}

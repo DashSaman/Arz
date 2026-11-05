@@ -1,0 +1,135 @@
+{
+  "classification": "RETROSPECTIVE_OPERATIONAL_RELIABILITY_ONLY_NO_FINANCIAL_GATE",
+  "days": [
+    {
+      "actual_schedule_runs_created_that_utc_day": 4,
+      "expected_nominal_daily_cron_opportunities": 6,
+      "failed_or_incomplete_runs_created_that_utc_day": 0,
+      "github_run_ids": [
+        41280778576,
+        41320466424,
+        41347776146,
+        41348903379
+      ],
+      "run_count_shortfall_not_proof_of_specific_cron_drop": 2,
+      "successful_schedule_runs_created_that_utc_day": 4,
+      "timely_4h_close_hours_utc": [
+        4,
+        8,
+        12,
+        16,
+        20
+      ],
+      "timely_dual_market_bar_closes_that_utc_day": 5,
+      "unobserved_timely_4h_close_hours_utc": [
+        0
+      ],
+      "utc_date": "2026-11-01"
+    },
+    {
+      "actual_schedule_runs_created_that_utc_day": 4,
+      "expected_nominal_daily_cron_opportunities": 6,
+      "failed_or_incomplete_runs_created_that_utc_day": 0,
+      "github_run_ids": [
+        41399973463,
+        41402675317,
+        41501400148,
+        41504374569
+      ],
+      "run_count_shortfall_not_proof_of_specific_cron_drop": 2,
+      "successful_schedule_runs_created_that_utc_day": 4,
+      "timely_4h_close_hours_utc": [],
+      "timely_dual_market_bar_closes_that_utc_day": 0,
+      "unobserved_timely_4h_close_hours_utc": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        20
+      ],
+      "utc_date": "2026-11-02"
+    },
+    {
+      "actual_schedule_runs_created_that_utc_day": 6,
+      "expected_nominal_daily_cron_opportunities": 6,
+      "failed_or_incomplete_runs_created_that_utc_day": 0,
+      "github_run_ids": [
+        41566278846,
+        41567458071,
+        41632683971,
+        41635309199,
+        41705200334,
+        41706964624
+      ],
+      "run_count_shortfall_not_proof_of_specific_cron_drop": 0,
+      "successful_schedule_runs_created_that_utc_day": 6,
+      "timely_4h_close_hours_utc": [
+        12
+      ],
+      "timely_dual_market_bar_closes_that_utc_day": 1,
+      "unobserved_timely_4h_close_hours_utc": [
+        0,
+        4,
+        8,
+        16,
+        20
+      ],
+      "utc_date": "2026-11-03"
+    },
+    {
+      "actual_schedule_runs_created_that_utc_day": 6,
+      "expected_nominal_daily_cron_opportunities": 6,
+      "failed_or_incomplete_runs_created_that_utc_day": 0,
+      "github_run_ids": [
+        41748811627,
+        41750306007,
+        41828066710,
+        41830437089,
+        41901461864,
+        41902898292
+      ],
+      "run_count_shortfall_not_proof_of_specific_cron_drop": 0,
+      "successful_schedule_runs_created_that_utc_day": 6,
+      "timely_4h_close_hours_utc": [
+        0,
+        12,
+        20
+      ],
+      "timely_dual_market_bar_closes_that_utc_day": 3,
+      "unobserved_timely_4h_close_hours_utc": [
+        4,
+        8,
+        16
+      ],
+      "utc_date": "2026-11-04"
+    }
+  ],
+  "expected_nominal_opportunities_in_full_days": 24,
+  "investment_readiness": "NO-GO",
+  "limits": [
+    "GitHub creation date cannot uniquely identify which nominal cron fired.",
+    "An absent run by date alone does not prove which nominal event was dropped.",
+    "A timely first-seen file does not prove original provider candle availability at close.",
+    "Stored runner identity is not independent job log verification.",
+    "No demonstrated exact +60s follower $20 quote, paid fee, fill, alpha or paper day."
+  ],
+  "live_trading": "DISABLED",
+  "observed_daily_run_count_shortfall": 4,
+  "observed_schedule_runs_created_on_selected_utc_dates": 20,
+  "period_utc": {
+    "end_inclusive": "2026-11-04",
+    "start": "2026-11-01"
+  },
+  "qualifying_forward_paper_days": 0,
+  "query_total_schedule_runs": 38,
+  "real_capital_authorized_usd": 0,
+  "schema_version": 1,
+  "source_api": "https://api.github.com/repos/DashSaman/Arz/actions/runs?event=schedule&branch=main&per_page=100",
+  "source_files_validated": 38,
+  "source_metadata_complete_for_query": true,
+  "source_metadata_retrieved_at_utc": "2026-11-05T10:17:06Z",
+  "source_run_id_matches_not_job_log_attestation": 29,
+  "timely_paired_source_4h_closes": 9,
+  "workflow_path": ".github/workflows/strat01-base-forward.yml"
+}

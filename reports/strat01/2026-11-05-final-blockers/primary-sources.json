@@ -1,0 +1,23 @@
+{
+  "sources": [
+    {
+      "url": "https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows",
+      "purpose": "GitHub schedule may be delayed or dropped; runner success is not coverage.",
+      "kind": "official_documentation",
+      "retrieved_date_utc": "2026-11-05"
+    },
+    {
+      "url": "https://docs.base.org/specifications/transactions/network-fees",
+      "purpose": "Full fee includes L2, L1 and operator fee; estimates need exact transaction details and actual receipts are distinct.",
+      "kind": "official_documentation",
+      "retrieved_date_utc": "2026-11-05"
+    },
+    {
+      "url": "https://docs.base.org/upgrades/jovian/exec-engine",
+      "purpose": "Jovian operator-fee formula depends on per-block scalar and constant; absent measurements cannot be assigned zero.",
+      "kind": "official_specification",
+      "retrieved_date_utc": "2026-11-05"
+    }
+  ],
+  "scope": "DOCUMENTARY_VERIFICATION_ONLY_NO_MARKET_PROBE_OR_COST_MEASUREMENT"
+}

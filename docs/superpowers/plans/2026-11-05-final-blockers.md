@@ -18,37 +18,37 @@
 
 Files: `scripts/strat01_investment_readiness.py`, `tests/test_strat01_source_value_integrity.py`.
 
-- [ ] Reproduce malformed OHLCV being counted as a complete paired candle, and contradictory retained values sharing an unchanged source hash.
-- [ ] Write tests for missing/nonfinite/nonpositive prices, negative volume, booleans, inconsistent high/low, duplicate JSON keys, and conflict propagation to capture preflight.
-- [ ] Revalidate the persisted numeric payload and compare canonical numeric values as well as source hashes. Preserve unmodified source records and existing schema semantics.
-- [ ] Run scoped regressions and prove all actual 38 source records still pass; verify their original SHA256 values remain unchanged.
+- [x] Reproduce malformed OHLCV being counted as a complete paired candle, and contradictory retained values sharing an unchanged source hash.
+- [x] Write tests for missing/nonfinite/nonpositive prices, negative volume, booleans, inconsistent high/low, duplicate JSON keys, and conflict propagation to capture preflight.
+- [x] Revalidate the persisted numeric payload and compare canonical numeric values as well as source hashes. Preserve unmodified source records and existing schema semantics.
+- [x] Run scoped regressions and prove all actual 38 source records still pass; verify their original SHA256 values remain unchanged.
 
 ## Task 2 — Engine/accounting regression review (engine agent)
 
 Files: bounded changes under `src/arz/` and corresponding engine/risk/paper tests only.
 
-- [ ] Audit Signal → Risk → Quote → simulated fill → Accounting → Portfolio/restart.
-- [ ] For each new material defect, record a failing reproduction, minimal repair and passing regression. Do not recreate PR85's completed capped-exit work.
-- [ ] Return tested commit(s) or an honest no-new-defect finding for independent integration review.
+- [x] Audit Signal → Risk → Quote → simulated fill → Accounting → Portfolio/restart.
+- [x] For each new material defect, record a failing reproduction, minimal repair and passing regression. Do not recreate PR85's completed capped-exit work.
+- [x] Return tested commit(s) or an honest no-new-defect finding for independent integration review.
 
 ## Task 3 — Collector and release recovery (collector agent)
 
 Files: collector, local monitor, backup and associated tests/deployment configuration only.
 
-- [ ] Audit disconnect, restart, duplicate, missing-data, emergency-stop, recovery, health and retention behavior.
-- [ ] Repair only newly reproduced faults and preserve sticky refusals and existing source archives.
-- [ ] Exercise feasible local isolated checks; retain any Docker/host/alert-delivery limitation explicitly.
+- [x] Audit disconnect, restart, duplicate, missing-data, emergency-stop, recovery, health and retention behavior.
+- [x] Repair only newly reproduced faults and preserve sticky refusals and existing source archives.
+- [x] Exercise feasible local isolated checks; retain any Docker/host/alert-delivery limitation explicitly.
 
 ## Task 4 — Financial and operational evidence (quant agent + root)
 
-- [ ] Reconcile all registry entries and preserved base/double/stress historical outcomes; do not rerun unavailable or already observed strategy experiments.
-- [ ] Reconcile complete GitHub schedule metadata with immutable source observations for fully elapsed UTC dates; distinguish runs from coverage and original publication from first seen.
-- [ ] Record $20 BUY/SELL pool-fee assumptions, quotes, oracle estimates, actual fees and +60-second gaps with `COST_UNVERIFIED` for unresolved execution costs.
-- [ ] Produce dated JSON/CSV and equivalent English/Persian report, blocker priorities and required exit evidence. Preserve `NO-GO`/`INSUFFICIENT_EVIDENCE` when any acceptance gate lacks support.
+- [x] Reconcile all registry entries and preserved base/double/stress historical outcomes; do not rerun unavailable or already observed strategy experiments.
+- [x] Reconcile complete GitHub schedule metadata with immutable source observations for fully elapsed UTC dates; distinguish runs from coverage and original publication from first seen.
+- [x] Record $20 BUY/SELL pool-fee assumptions, quotes, oracle estimates, actual fees and +60-second gaps with `COST_UNVERIFIED` for unresolved execution costs.
+- [x] Produce dated JSON/CSV and equivalent English/Persian report, blocker priorities and required exit evidence. Preserve `NO-GO`/`INSUFFICIENT_EVIDENCE` when any acceptance gate lacks support.
 
 ## Task 5 — Integrate and publish
 
-- [ ] Integrate scoped commits without overwriting concurrent main evidence; run the full offline suite, canonical control verifier and relevant release/data checks.
+- [x] Integrate scoped commits without overwriting concurrent main evidence; run the full offline suite, canonical control verifier and relevant release/data checks.
 - [ ] Request a fresh independent review of the complete change; resolve material reproduced findings with regression tests.
 - [ ] Publish actual code, tests, evidence and reports via GitHub, verify exact PR head CI, and merge under repository authorization.
 - [ ] Update RESEARCH_NOW and STATE with actual source/commit/run IDs and remaining work; report any blocked CI/publication rather than claiming completion.

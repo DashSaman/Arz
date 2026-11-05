@@ -1,0 +1,113 @@
+# Final blocker resolution and profitability validation — 5 November 2026
+
+**Financial decision: NO-GO. Evidence status: INSUFFICIENT_EVIDENCE. Execution cost: COST_UNVERIFIED. Live trading: DISABLED. Authorized real capital: $0.** This increment fixes software evidence handling and reconciles actual repository/source records. It does not manufacture sufficient market history, a new untouched holdout, paid execution or elapsed paper days.
+
+The source baseline is main `cf018928c761fb19e2e296bd2840e55ee3fd3cc0`, tree `d62ad63c8256f5cc322e07537ea5336fd2accb6b`. All observations and source hashes below are scoped to that baseline unless a later receipt explicitly states otherwise. Machine evidence is under [the dated evidence directory](../../reports/strat01/2026-11-05-final-blockers/). Technical publication and CI are recorded separately from financial qualification.
+
+## 1. Continuity and scope
+
+[PR85](https://github.com/DashSaman/Arz/pull/85) merged as `fce7d500af835e93677078ed0f74fcfea6c8c834`; [PR86](https://github.com/DashSaman/Arz/pull/86) merged as `e617c53eed62792bb068a2aa7e1ed1b008a6cdbd`. The only subsequent main changes at the baseline were three paired source/audit commits, ending at `cf018928`. The prior capped-sell residual fix, sticky collector refusal, incomplete-restore refusal, backup package and digest-pinned release were not recreated. The unchanged baseline suite executed 1,540 methods with one skipped and no failures.
+
+The historical results, 164-entry registry, original frozen protocols, risk thresholds and source archives remain authoritative evidence of their own dates. No strategy search, new backtest, repeated throttled market probe or user-host deployment was run by this increment. Existing BUY-only entry quotas retain their meaning; protective exits do not acquire a new entry quota. The hypothetical $100 total including gas, $25 per-leg cap and $10 reserve do not authorize funding.
+
+## 2. Reproduced source validation defects
+
+The old persisted-source validator could count a candle whose retained close had been changed to a negative number, provided the source hash still looked syntactically valid. Two observations with the same reported source-line hash and contradictory retained numeric values could also avoid the revision/conflict check. Duplicate JSON keys were silently resolved by the JSON parser. A successful candle could carry a missing or wrong provider market identifier, or an unsupported/ambiguous document version.
+
+The fix independently validates the retained OHLCV structure, finite numbers, strictly positive prices, nonnegative volume and high/low consistency. It computes an exact canonical numeric consistency digest, checks that alongside the retained source-line digest, rejects duplicate JSON keys, and binds successful candles to schema version 1 and the frozen WETH/cbBTC provider pair IDs. A contradictory or malformed archive fails closed through the coverage and capture-preflight paths.
+
+Seven new regression methods cover these cases, including booleans, numeric strings, nonfinite values, absent payloads, contradictory duplicates, and equivalence of `10` and `10.0`. The source-only integrated suite executed **1,547 methods / one skipped / zero failures** before the other audit tracks were integrated. The RED/GREEN logs and exact local verification commits are retained in [data-fix-verification.json](../../reports/strat01/2026-11-05-final-blockers/data-fix-verification.json). Final integrated counts belong to the later verification receipt.
+
+The new digest detects retained-value inconsistency; it does not authenticate missing provider response bytes or prove publication at candle close. [All 38 original forward files remain byte-identical](../../reports/strat01/2026-11-05-final-blockers/source-preservation.json). The stricter validator accepts all of them without conflicts or errors. No original source or historical result was rewritten to fit the new validation.
+
+### Independent engine and accounting review
+
+A separate reviewer inspected `engine.py`, `risk.py`, `accounting.py`, `paper.py`, `strategies.py` and `config.py`. Those files are byte-identical between audited PR86 main and this source baseline. Existing signal/risk/execution/accounting, partial-sell, balance, duplicate, restart and protective-exit regressions executed **309 methods with zero failures**. No new reproducible material defect was found, so this review produced no speculative engine patch. [The receipt](../../reports/strat01/2026-11-05-final-blockers/engine-review.json) records the command, source hashes, scope and an unvalidated extreme-price numerical hypothesis. This is a bounded review, not a proof that every possible fault is absent.
+
+### Durable provider refusal and exact receipt-event provenance
+
+A separate collector regression exposed a material error: the bounded source probe correctly stopped on a synthetic HTTP429, but its incomplete returned observation was archived as a successful collection. Health became `COLLECTION_HEALTHY`, and a later invocation fetched again. This also occurred when both candles were valid but Base RPC refused the following request. The fix retains the original source and records `REFUSED_PROVIDER_ACCESS_STOP`; fixed 403/429/529/provider-stopped/oversize refusal codes remain visible after restart, network opt-out/opt-in and backup/restore. It inspects retained pre-fix source records before fetching, and exits with code 2. There is no automatic reset or access-resume bypass. Ordinary transient fault recovery is unchanged. Three new methods failed in five subcases before repair; the 36-method collector/monitor/recovery suite then passed using mocked HTTP only.
+
+The independent receipt audit reproduced acceptance of a selected Swap log with altered data, indexed topics, removal flag, block number or transaction index, despite a common hash/address/log index. A duplicate selected event also passed. The fix validates the source and receipt event, compares their complete payload and position, and requires exactly one match while permitting unrelated other logs. Operator fee and full network fee remain explicitly null/unproven; the observed L1+L2 subtotal retains its narrower name. The targeted receipt suite went from six failures and one error to 13 passing methods. The actual saved receipt count is still zero, so no existing paid-cost observation was changed.
+
+After integrating these fixes, the full local suite executed **1,553 methods / one skipped / zero failures**. The canonical control check and `git diff --check` passed. The two native-CSV resource warnings predate this patch. Release and dashboard workflow filters now include the source-validator dependency and new regressions, so current-head container/dashboard CI is requested by this change; its actual outcome is recorded separately.
+
+## 3. Actual data coverage and schedule reliability
+
+| Measurement at the source baseline | Observed value | Qualification |
+| --- | ---: | --- |
+| Archived forward files | 38 | Repeated observations are distinct files, not distinct bars |
+| Distinct complete paired WETH/cbBTC four-hour starts | 30 | Contains delayed observations |
+| Paired starts first seen within the one-hour operational diagnostic | 12 | Does not prove original publication or execution prices |
+| Longest complete consecutive paired sequence | 5 | Required eligible sequence: 194 |
+| Longest operationally timely consecutive paired sequence | 5 | Still does not establish an investable sequence |
+| Qualified prospective paper calendar days | 0 | Minimum 90; H4 requires 180 |
+
+Source: [hardened source audit](../../reports/strat01/2026-11-05-final-blockers/source-investment-audit.json). Eighteen paired groups are late under the operational diagnostic. The missing initial frozen OOS start `1793059200` remains missing from original timely observations; later historical recovery stays separate. The largest observed close-to-first-seen delay is 14,076 seconds. At the 10:22 UTC / 13:52 Tehran dashboard observation on 5 November, the last archived source was 00:56:30 UTC, so the 04:00 and 08:00 UTC closes had no later archived capture in this checked-out snapshot.
+
+The complete retrieved GitHub API sample has 38 scheduled runs. For the fully elapsed UTC dates **1–4 November**, 20 jobs were created and all completed successfully, but only **9 of 24 distinct market closes** had timely paired archived data across all sources. The daily observations are in [coverage-by-day.csv](../../reports/strat01/2026-11-05-final-blockers/coverage-by-day.csv). The current workflow has primary minute-23 and backstop minute-47 schedules; 24 is the number of distinct four-hour closes, not the number of configured cron attempts. Creation dates alone cannot identify exactly which cron attempt was delayed or absent. Manual observations can also contribute to the source-coverage count.
+
+Two actual jobs were independently inspected. [Run 41945009698](https://github.com/DashSaman/Arz/actions/runs/41945009698) recorded a successful paired capture at **2026-11-05T00:56:30Z**. [Run 41946001290](https://github.com/DashSaman/Arz/actions/runs/41946001290) correctly skipped the same already-paired timely slot. Exact selected log lines and decoded-log hashes are in [selected-job-attestation.json](../../reports/strat01/2026-11-05-final-blockers/selected-job-attestation.json). This corroborates those jobs, not every provider publication timestamp or financial execution.
+
+[GitHub documents](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows) that scheduled jobs may be delayed and, under sufficient load, dropped. The existing dual cron lines share that service. A separate authorized host with a durable clock, retained event log and measured uptime is still an operational dependency. Even perfect future coverage takes actual time: 194 consecutive four-hour periods span 32 days and 8 hours. Old gaps cannot be repaired by assigning a false earlier first-seen time.
+
+## 4. Two-sided reference costs and missing execution evidence
+
+The [cost receipt](../../reports/strat01/2026-11-05-final-blockers/execution-cost-status.json) binds Base chain 8453, token contracts, pool addresses and provider identifiers to the preserved on-chain/provider identity record. Original identity parsing required token0/token1 while the provider returned base/quote addresses; the existing offline reconciliation resolves that orientation and preserves the original response and false flag. Both verified pools use 500 ppm (0.05%) fees at the observed identity block.
+
+For a hypothetical $20 input on each leg, that pool fee alone is $0.01 per side, or $0.02 round trip. A sell pays its fee in the sold token; a $20 gross value is only the comparison convention. Pool fees already embedded in net route quotes must not be added twice.
+
+| Existing S0 model | Combined variable allowance per leg | Assumed fixed gas per attempt | Modeled BUY on $20 | Modeled SELL on equal $20 value | Modeled round trip |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Base | 15 bps | $0.01 | $0.04 | $0.04 | $0.08 (0.4%) |
+| Exact double | 30 bps | $0.02 | $0.08 | $0.08 | $0.16 (0.8%) |
+| Stress | 30 bps | $0.05 | $0.11 | $0.11 | $0.22 (1.1%) |
+
+These are preserved research assumptions, not verified DEX execution costs. The pool-fee illustration is not added again to the combined variable allowance. A realized sell notional, failed attempts and other costs can differ. [The CSV](../../reports/strat01/2026-11-05-final-blockers/reference-20usdc-model-costs.csv) makes this convention explicit.
+
+The forward collector has prior read-only exact-20-USDC BUY QuoterV2 observations at a specified block. It has no matched SELL executable quote, no signal-bound BUY/SELL quote at +60 seconds, and no measured +60-second strategy-return sensitivity. Quoter gas units estimate that call, not paid router execution. Actual follower gas, price impact, quote-to-inclusion slippage, MEV loss and failed-transaction frequency/cost remain unknown. The preserved public-receipt experiment returned HTTP429 before any receipt, and was not retried here.
+
+[Current Base fee documentation](https://docs.base.org/specifications/transactions/network-fees) includes L2 execution, L1 data and operator fees. [The Jovian specification](https://docs.base.org/upgrades/jovian/exec-engine) makes operator charging dependent on configuration. A missing operator field/configuration cannot be silently assigned zero; relevant block/version and fee-conversion evidence are needed. Documentation is not a measurement of our order. All unavailable amounts remain JSON null with **COST_UNVERIFIED**.
+
+## 5. Profitability evidence and acceptance gates
+
+The [previous complete quantitative reconciliation](strat01_quant_validation_20261104.md), its [164-entry disposition](../../reports/strat01/2026-11-04-validation/strategy-disposition.csv), and exact saved ledger ZIP remain preserved. Their 103 arithmetic checks verify existing simulation records; they do not reconstruct absent provider bytes, create new independent samples or measure execution.
+
+An [independent bounded audit](../../reports/strat01/2026-11-05-final-blockers/independent-quant-audit.json) rechecked every registry disposition: 73 historical diagnostics, 16 historical-screen failures, 14 data blockers, 9 outside policy, 45 references and 7 definition blockers. All 164 remain unqualified with no fresh OOS. They are 32 family labels containing aliases, controls and work tracks, not 164 independent investment hypotheses. The reviewer hashed 822 and 735 files in the two prior workspaces, including ignored runtime and each ZIP member, against documented provider-input hashes and found zero exact matches. [The compressed inventory and preservation receipt](../../reports/strat01/2026-11-05-final-blockers/independent-quant-preservation.json) retain that search. It establishes absence in those inspected trees, not in inaccessible remote artifact storage. The retained ZIP contains simulation ledgers, not the original historical candles; a revised-engine historical replay is not justified by substituting another source.
+
+The [58-row metric extract](../../reports/strat01/2026-11-05-final-blockers/saved-metrics-58.csv) brings together all 18 stateful scenarios, 24 original saved cases (including walk-forward) and 16 selected native rows. It includes account/geometric returns, PF, marked-close drawdown, closed cycles, win rate, closed-cycle expectancy, modeled fees, cash/allocation-20 hold comparisons and the precise estimand of each available prior interval. [The extraction receipt](../../reports/strat01/2026-11-05-final-blockers/saved-metrics-extraction.json) hashes every input; the adjacent helper reproduces only this descriptive extraction, with zero strategy runs or bootstrap experiments. Empty cells mean unavailable/undefined. Native metrics with absent raw ledgers are copied from the preserved source table and are not a new independent ledger verification.
+
+The saved hold comparator matches the $20 allocation, not volatility or changing portfolio exposure. Original hold records are marked open and include entry costs only. Therefore a fully comparable liquidated, volatility-matched benchmark is not established. Chronological windows show period sensitivity but are not a newly preregistered bull/bear/volatility regime classification. Neither gap is filled with a post-hoc favorable comparison.
+
+| Stateful S0 market/window | Base account return | Exact-double return | Stress return | Closed cycles per scenario |
+| --- | ---: | ---: | ---: | ---: |
+| WETH, 2025 | +10.5314% | +9.7890% | +9.2251% | 8 |
+| WETH, 2026 Q1 | −2.8524% | −3.1558% | −3.3881% | 4 |
+| WETH, Aug–Sep 2026 | +2.4463% | +2.2766% | +2.1535% | 2 |
+| cbBTC, 2025 | −0.8003% | −1.7478% | −2.4604% | 12 |
+| cbBTC, 2026 Q1 | −1.0050% | −1.2395% | −1.4165% | 3 |
+| cbBTC, Aug–Sep 2026 | −0.9387% | −1.0946% | −1.2129% | 2 |
+
+Each window is a separate $100 modeled account, not continuous compounding. The saved 93 cycles count the same 31 asset/window cycles across three cost scenarios; neither cost copies nor correlated markets are new independent cycles. WETH 2025 stress PF 2.6961 and marked-close drawdown 4.6076% coexist with only eight cycles. Removing its three winning cycles from that fixed ledger gives −5.4389%, a concentration diagnostic, not a newly imposed optimization criterion. Its stressed geometric daily return is about +0.02418%, not 1–2%. WETH Aug–Sep stress +2.1535% trails the saved matched-$20 hold result of +8.2797%. Cash earns no unobserved yield.
+
+The original already-seen 33⅓-day holdout has trend −2.4443%, momentum −1.8463% and mean reversion +0.1427% at base costs; mean reversion becomes −0.1777% at double costs. Only 4–6 cycles close per candidate, and the prior baseline mean-daily block intervals include zero. These intervals do not certify positive selection-adjusted geometric returns.
+
+The native WETH hourly volume variant's Apr 2025–Apr 2026 stress result is +2.0835%, but PF is 1.2706 and the saved 95% block interval is [−7.1774%, +14.2262%]. Both variants lose −3.3891% in the terminal Oct 2025–Apr 2026 stress interval. Those six months overlap the annual sample and cannot be called a fresh subsequent OOS. The genuinely subsequent Apr–Oct 2026 native interval is incomplete, not a measured zero or loss. Exact-double native rows and stateful dependence-aware confidence bounds are unavailable in the retained selected evidence.
+
+No candidate satisfies the combined existing gates: at least 100 independent closed historical cycles (H3: 200), PF ≥1.5, maximum DD ≤10%, positive net geometric base and stress returns, positive valid dependence-aware uncertainty lower bounds, untouched OOS, validated execution costs and 90 genuine prospective days (H4: 180). No thresholds, ranking criteria or parameters are changed to rescue a losing strategy. A failed numerical gate remains a failure; missing data are **INSUFFICIENT_EVIDENCE**. The overall capital decision remains **NO-GO** in either case.
+
+## 6. Operational rehearsal and remaining external dependencies
+
+The existing release uses the digest-pinned Python image, unprivileged UID/GID 65534, a read-only root, network `none`, dropped capabilities, health checking and bounded local logs. Its digest is `sha256:e697c81897302a4c4333bade000d98038fbb21eb064f8ee1fd42d02ebcd9d337`; the reviewed repository checkout is a separate read-only bind mount. [Installation/restart/rollback instructions](strat01_collector_release_20261104.md) remain applicable. This increment did not deploy a user server or enable the optional network overlay.
+
+The actual source snapshot was loaded into the [HTML dashboard](../../reports/strat01/2026-11-05-final-blockers/dashboard.html) and [JSON status](../../reports/strat01/2026-11-05-final-blockers/dashboard-status.json). It correctly reports **NO_RECENT_HEARTBEAT** because no authorized independent host is running. A new offline backup/restore rehearsal preserved all 38 files byte-for-byte and did not restore an old heartbeat; [the receipt](../../reports/strat01/2026-11-05-final-blockers/source-backup-rehearsal.json) records the archive digest. Local Docker/Podman is unavailable; an actual current-head isolated container check must be resolved from GitHub CI, not inferred from static configuration or the prior PR85 run.
+
+Actual alert delivery, independently hosted uptime and off-host backup scheduling/destination still require an authorized operational environment. No paper fills or portfolio gains are inferred from collector uptime. Runtime changes retain old journals and invalidate their old fingerprints; no fault is silently cleared and no new prospective experiment is implicitly started.
+
+The existing `arz paper` command is bounded to 1–20 observations and has replay-checked journals, sticky faults and account marks; it is not a continuous qualified S0 service. Its 90-second modeled-observation guard is also not the source collector's one-hour diagnostic or measured signal+60-second execution. [The paper runbook](operations.md) documents its limits. No qualified S0 candidate, approved continuous paper adapter/cohort or elapsed paper performance is claimed by the collector package. Connecting future qualified source and execution evidence to such a cohort requires a separately identified frozen experiment; starting the bounded diagnostic against unqualified or already throttled data would not resolve that dependency.
+
+## 7. Restart procedure
+
+Read `RESEARCH_NOW.md` and `research/control/STATE.json`, resolve the current main/PR head and publication receipts, then run `PYTHONPATH=src:. python scripts/verify_research_control.py`. Reconcile only genuinely later source/run changes. Preserve original source files, delayed historical recovery, immutable result artifacts and failed-access evidence.
+
+The next financial prerequisites are permitted timely paired market observations, exact source-bound BUY/SELL follower cost evidence at +60 seconds, suitable untouched data and a preregistered evaluation, sufficient independently closed cycles and genuinely elapsed prospective time. A server deployment and any eventual funded pilot need separate authorization. The current record does not justify proposing activation of the hypothetical $100 pilot.

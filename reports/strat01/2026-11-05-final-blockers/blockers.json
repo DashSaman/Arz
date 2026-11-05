@@ -1,0 +1,117 @@
+{
+  "baseline_main_sha": "cf018928c761fb19e2e296bd2840e55ee3fd3cc0",
+  "fixes": [
+    {
+      "cause": "Persisted OHLCV, duplicate JSON keys and market/schema binding were not fully revalidated.",
+      "evidence": "data-fix-verification.json; tests/test_strat01_source_value_integrity.py",
+      "id": "DATA_VALUE_PROVENANCE",
+      "priority": "P1",
+      "remaining": "Independent final review and exact-head CI/publication.",
+      "remedy": "Strict numeric/structural validation, exact numeric conflict digest, duplicate-key rejection and frozen pair/schema checks.",
+      "status": "FIXED_LOCALLY_REVIEW_PENDING"
+    },
+    {
+      "cause": "Encoded provider refusal in an archived source was counted as healthy and allowed a later fetch.",
+      "evidence": "tests/test_strat01_collector_provider_stop.py; integrated-tests.log",
+      "id": "COLLECTOR_PROVIDER_REFUSAL",
+      "priority": "P1",
+      "remaining": "Independent final review and exact-head isolated-container CI; host/provider review remains external.",
+      "remedy": "Immutable provider-access-stop event and retained-source guard; no retry or reset through restart/network toggle/restore.",
+      "status": "FIXED_LOCALLY_REVIEW_PENDING"
+    },
+    {
+      "cause": "Common transaction/block/address/log index admitted altered or duplicate selected Swap payload.",
+      "evidence": "independent-quant-audit.json; tests/test_strat01_public_receipt_cost.py",
+      "id": "RECEIPT_EVENT_PROVENANCE",
+      "priority": "P2",
+      "remaining": "Independent final review and exact-head CI/publication.",
+      "remedy": "Bind full source/receipt event and position; require exactly one match; expose missing operator/full network fee.",
+      "status": "FIXED_LOCALLY_REVIEW_PENDING"
+    }
+  ],
+  "observed_at_utc": "2026-11-05T10:48:33.909374+00:00",
+  "remaining": [
+    {
+      "cause": "38 files contain30 paired starts but longest complete/timely chain is5;194 eligible consecutive bars are required.",
+      "evidence": "source-investment-audit.json; coverage-by-day.csv",
+      "id": "DATA_194_CONTIGUOUS",
+      "priority": "P0",
+      "remaining": "Stable permitted source and actual consecutive future observations; never backdate.",
+      "remedy": "Collect lawful actual-clock paired data with retained sources and conflicts checked. Keep historical recovery separate.",
+      "status": "BLOCKED_EXTERNAL_DATA_AND_TIME"
+    },
+    {
+      "cause": "Known exact original/stateful raw input hashes have no match among1557 files in inspected prior workspaces or their ZIP members.",
+      "evidence": "independent-quant-audit.json; retained-input-inventory.json.gz",
+      "id": "RAW_HISTORICAL_INPUTS",
+      "priority": "P1",
+      "remaining": "Locate legitimate retained bytes; do not substitute/reconstruct data or repeat throttled downloads.",
+      "remedy": "Recover authorized exact immutable raw inputs from an existing retained artifact if available.",
+      "status": "BLOCKED_RETAINED_INPUT_UNAVAILABLE"
+    },
+    {
+      "cause": "Prior BUY Quoter estimates are not matched SELL or signal+60s routes; paid L1/L2/operator, impact/slippage, MEV and failures lack sufficient evidence.",
+      "evidence": "execution-cost-status.json; reference-20usdc-model-costs.csv",
+      "id": "COST_20USDC_BOTH_SIDES",
+      "priority": "P0",
+      "remaining": "Lawful source access and actual observation. No wallet or funded transaction authorized.",
+      "remedy": "Under frozen permitted observation protocol obtain timestamp/block-bound two-sided route and full-cost evidence; preserve unknowns.",
+      "status": "COST_UNVERIFIED"
+    },
+    {
+      "cause": "All164 registrations remain unqualified; positive examples lack sufficient cycles/uncertainty and other windows lose.",
+      "evidence": "independent-quant-audit.json; saved-metrics-58.csv",
+      "id": "HISTORICAL_QUALIFICATION",
+      "priority": "P0",
+      "remaining": "A candidate that actually passes all frozen numeric and evidence gates; none is established.",
+      "remedy": "Keep rejected hypotheses rejected; test only a preregistered eligible hypothesis on adequate valid data without threshold relaxation.",
+      "status": "NO_GO_FAILED_OR_UNPROVEN_GATES"
+    },
+    {
+      "cause": "Existing holdouts are already seen; native terminal6m overlaps annual; subsequent native interval is incomplete.",
+      "evidence": "saved-metrics-58.csv; independent-quant-audit.json",
+      "id": "UNTOUCHED_OOS",
+      "priority": "P0",
+      "remaining": "Valid independent out-of-sample evidence with dependence-aware lower bound positive.",
+      "remedy": "Freeze a suitable experiment before observing genuinely untouched sufficient data.",
+      "status": "INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "cause": "Saved hold matches20USDC allocation but not volatility or time-varying exposure; windows are not a new preregistered regime classification.",
+      "evidence": "saved-metrics-extraction.json; reports/backtests/benchmarks.csv",
+      "id": "RISK_MATCHED_REGIMES",
+      "priority": "P1",
+      "remaining": "Fair fully costed comparison, with no post-hoc favorable benchmark or regime selection.",
+      "remedy": "Specify risk-matching/regime procedure prospectively and apply it only within an eligible registered evaluation.",
+      "status": "INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "cause": "Zero qualified prospective calendar days; bounded diagnostic paper CLI is not a qualified continuous S0 cohort.",
+      "evidence": "engine-review.json; dashboard-status.json; docs/en/operations.md",
+      "id": "PROSPECTIVE_PAPER",
+      "priority": "P0",
+      "remaining": "At least90 genuinely elapsed qualified days,180 forH4; do not count backtests or source files as days.",
+      "remedy": "After prerequisites pass, identify and review frozen source-to-paper integration/cohort; retain immutable journals and original faults.",
+      "status": "BLOCKED_QUALIFICATION_AND_REAL_TIME"
+    },
+    {
+      "cause": "No authorized independent host, delivered alert or off-host backup schedule/destination. Local Docker unavailable.",
+      "evidence": "source-backup-rehearsal.json; dashboard-status.json; deploy/collector/docker-compose.yml",
+      "id": "SUPERVISED_HOST_OPERATIONS",
+      "priority": "P1",
+      "remaining": "Authorized host/provider setup; real restart/stop/rollback/restore/alert drills and measured uptime. No deployment occurred.",
+      "remedy": "Verify exact-head isolated CI package, then propose concrete reviewed host operation if authorized separately.",
+      "status": "BLOCKED_SEPARATE_HOST_AUTHORIZATION"
+    },
+    {
+      "cause": "Combined financial/evidence/operational gates are failed or unproven.",
+      "evidence": "decision.json; research/control/STATE.json",
+      "id": "CAPITAL_ACTIVATION",
+      "priority": "P0",
+      "remaining": "All gates must pass before any separate <=100USD includinggas pilot approval can be proposed.",
+      "remedy": "Keep real capital0 and live trading disabled.",
+      "status": "NO_GO"
+    }
+  ],
+  "schema_version": 1
+}

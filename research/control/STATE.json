@@ -1358,5 +1358,70 @@
       41889622694
     ],
     "primary_merge_observed_at_utc": "2026-11-04T18:47:15.764294+00:00"
+  },
+  "post_audit_20261105_final_blockers": {
+    "observed_at_utc": "2026-11-05T10:48:33.909374+00:00",
+    "source_main_sha": "cf018928c761fb19e2e296bd2840e55ee3fd3cc0",
+    "branch": "research/final-blockers-20261105",
+    "pr": null,
+    "publication_status_at_observation": "PREPARED_LOCAL_REVIEW_AND_CI_PENDING",
+    "decision_report": "reports/strat01/2026-11-05-final-blockers/decision.json",
+    "blocker_report": "reports/strat01/2026-11-05-final-blockers/blockers.json",
+    "reports": {
+      "en": "docs/en/strat01_final_blockers_20261105.md",
+      "fa": "docs/fa/strat01_final_blockers_20261105.md"
+    },
+    "engineering_verified": {
+      "baseline_test_methods": 1540,
+      "collector_scoped_methods": 36,
+      "command": "PYTHONPATH=src:. python -m unittest discover -s tests",
+      "control_verifier": "PASS_OFFLINE_ONLY",
+      "engine_scoped_methods": 309,
+      "failures": 0,
+      "integrated_log_sha256": "0c59f55955bdf0e1061d4077710ab9cac2172446aa7d2d5dc68e3fabd96555a4",
+      "integrated_skipped": 1,
+      "integrated_test_methods": 1553,
+      "new_regression_methods": 13,
+      "receipt_scoped_methods": 13,
+      "root_data_scoped_methods": 7
+    },
+    "local_verification_commits": [
+      "a7d9dcd4b8ab83cb615a21d06b5b5a6d1f73b422",
+      "18af39aa0fc5b1af9c1ef9792b88fc99d7feff9f",
+      "e758b5a8045b35c9c404610e04986a9f1f07a398",
+      "546cced36735cdda303ff74917ae0dfd00f8181b"
+    ],
+    "independent_final_review": "PENDING",
+    "exact_head_ci": "PENDING",
+    "financial_decision": "NO-GO",
+    "acceptance_verdict": "NO_GO",
+    "profitability_evidence": "INSUFFICIENT_EVIDENCE",
+    "cost_status": "COST_UNVERIFIED",
+    "live_trading": "DISABLED",
+    "real_capital_authorized_usd": 0,
+    "new_strategy_experiments": 0,
+    "new_market_provider_requests": 0,
+    "qualified_forward_days": 0,
+    "source_files": 38,
+    "paired_bars": 30,
+    "operationally_timely_paired_bars": 12,
+    "max_contiguous_complete_bars": 5,
+    "max_contiguous_operational_bars": 5,
+    "eligible_warmup_required": 194,
+    "immutable_source_hashes_preserved": true,
+    "old_paper_journals_preserved": true,
+    "core_engine_runtime_files_unchanged_from_baseline": true,
+    "next_command": "PYTHONPATH=src:. python scripts/verify_research_control.py",
+    "remaining_dependencies": [
+      "DATA_194_CONTIGUOUS: Stable permitted source and actual consecutive future observations; never backdate.",
+      "RAW_HISTORICAL_INPUTS: Locate legitimate retained bytes; do not substitute/reconstruct data or repeat throttled downloads.",
+      "COST_20USDC_BOTH_SIDES: Lawful source access and actual observation. No wallet or funded transaction authorized.",
+      "HISTORICAL_QUALIFICATION: A candidate that actually passes all frozen numeric and evidence gates; none is established.",
+      "UNTOUCHED_OOS: Valid independent out-of-sample evidence with dependence-aware lower bound positive.",
+      "RISK_MATCHED_REGIMES: Fair fully costed comparison, with no post-hoc favorable benchmark or regime selection.",
+      "PROSPECTIVE_PAPER: At least90 genuinely elapsed qualified days,180 forH4; do not count backtests or source files as days.",
+      "SUPERVISED_HOST_OPERATIONS: Authorized host/provider setup; real restart/stop/rollback/restore/alert drills and measured uptime. No deployment occurred.",
+      "CAPITAL_ACTIVATION: All gates must pass before any separate <=100USD includinggas pilot approval can be proposed."
+    ]
   }
 }

@@ -1,0 +1,70 @@
+{
+  "asof_utc": "2026-11-05 10:22 UTC",
+  "complete_paired_bar_count": 30,
+  "event_records": 0,
+  "exact_plus60s_follower_paid_execution_usdc": null,
+  "financial_decision": "NO-GO",
+  "health": "NO_RECENT_HEARTBEAT",
+  "invalid_source_count": 0,
+  "kind": "LOCAL_OBSERVABILITY_NOT_FINANCIAL_QUALIFICATION",
+  "last_source_filename": "20261105T005630Z.json",
+  "last_source_first_seen": "2026-11-05T00:56:30+00:00",
+  "latest_event_outcome": null,
+  "latest_event_reason_code": null,
+  "live_trading": "DISABLED",
+  "max_consecutive_timely_paired_bars": 5,
+  "original_candle_publication_verified": false,
+  "qualified_paper_calendar_days": 0,
+  "real_capital_authorized_usd": 0,
+  "recent_closed_four_hour_slots": [
+    {
+      "closed_at_utc": "2026-11-04 12:00 UTC",
+      "first_seen_within_1h": true,
+      "label": "PAIR_TIMELY",
+      "paired_observed": true,
+      "source_bar_start_unix": 1793779200
+    },
+    {
+      "closed_at_utc": "2026-11-04 16:00 UTC",
+      "first_seen_within_1h": false,
+      "label": "PAIR_LATE_OR_UNVERIFIED",
+      "paired_observed": true,
+      "source_bar_start_unix": 1793793600
+    },
+    {
+      "closed_at_utc": "2026-11-04 20:00 UTC",
+      "first_seen_within_1h": true,
+      "label": "PAIR_TIMELY",
+      "paired_observed": true,
+      "source_bar_start_unix": 1793808000
+    },
+    {
+      "closed_at_utc": "2026-11-05 00:00 UTC",
+      "first_seen_within_1h": true,
+      "label": "PAIR_TIMELY",
+      "paired_observed": true,
+      "source_bar_start_unix": 1793822400
+    },
+    {
+      "closed_at_utc": "2026-11-05 04:00 UTC",
+      "first_seen_within_1h": false,
+      "label": "NO_VALID_PAIRED_FIRST_SEEN",
+      "paired_observed": false,
+      "source_bar_start_unix": 1793836800
+    },
+    {
+      "closed_at_utc": "2026-11-05 08:00 UTC",
+      "first_seen_within_1h": false,
+      "label": "NO_VALID_PAIRED_FIRST_SEEN",
+      "paired_observed": false,
+      "source_bar_start_unix": 1793851200
+    }
+  ],
+  "required_consecutive_paired_bars": 194,
+  "schema_version": 1,
+  "source_conflicts": [],
+  "source_files_checked": 38,
+  "strategy_net_profit_verified": false,
+  "timely_paired_bar_count": 12,
+  "valid_source_files": 38
+}

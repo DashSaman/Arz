@@ -1,0 +1,76 @@
+{
+  "actual_immutable_source_files_still_valid": 38,
+  "baseline": {
+    "failures": 0,
+    "skipped": 1,
+    "test_methods_run": 1540
+  },
+  "baseline_sha": "cf018928c761fb19e2e296bd2840e55ee3fd3cc0",
+  "financial_decision": "NO-GO",
+  "focused_final_green": {
+    "exit_code": 0,
+    "failures": 0,
+    "test_methods_run": 7
+  },
+  "full_suite_after_source_fixes": {
+    "exit_code": 0,
+    "failures": 0,
+    "skipped": 1,
+    "test_methods_run": 1547
+  },
+  "identity_regression_red": {
+    "exit_code": 1,
+    "failed_assertions_including_subtests": 10,
+    "test_methods_run": 7
+  },
+  "live_trading": "DISABLED",
+  "local_verification_commits": [
+    "a7d9dcd",
+    "18af39a"
+  ],
+  "logs": [
+    {
+      "file": "baseline-tests.log",
+      "sha256": "7a75d7cd78d82bdbac16217f15be040c6ead988c403d0696dd4ef653d0aa44f8"
+    },
+    {
+      "file": "source-integrity-red.log.gz",
+      "plaintext_filename": "source-integrity-red.log",
+      "plaintext_sha256": "217a718d5492d5509622cdd6a3ac97fbe559710c23eef1b716db0ea53d5d183f",
+      "sha256": "5c3a7b025c7b3a420a0c0a84ee5031eac90ffaa516de60db1e96e68d5b25ee4a",
+      "storage": "GZIP_PRESERVES_EXACT_ORIGINAL_STDOUT_WHITESPACE"
+    },
+    {
+      "file": "source-integrity-green.log",
+      "sha256": "9588aa7db0a0d6fad656c0e2029401e2ff23cf461f5610293e000ceebd2fba31"
+    },
+    {
+      "file": "source-identity-red.log.gz",
+      "plaintext_filename": "source-identity-red.log",
+      "plaintext_sha256": "f11a804bc15f432dfebdcea329c687f4d594aaa71125ac48ca4b3468981d4abd",
+      "sha256": "5dd09050515a5573185539a02a29db3fc55c7c5176cd161cb93927a7563d4313",
+      "storage": "GZIP_PRESERVES_EXACT_ORIGINAL_STDOUT_WHITESPACE"
+    },
+    {
+      "file": "source-identity-green.log",
+      "sha256": "8bf0b4cf17b0aadb979a91631b4f5a74eaba75656365dcb28736ce85a975bb10"
+    },
+    {
+      "file": "data-identity-fix-suite.log",
+      "sha256": "252bf795ff5fee7ed37a84428a44eb0dd7aaf14b1652c1ebc89265e879c77881"
+    }
+  ],
+  "new_financial_experiments": 0,
+  "new_market_requests": 0,
+  "publication_commit_mapping": "Local commits identify the verified worktree; public GitHub commit and PR are recorded by the final publication receipt.",
+  "real_capital_authorized_usd": 0,
+  "scope": "PERSISTED_SOURCE_REGRESSIONS_ONLY_SYNTHETIC_NEGATIVE_CASES_AND_UNCHANGED_REAL_SOURCE_REVALIDATION",
+  "value_regression_red": {
+    "exit_code": 1,
+    "failed_assertions_including_subtests": 15,
+    "test_methods_run": 5
+  },
+  "warnings": [
+    "Two pre-existing unclosed CSV ResourceWarnings in scripts/strat01_60m_native_probe.py"
+  ]
+}

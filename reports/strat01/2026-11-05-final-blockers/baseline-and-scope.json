@@ -1,0 +1,50 @@
+{
+  "baseline_main_sha": "cf018928c761fb19e2e296bd2840e55ee3fd3cc0",
+  "baseline_tree_sha": "d62ad63c8256f5cc322e07537ea5336fd2accb6b",
+  "cost_status": "COST_UNVERIFIED",
+  "financial_decision": "NO-GO",
+  "github_software_checks_are_financial_proof": false,
+  "live_trading": "DISABLED",
+  "mission_date": "2026-11-05",
+  "new_market_requests": 0,
+  "new_strategy_parameter_search_trials": 0,
+  "prior_prs": {
+    "85": {
+      "merge_sha": "fce7d500af835e93677078ed0f74fcfea6c8c834",
+      "merged": true
+    },
+    "86": {
+      "merge_sha": "e617c53eed62792bb068a2aa7e1ed1b008a6cdbd",
+      "merged": true
+    }
+  },
+  "profitability_evidence_status": "INSUFFICIENT_EVIDENCE",
+  "prospective_paper_day_requirement": 90,
+  "real_capital_authorized_usd": 0,
+  "retained_financial_guardrails": {
+    "automatic_deposit": false,
+    "cash_reserve_usd": 10,
+    "financial_decision": "NO-GO",
+    "initial_real_capital_authorized_usd": 0,
+    "leverage": false,
+    "live_trading": "DISABLED",
+    "martingale": false,
+    "max_hypothetical_account_usd": 100,
+    "max_hypothetical_order_usd": 25,
+    "noncustodial_wallet_keys_present": false
+  },
+  "source_coverage": {
+    "files": 38,
+    "longest_complete_chain": 5,
+    "longest_timely_chain": 5,
+    "paired_4h_bars": 30,
+    "qualified_paper_days": 0,
+    "required_consecutive_paired_bars": 194,
+    "timely_1h_diagnostic_pairs": 12
+  },
+  "stricter_existing_requirements": {
+    "H3_minimum_historical_cycles": 200,
+    "H4_prospective_days": 180
+  },
+  "subsequent_main_changes": "Three scheduled capture commits; six newly added JSON evidence files; no production source changes."
+}

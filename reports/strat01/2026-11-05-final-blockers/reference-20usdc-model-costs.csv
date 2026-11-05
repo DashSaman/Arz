@@ -1,0 +1,4 @@
+scenario,each_leg_reference_notional_usdc,variable_model_bps_per_leg,fixed_model_gas_usd_per_attempt,modeled_buy_cost_usd,modeled_sell_cost_usd,modeled_round_trip_cost_usd,modeled_round_trip_fraction_of_20_usdc,cost_evidence
+base,20,15,0.01,0.04,0.04,0.08,0.004,HYPOTHETICAL_EXISTING_S0_ASSUMPTION_NOT_VERIFIED_DEX_COST
+exact_double,20,30,0.02,0.08,0.08,0.16,0.008,HYPOTHETICAL_EXISTING_S0_ASSUMPTION_NOT_VERIFIED_DEX_COST
+stress,20,30,0.05,0.11,0.11,0.22,0.011,HYPOTHETICAL_EXISTING_S0_ASSUMPTION_NOT_VERIFIED_DEX_COST
