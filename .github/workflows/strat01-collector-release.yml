@@ -7,7 +7,10 @@ on:
       - 'scripts/strat01_independent_collector.py'
       - 'scripts/strat01_local_monitor.py'
       - 'scripts/strat01_collector_backup.py'
+      - 'scripts/strat01_investment_readiness.py'
       - 'tests/test_strat01_collector_backup.py'
+      - 'tests/test_strat01_collector_provider_stop.py'
+      - 'tests/test_strat01_source_value_integrity.py'
       - '.github/workflows/strat01-collector-release.yml'
   workflow_dispatch:
 
@@ -27,7 +30,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Recovery negative controls with synthetic records
-        run: python -m unittest tests.test_strat01_collector_backup -v
+        run: python -m unittest tests.test_strat01_collector_backup tests.test_strat01_collector_provider_stop -v
       - name: Validate and start network-isolated collector on ephemeral CI runner
         run: |
           mkdir -p runtime/arz-collector/forward runtime/arz-collector/events

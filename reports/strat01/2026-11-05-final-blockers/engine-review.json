@@ -1,0 +1,75 @@
+{
+  "audited_commit": "e617c53eed62792bb068a2aa7e1ed1b008a6cdbd",
+  "control_verifier": {
+    "command": "PYTHONPATH=src:. python scripts/verify_research_control.py",
+    "passed": true,
+    "scope": "OFFLINE_CONSISTENCY_ONLY_REMOTE_FRESHNESS_NOT_PROVED"
+  },
+  "current_new_material_defect_count_after_followup": 1,
+  "financial_decision": "NO-GO",
+  "focused_verification": {
+    "command": "PYTHONPATH=src:tests:. python -m unittest test_core test_engine test_operations test_review_regressions test_exit_priority_adversarial test_risk_numeric_guards test_multi_edge_accounting",
+    "duration_seconds": 0.449,
+    "exit_code": 0,
+    "failures": 0,
+    "source": "Independent agent reported actual local execution; full integrated suite is recorded separately",
+    "tests": 309
+  },
+  "followup_resolved_hypothesis": "engine-conservation-fix.json",
+  "kind": "INDEPENDENT_SCOPED_ENGINE_REVIEW_NO_NEW_DEFECT_PROVEN",
+  "limits": [
+    "A scoped review is not a proof that all possible bugs are absent.",
+    "No new live quote, paid execution, server deployment or paper cohort was observed."
+  ],
+  "live_trading": "DISABLED",
+  "main_baseline": "cf018928c761fb19e2e296bd2840e55ee3fd3cc0",
+  "new_production_changes": 0,
+  "new_reproduced_material_defects": 0,
+  "new_test_methods": 0,
+  "real_capital_authorized_usd": 0,
+  "review_phase": "INITIAL_309_TEST_SCOPED_REVIEW_BEFORE_TARGETED_FOLLOWUP",
+  "reviewed_paths": [
+    {
+      "identical_between_audited_and_main_baseline": true,
+      "path": "src/arz/engine.py",
+      "sha256": "d73b13a2b5b376e23a561891c2c66d7e511024055f3743f91ce13994f32a8d6c"
+    },
+    {
+      "identical_between_audited_and_main_baseline": true,
+      "path": "src/arz/risk.py",
+      "sha256": "cad442c0757fd10ea22988583dcf2f7f5d5380b02af05e9fe9da307f3f3934ba"
+    },
+    {
+      "identical_between_audited_and_main_baseline": true,
+      "path": "src/arz/accounting.py",
+      "sha256": "8ad66ddc4195a6cbca5b8cd5bd7be172febb226b1ec4f4ce0e8be86287a2f77c"
+    },
+    {
+      "identical_between_audited_and_main_baseline": true,
+      "path": "src/arz/paper.py",
+      "sha256": "490863bcde8fc0b193f1a6dcaf8212265f3473bcc3db5e72760498012c428a44"
+    },
+    {
+      "identical_between_audited_and_main_baseline": true,
+      "path": "src/arz/strategies.py",
+      "sha256": "6bcf3f98845ced3dcec86552bd700860cd7accf607bc66a264d896afd024f1e1"
+    },
+    {
+      "identical_between_audited_and_main_baseline": true,
+      "path": "src/arz/config.py",
+      "sha256": "dfba26eb55babf03cc28ccce19556126b0fa5ef502b826ce5cb5f92494e7ea15"
+    }
+  ],
+  "reviewer": "independent engine audit agent",
+  "schema_version": 1,
+  "scope": [
+    "signal timing and pending intent",
+    "risk and BUY-only quotas",
+    "stale or failed simulated execution",
+    "partial-sale cost basis and fees",
+    "capped sell and dust handling from prior PR85",
+    "duplicate bars and replay",
+    "persistent paper faults and separate valuation marks"
+  ],
+  "unvalidated_hypothesis": "Residual below existing1e-12 quantity threshold might have material value at an extreme unit price; reviewer did not reproduce a defect or change thresholds."
+}

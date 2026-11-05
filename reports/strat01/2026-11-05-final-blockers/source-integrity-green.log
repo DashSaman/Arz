@@ -1,0 +1,10 @@
+test_ambiguous_duplicate_json_keys_are_not_valid_source (test_strat01_source_value_integrity.StoredSourceValueIntegrityTests.test_ambiguous_duplicate_json_keys_are_not_valid_source) ... ok
+test_corrupt_price_is_visible_and_prevents_capture_preflight (test_strat01_source_value_integrity.StoredSourceValueIntegrityTests.test_corrupt_price_is_visible_and_prevents_capture_preflight) ... ok
+test_different_retained_prices_with_same_raw_hash_are_a_conflict (test_strat01_source_value_integrity.StoredSourceValueIntegrityTests.test_different_retained_prices_with_same_raw_hash_are_a_conflict) ... ok
+test_equivalent_integer_and_float_values_are_not_a_revision (test_strat01_source_value_integrity.StoredSourceValueIntegrityTests.test_equivalent_integer_and_float_values_are_not_a_revision) ... ok
+test_invalid_persisted_ohlcv_is_rejected_despite_valid_hash_shape (test_strat01_source_value_integrity.StoredSourceValueIntegrityTests.test_invalid_persisted_ohlcv_is_rejected_despite_valid_hash_shape) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.009s
+
+OK

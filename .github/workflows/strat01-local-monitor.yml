@@ -4,7 +4,11 @@ on:
   pull_request:
     paths:
       - 'scripts/strat01_local_monitor.py'
+      - 'scripts/strat01_independent_collector.py'
+      - 'scripts/strat01_investment_readiness.py'
       - 'tests/test_strat01_local_monitor.py'
+      - 'tests/test_strat01_collector_provider_stop.py'
+      - 'tests/test_strat01_source_value_integrity.py'
       - '.github/workflows/strat01-local-monitor.yml'
       - 'reports/strat01/forward/**'
   workflow_dispatch:

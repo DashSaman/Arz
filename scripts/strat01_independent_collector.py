@@ -23,7 +23,7 @@ import uuid
 from scripts.strat01_base_identity_forward import BAR, START_OOS, collect
 from scripts.strat01_capture_slot_preflight import decide
 from scripts.strat01_investment_readiness import (
-    MAX_BYTES_PER_CAPTURE, audit_capture_dir, snapshot_summary,
+    MAX_BYTES_PER_CAPTURE, MAX_CAPTURE_FILES, audit_capture_dir, snapshot_summary,
 )
 
 NETWORK_FLAG = "explicit-readonly"
@@ -32,10 +32,16 @@ MAX_RUNTIME_LAG_SECONDS = 90
 HEALTH_MAX_AGE_SECONDS = 180
 MAX_EVENTS = 10_000
 MAX_EVENT_BYTES = 32_000
+PROVIDER_STOP_OUTCOME = "REFUSED_PROVIDER_ACCESS_STOP"
 FAILURE_OUTCOMES = frozenset({
     "REFUSED_INVALID_ARCHIVE", "REFUSED_COLLECTOR_ERROR", "REFUSED_POSTWRITE_AUDIT",
+    PROVIDER_STOP_OUTCOME,
 })
 SUCCESS_OUTCOME = "SOURCE_ARCHIVED_REQUIRES_INDEPENDENT_AUDIT"
+PROVIDER_STOP_ERRORS = frozenset({
+    "BoundedError:HTTP_403", "BoundedError:HTTP_429", "BoundedError:HTTP_529",
+    "BoundedError:PROVIDER_ACCESS_STOPPED", "BoundedError:OVERSIZE_RESPONSE",
+})
 
 
 def _utc(value: int) -> str:
@@ -90,11 +96,22 @@ def read_events(root: Path, now_unix: int) -> list[dict]:
 
 
 def collection_failed(root: Path, events: list[dict]) -> bool:
-    """Only a strictly later, source-bound success can clear a durable fault.
+    """Transient faults require a strictly later, source-bound success.
 
     Equal-second events have no reliable ordering, so failure wins the tie.
     Neutral skips/network opt-out do not establish recovery.
     """
+    # Provider refusal requires explicit review; a later successful observation
+    # or process restart is not authorization to resume access.
+    if any(e["outcome"] == PROVIDER_STOP_OUTCOME for e in events):
+        return True
+    # A source can outlive its event (interruption), or have been labeled a
+    # success by an older collector. Health must see that refusal immediately.
+    try:
+        if _retained_provider_access_stopped(root / "forward"):
+            return True
+    except (ValueError, OSError, TypeError, KeyError, OverflowError):
+        return True
     failed_at = max((e["actual_clock_unix"] for e in events
                      if e["outcome"] in FAILURE_OUTCOMES), default=-1)
     successes = [e for e in events if e["outcome"] == SUCCESS_OUTCOME]
@@ -120,6 +137,49 @@ def collection_failed(root: Path, events: list[dict]) -> bool:
         raw = stream.read(MAX_BYTES_PER_CAPTURE + 1)
     return (len(raw) > MAX_BYTES_PER_CAPTURE
             or hashlib.sha256(raw).hexdigest() != source.get("sha256"))
+
+
+def _provider_access_stopped(evidence: dict) -> bool:
+    """Recognize only the collector's fixed provider stop codes."""
+    data = evidence.get("data", {})
+    if type(data) is not dict:
+        return False
+    errors = [data.get("base_rpc_error")]
+    for name in ("provider_candles", "quotes"):
+        items = data.get(name, [])
+        if type(items) is list:
+            errors.extend(item.get("error") for item in items if type(item) is dict)
+    cost = data.get("network_cost_source")
+    if type(cost) is dict:
+        errors.append(cost.get("reason"))
+    return any(type(error) is str and error in PROVIDER_STOP_ERRORS for error in errors)
+
+
+def _retained_provider_access_stopped(sources: Path) -> bool:
+    """Strictly audit bounded retained captures before trusting stop evidence."""
+    if not sources.is_dir() or sources.is_symlink():
+        raise ValueError("Missing trusted source evidence directory")
+    paths = sorted(sources.glob("*.json"))
+    if len(paths) > MAX_CAPTURE_FILES:
+        raise ValueError("Unbounded source evidence directory")
+    stopped = False
+    for path in paths:
+        if not path.is_file() or path.is_symlink():
+            raise ValueError("Unsafe source evidence")
+        fd = os.open(path, os.O_RDONLY | os.O_NOFOLLOW)
+        with os.fdopen(fd, "rb") as stream:
+            raw = stream.read(MAX_BYTES_PER_CAPTURE + 1)
+        if len(raw) > MAX_BYTES_PER_CAPTURE:
+            raise ValueError("Unbounded source evidence")
+        evidence = json.loads(raw)
+        if type(evidence) is not dict:
+            raise ValueError("Expected source JSON object")
+        stopped = stopped or _provider_access_stopped(evidence)
+    audit = audit_capture_dir(sources)
+    if (audit["errors"] or audit["conflicts"]
+            or audit["file_count"] != audit["valid_source_files"]):
+        raise ValueError("Untrusted retained source evidence")
+    return stopped
 
 
 def operational_state(root: Path, now_unix: int, network_enabled: bool) -> str:
@@ -267,7 +327,16 @@ def run_once(root: Path, *, now_unix: int,
             raise ValueError("Expected mounted persistent forward/events folders")
     with _exclusive(root):
         try:
+            previous = read_events(root, now_unix)
+            if any(e["outcome"] == PROVIDER_STOP_OUTCOME for e in previous):
+                return _event(events, at=now_unix, target=None,
+                              outcome=PROVIDER_STOP_OUTCOME,
+                              reason="PROVIDER_ACCESS_REVIEW_REQUIRED")
             slot = decide(sources, now_unix)
+            if _retained_provider_access_stopped(sources):
+                return _event(events, at=now_unix, target=slot["target_bar_start_unix"],
+                              outcome=PROVIDER_STOP_OUTCOME,
+                              reason="PROVIDER_ACCESS_REVIEW_REQUIRED")
         except (ValueError, KeyError, OSError, TypeError) as exc:
             # Never sanitize away an invalid archive; only the error class is recorded.
             return _event(events, at=now_unix, target=None,
@@ -310,8 +379,10 @@ def run_once(root: Path, *, now_unix: int,
                 return _event(events, at=now_unix, target=target,
                               outcome="REFUSED_POSTWRITE_AUDIT", reason="SOURCE_CONFLICT")
             sha = hashlib.sha256(file_path.read_bytes()).hexdigest()
+            provider_stopped = _provider_access_stopped(evidence)
             return _event(events, at=now_unix, target=target,
-                          outcome="SOURCE_ARCHIVED_REQUIRES_INDEPENDENT_AUDIT",
+                          outcome=PROVIDER_STOP_OUTCOME if provider_stopped else SUCCESS_OUTCOME,
+                          reason="PROVIDER_ACCESS_REVIEW_REQUIRED" if provider_stopped else None,
                           source={"filename": name, "sha256": sha,
                                   "two_asset_bar_received": summary["two_asset_bar_received"],
                                   "operational_timeliness_1h_both_assets":
@@ -340,9 +411,7 @@ def main() -> int:
     if args.command == "once":
         result = run_once(args.data_root, now_unix=now, network_enabled=network)
         print(json.dumps(result, sort_keys=True))
-        return 0 if result["outcome"] not in (
-            "REFUSED_INVALID_ARCHIVE", "REFUSED_COLLECTOR_ERROR",
-            "REFUSED_POSTWRITE_AUDIT") else 2
+        return 2 if result["outcome"] in FAILURE_OUTCOMES else 0
     # Service only schedules future actual clock observations. It never catches
     # up missed runs by attaching a fictional old first-seen timestamp.
     try:

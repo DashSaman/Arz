@@ -29,6 +29,7 @@ def sample_capture(offset:int=0, *, completed:bool=True, bar_index:int=0) -> dic
         if completed:
             candles.append({
                 "asset":asset,"status":"SINGLE_BAR_FIRST_SEEN_POTENTIALLY_DELAYED",
+                "internal_pair_id_unverified":4564367 if asset == "WETH" else 4705508,
                 "requested_bar_start":begin,"bar_closed_at":begin+g.BAR_SECONDS,
                 "first_observed_at":now,"source_sha256":SHA,"bar_count":1,
                 "source_publication_at_original_bar_close_proven":False,

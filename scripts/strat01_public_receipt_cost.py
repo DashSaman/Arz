@@ -95,8 +95,8 @@ def latest_swap(logs, pool, low, high):
     for item in logs:
         if type(item) is not dict or str(item.get("address","")).lower()!=pool:
             raise ValueError("Foreign pool log")
-        if item.get("removed") is True:
-            raise ValueError("Removed/reorganized log")
+        if item.get("removed") is not False:
+            raise ValueError("Removed/reorganized or unproven log removal state")
         topics=item.get("topics")
         if type(topics) is not list or len(topics)!=3 or str(topics[0]).lower()!=SWAP_TOPIC:
             raise ValueError("Wrong event signature")
@@ -120,12 +120,17 @@ def latest_swap(logs, pool, low, high):
 
 
 def audit_receipt(source_log, receipt, header, observed_unix):
-    """Receipt full-tx fee and L1 field only if actually returned by node."""
+    """Receipt L1/L2 components; operator fee and full network fee stay unknown."""
     if type(source_log) is not dict or type(receipt) is not dict or type(header) is not dict:
         raise ValueError("Missing source event / receipt / block")
+    pool=source_log.get("address")
+    if type(pool) is not str or pool.lower() not in {x["pool"] for x in POOLS.values()}:
+        raise ValueError("Foreign source pool log")
+    height=read_hex(source_log.get("blockNumber"),"event block")
+    latest_swap([source_log],pool.lower(),height,height)
     txhash=source_log["transactionHash"].lower()
     blockhash=source_log["blockHash"].lower()
-    height=read_hex(source_log["blockNumber"],"event block")
+    source_tx_index=read_hex(source_log["transactionIndex"],"source transaction index")
     if (receipt.get("transactionHash","").lower()!=txhash
         or receipt.get("blockHash","").lower()!=blockhash
         or read_hex(receipt.get("blockNumber"),"receipt block")!=height
@@ -137,22 +142,27 @@ def audit_receipt(source_log, receipt, header, observed_unix):
     stamp=read_hex(header.get("timestamp"),"header timestamp",positive=True)
     if type(observed_unix) is not int or stamp>observed_unix+MAX_HEAD_AHEAD_SEC or stamp<START_OOS:
         raise ValueError("Future/pre-frozen block timestamp")
-    matching=False
+    matching=0
     lines=receipt.get("logs")
     if type(lines) is not list:
         raise ValueError("Missing source receipt event logs")
     for line in lines:
         if type(line) is not dict:
             raise ValueError("Malformed transaction log")
-        if (line.get("transactionHash","").lower()==txhash and
-            line.get("blockHash","").lower()==blockhash and
-            line.get("address","").lower()==source_log["address"].lower() and
-            line.get("logIndex")==source_log["logIndex"] and
-            type(line.get("topics")) is list and len(line["topics"])>0 and
-            line["topics"][0].lower()==SWAP_TOPIC):
-            matching=True
-    if not matching:
-        raise ValueError("Selected Swap event missing from full transaction receipt")
+        if (str(line.get("transactionHash","")).lower()==txhash and
+            str(line.get("blockHash","")).lower()==blockhash and
+            str(line.get("address","")).lower()==pool.lower() and
+            line.get("logIndex")==source_log["logIndex"]):
+            # A common hash/index is not proof that both RPC results attest the
+            # same event: also bind its complete payload, position and removal state.
+            latest_swap([line],pool.lower(),height,height)
+            if (read_hex(line["transactionIndex"],"receipt event transaction index")!=source_tx_index
+                or [t.lower() for t in line["topics"]]!=[t.lower() for t in source_log["topics"]]
+                or line["data"].lower()!=source_log["data"].lower()):
+                raise ValueError("Selected Swap event differs from source event")
+            matching+=1
+    if matching!=1:
+        raise ValueError("Selected Swap event missing or duplicated in full transaction receipt")
     gas=read_hex(receipt.get("gasUsed"),"gasUsed",positive=True,maximum=MAX_GAS_USED)
     price=read_hex(receipt.get("effectiveGasPrice"),"effectiveGasPrice",
                    positive=True,maximum=MAX_GAS_PRICE_WEI)
@@ -172,6 +182,12 @@ def audit_receipt(source_log, receipt, header, observed_unix):
         "observed_full_tx_L1_L2_total_wei":str(total) if total is not None else None,
         "observed_full_tx_L1_L2_total_eth":
            str(Decimal(total)/Decimal(10**18)) if total is not None else None,
+        # Base can charge an operator fee in addition to L1 and L2. This probe
+        # does not collect or verify it; the L1/L2 subtotal is not a full fee.
+        "observed_full_tx_operator_fee_wei":None,
+        "operator_fee_evidence":"NOT_COLLECTED_OR_VERIFIED",
+        "observed_full_tx_total_network_fee_wei":None,
+        "full_transaction_network_fee_proven":False,
         "paid_fee_usdc":None,
         "is_20_usdc_follower_trade":False,
         "contains_unknown_other_router_operations":True,

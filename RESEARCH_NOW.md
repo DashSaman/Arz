@@ -1,6 +1,6 @@
 # ARZ RESEARCH NOW — single restart checkpoint
 
-**Latest observed research delivery 2026-11-04 UTC (base control checkpoint 2026-10-31) · STRAT-01 IN PROGRESS, WAL-01 PARTIAL · Financial NO-GO · Live trading DISABLED**
+**Latest observed research work 2026-11-05 UTC (base control checkpoint 2026-10-31) · STRAT-01 IN PROGRESS, WAL-01 PARTIAL · Financial NO-GO · Live trading DISABLED**
 
 > **Start here before doing anything in Arz.** This is the entry point on `main` even when newer research work lives in unmerged draft branches. `PROJECT_STATUS.md` begins with the older 2026-10-13 MVP checkpoint and must not be mistaken for the latest research status.
 
@@ -8,6 +8,18 @@
 **Detailed Persian:** [docs/fa/research_current_checkpoint.md](docs/fa/research_current_checkpoint.md)  
 **Detailed English:** [docs/en/research_current_checkpoint.md](docs/en/research_current_checkpoint.md)  
 **Offline consistency check:** `PYTHONPATH=src:. python scripts/verify_research_control.py`
+
+## 5 November 2026 | Final blockers — fixes independently reviewed, publication/CI pending
+
+Latest source main is `cf018928c761fb19e2e296bd2840e55ee3fd3cc0`. PR85 and PR86 are merged; only three source/audit capture commits followed them at this baseline. New actual fixes reject malformed/ambiguous/wrong-market persisted candles, preserve provider-access refusals across independent-collector restart/restore, and bind complete Swap events before accepting receipt components. A bounded engine follow-up also fixed a positive small-unit residual being erased after a capped partial sale; ordinary/extreme scale, full exit and restart regressions conserve value. Risk and strategy limits are unchanged; the accounting runtime fingerprint changes.
+
+**Actual local validation:** 1,558 full-suite methods, 1 skipped, zero failures; 18 new regression methods. Independent engine scope: 311 tests; collector/recovery scope: 38; receipt scope: 14. Canonical control and diff checks pass. All 38 forward source files remain byte-identical: 30 distinct paired bars, 12 within the one-hour diagnostic, longest complete/timely chain 5 versus 194 required. Fully elapsed Nov 1–4: 20 successful scheduled jobs but only 9/24 distinct timely paired market closes. Two actual jobs were separately checked through their logs. Current-head CI and publication must be read from the decision receipt, not inferred from local PASS.
+
+**Financial evidence remains NO-GO / INSUFFICIENT_EVIDENCE.** All 164 registry entries remain unqualified; the 58-row saved-metric extraction creates no new experiment. The independent search of 1,557 prior workspace files and ZIP members found no documented exact raw historical input. Existing positive S0 WETH 2025 stress +9.2251% has only 8 cycles; negative periods and nonpositive uncertainty bounds remain visible. Existing hold comparators match allocation, not complete risk exposure. No fresh OOS, verified BUY+SELL signal +60 seconds full costs, or qualified prospective paper day exists. Operator fee is explicitly unknown; L1+L2 subtotal is not full network cost.
+
+[English report](docs/en/strat01_final_blockers_20261105.md) · [گزارش فارسی](docs/fa/strat01_final_blockers_20261105.md) · [decision/publication receipt](reports/strat01/2026-11-05-final-blockers/decision.json) · [prioritized blockers](reports/strat01/2026-11-05-final-blockers/blockers.json) · [58 saved metric rows](reports/strat01/2026-11-05-final-blockers/saved-metrics-58.csv).
+
+**Next:** run the canonical verifier, resolve actual PR/head/review/CI from the receipt, then reconcile only later main/source changes. Do not repeat throttled probes or seen-history tuning. Remaining prerequisites are lawful stable source/quote data, suitable preregistered untouched evaluation, sufficient independent cycles and elapsed qualified paper, and a separately authorized host with delivered alerts/recovery drills. Collector packaging and bounded paper CLI are not a deployed qualified continuous S0 cohort. Real capital remains **$0**, live **DISABLED**, funded pilot **not proposed** because gates are unmet. Earlier dated sections below remain historical evidence.
 
 ## 4 November 2026 | Validation before deployment — verified code, financial NO-GO
 

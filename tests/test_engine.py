@@ -109,6 +109,54 @@ class EngineTests(unittest.TestCase):
         self.assertEqual(result["events"][-1]["reason"],"dust_or_min_order")
         self.assertFalse(result["metrics"]["exit_fill_guaranteed"])
 
+    def test_price_scaled_partial_exit_survives_restart_and_closes_exactly(self):
+        for scale in (1000.0,1e13):
+            with self.subTest(entry_reference=scale):
+                config=Config()
+                strategy=Strategy("momentum")
+                engine=Engine(config,strategy)
+                prices=[scale/1.03]*12+[scale,scale,2.25*scale,2.25*scale]
+                candles=bars([(price,price) for price in prices])
+                for candle in candles[:14]:engine.step(candle)
+                self.assertEqual([fill["side"] for fill in engine.fills],["buy"])
+                self.assertAlmostEqual(engine.fills[0]["notional"],20)
+                engine.halt("manual_stop")
+                point=engine.step(candles[14])
+
+                self.assertEqual([fill["side"] for fill in engine.fills],["buy","sell"])
+                self.assertAlmostEqual(engine.fills[1]["notional"],25)
+                self.assertGreater(engine.portfolio.units,0)
+                # Normalize quantity before comparing: default decimal-place assertions
+                # could otherwise mistake a material sub-1e-12 balance for zero.
+                self.assertAlmostEqual(engine.portfolio.units*scale,8.857786635564416)
+                self.assertAlmostEqual(engine.portfolio.cost_basis,8.87551106662218)
+                self.assertAlmostEqual(engine.portfolio.cash,104.9575)
+                self.assertAlmostEqual(point["position_value"],19.930019930019938)
+                self.assertAlmostEqual(point["equity"],124.88751993001992)
+                self.assertEqual(engine.result()["metrics"]["closed_trades"],0)
+                self.assertEqual(engine.result()["metrics"]["open_positions"],1)
+                self.assertIsNotNone(engine.current_trade)
+
+                state=engine.state()
+                restored=Engine.restore(config,Strategy("momentum"),state)
+                self.assertEqual(restored.state(),state)
+                self.assertGreater(restored.portfolio.units,0)
+                self.assertAlmostEqual(restored.portfolio.cost_basis,8.87551106662218)
+                restored.step(candles[15])
+                result=restored.result()
+                self.assertEqual([fill["side"] for fill in result["fills"]],["buy","sell","sell"])
+                self.assertAlmostEqual(result["fills"][-1]["notional"],19.91008991008992)
+                self.assertEqual(restored.portfolio.units,0)
+                self.assertEqual(restored.portfolio.cost_basis,0)
+                self.assertIsNone(restored.current_trade)
+                self.assertEqual(result["metrics"]["closed_trades"],1)
+                self.assertEqual(result["metrics"]["open_positions"],0)
+                self.assertEqual(result["metrics"]["blocked_exit_attempts"],0)
+                self.assertAlmostEqual(result["metrics"]["ending_equity"],124.84763486513487)
+                self.assertAlmostEqual(result["metrics"]["realized_pnl"],24.84763486513487)
+                self.assertAlmostEqual(result["closed_trades"][0]["net_pnl"],24.84763486513487)
+                self.assertEqual(Engine.restore(config,Strategy("momentum"),restored.state()).state(),restored.state())
+
     def test_capped_exit_minimum_feasibility(self):
         config=self.config(min_order=14)
         for exit_price,closed,first_sell in ((13,0,25),(14,1,14)):

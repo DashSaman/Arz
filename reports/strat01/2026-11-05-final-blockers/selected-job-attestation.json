@@ -1,0 +1,173 @@
+{
+  "financial_decision": "NO-GO",
+  "live_trading": "DISABLED",
+  "real_capital_authorized_usd": 0,
+  "runs": [
+    {
+      "exported_decoded_job_log_sha256": "adbb1e909b2b9db4a1ae68eebfc8853bd26f8bf55c0471a51dbf8c92cc443361",
+      "job": {
+        "conclusion": "success",
+        "id": 126974915233,
+        "logs_url": null,
+        "name": "future_capture",
+        "run_id": 41945009698,
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Fail-closed source, in-run audit contract and trading guards",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Decide current slot at actual UTC runner clock (not nominal cron)",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Capture one observed-at-runtime sample",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Audit the captured source and fail closed BEFORE any git push",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Commit validated source and its financial refusal audit together",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Preserve both files even when audit, push or branch permissions fail",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+            "number": 16,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 17,
+            "status": "completed"
+          }
+        ]
+      },
+      "job_id": 126974915233,
+      "log_digest_scope": "Local exported decoded GitHub job log; selected factual output lines retained here.",
+      "raw_log_characters": 46903,
+      "run_id": 41945009698,
+      "run_url": "https://github.com/DashSaman/Arz/actions/runs/41945009698",
+      "selected_actual_log_lines": [
+        "2026-11-05T00:56:30.0127697Z {\"capture\": true, \"decision\": \"CAPTURE_ONCE_AT_ACTUAL_CLOCK\", \"existing_paired\": 29, \"financial_decision\": \"NO-GO\", \"target\": 1793822400}",
+        "2026-11-05T00:56:31.6668837Z ARZ_CAPTURE_IN_RUN_AUDIT=PASS_NO_GO",
+        "2026-11-05T00:56:31.6669092Z ARZ_CAPTURE_FIRST_SEEN=2026-11-05T00:56:30+00:00",
+        "2026-11-05T00:56:31.6669340Z ARZ_COMPLETE_PAIR_BAR=True"
+      ]
+    },
+    {
+      "exported_decoded_job_log_sha256": "3c614b827f4912b197c21585d0749e41a8fefeb1d81ebf88ef09f1859d69bda8",
+      "job": {
+        "conclusion": "success",
+        "id": 126978233965,
+        "logs_url": null,
+        "name": "future_capture",
+        "run_id": 41946001290,
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Fail-closed source, in-run audit contract and trading guards",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Decide current slot at actual UTC runner clock (not nominal cron)",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Capture one observed-at-runtime sample",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Audit the captured source and fail closed BEFORE any git push",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Commit validated source and its financial refusal audit together",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Preserve both files even when audit, push or branch permissions fail",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+            "number": 16,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 17,
+            "status": "completed"
+          }
+        ]
+      },
+      "job_id": 126978233965,
+      "log_digest_scope": "Local exported decoded GitHub job log; selected factual output lines retained here.",
+      "raw_log_characters": 16382,
+      "run_id": 41946001290,
+      "run_url": "https://github.com/DashSaman/Arz/actions/runs/41946001290",
+      "selected_actual_log_lines": [
+        "2026-11-05T01:04:55.0213353Z {\"capture\": false, \"decision\": \"ALREADY_PAIRED_TIMELY_SKIP_DUPLICATE\", \"existing_paired\": 30, \"financial_decision\": \"NO-GO\", \"target\": 1793822400}"
+      ]
+    }
+  ],
+  "scope": "INDEPENDENTLY_RETRIEVED_GITHUB_RUN_JOB_AND_LOG_EVIDENCE_FOR_TWO_SELECTED_RUNS_ONLY"
+}

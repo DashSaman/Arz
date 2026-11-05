@@ -1,0 +1,54 @@
+{
+  "accounting_commit_reviewed": "7820b5cb5c53cefba555fa1506a16866bbca7669",
+  "baseline_main_sha": "cf018928c761fb19e2e296bd2840e55ee3fd3cc0",
+  "cost_status": "COST_UNVERIFIED",
+  "decision": "APPROVE_CODE_FOR_PUBLICATION_SUBJECT_TO_EXACT_HEAD_CI",
+  "financial_decision": "NO-GO",
+  "findings": [
+    {
+      "fix_commit": "f71434aec1764c44c9358913a2e860174c222eff",
+      "id": "REVIEW_RECEIPT_REMOVAL_TYPE",
+      "reproduction": "Eight missing/nonboolean source/receipt removal states were accepted; no real receipt or reorg observed.",
+      "severity": "IMPORTANT",
+      "status": "RESOLVED",
+      "verification": "Literal False required; fourteen receipt methods pass independently, including twelve new source/receipt subcases."
+    },
+    {
+      "fix_commit": "e34add162dd70b1c0630a1b304340731877fccfe",
+      "id": "REVIEW_LEGACY_REFUSAL_HEALTH",
+      "reproduction": "Legacy429 source with old success event could advertise healthy before next scheduled fetch; eventless interrupted source shares gap.",
+      "severity": "IMPORTANT",
+      "status": "RESOLVED",
+      "verification": "Central collection_failed checks retained sources immediately; all five provider-stop methods pass independently, including startuphealth and seven unsafe-source categories."
+    }
+  ],
+  "github_ci_observed_by_this_review": false,
+  "independent_verification": {
+    "at_7820b5c_methods": 26,
+    "at_final_head_provider_stop_methods": 5,
+    "failures": 0,
+    "full_suite_independently_repeated": false
+  },
+  "live_trading": "DISABLED",
+  "observed_at_utc": "2026-11-05T11:11:07.694507+00:00",
+  "profitability_evidence_status": "INSUFFICIENT_EVIDENCE",
+  "real_capital_authorized_usd": 0,
+  "reporting_boundaries": [
+    "Earlier initial engine review is superseded by targeted conservation fix.",
+    "Saved58-row extraction is not a new strategy experiment or bootstrap.",
+    "20USD hold comparisons match allocation, not full risk parity.",
+    "No paid-cost, fresh independent OOS, elapsed qualified paper or host uptime is established."
+  ],
+  "review_type": "INDEPENDENT_SCOPED_FINAL_CODE_AND_EVIDENCE_REVIEW",
+  "reviewed_code_head": "e34add162dd70b1c0630a1b304340731877fccfe",
+  "reviewer": "Independent final review agent, separate from implementation agents",
+  "root_full_suite": {
+    "failures": 0,
+    "log": "final-verified-tests.log",
+    "methods": 1558,
+    "sha256": "19dbb33593ce3368ab26c3a52996084ca67b2c404097653d569492d6e12dadd6",
+    "skipped": 1
+  },
+  "schema_version": 1,
+  "unresolved_critical_or_important_scoped_findings": 0
+}

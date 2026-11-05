@@ -1,0 +1,143 @@
+{
+  "cash_baseline": {
+    "qualification": "No unobserved yield is credited. The saved20USDC buy-and-hold comparator matches allocation, not volatility or time-varying exposure; historical costs and inventory limitations remain.",
+    "unfunded_research_cash_return": "0"
+  },
+  "chain": "Base",
+  "chain_id": 8453,
+  "existing_s0_cost_model": {
+    "includes_note": "Variable bps are the existing combined modeled price/fee allowance. The pool-fee illustration is not added again. Fixed gas is an assumption per attempted transaction, not a receipt. Equal reference notional per side is a comparison convention, not a realized cycle.",
+    "rows": [
+      {
+        "cost_evidence": "HYPOTHETICAL_EXISTING_S0_ASSUMPTION_NOT_VERIFIED_DEX_COST",
+        "each_leg_reference_notional_usdc": "20",
+        "fixed_model_gas_usd_per_attempt": "0.01",
+        "modeled_buy_cost_usd": "0.04",
+        "modeled_round_trip_cost_usd": "0.08",
+        "modeled_round_trip_fraction_of_20_usdc": "0.004",
+        "modeled_sell_cost_usd": "0.04",
+        "scenario": "base",
+        "variable_model_bps_per_leg": "15"
+      },
+      {
+        "cost_evidence": "HYPOTHETICAL_EXISTING_S0_ASSUMPTION_NOT_VERIFIED_DEX_COST",
+        "each_leg_reference_notional_usdc": "20",
+        "fixed_model_gas_usd_per_attempt": "0.02",
+        "modeled_buy_cost_usd": "0.08",
+        "modeled_round_trip_cost_usd": "0.16",
+        "modeled_round_trip_fraction_of_20_usdc": "0.008",
+        "modeled_sell_cost_usd": "0.08",
+        "scenario": "exact_double",
+        "variable_model_bps_per_leg": "30"
+      },
+      {
+        "cost_evidence": "HYPOTHETICAL_EXISTING_S0_ASSUMPTION_NOT_VERIFIED_DEX_COST",
+        "each_leg_reference_notional_usdc": "20",
+        "fixed_model_gas_usd_per_attempt": "0.05",
+        "modeled_buy_cost_usd": "0.11",
+        "modeled_round_trip_cost_usd": "0.22",
+        "modeled_round_trip_fraction_of_20_usdc": "0.011",
+        "modeled_sell_cost_usd": "0.11",
+        "scenario": "stress",
+        "variable_model_bps_per_leg": "30"
+      }
+    ],
+    "source": "docs/en/strat01_quant_validation_20261104.md"
+  },
+  "factory_address": "0x33128a8fC17869897dcE68Ed026d694621f6FDfD",
+  "fee_accounting_requirement": {
+    "additional_specification": "https://docs.base.org/upgrades/jovian/exec-engine",
+    "observation_date": "2026-11-05",
+    "official_documentary_formula": "gasUsed * (baseFee + priorityFee) + l1Fee + operatorFee",
+    "qualification": "Protocol documentation is not an observed receipt. Missing operator configuration or fee cannot be assumed zero. Explicit zero needs block-bound support. Retain receipt block and applicable protocol version.",
+    "source": "https://docs.base.org/specifications/transactions/network-fees"
+  },
+  "financial_decision": "NO-GO",
+  "future_operating_costs": {
+    "hosting_and_data_service_cost_usd": null,
+    "included_in_saved_strategy_returns": false,
+    "new_service_purchases": 0,
+    "qualification": "Any later operational budget must be included before capital qualification; missing provider/hosting price is not assumed zero."
+  },
+  "identity_source": {
+    "normalization": "Original parser required token0/token1; preserved returned base_token_address and quote_token_address were reconciled offline. Original false flag is not overwritten.",
+    "observed_block": 53135352,
+    "path": "reports/strat01/2026-10-27-base-identity-observed.json",
+    "result": "BOTH_PROVIDER_PAIR_IDS_AND_BASE_V3_FACTORY_500PPM_POOLS_MATCH",
+    "sha256": "81d6b7597f4767f540bbfd4ec7b2a85d9b12f8122c93d1234145cb206597faa9"
+  },
+  "live_trading": "DISABLED",
+  "markets": [
+    {
+      "asset": "WETH",
+      "expected_pool": "0xd0b53d9277642d899df5c87a3966a349a798f224",
+      "onchain_fee_ppm": 500,
+      "provider_pair_id": 4564367,
+      "token_address": "0x4200000000000000000000000000000000000006"
+    },
+    {
+      "asset": "cbBTC",
+      "expected_pool": "0xfbb6eed8e7aa03b138556eedaf5d271a5e1e43ef",
+      "onchain_fee_ppm": 500,
+      "provider_pair_id": 4705508,
+      "token_address": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf"
+    }
+  ],
+  "measurements": {
+    "actual_full_buy_cost_usd": null,
+    "actual_full_round_trip_cost_usd": null,
+    "actual_full_sell_cost_usd": null,
+    "actual_l1_data_fee_for_reference_order_usd": null,
+    "actual_l2_execution_fee_for_reference_order_usd": null,
+    "actual_price_impact": null,
+    "failed_attempt_frequency": null,
+    "failed_attempt_full_fee_usd": null,
+    "gas_token_usdc_conversion_at_relevant_execution_block": null,
+    "measured_delay_return_sensitivity": null,
+    "mev_loss_or_validated_bound": null,
+    "operator_fee_at_relevant_execution_block": null,
+    "quote_to_inclusion_slippage": null,
+    "quoter_gas_units": "ESTIMATE_FOR_QUOTER_CALL_NOT_ROUTER_RECEIPT_GAS",
+    "same_block_read_only_buy_20usdc_quotes": "OBSERVED_PRIOR_SOURCES_NOT_PAID_EXECUTION",
+    "sell_exact_token_quantity_quotes": null,
+    "signal_plus_60_second_buy_quotes": null,
+    "signal_plus_60_second_sell_quotes": null
+  },
+  "new_market_requests": 0,
+  "new_paid_transactions": 0,
+  "observed_source_baseline": "cf018928c761fb19e2e296bd2840e55ee3fd3cc0",
+  "pool_fee": {
+    "assumption": "Per-side pool input has reference USD value 20. A sell fee is charged in the input token. Pool fees are embedded in route quotes; do not add them again to net quotes.",
+    "fraction": "0.0005",
+    "hypothetical_20_usdc_buy_pool_fee_usd": "0.01",
+    "hypothetical_20_usdc_buy_pool_fee_usdc": "0.01",
+    "hypothetical_equal_gross_value_sell_pool_fee_usd": "0.01",
+    "hypothetical_round_trip_pool_fee_usd": "0.02",
+    "onchain_fee_ppm": 500
+  },
+  "prior_read_only_receipt_attempt": {
+    "path": "reports/strat01/2026-11-01-public-receipt-cost/pilot-observed.json",
+    "retry_in_this_increment": false,
+    "sampled_receipts": 0,
+    "sha256": "8a9110e1a3c5a3c55a6ccaf1528a52e159ceb45b479adfd900a7d3482b5e1f89",
+    "status": "HTTP_429_BEFORE_ANY_RECEIPT"
+  },
+  "quoter_address": "0x3d4e44Eb1374240CE5F1B871ab261CD16335B76a",
+  "real_capital_authorized_usd": 0,
+  "reference_order_usdc": "20",
+  "report_kind": "COST_EVIDENCE_RECONCILIATION_NO_NEW_MARKET_REQUEST",
+  "reporting_units": {
+    "USDC_USD_par_assumption": "1",
+    "depeg_risk_modeled": false,
+    "note": "The0.01 buy-side pool fee is denominated in USDC. USD cost illustrations assume par; no observed currency conversion is inferred.",
+    "observed_USDC_USD_rate": null
+  },
+  "schema_version": 1,
+  "side_conventions": {
+    "buy": "Exact 20 USDC input; receives WETH or cbBTC",
+    "sell": "Equal 20 USDC gross-reference value only for model comparison; no actual matched token sell quote or liquidation value was measured"
+  },
+  "status": "COST_UNVERIFIED",
+  "usdc_address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+  "wallets_connected": 0
+}

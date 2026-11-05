@@ -1,0 +1,12 @@
+{
+  "agent_commit": "3fee8f5a0ba87b36461225c9d614a70ee73fe9e6",
+  "commit_integrated_as": "e758b5a",
+  "file_manifest_scope": "Two specific prior Arz workspaces, excluding .git and bytecode, with ZIP members; not a claim about inaccessible remote storage.",
+  "independent_quant_audit_sha256": "08c74976be36d658f69826a809f24013fd071799a4e386490c3a1c73e6862c28",
+  "inventory_gzip_bytes": 85409,
+  "inventory_gzip_sha256": "8350de5ee0fd59656a20be5bd7a9c0b0d270d5ab72a4ffdc065229cc441ed412",
+  "inventory_plaintext_bytes": 388082,
+  "inventory_plaintext_sha256": "f859a2df2159cd9cbb7c6993450ed10c6d6599d9d6f91aa12839417125ec6459",
+  "kind": "PRESERVE_INDEPENDENT_QUANT_AGENT_ARTIFACTS",
+  "raw_artifacts_unmodified": true
+}

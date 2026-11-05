@@ -63,7 +63,7 @@ class FakeReceiptProbe(ReceiptProbe):
 
 
 class SourceReceiptEvidenceTests(unittest.TestCase):
-    def test_full_fee_math_and_mandatory_fee_provenance(self):
+    def test_l1_l2_fee_math_and_mandatory_fee_provenance(self):
         log,receipt,header=synthetic(POOLS["WETH"]["pool"])
         result=audit_receipt(log,receipt,header,int(time.time()))
         self.assertEqual(result["actual_receipt_full_tx_gas_used"],200_000)
@@ -71,6 +71,10 @@ class SourceReceiptEvidenceTests(unittest.TestCase):
         self.assertEqual(result["observed_full_tx_L1_data_fee_wei"],"2000000000")
         self.assertEqual(result["observed_full_tx_L1_L2_total_wei"],"1002000000000")
         self.assertEqual(result["observed_full_tx_L1_L2_total_eth"],"0.000001002")
+        self.assertIsNone(result["observed_full_tx_operator_fee_wei"])
+        self.assertIsNone(result["observed_full_tx_total_network_fee_wei"])
+        self.assertFalse(result["full_transaction_network_fee_proven"])
+        self.assertEqual(result["operator_fee_evidence"],"NOT_COLLECTED_OR_VERIFIED")
         self.assertIsNone(result["paid_fee_usdc"])
         self.assertFalse(result["is_20_usdc_follower_trade"])
         self.assertFalse(result["executed_by_arz"])
@@ -104,6 +108,53 @@ class SourceReceiptEvidenceTests(unittest.TestCase):
         bad["logs"]=[]
         with self.assertRaises(ValueError):
             audit_receipt(log,bad,header,int(time.time()))
+
+    def test_selected_receipt_event_must_match_all_source_event_fields(self):
+        changes={
+            "data":"0x"+"1"*320,
+            "topics":[SWAP_TOPIC,"0x"+"2"*64,"0x"+"3"*64],
+            "removed":True,
+            "blockNumber":hex(BLOCK-1),
+            "transactionIndex":"0x99",
+        }
+        for field,value in changes.items():
+            with self.subTest(field=field):
+                log,receipt,header=synthetic(POOLS["WETH"]["pool"])
+                receipt["logs"][0][field]=value
+                with self.assertRaises(ValueError):
+                    audit_receipt(log,receipt,header,int(time.time()))
+
+    def test_duplicate_selected_receipt_event_is_not_valid_provenance(self):
+        log,receipt,header=synthetic(POOLS["WETH"]["pool"])
+        receipt["logs"].append(deepcopy(receipt["logs"][0]))
+        with self.assertRaises(ValueError):
+            audit_receipt(log,receipt,header,int(time.time()))
+
+    def test_source_and_receipt_removal_flags_must_be_literal_false(self):
+        cases=[("missing",None),("null",None),("integer_zero",0),
+               ("integer_one",1),("string_true","true"),("string_false","false")]
+        for location in ("source","receipt"):
+            for label,value in cases:
+                with self.subTest(location=location,removed=label):
+                    log,receipt,header=synthetic(POOLS["WETH"]["pool"])
+                    event=log if location=="source" else receipt["logs"][0]
+                    if label=="missing":
+                        event.pop("removed")
+                    else:
+                        event["removed"]=value
+                    with self.assertRaises(ValueError):
+                        audit_receipt(log,receipt,header,int(time.time()))
+
+    def test_unrelated_receipt_event_does_not_replace_selected_event(self):
+        log,receipt,header=synthetic(POOLS["WETH"]["pool"])
+        unrelated=deepcopy(receipt["logs"][0])
+        unrelated["address"]=POOLS["cbBTC"]["pool"]
+        unrelated["logIndex"]="0x3"
+        unrelated["topics"][1]="0x"+"2"*64
+        unrelated["data"]="0x"+"1"*320
+        receipt["logs"].insert(0,unrelated)
+        result=audit_receipt(log,receipt,header,int(time.time()))
+        self.assertEqual(result["transaction_hash"],TX)
 
     def test_false_pool_topic_and_reorganized_log_refused(self):
         log,_,_=synthetic(POOLS["WETH"]["pool"])
