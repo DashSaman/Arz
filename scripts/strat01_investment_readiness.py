@@ -19,6 +19,8 @@ from pathlib import Path
 import re
 from typing import Any
 
+from scripts.strat01_base_identity_forward import ASSETS as SOURCE_ASSETS
+
 ROOT = Path(__file__).resolve().parents[1]
 FORWARD = ROOT / "reports/strat01/forward"
 MAX_CAPTURE_FILES = 1500
@@ -107,6 +109,8 @@ def _ohlcv_value_digest(value: Any) -> str:
 
 def _no_true_trade_evidence(blob:dict) -> None:
     """Disallow accidental or adversarial promotion from source to filled PnL."""
+    if type(blob.get("schema_version")) is not int or blob["schema_version"] != 1:
+        raise ValueError("Unsupported or ambiguous forward source schema")
     if blob.get("mode")!="forward" or blob.get("chain")!="Base" or blob.get("chain_id")!=8453:
         raise ValueError("Unverified forward-source identity")
     for name, expected in (
@@ -155,6 +159,10 @@ def snapshot_summary(doc:dict, *, filename:str) -> dict:
         asset=candle["asset"]
         status=candle.get("status")
         if status=="SINGLE_BAR_FIRST_SEEN_POTENTIALLY_DELAYED":
+            pair_id = candle.get("internal_pair_id_unverified")
+            if (type(pair_id) is not int
+                    or pair_id != SOURCE_ASSETS[asset]["old_pair_id"]):
+                raise ValueError("Retained candle does not match requested market")
             if requested is None or candle.get("requested_bar_start")!=requested or candle.get("bar_closed_at")!=requested+BAR_SECONDS:
                 raise ValueError("Misaligned 4h source")
             if type(candle.get("first_observed_at")) is not int or candle["first_observed_at"]<requested+BAR_SECONDS or candle["first_observed_at"]>int(observed.timestamp())+180:

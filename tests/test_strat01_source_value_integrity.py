@@ -10,6 +10,26 @@ from test_strat01_investment_readiness import sample_capture, stamp
 
 
 class StoredSourceValueIntegrityTests(unittest.TestCase):
+    def test_wrong_or_missing_persisted_market_identifier_is_rejected(self):
+        for pair_id in (None, 4705508, 4564367.0, True, "4564367"):
+            with self.subTest(pair_id=pair_id):
+                capture = sample_capture()
+                candle = capture["data"]["provider_candles"][0]
+                if pair_id is None:
+                    candle.pop("internal_pair_id_unverified")
+                else:
+                    candle["internal_pair_id_unverified"] = pair_id
+                with self.assertRaises(ValueError):
+                    gate.snapshot_summary(capture, filename=stamp(capture))
+
+    def test_unsupported_or_ambiguous_source_schema_is_rejected(self):
+        for version in (None, True, 1.0, "1", 2):
+            with self.subTest(version=version):
+                capture = sample_capture()
+                capture["schema_version"] = version
+                with self.assertRaises(ValueError):
+                    gate.snapshot_summary(capture, filename=stamp(capture))
+
     def test_invalid_persisted_ohlcv_is_rejected_despite_valid_hash_shape(self):
         changes = [
             ("missing", None), ("list", []),
