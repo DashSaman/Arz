@@ -50,8 +50,8 @@ Files: collector, local monitor, backup and associated tests/deployment configur
 
 - [x] Integrate scoped commits without overwriting concurrent main evidence; run the full offline suite, canonical control verifier and relevant release/data checks.
 - [x] Request a fresh independent review of the complete change; resolve material reproduced findings with regression tests.
-- [ ] Publish actual code, tests, evidence and reports via GitHub, verify exact PR head CI, and merge under repository authorization.
-- [ ] Update RESEARCH_NOW and STATE with actual source/commit/run IDs and remaining work; report any blocked CI/publication rather than claiming completion.
+- [x] Publish actual code, tests, evidence and reports via GitHub, verify exact PR head CI, and merge under repository authorization. PR87 merged as `c5b5fa3a2e82d2bca817631c807303ad5e71e25a`; all eight head-specific workflows passed.
+- [x] Update RESEARCH_NOW and STATE with actual source/commit/run IDs and remaining work. The documentary checkpoint records PR87 publication, actual isolated CI and unchanged financial blockers in `publication-receipt.json`.
 
 ## Review focus
 

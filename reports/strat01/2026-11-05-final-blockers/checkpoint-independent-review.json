@@ -1,0 +1,41 @@
+{
+  "base_commit": "c5b5fa3a2e82d2bca817631c807303ad5e71e25a",
+  "checks": [
+    "All nine local-to-public tree mappings match; PR87 head and merge tree identical.",
+    "Eight matching-head workflow successes; two market network steps skipped.",
+    "1558 CI methods, four prior research-dependency skips, zero failures; all18 new regressions pass.",
+    "3938-byte original container ZIP and all recorded member hashes match.",
+    "Four exact decoded job logs and selected evidence lines match hashes.",
+    "Blockers CSV equals JSON; original independent code review remains byte-identical.",
+    "English/Persian reports accurately scope container evidence to about six seconds of ephemeral CI."
+  ],
+  "cost_status": "COST_UNVERIFIED",
+  "financial_decision": "NO-GO",
+  "live_trading": "DISABLED",
+  "new_file_scope_note": "This review receipt was written after review; its manifest binds only the fourteen independently reviewed files, not itself.",
+  "observed_at_utc": "2026-11-05 11:35:52 UTC",
+  "profitability_evidence_status": "INSUFFICIENT_EVIDENCE",
+  "qualified_paper_days_added": 0,
+  "real_capital_authorized_usd": 0,
+  "reviewed_file_sha256": {
+    "RESEARCH_NOW.md": "a502b64c9a3438668ce77ce3e343f29f193bf8c6692c978661e458decd944e67",
+    "docs/en/research_current_checkpoint.md": "a6af16a47bd02ea87b10a9096ffc2c41e0233cb747e790aa02671db50b1b6999",
+    "docs/en/strat01_final_blockers_20261105.md": "1370447bb36b3bcd20d48e19ea2afd2df1c862a5847358e191bde7cfc500767f",
+    "docs/fa/research_current_checkpoint.md": "794e50c054164d3010e57bc421d2757742cb079c7853e40329d48212693e6612",
+    "docs/fa/strat01_final_blockers_20261105.md": "50e1e3fb2c5f514b102c610bc79d434cc9a275bbaafc28d93f36289ff10cd577",
+    "docs/superpowers/plans/2026-11-05-final-blockers.md": "9d18b3ee35b1952c48a237881b896adeec4b5d410c0c3816f41c1240f0ca577e",
+    "reports/strat01/2026-11-05-final-blockers/blockers.csv": "8c022f1f949cc7e5ae92b275ca7b908615287ba4c656af4f743190a2e7c70fae",
+    "reports/strat01/2026-11-05-final-blockers/blockers.json": "e7fa6750c128ece820d451a7b7937abf63cb7261517c6d12344ce188e207234d",
+    "reports/strat01/2026-11-05-final-blockers/ci-job-evidence.json.gz": "77e014c976a34e762e8db19c7a65a0fa407e9e19c809e5a113a19753a36b06ba",
+    "reports/strat01/2026-11-05-final-blockers/container-ci-pr87.zip": "cf46276fcfa98567b249c81de9812d65d044896dc5b9c996eaeabfc297d9c476",
+    "reports/strat01/2026-11-05-final-blockers/container-ci-receipt.json": "ebf5bcc72323a7b99505d097ffd488ce63a811aa1c70544c1308d221bc4325fe",
+    "reports/strat01/2026-11-05-final-blockers/decision.json": "85a64de1bfbadd385e72f2c02b842920d97d922113fa7e2a32b748afdef549b8",
+    "reports/strat01/2026-11-05-final-blockers/publication-receipt.json": "5cbcebf303583b34c26f3370b7f7fe3bb63f85c0272bb1c2e8c0a0da4c1177bb",
+    "research/control/STATE.json": "e051b5a89df9e256f64ccb0d132a47090c210b8d5c34a3ccc9e160fb8dc8aa29"
+  },
+  "reviewer": "independent final_review agent",
+  "schema_version": 1,
+  "scope": "DOCUMENTARY_CHECKPOINT_DIFF",
+  "user_host_deployed": false,
+  "verdict": "APPROVED_NO_BLOCKING_OR_MATERIAL_REPORTING_ISSUES"
+}
