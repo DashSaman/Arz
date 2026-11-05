@@ -49,7 +49,7 @@ Files: collector, local monitor, backup and associated tests/deployment configur
 ## Task 5 — Integrate and publish
 
 - [x] Integrate scoped commits without overwriting concurrent main evidence; run the full offline suite, canonical control verifier and relevant release/data checks.
-- [ ] Request a fresh independent review of the complete change; resolve material reproduced findings with regression tests.
+- [x] Request a fresh independent review of the complete change; resolve material reproduced findings with regression tests.
 - [ ] Publish actual code, tests, evidence and reports via GitHub, verify exact PR head CI, and merge under repository authorization.
 - [ ] Update RESEARCH_NOW and STATE with actual source/commit/run IDs and remaining work; report any blocked CI/publication rather than claiming completion.
 

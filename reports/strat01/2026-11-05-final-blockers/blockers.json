@@ -6,29 +6,39 @@
       "evidence": "data-fix-verification.json; tests/test_strat01_source_value_integrity.py",
       "id": "DATA_VALUE_PROVENANCE",
       "priority": "P1",
-      "remaining": "Independent final review and exact-head CI/publication.",
+      "remaining": "Exact-head CI and GitHub merge; external financial/host prerequisites remain as listed separately.",
       "remedy": "Strict numeric/structural validation, exact numeric conflict digest, duplicate-key rejection and frozen pair/schema checks.",
-      "status": "FIXED_LOCALLY_REVIEW_PENDING"
+      "status": "FIXED_INDEPENDENTLY_REVIEWED_CI_PENDING"
     },
     {
       "cause": "Encoded provider refusal in an archived source was counted as healthy and allowed a later fetch.",
       "evidence": "tests/test_strat01_collector_provider_stop.py; integrated-tests.log",
       "id": "COLLECTOR_PROVIDER_REFUSAL",
       "priority": "P1",
-      "remaining": "Independent final review and exact-head isolated-container CI; host/provider review remains external.",
+      "remaining": "Exact-head CI and GitHub merge; external financial/host prerequisites remain as listed separately.",
       "remedy": "Immutable provider-access-stop event and retained-source guard; no retry or reset through restart/network toggle/restore.",
-      "status": "FIXED_LOCALLY_REVIEW_PENDING"
+      "status": "FIXED_INDEPENDENTLY_REVIEWED_CI_PENDING"
     },
     {
       "cause": "Common transaction/block/address/log index admitted altered or duplicate selected Swap payload.",
       "evidence": "independent-quant-audit.json; tests/test_strat01_public_receipt_cost.py",
       "id": "RECEIPT_EVENT_PROVENANCE",
       "priority": "P2",
-      "remaining": "Independent final review and exact-head CI/publication.",
+      "remaining": "Exact-head CI and GitHub merge; external financial/host prerequisites remain as listed separately.",
       "remedy": "Bind full source/receipt event and position; require exactly one match; expose missing operator/full network fee.",
-      "status": "FIXED_LOCALLY_REVIEW_PENDING"
+      "status": "FIXED_INDEPENDENTLY_REVIEWED_CI_PENDING"
+    },
+    {
+      "cause": "Fixed absolute unit tolerance erased material positive inventory at an accepted extreme price and accepted tiny overfills.",
+      "evidence": "engine-conservation-fix.json; tests/test_core.py; tests/test_engine.py",
+      "id": "ACCOUNTING_POSITIVE_RESIDUAL",
+      "priority": "P1",
+      "remaining": "Exact-head CI and GitHub merge; external financial/host prerequisites remain as listed separately.",
+      "remedy": "Preserve every positive residual and basis; reject requested overfill; clear only exact zero; test normal/extreme partial sells, restart and full closure.",
+      "status": "FIXED_INDEPENDENTLY_REVIEWED_CI_PENDING"
     }
   ],
+  "independent_final_review": "APPROVED_CODE_SUBJECT_TO_EXACT_HEAD_CI",
   "observed_at_utc": "2026-11-05T10:48:33.909374+00:00",
   "remaining": [
     {

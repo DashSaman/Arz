@@ -53,6 +53,12 @@
     "source": "https://docs.base.org/specifications/transactions/network-fees"
   },
   "financial_decision": "NO-GO",
+  "future_operating_costs": {
+    "hosting_and_data_service_cost_usd": null,
+    "included_in_saved_strategy_returns": false,
+    "new_service_purchases": 0,
+    "qualification": "Any later operational budget must be included before capital qualification; missing provider/hosting price is not assumed zero."
+  },
   "identity_source": {
     "normalization": "Original parser required token0/token1; preserved returned base_token_address and quote_token_address were reconciled offline. Original false flag is not overwritten.",
     "observed_block": 53135352,
@@ -104,6 +110,7 @@
     "assumption": "Per-side pool input has reference USD value 20. A sell fee is charged in the input token. Pool fees are embedded in route quotes; do not add them again to net quotes.",
     "fraction": "0.0005",
     "hypothetical_20_usdc_buy_pool_fee_usd": "0.01",
+    "hypothetical_20_usdc_buy_pool_fee_usdc": "0.01",
     "hypothetical_equal_gross_value_sell_pool_fee_usd": "0.01",
     "hypothetical_round_trip_pool_fee_usd": "0.02",
     "onchain_fee_ppm": 500
@@ -119,6 +126,12 @@
   "real_capital_authorized_usd": 0,
   "reference_order_usdc": "20",
   "report_kind": "COST_EVIDENCE_RECONCILIATION_NO_NEW_MARKET_REQUEST",
+  "reporting_units": {
+    "USDC_USD_par_assumption": "1",
+    "depeg_risk_modeled": false,
+    "note": "The0.01 buy-side pool fee is denominated in USDC. USD cost illustrations assume par; no observed currency conversion is inferred.",
+    "observed_USDC_USD_rate": null
+  },
   "schema_version": 1,
   "side_conventions": {
     "buy": "Exact 20 USDC input; receives WETH or cbBTC",

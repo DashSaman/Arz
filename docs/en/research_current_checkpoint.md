@@ -2,7 +2,7 @@
 
 ## Latest observed work — 5 November 2026
 
-Source main `cf018928` follows merged PR85/86 with only source captures. Three newly reproduced evidence/collector defects are fixed locally; full suite: 1,553 methods, 1 skipped, no failures, core-engine review: 309 passing methods. Final independent review, exact-head CI and GitHub publication remain pending in [the decision receipt](../../reports/strat01/2026-11-05-final-blockers/decision.json); do not infer delivery from these local results.
+Source main `cf018928` follows merged PR85/86 with only source captures. Four newly reproduced data/collector/receipt/accounting defects are fixed locally; full suite: 1,558 methods, 1 skipped, no failures, core-engine review: 311 passing methods. Positive small-unit residuals and their basis now survive partial sells and restart; old runtime journals are not silently migrated. Final independent code review approved; exact-head CI and GitHub publication remain pending in [the decision receipt](../../reports/strat01/2026-11-05-final-blockers/decision.json); do not infer delivery from these local results.
 
 The 38 original files are unchanged, with 30 distinct paired 4h starts, 12 operationally timely and longest chain 5/194. All 164 registrations remain unqualified; 58 saved metric rows are descriptive extraction, not fresh experiments. Exact historical inputs were not found in the two inspected prior workspaces. Two-sided signal +60 seconds costs, operator fee/full network cost, genuine untouched OOS and qualified prospective paper remain unproven. **NO-GO / COST_UNVERIFIED / INSUFFICIENT_EVIDENCE; live DISABLED; real capital $0; paper 0 days.**
 

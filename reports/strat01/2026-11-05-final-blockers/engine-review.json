@@ -5,6 +5,7 @@
     "passed": true,
     "scope": "OFFLINE_CONSISTENCY_ONLY_REMOTE_FRESHNESS_NOT_PROVED"
   },
+  "current_new_material_defect_count_after_followup": 1,
   "financial_decision": "NO-GO",
   "focused_verification": {
     "command": "PYTHONPATH=src:tests:. python -m unittest test_core test_engine test_operations test_review_regressions test_exit_priority_adversarial test_risk_numeric_guards test_multi_edge_accounting",
@@ -14,6 +15,7 @@
     "source": "Independent agent reported actual local execution; full integrated suite is recorded separately",
     "tests": 309
   },
+  "followup_resolved_hypothesis": "engine-conservation-fix.json",
   "kind": "INDEPENDENT_SCOPED_ENGINE_REVIEW_NO_NEW_DEFECT_PROVEN",
   "limits": [
     "A scoped review is not a proof that all possible bugs are absent.",
@@ -25,6 +27,7 @@
   "new_reproduced_material_defects": 0,
   "new_test_methods": 0,
   "real_capital_authorized_usd": 0,
+  "review_phase": "INITIAL_309_TEST_SCOPED_REVIEW_BEFORE_TARGETED_FOLLOWUP",
   "reviewed_paths": [
     {
       "identical_between_audited_and_main_baseline": true,

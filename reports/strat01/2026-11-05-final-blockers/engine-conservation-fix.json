@@ -1,0 +1,51 @@
+{
+  "agent_commit": "4370f8abbb8b025dc99bb3ec56a6da28260e4a82",
+  "baseline_main_sha": "cf018928c761fb19e2e296bd2840e55ee3fd3cc0",
+  "bug": "Absolute1e-12 unit cutoff erased a positive partial-sale residual and basis, falsely closing the cycle. Absolute overfill allowance also accepted an overfill and divided byzero on a tiny sale against an empty position.",
+  "changed_production_files": [
+    "src/arz/accounting.py"
+  ],
+  "changed_tests": [
+    "tests/test_core.py",
+    "tests/test_engine.py"
+  ],
+  "control_entry_reference_price": 1000,
+  "extreme_entry_reference_price": 10000000000000,
+  "financial_decision": "NO-GO",
+  "fix": "Reject any requested overfill; preserve all positive remaining units and basis; clear only exact zero after a real full sale. Existing Engine exactzero/positiveposition predicates need no change.",
+  "fixed_following_full_exit_closed_cycles": 1,
+  "fixed_remaining_balance_and_basis_preserved": true,
+  "fixed_restart_preserves_state": true,
+  "focused_command": "PYTHONPATH=src:tests:. python -m unittest test_core test_engine test_operations test_review_regressions test_exit_priority_adversarial test_risk_numeric_guards test_multi_edge_accounting",
+  "green": {
+    "exit_code": 0,
+    "failures": 0,
+    "focused_suite_methods": 311,
+    "new_methods": 2
+  },
+  "historical_data_or_results_changed": false,
+  "kind": "SYNTHETIC_SCALE_INVARIANCE_ACCOUNTING_REGRESSION_NOT_MARKET_PERFORMANCE",
+  "live_trading": "DISABLED",
+  "local_integrated_commit": "7820b5cb5c53cefba555fa1506a16866bbca7669",
+  "new_backtests": 0,
+  "new_market_requests": 0,
+  "old_journals_migrated_or_reset": false,
+  "pre_fix_actual_remaining_units": 0,
+  "pre_fix_false_closed_cycle_count": 1,
+  "real_capital_authorized_usd": 0,
+  "red": {
+    "errors": 1,
+    "exit_code": 1,
+    "failing_subtests": 2,
+    "methods": 2
+  },
+  "remaining_basis_expected_usd": 8.87551106662218,
+  "remaining_marked_value_expected_usd": 19.930019930019938,
+  "remaining_units_expected_at_extreme_scale": 8.857786635564416e-13,
+  "risk_and_strategy_limits_changed": false,
+  "runtime_fingerprint_changed": true,
+  "schema_version": 1,
+  "supported_input_boundary": "Positive finite prices are accepted; synthetic extreme reference price1e13 is economically implausible for the allowlisted market and is not an observed real price.",
+  "unchanged_buy_notional_usd": 20,
+  "unchanged_capped_sell_notional_usd": 25
+}

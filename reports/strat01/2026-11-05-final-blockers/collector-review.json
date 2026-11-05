@@ -1,0 +1,37 @@
+{
+  "actual_sources_checked": 38,
+  "final_green": {
+    "collector_monitor_backup_methods": 38,
+    "failures": 0,
+    "new_provider_stop_methods": 5
+  },
+  "health_followup_agent_commit": "c9ad7b61b4b51d5ef0e69725f5cc1b282b28860c",
+  "health_red": {
+    "legacy_network_combinations_failed": 4,
+    "methods": 2,
+    "unsafe_source_cases_failed": 7
+  },
+  "host_deployed": false,
+  "host_limits": [
+    "Authorized host and provider capacity",
+    "Delivered alert",
+    "Actual host restart/stop/rollback/recovery drills and uptime",
+    "Off-host backup scheduling and storage"
+  ],
+  "independent_final_provider_methods": 5,
+  "initial_agent_commit": "5c9ef6a553298a8c73f9f662eeda60f88eb3f8ed",
+  "initial_red": {
+    "failing_subcases": 5,
+    "methods": 3
+  },
+  "legacy_refusal_visible_before_next_run_once": true,
+  "local_health_commit": "e34add162dd70b1c0630a1b304340731877fccfe",
+  "new_auto_reset_or_access_resume_bypass": false,
+  "new_market_requests": 0,
+  "no_heartbeat_restored": true,
+  "no_provider_call_after_refusal": true,
+  "refusal_survives_restore": true,
+  "schema_version": 1,
+  "scope": "SYNTHETIC_PROVIDER_REFUSAL_AND_LOCAL_RECOVERY_NOT_DEPLOYMENT",
+  "unchanged_actual_sources_with_provider_stop_code": 0
+}
