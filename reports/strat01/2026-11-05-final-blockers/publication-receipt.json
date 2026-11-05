@@ -1,0 +1,727 @@
+{
+  "baseline_main_sha": "cf018928c761fb19e2e296bd2840e55ee3fd3cc0",
+  "ci_tests": {
+    "failed": 0,
+    "methods": 1558,
+    "new_regressions_skipped": false,
+    "passed": 1554,
+    "skipped": 4,
+    "skips_require_pinned_prior_research_dependencies": true
+  },
+  "container_receipt": "container-ci-receipt.json",
+  "exact_head_ci_status": "ALL_8_APPLICABLE_WORKFLOWS_SUCCESS",
+  "financial_decision": "NO-GO",
+  "head_and_merged_tree_identical": true,
+  "independent_review": {
+    "approval": "APPROVED_CODE_WITH_NO_UNRESOLVED_CRITICAL_OR_IMPORTANT_FINDINGS",
+    "financial_approval": false,
+    "local_code_head": "e34add162dd70b1c0630a1b304340731877fccfe",
+    "published_code_head": "27ca175178929eae4fe95f6b92e37ba35c9e809a",
+    "report": "independent-final-review.json",
+    "required_ci_condition_satisfied": true
+  },
+  "live_trading": "DISABLED",
+  "local_to_published_commit_mapping": [
+    {
+      "local_sha": "a7d9dcd4b8ab83cb615a21d06b5b5a6d1f73b422",
+      "remote_sha": "7bd131ada088437e136157c90d53a769e3632d40",
+      "tree": "dc1dec8047c317d2502cc5efae262654078450d1"
+    },
+    {
+      "local_sha": "18af39aa0fc5b1af9c1ef9792b88fc99d7feff9f",
+      "remote_sha": "4641e696dd38888328ce74a9bf05e4858fd7f99f",
+      "tree": "9b195416feab14886603f48c4158f74744c8d07b"
+    },
+    {
+      "local_sha": "e758b5a8045b35c9c404610e04986a9f1f07a398",
+      "remote_sha": "99d8bb6e38d04f6697587cb4e8798ace11a24451",
+      "tree": "13cfb81a374c419618e8b709a8f9699d4b36e94b"
+    },
+    {
+      "local_sha": "546cced36735cdda303ff74917ae0dfd00f8181b",
+      "remote_sha": "c03dd523c40418362a1e573f56e55851fea29f28",
+      "tree": "18834bbbed72c6d7673dd619d3d5b6efef79ecbc"
+    },
+    {
+      "local_sha": "0fe11b6b1d2ce01444cee8d430ca1051e0bfb93e",
+      "remote_sha": "4f46495bd4c364d6524d115a506cfaa199240a3d",
+      "tree": "ac4516eba8aa69dbe06cbd260efdb0e5a39e2182"
+    },
+    {
+      "local_sha": "f71434aec1764c44c9358913a2e860174c222eff",
+      "remote_sha": "35202097056e669625c01f2535588491515df219",
+      "tree": "fa465b25a31d6b0867dd1554e59bf80d07172c3d"
+    },
+    {
+      "local_sha": "7820b5cb5c53cefba555fa1506a16866bbca7669",
+      "remote_sha": "363b6697ce027d5d12c1e3fd266de7628e7706ea",
+      "tree": "01f6898ca81364c363ca8c30442bee509de31a76"
+    },
+    {
+      "local_sha": "e34add162dd70b1c0630a1b304340731877fccfe",
+      "remote_sha": "27ca175178929eae4fe95f6b92e37ba35c9e809a",
+      "tree": "862b41bcfa5107c6eee43efd2012ccd468141d1b"
+    },
+    {
+      "local_sha": "5f41dea3b0d569126fdbe03a1c539061253259a8",
+      "remote_sha": "fcbb6480984651e76774689049f4e6122597a4b1",
+      "tree": "33150e56db34a096a98e482fc6934ae2d9c3935b"
+    }
+  ],
+  "main_verified_after_merge": {
+    "sha": "c5b5fa3a2e82d2bca817631c807303ad5e71e25a",
+    "tree_sha": "33150e56db34a096a98e482fc6934ae2d9c3935b"
+  },
+  "network_evidence": {
+    "container_network": "none",
+    "historical_gap_network_step": "skipped",
+    "new_market_provider_requests": 0,
+    "public_receipt_network_step": "skipped"
+  },
+  "observed_at_utc": "2026-11-05T11:30:32Z",
+  "preserved_ci_logs": {
+    "compressed_bytes": 47654,
+    "compressed_sha256": "77e014c976a34e762e8db19c7a65a0fa407e9e19c809e5a113a19753a36b06ba",
+    "decoded_json_bytes": 354059,
+    "decoded_json_sha256": "5080ad682e4b9939e436cb5ebe82989ad151bc73317942d67957ddd179bdc961",
+    "file": "ci-job-evidence.json.gz",
+    "scope": "Exact UTF-8 decoded strings returned by GitHub workflow-job-log connector; not original runner ZIP bytes."
+  },
+  "publication_status": "MERGED",
+  "published_head_tree_sha": "33150e56db34a096a98e482fc6934ae2d9c3935b",
+  "pull_request": {
+    "head_sha": "fcbb6480984651e76774689049f4e6122597a4b1",
+    "merge_commit_sha": "c5b5fa3a2e82d2bca817631c807303ad5e71e25a",
+    "merged": true,
+    "merged_at_tehran": "2026-11-05T14:49:55+03:30",
+    "merged_at_utc": "2026-11-05T11:19:55Z",
+    "number": 87,
+    "url": "https://github.com/DashSaman/Arz/pull/87"
+  },
+  "qualified_paper_days_added": 0,
+  "real_capital_authorized_usd": 0,
+  "repository": "DashSaman/Arz",
+  "schema_version": 1,
+  "selected_log_evidence": [
+    {
+      "decoded_log_utf8_sha256": "87167985a234e4d8cb3569be96087114b752e30a988ef5f25d4a7cd6131880e9",
+      "job_id": 127211871789,
+      "selected_exact_lines": [
+        "2026-11-05T11:16:11.7825269Z Ran 13 tests in 0.227s",
+        "2026-11-05T11:16:20.7828518Z {\"kind\": \"EPHEMERAL_NETWORK_ISOLATED_CONTAINER_SMOKE_NOT_DEPLOYMENT\", \"network_mode\": \"none\", \"source_files\": 0, \"new_paper_days\": 0, \"financial_decision\": \"NO-GO\", \"live_trading\": \"DISABLED\", \"real_capital_authorized_usd\": 0, \"image_id\": \"sha256:e697c81897302a4c4333bade000d98038fbb21eb064f8ee1fd42d02ebcd9d337\"}"
+      ]
+    },
+    {
+      "decoded_log_utf8_sha256": "8490aacad6d88683de8b20811ced808a2d511ab528f3e49a93f32c998f3f70d7",
+      "job_id": 127211872685,
+      "selected_exact_lines": [
+        "2026-11-05T11:16:12.4391034Z Ran 21 tests in 0.058s",
+        "2026-11-05T11:16:14.4104474Z Ran 1558 tests in 1.633s",
+        "2026-11-05T11:16:14.4104864Z OK (skipped=4)"
+      ]
+    },
+    {
+      "decoded_log_utf8_sha256": "6dec2338ff1fb757ab38b0e4b50f383f05eb98868c2c6071ad01cc8eaf8d806a",
+      "job_id": 127211871909,
+      "selected_exact_lines": [
+        "2026-11-05T11:16:13.8315385Z test_declared_warmup_changes_gap_eligibility (test_strat01_family_matrix.FamilyAuditTests.test_declared_warmup_changes_gap_eligibility) ... skipped 'install upstream research lock to exercise offline matrix'",
+        "2026-11-05T11:16:13.8321227Z test_independent_cashflow_marks_loss_and_reserve (test_strat01_family_matrix.FamilyAuditTests.test_independent_cashflow_marks_loss_and_reserve) ... skipped 'install upstream research lock to exercise offline matrix'",
+        "2026-11-05T11:16:13.8322888Z test_zero_trade_has_no_expectancy_or_win_rate (test_strat01_family_matrix.FamilyAuditTests.test_zero_trade_has_no_expectancy_or_win_rate) ... skipped 'install upstream research lock to exercise offline matrix'",
+        "2026-11-05T11:16:14.0665843Z test_frozen_strategy_uses_only_in_window_orders_and_next_open_fills (test_strat01_period_backtest.PeriodChecks.test_frozen_strategy_uses_only_in_window_orders_and_next_open_fills) ... skipped 'requires pinned research engine and its locked dependencies'",
+        "2026-11-05T11:16:14.6065032Z Ran 1558 tests in 1.710s",
+        "2026-11-05T11:16:14.6065289Z OK (skipped=4)"
+      ]
+    },
+    {
+      "decoded_log_utf8_sha256": "ab530ac8441a8e3a175a1670c4b2f4964c5befaea51f5d3f35d54251988e901f",
+      "job_id": 127211872493,
+      "selected_exact_lines": [
+        "2026-11-05T11:16:11.8079207Z Ran 9 tests in 0.018s",
+        "2026-11-05T11:16:11.9483279Z {\"health\": \"NO_RECENT_HEARTBEAT\", \"paired\": 30, \"timely\": 12, \"financial_decision\": \"NO-GO\"}"
+      ]
+    }
+  ],
+  "user_host_deployed": false,
+  "workflow_query": {
+    "complete": true,
+    "path": "/repos/DashSaman/Arz/actions/runs?head_sha=fcbb6480984651e76774689049f4e6122597a4b1&event=pull_request&per_page=100",
+    "returned_count": 8,
+    "total_count": 8
+  },
+  "workflows": [
+    {
+      "conclusion": "success",
+      "created_at": "2026-11-05T11:16:06Z",
+      "event": "pull_request",
+      "head_sha": "fcbb6480984651e76774689049f4e6122597a4b1",
+      "jobs": [
+        {
+          "conclusion": "success",
+          "id": 127211872493,
+          "logs_url": null,
+          "name": "offline-source-dashboard",
+          "run_id": 42017587832,
+          "status": "completed",
+          "steps": [
+            {
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "number": 2,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run local monitor negative controls (no internet providers)",
+              "number": 3,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Generate actual offline HTML/JSON using existing repository captures",
+              "number": 4,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Verify no false funding, paper or source-time qualification",
+              "number": 5,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Preserve real offline HTML and JSON snapshot as artifacts",
+              "number": 6,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "number": 12,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 13,
+              "status": "completed"
+            }
+          ]
+        }
+      ],
+      "name": "Arz local collector operational HTML dashboard (NO-GO)",
+      "run_id": 42017587832,
+      "status": "completed",
+      "updated_at": "2026-11-05T11:16:15Z",
+      "url": "https://github.com/DashSaman/Arz/actions/runs/42017587832"
+    },
+    {
+      "conclusion": "success",
+      "created_at": "2026-11-05T11:16:06Z",
+      "event": "pull_request",
+      "head_sha": "fcbb6480984651e76774689049f4e6122597a4b1",
+      "jobs": [
+        {
+          "conclusion": "success",
+          "id": 127211871738,
+          "logs_url": null,
+          "name": "bounded-unrelated-receipt",
+          "run_id": 42017587653,
+          "status": "completed",
+          "steps": [
+            {
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "number": 2,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run adversarial source, fee, no-wallet tests",
+              "number": 3,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run complete standard-library regression suite",
+              "number": 4,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Enforce frozen research NO-GO before network",
+              "number": 5,
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "One bounded Base public RPC unrelated swap receipt observation",
+              "number": 6,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Preserve source hashes, all unknowns and actual receipts if returned",
+              "number": 7,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "number": 14,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 15,
+              "status": "completed"
+            }
+          ]
+        }
+      ],
+      "name": "ARZ Base public third-party pool Swap receipt fee pilot (NO-GO)",
+      "run_id": 42017587653,
+      "status": "completed",
+      "updated_at": "2026-11-05T11:16:16Z",
+      "url": "https://github.com/DashSaman/Arz/actions/runs/42017587653"
+    },
+    {
+      "conclusion": "success",
+      "created_at": "2026-11-05T11:16:06Z",
+      "event": "pull_request",
+      "head_sha": "fcbb6480984651e76774689049f4e6122597a4b1",
+      "jobs": [
+        {
+          "conclusion": "success",
+          "id": 127211872685,
+          "logs_url": null,
+          "name": "offline-restart-validation",
+          "run_id": 42017587909,
+          "status": "completed",
+          "steps": [
+            {
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "number": 2,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "No-network canonical source-of-truth consistency",
+              "number": 3,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Research-specific fail-closed regression",
+              "number": 4,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Complete main-branch regression",
+              "number": 5,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Compile validator, ensure paired documents are present",
+              "number": 6,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "number": 12,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 13,
+              "status": "completed"
+            }
+          ]
+        }
+      ],
+      "name": "Arz canonical research control plane",
+      "run_id": 42017587909,
+      "status": "completed",
+      "updated_at": "2026-11-05T11:16:17Z",
+      "url": "https://github.com/DashSaman/Arz/actions/runs/42017587909"
+    },
+    {
+      "conclusion": "success",
+      "created_at": "2026-11-05T11:16:06Z",
+      "event": "pull_request",
+      "head_sha": "fcbb6480984651e76774689049f4e6122597a4b1",
+      "jobs": [
+        {
+          "conclusion": "success",
+          "id": 127211872578,
+          "logs_url": null,
+          "name": "financial-source-refusal",
+          "run_id": 42017587800,
+          "status": "completed",
+          "steps": [
+            {
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "number": 2,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Fail-closed synthetic tamper and forward ledger regression",
+              "number": 3,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Detect prefix OOS gaps and data delayed past candle close",
+              "number": 4,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Audit actual checked-in forward capture evidence without RPC",
+              "number": 5,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Full offline repository regression suite",
+              "number": 6,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Source integrity syntax and canonical safety controls",
+              "number": 7,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Preserve honest evidence report after each source push",
+              "number": 8,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "number": 16,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 17,
+              "status": "completed"
+            }
+          ]
+        }
+      ],
+      "name": "Arz STRAT01 investment evidence gate (never auto-approve capital)",
+      "run_id": 42017587800,
+      "status": "completed",
+      "updated_at": "2026-11-05T11:16:17Z",
+      "url": "https://github.com/DashSaman/Arz/actions/runs/42017587800"
+    },
+    {
+      "conclusion": "success",
+      "created_at": "2026-11-05T11:16:06Z",
+      "event": "pull_request",
+      "head_sha": "fcbb6480984651e76774689049f4e6122597a4b1",
+      "jobs": [
+        {
+          "conclusion": "success",
+          "id": 127211871710,
+          "logs_url": null,
+          "name": "offline-verification",
+          "run_id": 42017587651,
+          "status": "completed",
+          "steps": [
+            {
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "number": 2,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Create isolated standard-library environment",
+              "number": 3,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Test accounting, risk, paper state and static boundaries",
+              "number": 4,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "number": 8,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 9,
+              "status": "completed"
+            }
+          ]
+        }
+      ],
+      "name": "Research-only checks",
+      "run_id": 42017587651,
+      "status": "completed",
+      "updated_at": "2026-11-05T11:16:18Z",
+      "url": "https://github.com/DashSaman/Arz/actions/runs/42017587651"
+    },
+    {
+      "conclusion": "success",
+      "created_at": "2026-11-05T11:16:06Z",
+      "event": "pull_request",
+      "head_sha": "fcbb6480984651e76774689049f4e6122597a4b1",
+      "jobs": [
+        {
+          "conclusion": "success",
+          "id": 127211871909,
+          "logs_url": null,
+          "name": "Python offline accounting tests",
+          "run_id": 42017587648,
+          "status": "completed",
+          "steps": [
+            {
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "number": 2,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run offline unit tests (no keys, no network APIs)",
+              "number": 3,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Evaluate labeled synthetic example",
+              "number": 4,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "number": 8,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 9,
+              "status": "completed"
+            }
+          ]
+        }
+      ],
+      "name": "Arz offline-only tests",
+      "run_id": 42017587648,
+      "status": "completed",
+      "updated_at": "2026-11-05T11:16:17Z",
+      "url": "https://github.com/DashSaman/Arz/actions/runs/42017587648"
+    },
+    {
+      "conclusion": "success",
+      "created_at": "2026-11-05T11:16:06Z",
+      "event": "pull_request",
+      "head_sha": "fcbb6480984651e76774689049f4e6122597a4b1",
+      "jobs": [
+        {
+          "conclusion": "success",
+          "id": 127211872329,
+          "logs_url": null,
+          "name": "offline_tests_and_one_source",
+          "run_id": 42017587837,
+          "status": "completed",
+          "steps": [
+            {
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "number": 2,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Source gaps, late historical recovery and runner event tests",
+              "number": 3,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Whole-repository offline regression",
+              "number": 4,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Original financial NO-GO and source clock checks",
+              "number": 5,
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "One bounded public historical-gap diagnostic (max 8 GETs)",
+              "number": 6,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Archive immutable late-source evidence (not a trading fill)",
+              "number": 7,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "number": 14,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 15,
+              "status": "completed"
+            }
+          ]
+        }
+      ],
+      "name": "STRAT-01 bounded late gap recovery (historical NON-PAPER)",
+      "run_id": 42017587837,
+      "status": "completed",
+      "updated_at": "2026-11-05T11:16:19Z",
+      "url": "https://github.com/DashSaman/Arz/actions/runs/42017587837"
+    },
+    {
+      "conclusion": "success",
+      "created_at": "2026-11-05T11:16:06Z",
+      "event": "pull_request",
+      "head_sha": "fcbb6480984651e76774689049f4e6122597a4b1",
+      "jobs": [
+        {
+          "conclusion": "success",
+          "id": 127211871789,
+          "logs_url": null,
+          "name": "offline-release-smoke",
+          "run_id": 42017587635,
+          "status": "completed",
+          "steps": [
+            {
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "number": 2,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Recovery negative controls with synthetic records",
+              "number": 3,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Validate and start network-isolated collector on ephemeral CI runner",
+              "number": 4,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Assert real container isolation and no paper or market capture",
+              "number": 5,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Stop ephemeral container and preserve logs",
+              "number": 6,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+              "number": 7,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "number": 14,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 15,
+              "status": "completed"
+            }
+          ]
+        }
+      ],
+      "name": "Arz collector release recovery and isolated container checks",
+      "run_id": 42017587635,
+      "status": "completed",
+      "updated_at": "2026-11-05T11:16:39Z",
+      "url": "https://github.com/DashSaman/Arz/actions/runs/42017587635"
+    }
+  ]
+}

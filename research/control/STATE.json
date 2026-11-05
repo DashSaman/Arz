@@ -1360,11 +1360,11 @@
     "primary_merge_observed_at_utc": "2026-11-04T18:47:15.764294+00:00"
   },
   "post_audit_20261105_final_blockers": {
-    "observed_at_utc": "2026-11-05T10:48:33.909374+00:00",
+    "observed_at_utc": "2026-11-05T11:30:32Z",
     "source_main_sha": "cf018928c761fb19e2e296bd2840e55ee3fd3cc0",
     "branch": "research/final-blockers-20261105",
-    "pr": null,
-    "publication_status_at_observation": "REVIEWED_LOCAL_GITHUB_BRANCH_CREATED_CI_PENDING",
+    "pr": 87,
+    "publication_status_at_observation": "MERGED_PR87_CI_VERIFIED",
     "decision_report": "reports/strat01/2026-11-05-final-blockers/decision.json",
     "blocker_report": "reports/strat01/2026-11-05-final-blockers/blockers.json",
     "reports": {
@@ -1385,7 +1385,18 @@
       "new_regression_methods": 18,
       "receipt_scoped_methods": 14,
       "root_data_scoped_methods": 7,
-      "source_only_and_initial_integration_logs_preserved": true
+      "source_only_and_initial_integration_logs_preserved": true,
+      "ci": {
+        "methods": 1558,
+        "skipped": 4,
+        "passed": 1554,
+        "failed": 0,
+        "skips_require_pinned_prior_research_dependencies": true,
+        "new_regressions_skipped": false,
+        "run_id": 42017587648,
+        "head_sha": "fcbb6480984651e76774689049f4e6122597a4b1"
+      },
+      "isolated_container_ci": "PASS_ACTUAL_EPHEMERAL_NETWORK_NONE"
     },
     "local_verification_commits": [
       "a7d9dcd4b8ab83cb615a21d06b5b5a6d1f73b422",
@@ -1396,8 +1407,8 @@
       "7820b5cb5c53cefba555fa1506a16866bbca7669",
       "e34add162dd70b1c0630a1b304340731877fccfe"
     ],
-    "independent_final_review": "APPROVE_CODE_FOR_PUBLICATION_SUBJECT_TO_EXACT_HEAD_CI; reports/strat01/2026-11-05-final-blockers/independent-final-review.json",
-    "exact_head_ci": "PENDING",
+    "independent_final_review": "APPROVED_CODE; original review retained in independent-final-review.json; required exact-head CI subsequently satisfied in publication-receipt.json",
+    "exact_head_ci": "ALL_8_APPLICABLE_WORKFLOWS_SUCCESS",
     "financial_decision": "NO-GO",
     "acceptance_verdict": "NO_GO",
     "profitability_evidence": "INSUFFICIENT_EVIDENCE",
@@ -1429,6 +1440,22 @@
       "CAPITAL_ACTIVATION: All gates must pass before any separate <=100USD includinggas pilot approval can be proposed."
     ],
     "runtime_change_invalidates_old_paper_journals": true,
-    "engine_conservation_fix": "reports/strat01/2026-11-05-final-blockers/engine-conservation-fix.json"
+    "engine_conservation_fix": "reports/strat01/2026-11-05-final-blockers/engine-conservation-fix.json",
+    "prepublication_observed_at_utc": "2026-11-05T10:48:33.909374+00:00",
+    "publication_receipt": "reports/strat01/2026-11-05-final-blockers/publication-receipt.json",
+    "published_head_sha": "fcbb6480984651e76774689049f4e6122597a4b1",
+    "merge_commit_sha": "c5b5fa3a2e82d2bca817631c807303ad5e71e25a",
+    "main_verified_after_merge": "c5b5fa3a2e82d2bca817631c807303ad5e71e25a",
+    "exact_head_ci_run_ids": [
+      42017587832,
+      42017587653,
+      42017587909,
+      42017587800,
+      42017587651,
+      42017587648,
+      42017587837,
+      42017587635
+    ],
+    "ephemeral_container_receipt": "reports/strat01/2026-11-05-final-blockers/container-ci-receipt.json"
   }
 }

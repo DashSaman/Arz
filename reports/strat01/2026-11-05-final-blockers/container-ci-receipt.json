@@ -1,0 +1,50 @@
+{
+  "archive_bytes": 3938,
+  "archive_sha256": "cf46276fcfa98567b249c81de9812d65d044896dc5b9c996eaeabfc297d9c476",
+  "artifact_id": 13409259253,
+  "artifact_member_sha256": {
+    "compose.json": "16420a1e2f342bd2750663475616f5fc97b3087ba16e5e127e3f4a90ff88e343",
+    "container-log.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "container.json": "64374378d88af0f3c3c7b4d486f1ccf2906109cd5307f7d0d8b0244e353a62be",
+    "dry-run.json": "1cd2836f8b2a030153776016f729a3e2f033b43cd7946c8f8015ccc51d86e73f",
+    "image-inspect.json": "3a63c4b33a6d25d3c1f20d3b982adc047cb32a44d838a5ceda0f9c27e608a33c",
+    "python-version.txt": "9d0ae83e540febd225949f3df4aba97c7a9f79fcf745d6c835780f52a57b50cf",
+    "result.json": "65ff03fac5c457eb6607d901f8a9fb2a085587f31fcd05b584c261423203c25d",
+    "verified-image-identity.json": "48846ed02a40ea8d4a74dd055e6c7f84bf76a684ada45c015164c02253a03844"
+  },
+  "artifact_preserved_in_repo": "container-ci-pr87.zip",
+  "head_sha": "fcbb6480984651e76774689049f4e6122597a4b1",
+  "image": {
+    "architecture": "amd64",
+    "container_image_id": "sha256:e697c81897302a4c4333bade000d98038fbb21eb064f8ee1fd42d02ebcd9d337",
+    "image_id": "sha256:e697c81897302a4c4333bade000d98038fbb21eb064f8ee1fd42d02ebcd9d337",
+    "repo_digests": [
+      "python@sha256:e697c81897302a4c4333bade000d98038fbb21eb064f8ee1fd42d02ebcd9d337"
+    ]
+  },
+  "isolation_verification_method": "Successful CI job asserted live docker-inspect NetworkMode, ReadonlyRootfs, Config.User and State.Health.Status. The raw docker-inspect container payload was not archived; compose.json is normalized configuration and container.json is docker compose ps metadata. See preserved job log evidence and successful exact-head job.",
+  "job_id": 127211871789,
+  "observation_duration_description": "6 seconds ago",
+  "observed_container_created_at": "2026-11-05 11:16:14 +0000 UTC",
+  "observed_container_health": "healthy",
+  "observed_container_network": "none",
+  "observed_container_state": "running",
+  "python": "Python 3.12.16",
+  "result": {
+    "financial_decision": "NO-GO",
+    "image_id": "sha256:e697c81897302a4c4333bade000d98038fbb21eb064f8ee1fd42d02ebcd9d337",
+    "kind": "EPHEMERAL_NETWORK_ISOLATED_CONTAINER_SMOKE_NOT_DEPLOYMENT",
+    "live_trading": "DISABLED",
+    "network_mode": "none",
+    "new_paper_days": 0,
+    "real_capital_authorized_usd": 0,
+    "source_files": 0
+  },
+  "run_id": 42017587635,
+  "run_url": "https://github.com/DashSaman/Arz/actions/runs/42017587635",
+  "schema_version": 1,
+  "scope": "REAL_EPHEMERAL_ISOLATED_CI_NOT_USER_HOST_DEPLOYMENT_OR_UPTIME",
+  "source_digest_matches_github_metadata": true,
+  "verified_readonly_rootfs": true,
+  "verified_user": "65534:65534"
+}
