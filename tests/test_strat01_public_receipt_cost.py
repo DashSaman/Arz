@@ -130,6 +130,21 @@ class SourceReceiptEvidenceTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             audit_receipt(log,receipt,header,int(time.time()))
 
+    def test_source_and_receipt_removal_flags_must_be_literal_false(self):
+        cases=[("missing",None),("null",None),("integer_zero",0),
+               ("integer_one",1),("string_true","true"),("string_false","false")]
+        for location in ("source","receipt"):
+            for label,value in cases:
+                with self.subTest(location=location,removed=label):
+                    log,receipt,header=synthetic(POOLS["WETH"]["pool"])
+                    event=log if location=="source" else receipt["logs"][0]
+                    if label=="missing":
+                        event.pop("removed")
+                    else:
+                        event["removed"]=value
+                    with self.assertRaises(ValueError):
+                        audit_receipt(log,receipt,header,int(time.time()))
+
     def test_unrelated_receipt_event_does_not_replace_selected_event(self):
         log,receipt,header=synthetic(POOLS["WETH"]["pool"])
         unrelated=deepcopy(receipt["logs"][0])

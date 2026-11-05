@@ -95,8 +95,8 @@ def latest_swap(logs, pool, low, high):
     for item in logs:
         if type(item) is not dict or str(item.get("address","")).lower()!=pool:
             raise ValueError("Foreign pool log")
-        if item.get("removed") is True:
-            raise ValueError("Removed/reorganized log")
+        if item.get("removed") is not False:
+            raise ValueError("Removed/reorganized or unproven log removal state")
         topics=item.get("topics")
         if type(topics) is not list or len(topics)!=3 or str(topics[0]).lower()!=SWAP_TOPIC:
             raise ValueError("Wrong event signature")
