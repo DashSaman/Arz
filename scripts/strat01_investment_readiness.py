@@ -43,12 +43,22 @@ FROZEN_SOURCE_REPORT = ROOT / "reports/strat01/2026-10-26-s0-frozen-source-obser
 STATE_FILE = ROOT / "research/control/STATE.json"
 
 
+def _unambiguous_object(pairs: list[tuple[str, Any]]) -> dict:
+    result = {}
+    for key, value in pairs:
+        if key in result:
+            raise ValueError("Duplicate JSON evidence key: " + key)
+        result[key] = value
+    return result
+
+
 def read_strict(path:Path, limit:int) -> tuple[dict,str]:
     raw=path.read_bytes()
     if len(raw)>limit:
         raise ValueError("Oversized evidence file: "+path.name)
     data=json.loads(raw.decode("utf-8"),
-        parse_constant=lambda x: (_ for _ in ()).throw(ValueError("Invalid JSON constant")))
+        parse_constant=lambda x: (_ for _ in ()).throw(ValueError("Invalid JSON constant")),
+        object_pairs_hook=_unambiguous_object)
     if type(data) is not dict:
         raise ValueError("Expected source JSON object")
     return data,hashlib.sha256(raw).hexdigest()
@@ -70,6 +80,29 @@ def iso_utc(x:object) -> datetime:
 
 def valid_digest(value:Any) -> bool:
     return type(value) is str and HEX64.fullmatch(value) is not None
+
+
+def _ohlcv_value_digest(value: Any) -> str:
+    """Recheck retained numbers; this digest is consistency, not provider proof."""
+    if type(value) is not dict or set(value) != {"o", "h", "l", "c", "v"}:
+        raise ValueError("Missing or malformed retained OHLCV")
+    numbers = {}
+    for key, number in value.items():
+        if type(number) not in (int, float):
+            raise ValueError("Retained OHLCV must contain real numeric values")
+        decimal = Decimal(str(number))
+        if (not decimal.is_finite() or decimal < 0
+                or (key != "v" and decimal == 0)):
+            raise ValueError("Nonfinite or invalid retained OHLCV")
+        numbers[key] = decimal
+    if (numbers["h"] < max(numbers["o"], numbers["l"], numbers["c"])
+            or numbers["l"] > min(numbers["o"], numbers["h"], numbers["c"])):
+        raise ValueError("Inconsistent retained OHLCV")
+    # Exact decimal ratios avoid rounding and treat 10 and 10.0 identically.
+    canonical = {key: [str(part) for part in number.as_integer_ratio()]
+                 for key, number in numbers.items()}
+    return hashlib.sha256(json.dumps(canonical, sort_keys=True,
+                                    separators=(",", ":")).encode()).hexdigest()
 
 
 def _no_true_trade_evidence(blob:dict) -> None:
@@ -115,6 +148,7 @@ def snapshot_summary(doc:dict, *, filename:str) -> dict:
     if type(candles) is not list or len(candles)!=2 or {c.get("asset") for c in candles if type(c) is dict}!=set(ASSETS):
         raise ValueError("Both market source records required")
     valid_bar={}
+    value_hashes={}
     observed_lag_by_asset={}
     issues=[]
     for candle in candles:
@@ -130,6 +164,7 @@ def snapshot_summary(doc:dict, *, filename:str) -> dict:
             bars=candle.get("bars")
             if type(bars) is not list or len(bars)!=1 or type(bars[0]) is not dict or bars[0].get("ts")!=requested or not valid_digest(bars[0].get("source_line_sha256")):
                 raise ValueError("Missing exact candle line provenance")
+            value_hashes[asset] = _ohlcv_value_digest(bars[0].get("ohlcv"))
             # Even an observed candle is NOT independently proven to have been
             # available exactly at the time of the bar close. No backdating.
             if candle.get("source_publication_at_original_bar_close_proven") is not False or candle.get("approved_as_execution_price") is not False:
@@ -202,6 +237,7 @@ def snapshot_summary(doc:dict, *, filename:str) -> dict:
     ready=len(valid_bar)==2 and valid_bar["WETH"]["ts"]==valid_bar["cbBTC"]["ts"]
     return {"first_seen":observed.isoformat(),"bar_start":requested,"two_asset_bar_received":ready,
             "bar_hashes":{asset:row["ohlcv_hash"] for asset,row in valid_bar.items()},
+            "retained_ohlcv_value_hashes":value_hashes,
             "observed_bar_close_lag_seconds":observed_lag_by_asset,
             "operational_timeliness_1h_both_assets":ready and
                 len(observed_lag_by_asset)==2 and
@@ -277,7 +313,9 @@ def audit_capture_dir(source:Path) -> dict:
     conflicts=[]
     completed=[]
     for start,documents in sorted(grouped.items()):
-        observed={tuple(sorted(x["bar_hashes"].items())) for x in documents}
+        observed={(tuple(sorted(x["bar_hashes"].items())),
+                   tuple(sorted(x["retained_ohlcv_value_hashes"].items())))
+                  for x in documents}
         if len(observed)>1:
             conflicts.append(start)
         else:
