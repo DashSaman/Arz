@@ -53,6 +53,15 @@ class CoreTests(unittest.TestCase):
         self.assertAlmostEqual(s["realized_pnl"],1.63)
         self.assertAlmostEqual(p.units,1)
 
+    def test_small_unit_overfill_and_empty_position_sales_are_rejected(self):
+        for buy_notional,sell_units in ((20,2.5e-12),(0,5e-13)):
+            with self.subTest(buy_notional=buy_notional):
+                p=Portfolio(100)
+                if buy_notional:p.buy(buy_notional,1e13,0,0)
+                before=p.snapshot()
+                with self.assertRaises(ValueError):p.sell(sell_units,1e13,0,0)
+                self.assertEqual(p.snapshot(),before)
+
     def test_no_short_or_cash_creation(self):
         p=Portfolio(100)
         for action in (lambda:p.buy(100,10,.01,.1),lambda:p.buy(-1,10,0,0),lambda:p.sell(1,10,0,0),lambda:p.buy(20,0,0,0)):

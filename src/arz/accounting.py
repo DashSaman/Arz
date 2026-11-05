@@ -39,13 +39,15 @@ class Portfolio:
 
     def sell(self,units,price,fee_rate,gas):
         finite_nonnegative(units,price,fee_rate,gas)
-        if units<=0 or price<=0 or fee_rate>=1 or units>self.units+1e-12:raise ValueError("Invalid or short sale")
-        units=min(units,self.units);notional=units*price;commission=notional*fee_rate
+        if units<=0 or price<=0 or fee_rate>=1 or units>self.units:raise ValueError("Invalid or short sale")
+        notional=units*price;commission=notional*fee_rate
         proceeds=notional-commission-gas
         if self.cash+proceeds<0:raise ValueError("Insufficient cash for exit cost")
         basis=self.cost_basis*(units/self.units);pnl=proceeds-basis
         self.cash+=proceeds;self.units-=units;self.cost_basis-=basis;self.realized_pnl+=pnl
-        if self.units<1e-12:self.units=0.0;self.cost_basis=0.0
+        # A tiny positive quantity can still have material value at a high price.
+        # Only an exact full sale clears the remaining balance and cost basis.
+        if self.units==0:self.units=0.0;self.cost_basis=0.0
         self.total_commission+=commission;self.total_gas+=gas
         return {"side":"sell","units":units,"price":price,"notional":notional,"commission":commission,"gas":gas,"realized_pnl":pnl}
 
