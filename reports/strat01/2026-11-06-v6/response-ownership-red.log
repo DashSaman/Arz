@@ -1,0 +1,57 @@
+test_base_refusal_with_paired_candles_blocks_duplicate_and_cli_retry (tests.test_strat01_collector_provider_stop.ProviderAccessStopTests.test_base_refusal_with_paired_candles_blocks_duplicate_and_cli_retry) ... FAIL
+test_health_fails_closed_when_retained_source_cannot_be_trusted (tests.test_strat01_collector_provider_stop.ProviderAccessStopTests.test_health_fails_closed_when_retained_source_cannot_be_trusted) ... ok
+test_http_refusal_is_durable_across_restart_and_network_opt_out (tests.test_strat01_collector_provider_stop.ProviderAccessStopTests.test_http_refusal_is_durable_across_restart_and_network_opt_out) ... 
+  test_http_refusal_is_durable_across_restart_and_network_opt_out (tests.test_strat01_collector_provider_stop.ProviderAccessStopTests.test_http_refusal_is_durable_across_restart_and_network_opt_out) (code=403) ... FAIL
+  test_http_refusal_is_durable_across_restart_and_network_opt_out (tests.test_strat01_collector_provider_stop.ProviderAccessStopTests.test_http_refusal_is_durable_across_restart_and_network_opt_out) (code=429) ... FAIL
+  test_http_refusal_is_durable_across_restart_and_network_opt_out (tests.test_strat01_collector_provider_stop.ProviderAccessStopTests.test_http_refusal_is_durable_across_restart_and_network_opt_out) (code=529) ... FAIL
+test_retained_legacy_refusal_blocks_retry_without_failure_event (tests.test_strat01_collector_provider_stop.ProviderAccessStopTests.test_retained_legacy_refusal_blocks_retry_without_failure_event) ... ok
+test_retained_refusal_is_unhealthy_before_any_scheduled_attempt (tests.test_strat01_collector_provider_stop.ProviderAccessStopTests.test_retained_refusal_is_unhealthy_before_any_scheduled_attempt) ... ok
+
+======================================================================
+FAIL: test_base_refusal_with_paired_candles_blocks_duplicate_and_cli_retry (tests.test_strat01_collector_provider_stop.ProviderAccessStopTests.test_base_refusal_with_paired_candles_blocks_duplicate_and_cli_retry)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_collector_provider_stop.py", line 89, in test_base_refusal_with_paired_candles_blocks_duplicate_and_cli_retry
+    result = self.capture_refusal(root, at, 429, candles_available=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_collector_provider_stop.py", line 46, in capture_refusal
+    self.assertTrue(response.closed, "HTTP refusal response remained open")
+AssertionError: False is not true : HTTP refusal response remained open
+
+======================================================================
+FAIL: test_http_refusal_is_durable_across_restart_and_network_opt_out (tests.test_strat01_collector_provider_stop.ProviderAccessStopTests.test_http_refusal_is_durable_across_restart_and_network_opt_out) (code=403)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_collector_provider_stop.py", line 55, in test_http_refusal_is_durable_across_restart_and_network_opt_out
+    first = self.capture_refusal(root, at, code)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_collector_provider_stop.py", line 46, in capture_refusal
+    self.assertTrue(response.closed, "HTTP refusal response remained open")
+AssertionError: False is not true : HTTP refusal response remained open
+
+======================================================================
+FAIL: test_http_refusal_is_durable_across_restart_and_network_opt_out (tests.test_strat01_collector_provider_stop.ProviderAccessStopTests.test_http_refusal_is_durable_across_restart_and_network_opt_out) (code=429)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_collector_provider_stop.py", line 55, in test_http_refusal_is_durable_across_restart_and_network_opt_out
+    first = self.capture_refusal(root, at, code)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_collector_provider_stop.py", line 46, in capture_refusal
+    self.assertTrue(response.closed, "HTTP refusal response remained open")
+AssertionError: False is not true : HTTP refusal response remained open
+
+======================================================================
+FAIL: test_http_refusal_is_durable_across_restart_and_network_opt_out (tests.test_strat01_collector_provider_stop.ProviderAccessStopTests.test_http_refusal_is_durable_across_restart_and_network_opt_out) (code=529)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_collector_provider_stop.py", line 55, in test_http_refusal_is_durable_across_restart_and_network_opt_out
+    first = self.capture_refusal(root, at, code)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_collector_provider_stop.py", line 46, in capture_refusal
+    self.assertTrue(response.closed, "HTTP refusal response remained open")
+AssertionError: False is not true : HTTP refusal response remained open
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.028s
+
+FAILED (failures=4)

@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "reviewed_at_utc": "2026-11-06T20:39:52.651345+00:00",
+  "classification": "PR92_IMMUTABLE_PUBLICATION_AND_EXISTING_NATIVE_OUTPUT_VERIFICATION",
+  "verdict": "APPROVED_NO_GATE_WEAKENING_IN_REVIEWED_SCOPE",
+  "repo": "DashSaman/Arz",
+  "pr": {
+    "number": 92,
+    "url": "https://github.com/DashSaman/Arz/pull/92",
+    "head_sha": "65386822bebe1759ea4a871041aee05c2d4f455f",
+    "base_sha": "83a3f583131a36c967a9524c5b200e1762f9d84d",
+    "merged": true,
+    "merged_at": "2026-11-06T20:37:31Z",
+    "merge_sha": "124a80080f32b0bc523ee3a8c7b9835cf0936de8"
+  },
+  "local_reviewed_commit": "693c4fd",
+  "shared_tree": "afe109e7b0157820b548e0223b6a86585a1884b7",
+  "head_tested_merge_published_merge_equal_local_tree": true,
+  "source_file_checks": [
+    {
+      "path": "scripts/strat01_60m_native_probe.py",
+      "git_blob_sha1": "df4b74fdf2d009e1868fb4a0fc397c1474235c0e",
+      "sha256": "469fc6de6496b9e7eed47691f6e7223a5720dfd6353c9d23c590418b601dc9c7",
+      "remote_equals_local_693c4fd": true,
+      "remote_api_sha_matches": true
+    },
+    {
+      "path": "tests/test_verify_research_control.py",
+      "git_blob_sha1": "40cf03b27169d119f99df2c4e10ed7bc517c14ae",
+      "sha256": "6858441f5a641d15f7f7142f26ad8782f07f1d91d70ae1753b109f0b67e71c45",
+      "remote_equals_local_693c4fd": true,
+      "remote_api_sha_matches": true
+    }
+  ],
+  "code_review": {
+    "native_change": "Two CSV reader handles now have context-manager ownership. Original row filters, source blob pins, gate predicates, metrics, output and financial constraints are unchanged.",
+    "control_test_change": "Existing next-work expectation changes WAL-01 to STRAT-01 to match preserved, approved mission priority. No test removed and no assertion on capital/safety weakened.",
+    "changed_runtime_files_in_scope": [
+      "scripts/strat01_60m_native_probe.py"
+    ],
+    "separate_HTTPError_response_ownership_fix_excluded": true
+  },
+  "exact_head_pull_request_workflows": [
+    {
+      "id": 42289662307,
+      "name": "Arz canonical research control plane",
+      "path": ".github/workflows/research-control-plane.yml",
+      "head_sha": "65386822bebe1759ea4a871041aee05c2d4f455f",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/DashSaman/Arz/actions/runs/42289662307"
+    },
+    {
+      "id": 42289662397,
+      "name": "Research-only checks",
+      "path": ".github/workflows/research.yml",
+      "head_sha": "65386822bebe1759ea4a871041aee05c2d4f455f",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/DashSaman/Arz/actions/runs/42289662397"
+    },
+    {
+      "id": 42289662326,
+      "name": "Arz offline-only tests",
+      "path": ".github/workflows/offline-tests.yml",
+      "head_sha": "65386822bebe1759ea4a871041aee05c2d4f455f",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/DashSaman/Arz/actions/runs/42289662326"
+    },
+    {
+      "id": 42289662164,
+      "name": "ARZ STRAT01 WETH 60m prior native result falsification (NO-GO)",
+      "path": ".github/workflows/strat01-60m-native-audit.yml",
+      "head_sha": "65386822bebe1759ea4a871041aee05c2d4f455f",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/DashSaman/Arz/actions/runs/42289662164"
+    }
+  ],
+  "all_four_pr_workflows_success": true,
+  "actual_job_logs": [
+    {
+      "job_id": 128139453897,
+      "path": "/workspace/scratch/4a6a75419487/pr92-publication-review/job-128139453897.log",
+      "sha256": "b04c8bf1497424c9de41b71225c93645574e5e06ea785bc84a6f56efd612df49",
+      "observed_test_run_method_counts": [
+        1608
+      ],
+      "existing_skip_counts": [
+        4
+      ],
+      "resource_warning_count": 3,
+      "warnings": [
+        "2026-11-06T20:35:43.2366804Z test_old_market_ohlcv_gaps_block_false_completeness (test_strat01_s0_source_preflight.BaselineFreezeTests.test_old_market_ohlcv_gaps_block_false_completeness) ... /usr/lib/python3.14/tempfile.py:484: ResourceWarning: Implicitly cleaning up <HTTPError 429: 'synthetic refusal'>",
+        "2026-11-06T20:35:43.2369990Z /usr/lib/python3.14/tempfile.py:484: ResourceWarning: Implicitly cleaning up <HTTPError 403: 'synthetic refusal'>",
+        "2026-11-06T20:35:43.2371965Z /usr/lib/python3.14/tempfile.py:484: ResourceWarning: Implicitly cleaning up <HTTPError 529: 'synthetic refusal'>"
+      ],
+      "csv_unclosed_file_warning_count": 0,
+      "actual_checkout_tested_merge": "4452bd5d2eaf7c9afa1f881fe1c4ea67d62af97c",
+      "checkout_sha_present": true
+    },
+    {
+      "job_id": 128139454314,
+      "path": "/workspace/scratch/4a6a75419487/pr92-publication-review/job-128139454314.log",
+      "sha256": "949188b344d3d877d011ce4125386827ee61d823782781753409eed3b5639ea1",
+      "observed_test_run_method_counts": [
+        21,
+        1608
+      ],
+      "existing_skip_counts": [
+        4
+      ],
+      "resource_warning_count": 3,
+      "warnings": [
+        "2026-11-06T20:35:42.3215302Z /usr/lib/python3.14/tempfile.py:484: ResourceWarning: Implicitly cleaning up <HTTPError 429: 'synthetic refusal'>",
+        "2026-11-06T20:35:42.3216771Z /usr/lib/python3.14/tempfile.py:484: ResourceWarning: Implicitly cleaning up <HTTPError 403: 'synthetic refusal'>",
+        "2026-11-06T20:35:42.3218901Z /usr/lib/python3.14/tempfile.py:484: ResourceWarning: Implicitly cleaning up <HTTPError 529: 'synthetic refusal'>"
+      ],
+      "csv_unclosed_file_warning_count": 0,
+      "actual_checkout_tested_merge": "4452bd5d2eaf7c9afa1f881fe1c4ea67d62af97c",
+      "checkout_sha_present": true
+    },
+    {
+      "job_id": 128139453601,
+      "path": "/workspace/scratch/4a6a75419487/pr92-publication-review/job-128139453601.log",
+      "sha256": "c5ffe7703384a683d38a7e8f4b3e83e1f2b131fd177037c13cd9e4b73aa41933",
+      "observed_test_run_method_counts": [
+        5
+      ],
+      "existing_skip_counts": [],
+      "resource_warning_count": 0,
+      "warnings": [],
+      "csv_unclosed_file_warning_count": 0,
+      "actual_checkout_tested_merge": "4452bd5d2eaf7c9afa1f881fe1c4ea67d62af97c",
+      "checkout_sha_present": true
+    }
+  ],
+  "native_artifact": {
+    "run_id": 42289662164,
+    "job_id": 128139453601,
+    "artifact_id": 13538044658,
+    "archive_path": "/workspace/scratch/4a6a75419487/pr92-publication-review/native-audit-13538044658.zip",
+    "archive_sha256": "351a6114beee7005b98887ee75d9e23f21dc90c04caa79eca2d36dfcd87b3da7",
+    "archive_digest_matches_GitHub_metadata": true,
+    "archive_bytes": 1638,
+    "members": [
+      "arz_60m_native_gates.json"
+    ],
+    "result_sha256": "040d6c4053c0104238128d827128960fe24c0721464e02ead8697e3653d08143",
+    "exact_bytes_equal_saved_precleanup_output": true,
+    "object_equals_actual_logged_output": true,
+    "financial_decision": "NO-GO",
+    "no_live_orders": true,
+    "gate_rows": 2,
+    "annual_shortlist_rows": 2,
+    "native_rows": 16,
+    "all_gates_remain_false": true
+  },
+  "limits": [
+    "This is inspection of published software checks and already-seen historical outputs, not new market data, a backtest, OOS evidence or profitability approval.",
+    "Python 3.14 full-suite logs retain three synthetic HTTPError ResourceWarnings each. Only CSV ownership warnings are absent. The separately prepared response-close fix has not been reviewed here.",
+    "No local tests, workflow triggers, provider calls or repository/PR mutations were performed."
+  ],
+  "review_actions": {
+    "local_tests": 0,
+    "workflow_triggers": 0,
+    "market_provider_calls": 0,
+    "repo_or_pr_edits": 0
+  },
+  "financial_decision": "NO-GO",
+  "live_trading": "DISABLED",
+  "real_capital_authorized_usd": 0
+}

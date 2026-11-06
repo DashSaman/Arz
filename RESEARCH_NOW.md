@@ -9,6 +9,12 @@
 **Detailed English:** [docs/en/research_current_checkpoint.md](docs/en/research_current_checkpoint.md)  
 **Offline consistency check:** `PYTHONPATH=src:. python scripts/verify_research_control.py`
 
+## 6 November 2026 | V6 continuity published; HTTP response ownership follow-up
+
+[PR92](https://github.com/DashSaman/Arz/pull/92) merged as `124a80080f32b0bc523ee3a8c7b9835cf0936de8` at 20:37:31 UTC after all four actual workflows succeeded. Its full CI reported 1,608 methods, four skipped and zero failures. Main and the reviewed/tested trees matched at the 20:38:19 verification. The canonical next work is `STRAT-01`; the former ordering remains preserved. The eleven blockers, zero qualified paper days, **NO_GO / COST_UNVERIFIED / $0 / DISABLED** remain.
+
+That CI exposed three Python 3.14 ResourceWarnings in synthetic HTTP refusal responses. A bounded follow-up closes the underlying caught HTTPError response while retaining provider-stop semantics; its own exact evidence is [recorded separately](reports/strat01/2026-11-06-v6/response-ownership-verification.json). Original warnings and previous image identities remain historical facts. Actual follow-up CI and merge must be resolved from its PR, never inferred from PR92. [English detail](docs/en/strat01_v6_http_response_ownership_20261106.md) · [شرح فارسی](docs/fa/strat01_v6_http_response_ownership_20261106.md).
+
 ## 6 November 2026 | Mission V6 — PR89–91 merged, strict evidence controls, financial NO-GO
 
 Actual starting main was `e694646e8540264a835352ead361cfc176fc86dd`; the historical PR88 reference was checked, not reused as live HEAD. Six later capture commits added six source/audit pairs and no code. At **20:17:23 UTC**, latest verified main was `83a3f583131a36c967a9524c5b200e1762f9d84d`.

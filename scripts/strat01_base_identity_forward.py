@@ -101,6 +101,11 @@ class Probe:
         except urllib.error.HTTPError as exc:
             if exc.code in (403,429,529):
                 self.blocked=True
+            try:
+                exc.close()
+            except OSError:
+                # Cleanup must not replace the original provider-refusal code.
+                pass
             raise BoundedError("HTTP_"+str(exc.code)) from exc
         except (urllib.error.URLError,TimeoutError,OSError) as exc:
             raise BoundedError(type(exc).__name__) from exc
