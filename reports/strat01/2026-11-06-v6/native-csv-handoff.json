@@ -1,0 +1,42 @@
+{
+  "classification": "LOCAL_RESOURCE_OWNERSHIP_CLEANUP_NO_NEW_EXPERIMENT",
+  "observed_at_utc": "2026-11-06T20:20:09.383906+00:00",
+  "changed_file": "scripts/strat01_60m_native_probe.py",
+  "before_source_sha256": "388a9e3761f1c4ae63f028fb66a30627a27771abc14e488fd09759436c4430c5",
+  "after_source_sha256": "469fc6de6496b9e7eed47691f6e7223a5720dfd6353c9d23c590418b601dc9c7",
+  "change": "Two CSV readers now execute inside context managers; parsing, filtering, row order and decisions unchanged.",
+  "repeated_calls_before_and_after": 5,
+  "before_resource_warnings": 10,
+  "after_resource_warnings": 0,
+  "output_sha256_before": "040d6c4053c0104238128d827128960fe24c0721464e02ead8697e3653d08143",
+  "output_sha256_after": "040d6c4053c0104238128d827128960fe24c0721464e02ead8697e3653d08143",
+  "all_rows_decisions_and_emitted_bytes_identical": true,
+  "existing_native_probe_tests": {
+    "command": "PYTHONPATH=src:. python -W always::ResourceWarning -m unittest -v tests.test_strat01_60m_native_probe",
+    "methods": 5,
+    "exit_code": 0,
+    "resource_warnings": 0,
+    "log": "/workspace/scratch/4a6a75419487/ops_v6_integrity/native_csv_cleanup/existing-native-probe-tests.log"
+  },
+  "new_tests_added": 0,
+  "single_path_pull_request_workflow_review": [
+    {
+      "path": ".github/workflows/offline-tests.yml",
+      "scope": "Offline unittest suite and explicitly synthetic compound example."
+    },
+    {
+      "path": ".github/workflows/research.yml",
+      "scope": "Standard-library venv creation, offline tests, CLI help, static/dependency compatibility/artifact checks; no dependency installation/download."
+    },
+    {
+      "path": ".github/workflows/strat01-60m-native-audit.yml",
+      "scope": "Reads preexisting frozen native results, verifies control state, runs five native-probe tests, checks NO-GO and preserves audit artifact."
+    }
+  ],
+  "market_provider_requests": 0,
+  "new_market_experiments": 0,
+  "git_mutations": 0,
+  "financial_decision": "NO-GO",
+  "no_live_orders": true,
+  "git_diff_check_exit_code": 0
+}

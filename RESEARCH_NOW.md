@@ -1,6 +1,6 @@
 # ARZ RESEARCH NOW — single restart checkpoint
 
-**Latest observed research work 2026-11-05 UTC (base control checkpoint 2026-10-31) · STRAT-01 IN PROGRESS, WAL-01 PARTIAL · Financial NO-GO · Live trading DISABLED**
+**Latest observed research work 2026-11-06 UTC (base control checkpoint 2026-10-31) · STRAT-01 IN PROGRESS, WAL-01 PARTIAL · Financial NO-GO · Live trading DISABLED**
 
 > **Start here before doing anything in Arz.** This is the entry point on `main` even when newer research work lives in unmerged draft branches. `PROJECT_STATUS.md` begins with the older 2026-10-13 MVP checkpoint and must not be mistaken for the latest research status.
 
@@ -8,6 +8,20 @@
 **Detailed Persian:** [docs/fa/research_current_checkpoint.md](docs/fa/research_current_checkpoint.md)  
 **Detailed English:** [docs/en/research_current_checkpoint.md](docs/en/research_current_checkpoint.md)  
 **Offline consistency check:** `PYTHONPATH=src:. python scripts/verify_research_control.py`
+
+## 6 November 2026 | Mission V6 — PR89–91 merged, strict evidence controls, financial NO-GO
+
+Actual starting main was `e694646e8540264a835352ead361cfc176fc86dd`; the historical PR88 reference was checked, not reused as live HEAD. Six later capture commits added six source/audit pairs and no code. At **20:17:23 UTC**, latest verified main was `83a3f583131a36c967a9524c5b200e1762f9d84d`.
+
+**Merged engineering:** [PR89](https://github.com/DashSaman/Arz/pull/89) retains exact RPC bytes and explicit conditional operator-fee interpretation; [PR90](https://github.com/DashSaman/Arz/pull/90) fixes hidden partial revisions, future clocks, incomplete/late/orphan health, ambiguous JSON and durable provider stops, and builds a source-hashed packaged image; [PR91](https://github.com/DashSaman/Arz/pull/91) rejects impossible per-scenario metrics and adds a strict saved-negative-evidence adapter. All three have independent reviews and exact-head passing CI. Full suite **1,608 methods**, four existing CI skips, zero failures; **50 new distinct regressions**. The actual container run [42286336441](https://github.com/DashSaman/Arz/actions/runs/42286336441) passed both isolated jobs. This is not host uptime or qualified paper. The initial dashboard CI failure remains preserved; corrected CI positively verifies its actual refusal, never healthy collection.
+
+**Data snapshot through the last retained 16:00 UTC close:** 44 unchanged original files,36 distinct pairs,16 one-hour timely, longest5 versus194, latest tail2. Six pairs arrived since PR88, four timely, through the pre-existing collector. The 64-slot original grid has28 missing pairs. At20:17 the unobserved20:00 close was still inside its operational window; do not retroactively label it missed or invent a capture. Fully elapsed Nov1–5:26 successful scheduled jobs,12/30 timely paired closes. Three actual artifacts were inspected: no new raw historical input; the recovered strict-cap ZIP contains old derived model outputs only. No market-provider probes or restricted retries were made in this mission.
+
+**Financial state remains NO-GO / INSUFFICIENT_EVIDENCE / COST_UNVERIFIED.** Registry164, family labels32, saved metric rows58, qualified candidates0, qualified paper days0. No new backtest or fresh independent OOS. The new adapter explicitly leaves **all four positive-stage proof adapters unimplemented**; this is not a completed general six-state engine. Unknown costs and missing measurements cannot be replaced by zero or approval assertions. Live DISABLED; capital $0; no funded pilot proposal or user-host deployment.
+
+[English full report](docs/en/strat01_mission_v6_20261106.md) · [گزارش فارسی](docs/fa/strat01_mission_v6_20261106.md) · [machine decision](reports/strat01/2026-11-06-v6/decision.json) · [11 blockers](reports/strat01/2026-11-06-v6/blockers.json) · [data recovery](reports/strat01/2026-11-06-v6/data-recovery-audit.json) · [financial publication](reports/strat01/2026-11-06-v6/financial-publication.json) · [container proof](reports/strat01/2026-11-06-v6/container-publication.json).
+
+**Next:** the canonical work order now selects `STRAT-01` for S0 data/profitability blockers before wallet-discovery work; the previous order is preserved in STATE. Run the canonical verifier, verify actual main and reconcile only later source/commit changes. Obtain authentic permitted raw inputs and full cost/source contracts before a preregistered untouched evaluation and positive-stage adapters; retain the100-cycle/PF1.5/DD10%/positive-bound gates, H3>=200 and H4>=180days. Any host, provider purchase, alert integration or funded action needs its applicable separate approval. No background work is promised. Earlier dated sections remain historical evidence.
 
 ## 5 November 2026 | Final blockers — PR87 merged, eight CI workflows verified, financial NO-GO
 

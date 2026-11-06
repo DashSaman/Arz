@@ -1,0 +1,115 @@
+{
+  "baseline_methods": 1558,
+  "checks": {
+    "50_distinct_methods_statically_counted_without_running_tests": true,
+    "V6_STATE_verification_and_source_fields_equal_machine_decision": true,
+    "capital_authorization_false_and_zero_every_current_v6_authority_field": true,
+    "current_executable_geometric_return_unknown_not_saved_model_return": true,
+    "eleven_distinct_blockers_retained": true,
+    "final_CSV_cleanup_adds_no_tests_and_recorded_output_hashes_match": true,
+    "financial_numbers_match_preserved_model_rows": true,
+    "future_100_usdc_ceiling_is_not_current_authorization": true,
+    "no_fresh_OOS_paper_day_cost_or_wallet_profit_claim": true,
+    "positive_engine_explicitly_incomplete_in_EN_FA_machine_and_restart_state": true,
+    "registry_counts_and_nonindependence_scope_correct": true,
+    "three_engineering_PRs_actually_merged_with_matching_SHAs": true,
+    "thresholds_100_H3_200_PF1_5_DD10pct_positive_geometry_bound_and_90_H4_180_preserved": true
+  },
+  "conclusion": "NO_MERGE_BLOCKING_FINANCIAL_OR_SCOPE_MISMATCH",
+  "evidence_sources": {
+    "financial_publication_receipt_sha256": "c011c625c75f65582d8fdc0bd964d52c66cdc029078a3e21d21d1bc46ba4117e",
+    "github_observations_sha256": "90ddac72362028dab028bb3e6361595eff364414ad78d8a1eebfec1f68b2f04e",
+    "native_cleanup_handoff_sha256": "20b569537187958b8731bace42665d52a23dbb8b12f2480658fc53ac5d065591",
+    "saved_metrics_sha256": "fdf2d010245bf52f65896b337ba0625ebb8cfd37a3178044d151abeca9554a0e"
+  },
+  "final_methods": 1608,
+  "financial_snapshot": {
+    "capital_authorized": false,
+    "cost": "COST_UNVERIFIED",
+    "current_executable_geometric_daily_return": null,
+    "family_labels": 32,
+    "live": "DISABLED",
+    "positive_adapters_implemented": false,
+    "profitability": "INSUFFICIENT_EVIDENCE",
+    "qualified_candidates": 0,
+    "qualified_days": 0,
+    "real_capital_usd": 0,
+    "registry_entries": 164,
+    "saved_numeric_INSUFFICIENT": 4,
+    "saved_numeric_NO_GO": 54,
+    "saved_rows": 58,
+    "stage": "NO_GO"
+  },
+  "informational_provenance_note": {
+    "GitHub_PR_merged_at": "2026-11-06T19:48:45Z",
+    "GitHub_commit_author_and_committer_date": "2026-11-06T19:48:44Z",
+    "existing_receipt_merged_at_utc": "2026-11-06T19:48:44Z",
+    "interpretation": "Receipt uses the merge commit clock under a merged_at_utc label; PR merge-event clock differs by one second. Both observed clocks retained; no retrospective receipt edit performed.",
+    "scope": "Previously published PR89 receipt, not a financial or code-identity discrepancy"
+  },
+  "merge_blocking_findings": [],
+  "merged_prs_independently_retrieved": [
+    {
+      "head_sha": "ddef7216e0b6c6170dfde2b481231de350d60a62",
+      "merge_commit_sha": "e031a5d04d7238eccf9d8ef6b87a6656f6984b38",
+      "merged": true,
+      "merged_at": "2026-11-06T19:48:45Z",
+      "pr": 89,
+      "state": "closed",
+      "url": "https://github.com/DashSaman/Arz/pull/89"
+    },
+    {
+      "head_sha": "1251079b6c1182d2062d46ee78c4eef4192f10b6",
+      "merge_commit_sha": "c9e5cfd66a99c21c52600702cdabc08dd54e8633",
+      "merged": true,
+      "merged_at": "2026-11-06T20:14:02Z",
+      "pr": 90,
+      "state": "closed",
+      "url": "https://github.com/DashSaman/Arz/pull/90"
+    },
+    {
+      "head_sha": "90d4275032e9b25c662c6e9aaaf890aa13c93c8b",
+      "merge_commit_sha": "83a3f583131a36c967a9524c5b200e1762f9d84d",
+      "merged": true,
+      "merged_at": "2026-11-06T20:16:20Z",
+      "pr": 91,
+      "state": "closed",
+      "url": "https://github.com/DashSaman/Arz/pull/91"
+    }
+  ],
+  "method_counts": {
+    "tests/test_strat01_collector_v6_integrity.py": {
+      "count": 18,
+      "sha256": "38ec278e7f946499d78de43514e219a723a6a66cada29f5f1204334e88e896b0"
+    },
+    "tests/test_strat01_receipt_replay.py": {
+      "count": 10,
+      "sha256": "fd2d4c2ed4a4f3e1fd806bbc2a34cf1e4e5f67d1b83673369d3603a20f0f02e9"
+    },
+    "tests/test_strat01_v6_financial_decision.py": {
+      "count": 13,
+      "sha256": "5a8a5050b99382876408b940388e88d1a1f886e5564599e8989f20f6b4b77408"
+    },
+    "tests/test_strat01_v6_source_integrity.py": {
+      "count": 9,
+      "sha256": "2604e90d019e3c63392cabfbad6778a5a30bea9405c98800e2ff9425cfb04d80"
+    }
+  },
+  "observed_at_utc": "2026-11-06T20:28:55.832384+00:00",
+  "review_kind": "FINAL_MISSION_V6_FINANCIAL_CONTINUITY_READ_ONLY_REVIEW",
+  "reviewed_file_sha256": {
+    "RESEARCH_NOW.md": "dfd73e9253099a12ed0d13633c0d70ac38a51ccccb517fc5d67a1f6e7b720034",
+    "docs/en/strat01_mission_v6_20261106.md": "7cc0d526ee1581fbb7aba777b956ee16765bbb6428e6075d5fa41399fb0fffac",
+    "docs/fa/strat01_mission_v6_20261106.md": "9b45a2950bc0f5135c7119e2f6de1e21ae0c2c0e4b5e06e5f8366a8b9a047b6a",
+    "reports/strat01/2026-11-06-v6/blockers.json": "b2403b527ba16b91e5031740db628b753d4071ab8ac22c261204c934d977f094",
+    "reports/strat01/2026-11-06-v6/decision.json": "1eaa68d9a8933dfa07fc460d6f801333719fd9c0d659923b57e438465286ee04",
+    "research/control/STATE.json": "e529287c9c2cde191683bc3e92a9fdf3b36e10e192260e2440f91773d38be732"
+  },
+  "scope_limits": [
+    "Review is bound to exact local continuity-file hashes before PR92 publication.",
+    "No tests, new metric computations, backtests, repository edits, or market/provider calls were performed.",
+    "Existing source audit, publication receipts and recorded cleanup outputs were inspected; the cleanup was not re-executed.",
+    "The actual already-verified PR91 CI artifact and publication receipts establish saved-report reproducibility, not investment qualification."
+  ],
+  "total_new_methods": 50
+}

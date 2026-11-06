@@ -1,0 +1,10 @@
+test_both_native_year_later_six_month_gates_are_not_passed (tests.test_strat01_60m_native_probe.PriorNativeGateTests.test_both_native_year_later_six_month_gates_are_not_passed) ... ok
+test_different_native_year_and_2025_calendar_year_cannot_be_confused (tests.test_strat01_60m_native_probe.PriorNativeGateTests.test_different_native_year_and_2025_calendar_year_cannot_be_confused) ... ok
+test_later_april_october_source_incomplete_not_fake_loss (tests.test_strat01_60m_native_probe.PriorNativeGateTests.test_later_april_october_source_incomplete_not_fake_loss) ... ok
+test_negative_terminal_six_months_in_both_prespecified_cost_models (tests.test_strat01_60m_native_probe.PriorNativeGateTests.test_negative_terminal_six_months_in_both_prespecified_cost_models) ... ok
+test_september_reduced_sample_negative_even_under_mid_costs (tests.test_strat01_60m_native_probe.PriorNativeGateTests.test_september_reduced_sample_negative_even_under_mid_costs) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.078s
+
+OK

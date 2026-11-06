@@ -1,0 +1,129 @@
+{
+  "archive_already_present_in_repository": false,
+  "archive_bytes": 39141,
+  "archive_path": "/workspace/scratch/4a6a75419487/arz-strict-cap-41305629760.zip",
+  "archive_sha256": "b756d2366fc8208ab7486fb41bb9df974bea58448b325e59fbb25abb02a29722",
+  "artifact_id": 13082374845,
+  "exact_expected_input_hash_comparison_performed": true,
+  "exact_historical_input_sha256_matches": [],
+  "historical_derived_simulation_outputs_only": true,
+  "members": [
+    {
+      "bytes": 6256,
+      "name": "audit.json",
+      "sha256": "78e5dc4cd088910cf5d49856c391b64b3aba66fdaca6ece8397c63fbed25fd1f"
+    },
+    {
+      "bytes": 292,
+      "data_rows": 6,
+      "header": [
+        "ts",
+        "event",
+        "held_mark_usd"
+      ],
+      "name": "double_mid_vetoes.csv",
+      "sha256": "2c03f837a4050825e41f56f0b953e20d0d8112be8cdcbfcec420543c0cf43711"
+    },
+    {
+      "bytes": 99324,
+      "data_rows": 2190,
+      "header": [
+        "ts",
+        "equity",
+        "cash",
+        "units"
+      ],
+      "name": "double_mid_marks.csv",
+      "sha256": "fc45630491703d0ab1dd5578ac4795076e64aa1e8bbc00d75f40a572d7889c3c"
+    },
+    {
+      "bytes": 98327,
+      "data_rows": 2190,
+      "header": [
+        "ts",
+        "equity",
+        "cash",
+        "units"
+      ],
+      "name": "mid_marks.csv",
+      "sha256": "d274311efa1b1736ddee3fb2ad22fe60847f3f3cd3d446bd5461fdcbea96e717"
+    },
+    {
+      "bytes": 292,
+      "data_rows": 6,
+      "header": [
+        "ts",
+        "event",
+        "held_mark_usd"
+      ],
+      "name": "mid_vetoes.csv",
+      "sha256": "2c03f837a4050825e41f56f0b953e20d0d8112be8cdcbfcec420543c0cf43711"
+    },
+    {
+      "bytes": 769,
+      "data_rows": 3,
+      "header": [
+        "asset",
+        "period",
+        "cost",
+        "original_S0_base_net_pct",
+        "original_S0_closed_cycles",
+        "initial_equity",
+        "final_marked_equity",
+        "net_marked_return_pct",
+        "max_close_drawdown_pct",
+        "total_modeled_fees_usd",
+        "buy_legs",
+        "sell_legs",
+        "completed_cycles",
+        "unsold_inventory_units",
+        "unsold_inventory_mark_usd",
+        "skipped_signals_or_vetoes",
+        "strict_per_leg_cap_breaches"
+      ],
+      "name": "results.csv",
+      "sha256": "76ea0d429a691cd811d0efa5ece4622346909aa9ac2d2fc96b92a2a3d2736eb0"
+    },
+    {
+      "bytes": 98964,
+      "data_rows": 2190,
+      "header": [
+        "ts",
+        "equity",
+        "cash",
+        "units"
+      ],
+      "name": "stress_marks.csv",
+      "sha256": "3bb712bb24f8118d70127792e25ec8755051be641e0c8e35355e21f62954b3cf"
+    },
+    {
+      "bytes": 293,
+      "data_rows": 6,
+      "header": [
+        "ts",
+        "event",
+        "held_mark_usd"
+      ],
+      "name": "stress_vetoes.csv",
+      "sha256": "71f1a8448fb73cf90094065f5fde28a21b6cada833179578091250aa51ed4608"
+    },
+    {
+      "bytes": 6394,
+      "data_rows": 54,
+      "header": [
+        "cost",
+        "ts",
+        "side",
+        "cycle",
+        "price",
+        "units",
+        "notional",
+        "fee",
+        "cash_after"
+      ],
+      "name": "transfer_legs.csv",
+      "sha256": "568bde25879d406dde11ac7a64578077477276ba8c3666957b122642ba838491"
+    }
+  ],
+  "run_id": 41305629760
+}

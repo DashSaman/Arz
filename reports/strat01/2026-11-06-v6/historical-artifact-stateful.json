@@ -1,0 +1,144 @@
+{
+  "archive_already_present_in_repository": true,
+  "archive_bytes": 116736,
+  "archive_path": "/workspace/scratch/4a6a75419487/arz-stateful-41308328518.zip",
+  "archive_sha256": "85d3e7bd9941ccdcf58cba8391dd482296421485ec494b7e9cd3452156d83af7",
+  "artifact_id": 13084406841,
+  "exact_expected_input_hash_comparison_performed": true,
+  "exact_historical_input_sha256_matches": [],
+  "historical_derived_simulation_outputs_only": true,
+  "members": [
+    {
+      "bytes": 6181,
+      "name": "audit.json",
+      "sha256": "0ffe15bf3a21b5c1b7f1d7dca52c460eadab72c4551b642931ed21da7751fa05"
+    },
+    {
+      "bytes": 231,
+      "data_rows": 6,
+      "header": [
+        "asset",
+        "window",
+        "status",
+        "missing_warmup_bars",
+        "missing_test_bars"
+      ],
+      "name": "coverage.csv",
+      "sha256": "5c72a6ee5ee4eb9b6b5060015bdd6f08f676e1de80e56eddff9a125aab70f3cb"
+    },
+    {
+      "bytes": 13681,
+      "data_rows": 93,
+      "header": [
+        "asset",
+        "window",
+        "cost",
+        "tag",
+        "entered_at",
+        "buy_notional_usd",
+        "buy_fee_usd",
+        "sell_notional_usd",
+        "sell_fees_usd",
+        "sell_legs",
+        "completed_at",
+        "net_pnl_usd"
+      ],
+      "name": "cycles.csv",
+      "sha256": "94b37053af9cdbf01cbdea281afd523a6fb7ab4b32148c3bec19527cb933e315"
+    },
+    {
+      "bytes": 26845,
+      "data_rows": 192,
+      "header": [
+        "asset",
+        "window",
+        "cost",
+        "ts",
+        "side",
+        "tag",
+        "price",
+        "units",
+        "notional_usd",
+        "fee_usd",
+        "cash_after",
+        "signal_close_at"
+      ],
+      "name": "legs.csv",
+      "sha256": "3d5914c4f899dfb6008ad29e3deb06487c1337956cbfd365092fe2ec510df4a2"
+    },
+    {
+      "bytes": 1419928,
+      "data_rows": 18576,
+      "header": [
+        "asset",
+        "window",
+        "cost",
+        "ts",
+        "equity_usd",
+        "cash_usd",
+        "units",
+        "pending_exit"
+      ],
+      "name": "marks.csv",
+      "sha256": "79473233abe7e06339687594288e7517e7b93281ff5aef0eaf890dc7e2acecf7"
+    },
+    {
+      "bytes": 8965,
+      "data_rows": 18,
+      "header": [
+        "asset",
+        "window",
+        "cost",
+        "status",
+        "start",
+        "end_exclusive",
+        "source_sha256",
+        "original_frozen_S0_net_pct",
+        "hold20_original_engine_net_pct",
+        "classification",
+        "starting_account_usd",
+        "final_marked_equity_usd",
+        "net_marked_return_pct",
+        "geometric_daily_pct",
+        "max_close_drawdown_pct",
+        "modeled_fees_usd",
+        "buy_legs",
+        "sell_legs",
+        "completed_cycles",
+        "wins",
+        "losses",
+        "open_position_mark_usd",
+        "remaining_units",
+        "terminal_pending_exit",
+        "unfilled_pending_entry",
+        "veto_count",
+        "no_lookahead_volume_proxy",
+        "remove_top1_winner_fixed_ledger_pct",
+        "remove_top3_winners_fixed_ledger_pct",
+        "remove_top5_winners_fixed_ledger_pct",
+        "winner_count_for_top5_test",
+        "cash_control_net_pct",
+        "max_leg_usd",
+        "financial_decision",
+        "live_trading"
+      ],
+      "name": "results.csv",
+      "sha256": "927e7003a4d99e4c9cd853bf26c6bb9ac23a1a673e97604553cb41140a0a76b9"
+    },
+    {
+      "bytes": 1236,
+      "data_rows": 18,
+      "header": [
+        "asset",
+        "window",
+        "cost",
+        "ts",
+        "kind",
+        "marked_usd"
+      ],
+      "name": "vetoes.csv",
+      "sha256": "26553c9fcbf0acc1e12c06380b74823055d530e2984d5901f500a844094e2c9f"
+    }
+  ],
+  "run_id": 41308328518
+}

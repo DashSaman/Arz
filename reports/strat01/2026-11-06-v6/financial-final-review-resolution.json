@@ -1,0 +1,82 @@
+{
+  "conclusion": "NO_MERGE_BLOCKING_GOVERNANCE_OR_FINANCIAL_FINDING",
+  "financial_scope": {
+    "blockers_json_byte_identical_to_previous_review": true,
+    "capital_activation_authorized": false,
+    "cost_status": "COST_UNVERIFIED",
+    "current_executable_geometric_daily_return": null,
+    "decision_json_byte_identical_to_previous_review": true,
+    "financial_decision": "NO-GO",
+    "full_positive_stage_engine_implemented": false,
+    "live_trading": "DISABLED",
+    "profitability_evidence_status": "INSUFFICIENT_EVIDENCE",
+    "qualified_candidates": 0,
+    "qualified_prospective_days": 0,
+    "real_capital_authorized_usd": 0,
+    "saved_returns_and_original_financial_artifacts_unchanged": true
+  },
+  "findings": [],
+  "governance": {
+    "all_task_completion_gates_unchanged": true,
+    "all_task_dependencies_unchanged": true,
+    "all_task_proof_ids_unchanged": true,
+    "all_task_statuses_unchanged": true,
+    "canonical_next_work_order": [
+      "OPS-01",
+      "OPS-02",
+      "STRAT-01",
+      "WAL-01",
+      "DATA-01",
+      "WAL-02",
+      "EXEC-01",
+      "PAPER-01",
+      "LIVE-01"
+    ],
+    "comparison_base": "e694646e8540264a835352ead361cfc176fc86dd",
+    "comparison_method": "Read-only git show plus static JSON/source-diff inspection; no verifier or tests executed.",
+    "control_test_change": "Existing expected next_work changed from WAL-01 to STRAT-01 plus explanatory comment; no new method and no gate relaxation.",
+    "control_verifier_source_byte_identical_to_base": true,
+    "global_safety_identical_to_base": true,
+    "historical_priority_values_exactly_preserved": true,
+    "historical_work_order_exactly_preserved": true,
+    "intended_next_track": "STRAT-01"
+  },
+  "historical_summary_correction": {
+    "EN_FA_appendix_consistent": true,
+    "correct_historical_paired_slots": [
+      "2026-10-27T00:00:00Z",
+      "2026-10-27T08:00:00Z"
+    ],
+    "correct_historical_union_missing_slots": 26,
+    "failure_cause_transparently_recorded": "Empty defaultdict keys created while formatting the grid were wrongly counted in the scratch recovery summary.",
+    "original_grid_missing_slots_unchanged": 28,
+    "original_review_input_retained_and_hash_verified": "7efbd8fb4f2d0c0148ee6d27e85424f86acb953b7e92bc8e6a7557bd420cdc06",
+    "original_source_files_changed": false,
+    "prospective_eligibility": false,
+    "scope": "Derived scratch-summary repair; not new source evidence or a prospective repair."
+  },
+  "observed_at_utc": "2026-11-06T20:34:20.377870+00:00",
+  "previous_review_sha256": "167263ea7c7a67970505a7ccb98e3c65fef0ea90a30efae16e0495ee0ea65979",
+  "publication_limit": "This supplement binds reviewed local file hashes; later PR/head publication is to be bound separately by the parent.",
+  "review_kind": "FINAL_V6_GOVERNANCE_AND_FINANCIAL_SCOPE_RESOLUTION_SUPPLEMENT",
+  "supplements": "mission_v6_final_financial_review.json",
+  "updated_file_sha256": {
+    "RESEARCH_NOW.md": "6b166e01c6513fce35a823240ecc73cb975313c8c6ec1e2588e8b2957241c54a",
+    "docs/en/strat01_mission_v6_20261106.md": "ca536d83072a06fc90e4e4a9e99b7eb5ff72d127e1ea5ea792bfd8806f737eaa",
+    "docs/fa/strat01_mission_v6_20261106.md": "bbd9d44dd3c6f246669cb570ece4f293616d131ee9b70a21e9ee7417f1c13dcb",
+    "reports/strat01/2026-11-06-v6/blockers.json": "b2403b527ba16b91e5031740db628b753d4071ab8ac22c261204c934d977f094",
+    "reports/strat01/2026-11-06-v6/data-recovery-audit-original-review-input.json": "7efbd8fb4f2d0c0148ee6d27e85424f86acb953b7e92bc8e6a7557bd420cdc06",
+    "reports/strat01/2026-11-06-v6/data-recovery-audit.json": "7f9625f8603535765c14bf7c99e459ea8e7d996b69319cbf952afb3e8dc47dbf",
+    "reports/strat01/2026-11-06-v6/decision.json": "1eaa68d9a8933dfa07fc460d6f801333719fd9c0d659923b57e438465286ee04",
+    "research/control/STATE.json": "429820d203494254a2fe96c02ac994ee85aad8be761ba9bfc4883692326e3cb8",
+    "scripts/verify_research_control.py": "33b342377525295e32f864eaa6df1620edd4a447cb280bd0833ca19540d6a587",
+    "tests/test_verify_research_control.py": "6858441f5a641d15f7f7142f26ad8782f07f1d91d70ae1753b109f0b67e71c45"
+  },
+  "work_performed": {
+    "API_calls": 0,
+    "market_provider_calls": 0,
+    "new_metrics_or_backtests": 0,
+    "repo_edits": 0,
+    "tests_executed": 0
+  }
+}

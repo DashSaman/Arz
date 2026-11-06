@@ -1,0 +1,17 @@
+{
+  "event_records": 0,
+  "financial_decision": "NO-GO",
+  "generated_real_monitor_exit": 2,
+  "generation_stdout": "{\"health\": \"COLLECTOR_FAIL_CLOSED\", \"paired\": 36, \"timely\": 16, \"financial_decision\": \"NO-GO\"}\n",
+  "generation_step_exit": 0,
+  "health": "COLLECTOR_FAIL_CLOSED",
+  "invalid_source_count": 0,
+  "live_trading": "DISABLED",
+  "qualified_paper_days": 0,
+  "source_conflicts": [],
+  "source_files": 44,
+  "verdict": "APPROVED_WORKFLOW_EXPECTED_REFUSAL_NOT_HEALTH_PROMOTION",
+  "verification_stdout": "V6_REAL_LOCAL_DASHBOARD_EXPECTED_REFUSAL=PASS_NO_GO\n",
+  "verification_step_exit": 0,
+  "workflow_sha256": "d369275049cc106fcf9c2833f106d4463bc09aee8a6a6d522f3f1df90cb14c43"
+}
