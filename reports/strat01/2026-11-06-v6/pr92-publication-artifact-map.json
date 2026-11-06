@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "artifacts": [
+    {
+      "path": "pr92-job-128139453897.log.gz",
+      "decompressed_sha256": "b04c8bf1497424c9de41b71225c93645574e5e06ea785bc84a6f56efd612df49",
+      "sha256": "8293b29e5b1cbb77ac09bad4f6b0b567397d6387823c93d3fd996292190986ac",
+      "source_job_id": 128139453897,
+      "classification": "RETRIEVED_DECODED_GITHUB_JOB_LOG_UTF8_GZIP_ORIGINAL_TEXT_PRESERVED"
+    },
+    {
+      "path": "pr92-job-128139454314.log.gz",
+      "decompressed_sha256": "949188b344d3d877d011ce4125386827ee61d823782781753409eed3b5639ea1",
+      "sha256": "024516844425f1245e6f7925b4e302731183a49f0d4b5869366a88981e33f033",
+      "source_job_id": 128139454314,
+      "classification": "RETRIEVED_DECODED_GITHUB_JOB_LOG_UTF8_GZIP_ORIGINAL_TEXT_PRESERVED"
+    },
+    {
+      "path": "pr92-job-128139453601.log.gz",
+      "decompressed_sha256": "c5ffe7703384a683d38a7e8f4b3e83e1f2b131fd177037c13cd9e4b73aa41933",
+      "sha256": "519ecbd077b6dc8763def192b22eff00383633a54fdba40391664be31952241b",
+      "source_job_id": 128139453601,
+      "classification": "RETRIEVED_DECODED_GITHUB_JOB_LOG_UTF8_GZIP_ORIGINAL_TEXT_PRESERVED"
+    },
+    {
+      "path": "pr92-native-ci-artifact.zip",
+      "sha256": "351a6114beee7005b98887ee75d9e23f21dc90c04caa79eca2d36dfcd87b3da7",
+      "artifact_id": 13538044658,
+      "old_native_output_bytes_unchanged": true
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "API_reads": 0,
+  "conclusion": "NO_MERGE_BLOCKING_DEFECT_FOUND_IN_TWO_FILE_SCOPE",
+  "findings": [],
+  "market_provider_calls": 0,
+  "observed_at_utc": "2026-11-06T20:42:10.014014+00:00",
+  "provided_green_log": {
+    "independently_rerun_in_this_review": false,
+    "methods_observed": 7,
+    "path": "/workspace/scratch/4a6a75419487/ops_v6_integrity/http_error_ownership/provider-response-green.log",
+    "result": "OK",
+    "sha256": "ff4bf47bdd93ea87bcdb689ea77415ae0305bce6447ca0087d010cda82cae086"
+  },
+  "repo_edits": 0,
+  "review_kind": "INDEPENDENT_HTTPERROR_RESPONSE_OWNERSHIP_DIFF_REVIEW",
+  "review_limitations": [
+    "Static review of the exact two-file diff and inspection of the existing green log; no new tests or API calls were performed.",
+    "Python 3.14 CI behavior must be confirmed by the subsequent actual publication run; this review does not claim that unrun CI passed.",
+    "File hashes bind this local patch; the parent must bind the published head/tree separately."
+  ],
+  "reviewed_files": {
+    "scripts/strat01_base_identity_forward.py": {
+      "baseline_head_sha256": "2481e9b92e5a6b2d71d8d2bab1f722f19d9944fe2e312c8dd03efbad91f68baa",
+      "git_blob_sha1": "afbc3adc1464a4f97895800a508370489f33c17d",
+      "sha256": "98a0396ac53420ca5674a8f1b1997d53d1ea1f8327cf3d5693fcc6d1f337c03d"
+    },
+    "tests/test_strat01_collector_provider_stop.py": {
+      "baseline_head_sha256": "6213e1b77b96f055a4af75d2972950af60aa2516c510eb2579c9b9dfb0011bdb",
+      "git_blob_sha1": "5f5096163536c51acf1bc86d476ab5734b5f24a1",
+      "sha256": "bdaa5dddffac31cf91979803f6ec90b51bba10c9963913d42aa3f0ce6f97e7ad"
+    }
+  },
+  "source_checks": {
+    "allowlist_and_request_methods_unchanged": true,
+    "call_budget_and_timeout_unchanged": true,
+    "cleanup_OSError_cannot_replace_provider_refusal": true,
+    "clock_and_observation_timestamp_logic_unchanged": true,
+    "financial_or_capital_gate_changes": false,
+    "no_retry_added": true,
+    "provider_403_429_529_stop_set_before_close": true,
+    "same_HTTP_error_code_and_original_exception_cause": true,
+    "sole_source_change_is_explicit_HTTPError_close_with_OSError_preservation": true,
+    "success_body_limit_hash_and_evidence_processing_unchanged": true
+  },
+  "test_checks": {
+    "closed_assertion_runs_before_registered_unittest_cleanup": true,
+    "existing_file_method_count": 5,
+    "explicit_BytesIO_owned_by_synthetic_HTTPError": true,
+    "new_test_methods": 0,
+    "registered_cleanup_prevents_test_fixture_leaks_after_failure": true,
+    "test_method_identity_list_unchanged": true
+  },
+  "tests_executed": 0
+}

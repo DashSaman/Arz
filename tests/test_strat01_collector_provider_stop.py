@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import hashlib
+import io
 import json
 from pathlib import Path
 from tempfile import TemporaryDirectory
@@ -26,8 +27,11 @@ STOP = "REFUSED_PROVIDER_ACCESS_STOP"
 class ProviderAccessStopTests(unittest.TestCase):
     def capture_refusal(self, root, at, code, *, candles_available=False):
         opener = Mock()
-        opener.open.side_effect = HTTPError(
-            "https://example.invalid/synthetic", code, "synthetic refusal", None, None)
+        response = io.BytesIO(b"synthetic refusal body")
+        refusal = HTTPError(
+            "https://example.invalid/synthetic", code, "synthetic refusal", None, response)
+        self.addCleanup(refusal.close)
+        opener.open.side_effect = refusal
         with patch(MODULE + ".time.time", return_value=at), \
              patch(MODULE + ".urllib.request.build_opener", return_value=opener):
             if candles_available:
@@ -39,6 +43,7 @@ class ProviderAccessStopTests(unittest.TestCase):
                 result = run_once(root, now_unix=at, network_enabled=True,
                                   fetcher=collect, observed_now=lambda: at)
         self.assertEqual(opener.open.call_count, 1)
+        self.assertTrue(response.closed, "HTTP refusal response remained open")
         return result
 
     def test_http_refusal_is_durable_across_restart_and_network_opt_out(self):

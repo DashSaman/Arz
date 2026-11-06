@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "classification": "FOLLOWUP_RESPONSE_OWNERSHIP_ENGINEERING_NOT_PROFITABILITY",
+  "verified_predecessor_main": "124a80080f32b0bc523ee3a8c7b9835cf0936de8",
+  "predecessor_publication": "pr92-publication-review.json",
+  "predecessor_raw_logs_and_artifact_map": "pr92-publication-artifact-map.json",
+  "handoff": "response-ownership-handoff.json",
+  "source_sha256": "98a0396ac53420ca5674a8f1b1997d53d1ea1f8327cf3d5693fcc6d1f337c03d",
+  "test_sha256": "bdaa5dddffac31cf91979803f6ec90b51bba10c9963913d42aa3f0ce6f97e7ad",
+  "red": {
+    "existing_methods": 5,
+    "assertion_failures": 4,
+    "exit_code": 1,
+    "raw_log": "response-ownership-red.log"
+  },
+  "green": {
+    "existing_methods": 7,
+    "exit_code": 0,
+    "resource_warnings": 0,
+    "raw_log": "response-ownership-green.log"
+  },
+  "full_suite": {
+    "command": "PYTHONPATH=src:. python -m unittest discover -s tests",
+    "methods": 1608,
+    "skipped": 1,
+    "executed_methods": 1607,
+    "failures": 0,
+    "exit_code": 0,
+    "resource_warnings": 0,
+    "raw_log": "response-ownership-full-1608.log",
+    "raw_log_sha256": "58b80fa6cf48f455921a67739d17e150a2f9f8195c9afaba1b6959e63c7d0247"
+  },
+  "control_verifier": {
+    "exit_code": 0,
+    "output": {
+      "checkpoint_id": "ARZ-2026-10-31-CONTROL-14",
+      "evidence_count": 38,
+      "financial_decision": "NO-GO",
+      "live_trading": "DISABLED",
+      "next_work": "STRAT-01",
+      "pr_count": 13,
+      "scope": "OFFLINE_CONSISTENCY_ONLY_REMOTE_FRESHNESS_NOT_PROVED",
+      "task_count": 9
+    }
+  },
+  "new_test_methods": 0,
+  "mission_distinct_new_methods": 50,
+  "own_ci_and_publication": "Record actual events in this follow-up PR after completion; prior PR92 CI is not reused as this change validation.",
+  "financial_decision": "NO_GO",
+  "profitability_evidence_status": "INSUFFICIENT_EVIDENCE",
+  "costs": "COST_UNVERIFIED",
+  "capital_activation_authorized": false,
+  "real_capital_authorized_usd": 0,
+  "live_trading": "DISABLED",
+  "qualified_paper_days": 0,
+  "new_market_data": 0,
+  "new_provider_calls": 0,
+  "user_host_deployed": false,
+  "current_executable_geometric_daily_return": null,
+  "positive_stage_adapters_implemented": false,
+  "independent_review": "response-ownership-independent-review.json"
+}

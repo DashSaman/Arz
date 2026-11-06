@@ -1,0 +1,89 @@
+{
+  "classification": "HTTP_ERROR_RESPONSE_OWNERSHIP_FIX_AFTER_PR92",
+  "observed_at_utc": "2026-11-06T20:41:20.801075+00:00",
+  "separate_from_verified_pr92": true,
+  "diagnosis": {
+    "ci_warning_objects": "Synthetic HTTPError instances use an in-memory BytesIO stream when fp=None; these warnings alone are not evidence of actual network socket leaks.",
+    "production_gap": "Probe.fetch wrapped HTTPError without explicitly closing its owned response stream; real HTTPError instances may own a live response stream."
+  },
+  "change": "Close caught HTTPError before rethrowing the same BoundedError HTTP_code with the same original cause. Cleanup OSError cannot replace the recorded provider-refusal code.",
+  "preserved": [
+    "Provider stop codes403/429/529",
+    "Blocked flag before cleanup",
+    "Call budgets and URL/RPC allowlists",
+    "No response-body reads or error-content logging",
+    "Durable stop across restart/network opt-out/backup restore",
+    "No trading or capital authorization"
+  ],
+  "regression": "Existing capture_refusal helper now supplies a real BytesIO response and asserts it is closed before returning; addCleanup protects the test fixture after failures and cannot satisfy the earlier ownership assertion.",
+  "new_test_methods": 0,
+  "red_result": {
+    "existing_methods": 5,
+    "failure_count": 4,
+    "reason": "Unclosed response for403/429/529 plus429 paired-candle case",
+    "exit_code": 1
+  },
+  "green_result": {
+    "existing_methods": 7,
+    "exit_code": 0,
+    "resource_warnings": 0,
+    "command": "PYTHONPATH=src:. python -W always::ResourceWarning -m unittest -v tests.test_strat01_collector_provider_stop tests.test_strat01_collector_v6_integrity.ProviderRefusalValidationTests",
+    "python": "3.12.14"
+  },
+  "full_suite_rerun": false,
+  "files": [
+    {
+      "path": "scripts/strat01_base_identity_forward.py",
+      "sha256": "98a0396ac53420ca5674a8f1b1997d53d1ea1f8327cf3d5693fcc6d1f337c03d",
+      "git_head_before_sha256": "2481e9b92e5a6b2d71d8d2bab1f722f19d9944fe2e312c8dd03efbad91f68baa"
+    },
+    {
+      "path": "tests/test_strat01_collector_provider_stop.py",
+      "sha256": "bdaa5dddffac31cf91979803f6ec90b51bba10c9963913d42aa3f0ce6f97e7ad",
+      "git_head_before_sha256": "6213e1b77b96f055a4af75d2972950af60aa2516c510eb2579c9b9dfb0011bdb"
+    }
+  ],
+  "logs": [
+    {
+      "path": "/workspace/scratch/4a6a75419487/ops_v6_integrity/http_error_ownership/provider-response-red.log",
+      "sha256": "112ea86e80f891fdf846ab95c7828570ca1c81767757496b53d440067b8cfe65"
+    },
+    {
+      "path": "/workspace/scratch/4a6a75419487/ops_v6_integrity/http_error_ownership/provider-response-green.log",
+      "sha256": "ff4bf47bdd93ea87bcdb689ea77415ae0305bce6447ca0087d010cda82cae086"
+    }
+  ],
+  "pr_provider_guard_review": {
+    "base_forward_pr_probes_guarded_by_saved_file_presence": true,
+    "late_recovery_pr_probe_guarded_by_saved_file_presence": true,
+    "scheduled_capture_job_not_eligible_for_pull_request": true,
+    "unchanged_guard_files": [
+      {
+        "path": "reports/strat01/2026-10-27-base-identity-observed.json",
+        "present": true,
+        "sha256": "81d6b7597f4767f540bbfd4ec7b2a85d9b12f8122c93d1234145cb206597faa9"
+      },
+      {
+        "path": "reports/strat01/2026-10-27-base-forward-first-seen.json",
+        "present": true,
+        "sha256": "aff7f530d74dd8919ab3dd1c7afb2aebb7f83cf1d2b46fd37ceffe0eb66406d0"
+      },
+      {
+        "path": "reports/strat01/2026-10-28-late-recovery-observed.json",
+        "present": true,
+        "sha256": "1503f33709dfe917980fcdf4533a67f1594a11570856f4d595b1f545a5381a61"
+      }
+    ]
+  },
+  "prior_pr92_publication_review": "/workspace/scratch/4a6a75419487/v6-pr92-native-publication-review.json",
+  "repo_edits_only": [
+    "scripts/strat01_base_identity_forward.py",
+    "tests/test_strat01_collector_provider_stop.py"
+  ],
+  "git_mutations": 0,
+  "market_provider_requests": 0,
+  "workflow_triggers": 0,
+  "financial_decision": "NO-GO",
+  "live_trading": "DISABLED",
+  "real_capital_authorized_usd": 0
+}

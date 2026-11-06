@@ -904,14 +904,15 @@
     }
   ],
   "last_verified_delivery": {
-    "pr": 91,
-    "merged_sha": "83a3f583131a36c967a9524c5b200e1762f9d84d",
-    "run_url": "https://github.com/DashSaman/Arz/actions/runs/42286685383",
+    "pr": 92,
+    "merged_sha": "124a80080f32b0bc523ee3a8c7b9835cf0936de8",
+    "run_url": "https://github.com/DashSaman/Arz/actions/runs/42289662326",
     "full_tests": 1608,
     "ci_skipped": 4,
-    "focused": 56,
-    "evidence": "reports/strat01/2026-11-06-v6/financial-publication.json",
-    "net_alpha_verified": false
+    "focused": 21,
+    "evidence": "reports/strat01/2026-11-06-v6/pr92-publication-review.json",
+    "net_alpha_verified": false,
+    "scope": "Final V6 continuity and CSV cleanup; 1604 methods executed, four skipped; original HTTPError fixture warnings retained."
   },
   "post_checkpoint_verified_deliveries": [
     {
@@ -1586,5 +1587,33 @@
       "LIVE-01": 8
     },
     "reason": "Preserve the pre-mission ordering. V6 explicitly prioritizes the existing STRAT-01 S0 data and profitability blockers before wallet-discovery work; dependencies and acceptance criteria are unchanged."
+  },
+  "historical_last_verified_delivery_before_v6_response_ownership": {
+    "pr": 91,
+    "merged_sha": "83a3f583131a36c967a9524c5b200e1762f9d84d",
+    "run_url": "https://github.com/DashSaman/Arz/actions/runs/42286685383",
+    "full_tests": 1608,
+    "ci_skipped": 4,
+    "focused": 56,
+    "evidence": "reports/strat01/2026-11-06-v6/financial-publication.json",
+    "net_alpha_verified": false
+  },
+  "post_audit_20261106_v6_response_ownership": {
+    "observed_at_utc": "2026-11-06T20:38:19Z",
+    "last_verified_main_sha": "124a80080f32b0bc523ee3a8c7b9835cf0936de8",
+    "last_verified_main_tree": "afe109e7b0157820b548e0223b6a86585a1884b7",
+    "completed_pr": 92,
+    "verification_report": "reports/strat01/2026-11-06-v6/response-ownership-verification.json",
+    "scope": "Close caught HTTPError responses; actual validation and publication recorded in verification and this follow-up PR. No new financial experiment.",
+    "financial_decision": "NO-GO",
+    "costs": "COST_UNVERIFIED",
+    "real_capital_authorized_usd": 0,
+    "live_trading": "DISABLED",
+    "next_control_track": "STRAT-01",
+    "next_executable_task": "Verify this checkpoint against actual main, then reconcile only later data/commits. Recover exact lawful raw inputs or obtain a reviewed source contract; do not rerun seen strategy trials or restricted probes. Positive-stage proof requires real evidence adapters, not asserted approval.",
+    "external_permissions_required": [
+      "Separate approval of any user host deployment, provider entitlement purchase or integration/alert destination.",
+      "Separate explicit approval for wallet connection, capital, signing or real orders even after future PILOT_PROPOSAL_READY."
+    ]
   }
 }
