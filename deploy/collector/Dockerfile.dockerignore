@@ -1,0 +1,17 @@
+# Dockerfile-specific allowlist. Never send .git, runtime, reports or secrets.
+**
+!LICENSE
+!scripts/
+scripts/**
+!scripts/strat01_base_identity_forward.py
+!scripts/strat01_capture_slot_preflight.py
+!scripts/strat01_investment_readiness.py
+!scripts/strat01_independent_collector.py
+!scripts/strat01_local_monitor.py
+!scripts/strat01_collector_backup.py
+!deploy/
+deploy/**
+!deploy/collector/
+deploy/collector/**
+!deploy/collector/Dockerfile
+!deploy/collector/Dockerfile.dockerignore

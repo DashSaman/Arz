@@ -1,0 +1,94 @@
+test_agreeing_partial_capture_keeps_original_complete_pair (tests.test_strat01_v6_source_integrity.SourceIntegrityTests.test_agreeing_partial_capture_keeps_original_complete_pair) ... ok
+test_complementary_partial_captures_do_not_synthesize_a_pair (tests.test_strat01_v6_source_integrity.SourceIntegrityTests.test_complementary_partial_captures_do_not_synthesize_a_pair) ... ok
+test_future_asset_receipt_cannot_skip_even_if_capture_started_earlier (tests.test_strat01_v6_source_integrity.SourceIntegrityTests.test_future_asset_receipt_cannot_skip_even_if_capture_started_earlier) ... FAIL
+test_future_capture_cannot_skip_an_earlier_runtime_decision (tests.test_strat01_v6_source_integrity.SourceIntegrityTests.test_future_capture_cannot_skip_an_earlier_runtime_decision) ... FAIL
+test_offline_audit_stays_retrospective_without_an_implicit_wall_clock (tests.test_strat01_v6_source_integrity.SourceIntegrityTests.test_offline_audit_stays_retrospective_without_an_implicit_wall_clock) ... ok
+test_partial_line_hash_revision_is_also_a_conflict (tests.test_strat01_v6_source_integrity.SourceIntegrityTests.test_partial_line_hash_revision_is_also_a_conflict) ... FAIL
+test_partial_price_revision_invalidates_prior_complete_pair (tests.test_strat01_v6_source_integrity.SourceIntegrityTests.test_partial_price_revision_invalidates_prior_complete_pair) ... 
+  test_partial_price_revision_invalidates_prior_complete_pair (tests.test_strat01_v6_source_integrity.SourceIntegrityTests.test_partial_price_revision_invalidates_prior_complete_pair) (asset=0) ... FAIL
+  test_partial_price_revision_invalidates_prior_complete_pair (tests.test_strat01_v6_source_integrity.SourceIntegrityTests.test_partial_price_revision_invalidates_prior_complete_pair) (asset=1) ... FAIL
+test_revisions_without_any_complete_pair_remain_visible (tests.test_strat01_v6_source_integrity.SourceIntegrityTests.test_revisions_without_any_complete_pair_remain_visible) ... FAIL
+test_source_observed_at_the_decision_clock_remains_eligible_to_skip (tests.test_strat01_v6_source_integrity.SourceIntegrityTests.test_source_observed_at_the_decision_clock_remains_eligible_to_skip) ... ok
+
+======================================================================
+FAIL: test_future_asset_receipt_cannot_skip_even_if_capture_started_earlier (tests.test_strat01_v6_source_integrity.SourceIntegrityTests.test_future_asset_receipt_cannot_skip_even_if_capture_started_earlier)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_v6_source_integrity.py", line 114, in test_future_asset_receipt_cannot_skip_even_if_capture_started_earlier
+    with self.assertRaisesRegex(ValueError, "FAIL_CLOSED"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_future_capture_cannot_skip_an_earlier_runtime_decision (tests.test_strat01_v6_source_integrity.SourceIntegrityTests.test_future_capture_cannot_skip_an_earlier_runtime_decision)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_v6_source_integrity.py", line 105, in test_future_capture_cannot_skip_an_earlier_runtime_decision
+    with self.assertRaisesRegex(ValueError, "FAIL_CLOSED"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_partial_line_hash_revision_is_also_a_conflict (tests.test_strat01_v6_source_integrity.SourceIntegrityTests.test_partial_line_hash_revision_is_also_a_conflict)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_v6_source_integrity.py", line 65, in test_partial_line_hash_revision_is_also_a_conflict
+    self.assertEqual(ledger["conflicts"], [START])
+AssertionError: Lists differ: [] != [1793059200]
+
+Second list contains 1 additional elements.
+First extra element 0:
+1793059200
+
+- []
++ [1793059200]
+
+======================================================================
+FAIL: test_partial_price_revision_invalidates_prior_complete_pair (tests.test_strat01_v6_source_integrity.SourceIntegrityTests.test_partial_price_revision_invalidates_prior_complete_pair) (asset=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_v6_source_integrity.py", line 46, in test_partial_price_revision_invalidates_prior_complete_pair
+    self.assertEqual(ledger["conflicts"], [START])
+AssertionError: Lists differ: [] != [1793059200]
+
+Second list contains 1 additional elements.
+First extra element 0:
+1793059200
+
+- []
++ [1793059200]
+
+======================================================================
+FAIL: test_partial_price_revision_invalidates_prior_complete_pair (tests.test_strat01_v6_source_integrity.SourceIntegrityTests.test_partial_price_revision_invalidates_prior_complete_pair) (asset=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_v6_source_integrity.py", line 46, in test_partial_price_revision_invalidates_prior_complete_pair
+    self.assertEqual(ledger["conflicts"], [START])
+AssertionError: Lists differ: [] != [1793059200]
+
+Second list contains 1 additional elements.
+First extra element 0:
+1793059200
+
+- []
++ [1793059200]
+
+======================================================================
+FAIL: test_revisions_without_any_complete_pair_remain_visible (tests.test_strat01_v6_source_integrity.SourceIntegrityTests.test_revisions_without_any_complete_pair_remain_visible)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_v6_source_integrity.py", line 77, in test_revisions_without_any_complete_pair_remain_visible
+    self.assertEqual(ledger["conflicts"], [START])
+AssertionError: Lists differ: [] != [1793059200]
+
+Second list contains 1 additional elements.
+First extra element 0:
+1793059200
+
+- []
++ [1793059200]
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.012s
+
+FAILED (failures=6)

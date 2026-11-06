@@ -1,0 +1,42 @@
+test_orphan_incomplete_or_late_capture_fails_health_until_later_success (tests.test_strat01_collector_v6_integrity.CaptureHealthIntegrityTests.test_orphan_incomplete_or_late_capture_fails_health_until_later_success) ... 
+  test_orphan_incomplete_or_late_capture_fails_health_until_later_success (tests.test_strat01_collector_v6_integrity.CaptureHealthIntegrityTests.test_orphan_incomplete_or_late_capture_fails_health_until_later_success) (prior_success=False, quality='incomplete') ... FAIL
+  test_orphan_incomplete_or_late_capture_fails_health_until_later_success (tests.test_strat01_collector_v6_integrity.CaptureHealthIntegrityTests.test_orphan_incomplete_or_late_capture_fails_health_until_later_success) (prior_success=False, quality='late') ... FAIL
+  test_orphan_incomplete_or_late_capture_fails_health_until_later_success (tests.test_strat01_collector_v6_integrity.CaptureHealthIntegrityTests.test_orphan_incomplete_or_late_capture_fails_health_until_later_success) (prior_success=True, quality='incomplete') ... FAIL
+  test_orphan_incomplete_or_late_capture_fails_health_until_later_success (tests.test_strat01_collector_v6_integrity.CaptureHealthIntegrityTests.test_orphan_incomplete_or_late_capture_fails_health_until_later_success) (prior_success=True, quality='late') ... FAIL
+
+======================================================================
+FAIL: test_orphan_incomplete_or_late_capture_fails_health_until_later_success (tests.test_strat01_collector_v6_integrity.CaptureHealthIntegrityTests.test_orphan_incomplete_or_late_capture_fails_health_until_later_success) (prior_success=False, quality='incomplete')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_collector_v6_integrity.py", line 218, in test_orphan_incomplete_or_late_capture_fails_health_until_later_success
+    self.assertFalse(heartbeat_healthy(root, at))
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_orphan_incomplete_or_late_capture_fails_health_until_later_success (tests.test_strat01_collector_v6_integrity.CaptureHealthIntegrityTests.test_orphan_incomplete_or_late_capture_fails_health_until_later_success) (prior_success=False, quality='late')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_collector_v6_integrity.py", line 218, in test_orphan_incomplete_or_late_capture_fails_health_until_later_success
+    self.assertFalse(heartbeat_healthy(root, at))
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_orphan_incomplete_or_late_capture_fails_health_until_later_success (tests.test_strat01_collector_v6_integrity.CaptureHealthIntegrityTests.test_orphan_incomplete_or_late_capture_fails_health_until_later_success) (prior_success=True, quality='incomplete')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_collector_v6_integrity.py", line 218, in test_orphan_incomplete_or_late_capture_fails_health_until_later_success
+    self.assertFalse(heartbeat_healthy(root, at))
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_orphan_incomplete_or_late_capture_fails_health_until_later_success (tests.test_strat01_collector_v6_integrity.CaptureHealthIntegrityTests.test_orphan_incomplete_or_late_capture_fails_health_until_later_success) (prior_success=True, quality='late')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_collector_v6_integrity.py", line 218, in test_orphan_incomplete_or_late_capture_fails_health_until_later_success
+    self.assertFalse(heartbeat_healthy(root, at))
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 1 test in 0.019s
+
+FAILED (failures=4)

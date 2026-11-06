@@ -295,6 +295,7 @@ def audit_capture_dir(source:Path) -> dict:
     captured=[]
     manifest=[]
     grouped={}
+    asset_observations={}
     for path in files:
         try:
             item,sha=read_strict(path,MAX_BYTES_PER_CAPTURE)
@@ -314,20 +315,20 @@ def audit_capture_dir(source:Path) -> dict:
                 "runner_reported_run_id":sample["runner_reported_run_id"],
             })
             bar=sample["bar_start"]
+            # A valid observation still exposes a revision when the other
+            # market is unavailable. Compare every retained asset before
+            # deciding whether this slot has a trustworthy complete pair.
+            for asset,line_hash in sample["bar_hashes"].items():
+                versions=asset_observations.setdefault(bar,{}).setdefault(asset,set())
+                versions.add((line_hash,sample["retained_ohlcv_value_hashes"][asset]))
             if sample["two_asset_bar_received"]:
                 grouped.setdefault(bar,[]).append(sample)
         except (ValueError,UnicodeError,OSError,KeyError) as exc:
             errors.append(path.name+":"+str(exc)[:120])
-    conflicts=[]
-    completed=[]
-    for start,documents in sorted(grouped.items()):
-        observed={(tuple(sorted(x["bar_hashes"].items())),
-                   tuple(sorted(x["retained_ohlcv_value_hashes"].items())))
-                  for x in documents}
-        if len(observed)>1:
-            conflicts.append(start)
-        else:
-            completed.append(start)
+    conflicts=[start for start,assets in sorted(asset_observations.items())
+               if any(len(versions)>1 for versions in assets.values())]
+    # Never combine complementary partial invocations into a complete pair.
+    completed=[start for start in sorted(grouped) if start not in conflicts]
     # The previous detector only compared adjacent *present* bars. If the
     # first captured bar is 04:00, it quietly lost the 00:00 bar after the
     # originally preregistered OOS start. Always show leading gaps explicitly.

@@ -1,0 +1,83 @@
+test_future_provider_receipt_is_refused_before_capture_publication (tests.test_strat01_collector_v6_integrity.CaptureHealthIntegrityTests.test_future_provider_receipt_is_refused_before_capture_publication) ... ok
+test_incomplete_capture_cannot_clear_fault_before_valid_recovery (tests.test_strat01_collector_v6_integrity.CaptureHealthIntegrityTests.test_incomplete_capture_cannot_clear_fault_before_valid_recovery) ... ok
+test_incomplete_failure_survives_byte_exact_backup_restore (tests.test_strat01_collector_v6_integrity.CaptureHealthIntegrityTests.test_incomplete_failure_survives_byte_exact_backup_restore) ... ok
+test_late_pair_is_unhealthy_until_future_timely_pair (tests.test_strat01_collector_v6_integrity.CaptureHealthIntegrityTests.test_late_pair_is_unhealthy_until_future_timely_pair) ... ok
+test_legacy_success_cannot_promote_incomplete_or_late_source (tests.test_strat01_collector_v6_integrity.CaptureHealthIntegrityTests.test_legacy_success_cannot_promote_incomplete_or_late_source) ... ok
+test_missing_pair_is_archived_but_never_reports_healthy (tests.test_strat01_collector_v6_integrity.CaptureHealthIntegrityTests.test_missing_pair_is_archived_but_never_reports_healthy) ... ok
+test_receipt_received_by_actual_completion_can_be_healthy (tests.test_strat01_collector_v6_integrity.CaptureHealthIntegrityTests.test_receipt_received_by_actual_completion_can_be_healthy) ... ok
+test_retained_future_source_or_receipt_is_unhealthy_without_network (tests.test_strat01_collector_v6_integrity.CaptureHealthIntegrityTests.test_retained_future_source_or_receipt_is_unhealthy_without_network) ... ok
+test_success_replay_cannot_clear_newer_fault_with_old_source (tests.test_strat01_collector_v6_integrity.CaptureHealthIntegrityTests.test_success_replay_cannot_clear_newer_fault_with_old_source) ... ok
+test_duplicate_outcome_cannot_hide_retained_provider_stop (tests.test_strat01_collector_v6_integrity.EventJournalIntegrityTests.test_duplicate_outcome_cannot_hide_retained_provider_stop) ... ok
+test_duplicate_safety_keys_and_nested_keys_are_rejected (tests.test_strat01_collector_v6_integrity.EventJournalIntegrityTests.test_duplicate_safety_keys_and_nested_keys_are_rejected) ... ok
+test_non_integer_schema_version_is_rejected (tests.test_strat01_collector_v6_integrity.EventJournalIntegrityTests.test_non_integer_schema_version_is_rejected) ... ok
+test_nonfinite_event_fields_are_rejected (tests.test_strat01_collector_v6_integrity.EventJournalIntegrityTests.test_nonfinite_event_fields_are_rejected) ... ok
+test_duplicate_status_or_capital_cannot_report_healthy (tests.test_strat01_collector_v6_integrity.HeartbeatIntegrityTests.test_duplicate_status_or_capital_cannot_report_healthy) ... 
+  test_duplicate_status_or_capital_cannot_report_healthy (tests.test_strat01_collector_v6_integrity.HeartbeatIntegrityTests.test_duplicate_status_or_capital_cannot_report_healthy) (replacement='"status": "REFUSED_FAIL_CLOSED", "status": "NETWORK_DISABLED"') ... FAIL
+  test_duplicate_status_or_capital_cannot_report_healthy (tests.test_strat01_collector_v6_integrity.HeartbeatIntegrityTests.test_duplicate_status_or_capital_cannot_report_healthy) (replacement='"capital_authorized_usd": 100, "capital_authorized_usd": 0') ... FAIL
+test_wrong_heartbeat_types_or_inconsistent_clock_are_unhealthy (tests.test_strat01_collector_v6_integrity.HeartbeatIntegrityTests.test_wrong_heartbeat_types_or_inconsistent_clock_are_unhealthy) ... 
+  test_wrong_heartbeat_types_or_inconsistent_clock_are_unhealthy (tests.test_strat01_collector_v6_integrity.HeartbeatIntegrityTests.test_wrong_heartbeat_types_or_inconsistent_clock_are_unhealthy) (key='capital_authorized_usd', invalid=False) ... FAIL
+  test_wrong_heartbeat_types_or_inconsistent_clock_are_unhealthy (tests.test_strat01_collector_v6_integrity.HeartbeatIntegrityTests.test_wrong_heartbeat_types_or_inconsistent_clock_are_unhealthy) (key='capital_authorized_usd', invalid=0.0) ... FAIL
+  test_wrong_heartbeat_types_or_inconsistent_clock_are_unhealthy (tests.test_strat01_collector_v6_integrity.HeartbeatIntegrityTests.test_wrong_heartbeat_types_or_inconsistent_clock_are_unhealthy) (key='schema_version', invalid=True) ... FAIL
+  test_wrong_heartbeat_types_or_inconsistent_clock_are_unhealthy (tests.test_strat01_collector_v6_integrity.HeartbeatIntegrityTests.test_wrong_heartbeat_types_or_inconsistent_clock_are_unhealthy) (key='schema_version', invalid=1.0) ... FAIL
+  test_wrong_heartbeat_types_or_inconsistent_clock_are_unhealthy (tests.test_strat01_collector_v6_integrity.HeartbeatIntegrityTests.test_wrong_heartbeat_types_or_inconsistent_clock_are_unhealthy) (key='actual_utc', invalid='2000-01-01T00:00:00+00:00') ... FAIL
+
+======================================================================
+FAIL: test_duplicate_status_or_capital_cannot_report_healthy (tests.test_strat01_collector_v6_integrity.HeartbeatIntegrityTests.test_duplicate_status_or_capital_cannot_report_healthy) (replacement='"status": "REFUSED_FAIL_CLOSED", "status": "NETWORK_DISABLED"')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_collector_v6_integrity.py", line 279, in test_duplicate_status_or_capital_cannot_report_healthy
+    self.assertFalse(heartbeat_healthy(root, AT))
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_duplicate_status_or_capital_cannot_report_healthy (tests.test_strat01_collector_v6_integrity.HeartbeatIntegrityTests.test_duplicate_status_or_capital_cannot_report_healthy) (replacement='"capital_authorized_usd": 100, "capital_authorized_usd": 0')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_collector_v6_integrity.py", line 279, in test_duplicate_status_or_capital_cannot_report_healthy
+    self.assertFalse(heartbeat_healthy(root, AT))
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_wrong_heartbeat_types_or_inconsistent_clock_are_unhealthy (tests.test_strat01_collector_v6_integrity.HeartbeatIntegrityTests.test_wrong_heartbeat_types_or_inconsistent_clock_are_unhealthy) (key='capital_authorized_usd', invalid=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_collector_v6_integrity.py", line 294, in test_wrong_heartbeat_types_or_inconsistent_clock_are_unhealthy
+    self.assertFalse(heartbeat_healthy(root, AT))
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_wrong_heartbeat_types_or_inconsistent_clock_are_unhealthy (tests.test_strat01_collector_v6_integrity.HeartbeatIntegrityTests.test_wrong_heartbeat_types_or_inconsistent_clock_are_unhealthy) (key='capital_authorized_usd', invalid=0.0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_collector_v6_integrity.py", line 294, in test_wrong_heartbeat_types_or_inconsistent_clock_are_unhealthy
+    self.assertFalse(heartbeat_healthy(root, AT))
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_wrong_heartbeat_types_or_inconsistent_clock_are_unhealthy (tests.test_strat01_collector_v6_integrity.HeartbeatIntegrityTests.test_wrong_heartbeat_types_or_inconsistent_clock_are_unhealthy) (key='schema_version', invalid=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_collector_v6_integrity.py", line 294, in test_wrong_heartbeat_types_or_inconsistent_clock_are_unhealthy
+    self.assertFalse(heartbeat_healthy(root, AT))
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_wrong_heartbeat_types_or_inconsistent_clock_are_unhealthy (tests.test_strat01_collector_v6_integrity.HeartbeatIntegrityTests.test_wrong_heartbeat_types_or_inconsistent_clock_are_unhealthy) (key='schema_version', invalid=1.0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_collector_v6_integrity.py", line 294, in test_wrong_heartbeat_types_or_inconsistent_clock_are_unhealthy
+    self.assertFalse(heartbeat_healthy(root, AT))
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_wrong_heartbeat_types_or_inconsistent_clock_are_unhealthy (tests.test_strat01_collector_v6_integrity.HeartbeatIntegrityTests.test_wrong_heartbeat_types_or_inconsistent_clock_are_unhealthy) (key='actual_utc', invalid='2000-01-01T00:00:00+00:00')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_collector_v6_integrity.py", line 294, in test_wrong_heartbeat_types_or_inconsistent_clock_are_unhealthy
+    self.assertFalse(heartbeat_healthy(root, AT))
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.078s
+
+FAILED (failures=7)

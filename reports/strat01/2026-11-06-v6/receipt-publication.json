@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "classification": "ACTUAL_GITHUB_PUBLICATION_NOT_FINANCIAL_EVIDENCE",
+  "verified_at_utc": "2026-11-06T19:58:29.350978+00:00",
+  "pr": 89,
+  "url": "https://github.com/DashSaman/Arz/pull/89",
+  "status": "MERGED",
+  "source_main_sha": "e694646e8540264a835352ead361cfc176fc86dd",
+  "reviewed_head_sha": "ddef7216e0b6c6170dfde2b481231de350d60a62",
+  "ci_merge_preview_sha": "1c8dce24a0d12539ef31cf58111a1b606f237bd4",
+  "merge_sha": "e031a5d04d7238eccf9d8ef6b87a6656f6984b38",
+  "merged_at_utc": "2026-11-06T19:48:44Z",
+  "verified_identical_reviewed_ci_and_merged_tree": "85c39a3e3272050b79cf94bbf9ad72af9d651986",
+  "ci": [
+    {
+      "run_id": 42281616221,
+      "conclusion": "success",
+      "url": "https://github.com/DashSaman/Arz/actions/runs/42281616221"
+    },
+    {
+      "run_id": 42281616264,
+      "conclusion": "success",
+      "url": "https://github.com/DashSaman/Arz/actions/runs/42281616264"
+    },
+    {
+      "run_id": 42281616289,
+      "conclusion": "success",
+      "url": "https://github.com/DashSaman/Arz/actions/runs/42281616289"
+    }
+  ],
+  "ci_full_suite": {
+    "methods": 1568,
+    "skipped": 4,
+    "failures": 0,
+    "live_rpc_step": "SKIPPED"
+  },
+  "independent_review": "receipt-independent-review.json",
+  "independent_focused_methods": 24,
+  "financial_decision": "NO-GO",
+  "cost_status": "COST_UNVERIFIED",
+  "real_capital_authorized_usd": 0,
+  "live_trading": "DISABLED",
+  "new_market_requests": 0,
+  "new_backtests": 0,
+  "new_paper_days": 0
+}

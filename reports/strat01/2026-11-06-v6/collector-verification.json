@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "observed_at_utc": "2026-11-06T20:01:29.465768+00:00",
+  "classification": "SOFTWARE_SOURCE_AND_HEALTH_REGRESSION_NOT_ALPHA",
+  "source_main_sha": "e031a5d04d7238eccf9d8ef6b87a6656f6984b38",
+  "local_exact_snapshot_commit": "f9ce66ac5ace00c60c26c856531651a326976c8c",
+  "new_regression_methods": 25,
+  "source_new_methods": 9,
+  "collector_new_methods": 16,
+  "exact_snapshot_full_suite": {
+    "command": "PYTHONPATH=src:. python -m unittest discover -s tests",
+    "methods": 1593,
+    "skipped": 1,
+    "failures": 0,
+    "log": "collector-exact-snapshot-full.log",
+    "sha256": "7a1bb14541af3504c4f019e714b7e97412e3622b1c1d5538ba9488b429302aab"
+  },
+  "independent_combined_workingtree_test": {
+    "methods": 1606,
+    "skipped": 1,
+    "failures": 0,
+    "includes_13_unpublished_financial_tests_not_in_this_patch": true,
+    "review": "collector-independent-review.json"
+  },
+  "intermediate_failures": {
+    "collector-v6-full-suite.log": "Concurrent financial TDD adapter was not yet implemented; 8 failures preserved; superseded by exact committed-snapshot run.",
+    "collector-v6-scoped-initial.log": "One regression assertion referenced wrong existing report key, subsequently corrected; implementation bug red logs retained.",
+    "source-integrity-initial-import-error.log": "Existing test module has unqualified import; PYTHONPATH includes tests in corrected focused invocation."
+  },
+  "source_files_preserved": 44,
+  "source_files_byte_identical_to": "e694646e8540264a835352ead361cfc176fc86dd",
+  "paired_bars": 36,
+  "timely_paired_bars": 16,
+  "max_consecutive_paired_bars": 5,
+  "docker_local_available": false,
+  "actual_packaged_container_verification": "PENDING_GITHUB_CI_AT_THIS_PREPUBLICATION_OBSERVATION",
+  "code_and_docs_diff_check": "PASS; exact raw unittest logs excluded because emitted trailing spaces are preserved byte-for-byte",
+  "implementation_sha256": {
+    "scripts/strat01_capture_slot_preflight.py": "bc06f495b365bb109b9fe1273d4082df9e1172ee4995634ae4fb9212f12e2daa",
+    "scripts/strat01_investment_readiness.py": "94eea5037ee3f727f3796f20fc7413e613f6040be83e10ee8d90291e71af2bbd",
+    "scripts/strat01_independent_collector.py": "ad42f0602f229b3f3422e788b9f2f384cb3131719e716107c9453d8b6e8f7b33",
+    "scripts/strat01_local_monitor.py": "67c410ea1ac8cd8ee04230544c2bbc64852981ecfd3c2fed3826df386a47140c",
+    "tests/test_strat01_v6_source_integrity.py": "2604e90d019e3c63392cabfbad6778a5a30bea9405c98800e2ff9425cfb04d80",
+    "tests/test_strat01_collector_v6_integrity.py": "8662a58dc85fa516652ed7e34a05f2e101d0c116adfc1e9d88dadc1259b3c96d",
+    "deploy/collector/Dockerfile": "29de84af478c8f66920a788ac52a6e6a4d0296368814d3a4325a148b9d86af9d",
+    "deploy/collector/Dockerfile.dockerignore": "c76fa184829604c48ca78196c74cbc4990faab7283518d8443b8273f6fe20f39",
+    "deploy/collector/docker-compose.packaged.yml": "6fc21c48384176907fdfc4cf7e3da77bd51981ac403235a2ea97aa9d0edb032e",
+    ".github/workflows/strat01-collector-release.yml": "f44a74d2a9d0d792471de9ca7ea9af24a9c0ad7b1d1a1135c08140bc0922a5e4"
+  },
+  "financial_decision": "NO-GO",
+  "execution_costs": "COST_UNVERIFIED",
+  "new_market_probes": 0,
+  "new_backtests": 0,
+  "new_qualified_paper_days": 0,
+  "real_capital_authorized_usd": 0,
+  "live_trading": "DISABLED"
+}

@@ -1,0 +1,37 @@
+{
+  "additional_checks_already_observed": {
+    "contradictory_pre_isthmus": "REJECTED",
+    "malformed_envelopes_rejected_with_bytes_retained": 9,
+    "market_calls": 0,
+    "synthetic_only": true,
+    "uint_max_arithmetic_both_forks": "PASS",
+    "unknown_future_type": "UNKNOWN"
+  },
+  "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python -m unittest tests.test_strat01_receipt_replay tests.test_strat01_public_receipt_cost -v",
+  "conclusion": "NO_MERGE_BLOCKING_DEFECT_FOUND_IN_REVIEWED_RECEIPT_SCOPE",
+  "exit_code": 0,
+  "limitations": [
+    "No provider or fork authentication is created by retaining response bytes.",
+    "No paid full-network or $20 follower fee is established.",
+    "Focused suites independently executed; full 1568-method results came from parent."
+  ],
+  "log": "pr89_independent_focused_tests.log",
+  "log_sha256": "12d2c447c4a97308e677fbacdd2048caa0c04fc4b0fcc4afda69dbd1f3722188",
+  "observed_at_utc": "2026-11-06T19:51:52.001382+00:00",
+  "output_tail": "\n\n----------------------------------------------------------------------\nRan 24 tests in 0.016s\n\nOK\n",
+  "primary_specifications": [
+    "https://specs.optimism.io/protocol/isthmus/exec-engine.html",
+    "https://specs.optimism.io/protocol/jovian/exec-engine.html"
+  ],
+  "remote_files_retrieved_through_github_connector": true,
+  "reviewed_remote_head": "ddef7216e0b6c6170dfde2b481231de350d60a62",
+  "reviewer": "financial_audit independent subagent",
+  "scope": [
+    "scripts/strat01_public_receipt_cost.py",
+    "tests/test_strat01_receipt_replay.py",
+    "docs/en/strat01_receipt_replay_20261106.md",
+    "docs/fa/strat01_receipt_replay_20261106.md"
+  ],
+  "source_git_blob": "ae01c11ae60c99ad6cb8aac21903126a6780f696",
+  "test_git_blob": "a52bc641fd558e05f6287ecbc33a85d4007ea730"
+}

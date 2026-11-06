@@ -1,0 +1,83 @@
+{
+  "classification": "INDEPENDENT_OFFLINE_PACKAGE_AND_SOURCE_REVIEW_NOT_DOCKER_EXECUTION",
+  "data_findings": [
+    "All valid individual asset observations participate in revision detection, including partial captures; conflicting slots lose complete/timely qualification.",
+    "Complementary partial invocations are never merged into an invented complete pair.",
+    "Runtime preflight refuses source first-seen or provider receipt timestamps later than explicit now_unix; retrospective offline audits retain their original clock-independent scope."
+  ],
+  "financial_decision": "NO-GO",
+  "live_trading": "DISABLED",
+  "local_verification": {
+    "docker_execution": "NOT_AVAILABLE_LOCALLY_PENDING_CI",
+    "isolated_whitelist_rehearsal": "/workspace/scratch/4a6a75419487/ops_v6_integrity/packaged-whitelist-rehearsal.json",
+    "packaged_compose_parsed_and_constraints_checked": true,
+    "rehearsal_runtime_is_docker": false,
+    "rehearsal_runtime_uid": 1000,
+    "source_integrity_regressions": {
+      "exit_code": 0,
+      "log": "/workspace/scratch/4a6a75419487/ops_v6_integrity/independent-data-review-tests.log",
+      "methods": 9
+    },
+    "user_host_deployment": false,
+    "workflow_bash_blocks_syntax_checked": [
+      "offline-release-smoke:Recovery negative controls with synthetic records",
+      "offline-release-smoke:Validate and start network-isolated collector on ephemeral CI runner",
+      "offline-release-smoke:Assert real container isolation and no paper or market capture",
+      "offline-release-smoke:Stop ephemeral container and preserve logs",
+      "packaged-image-smoke:Verify the real build context excludes unrelated files",
+      "packaged-image-smoke:Build explicit read-only application image",
+      "packaged-image-smoke:Run packaged collector without network or host source mounts",
+      "packaged-image-smoke:Verify actual package identity and isolation",
+      "packaged-image-smoke:Stop ephemeral package and preserve logs"
+    ],
+    "workflow_embedded_python_blocks_compiled": [
+      "offline-release-smoke:Assert real container isolation and no paper or market capture:0",
+      "packaged-image-smoke:Verify the real build context excludes unrelated files:0",
+      "packaged-image-smoke:Verify the real build context excludes unrelated files:1",
+      "packaged-image-smoke:Verify actual package identity and isolation:0"
+    ]
+  },
+  "market_provider_requests": 0,
+  "package_findings": [
+    "The six selected collector, auditor, monitor and recovery scripts form a complete standard-library import graph; frozen financial reports are not needed for these runtime paths.",
+    "Final image uses an immutable upstream Python index digest, nonroot UID/GID, explicit source COPY list, per-script SHA manifest, and a recorded source-revision label.",
+    "Standalone Compose has no source bind mounts or published ports, one writable evidence mount, disabled application network, network_mode none, read-only root, dropped capabilities and no-new-privileges.",
+    "Prior parent-directory build-context inclusion concern was addressed with explicit descendant exclusions, an isolated context-audit target, and a CI sentinel/export exact-nine-file check.",
+    "CI distinguishes a locally built content-addressed image ID from a registry manifest digest; registry publication remains false.",
+    "CI separately checks actual startup health, source checksums, image identity, Python version, user, network mode, root read-only state, source mount absence and zero captures before recording success."
+  ],
+  "real_capital_authorized_usd": 0,
+  "reviewed_at_utc": "2026-11-06T20:01:40.094365+00:00",
+  "reviewed_files": [
+    {
+      "path": "deploy/collector/Dockerfile",
+      "sha256": "29de84af478c8f66920a788ac52a6e6a4d0296368814d3a4325a148b9d86af9d"
+    },
+    {
+      "path": "deploy/collector/Dockerfile.dockerignore",
+      "sha256": "c76fa184829604c48ca78196c74cbc4990faab7283518d8443b8273f6fe20f39"
+    },
+    {
+      "path": "deploy/collector/docker-compose.packaged.yml",
+      "sha256": "6fc21c48384176907fdfc4cf7e3da77bd51981ac403235a2ea97aa9d0edb032e"
+    },
+    {
+      "path": ".github/workflows/strat01-collector-release.yml",
+      "sha256": "f44a74d2a9d0d792471de9ca7ea9af24a9c0ad7b1d1a1135c08140bc0922a5e4"
+    },
+    {
+      "path": "scripts/strat01_investment_readiness.py",
+      "sha256": "94eea5037ee3f727f3796f20fc7413e613f6040be83e10ee8d90291e71af2bbd"
+    },
+    {
+      "path": "scripts/strat01_capture_slot_preflight.py",
+      "sha256": "bc06f495b365bb109b9fe1273d4082df9e1172ee4995634ae4fb9212f12e2daa"
+    },
+    {
+      "path": "tests/test_strat01_v6_source_integrity.py",
+      "sha256": "2604e90d019e3c63392cabfbad6778a5a30bea9405c98800e2ff9425cfb04d80"
+    }
+  ],
+  "schema_version": 1,
+  "verdict": "NO_OPEN_CODE_BLOCKERS_IN_REVIEWED_SCOPE_ACTUAL_DOCKER_CI_PENDING"
+}
