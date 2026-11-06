@@ -1,0 +1,1965 @@
+{
+  "adapter": "PINNED_20261105_SAVED_NEGATIVE_SNAPSHOT_V1",
+  "artifact_checks": [
+    {
+      "kind": "decision",
+      "path": "reports/strat01/2026-11-05-final-blockers/decision.json",
+      "saved_bytes_match_pin": true,
+      "sha256": "85a64de1bfbadd385e72f2c02b842920d97d922113fa7e2a32b748afdef549b8"
+    },
+    {
+      "kind": "registry_counts",
+      "path": "reports/strat01/2026-10-31-all-strategies/registry_counts.json",
+      "saved_bytes_match_pin": true,
+      "sha256": "cd91305a0725216bfe994ac4974be7483707d2ca0c54b5a013a80a1a620ffaf4"
+    },
+    {
+      "kind": "registry",
+      "path": "reports/strat01/2026-10-31-all-strategies/registry.csv",
+      "saved_bytes_match_pin": true,
+      "sha256": "8c2c3b2965637cdc11bc18aadf9a5746abb5edc37946e74d0e7c29f2ea862ce4"
+    },
+    {
+      "kind": "metrics",
+      "path": "reports/strat01/2026-11-05-final-blockers/saved-metrics-58.csv",
+      "saved_bytes_match_pin": true,
+      "sha256": "fdf2d010245bf52f65896b337ba0625ebb8cfd37a3178044d151abeca9554a0e"
+    }
+  ],
+  "artifact_errors": [],
+  "capital_activation_authorized": false,
+  "cost_status": "COST_UNVERIFIED",
+  "financial_decision": "NO-GO",
+  "hard_requirements": {
+    "H3_minimum_cycles": 200,
+    "H4_minimum_days": 180,
+    "max_drawdown_limit": "0.10",
+    "minimum_independent_closed_historical_cycles": 100,
+    "minimum_prospective_days": 90,
+    "positive_base_and_stress_geometric_returns_required": true,
+    "positive_dependence_aware_lower_bound_required": true,
+    "profit_factor_minimum": "1.5"
+  },
+  "ledger_metrics_recomputed": false,
+  "limitations": [
+    "Hashes bind these saved files only; they do not authenticate underlying market observations or independent review.",
+    "Registry variants, controls and references are not independent strategies; saved metric rows are not new experiments.",
+    "The NO_GO snapshot verdict does not classify each untested registry lead. Positive stages cannot be emitted by this adapter.",
+    "Missing evidence is unknown. Unsupported positive proof requires a separately reviewed adapter, not a boolean override."
+  ],
+  "live_trading": "DISABLED",
+  "metric_diagnostics": [
+    {
+      "cost_scenario": "mid",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100"
+      ],
+      "family": "S0_stateful",
+      "market": "WETH",
+      "missing_numeric_fields": [
+        "interval_low_pct",
+        "interval_high_pct"
+      ],
+      "saved_numeric_values": {
+        "closed_cycles": "8",
+        "geometric_daily_pct": "0.027436432267835542",
+        "interval_high_pct": null,
+        "interval_low_pct": null,
+        "max_marked_close_drawdown_pct": "4.253304283939697",
+        "net_account_return_pct": "10.531376231409453",
+        "profit_factor": "3.2111166322751528"
+      },
+      "stage": "NO_GO",
+      "strategy": "S0_stateful",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "year_2025"
+    },
+    {
+      "cost_scenario": "double_mid",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100"
+      ],
+      "family": "S0_stateful",
+      "market": "WETH",
+      "missing_numeric_fields": [
+        "interval_low_pct",
+        "interval_high_pct"
+      ],
+      "saved_numeric_values": {
+        "closed_cycles": "8",
+        "geometric_daily_pct": "0.02558968205832457",
+        "interval_high_pct": null,
+        "interval_low_pct": null,
+        "max_marked_close_drawdown_pct": "4.4487841233408325",
+        "net_account_return_pct": "9.789025795033197",
+        "profit_factor": "2.897866744738321"
+      },
+      "stage": "NO_GO",
+      "strategy": "S0_stateful",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "year_2025"
+    },
+    {
+      "cost_scenario": "stress",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100"
+      ],
+      "family": "S0_stateful",
+      "market": "WETH",
+      "missing_numeric_fields": [
+        "interval_low_pct",
+        "interval_high_pct"
+      ],
+      "saved_numeric_values": {
+        "closed_cycles": "8",
+        "geometric_daily_pct": "0.02417839972135294",
+        "interval_high_pct": null,
+        "interval_low_pct": null,
+        "max_marked_close_drawdown_pct": "4.607603848090314",
+        "net_account_return_pct": "9.225076784536455",
+        "profit_factor": "2.6961265315883804"
+      },
+      "stage": "NO_GO",
+      "strategy": "S0_stateful",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "year_2025"
+    },
+    {
+      "cost_scenario": "mid",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "PROFIT_FACTOR_BELOW_1_5",
+        "NET_ACCOUNT_RETURN_PCT_NOT_POSITIVE",
+        "GEOMETRIC_DAILY_PCT_NOT_POSITIVE"
+      ],
+      "family": "S0_stateful",
+      "market": "WETH",
+      "missing_numeric_fields": [
+        "interval_low_pct",
+        "interval_high_pct"
+      ],
+      "saved_numeric_values": {
+        "closed_cycles": "4",
+        "geometric_daily_pct": "-0.032148413087607075",
+        "interval_high_pct": null,
+        "interval_low_pct": null,
+        "max_marked_close_drawdown_pct": "3.4859966734849923",
+        "net_account_return_pct": "-2.8523523085104614",
+        "profit_factor": "0.0"
+      },
+      "stage": "NO_GO",
+      "strategy": "S0_stateful",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "q1_2026"
+    },
+    {
+      "cost_scenario": "double_mid",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "PROFIT_FACTOR_BELOW_1_5",
+        "NET_ACCOUNT_RETURN_PCT_NOT_POSITIVE",
+        "GEOMETRIC_DAILY_PCT_NOT_POSITIVE"
+      ],
+      "family": "S0_stateful",
+      "market": "WETH",
+      "missing_numeric_fields": [
+        "interval_low_pct",
+        "interval_high_pct"
+      ],
+      "saved_numeric_values": {
+        "closed_cycles": "4",
+        "geometric_daily_pct": "-0.035623222200509286",
+        "interval_high_pct": null,
+        "interval_low_pct": null,
+        "max_marked_close_drawdown_pct": "3.7480513841244845",
+        "net_account_return_pct": "-3.155792983558115",
+        "profit_factor": "0.0"
+      },
+      "stage": "NO_GO",
+      "strategy": "S0_stateful",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "q1_2026"
+    },
+    {
+      "cost_scenario": "stress",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "PROFIT_FACTOR_BELOW_1_5",
+        "NET_ACCOUNT_RETURN_PCT_NOT_POSITIVE",
+        "GEOMETRIC_DAILY_PCT_NOT_POSITIVE"
+      ],
+      "family": "S0_stateful",
+      "market": "WETH",
+      "missing_numeric_fields": [
+        "interval_low_pct",
+        "interval_high_pct"
+      ],
+      "saved_numeric_values": {
+        "closed_cycles": "4",
+        "geometric_daily_pct": "-0.03829025738940617",
+        "interval_high_pct": null,
+        "interval_low_pct": null,
+        "max_marked_close_drawdown_pct": "3.9493464222980723",
+        "net_account_return_pct": "-3.388058170069854",
+        "profit_factor": "0.0"
+      },
+      "stage": "NO_GO",
+      "strategy": "S0_stateful",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "q1_2026"
+    },
+    {
+      "cost_scenario": "mid",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100"
+      ],
+      "family": "S0_stateful",
+      "market": "WETH",
+      "missing_numeric_fields": [
+        "interval_low_pct",
+        "interval_high_pct"
+      ],
+      "saved_numeric_values": {
+        "closed_cycles": "2",
+        "geometric_daily_pct": "0.03962826720993462",
+        "interval_high_pct": null,
+        "interval_low_pct": null,
+        "max_marked_close_drawdown_pct": "1.6344405099572135",
+        "net_account_return_pct": "2.4462878783383957",
+        "profit_factor": "4.734326395845167"
+      },
+      "stage": "NO_GO",
+      "strategy": "S0_stateful",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "aug_sep_2026"
+    },
+    {
+      "cost_scenario": "double_mid",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100"
+      ],
+      "family": "S0_stateful",
+      "market": "WETH",
+      "missing_numeric_fields": [
+        "interval_low_pct",
+        "interval_high_pct"
+      ],
+      "saved_numeric_values": {
+        "closed_cycles": "2",
+        "geometric_daily_pct": "0.036910317938976256",
+        "interval_high_pct": null,
+        "interval_low_pct": null,
+        "max_marked_close_drawdown_pct": "1.751880368109604",
+        "net_account_return_pct": "2.2766427444555433",
+        "profit_factor": "4.101825099281544"
+      },
+      "stage": "NO_GO",
+      "strategy": "S0_stateful",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "aug_sep_2026"
+    },
+    {
+      "cost_scenario": "stress",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100"
+      ],
+      "family": "S0_stateful",
+      "market": "WETH",
+      "missing_numeric_fields": [
+        "interval_low_pct",
+        "interval_high_pct"
+      ],
+      "saved_numeric_values": {
+        "closed_cycles": "2",
+        "geometric_daily_pct": "0.03493479871807814",
+        "interval_high_pct": null,
+        "interval_low_pct": null,
+        "max_marked_close_drawdown_pct": "1.8360412222673594",
+        "net_account_return_pct": "2.153511003510772",
+        "profit_factor": "3.7172894148214546"
+      },
+      "stage": "NO_GO",
+      "strategy": "S0_stateful",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "aug_sep_2026"
+    },
+    {
+      "cost_scenario": "mid",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "PROFIT_FACTOR_BELOW_1_5",
+        "NET_ACCOUNT_RETURN_PCT_NOT_POSITIVE",
+        "GEOMETRIC_DAILY_PCT_NOT_POSITIVE"
+      ],
+      "family": "S0_stateful",
+      "market": "cbBTC",
+      "missing_numeric_fields": [
+        "interval_low_pct",
+        "interval_high_pct"
+      ],
+      "saved_numeric_values": {
+        "closed_cycles": "12",
+        "geometric_daily_pct": "-0.002201266232249033",
+        "interval_high_pct": null,
+        "interval_low_pct": null,
+        "max_marked_close_drawdown_pct": "2.6072430331114727",
+        "net_account_return_pct": "-0.8002518172383759",
+        "profit_factor": "0.7960189339269675"
+      },
+      "stage": "NO_GO",
+      "strategy": "S0_stateful",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "year_2025"
+    },
+    {
+      "cost_scenario": "double_mid",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "PROFIT_FACTOR_BELOW_1_5",
+        "NET_ACCOUNT_RETURN_PCT_NOT_POSITIVE",
+        "GEOMETRIC_DAILY_PCT_NOT_POSITIVE"
+      ],
+      "family": "S0_stateful",
+      "market": "cbBTC",
+      "missing_numeric_fields": [
+        "interval_low_pct",
+        "interval_high_pct"
+      ],
+      "saved_numeric_values": {
+        "closed_cycles": "12",
+        "geometric_daily_pct": "-0.004830830896107585",
+        "interval_high_pct": null,
+        "interval_low_pct": null,
+        "max_marked_close_drawdown_pct": "3.2970342289074805",
+        "net_account_return_pct": "-1.7478407797160855",
+        "profit_factor": "0.6141964445662156"
+      },
+      "stage": "NO_GO",
+      "strategy": "S0_stateful",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "year_2025"
+    },
+    {
+      "cost_scenario": "stress",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "PROFIT_FACTOR_BELOW_1_5",
+        "NET_ACCOUNT_RETURN_PCT_NOT_POSITIVE",
+        "GEOMETRIC_DAILY_PCT_NOT_POSITIVE"
+      ],
+      "family": "S0_stateful",
+      "market": "cbBTC",
+      "missing_numeric_fields": [
+        "interval_low_pct",
+        "interval_high_pct"
+      ],
+      "saved_numeric_values": {
+        "closed_cycles": "12",
+        "geometric_daily_pct": "-0.006824893272994181",
+        "interval_high_pct": null,
+        "interval_low_pct": null,
+        "max_marked_close_drawdown_pct": "3.822052368383755",
+        "net_account_return_pct": "-2.4603974599358196",
+        "profit_factor": "0.5069626335052109"
+      },
+      "stage": "NO_GO",
+      "strategy": "S0_stateful",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "year_2025"
+    },
+    {
+      "cost_scenario": "mid",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "PROFIT_FACTOR_BELOW_1_5",
+        "NET_ACCOUNT_RETURN_PCT_NOT_POSITIVE",
+        "GEOMETRIC_DAILY_PCT_NOT_POSITIVE"
+      ],
+      "family": "S0_stateful",
+      "market": "cbBTC",
+      "missing_numeric_fields": [
+        "interval_low_pct",
+        "interval_high_pct"
+      ],
+      "saved_numeric_values": {
+        "closed_cycles": "3",
+        "geometric_daily_pct": "-0.011222800902488395",
+        "interval_high_pct": null,
+        "interval_low_pct": null,
+        "max_marked_close_drawdown_pct": "1.616355815794368",
+        "net_account_return_pct": "-1.0050242989026401",
+        "profit_factor": "0.08573555025303088"
+      },
+      "stage": "NO_GO",
+      "strategy": "S0_stateful",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "q1_2026"
+    },
+    {
+      "cost_scenario": "double_mid",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "PROFIT_FACTOR_BELOW_1_5",
+        "NET_ACCOUNT_RETURN_PCT_NOT_POSITIVE",
+        "GEOMETRIC_DAILY_PCT_NOT_POSITIVE"
+      ],
+      "family": "S0_stateful",
+      "market": "cbBTC",
+      "missing_numeric_fields": [
+        "interval_low_pct",
+        "interval_high_pct"
+      ],
+      "saved_numeric_values": {
+        "closed_cycles": "3",
+        "geometric_daily_pct": "-0.013857735835598461",
+        "interval_high_pct": null,
+        "interval_low_pct": null,
+        "max_marked_close_drawdown_pct": "1.8092668706416015",
+        "net_account_return_pct": "-1.2395363193844844",
+        "profit_factor": "0.011170592006689052"
+      },
+      "stage": "NO_GO",
+      "strategy": "S0_stateful",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "q1_2026"
+    },
+    {
+      "cost_scenario": "stress",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "PROFIT_FACTOR_BELOW_1_5",
+        "NET_ACCOUNT_RETURN_PCT_NOT_POSITIVE",
+        "GEOMETRIC_DAILY_PCT_NOT_POSITIVE"
+      ],
+      "family": "S0_stateful",
+      "market": "cbBTC",
+      "missing_numeric_fields": [
+        "interval_low_pct",
+        "interval_high_pct"
+      ],
+      "saved_numeric_values": {
+        "closed_cycles": "3",
+        "geometric_daily_pct": "-0.015850587955867912",
+        "interval_high_pct": null,
+        "interval_low_pct": null,
+        "max_marked_close_drawdown_pct": "1.955118369561959",
+        "net_account_return_pct": "-1.416537331871723",
+        "profit_factor": "0.0"
+      },
+      "stage": "NO_GO",
+      "strategy": "S0_stateful",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "q1_2026"
+    },
+    {
+      "cost_scenario": "mid",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "PROFIT_FACTOR_BELOW_1_5",
+        "NET_ACCOUNT_RETURN_PCT_NOT_POSITIVE",
+        "GEOMETRIC_DAILY_PCT_NOT_POSITIVE"
+      ],
+      "family": "S0_stateful",
+      "market": "cbBTC",
+      "missing_numeric_fields": [
+        "interval_low_pct",
+        "interval_high_pct"
+      ],
+      "saved_numeric_values": {
+        "closed_cycles": "2",
+        "geometric_daily_pct": "-0.015460744052753217",
+        "interval_high_pct": null,
+        "interval_low_pct": null,
+        "max_marked_close_drawdown_pct": "0.9387443248058625",
+        "net_account_return_pct": "-0.9387443248058673",
+        "profit_factor": "0.0"
+      },
+      "stage": "NO_GO",
+      "strategy": "S0_stateful",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "aug_sep_2026"
+    },
+    {
+      "cost_scenario": "double_mid",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "PROFIT_FACTOR_BELOW_1_5",
+        "NET_ACCOUNT_RETURN_PCT_NOT_POSITIVE",
+        "GEOMETRIC_DAILY_PCT_NOT_POSITIVE"
+      ],
+      "family": "S0_stateful",
+      "market": "cbBTC",
+      "missing_numeric_fields": [
+        "interval_low_pct",
+        "interval_high_pct"
+      ],
+      "saved_numeric_values": {
+        "closed_cycles": "2",
+        "geometric_daily_pct": "-0.018041877436447695",
+        "interval_high_pct": null,
+        "interval_low_pct": null,
+        "max_marked_close_drawdown_pct": "1.0946187837010068",
+        "net_account_return_pct": "-1.0946187837010086",
+        "profit_factor": "0.0"
+      },
+      "stage": "NO_GO",
+      "strategy": "S0_stateful",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "aug_sep_2026"
+    },
+    {
+      "cost_scenario": "stress",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "PROFIT_FACTOR_BELOW_1_5",
+        "NET_ACCOUNT_RETURN_PCT_NOT_POSITIVE",
+        "GEOMETRIC_DAILY_PCT_NOT_POSITIVE"
+      ],
+      "family": "S0_stateful",
+      "market": "cbBTC",
+      "missing_numeric_fields": [
+        "interval_low_pct",
+        "interval_high_pct"
+      ],
+      "saved_numeric_values": {
+        "closed_cycles": "2",
+        "geometric_daily_pct": "-0.020002352557146885",
+        "interval_high_pct": null,
+        "interval_low_pct": null,
+        "max_marked_close_drawdown_pct": "1.2128505026280822",
+        "net_account_return_pct": "-1.2128505026280862",
+        "profit_factor": "0.0"
+      },
+      "stage": "NO_GO",
+      "strategy": "S0_stateful",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "aug_sep_2026"
+    },
+    {
+      "cost_scenario": "full_exploratory",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "PROFIT_FACTOR_BELOW_1_5",
+        "SAVED_LOWER_ENDPOINT_NOT_POSITIVE"
+      ],
+      "family": "original_engine_saved",
+      "market": "WETH",
+      "missing_numeric_fields": [],
+      "saved_numeric_values": {
+        "closed_cycles": "8",
+        "geometric_daily_pct": "0.03046409073863554",
+        "interval_high_pct": "0.1096112283602239",
+        "interval_low_pct": "-0.026801273651391948",
+        "max_marked_close_drawdown_pct": "3.0320901936258804",
+        "net_account_return_pct": "5.202300983415675",
+        "profit_factor": "0.8615018236991109"
+      },
+      "stage": "NO_GO",
+      "strategy": "trend",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "full_exploratory"
+    },
+    {
+      "cost_scenario": "full_exploratory",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "PROFIT_FACTOR_BELOW_1_5",
+        "SAVED_LOWER_ENDPOINT_NOT_POSITIVE"
+      ],
+      "family": "original_engine_saved",
+      "market": "WETH",
+      "missing_numeric_fields": [],
+      "saved_numeric_values": {
+        "closed_cycles": "20",
+        "geometric_daily_pct": "0.025330521671640405",
+        "interval_high_pct": "0.10108043818344359",
+        "interval_low_pct": "-0.02694420673675752",
+        "max_marked_close_drawdown_pct": "3.7310140505695366",
+        "net_account_return_pct": "4.307176280072222",
+        "profit_factor": "0.7132496544929666"
+      },
+      "stage": "NO_GO",
+      "strategy": "momentum",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "full_exploratory"
+    },
+    {
+      "cost_scenario": "full_exploratory",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "PROFIT_FACTOR_BELOW_1_5",
+        "NET_ACCOUNT_RETURN_PCT_NOT_POSITIVE",
+        "GEOMETRIC_DAILY_PCT_NOT_POSITIVE",
+        "SAVED_LOWER_ENDPOINT_NOT_POSITIVE"
+      ],
+      "family": "original_engine_saved",
+      "market": "WETH",
+      "missing_numeric_fields": [],
+      "saved_numeric_values": {
+        "closed_cycles": "20",
+        "geometric_daily_pct": "-0.010184493549936224",
+        "interval_high_pct": "0.031863738949154334",
+        "interval_low_pct": "-0.06115757156892922",
+        "max_marked_close_drawdown_pct": "5.1970907640847",
+        "net_account_return_pct": "-1.681506702194413",
+        "profit_factor": "0.7370365760191036"
+      },
+      "stage": "NO_GO",
+      "strategy": "mean_reversion",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "full_exploratory"
+    },
+    {
+      "cost_scenario": "development",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "PROFIT_FACTOR_BELOW_1_5",
+        "SAVED_LOWER_ENDPOINT_NOT_POSITIVE"
+      ],
+      "family": "original_engine_saved",
+      "market": "WETH",
+      "missing_numeric_fields": [],
+      "saved_numeric_values": {
+        "closed_cycles": "3",
+        "geometric_daily_pct": "0.020060599083637776",
+        "interval_high_pct": "0.08238277613871026",
+        "interval_low_pct": "-0.035121545704195574",
+        "max_marked_close_drawdown_pct": "1.9947971968401257",
+        "net_account_return_pct": "1.3428321315984704",
+        "profit_factor": "0.5828711546143087"
+      },
+      "stage": "NO_GO",
+      "strategy": "trend",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "development"
+    },
+    {
+      "cost_scenario": "development",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "PROFIT_FACTOR_BELOW_1_5",
+        "NET_ACCOUNT_RETURN_PCT_NOT_POSITIVE",
+        "GEOMETRIC_DAILY_PCT_NOT_POSITIVE",
+        "SAVED_LOWER_ENDPOINT_NOT_POSITIVE"
+      ],
+      "family": "original_engine_saved",
+      "market": "WETH",
+      "missing_numeric_fields": [],
+      "saved_numeric_values": {
+        "closed_cycles": "13",
+        "geometric_daily_pct": "-0.011747769559566912",
+        "interval_high_pct": "0.04970375410185952",
+        "interval_low_pct": "-0.0707660930699011",
+        "max_marked_close_drawdown_pct": "3.7310140505695366",
+        "net_account_return_pct": "-0.7782285660106525",
+        "profit_factor": "0.2945584271685575"
+      },
+      "stage": "NO_GO",
+      "strategy": "momentum",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "development"
+    },
+    {
+      "cost_scenario": "development",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "PROFIT_FACTOR_BELOW_1_5",
+        "NET_ACCOUNT_RETURN_PCT_NOT_POSITIVE",
+        "GEOMETRIC_DAILY_PCT_NOT_POSITIVE",
+        "SAVED_LOWER_ENDPOINT_NOT_POSITIVE"
+      ],
+      "family": "original_engine_saved",
+      "market": "WETH",
+      "missing_numeric_fields": [],
+      "saved_numeric_values": {
+        "closed_cycles": "8",
+        "geometric_daily_pct": "-0.06665042703066781",
+        "interval_high_pct": "0.018170952692998725",
+        "interval_low_pct": "-0.17362535108626764",
+        "max_marked_close_drawdown_pct": "5.1970907640847",
+        "net_account_return_pct": "-4.336877930455163",
+        "profit_factor": "0.22588964345189047"
+      },
+      "stage": "NO_GO",
+      "strategy": "mean_reversion",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "development"
+    },
+    {
+      "cost_scenario": "walk_forward_1",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "PROFIT_FACTOR_BELOW_1_5",
+        "NET_ACCOUNT_RETURN_PCT_NOT_POSITIVE",
+        "GEOMETRIC_DAILY_PCT_NOT_POSITIVE",
+        "SAVED_LOWER_ENDPOINT_NOT_POSITIVE"
+      ],
+      "family": "original_engine_saved",
+      "market": "WETH",
+      "missing_numeric_fields": [],
+      "saved_numeric_values": {
+        "closed_cycles": "4",
+        "geometric_daily_pct": "-0.037674089355621554",
+        "interval_high_pct": "0.06323011781646254",
+        "interval_low_pct": "-0.13682841319611583",
+        "max_marked_close_drawdown_pct": "2.431123399448254",
+        "net_account_return_pct": "-1.2481843395738768",
+        "profit_factor": "0.3273546368163653"
+      },
+      "stage": "NO_GO",
+      "strategy": "trend",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "walk_forward_1"
+    },
+    {
+      "cost_scenario": "walk_forward_1",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "PROFIT_FACTOR_BELOW_1_5",
+        "NET_ACCOUNT_RETURN_PCT_NOT_POSITIVE",
+        "GEOMETRIC_DAILY_PCT_NOT_POSITIVE",
+        "SAVED_LOWER_ENDPOINT_NOT_POSITIVE"
+      ],
+      "family": "original_engine_saved",
+      "market": "WETH",
+      "missing_numeric_fields": [],
+      "saved_numeric_values": {
+        "closed_cycles": "6",
+        "geometric_daily_pct": "-0.020601299407052576",
+        "interval_high_pct": "0.03111322312676275",
+        "interval_low_pct": "-0.06296059139113686",
+        "max_marked_close_drawdown_pct": "1.3077871559290632",
+        "net_account_return_pct": "-0.68442777633132",
+        "profit_factor": "0.49327736592959615"
+      },
+      "stage": "NO_GO",
+      "strategy": "momentum",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "walk_forward_1"
+    },
+    {
+      "cost_scenario": "walk_forward_1",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "SAVED_LOWER_ENDPOINT_NOT_POSITIVE"
+      ],
+      "family": "original_engine_saved",
+      "market": "WETH",
+      "missing_numeric_fields": [
+        "profit_factor"
+      ],
+      "saved_numeric_values": {
+        "closed_cycles": "3",
+        "geometric_daily_pct": "0.020562413628444354",
+        "interval_high_pct": "0.04143856891416628",
+        "interval_low_pct": "-0.0005782369712988909",
+        "max_marked_close_drawdown_pct": "0.4255192971498456",
+        "net_account_return_pct": "0.6876971801027532",
+        "profit_factor": null
+      },
+      "stage": "NO_GO",
+      "strategy": "mean_reversion",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "walk_forward_1"
+    },
+    {
+      "cost_scenario": "walk_forward_2",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "PROFIT_FACTOR_BELOW_1_5",
+        "SAVED_LOWER_ENDPOINT_NOT_POSITIVE"
+      ],
+      "family": "original_engine_saved",
+      "market": "WETH",
+      "missing_numeric_fields": [],
+      "saved_numeric_values": {
+        "closed_cycles": "1",
+        "geometric_daily_pct": "0.14858622741709127",
+        "interval_high_pct": "0.47072370922240014",
+        "interval_low_pct": "-0.0590063927051426",
+        "max_marked_close_drawdown_pct": "1.2892653530026554",
+        "net_account_return_pct": "5.073716782905202",
+        "profit_factor": "0.0"
+      },
+      "stage": "NO_GO",
+      "strategy": "trend",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "walk_forward_2"
+    },
+    {
+      "cost_scenario": "walk_forward_2",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "PROFIT_FACTOR_BELOW_1_5",
+        "SAVED_LOWER_ENDPOINT_NOT_POSITIVE"
+      ],
+      "family": "original_engine_saved",
+      "market": "WETH",
+      "missing_numeric_fields": [],
+      "saved_numeric_values": {
+        "closed_cycles": "1",
+        "geometric_daily_pct": "0.16254775902138086",
+        "interval_high_pct": "0.46565120095647067",
+        "interval_low_pct": "-0.017089757541963343",
+        "max_marked_close_drawdown_pct": "1.2804744691775283",
+        "net_account_return_pct": "5.56309000444819",
+        "profit_factor": "0.0"
+      },
+      "stage": "NO_GO",
+      "strategy": "momentum",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "walk_forward_2"
+    },
+    {
+      "cost_scenario": "walk_forward_2",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100"
+      ],
+      "family": "original_engine_saved",
+      "market": "WETH",
+      "missing_numeric_fields": [
+        "profit_factor"
+      ],
+      "saved_numeric_values": {
+        "closed_cycles": "5",
+        "geometric_daily_pct": "0.05426941397459473",
+        "interval_high_pct": "0.10657158290614402",
+        "interval_low_pct": "0.01055058160454461",
+        "max_marked_close_drawdown_pct": "0.3703257613791866",
+        "net_account_return_pct": "1.8249419874138972",
+        "profit_factor": null
+      },
+      "stage": "NO_GO",
+      "strategy": "mean_reversion",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "walk_forward_2"
+    },
+    {
+      "cost_scenario": "final_holdout",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "PROFIT_FACTOR_BELOW_1_5",
+        "NET_ACCOUNT_RETURN_PCT_NOT_POSITIVE",
+        "GEOMETRIC_DAILY_PCT_NOT_POSITIVE",
+        "SAVED_LOWER_ENDPOINT_NOT_POSITIVE"
+      ],
+      "family": "original_engine_saved",
+      "market": "WETH",
+      "missing_numeric_fields": [],
+      "saved_numeric_values": {
+        "closed_cycles": "6",
+        "geometric_daily_pct": "-0.07421279608019749",
+        "interval_high_pct": "0.01158999075375396",
+        "interval_low_pct": "-0.13983588877542377",
+        "max_marked_close_drawdown_pct": "2.4443091133341532",
+        "net_account_return_pct": "-2.4443091133341532",
+        "profit_factor": "0.0882937246760768"
+      },
+      "stage": "NO_GO",
+      "strategy": "trend",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "final_holdout"
+    },
+    {
+      "cost_scenario": "final_holdout",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "PROFIT_FACTOR_BELOW_1_5",
+        "NET_ACCOUNT_RETURN_PCT_NOT_POSITIVE",
+        "GEOMETRIC_DAILY_PCT_NOT_POSITIVE",
+        "SAVED_LOWER_ENDPOINT_NOT_POSITIVE"
+      ],
+      "family": "original_engine_saved",
+      "market": "WETH",
+      "missing_numeric_fields": [],
+      "saved_numeric_values": {
+        "closed_cycles": "6",
+        "geometric_daily_pct": "-0.0558914767318508",
+        "interval_high_pct": "0.05493015253595422",
+        "interval_low_pct": "-0.13972863910496838",
+        "max_marked_close_drawdown_pct": "2.6856572718233496",
+        "net_account_return_pct": "-1.846312960128893",
+        "profit_factor": "0.5149614562676602"
+      },
+      "stage": "NO_GO",
+      "strategy": "momentum",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "final_holdout"
+    },
+    {
+      "cost_scenario": "final_holdout",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "PROFIT_FACTOR_BELOW_1_5",
+        "SAVED_LOWER_ENDPOINT_NOT_POSITIVE"
+      ],
+      "family": "original_engine_saved",
+      "market": "WETH",
+      "missing_numeric_fields": [],
+      "saved_numeric_values": {
+        "closed_cycles": "4",
+        "geometric_daily_pct": "0.004279000407447775",
+        "interval_high_pct": "0.07797744769182119",
+        "interval_low_pct": "-0.06974243649154364",
+        "max_marked_close_drawdown_pct": "1.4294785579438418",
+        "net_account_return_pct": "0.1427320607440885",
+        "profit_factor": "1.1802062759129794"
+      },
+      "stage": "NO_GO",
+      "strategy": "mean_reversion",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "final_holdout"
+    },
+    {
+      "cost_scenario": "holdout_double_cost",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "PROFIT_FACTOR_BELOW_1_5",
+        "NET_ACCOUNT_RETURN_PCT_NOT_POSITIVE",
+        "GEOMETRIC_DAILY_PCT_NOT_POSITIVE",
+        "SAVED_LOWER_ENDPOINT_NOT_POSITIVE"
+      ],
+      "family": "original_engine_saved",
+      "market": "WETH",
+      "missing_numeric_fields": [],
+      "saved_numeric_values": {
+        "closed_cycles": "6",
+        "geometric_daily_pct": "-0.08881320279912064",
+        "interval_high_pct": "0.001998362198972889",
+        "interval_low_pct": "-0.1585468976896513",
+        "max_marked_close_drawdown_pct": "2.918325345909012",
+        "net_account_return_pct": "-2.918325345909012",
+        "profit_factor": "0.05077577308686637"
+      },
+      "stage": "NO_GO",
+      "strategy": "trend",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "holdout_double_cost"
+    },
+    {
+      "cost_scenario": "holdout_double_cost",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "PROFIT_FACTOR_BELOW_1_5",
+        "NET_ACCOUNT_RETURN_PCT_NOT_POSITIVE",
+        "GEOMETRIC_DAILY_PCT_NOT_POSITIVE",
+        "SAVED_LOWER_ENDPOINT_NOT_POSITIVE"
+      ],
+      "family": "original_engine_saved",
+      "market": "WETH",
+      "missing_numeric_fields": [],
+      "saved_numeric_values": {
+        "closed_cycles": "6",
+        "geometric_daily_pct": "-0.07171266184683445",
+        "interval_high_pct": "0.039540625250263986",
+        "interval_low_pct": "-0.15739672799885354",
+        "max_marked_close_drawdown_pct": "3.0039417648632494",
+        "net_account_return_pct": "-2.3629150405409693",
+        "profit_factor": "0.40787041853430844"
+      },
+      "stage": "NO_GO",
+      "strategy": "momentum",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "holdout_double_cost"
+    },
+    {
+      "cost_scenario": "holdout_double_cost",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "PROFIT_FACTOR_BELOW_1_5",
+        "NET_ACCOUNT_RETURN_PCT_NOT_POSITIVE",
+        "GEOMETRIC_DAILY_PCT_NOT_POSITIVE",
+        "SAVED_LOWER_ENDPOINT_NOT_POSITIVE"
+      ],
+      "family": "original_engine_saved",
+      "market": "WETH",
+      "missing_numeric_fields": [],
+      "saved_numeric_values": {
+        "closed_cycles": "4",
+        "geometric_daily_pct": "-0.005335737429779108",
+        "interval_high_pct": "0.06535477137609158",
+        "interval_low_pct": "-0.07829429904694439",
+        "max_marked_close_drawdown_pct": "1.5941118262017162",
+        "net_account_return_pct": "-0.1777045776188646",
+        "profit_factor": "0.8129642806629278"
+      },
+      "stage": "NO_GO",
+      "strategy": "mean_reversion",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "holdout_double_cost"
+    },
+    {
+      "cost_scenario": "holdout_gas_010",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "PROFIT_FACTOR_BELOW_1_5",
+        "NET_ACCOUNT_RETURN_PCT_NOT_POSITIVE",
+        "GEOMETRIC_DAILY_PCT_NOT_POSITIVE",
+        "SAVED_LOWER_ENDPOINT_NOT_POSITIVE"
+      ],
+      "family": "original_engine_saved",
+      "market": "WETH",
+      "missing_numeric_fields": [],
+      "saved_numeric_values": {
+        "closed_cycles": "6",
+        "geometric_daily_pct": "-0.10757944364366834",
+        "interval_high_pct": "-0.00887908273922025",
+        "interval_low_pct": "-0.18398328174029807",
+        "max_marked_close_drawdown_pct": "3.524309113334123",
+        "net_account_return_pct": "-3.524309113334123",
+        "profit_factor": "0.01583843340221041"
+      },
+      "stage": "NO_GO",
+      "strategy": "trend",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "holdout_gas_010"
+    },
+    {
+      "cost_scenario": "holdout_gas_010",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "PROFIT_FACTOR_BELOW_1_5",
+        "NET_ACCOUNT_RETURN_PCT_NOT_POSITIVE",
+        "GEOMETRIC_DAILY_PCT_NOT_POSITIVE",
+        "SAVED_LOWER_ENDPOINT_NOT_POSITIVE"
+      ],
+      "family": "original_engine_saved",
+      "market": "WETH",
+      "missing_numeric_fields": [],
+      "saved_numeric_values": {
+        "closed_cycles": "6",
+        "geometric_daily_pct": "-0.09183999066482151",
+        "interval_high_pct": "0.020648234147936893",
+        "interval_low_pct": "-0.181031135134795",
+        "max_marked_close_drawdown_pct": "3.4147352222733907",
+        "net_account_return_pct": "-3.016312960128875",
+        "profit_factor": "0.3124059453361994"
+      },
+      "stage": "NO_GO",
+      "strategy": "momentum",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "holdout_gas_010"
+    },
+    {
+      "cost_scenario": "holdout_gas_010",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "PROFIT_FACTOR_BELOW_1_5",
+        "NET_ACCOUNT_RETURN_PCT_NOT_POSITIVE",
+        "GEOMETRIC_DAILY_PCT_NOT_POSITIVE",
+        "SAVED_LOWER_ENDPOINT_NOT_POSITIVE"
+      ],
+      "family": "original_engine_saved",
+      "market": "WETH",
+      "missing_numeric_fields": [],
+      "saved_numeric_values": {
+        "closed_cycles": "4",
+        "geometric_daily_pct": "-0.017366708935706576",
+        "interval_high_pct": "0.05147429951601269",
+        "interval_low_pct": "-0.08823625542556733",
+        "max_marked_close_drawdown_pct": "1.8928865121099037",
+        "net_account_return_pct": "-0.5772679392558877",
+        "profit_factor": "0.49892033392431445"
+      },
+      "stage": "NO_GO",
+      "strategy": "mean_reversion",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "holdout_gas_010"
+    },
+    {
+      "cost_scenario": "holdout_gas_100_rejected",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "NET_ACCOUNT_RETURN_PCT_NOT_POSITIVE",
+        "GEOMETRIC_DAILY_PCT_NOT_POSITIVE",
+        "SAVED_LOWER_ENDPOINT_NOT_POSITIVE"
+      ],
+      "family": "original_engine_saved",
+      "market": "WETH",
+      "missing_numeric_fields": [
+        "profit_factor"
+      ],
+      "saved_numeric_values": {
+        "closed_cycles": "0",
+        "geometric_daily_pct": "0.0",
+        "interval_high_pct": "0.0",
+        "interval_low_pct": "0.0",
+        "max_marked_close_drawdown_pct": "0.0",
+        "net_account_return_pct": "0.0",
+        "profit_factor": null
+      },
+      "stage": "NO_GO",
+      "strategy": "trend",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "holdout_gas_100_rejected"
+    },
+    {
+      "cost_scenario": "holdout_gas_100_rejected",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "NET_ACCOUNT_RETURN_PCT_NOT_POSITIVE",
+        "GEOMETRIC_DAILY_PCT_NOT_POSITIVE",
+        "SAVED_LOWER_ENDPOINT_NOT_POSITIVE"
+      ],
+      "family": "original_engine_saved",
+      "market": "WETH",
+      "missing_numeric_fields": [
+        "profit_factor"
+      ],
+      "saved_numeric_values": {
+        "closed_cycles": "0",
+        "geometric_daily_pct": "0.0",
+        "interval_high_pct": "0.0",
+        "interval_low_pct": "0.0",
+        "max_marked_close_drawdown_pct": "0.0",
+        "net_account_return_pct": "0.0",
+        "profit_factor": null
+      },
+      "stage": "NO_GO",
+      "strategy": "momentum",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "holdout_gas_100_rejected"
+    },
+    {
+      "cost_scenario": "holdout_gas_100_rejected",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "NET_ACCOUNT_RETURN_PCT_NOT_POSITIVE",
+        "GEOMETRIC_DAILY_PCT_NOT_POSITIVE",
+        "SAVED_LOWER_ENDPOINT_NOT_POSITIVE"
+      ],
+      "family": "original_engine_saved",
+      "market": "WETH",
+      "missing_numeric_fields": [
+        "profit_factor"
+      ],
+      "saved_numeric_values": {
+        "closed_cycles": "0",
+        "geometric_daily_pct": "0.0",
+        "interval_high_pct": "0.0",
+        "interval_low_pct": "0.0",
+        "max_marked_close_drawdown_pct": "0.0",
+        "net_account_return_pct": "0.0",
+        "profit_factor": null
+      },
+      "stage": "NO_GO",
+      "strategy": "mean_reversion",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "holdout_gas_100_rejected"
+    },
+    {
+      "cost_scenario": "mid",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "PROFIT_FACTOR_BELOW_1_5",
+        "NET_ACCOUNT_RETURN_PCT_NOT_POSITIVE",
+        "GEOMETRIC_DAILY_PCT_NOT_POSITIVE"
+      ],
+      "family": "native_hourly_selected",
+      "market": "WETH",
+      "missing_numeric_fields": [
+        "interval_low_pct",
+        "interval_high_pct"
+      ],
+      "saved_numeric_values": {
+        "closed_cycles": "2",
+        "geometric_daily_pct": "-0.015801125112298992",
+        "interval_high_pct": null,
+        "interval_low_pct": null,
+        "max_marked_close_drawdown_pct": "0.9476125002320535",
+        "net_account_return_pct": "-0.4729492647313549",
+        "profit_factor": "0.2377489550874141"
+      },
+      "stage": "NO_GO",
+      "strategy": "ATR_wall_clock",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "2026-09-01/2026-10-01"
+    },
+    {
+      "cost_scenario": "stress",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "PROFIT_FACTOR_BELOW_1_5",
+        "NET_ACCOUNT_RETURN_PCT_NOT_POSITIVE",
+        "GEOMETRIC_DAILY_PCT_NOT_POSITIVE"
+      ],
+      "family": "native_hourly_selected",
+      "market": "WETH",
+      "missing_numeric_fields": [
+        "interval_low_pct",
+        "interval_high_pct"
+      ],
+      "saved_numeric_values": {
+        "closed_cycles": "2",
+        "geometric_daily_pct": "-0.02509343458969546",
+        "interval_high_pct": null,
+        "interval_low_pct": null,
+        "max_marked_close_drawdown_pct": "1.1524283846124472",
+        "net_account_return_pct": "-0.7500703319833946",
+        "profit_factor": "0.009452145896796884"
+      },
+      "stage": "NO_GO",
+      "strategy": "ATR_wall_clock",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "2026-09-01/2026-10-01"
+    },
+    {
+      "cost_scenario": "mid",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "PROFIT_FACTOR_BELOW_1_5",
+        "NET_ACCOUNT_RETURN_PCT_NOT_POSITIVE",
+        "GEOMETRIC_DAILY_PCT_NOT_POSITIVE"
+      ],
+      "family": "native_hourly_selected",
+      "market": "WETH",
+      "missing_numeric_fields": [
+        "interval_low_pct",
+        "interval_high_pct"
+      ],
+      "saved_numeric_values": {
+        "closed_cycles": "2",
+        "geometric_daily_pct": "-0.015801125112298992",
+        "interval_high_pct": null,
+        "interval_low_pct": null,
+        "max_marked_close_drawdown_pct": "0.9476125002320535",
+        "net_account_return_pct": "-0.4729492647313549",
+        "profit_factor": "0.2377489550874141"
+      },
+      "stage": "NO_GO",
+      "strategy": "ATR_vol_wall_clock",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "2026-09-01/2026-10-01"
+    },
+    {
+      "cost_scenario": "stress",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "PROFIT_FACTOR_BELOW_1_5",
+        "NET_ACCOUNT_RETURN_PCT_NOT_POSITIVE",
+        "GEOMETRIC_DAILY_PCT_NOT_POSITIVE"
+      ],
+      "family": "native_hourly_selected",
+      "market": "WETH",
+      "missing_numeric_fields": [
+        "interval_low_pct",
+        "interval_high_pct"
+      ],
+      "saved_numeric_values": {
+        "closed_cycles": "2",
+        "geometric_daily_pct": "-0.02509343458969546",
+        "interval_high_pct": null,
+        "interval_low_pct": null,
+        "max_marked_close_drawdown_pct": "1.1524283846124472",
+        "net_account_return_pct": "-0.7500703319833946",
+        "profit_factor": "0.009452145896796884"
+      },
+      "stage": "NO_GO",
+      "strategy": "ATR_vol_wall_clock",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "2026-09-01/2026-10-01"
+    },
+    {
+      "cost_scenario": "mid",
+      "failed_numeric_requirements": [],
+      "family": "native_hourly_selected",
+      "market": "WETH",
+      "missing_numeric_fields": [
+        "net_account_return_pct",
+        "geometric_daily_pct",
+        "profit_factor",
+        "max_marked_close_drawdown_pct",
+        "closed_cycles",
+        "interval_low_pct",
+        "interval_high_pct"
+      ],
+      "saved_numeric_values": {
+        "closed_cycles": null,
+        "geometric_daily_pct": null,
+        "interval_high_pct": null,
+        "interval_low_pct": null,
+        "max_marked_close_drawdown_pct": null,
+        "net_account_return_pct": null,
+        "profit_factor": null
+      },
+      "stage": "INSUFFICIENT_EVIDENCE",
+      "strategy": "ATR_wall_clock",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "2026-04-01/2026-10-01"
+    },
+    {
+      "cost_scenario": "stress",
+      "failed_numeric_requirements": [],
+      "family": "native_hourly_selected",
+      "market": "WETH",
+      "missing_numeric_fields": [
+        "net_account_return_pct",
+        "geometric_daily_pct",
+        "profit_factor",
+        "max_marked_close_drawdown_pct",
+        "closed_cycles",
+        "interval_low_pct",
+        "interval_high_pct"
+      ],
+      "saved_numeric_values": {
+        "closed_cycles": null,
+        "geometric_daily_pct": null,
+        "interval_high_pct": null,
+        "interval_low_pct": null,
+        "max_marked_close_drawdown_pct": null,
+        "net_account_return_pct": null,
+        "profit_factor": null
+      },
+      "stage": "INSUFFICIENT_EVIDENCE",
+      "strategy": "ATR_wall_clock",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "2026-04-01/2026-10-01"
+    },
+    {
+      "cost_scenario": "mid",
+      "failed_numeric_requirements": [],
+      "family": "native_hourly_selected",
+      "market": "WETH",
+      "missing_numeric_fields": [
+        "net_account_return_pct",
+        "geometric_daily_pct",
+        "profit_factor",
+        "max_marked_close_drawdown_pct",
+        "closed_cycles",
+        "interval_low_pct",
+        "interval_high_pct"
+      ],
+      "saved_numeric_values": {
+        "closed_cycles": null,
+        "geometric_daily_pct": null,
+        "interval_high_pct": null,
+        "interval_low_pct": null,
+        "max_marked_close_drawdown_pct": null,
+        "net_account_return_pct": null,
+        "profit_factor": null
+      },
+      "stage": "INSUFFICIENT_EVIDENCE",
+      "strategy": "ATR_vol_wall_clock",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "2026-04-01/2026-10-01"
+    },
+    {
+      "cost_scenario": "stress",
+      "failed_numeric_requirements": [],
+      "family": "native_hourly_selected",
+      "market": "WETH",
+      "missing_numeric_fields": [
+        "net_account_return_pct",
+        "geometric_daily_pct",
+        "profit_factor",
+        "max_marked_close_drawdown_pct",
+        "closed_cycles",
+        "interval_low_pct",
+        "interval_high_pct"
+      ],
+      "saved_numeric_values": {
+        "closed_cycles": null,
+        "geometric_daily_pct": null,
+        "interval_high_pct": null,
+        "interval_low_pct": null,
+        "max_marked_close_drawdown_pct": null,
+        "net_account_return_pct": null,
+        "profit_factor": null
+      },
+      "stage": "INSUFFICIENT_EVIDENCE",
+      "strategy": "ATR_vol_wall_clock",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "2026-04-01/2026-10-01"
+    },
+    {
+      "cost_scenario": "mid",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "PROFIT_FACTOR_BELOW_1_5",
+        "SAVED_LOWER_ENDPOINT_NOT_POSITIVE"
+      ],
+      "family": "native_hourly_selected",
+      "market": "WETH",
+      "missing_numeric_fields": [],
+      "saved_numeric_values": {
+        "closed_cycles": "23",
+        "geometric_daily_pct": "0.00825953401071847",
+        "interval_high_pct": "14.635597732194288",
+        "interval_low_pct": "-6.089445129194847",
+        "max_marked_close_drawdown_pct": "4.5082317130737515",
+        "net_account_return_pct": "3.0605047151675677",
+        "profit_factor": "1.3919067308364652"
+      },
+      "stage": "NO_GO",
+      "strategy": "ATR_wall_clock",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "2025-04-01/2026-04-01"
+    },
+    {
+      "cost_scenario": "stress",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "PROFIT_FACTOR_BELOW_1_5",
+        "NET_ACCOUNT_RETURN_PCT_NOT_POSITIVE",
+        "GEOMETRIC_DAILY_PCT_NOT_POSITIVE",
+        "SAVED_LOWER_ENDPOINT_NOT_POSITIVE"
+      ],
+      "family": "native_hourly_selected",
+      "market": "WETH",
+      "missing_numeric_fields": [],
+      "saved_numeric_values": {
+        "closed_cycles": "23",
+        "geometric_daily_pct": "-0.0004991977136307233",
+        "interval_high_pct": "11.053329328305097",
+        "interval_low_pct": "-9.062594197926835",
+        "max_marked_close_drawdown_pct": "5.776809580342901",
+        "net_account_return_pct": "-0.18204172295379806",
+        "profit_factor": "0.9815477119537355"
+      },
+      "stage": "NO_GO",
+      "strategy": "ATR_wall_clock",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "2025-04-01/2026-04-01"
+    },
+    {
+      "cost_scenario": "mid",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "SAVED_LOWER_ENDPOINT_NOT_POSITIVE"
+      ],
+      "family": "native_hourly_selected",
+      "market": "WETH",
+      "missing_numeric_fields": [],
+      "saved_numeric_values": {
+        "closed_cycles": "20",
+        "geometric_daily_pct": "0.013221046462017966",
+        "interval_high_pct": "17.63127067006037",
+        "interval_low_pct": "-4.68080611617536",
+        "max_marked_close_drawdown_pct": "4.002499988946495",
+        "net_account_return_pct": "4.943679005754234",
+        "profit_factor": "1.8216305439693457"
+      },
+      "stage": "NO_GO",
+      "strategy": "ATR_vol_wall_clock",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "2025-04-01/2026-04-01"
+    },
+    {
+      "cost_scenario": "stress",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "PROFIT_FACTOR_BELOW_1_5",
+        "SAVED_LOWER_ENDPOINT_NOT_POSITIVE"
+      ],
+      "family": "native_hourly_selected",
+      "market": "WETH",
+      "missing_numeric_fields": [],
+      "saved_numeric_values": {
+        "closed_cycles": "20",
+        "geometric_daily_pct": "0.005649708779935581",
+        "interval_high_pct": "14.226154372725349",
+        "interval_low_pct": "-7.177407503415775",
+        "max_marked_close_drawdown_pct": "5.134671288128079",
+        "net_account_return_pct": "2.08349333279115",
+        "profit_factor": "1.2706198271507243"
+      },
+      "stage": "NO_GO",
+      "strategy": "ATR_vol_wall_clock",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "2025-04-01/2026-04-01"
+    },
+    {
+      "cost_scenario": "mid",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "PROFIT_FACTOR_BELOW_1_5",
+        "NET_ACCOUNT_RETURN_PCT_NOT_POSITIVE",
+        "GEOMETRIC_DAILY_PCT_NOT_POSITIVE"
+      ],
+      "family": "native_hourly_selected",
+      "market": "WETH",
+      "missing_numeric_fields": [
+        "interval_low_pct",
+        "interval_high_pct"
+      ],
+      "saved_numeric_values": {
+        "closed_cycles": "8",
+        "geometric_daily_pct": "-0.012779739408960494",
+        "interval_high_pct": null,
+        "interval_low_pct": null,
+        "max_marked_close_drawdown_pct": "2.8429344681897284",
+        "net_account_return_pct": "-2.2992169449831152",
+        "profit_factor": "0.13177872054402764"
+      },
+      "stage": "NO_GO",
+      "strategy": "ATR_wall_clock",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "2025-10-01/2026-04-01"
+    },
+    {
+      "cost_scenario": "stress",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "PROFIT_FACTOR_BELOW_1_5",
+        "NET_ACCOUNT_RETURN_PCT_NOT_POSITIVE",
+        "GEOMETRIC_DAILY_PCT_NOT_POSITIVE"
+      ],
+      "family": "native_hourly_selected",
+      "market": "WETH",
+      "missing_numeric_fields": [
+        "interval_low_pct",
+        "interval_high_pct"
+      ],
+      "saved_numeric_values": {
+        "closed_cycles": "8",
+        "geometric_daily_pct": "-0.018942693488105258",
+        "interval_high_pct": null,
+        "interval_low_pct": null,
+        "max_marked_close_drawdown_pct": "3.6239086896245443",
+        "net_account_return_pct": "-3.389134120820458",
+        "profit_factor": "0.021939295670775117"
+      },
+      "stage": "NO_GO",
+      "strategy": "ATR_wall_clock",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "2025-10-01/2026-04-01"
+    },
+    {
+      "cost_scenario": "mid",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "PROFIT_FACTOR_BELOW_1_5",
+        "NET_ACCOUNT_RETURN_PCT_NOT_POSITIVE",
+        "GEOMETRIC_DAILY_PCT_NOT_POSITIVE"
+      ],
+      "family": "native_hourly_selected",
+      "market": "WETH",
+      "missing_numeric_fields": [
+        "interval_low_pct",
+        "interval_high_pct"
+      ],
+      "saved_numeric_values": {
+        "closed_cycles": "8",
+        "geometric_daily_pct": "-0.012779739408960494",
+        "interval_high_pct": null,
+        "interval_low_pct": null,
+        "max_marked_close_drawdown_pct": "2.8429344681897284",
+        "net_account_return_pct": "-2.2992169449831152",
+        "profit_factor": "0.13177872054402764"
+      },
+      "stage": "NO_GO",
+      "strategy": "ATR_vol_wall_clock",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "2025-10-01/2026-04-01"
+    },
+    {
+      "cost_scenario": "stress",
+      "failed_numeric_requirements": [
+        "CLOSED_CYCLES_BELOW_100",
+        "PROFIT_FACTOR_BELOW_1_5",
+        "NET_ACCOUNT_RETURN_PCT_NOT_POSITIVE",
+        "GEOMETRIC_DAILY_PCT_NOT_POSITIVE"
+      ],
+      "family": "native_hourly_selected",
+      "market": "WETH",
+      "missing_numeric_fields": [
+        "interval_low_pct",
+        "interval_high_pct"
+      ],
+      "saved_numeric_values": {
+        "closed_cycles": "8",
+        "geometric_daily_pct": "-0.018942693488105258",
+        "interval_high_pct": null,
+        "interval_low_pct": null,
+        "max_marked_close_drawdown_pct": "3.6239086896245443",
+        "net_account_return_pct": "-3.389134120820458",
+        "profit_factor": "0.021939295670775117"
+      },
+      "stage": "NO_GO",
+      "strategy": "ATR_vol_wall_clock",
+      "unverified_requirements": [
+        "DEPENDENCE_AWARE_LOWER_BOUND_UNVERIFIED",
+        "UNTOUCHED_OOS_UNVERIFIED",
+        "COMPLETE_EXECUTION_COSTS_UNVERIFIED",
+        "INDEPENDENT_CYCLES_AND_LEDGER_NOT_RECOMPUTED"
+      ],
+      "window": "2025-10-01/2026-04-01"
+    }
+  ],
+  "new_experiments": false,
+  "profitability_evidence_status": "INSUFFICIENT_EVIDENCE",
+  "qualified_paper_candidates": 0,
+  "qualified_prospective_days": 0,
+  "raw_market_inputs_authenticated": false,
+  "real_capital_authorized_usd": 0,
+  "registry_entries": 164,
+  "saved_metric_rows": 58,
+  "schema_version": 1,
+  "scope": "SAVED_REPORTS_ONLY_NOT_CURRENT_LIVE_OR_NEW_OOS",
+  "snapshot_observed_at_utc": "2026-11-05T11:30:32Z",
+  "source_commit": "e694646e8540264a835352ead361cfc176fc86dd",
+  "stage": "NO_GO",
+  "stage_contracts": {
+    "INSUFFICIENT_EVIDENCE": {
+      "implemented": true,
+      "prerequisites": [
+        "A required artifact is missing, corrupt, inconsistent or unsupported; no positive stage or zero-cost/zero-missing-data inference is permitted."
+      ]
+    },
+    "NO_GO": {
+      "implemented": true,
+      "prerequisites": [
+        "The pinned saved snapshot and its numeric failures corroborate its recorded negative verdict. This is a snapshot-scoped rejection, not a verdict on untested registry leads."
+      ]
+    },
+    "PAPER_IN_PROGRESS": {
+      "implemented": false,
+      "prerequisites": [
+        "Authenticated preregistration precedes untouched OOS; candidate, protocol, market, time window and runtime hashes match every artifact.",
+        "Reproducible independent closed historical cycles >=100, H3 >=200; correlated cost copies never add independent cycles.",
+        "Each mandatory base/stress scenario has PF >=1.5, drawdown in [0,0.10], positive net geometric return and a valid positive dependence-aware lower bound.",
+        "Complete size-specific BUY/SELL signal-plus-60 quotes and fee, L1/L2/operator, slippage, MEV, failed-attempt and approval costs; missing is unknown.",
+        "Authenticated independent financial review binds the exact source, protocol, runtime and output artifacts; software CI alone is insufficient.",
+        "Paper-only operational checks pass, including persistent stops, clock, restart, accounting and one shared account constraints.",
+        "A valid prospective journal has actually started under the reviewed unchanged runtime; initial observation is externally time-bound and never backfilled.",
+        "The required elapsed prospective window or its acceptance evidence remains incomplete."
+      ]
+    },
+    "PAPER_PASSED": {
+      "implemented": false,
+      "prerequisites": [
+        "Authenticated preregistration precedes untouched OOS; candidate, protocol, market, time window and runtime hashes match every artifact.",
+        "Reproducible independent closed historical cycles >=100, H3 >=200; correlated cost copies never add independent cycles.",
+        "Each mandatory base/stress scenario has PF >=1.5, drawdown in [0,0.10], positive net geometric return and a valid positive dependence-aware lower bound.",
+        "Complete size-specific BUY/SELL signal-plus-60 quotes and fee, L1/L2/operator, slippage, MEV, failed-attempt and approval costs; missing is unknown.",
+        "Authenticated independent financial review binds the exact source, protocol, runtime and output artifacts; software CI alone is insufficient.",
+        "Paper-only operational checks pass, including persistent stops, clock, restart, accounting and one shared account constraints.",
+        "At least 90 real elapsed qualified prospective calendar days, H4 at least 180; repeated cron jobs, historical replay and revised bars do not count as days.",
+        "The complete prospective account/cost journal satisfies the preregistered base/stress performance and uncertainty gates without unresolved integrity or operational failures.",
+        "Independent review verifies the prospective source clocks, full account ledger and unchanged runtime against their exact artifact hashes."
+      ]
+    },
+    "PAPER_READY": {
+      "implemented": false,
+      "prerequisites": [
+        "Authenticated preregistration precedes untouched OOS; candidate, protocol, market, time window and runtime hashes match every artifact.",
+        "Reproducible independent closed historical cycles >=100, H3 >=200; correlated cost copies never add independent cycles.",
+        "Each mandatory base/stress scenario has PF >=1.5, drawdown in [0,0.10], positive net geometric return and a valid positive dependence-aware lower bound.",
+        "Complete size-specific BUY/SELL signal-plus-60 quotes and fee, L1/L2/operator, slippage, MEV, failed-attempt and approval costs; missing is unknown.",
+        "Authenticated independent financial review binds the exact source, protocol, runtime and output artifacts; software CI alone is insufficient.",
+        "Paper-only operational checks pass, including persistent stops, clock, restart, accounting and one shared account constraints."
+      ]
+    },
+    "PILOT_PROPOSAL_READY": {
+      "implemented": false,
+      "prerequisites": [
+        "Authenticated preregistration precedes untouched OOS; candidate, protocol, market, time window and runtime hashes match every artifact.",
+        "Reproducible independent closed historical cycles >=100, H3 >=200; correlated cost copies never add independent cycles.",
+        "Each mandatory base/stress scenario has PF >=1.5, drawdown in [0,0.10], positive net geometric return and a valid positive dependence-aware lower bound.",
+        "Complete size-specific BUY/SELL signal-plus-60 quotes and fee, L1/L2/operator, slippage, MEV, failed-attempt and approval costs; missing is unknown.",
+        "Authenticated independent financial review binds the exact source, protocol, runtime and output artifacts; software CI alone is insufficient.",
+        "Paper-only operational checks pass, including persistent stops, clock, restart, accounting and one shared account constraints.",
+        "At least 90 real elapsed qualified prospective calendar days, H4 at least 180; repeated cron jobs, historical replay and revised bars do not count as days.",
+        "The complete prospective account/cost journal satisfies the preregistered base/stress performance and uncertainty gates without unresolved integrity or operational failures.",
+        "Independent review verifies the prospective source clocks, full account ledger and unchanged runtime against their exact artifact hashes.",
+        "A fresh independent audit confirms every evidence and operational blocker is resolved and a bounded pilot proposal is reviewable.",
+        "This means proposal preparation only. Separate user capital authorization is outside this engine and remains false."
+      ]
+    }
+  },
+  "unsupported_positive_proof_adapters": [
+    "AUTHENTICATED_FROZEN_PROTOCOL_AND_RUNTIME_BINDING",
+    "INDEPENDENT_UNTOUCHED_OOS_AND_SELECTION_AUDIT",
+    "RAW_INPUT_AND_BASE_STRESS_LEDGER_RECOMPUTATION",
+    "VALID_DEPENDENCE_AWARE_GEOMETRIC_LOWER_BOUND",
+    "COMPLETE_BUY_SELL_SIGNAL_PLUS_60_COST_EVIDENCE",
+    "REAL_ELAPSED_PROSPECTIVE_JOURNAL_AND_OPERATIONAL_READINESS",
+    "AUTHENTICATED_INDEPENDENT_AUDITOR_BOUND_TO_EXACT_ARTIFACTS",
+    "H3_H4_SPECIFIC_SOURCE_ADAPTERS"
+  ]
+}

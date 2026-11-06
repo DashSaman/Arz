@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "classification": "INDEPENDENT_IMPLEMENTATION_REVIEW_NOT_FINANCIAL_PROFIT_ATTESTATION",
+  "observed_at_utc": "2026-11-06T20:08:29.863867+00:00",
+  "reviewer_role": "root reviewer; implementation authored by financial_audit agent",
+  "verdict": "APPROVED_SCOPED_NEGATIVE_ADAPTER_NO_BLOCKING_CODE_FINDINGS",
+  "reviewed_sha256": {
+    "scripts/verify_profitability_gates.py": "1b16b83c177905caabb8062e01da4a41509fe51ba79fb4722241af84d58d8fd0",
+    "scripts/strat01_financial_decision.py": "5892be4a7a142a3c9496c55852bc4328f316db1dc44f7411a4d289769e44590a",
+    "tests/test_strat01_v6_financial_decision.py": "5a8a5050b99382876408b940388e88d1a1f886e5564599e8989f20f6b4b77408"
+  },
+  "verification_command": "PYTHONPATH=src:. python -m unittest tests.test_strat01_v6_financial_decision tests.test_verify_profitability_gates -v",
+  "verification_log": "financial-independent-review.log",
+  "log_sha256": "1bdbefcc36ffa23fb3d77502c416382a98e954e87523a23f07610c37bf8d9745",
+  "review_findings": [
+    "Negative and >100% drawdown rejected independently in each required scenario.",
+    "Strict saved evidence is content-pinned and semantically reconciled; changed/missing input fails closed with null unknown counts.",
+    "H3 200 cycles and H4 180 days preserved in contracts.",
+    "Four positive-state proof adapters explicitly unimplemented; no claim of full six-stage engine, untouched OOS, authentic raw data, current-runtime performance or independently paid costs.",
+    "No old experiment output rewritten and no new backtest created."
+  ],
+  "financial_decision": "NO-GO",
+  "live_trading": "DISABLED",
+  "capital_activation_authorized": false,
+  "real_capital_authorized_usd": 0
+}

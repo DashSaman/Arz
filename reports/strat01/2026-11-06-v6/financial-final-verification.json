@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "classification": "OFFLINE_SOFTWARE_AND_PINNED_SAVED_FINANCIAL_CLASSIFICATION_NOT_NEW_BACKTEST",
+  "observed_at_utc": "2026-11-06T20:13:26.075471+00:00",
+  "new_financial_regression_methods": 13,
+  "cumulative_new_methods_since_e694646": 50,
+  "full_suite": {
+    "command": "PYTHONPATH=src:. python -m unittest discover -s tests",
+    "methods": 1608,
+    "skipped": 1,
+    "failures": 0,
+    "log": "financial-final-integrated-full.log",
+    "sha256": "27a6af64dae2bf5d78c692bb6c31450325850957db8be7b01ec78aea48f2ddcb"
+  },
+  "root_independent_review": {
+    "methods": 56,
+    "failures": 0,
+    "log": "financial-independent-review.log",
+    "receipt": "financial-independent-review.json"
+  },
+  "implementation_sha256": {
+    "scripts/verify_profitability_gates.py": "1b16b83c177905caabb8062e01da4a41509fe51ba79fb4722241af84d58d8fd0",
+    "scripts/strat01_financial_decision.py": "5892be4a7a142a3c9496c55852bc4328f316db1dc44f7411a4d289769e44590a",
+    "tests/test_strat01_v6_financial_decision.py": "5a8a5050b99382876408b940388e88d1a1f886e5564599e8989f20f6b4b77408",
+    ".github/workflows/strat01-financial-snapshot.yml": "e3a705c52377a128505ce473750efdf0736e483a2f9b3f9d994c856ceee94bb2"
+  },
+  "financial_adapter_scope": "PINNED_NEGATIVE_SNAPSHOT_ONLY; four positive stages have contracts but proof adapters are unimplemented",
+  "actual_output": "financial-observed-decision.json",
+  "old_artifacts_unchanged": true,
+  "financial_decision": "NO-GO",
+  "profitability_evidence": "INSUFFICIENT_EVIDENCE",
+  "execution_costs": "COST_UNVERIFIED",
+  "live_trading": "DISABLED",
+  "real_capital_authorized_usd": 0,
+  "new_market_requests": 0,
+  "new_experiments": 0,
+  "new_paper_days": 0,
+  "ci_status_at_this_prepublication_observation": "PENDING"
+}
