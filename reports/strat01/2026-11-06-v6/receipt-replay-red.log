@@ -1,0 +1,43 @@
+test_duplicate_rpc_result_is_rejected_and_raw_preserved (tests.test_strat01_receipt_replay.ReceiptReplayTests.test_duplicate_rpc_result_is_rejected_and_raw_preserved) ... FAIL
+test_early_return_retains_received_response_bytes (tests.test_strat01_receipt_replay.ReceiptReplayTests.test_early_return_retains_received_response_bytes) ... FAIL
+test_mismatched_rpc_request_id_is_rejected (tests.test_strat01_receipt_replay.ReceiptReplayTests.test_mismatched_rpc_request_id_is_rejected) ... FAIL
+test_rpc_preserves_exact_bytes_for_independent_replay (tests.test_strat01_receipt_replay.ReceiptReplayTests.test_rpc_preserves_exact_bytes_for_independent_replay) ... FAIL
+
+======================================================================
+FAIL: test_duplicate_rpc_result_is_rejected_and_raw_preserved (tests.test_strat01_receipt_replay.ReceiptReplayTests.test_duplicate_rpc_result_is_rejected_and_raw_preserved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_receipt_replay.py", line 35, in test_duplicate_rpc_result_is_rejected_and_raw_preserved
+    with self.assertRaisesRegex(ValueError, "Duplicate"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_early_return_retains_received_response_bytes (tests.test_strat01_receipt_replay.ReceiptReplayTests.test_early_return_retains_received_response_bytes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_receipt_replay.py", line 55, in test_early_return_retains_received_response_bytes
+    self.assertIsInstance(evidence, list)
+AssertionError: None is not an instance of <class 'list'>
+
+======================================================================
+FAIL: test_mismatched_rpc_request_id_is_rejected (tests.test_strat01_receipt_replay.ReceiptReplayTests.test_mismatched_rpc_request_id_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_receipt_replay.py", line 44, in test_mismatched_rpc_request_id_is_rejected
+    with self.assertRaisesRegex(cost.BoundedError, "INVALID_RPC_RESPONSE"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: BoundedError not raised
+
+======================================================================
+FAIL: test_rpc_preserves_exact_bytes_for_independent_replay (tests.test_strat01_receipt_replay.ReceiptReplayTests.test_rpc_preserves_exact_bytes_for_independent_replay)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_receipt_replay.py", line 21, in test_rpc_preserves_exact_bytes_for_independent_replay
+    self.assertIsInstance(evidence, list,
+AssertionError: None is not an instance of <class 'list'> : RPC response bytes must survive parsing
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.005s
+
+FAILED (failures=4)

@@ -9,6 +9,7 @@ No wallet, signing, approval, broadcasting, retries, address search or paid API.
 from __future__ import annotations
 
 import argparse
+import base64
 import csv
 from datetime import datetime, timezone
 from decimal import Decimal
@@ -54,6 +55,10 @@ def read_hex(value, label, *, positive=False, maximum=None):
 
 class ReceiptProbe(Probe):
     """Extend fixed-host Probe with only 2 additional read-only RPC methods."""
+    def __init__(self, *, max_calls: int):
+        super().__init__(max_calls=max_calls)
+        self.response_evidence: list[dict] = []
+
     def rpc(self, method, params):
         if method not in ("eth_chainId","eth_blockNumber","eth_getLogs",
                           "eth_getTransactionReceipt","eth_getBlockByNumber"):
@@ -82,8 +87,28 @@ class ReceiptProbe(Probe):
         body=json.dumps({"jsonrpc":"2.0","id":1,"method":method,"params":params},
                         separators=(",",":")).encode()
         raw,at,sha=self.fetch(BASE_RPC,body)
-        data=json.loads(raw,parse_constant=lambda x: (_ for _ in ()).throw(ValueError(x)))
-        if type(data) is not dict or data.get("error") is not None or "result" not in data:
+        # Retain exact bounded response bytes before interpretation, including an
+        # invalid envelope. A hash alone cannot reproduce a discarded receipt.
+        self.response_evidence.append({
+            "schema_version":1, "source_url":BASE_RPC,
+            "method":method, "params":json.loads(json.dumps(params)),
+            "request_body_sha256":hashlib.sha256(body).hexdigest(),
+            "first_observed_at_unix":at, "source_sha256":sha,
+            "raw_base64":base64.b64encode(raw).decode("ascii"),
+            "classification":"RETAINED_RPC_RESPONSE_NOT_INDEPENDENT_AUTHENTICATION",
+        })
+        def unique(pairs):
+            result={}
+            for key,value in pairs:
+                if key in result:
+                    raise ValueError("Duplicate RPC response key")
+                result[key]=value
+            return result
+        data=json.loads(raw, object_pairs_hook=unique,
+                        parse_constant=lambda x: (_ for _ in ()).throw(ValueError(x)))
+        if (type(data) is not dict or data.get("jsonrpc") != "2.0"
+                or type(data.get("id")) is not int or data["id"] != 1
+                or data.get("error") is not None or "result" not in data):
             raise BoundedError("INVALID_RPC_RESPONSE")
         return data["result"],at,sha
 
@@ -119,7 +144,58 @@ def latest_swap(logs, pool, low, high):
     return valid[-1][1]
 
 
-def audit_receipt(source_log, receipt, header, observed_unix):
+def operator_fee_interpretation(receipt: dict, *, declared_fork: str | None = None) -> dict:
+    """Conditional OP Stack arithmetic, never verification of fork or payment.
+
+    Official rules: specs.optimism.io/protocol/{isthmus,jovian}/exec-engine.html.
+    This offline helper deliberately has no default live-chain fork. Missing
+    receipt parameters are not explicit zero; generic documentation cannot
+    establish a particular provider's conformity or a chain's activation time.
+    """
+    if type(receipt) is not dict or declared_fork not in (None, "pre-isthmus", "isthmus", "jovian"):
+        raise ValueError("Unknown receipt or unreviewed declared fork")
+    fields={}
+    for key, maximum in (("gasUsed", 2**64-1), ("type", 0x7f),
+                         ("operatorFeeScalar", 2**32-1),
+                         ("operatorFeeConstant", 2**64-1),
+                         ("operatorFee", 2**256-1)):
+        if key in receipt:
+            fields[key]=read_hex(receipt[key], key, maximum=maximum)
+    result={
+        "declared_fork":declared_fork,
+        "conditional_operator_fee_wei":None,
+        "basis":"INSUFFICIENT_FORK_OR_RECEIPT_CONTEXT",
+        "fork_activation_independently_verified":False,
+        "actually_paid_cost_verified":False,
+    }
+    if declared_fork is None or "type" not in fields or "gasUsed" not in fields:
+        return result
+    tx_type=fields["type"]
+    if tx_type not in (0, 1, 2, 3, 4, 0x7e):
+        return result  # Future transaction semantics require a separate review.
+    if tx_type == 0x7e:
+        value=0
+        basis="DECLARED_FORK_DEPOSIT_EXEMPTION"
+    elif declared_fork == "pre-isthmus":
+        if fields.get("operatorFeeScalar", 0) or fields.get("operatorFeeConstant", 0):
+            raise ValueError("Operator parameters contradict pre-Isthmus context")
+        value=0
+        basis="DECLARED_PRE_ISTHMUS_NO_OPERATOR_FEE"
+    elif "operatorFeeScalar" not in fields or "operatorFeeConstant" not in fields:
+        return result
+    else:
+        gas,scalar,constant=(fields["gasUsed"],fields["operatorFeeScalar"],
+                             fields["operatorFeeConstant"])
+        value=(gas*scalar//1_000_000 if declared_fork=="isthmus"
+               else gas*scalar*100)+constant
+        basis="RECEIPT_PARAMETERS_AND_DECLARED_FORK_ONLY"
+    if "operatorFee" in fields and fields["operatorFee"] != value:
+        raise ValueError("Explicit operator fee contradicts declared-fork arithmetic")
+    result.update(conditional_operator_fee_wei=str(value), basis=basis)
+    return result
+
+
+def audit_receipt(source_log, receipt, header, observed_unix, *, declared_fee_fork=None):
     """Receipt L1/L2 components; operator fee and full network fee stay unknown."""
     if type(source_log) is not dict or type(receipt) is not dict or type(header) is not dict:
         raise ValueError("Missing source event / receipt / block")
@@ -186,6 +262,8 @@ def audit_receipt(source_log, receipt, header, observed_unix):
         # does not collect or verify it; the L1/L2 subtotal is not a full fee.
         "observed_full_tx_operator_fee_wei":None,
         "operator_fee_evidence":"NOT_COLLECTED_OR_VERIFIED",
+        "operator_fee_interpretation":operator_fee_interpretation(
+            receipt, declared_fork=declared_fee_fork),
         "observed_full_tx_total_network_fee_wei":None,
         "full_transaction_network_fee_proven":False,
         "paid_fee_usdc":None,
@@ -208,6 +286,8 @@ def capture(probe:ReceiptProbe) -> dict:
       "factory_identity_evidence":"reports/strat01/2026-10-27-base-identity-observed.json",
       "pin_head":None,"target_confirmations":CONFIRMATIONS,
       "max_rpc_calls":MAX_CALLS,"samples":{},
+      "raw_rpc_responses":probe.response_evidence,
+      "observed_third_party_full_tx_receipt_count":0,
       "third_party_transaction_fee_evidence_only":True,
       "actual_arz_follower_size_specific_execution_fee_usdc":None,
       "actual_arz_follower_FEE_and_MEVM_cost_proven":False,

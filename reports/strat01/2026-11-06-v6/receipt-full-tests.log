@@ -1,0 +1,308 @@
+FF.....FFFFFFFFFFFEE......................................................................................................EFFFFFFFEEEE/workspace/scratch/4a6a75419487/Arz/scripts/strat01_60m_native_probe.py:23: ResourceWarning: unclosed file <_io.TextIOWrapper name='reports/strat01/2026-10-31-all-strategies/other/clock_native_gates.csv' mode='r' encoding='UTF-8'>
+  gate=[x for x in csv.DictReader(GATES.open()) if x["pair_id"]=="4564367" and
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/workspace/scratch/4a6a75419487/Arz/scripts/strat01_60m_native_probe.py:29: ResourceWarning: unclosed file <_io.TextIOWrapper name='reports/strat01/2026-10-31-all-strategies/annual_comparison.csv' mode='r' encoding='UTF-8'>
+  annual=[x for x in csv.DictReader(ORIGINAL.open()) if x["source"]=="other/clock_common.csv.gz"
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+............................................................................................................................................................................................................................................................................................................................................................................................................................................................................................s.........................................................................................................................................................................................E................................................................E..............
+======================================================================
+ERROR: test_engine (unittest.loader._FailedTest.test_engine)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_engine
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_engine.py", line 3, in <module>
+    from arz.config import Config
+ModuleNotFoundError: No module named 'arz'
+
+
+======================================================================
+ERROR: test_exit_priority_adversarial (unittest.loader._FailedTest.test_exit_priority_adversarial)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_exit_priority_adversarial
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_exit_priority_adversarial.py", line 10, in <module>
+    from arz.config import Config
+ModuleNotFoundError: No module named 'arz'
+
+
+======================================================================
+ERROR: test_h2_causal_gate (unittest.loader._FailedTest.test_h2_causal_gate)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_h2_causal_gate
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_h2_causal_gate.py", line 3, in <module>
+    from arz.h2_causal_gate import (
+ModuleNotFoundError: No module named 'arz'
+
+
+======================================================================
+ERROR: test_multi_edge_unmatched_sale_taint (unittest.loader._FailedTest.test_multi_edge_unmatched_sale_taint)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_multi_edge_unmatched_sale_taint
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_multi_edge_unmatched_sale_taint.py", line 3, in <module>
+    from arz.multi_edge.accounting import FIFOBook, AverageCostBook
+ModuleNotFoundError: No module named 'arz'
+
+
+======================================================================
+ERROR: test_operations (unittest.loader._FailedTest.test_operations)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_operations
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_operations.py", line 4, in <module>
+    from arz.config import Config
+ModuleNotFoundError: No module named 'arz'
+
+
+======================================================================
+ERROR: test_review_regressions (unittest.loader._FailedTest.test_review_regressions)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_review_regressions
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_review_regressions.py", line 12, in <module>
+    from arz.config import Config
+ModuleNotFoundError: No module named 'arz'
+
+
+======================================================================
+ERROR: test_risk_numeric_guards (unittest.loader._FailedTest.test_risk_numeric_guards)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_risk_numeric_guards
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_risk_numeric_guards.py", line 7, in <module>
+    from arz.config import Config
+ModuleNotFoundError: No module named 'arz'
+
+
+======================================================================
+ERROR: test_validation (unittest.loader._FailedTest.test_validation)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_validation
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_validation.py", line 6, in <module>
+    from arz.config import Config
+ModuleNotFoundError: No module named 'arz'
+
+
+======================================================================
+ERROR: test_wal01_adversarial_matrix (unittest.loader._FailedTest.test_wal01_adversarial_matrix)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_wal01_adversarial_matrix
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_wal01_adversarial_matrix.py", line 17, in <module>
+    from arz.multi_edge.accounting import FIFOBook, AverageCostBook
+ModuleNotFoundError: No module named 'arz'
+
+
+======================================================================
+FAIL: test_backtest_cli_with_known_flat_synthetic_fixture (test_cli.CLITests.test_backtest_cli_with_known_flat_synthetic_fixture)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_cli.py", line 16, in test_backtest_cli_with_known_flat_synthetic_fixture
+    self.assertEqual(run.returncode,0,run.stderr)
+AssertionError: 1 != 0 : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: No module named arz
+
+
+======================================================================
+FAIL: test_help_and_live_rejection (test_cli.CLITests.test_help_and_live_rejection)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_cli.py", line 7, in test_help_and_live_rejection
+    self.assertEqual(help_run.returncode,0,help_run.stderr)
+AssertionError: 1 != 0 : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: No module named arz
+
+
+======================================================================
+FAIL: test_capital_and_live_mode_rejected (test_core.CoreTests.test_capital_and_live_mode_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_core.py", line 13, in setUp
+    self.assertIsNotNone(Config, "Configuration, data, accounting and risk modules must exist")
+AssertionError: unexpectedly None : Configuration, data, accounting and risk modules must exist
+
+======================================================================
+FAIL: test_config_rejects_invalid_relations_and_numbers (test_core.CoreTests.test_config_rejects_invalid_relations_and_numbers)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_core.py", line 13, in setUp
+    self.assertIsNotNone(Config, "Configuration, data, accounting and risk modules must exist")
+AssertionError: unexpectedly None : Configuration, data, accounting and risk modules must exist
+
+======================================================================
+FAIL: test_daily_loss_and_cost_caps (test_core.CoreTests.test_daily_loss_and_cost_caps)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_core.py", line 13, in setUp
+    self.assertIsNotNone(Config, "Configuration, data, accounting and risk modules must exist")
+AssertionError: unexpectedly None : Configuration, data, accounting and risk modules must exist
+
+======================================================================
+FAIL: test_data_order_gap_alignment_and_unclosed (test_core.CoreTests.test_data_order_gap_alignment_and_unclosed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_core.py", line 13, in setUp
+    self.assertIsNotNone(Config, "Configuration, data, accounting and risk modules must exist")
+AssertionError: unexpectedly None : Configuration, data, accounting and risk modules must exist
+
+======================================================================
+FAIL: test_data_rejects_nonfinite_and_ohlc_inconsistency (test_core.CoreTests.test_data_rejects_nonfinite_and_ohlc_inconsistency)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_core.py", line 13, in setUp
+    self.assertIsNotNone(Config, "Configuration, data, accounting and risk modules must exist")
+AssertionError: unexpectedly None : Configuration, data, accounting and risk modules must exist
+
+======================================================================
+FAIL: test_exact_roundtrip_accounting (test_core.CoreTests.test_exact_roundtrip_accounting)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_core.py", line 13, in setUp
+    self.assertIsNotNone(Config, "Configuration, data, accounting and risk modules must exist")
+AssertionError: unexpectedly None : Configuration, data, accounting and risk modules must exist
+
+======================================================================
+FAIL: test_failed_transaction_charges_only_gas (test_core.CoreTests.test_failed_transaction_charges_only_gas)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_core.py", line 13, in setUp
+    self.assertIsNotNone(Config, "Configuration, data, accounting and risk modules must exist")
+AssertionError: unexpectedly None : Configuration, data, accounting and risk modules must exist
+
+======================================================================
+FAIL: test_no_short_or_cash_creation (test_core.CoreTests.test_no_short_or_cash_creation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_core.py", line 13, in setUp
+    self.assertIsNotNone(Config, "Configuration, data, accounting and risk modules must exist")
+AssertionError: unexpectedly None : Configuration, data, accounting and risk modules must exist
+
+======================================================================
+FAIL: test_partial_exit_preserves_cost_basis (test_core.CoreTests.test_partial_exit_preserves_cost_basis)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_core.py", line 13, in setUp
+    self.assertIsNotNone(Config, "Configuration, data, accounting and risk modules must exist")
+AssertionError: unexpectedly None : Configuration, data, accounting and risk modules must exist
+
+======================================================================
+FAIL: test_risk_stops_at_drawdown_and_persists (test_core.CoreTests.test_risk_stops_at_drawdown_and_persists)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_core.py", line 13, in setUp
+    self.assertIsNotNone(Config, "Configuration, data, accounting and risk modules must exist")
+AssertionError: unexpectedly None : Configuration, data, accounting and risk modules must exist
+
+======================================================================
+FAIL: test_small_unit_overfill_and_empty_position_sales_are_rejected (test_core.CoreTests.test_small_unit_overfill_and_empty_position_sales_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_core.py", line 13, in setUp
+    self.assertIsNotNone(Config, "Configuration, data, accounting and risk modules must exist")
+AssertionError: unexpectedly None : Configuration, data, accounting and risk modules must exist
+
+======================================================================
+FAIL: test_boolean_nonfinite_negative_and_nonembedded_pool_fee_rejected (test_multi_edge_accounting.EventValidationTests.test_boolean_nonfinite_negative_and_nonembedded_pool_fee_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_multi_edge_accounting.py", line 24, in setUp
+    self.assertIsNotNone(WalletEvent, 'multi-edge accounting modules must exist')
+AssertionError: unexpectedly None : multi-edge accounting modules must exist
+
+======================================================================
+FAIL: test_duplicate_unordered_and_future_events_fail_closed (test_multi_edge_accounting.EventValidationTests.test_duplicate_unordered_and_future_events_fail_closed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_multi_edge_accounting.py", line 24, in setUp
+    self.assertIsNotNone(WalletEvent, 'multi-edge accounting modules must exist')
+AssertionError: unexpectedly None : multi-edge accounting modules must exist
+
+======================================================================
+FAIL: test_fifo_partial_lots_and_pool_fee_not_double_counted (test_multi_edge_accounting.WalletAccountingTests.test_fifo_partial_lots_and_pool_fee_not_double_counted)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_multi_edge_accounting.py", line 50, in setUp
+    self.assertIsNotNone(FIFOBook, 'accounting implementation must exist')
+AssertionError: unexpectedly None : accounting implementation must exist
+
+======================================================================
+FAIL: test_sell_beyond_known_lots_is_unresolved_and_never_zero_basis_profit (test_multi_edge_accounting.WalletAccountingTests.test_sell_beyond_known_lots_is_unresolved_and_never_zero_basis_profit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_multi_edge_accounting.py", line 50, in setUp
+    self.assertIsNotNone(FIFOBook, 'accounting implementation must exist')
+AssertionError: unexpectedly None : accounting implementation must exist
+
+======================================================================
+FAIL: test_unknown_network_fee_makes_net_pnl_unknown_not_zero (test_multi_edge_accounting.WalletAccountingTests.test_unknown_network_fee_makes_net_pnl_unknown_not_zero)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_multi_edge_accounting.py", line 50, in setUp
+    self.assertIsNotNone(FIFOBook, 'accounting implementation must exist')
+AssertionError: unexpectedly None : accounting implementation must exist
+
+======================================================================
+FAIL: test_wallets_and_assets_are_accounted_separately (test_multi_edge_accounting.WalletAccountingTests.test_wallets_and_assets_are_accounted_separately)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_multi_edge_accounting.py", line 50, in setUp
+    self.assertIsNotNone(FIFOBook, 'accounting implementation must exist')
+AssertionError: unexpectedly None : accounting implementation must exist
+
+======================================================================
+FAIL: test_weighted_average_is_separate_sensitivity (test_multi_edge_accounting.WalletAccountingTests.test_weighted_average_is_separate_sensitivity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_multi_edge_accounting.py", line 50, in setUp
+    self.assertIsNotNone(FIFOBook, 'accounting implementation must exist')
+AssertionError: unexpectedly None : accounting implementation must exist
+
+----------------------------------------------------------------------
+Ran 876 tests in 1.598s
+
+FAILED (failures=20, errors=9, skipped=1)
