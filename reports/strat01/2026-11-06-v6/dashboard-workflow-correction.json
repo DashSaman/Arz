@@ -1,0 +1,48 @@
+{
+  "classification": "OFFLINE_WORKFLOW_NEGATIVE_CONTROL_VALIDATION_NOT_DEPLOYMENT",
+  "observed_at_utc": "2026-11-06T20:11:17.319201+00:00",
+  "workflow": ".github/workflows/strat01-local-monitor.yml",
+  "workflow_sha256": "d369275049cc106fcf9c2833f106d4463bc09aee8a6a6d522f3f1df90cb14c43",
+  "failed_ci_run_id": 42285711989,
+  "failed_ci_job_id": 128125853099,
+  "failed_ci_pr_head_sha": "53aea19890371aadffc6778124c30ec208a1973d",
+  "failed_ci_checkout_merge_sha": "b4e85dea2ed13e8c5de6c9eac91019b66ac383fe",
+  "failed_ci_artifact_id": 13537821142,
+  "failed_ci_artifact_sha256": "b1fb6524b38f29c642f03f227b22f431c451132917fe49cfa39015052fc102ed",
+  "source_files_checked": 44,
+  "original_source_bytes_unchanged": true,
+  "checks": [
+    {
+      "scenario": "unaltered_archive",
+      "generation_step_exit": 0,
+      "real_monitor_exit": "2",
+      "verification_step_exit": 0,
+      "generation_log": "{\"health\": \"COLLECTOR_FAIL_CLOSED\", \"paired\": 36, \"timely\": 16, \"financial_decision\": \"NO-GO\"}\n",
+      "verification_log": "V6_REAL_LOCAL_DASHBOARD_EXPECTED_REFUSAL=PASS_NO_GO\n",
+      "reported_health": "COLLECTOR_FAIL_CLOSED"
+    },
+    {
+      "scenario": "corrupt_source",
+      "generation_step_exit": 0,
+      "real_monitor_exit": "2",
+      "verification_step_exit": 1,
+      "generation_log": "{\"health\": \"SOURCE_FAIL_CLOSED\", \"paired\": 36, \"timely\": 16, \"financial_decision\": \"NO-GO\"}\n",
+      "verification_log": "Traceback (most recent call last):\n  File \"<stdin>\", line 6, in <module>\nAssertionError\n",
+      "reported_health": "SOURCE_FAIL_CLOSED"
+    },
+    {
+      "scenario": "incomplete_restore",
+      "generation_step_exit": 1,
+      "real_monitor_exit": "1",
+      "verification_step_exit": null,
+      "generation_log": "Traceback (most recent call last):\n  File \"/workspace/scratch/4a6a75419487/Arz/scripts/strat01_local_monitor.py\", line 208, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/workspace/scratch/4a6a75419487/Arz/scripts/strat01_local_monitor.py\", line 197, in main\n    report=status(args.data_root,int(time.time()))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/4a6a75419487/Arz/scripts/strat01_local_monitor.py\", line 40, in status\n    require_complete_restore(root)\n  File \"/workspace/scratch/4a6a75419487/Arz/scripts/strat01_independent_collector.py\", line 57, in require_complete_restore\n    raise ValueError(\"Collector restore is incomplete\")\nValueError: Collector restore is incomplete\n",
+      "verification_log": null,
+      "reported_health": null
+    }
+  ],
+  "runtime_code_changed": false,
+  "market_provider_requests": 0,
+  "financial_decision": "NO-GO",
+  "live_trading": "DISABLED",
+  "real_capital_authorized_usd": 0
+}
