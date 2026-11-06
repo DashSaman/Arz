@@ -1,0 +1,215 @@
+test_explicit_zero_and_deposit_exemption_are_separate (tests.test_strat01_receipt_replay.ConditionalOperatorFeeTests.test_explicit_zero_and_deposit_exemption_are_separate) ... FAIL
+test_fork_specific_integer_arithmetic_is_conditional_not_paid_evidence (tests.test_strat01_receipt_replay.ConditionalOperatorFeeTests.test_fork_specific_integer_arithmetic_is_conditional_not_paid_evidence) ... 
+  test_fork_specific_integer_arithmetic_is_conditional_not_paid_evidence (tests.test_strat01_receipt_replay.ConditionalOperatorFeeTests.test_fork_specific_integer_arithmetic_is_conditional_not_paid_evidence) (fork='isthmus', receipt={'gasUsed': '0x64', 'type': '0x2', 'operatorFeeScalar': '0xf4240', 'operatorFeeConstant': '0x7'}) ... FAIL
+  test_fork_specific_integer_arithmetic_is_conditional_not_paid_evidence (tests.test_strat01_receipt_replay.ConditionalOperatorFeeTests.test_fork_specific_integer_arithmetic_is_conditional_not_paid_evidence) (fork='jovian', receipt={'gasUsed': '0x64', 'type': '0x2', 'operatorFeeScalar': '0x2', 'operatorFeeConstant': '0x7'}) ... FAIL
+  test_fork_specific_integer_arithmetic_is_conditional_not_paid_evidence (tests.test_strat01_receipt_replay.ConditionalOperatorFeeTests.test_fork_specific_integer_arithmetic_is_conditional_not_paid_evidence) (fork='isthmus', receipt={'gasUsed': '0x1', 'type': '0x2', 'operatorFeeScalar': '0x1', 'operatorFeeConstant': '0x7'}) ... FAIL
+test_malformed_or_contradictory_fields_are_rejected (tests.test_strat01_receipt_replay.ConditionalOperatorFeeTests.test_malformed_or_contradictory_fields_are_rejected) ... 
+  test_malformed_or_contradictory_fields_are_rejected (tests.test_strat01_receipt_replay.ConditionalOperatorFeeTests.test_malformed_or_contradictory_fields_are_rejected) (receipt={'gasUsed': '0x64', 'type': '0x2', 'operatorFeeScalar': True, 'operatorFeeConstant': '0x7'}) ... FAIL
+  test_malformed_or_contradictory_fields_are_rejected (tests.test_strat01_receipt_replay.ConditionalOperatorFeeTests.test_malformed_or_contradictory_fields_are_rejected) (receipt={'gasUsed': '0x64', 'type': '0x2', 'operatorFeeScalar': '0x100000000', 'operatorFeeConstant': '0x7'}) ... FAIL
+  test_malformed_or_contradictory_fields_are_rejected (tests.test_strat01_receipt_replay.ConditionalOperatorFeeTests.test_malformed_or_contradictory_fields_are_rejected) (receipt={'gasUsed': '0x64', 'type': '0x2', 'operatorFeeScalar': '0xf4240', 'operatorFeeConstant': '0x10000000000000000'}) ... FAIL
+  test_malformed_or_contradictory_fields_are_rejected (tests.test_strat01_receipt_replay.ConditionalOperatorFeeTests.test_malformed_or_contradictory_fields_are_rejected) (receipt={'gasUsed': '0x10000000000000000', 'type': '0x2', 'operatorFeeScalar': '0xf4240', 'operatorFeeConstant': '0x7'}) ... FAIL
+  test_malformed_or_contradictory_fields_are_rejected (tests.test_strat01_receipt_replay.ConditionalOperatorFeeTests.test_malformed_or_contradictory_fields_are_rejected) (receipt={'gasUsed': '0x64', 'type': '0x2', 'operatorFeeScalar': '0xf4240', 'operatorFeeConstant': '0x7', 'operatorFee': '0x1'}) ... FAIL
+  test_malformed_or_contradictory_fields_are_rejected (tests.test_strat01_receipt_replay.ConditionalOperatorFeeTests.test_malformed_or_contradictory_fields_are_rejected) (receipt={'gasUsed': '0x64', 'type': '0x7e', 'operatorFeeScalar': '0xf4240', 'operatorFeeConstant': '0x7', 'operatorFee': '0x1'}) ... FAIL
+test_malformed_or_contradictory_fields_are_rejected (tests.test_strat01_receipt_replay.ConditionalOperatorFeeTests.test_malformed_or_contradictory_fields_are_rejected) ... FAIL
+test_partial_or_missing_transaction_context_remains_unknown (tests.test_strat01_receipt_replay.ConditionalOperatorFeeTests.test_partial_or_missing_transaction_context_remains_unknown) ... 
+  test_partial_or_missing_transaction_context_remains_unknown (tests.test_strat01_receipt_replay.ConditionalOperatorFeeTests.test_partial_or_missing_transaction_context_remains_unknown) (field='operatorFeeScalar') ... FAIL
+  test_partial_or_missing_transaction_context_remains_unknown (tests.test_strat01_receipt_replay.ConditionalOperatorFeeTests.test_partial_or_missing_transaction_context_remains_unknown) (field='operatorFeeConstant') ... FAIL
+  test_partial_or_missing_transaction_context_remains_unknown (tests.test_strat01_receipt_replay.ConditionalOperatorFeeTests.test_partial_or_missing_transaction_context_remains_unknown) (field='type') ... FAIL
+test_receipt_audit_never_promotes_declared_fork_to_verified_cost (tests.test_strat01_receipt_replay.ConditionalOperatorFeeTests.test_receipt_audit_never_promotes_declared_fork_to_verified_cost) ... FAIL
+test_unknown_fork_or_missing_parameters_is_not_zero (tests.test_strat01_receipt_replay.ConditionalOperatorFeeTests.test_unknown_fork_or_missing_parameters_is_not_zero) ... 
+  test_unknown_fork_or_missing_parameters_is_not_zero (tests.test_strat01_receipt_replay.ConditionalOperatorFeeTests.test_unknown_fork_or_missing_parameters_is_not_zero) (fork=None, receipt={'gasUsed': '0x64', 'type': '0x2', 'operatorFeeScalar': '0xf4240', 'operatorFeeConstant': '0x7'}) ... FAIL
+  test_unknown_fork_or_missing_parameters_is_not_zero (tests.test_strat01_receipt_replay.ConditionalOperatorFeeTests.test_unknown_fork_or_missing_parameters_is_not_zero) (fork='isthmus', receipt={'gasUsed': '0x64', 'type': '0x2'}) ... FAIL
+  test_unknown_fork_or_missing_parameters_is_not_zero (tests.test_strat01_receipt_replay.ConditionalOperatorFeeTests.test_unknown_fork_or_missing_parameters_is_not_zero) (fork='jovian', receipt={'gasUsed': '0x64', 'type': '0x2'}) ... FAIL
+
+======================================================================
+FAIL: test_explicit_zero_and_deposit_exemption_are_separate (tests.test_strat01_receipt_replay.ConditionalOperatorFeeTests.test_explicit_zero_and_deposit_exemption_are_separate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_receipt_replay.py", line 93, in test_explicit_zero_and_deposit_exemption_are_separate
+    zero = self.interpret(self.receipt(operatorFeeScalar="0x0",
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_receipt_replay.py", line 65, in interpret
+    self.assertTrue(callable(fn), "An explicit-fork receipt interpreter is required")
+AssertionError: False is not true : An explicit-fork receipt interpreter is required
+
+======================================================================
+FAIL: test_fork_specific_integer_arithmetic_is_conditional_not_paid_evidence (tests.test_strat01_receipt_replay.ConditionalOperatorFeeTests.test_fork_specific_integer_arithmetic_is_conditional_not_paid_evidence) (fork='isthmus', receipt={'gasUsed': '0x64', 'type': '0x2', 'operatorFeeScalar': '0xf4240', 'operatorFeeConstant': '0x7'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_receipt_replay.py", line 80, in test_fork_specific_integer_arithmetic_is_conditional_not_paid_evidence
+    result = self.interpret(receipt, fork)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_receipt_replay.py", line 65, in interpret
+    self.assertTrue(callable(fn), "An explicit-fork receipt interpreter is required")
+AssertionError: False is not true : An explicit-fork receipt interpreter is required
+
+======================================================================
+FAIL: test_fork_specific_integer_arithmetic_is_conditional_not_paid_evidence (tests.test_strat01_receipt_replay.ConditionalOperatorFeeTests.test_fork_specific_integer_arithmetic_is_conditional_not_paid_evidence) (fork='jovian', receipt={'gasUsed': '0x64', 'type': '0x2', 'operatorFeeScalar': '0x2', 'operatorFeeConstant': '0x7'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_receipt_replay.py", line 80, in test_fork_specific_integer_arithmetic_is_conditional_not_paid_evidence
+    result = self.interpret(receipt, fork)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_receipt_replay.py", line 65, in interpret
+    self.assertTrue(callable(fn), "An explicit-fork receipt interpreter is required")
+AssertionError: False is not true : An explicit-fork receipt interpreter is required
+
+======================================================================
+FAIL: test_fork_specific_integer_arithmetic_is_conditional_not_paid_evidence (tests.test_strat01_receipt_replay.ConditionalOperatorFeeTests.test_fork_specific_integer_arithmetic_is_conditional_not_paid_evidence) (fork='isthmus', receipt={'gasUsed': '0x1', 'type': '0x2', 'operatorFeeScalar': '0x1', 'operatorFeeConstant': '0x7'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_receipt_replay.py", line 80, in test_fork_specific_integer_arithmetic_is_conditional_not_paid_evidence
+    result = self.interpret(receipt, fork)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_receipt_replay.py", line 65, in interpret
+    self.assertTrue(callable(fn), "An explicit-fork receipt interpreter is required")
+AssertionError: False is not true : An explicit-fork receipt interpreter is required
+
+======================================================================
+FAIL: test_malformed_or_contradictory_fields_are_rejected (tests.test_strat01_receipt_replay.ConditionalOperatorFeeTests.test_malformed_or_contradictory_fields_are_rejected) (receipt={'gasUsed': '0x64', 'type': '0x2', 'operatorFeeScalar': True, 'operatorFeeConstant': '0x7'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_receipt_replay.py", line 110, in test_malformed_or_contradictory_fields_are_rejected
+    self.interpret(receipt, "isthmus")
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_receipt_replay.py", line 65, in interpret
+    self.assertTrue(callable(fn), "An explicit-fork receipt interpreter is required")
+AssertionError: False is not true : An explicit-fork receipt interpreter is required
+
+======================================================================
+FAIL: test_malformed_or_contradictory_fields_are_rejected (tests.test_strat01_receipt_replay.ConditionalOperatorFeeTests.test_malformed_or_contradictory_fields_are_rejected) (receipt={'gasUsed': '0x64', 'type': '0x2', 'operatorFeeScalar': '0x100000000', 'operatorFeeConstant': '0x7'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_receipt_replay.py", line 110, in test_malformed_or_contradictory_fields_are_rejected
+    self.interpret(receipt, "isthmus")
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_receipt_replay.py", line 65, in interpret
+    self.assertTrue(callable(fn), "An explicit-fork receipt interpreter is required")
+AssertionError: False is not true : An explicit-fork receipt interpreter is required
+
+======================================================================
+FAIL: test_malformed_or_contradictory_fields_are_rejected (tests.test_strat01_receipt_replay.ConditionalOperatorFeeTests.test_malformed_or_contradictory_fields_are_rejected) (receipt={'gasUsed': '0x64', 'type': '0x2', 'operatorFeeScalar': '0xf4240', 'operatorFeeConstant': '0x10000000000000000'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_receipt_replay.py", line 110, in test_malformed_or_contradictory_fields_are_rejected
+    self.interpret(receipt, "isthmus")
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_receipt_replay.py", line 65, in interpret
+    self.assertTrue(callable(fn), "An explicit-fork receipt interpreter is required")
+AssertionError: False is not true : An explicit-fork receipt interpreter is required
+
+======================================================================
+FAIL: test_malformed_or_contradictory_fields_are_rejected (tests.test_strat01_receipt_replay.ConditionalOperatorFeeTests.test_malformed_or_contradictory_fields_are_rejected) (receipt={'gasUsed': '0x10000000000000000', 'type': '0x2', 'operatorFeeScalar': '0xf4240', 'operatorFeeConstant': '0x7'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_receipt_replay.py", line 110, in test_malformed_or_contradictory_fields_are_rejected
+    self.interpret(receipt, "isthmus")
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_receipt_replay.py", line 65, in interpret
+    self.assertTrue(callable(fn), "An explicit-fork receipt interpreter is required")
+AssertionError: False is not true : An explicit-fork receipt interpreter is required
+
+======================================================================
+FAIL: test_malformed_or_contradictory_fields_are_rejected (tests.test_strat01_receipt_replay.ConditionalOperatorFeeTests.test_malformed_or_contradictory_fields_are_rejected) (receipt={'gasUsed': '0x64', 'type': '0x2', 'operatorFeeScalar': '0xf4240', 'operatorFeeConstant': '0x7', 'operatorFee': '0x1'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_receipt_replay.py", line 110, in test_malformed_or_contradictory_fields_are_rejected
+    self.interpret(receipt, "isthmus")
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_receipt_replay.py", line 65, in interpret
+    self.assertTrue(callable(fn), "An explicit-fork receipt interpreter is required")
+AssertionError: False is not true : An explicit-fork receipt interpreter is required
+
+======================================================================
+FAIL: test_malformed_or_contradictory_fields_are_rejected (tests.test_strat01_receipt_replay.ConditionalOperatorFeeTests.test_malformed_or_contradictory_fields_are_rejected) (receipt={'gasUsed': '0x64', 'type': '0x7e', 'operatorFeeScalar': '0xf4240', 'operatorFeeConstant': '0x7', 'operatorFee': '0x1'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_receipt_replay.py", line 110, in test_malformed_or_contradictory_fields_are_rejected
+    self.interpret(receipt, "isthmus")
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_receipt_replay.py", line 65, in interpret
+    self.assertTrue(callable(fn), "An explicit-fork receipt interpreter is required")
+AssertionError: False is not true : An explicit-fork receipt interpreter is required
+
+======================================================================
+FAIL: test_malformed_or_contradictory_fields_are_rejected (tests.test_strat01_receipt_replay.ConditionalOperatorFeeTests.test_malformed_or_contradictory_fields_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_receipt_replay.py", line 112, in test_malformed_or_contradictory_fields_are_rejected
+    self.interpret(self.receipt(), "unreviewed-future-fork")
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_receipt_replay.py", line 65, in interpret
+    self.assertTrue(callable(fn), "An explicit-fork receipt interpreter is required")
+AssertionError: False is not true : An explicit-fork receipt interpreter is required
+
+======================================================================
+FAIL: test_partial_or_missing_transaction_context_remains_unknown (tests.test_strat01_receipt_replay.ConditionalOperatorFeeTests.test_partial_or_missing_transaction_context_remains_unknown) (field='operatorFeeScalar')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_receipt_replay.py", line 119, in test_partial_or_missing_transaction_context_remains_unknown
+    self.assertIsNone(self.interpret(receipt, "isthmus")["conditional_operator_fee_wei"])
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_receipt_replay.py", line 65, in interpret
+    self.assertTrue(callable(fn), "An explicit-fork receipt interpreter is required")
+AssertionError: False is not true : An explicit-fork receipt interpreter is required
+
+======================================================================
+FAIL: test_partial_or_missing_transaction_context_remains_unknown (tests.test_strat01_receipt_replay.ConditionalOperatorFeeTests.test_partial_or_missing_transaction_context_remains_unknown) (field='operatorFeeConstant')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_receipt_replay.py", line 119, in test_partial_or_missing_transaction_context_remains_unknown
+    self.assertIsNone(self.interpret(receipt, "isthmus")["conditional_operator_fee_wei"])
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_receipt_replay.py", line 65, in interpret
+    self.assertTrue(callable(fn), "An explicit-fork receipt interpreter is required")
+AssertionError: False is not true : An explicit-fork receipt interpreter is required
+
+======================================================================
+FAIL: test_partial_or_missing_transaction_context_remains_unknown (tests.test_strat01_receipt_replay.ConditionalOperatorFeeTests.test_partial_or_missing_transaction_context_remains_unknown) (field='type')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_receipt_replay.py", line 119, in test_partial_or_missing_transaction_context_remains_unknown
+    self.assertIsNone(self.interpret(receipt, "isthmus")["conditional_operator_fee_wei"])
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_receipt_replay.py", line 65, in interpret
+    self.assertTrue(callable(fn), "An explicit-fork receipt interpreter is required")
+AssertionError: False is not true : An explicit-fork receipt interpreter is required
+
+======================================================================
+FAIL: test_receipt_audit_never_promotes_declared_fork_to_verified_cost (tests.test_strat01_receipt_replay.ConditionalOperatorFeeTests.test_receipt_audit_never_promotes_declared_fork_to_verified_cost)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_receipt_replay.py", line 125, in test_receipt_audit_never_promotes_declared_fork_to_verified_cost
+    self.assertIn("declared_fee_fork", cost.audit_receipt.__code__.co_varnames)
+AssertionError: 'declared_fee_fork' not found in ('source_log', 'receipt', 'header', 'observed_unix', 'pool', 'x', 'height', 'txhash', 'blockhash', 'source_tx_index', 'stamp', 'matching', 'lines', 'line', 't', 'gas', 'price', 'l1_string', 'l1', 'l2', 'total')
+
+======================================================================
+FAIL: test_unknown_fork_or_missing_parameters_is_not_zero (tests.test_strat01_receipt_replay.ConditionalOperatorFeeTests.test_unknown_fork_or_missing_parameters_is_not_zero) (fork=None, receipt={'gasUsed': '0x64', 'type': '0x2', 'operatorFeeScalar': '0xf4240', 'operatorFeeConstant': '0x7'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_receipt_replay.py", line 90, in test_unknown_fork_or_missing_parameters_is_not_zero
+    self.assertIsNone(self.interpret(receipt, fork)["conditional_operator_fee_wei"])
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_receipt_replay.py", line 65, in interpret
+    self.assertTrue(callable(fn), "An explicit-fork receipt interpreter is required")
+AssertionError: False is not true : An explicit-fork receipt interpreter is required
+
+======================================================================
+FAIL: test_unknown_fork_or_missing_parameters_is_not_zero (tests.test_strat01_receipt_replay.ConditionalOperatorFeeTests.test_unknown_fork_or_missing_parameters_is_not_zero) (fork='isthmus', receipt={'gasUsed': '0x64', 'type': '0x2'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_receipt_replay.py", line 90, in test_unknown_fork_or_missing_parameters_is_not_zero
+    self.assertIsNone(self.interpret(receipt, fork)["conditional_operator_fee_wei"])
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_receipt_replay.py", line 65, in interpret
+    self.assertTrue(callable(fn), "An explicit-fork receipt interpreter is required")
+AssertionError: False is not true : An explicit-fork receipt interpreter is required
+
+======================================================================
+FAIL: test_unknown_fork_or_missing_parameters_is_not_zero (tests.test_strat01_receipt_replay.ConditionalOperatorFeeTests.test_unknown_fork_or_missing_parameters_is_not_zero) (fork='jovian', receipt={'gasUsed': '0x64', 'type': '0x2'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_receipt_replay.py", line 90, in test_unknown_fork_or_missing_parameters_is_not_zero
+    self.assertIsNone(self.interpret(receipt, fork)["conditional_operator_fee_wei"])
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_receipt_replay.py", line 65, in interpret
+    self.assertTrue(callable(fn), "An explicit-fork receipt interpreter is required")
+AssertionError: False is not true : An explicit-fork receipt interpreter is required
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.004s
+
+FAILED (failures=18)

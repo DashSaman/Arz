@@ -1,0 +1,84 @@
+{
+  "baseline": {
+    "exit_code": 0,
+    "methods": 1558,
+    "skipped": 1
+  },
+  "baseline_main_sha": "e694646e8540264a835352ead361cfc176fc86dd",
+  "canonical_full_green": {
+    "command": "PYTHONPATH=src:. python -m unittest discover -s tests",
+    "exit_code": 0,
+    "methods": 1568,
+    "skipped": 1,
+    "skipped_requirement": "ARZ_PERIOD_ENGINE plus existing pinned research dependencies"
+  },
+  "ci_status": "NOT_YET_RUN",
+  "classification": "OFFLINE_SYNTHETIC_REGRESSION_NOT_OBSERVED_TRANSACTION_COST",
+  "cost_status": "COST_UNVERIFIED",
+  "financial_decision": "NO-GO",
+  "focused_green": {
+    "exit_code": 0,
+    "methods": 24,
+    "skipped": 0
+  },
+  "live_trading": "DISABLED",
+  "logs": [
+    {
+      "path": "reports/strat01/2026-11-06-v6/baseline-tests.log",
+      "sha256": "be554b3157c5def603c58addbc6508eeb2a27a2cee21244fe1e32c24f677d45c"
+    },
+    {
+      "path": "reports/strat01/2026-11-06-v6/receipt-replay-red.log",
+      "sha256": "43a9266040e1bcdca6b439c60c6f15dae1a26f7c873e79dc5c0ca67d769c3078"
+    },
+    {
+      "path": "reports/strat01/2026-11-06-v6/operator-fee-red.log",
+      "sha256": "d98c7cfe52786f5d12b694dfc1cdf93d04170ee82e63b417774d3f53a996dac2"
+    },
+    {
+      "path": "reports/strat01/2026-11-06-v6/receipt-green.log",
+      "sha256": "8c60bc695040eeab7a066b1b83b7dc069fa89d6261d78c3f2fbb69a9681cce03"
+    },
+    {
+      "path": "reports/strat01/2026-11-06-v6/receipt-full-tests.log",
+      "sha256": "6876dee7ed2a97e51c6d7a4339cd07513061087786eb254d37a1376ea8d2b73e"
+    },
+    {
+      "path": "reports/strat01/2026-11-06-v6/receipt-full-tests-canonical.log",
+      "sha256": "f42479b4ceea48e7d2b7b056f123ed6a47f357f9863d82e89882087c1b46c5a7"
+    }
+  ],
+  "new_market_requests": 0,
+  "new_paid_transactions": 0,
+  "new_test_methods": 10,
+  "noncanonical_invocation_failure": {
+    "cause": "Repository src package not installed/on Python path; canonical command succeeds without source changes.",
+    "command": "python -m unittest discover -s tests without PYTHONPATH=src:.",
+    "errors": 9,
+    "exit_code": 1,
+    "failures": 20,
+    "methods_discovered": 876
+  },
+  "observed_at_utc": "2026-11-06T19:39:25.843878+00:00",
+  "prior_receipt429_sha256": "8a9110e1a3c5a3c55a6ccaf1528a52e159ceb45b479adfd900a7d3482b5e1f89",
+  "profitability_evidence": "INSUFFICIENT_EVIDENCE",
+  "publication_status": "NOT_YET_PUBLISHED",
+  "real_capital_authorized_usd": 0,
+  "red_tests": [
+    {
+      "failures": 4,
+      "log": "receipt-replay-red.log",
+      "methods": 4
+    },
+    {
+      "log": "operator-fee-red.log",
+      "methods": 6,
+      "subtest_failures": 18
+    }
+  ],
+  "schema_version": 1,
+  "source_sha256": {
+    "scripts/strat01_public_receipt_cost.py": "076398ee5b4ce2e09bc12022a7873461d8a76028ea5b7f009c222b950c3baef0",
+    "tests/test_strat01_receipt_replay.py": "fd2d4c2ed4a4f3e1fd806bbc2a34cf1e4e5f67d1b83673369d3603a20f0f02e9"
+  }
+}
