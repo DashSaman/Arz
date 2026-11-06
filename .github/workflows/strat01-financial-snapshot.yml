@@ -1,0 +1,57 @@
+name: Arz saved financial evidence classification (NO-GO)
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/verify_profitability_gates.py'
+      - 'scripts/strat01_financial_decision.py'
+      - 'tests/test_strat01_v6_financial_decision.py'
+      - 'tests/test_verify_profitability_gates.py'
+      - 'reports/strat01/2026-11-05-final-blockers/decision.json'
+      - 'reports/strat01/2026-11-05-final-blockers/saved-metrics-58.csv'
+      - 'reports/strat01/2026-10-31-all-strategies/registry.csv'
+      - 'reports/strat01/2026-10-31-all-strategies/registry_counts.json'
+      - '.github/workflows/strat01-financial-snapshot.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  saved-negative-evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      PYTHONPATH: 'src:.'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Reject invalid scenario metrics and false evidence promotion
+        run: python -m unittest tests.test_strat01_v6_financial_decision tests.test_verify_profitability_gates -v
+      - name: Classify exact saved evidence without new backtests or market calls
+        run: python scripts/strat01_financial_decision.py --output artifacts/local/v6-financial-snapshot/decision.json
+      - name: Assert negative snapshot scope and no capital authority
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          report=json.loads(Path('artifacts/local/v6-financial-snapshot/decision.json').read_text())
+          assert report['stage']=='NO_GO' and not report['artifact_errors']
+          assert report['capital_activation_authorized'] is False
+          assert report['real_capital_authorized_usd']==0
+          assert report['live_trading']=='DISABLED'
+          assert report['raw_market_inputs_authenticated'] is False
+          assert report['ledger_metrics_recomputed'] is False
+          assert report['unsupported_positive_proof_adapters']
+          for stage in ('PAPER_READY','PAPER_IN_PROGRESS','PAPER_PASSED','PILOT_PROPOSAL_READY'):
+              assert report['stage_contracts'][stage]['implemented'] is False
+          print('VERIFIED_SAVED_NEGATIVE_SNAPSHOT_NOT_PROFITABILITY_OR_CAPITAL_APPROVAL')
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: arz-v6-financial-snapshot
+          path: artifacts/local/v6-financial-snapshot/
+          if-no-files-found: warn
+          retention-days: 30

@@ -22,7 +22,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 CSV_FILE = ROOT / "reports/backtests/summary.csv"
 PREREG_FILE = ROOT / "configs/preregistered_strategies.json"
-GATE_ID = "ARZ_MAIN_OCT13_REPORTED_HOLDOUT_NEGATIVE_CONTROL_V1"
+GATE_ID = "ARZ_MAIN_OCT13_REPORTED_HOLDOUT_NEGATIVE_CONTROL_V2"
 CSV_GIT_BLOB_SHA1 = "a2afaff3e9b4a6e1af8223eef4862cbd134b2d17"
 PREREG_GIT_BLOB_SHA1 = "5693f693fe388825db5cc1176d1b073d1ef51633"
 STRATEGIES = ("trend", "momentum", "mean_reversion")
@@ -104,38 +104,62 @@ def parse_report(blob: bytes) -> tuple[dict[tuple[str, str], dict], list[str]]:
     return by_key, warnings
 
 
-def qualification(rows: dict[tuple[str, str], dict], strategy: str) -> dict:
-    if strategy not in STRATEGIES:
-        raise ValueError("Unregistered strategy")
-    base = rows[("final_holdout", strategy)]
-    stress = rows[("holdout_double_cost", strategy)]
-    gas = rows[("holdout_gas_010", strategy)]
-    b, d, g = (_number(x["net_return"], "net_return") for x in (base, stress, gas))
-    closed = _int(base["closed_trades"], "closed_trades")
-    pf = _number(base["profit_factor"], "profit_factor")
-    dd = _number(base["max_drawdown"], "max_drawdown")
-    low = _number(base["bootstrap_mean_low"], "bootstrap_mean_low")
+def _scenario_result(row: dict) -> dict:
+    net = _number(row["net_return"], "net_return")
+    closed = _int(row["closed_trades"], "closed_trades")
+    pf = _number(row["profit_factor"], "profit_factor")
+    dd = _number(row["max_drawdown"], "max_drawdown")
+    low = _number(row["bootstrap_mean_low"], "bootstrap_mean_low")
+    if net < -1 or pf < 0 or not 0 <= dd <= 1:
+        raise ValueError("Impossible spot-account return, profit factor or drawdown")
     gates = {
-        "positive_base_holdout": b > 0,
-        "positive_double_cost_holdout": d > 0,
-        "positive_higher_gas_holdout": g > 0,
+        "positive_net_return": net > 0,
         "closed_trades_at_least_100": closed >= CLOSED_MIN,
         "profit_factor_at_least_1_5": pf >= PROFIT_FACTOR_MIN,
         "drawdown_not_over_10pct": dd <= MDD_MAX,
         "bootstrap_mean_lower_positive": low > 0,
+    }
+    return {
+        "net_return_pct": str(net * 100), "closed_trades": closed,
+        "profit_factor": str(pf), "max_drawdown_pct": str(dd * 100),
+        "bootstrap_mean_lower": str(low),
+        "passed_requirements": [k for k, passed in gates.items() if passed],
+        "failed_requirements": [k for k, passed in gates.items() if not passed],
+        "numeric_requirements_pass": all(gates.values()),
+    }
+
+
+def qualification(rows: dict[tuple[str, str], dict], strategy: str) -> dict:
+    if strategy not in STRATEGIES:
+        raise ValueError("Unregistered strategy")
+    scenarios = {case: _scenario_result(rows[(case, strategy)]) for case in MANDATORY_CASES}
+    base = scenarios["final_holdout"]
+    gates = {
+        "positive_base_holdout": "positive_net_return" in base["passed_requirements"],
+        "positive_double_cost_holdout": "positive_net_return" in scenarios["holdout_double_cost"]["passed_requirements"],
+        "positive_higher_gas_holdout": "positive_net_return" in scenarios["holdout_gas_010"]["passed_requirements"],
+        **{key: key in base["passed_requirements"] for key in (
+            "closed_trades_at_least_100", "profit_factor_at_least_1_5",
+            "drawdown_not_over_10pct", "bootstrap_mean_lower_positive")},
         "actual_base_dex_follower_time_fills_verified": False,
         "ninety_prospective_paper_calendar_days_verified": False,
     }
+    for case in MANDATORY_CASES[1:]:
+        for key in ("closed_trades_at_least_100", "profit_factor_at_least_1_5",
+                    "drawdown_not_over_10pct", "bootstrap_mean_lower_positive"):
+            gates[case + ":" + key] = key in scenarios[case]["passed_requirements"]
     return {
         "strategy": strategy,
         "historical_model_only": True,
-        "holdout_return_pct": str(b * 100),
-        "double_cost_return_pct": str(d * 100),
-        "higher_gas_return_pct": str(g * 100),
-        "closed_trades": closed,
-        "profit_factor": str(pf),
-        "max_drawdown_pct": str(dd * 100),
-        "bootstrap_mean_lower": str(low),
+        "holdout_return_pct": base["net_return_pct"],
+        "double_cost_return_pct": scenarios["holdout_double_cost"]["net_return_pct"],
+        "higher_gas_return_pct": scenarios["holdout_gas_010"]["net_return_pct"],
+        "closed_trades": base["closed_trades"],
+        "profit_factor": base["profit_factor"],
+        "max_drawdown_pct": base["max_drawdown_pct"],
+        "bootstrap_mean_lower": base["bootstrap_mean_lower"],
+        "scenario_results": scenarios,
+        "historical_numeric_gates_pass": all(v["numeric_requirements_pass"] for v in scenarios.values()),
         "passed_requirements": [k for k, v in gates.items() if v],
         "failed_requirements": [k for k, v in gates.items() if not v],
         "all_financial_gates_pass": all(gates.values()),
@@ -152,7 +176,7 @@ def audit(blob: bytes, prereg_blob: bytes) -> dict:
     by_key, warnings = parse_report(blob)
     results = [qualification(by_key, strategy) for strategy in STRATEGIES]
     return {
-        "schema_version": 1,
+        "schema_version": 2,
         "gate_id": GATE_ID,
         "sources": {
             "historical_result_csv": "reports/backtests/summary.csv",

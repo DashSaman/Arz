@@ -1,0 +1,109 @@
+{
+  "changed_files": {
+    "scripts/strat01_financial_decision.py": "5892be4a7a142a3c9496c55852bc4328f316db1dc44f7411a4d289769e44590a",
+    "scripts/verify_profitability_gates.py": "1b16b83c177905caabb8062e01da4a41509fe51ba79fb4722241af84d58d8fd0",
+    "tests/test_strat01_v6_financial_decision.py": "5a8a5050b99382876408b940388e88d1a1f886e5564599e8989f20f6b4b77408"
+  },
+  "commands": [
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python -m unittest tests.test_strat01_v6_financial_decision -v",
+      "exit_code": 1,
+      "failures_including_subtests": 30,
+      "log": "financial_decision_red.log",
+      "methods": 12,
+      "note": "The CLI overwrite regression was added afterwards and separately failed before the adapter implementation.",
+      "phase": "RED_BEFORE_IMPLEMENTATION"
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python -m unittest tests.test_strat01_v6_financial_decision tests.test_verify_profitability_gates tests.test_strat01_investment_readiness -v",
+      "exit_code": 0,
+      "failures": 0,
+      "log": "financial_decision_focused.log",
+      "methods": 201,
+      "phase": "GREEN_FOCUSED",
+      "skipped": 0
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python -m unittest discover -s tests",
+      "exit_code": 0,
+      "failures": 0,
+      "log": "financial_decision_full_suite.log",
+      "methods": 1605,
+      "note": "Includes concurrent work in the shared tree; all three financial files retained identical SHA256 before and after run. Existing unrelated ResourceWarnings in strat01_60m_native_probe.py lines 23 and 29 are retained in the log.",
+      "phase": "GREEN_CANONICAL_FULL_SUITE",
+      "skipped": 1
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/verify_research_control.py",
+      "exit_code": 0,
+      "log": "financial_decision_control.log",
+      "phase": "CONTROL",
+      "scope": "OFFLINE_CONSISTENCY_ONLY_REMOTE_FRESHNESS_NOT_PROVED"
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/strat01_financial_decision.py --output /workspace/scratch/4a6a75419487/financial_decision_observed.json",
+      "exit_code": 0,
+      "output": "financial_decision_observed.json",
+      "phase": "ACTUAL_ADAPTER_OUTPUT"
+    }
+  ],
+  "defined_but_unimplemented_positive_stages": [
+    "PAPER_READY",
+    "PAPER_IN_PROGRESS",
+    "PAPER_PASSED",
+    "PILOT_PROPOSAL_READY"
+  ],
+  "evidence_files": {
+    "financial_decision_control.log": {
+      "bytes": 267,
+      "sha256": "675e6880f99a036ebb39898a044fe38a7d4ec2982ae5e04ef6ee5265f2ac779e"
+    },
+    "financial_decision_focused.log": {
+      "bytes": 30457,
+      "sha256": "ebb508d6caaf97d90fe559b5464e065ecb031146e8c8437cc51b087684b3d8ad"
+    },
+    "financial_decision_full_suite.log": {
+      "bytes": 2499,
+      "sha256": "c5a926ce7222a2bcf4b51fde3b8baebe1635e64cad58da21457a58594758bc96"
+    },
+    "financial_decision_observed.json": {
+      "bytes": 71159,
+      "sha256": "b68e0f30bf95c734e622b2f7299aca361d14f3553622912e5a6c636136292cac"
+    },
+    "financial_decision_red.log": {
+      "bytes": 31760,
+      "sha256": "dcdd41efb5741d0972aa944c38c8cfe743c5aa2b1e015c665b5cb6e258083901"
+    }
+  },
+  "limits": [
+    "Pinned saved reports only, not a current all-strategy decision or independent market data authentication.",
+    "No ledger/backtest recomputation, new bootstrap, new market requests or new experiments.",
+    "Positive proof adapters including H3/H4 provenance and authenticated independent reviewer are explicitly unsupported.",
+    "Old historical artifacts remain unchanged; generated observations and logs are outside the repository.",
+    "No git operations were performed during the implementation task."
+  ],
+  "metric_diagnostic_counts": {
+    "INSUFFICIENT_EVIDENCE": 4,
+    "NO_GO": 54
+  },
+  "new_test_methods": 13,
+  "observed_at_utc": "2026-11-06T19:56:47.777728+00:00",
+  "observed_result": {
+    "artifact_errors": [],
+    "capital_activation_authorized": false,
+    "cost_status": "COST_UNVERIFIED",
+    "financial_decision": "NO-GO",
+    "live_trading": "DISABLED",
+    "profitability_evidence_status": "INSUFFICIENT_EVIDENCE",
+    "qualified_paper_candidates": 0,
+    "qualified_prospective_days": 0,
+    "real_capital_authorized_usd": 0,
+    "stage": "NO_GO"
+  },
+  "review_status": "AWAITING_INDEPENDENT_CODE_REVIEW",
+  "supported_stage_outputs": [
+    "NO_GO",
+    "INSUFFICIENT_EVIDENCE"
+  ],
+  "verification_kind": "MISSION_V6_FINANCIAL_DIAGNOSTIC_AND_PINNED_NEGATIVE_ADAPTER"
+}
