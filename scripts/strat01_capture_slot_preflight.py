@@ -52,6 +52,16 @@ def decide(source_dir: Path, now_unix: int) -> dict:
                        if x != "NO_SCHEDULED_APPEND_FILE_PRESENT"]
     if unexpected_errors or evidence["conflicts"]:
         raise ValueError("Recorded market source invalid or revised: FAIL_CLOSED")
+    # The offline auditor intentionally supports retrospective examination.
+    # A runtime decision additionally requires every retained observation to
+    # exist by its explicit clock, including HTTP receipts after collection
+    # started. Never let a clock-drifted/future record suppress collection.
+    decision_clock=datetime.fromtimestamp(now_unix,timezone.utc)
+    for record in evidence["source_manifest"]:
+        if (datetime.fromisoformat(record["first_seen"]) > decision_clock
+                or any(record["closed_bar_start"] + BAR + lag > now_unix
+                       for lag in record["observed_bar_close_lag_seconds"].values())):
+            raise ValueError("Recorded source observed after actual runtime clock: FAIL_CLOSED")
     matches=[x for x in evidence["source_manifest"]
              if x["closed_bar_start"]==slot
              and x["two_asset_bar_received"]

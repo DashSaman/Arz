@@ -1,0 +1,53 @@
+test_future_provider_receipt_is_refused_before_capture_publication (tests.test_strat01_collector_v6_integrity.CaptureHealthIntegrityTests.test_future_provider_receipt_is_refused_before_capture_publication) ... FAIL
+test_incomplete_capture_cannot_clear_fault_before_valid_recovery (tests.test_strat01_collector_v6_integrity.CaptureHealthIntegrityTests.test_incomplete_capture_cannot_clear_fault_before_valid_recovery) ... ok
+test_incomplete_failure_survives_byte_exact_backup_restore (tests.test_strat01_collector_v6_integrity.CaptureHealthIntegrityTests.test_incomplete_failure_survives_byte_exact_backup_restore) ... ok
+test_late_pair_is_unhealthy_until_future_timely_pair (tests.test_strat01_collector_v6_integrity.CaptureHealthIntegrityTests.test_late_pair_is_unhealthy_until_future_timely_pair) ... ok
+test_legacy_success_cannot_promote_incomplete_or_late_source (tests.test_strat01_collector_v6_integrity.CaptureHealthIntegrityTests.test_legacy_success_cannot_promote_incomplete_or_late_source) ... ok
+test_missing_pair_is_archived_but_never_reports_healthy (tests.test_strat01_collector_v6_integrity.CaptureHealthIntegrityTests.test_missing_pair_is_archived_but_never_reports_healthy) ... ok
+test_receipt_received_by_actual_completion_can_be_healthy (tests.test_strat01_collector_v6_integrity.CaptureHealthIntegrityTests.test_receipt_received_by_actual_completion_can_be_healthy) ... ok
+test_retained_future_source_or_receipt_is_unhealthy_without_network (tests.test_strat01_collector_v6_integrity.CaptureHealthIntegrityTests.test_retained_future_source_or_receipt_is_unhealthy_without_network) ... 
+  test_retained_future_source_or_receipt_is_unhealthy_without_network (tests.test_strat01_collector_v6_integrity.CaptureHealthIntegrityTests.test_retained_future_source_or_receipt_is_unhealthy_without_network) (future_part='capture') ... FAIL
+  test_retained_future_source_or_receipt_is_unhealthy_without_network (tests.test_strat01_collector_v6_integrity.CaptureHealthIntegrityTests.test_retained_future_source_or_receipt_is_unhealthy_without_network) (future_part='receipt') ... FAIL
+test_success_replay_cannot_clear_newer_fault_with_old_source (tests.test_strat01_collector_v6_integrity.CaptureHealthIntegrityTests.test_success_replay_cannot_clear_newer_fault_with_old_source) ... ok
+test_duplicate_outcome_cannot_hide_retained_provider_stop (tests.test_strat01_collector_v6_integrity.EventJournalIntegrityTests.test_duplicate_outcome_cannot_hide_retained_provider_stop) ... ok
+test_duplicate_safety_keys_and_nested_keys_are_rejected (tests.test_strat01_collector_v6_integrity.EventJournalIntegrityTests.test_duplicate_safety_keys_and_nested_keys_are_rejected) ... ok
+test_non_integer_schema_version_is_rejected (tests.test_strat01_collector_v6_integrity.EventJournalIntegrityTests.test_non_integer_schema_version_is_rejected) ... ok
+test_nonfinite_event_fields_are_rejected (tests.test_strat01_collector_v6_integrity.EventJournalIntegrityTests.test_nonfinite_event_fields_are_rejected) ... ok
+
+======================================================================
+FAIL: test_future_provider_receipt_is_refused_before_capture_publication (tests.test_strat01_collector_v6_integrity.CaptureHealthIntegrityTests.test_future_provider_receipt_is_refused_before_capture_publication)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_collector_v6_integrity.py", line 164, in test_future_provider_receipt_is_refused_before_capture_publication
+    self.assertEqual(result["outcome"], "REFUSED_COLLECTOR_ERROR")
+AssertionError: 'SOURCE_ARCHIVED_REQUIRES_INDEPENDENT_AUDIT' != 'REFUSED_COLLECTOR_ERROR'
+- SOURCE_ARCHIVED_REQUIRES_INDEPENDENT_AUDIT
++ REFUSED_COLLECTOR_ERROR
+
+
+======================================================================
+FAIL: test_retained_future_source_or_receipt_is_unhealthy_without_network (tests.test_strat01_collector_v6_integrity.CaptureHealthIntegrityTests.test_retained_future_source_or_receipt_is_unhealthy_without_network) (future_part='capture')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_collector_v6_integrity.py", line 180, in test_retained_future_source_or_receipt_is_unhealthy_without_network
+    self.assertEqual(operational_state(root, AT, False), "REFUSED_FAIL_CLOSED")
+AssertionError: 'NETWORK_DISABLED' != 'REFUSED_FAIL_CLOSED'
+- NETWORK_DISABLED
++ REFUSED_FAIL_CLOSED
+
+
+======================================================================
+FAIL: test_retained_future_source_or_receipt_is_unhealthy_without_network (tests.test_strat01_collector_v6_integrity.CaptureHealthIntegrityTests.test_retained_future_source_or_receipt_is_unhealthy_without_network) (future_part='receipt')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_collector_v6_integrity.py", line 180, in test_retained_future_source_or_receipt_is_unhealthy_without_network
+    self.assertEqual(operational_state(root, AT, False), "REFUSED_FAIL_CLOSED")
+AssertionError: 'NETWORK_DISABLED' != 'REFUSED_FAIL_CLOSED'
+- NETWORK_DISABLED
++ REFUSED_FAIL_CLOSED
+
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.142s
+
+FAILED (failures=3)

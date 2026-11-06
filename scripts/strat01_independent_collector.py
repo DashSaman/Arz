@@ -20,7 +20,7 @@ import time
 from typing import Callable
 import uuid
 
-from scripts.strat01_base_identity_forward import BAR, START_OOS, collect
+from scripts.strat01_base_identity_forward import BAR, START_OOS, _utc_bar_start, collect
 from scripts.strat01_capture_slot_preflight import decide
 from scripts.strat01_investment_readiness import (
     MAX_BYTES_PER_CAPTURE, MAX_CAPTURE_FILES, audit_capture_dir, snapshot_summary,
@@ -35,7 +35,7 @@ MAX_EVENT_BYTES = 32_000
 PROVIDER_STOP_OUTCOME = "REFUSED_PROVIDER_ACCESS_STOP"
 FAILURE_OUTCOMES = frozenset({
     "REFUSED_INVALID_ARCHIVE", "REFUSED_COLLECTOR_ERROR", "REFUSED_POSTWRITE_AUDIT",
-    PROVIDER_STOP_OUTCOME,
+    "REFUSED_CAPTURE_QUALITY", PROVIDER_STOP_OUTCOME,
 })
 SUCCESS_OUTCOME = "SOURCE_ARCHIVED_REQUIRES_INDEPENDENT_AUDIT"
 PROVIDER_STOP_ERRORS = frozenset({
@@ -57,6 +57,25 @@ def require_complete_restore(root: Path) -> None:
         raise ValueError("Collector restore is incomplete")
 
 
+def _json_object(raw: bytes) -> dict:
+    """An immutable record must have one unambiguous JSON interpretation."""
+    def unique(pairs):
+        result = {}
+        for key, value in pairs:
+            if key in result:
+                raise ValueError("Duplicate collector evidence key")
+            result[key] = value
+        return result
+
+    def nonfinite(_value):
+        raise ValueError("Non-finite collector evidence")
+
+    result = json.loads(raw, object_pairs_hook=unique, parse_constant=nonfinite)
+    if type(result) is not dict:
+        raise ValueError("Expected collector evidence object")
+    return result
+
+
 def read_events(root: Path, now_unix: int) -> list[dict]:
     """Read the bounded durable operational history, including safety flags."""
     if not root.is_dir() or root.is_symlink():
@@ -72,8 +91,13 @@ def read_events(root: Path, now_unix: int) -> list[dict]:
     for path in paths:
         if not path.is_file() or path.is_symlink() or path.stat().st_size > MAX_EVENT_BYTES:
             raise ValueError("Invalid collector event record")
-        event = json.loads(path.read_text(encoding="utf-8"))
-        if (type(event) is not dict or event.get("schema_version") != 1
+        fd = os.open(path, os.O_RDONLY | os.O_NOFOLLOW)
+        with os.fdopen(fd, "rb") as stream:
+            raw = stream.read(MAX_EVENT_BYTES + 1)
+        if len(raw) > MAX_EVENT_BYTES:
+            raise ValueError("Unbounded collector event record")
+        event = _json_object(raw)
+        if (type(event.get("schema_version")) is not int or event["schema_version"] != 1
                 or event.get("kind") != "INDEPENDENT_LOCAL_CLOCK_OBSERVATION_NOT_ELIGIBLE_PAPER"
                 or type(event.get("actual_clock_unix")) is not int
                 or not START_OOS <= event["actual_clock_unix"] <= now_unix
@@ -95,8 +119,8 @@ def read_events(root: Path, now_unix: int) -> list[dict]:
     return sorted(events, key=lambda event: event["actual_clock_unix"])
 
 
-def collection_failed(root: Path, events: list[dict]) -> bool:
-    """Transient faults require a strictly later, source-bound success.
+def collection_failed(root: Path, events: list[dict], now_unix: int) -> bool:
+    """Transient faults require a later, source-bound timely complete pair.
 
     Equal-second events have no reliable ordering, so failure wins the tie.
     Neutral skips/network opt-out do not establish recovery.
@@ -108,20 +132,29 @@ def collection_failed(root: Path, events: list[dict]) -> bool:
     # A source can outlive its event (interruption), or have been labeled a
     # success by an older collector. Health must see that refusal immediately.
     try:
-        if _retained_provider_access_stopped(root / "forward"):
+        provider_stopped, retained = _retained_source_audit(root / "forward", now_unix)
+        if provider_stopped:
             return True
     except (ValueError, OSError, TypeError, KeyError, OverflowError):
         return True
+    # Source publication precedes its event. An interrupted writer may leave
+    # a failed capture with no event, so health also reads its preserved bytes.
+    # This transient quality failure never blocks a later collection attempt.
+    quality_failed_at = max((datetime.fromisoformat(row["first_seen"]).timestamp()
+                             for row in retained
+                             if not row["two_asset_bar_received"]
+                             or not row["operational_timeliness_1h_both_assets"]), default=-1)
     failed_at = max((e["actual_clock_unix"] for e in events
                      if e["outcome"] in FAILURE_OUTCOMES), default=-1)
     successes = [e for e in events if e["outcome"] == SUCCESS_OUTCOME]
     if not successes:
-        return failed_at >= 0
+        return failed_at >= 0 or quality_failed_at >= 0
     latest = successes[-1]
     if failed_at >= latest["actual_clock_unix"]:
         return True
     source = latest.get("source")
-    if type(source) is not dict:
+    if (type(source) is not dict or source.get("two_asset_bar_received") is not True
+            or source.get("operational_timeliness_1h_both_assets") is not True):
         return True
     name = source.get("filename")
     if (not isinstance(name, str) or Path(name).name != name
@@ -132,11 +165,28 @@ def collection_failed(root: Path, events: list[dict]) -> bool:
     if (not folder.is_dir() or folder.is_symlink()
             or not path.is_file() or path.is_symlink()):
         return True
-    fd = os.open(path, os.O_RDONLY | os.O_NOFOLLOW)
-    with os.fdopen(fd, "rb") as stream:
-        raw = stream.read(MAX_BYTES_PER_CAPTURE + 1)
-    return (len(raw) > MAX_BYTES_PER_CAPTURE
-            or hashlib.sha256(raw).hexdigest() != source.get("sha256"))
+    try:
+        fd = os.open(path, os.O_RDONLY | os.O_NOFOLLOW)
+        with os.fdopen(fd, "rb") as stream:
+            raw = stream.read(MAX_BYTES_PER_CAPTURE + 1)
+        if (len(raw) > MAX_BYTES_PER_CAPTURE
+                or hashlib.sha256(raw).hexdigest() != source.get("sha256")):
+            return True
+        summary = snapshot_summary(_json_object(raw), filename=name)
+        captured_at = int(datetime.fromisoformat(summary["first_seen"]).timestamp())
+    except (ValueError, OSError, TypeError, KeyError, OverflowError):
+        return True
+    # Older versions could label an incomplete or late capture as success.
+    # Recompute from preserved bytes; a replay of an old success cannot prove
+    # that a new collection attempt recovered after a later failure.
+    at = latest["actual_clock_unix"]
+    target = latest.get("target_bar_start_unix")
+    return (summary["two_asset_bar_received"] is not True
+            or summary["operational_timeliness_1h_both_assets"] is not True
+            or type(target) is not int or target != _utc_bar_start(at)
+            or summary["bar_start"] != target
+            or not at <= captured_at <= at + MAX_RUNTIME_LAG_SECONDS
+            or quality_failed_at >= captured_at)
 
 
 def _provider_access_stopped(evidence: dict) -> bool:
@@ -155,8 +205,8 @@ def _provider_access_stopped(evidence: dict) -> bool:
     return any(type(error) is str and error in PROVIDER_STOP_ERRORS for error in errors)
 
 
-def _retained_provider_access_stopped(sources: Path) -> bool:
-    """Strictly audit bounded retained captures before trusting stop evidence."""
+def _retained_source_audit(sources: Path, now_unix: int) -> tuple[bool, list[dict]]:
+    """Return provider-stop status and strictly audited retained observations."""
     if not sources.is_dir() or sources.is_symlink():
         raise ValueError("Missing trusted source evidence directory")
     paths = sorted(sources.glob("*.json"))
@@ -179,13 +229,19 @@ def _retained_provider_access_stopped(sources: Path) -> bool:
     if (audit["errors"] or audit["conflicts"]
             or audit["file_count"] != audit["valid_source_files"]):
         raise ValueError("Untrusted retained source evidence")
-    return stopped
+    actual_clock = datetime.fromtimestamp(now_unix, timezone.utc)
+    for record in audit["source_manifest"]:
+        if (datetime.fromisoformat(record["first_seen"]) > actual_clock
+                or any(record["closed_bar_start"] + BAR + lag > now_unix
+                       for lag in record["observed_bar_close_lag_seconds"].values())):
+            raise ValueError("Retained source observed after actual collector clock")
+    return stopped, audit["source_manifest"]
 
 
 def operational_state(root: Path, now_unix: int, network_enabled: bool) -> str:
     try:
         events = read_events(root, now_unix)
-        if collection_failed(root, events):
+        if collection_failed(root, events, now_unix):
             return "REFUSED_FAIL_CLOSED"
     except (ValueError, OSError, TypeError, OverflowError):
         return "REFUSED_FAIL_CLOSED"
@@ -250,17 +306,23 @@ def heartbeat_healthy(root: Path, now_unix: int) -> bool:
     if not path.is_file() or path.is_symlink() or path.stat().st_size > 2048:
         return False
     try:
-        value = json.loads(path.read_text(encoding="utf-8"))
-        if type(value) is not dict:
+        fd = os.open(path, os.O_RDONLY | os.O_NOFOLLOW)
+        with os.fdopen(fd, "rb") as stream:
+            raw = stream.read(2049)
+        if len(raw) > 2048:
             return False
+        value = _json_object(raw)
         at = value.get("observed_unix")
         return (type(at) is int and 0 <= now_unix - at <= HEALTH_MAX_AGE_SECONDS
+                and type(value.get("schema_version")) is int and value["schema_version"] == 1
+                and value.get("actual_utc") == _utc(at)
+                and type(value.get("capital_authorized_usd")) is int
                 and value.get("capital_authorized_usd") == 0
                 and value.get("live_trading") == "DISABLED"
                 and value.get("status") in (
                     "ALIVE_READONLY", "NETWORK_DISABLED", "COLLECTION_HEALTHY")
                 and operational_state(root, now_unix, True) != "REFUSED_FAIL_CLOSED")
-    except (ValueError, OSError, TypeError):
+    except (ValueError, OSError, TypeError, OverflowError):
         return False
 
 
@@ -333,7 +395,8 @@ def run_once(root: Path, *, now_unix: int,
                               outcome=PROVIDER_STOP_OUTCOME,
                               reason="PROVIDER_ACCESS_REVIEW_REQUIRED")
             slot = decide(sources, now_unix)
-            if _retained_provider_access_stopped(sources):
+            provider_stopped, _ = _retained_source_audit(sources, now_unix)
+            if provider_stopped:
                 return _event(events, at=now_unix, target=slot["target_bar_start_unix"],
                               outcome=PROVIDER_STOP_OUTCOME,
                               reason="PROVIDER_ACCESS_REVIEW_REQUIRED")
@@ -351,10 +414,20 @@ def run_once(root: Path, *, now_unix: int,
             return _event(events, at=now_unix, target=target,
                           outcome="REFUSED_NETWORK_DISABLED",
                           reason="EXPLICIT_READONLY_OPT_IN_REQUIRED")
+        provider_stopped = False
+        provider_stop_event = None
         try:
             evidence = fetcher("forward")
             if not isinstance(evidence, dict):
                 raise ValueError("Collector returned no source object")
+            provider_stopped = _provider_access_stopped(evidence)
+            if provider_stopped:
+                # Persist access refusal before any fallible clock/schema
+                # validation. Invalid or slow evidence is not permission to
+                # repeat a provider request after restart.
+                provider_stop_event = _event(
+                    events, at=now_unix, target=target,
+                    outcome=PROVIDER_STOP_OUTCOME, reason="PROVIDER_ACCESS_REVIEW_REQUIRED")
             recorded = evidence.get("collected_utc")
             if not isinstance(recorded, str) or not recorded.endswith("+00:00"):
                 raise ValueError("Capture must preserve actual UTC clock")
@@ -369,6 +442,9 @@ def run_once(root: Path, *, now_unix: int,
             summary = snapshot_summary(evidence, filename=name)
             if summary["bar_start"] != target:
                 raise ValueError("Collector did not observe the requested completed bar")
+            if any(target + BAR + lag > check_clock
+                   for lag in summary["observed_bar_close_lag_seconds"].values()):
+                raise ValueError("Provider receipt is after actual collection completion")
             if evidence.get("any_order_broadcast") is not False:
                 raise ValueError("Disallowed transaction broadcast flag")
             file_path = _write_new(sources, name, evidence)
@@ -379,18 +455,27 @@ def run_once(root: Path, *, now_unix: int,
                 return _event(events, at=now_unix, target=target,
                               outcome="REFUSED_POSTWRITE_AUDIT", reason="SOURCE_CONFLICT")
             sha = hashlib.sha256(file_path.read_bytes()).hexdigest()
-            provider_stopped = _provider_access_stopped(evidence)
+            provider_stopped = provider_stopped or _provider_access_stopped(evidence)
+            quality_reason = None
+            if summary["two_asset_bar_received"] is not True:
+                quality_reason = "INCOMPLETE_TWO_ASSET_BAR"
+            elif summary["operational_timeliness_1h_both_assets"] is not True:
+                quality_reason = "CAPTURE_OUTSIDE_OPERATIONAL_WINDOW"
             return _event(events, at=now_unix, target=target,
-                          outcome=PROVIDER_STOP_OUTCOME if provider_stopped else SUCCESS_OUTCOME,
-                          reason="PROVIDER_ACCESS_REVIEW_REQUIRED" if provider_stopped else None,
+                          outcome=(PROVIDER_STOP_OUTCOME if provider_stopped else
+                                   "REFUSED_CAPTURE_QUALITY" if quality_reason else SUCCESS_OUTCOME),
+                          reason="PROVIDER_ACCESS_REVIEW_REQUIRED" if provider_stopped else quality_reason,
                           source={"filename": name, "sha256": sha,
                                   "two_asset_bar_received": summary["two_asset_bar_received"],
                                   "operational_timeliness_1h_both_assets":
                                       summary["operational_timeliness_1h_both_assets"]})
         except (ValueError, OSError, KeyError, TypeError, RuntimeError) as exc:
+            if provider_stop_event is not None:
+                return provider_stop_event
             # Avoid logging URLs, request bodies or secrets through exception text.
             return _event(events, at=now_unix, target=target,
-                          outcome="REFUSED_COLLECTOR_ERROR", reason=type(exc).__name__)
+                          outcome=PROVIDER_STOP_OUTCOME if provider_stopped else "REFUSED_COLLECTOR_ERROR",
+                          reason="PROVIDER_ACCESS_REVIEW_REQUIRED" if provider_stopped else type(exc).__name__)
 
 
 def main() -> int:

@@ -1,0 +1,114 @@
+test_provider_stop_survives_slow_or_invalid_capture_and_restore (tests.test_strat01_collector_v6_integrity.ProviderRefusalValidationTests.test_provider_stop_survives_slow_or_invalid_capture_and_restore) ... 
+  test_provider_stop_survives_slow_or_invalid_capture_and_restore (tests.test_strat01_collector_v6_integrity.ProviderRefusalValidationTests.test_provider_stop_survives_slow_or_invalid_capture_and_restore) (code=403, damage='slow') ... FAIL
+  test_provider_stop_survives_slow_or_invalid_capture_and_restore (tests.test_strat01_collector_v6_integrity.ProviderRefusalValidationTests.test_provider_stop_survives_slow_or_invalid_capture_and_restore) (code=403, damage='missing_clock') ... FAIL
+  test_provider_stop_survives_slow_or_invalid_capture_and_restore (tests.test_strat01_collector_v6_integrity.ProviderRefusalValidationTests.test_provider_stop_survives_slow_or_invalid_capture_and_restore) (code=403, damage='invalid_candles') ... FAIL
+  test_provider_stop_survives_slow_or_invalid_capture_and_restore (tests.test_strat01_collector_v6_integrity.ProviderRefusalValidationTests.test_provider_stop_survives_slow_or_invalid_capture_and_restore) (code=429, damage='slow') ... FAIL
+  test_provider_stop_survives_slow_or_invalid_capture_and_restore (tests.test_strat01_collector_v6_integrity.ProviderRefusalValidationTests.test_provider_stop_survives_slow_or_invalid_capture_and_restore) (code=429, damage='missing_clock') ... FAIL
+  test_provider_stop_survives_slow_or_invalid_capture_and_restore (tests.test_strat01_collector_v6_integrity.ProviderRefusalValidationTests.test_provider_stop_survives_slow_or_invalid_capture_and_restore) (code=429, damage='invalid_candles') ... FAIL
+  test_provider_stop_survives_slow_or_invalid_capture_and_restore (tests.test_strat01_collector_v6_integrity.ProviderRefusalValidationTests.test_provider_stop_survives_slow_or_invalid_capture_and_restore) (code=529, damage='slow') ... FAIL
+  test_provider_stop_survives_slow_or_invalid_capture_and_restore (tests.test_strat01_collector_v6_integrity.ProviderRefusalValidationTests.test_provider_stop_survives_slow_or_invalid_capture_and_restore) (code=529, damage='missing_clock') ... FAIL
+  test_provider_stop_survives_slow_or_invalid_capture_and_restore (tests.test_strat01_collector_v6_integrity.ProviderRefusalValidationTests.test_provider_stop_survives_slow_or_invalid_capture_and_restore) (code=529, damage='invalid_candles') ... FAIL
+
+======================================================================
+FAIL: test_provider_stop_survives_slow_or_invalid_capture_and_restore (tests.test_strat01_collector_v6_integrity.ProviderRefusalValidationTests.test_provider_stop_survives_slow_or_invalid_capture_and_restore) (code=403, damage='slow')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_collector_v6_integrity.py", line 316, in test_provider_stop_survives_slow_or_invalid_capture_and_restore
+    self.assertEqual(result["outcome"], "REFUSED_PROVIDER_ACCESS_STOP")
+AssertionError: 'REFUSED_COLLECTOR_ERROR' != 'REFUSED_PROVIDER_ACCESS_STOP'
+- REFUSED_COLLECTOR_ERROR
++ REFUSED_PROVIDER_ACCESS_STOP
+
+
+======================================================================
+FAIL: test_provider_stop_survives_slow_or_invalid_capture_and_restore (tests.test_strat01_collector_v6_integrity.ProviderRefusalValidationTests.test_provider_stop_survives_slow_or_invalid_capture_and_restore) (code=403, damage='missing_clock')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_collector_v6_integrity.py", line 316, in test_provider_stop_survives_slow_or_invalid_capture_and_restore
+    self.assertEqual(result["outcome"], "REFUSED_PROVIDER_ACCESS_STOP")
+AssertionError: 'REFUSED_COLLECTOR_ERROR' != 'REFUSED_PROVIDER_ACCESS_STOP'
+- REFUSED_COLLECTOR_ERROR
++ REFUSED_PROVIDER_ACCESS_STOP
+
+
+======================================================================
+FAIL: test_provider_stop_survives_slow_or_invalid_capture_and_restore (tests.test_strat01_collector_v6_integrity.ProviderRefusalValidationTests.test_provider_stop_survives_slow_or_invalid_capture_and_restore) (code=403, damage='invalid_candles')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_collector_v6_integrity.py", line 316, in test_provider_stop_survives_slow_or_invalid_capture_and_restore
+    self.assertEqual(result["outcome"], "REFUSED_PROVIDER_ACCESS_STOP")
+AssertionError: 'REFUSED_COLLECTOR_ERROR' != 'REFUSED_PROVIDER_ACCESS_STOP'
+- REFUSED_COLLECTOR_ERROR
++ REFUSED_PROVIDER_ACCESS_STOP
+
+
+======================================================================
+FAIL: test_provider_stop_survives_slow_or_invalid_capture_and_restore (tests.test_strat01_collector_v6_integrity.ProviderRefusalValidationTests.test_provider_stop_survives_slow_or_invalid_capture_and_restore) (code=429, damage='slow')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_collector_v6_integrity.py", line 316, in test_provider_stop_survives_slow_or_invalid_capture_and_restore
+    self.assertEqual(result["outcome"], "REFUSED_PROVIDER_ACCESS_STOP")
+AssertionError: 'REFUSED_COLLECTOR_ERROR' != 'REFUSED_PROVIDER_ACCESS_STOP'
+- REFUSED_COLLECTOR_ERROR
++ REFUSED_PROVIDER_ACCESS_STOP
+
+
+======================================================================
+FAIL: test_provider_stop_survives_slow_or_invalid_capture_and_restore (tests.test_strat01_collector_v6_integrity.ProviderRefusalValidationTests.test_provider_stop_survives_slow_or_invalid_capture_and_restore) (code=429, damage='missing_clock')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_collector_v6_integrity.py", line 316, in test_provider_stop_survives_slow_or_invalid_capture_and_restore
+    self.assertEqual(result["outcome"], "REFUSED_PROVIDER_ACCESS_STOP")
+AssertionError: 'REFUSED_COLLECTOR_ERROR' != 'REFUSED_PROVIDER_ACCESS_STOP'
+- REFUSED_COLLECTOR_ERROR
++ REFUSED_PROVIDER_ACCESS_STOP
+
+
+======================================================================
+FAIL: test_provider_stop_survives_slow_or_invalid_capture_and_restore (tests.test_strat01_collector_v6_integrity.ProviderRefusalValidationTests.test_provider_stop_survives_slow_or_invalid_capture_and_restore) (code=429, damage='invalid_candles')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_collector_v6_integrity.py", line 316, in test_provider_stop_survives_slow_or_invalid_capture_and_restore
+    self.assertEqual(result["outcome"], "REFUSED_PROVIDER_ACCESS_STOP")
+AssertionError: 'REFUSED_COLLECTOR_ERROR' != 'REFUSED_PROVIDER_ACCESS_STOP'
+- REFUSED_COLLECTOR_ERROR
++ REFUSED_PROVIDER_ACCESS_STOP
+
+
+======================================================================
+FAIL: test_provider_stop_survives_slow_or_invalid_capture_and_restore (tests.test_strat01_collector_v6_integrity.ProviderRefusalValidationTests.test_provider_stop_survives_slow_or_invalid_capture_and_restore) (code=529, damage='slow')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_collector_v6_integrity.py", line 316, in test_provider_stop_survives_slow_or_invalid_capture_and_restore
+    self.assertEqual(result["outcome"], "REFUSED_PROVIDER_ACCESS_STOP")
+AssertionError: 'REFUSED_COLLECTOR_ERROR' != 'REFUSED_PROVIDER_ACCESS_STOP'
+- REFUSED_COLLECTOR_ERROR
++ REFUSED_PROVIDER_ACCESS_STOP
+
+
+======================================================================
+FAIL: test_provider_stop_survives_slow_or_invalid_capture_and_restore (tests.test_strat01_collector_v6_integrity.ProviderRefusalValidationTests.test_provider_stop_survives_slow_or_invalid_capture_and_restore) (code=529, damage='missing_clock')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_collector_v6_integrity.py", line 316, in test_provider_stop_survives_slow_or_invalid_capture_and_restore
+    self.assertEqual(result["outcome"], "REFUSED_PROVIDER_ACCESS_STOP")
+AssertionError: 'REFUSED_COLLECTOR_ERROR' != 'REFUSED_PROVIDER_ACCESS_STOP'
+- REFUSED_COLLECTOR_ERROR
++ REFUSED_PROVIDER_ACCESS_STOP
+
+
+======================================================================
+FAIL: test_provider_stop_survives_slow_or_invalid_capture_and_restore (tests.test_strat01_collector_v6_integrity.ProviderRefusalValidationTests.test_provider_stop_survives_slow_or_invalid_capture_and_restore) (code=529, damage='invalid_candles')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4a6a75419487/Arz/tests/test_strat01_collector_v6_integrity.py", line 316, in test_provider_stop_survives_slow_or_invalid_capture_and_restore
+    self.assertEqual(result["outcome"], "REFUSED_PROVIDER_ACCESS_STOP")
+AssertionError: 'REFUSED_COLLECTOR_ERROR' != 'REFUSED_PROVIDER_ACCESS_STOP'
+- REFUSED_COLLECTOR_ERROR
++ REFUSED_PROVIDER_ACCESS_STOP
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.012s
+
+FAILED (failures=9)

@@ -1,0 +1,12 @@
+{
+  "exit_code": 0,
+  "output": "{\"kind\": \"LOCAL_WHITELIST_COPY_REHEARSAL_NOT_DOCKER\", \"uid\": 1000, \"gid\": 1000, \"import_without_site_packages\": true, \"default_network_disabled\": true, \"source_files\": 0, \"monitor_valid_source_files\": 0, \"backup_restore_event_bytes_equal\": true, \"qualified_paper_days\": 0, \"financial_decision\": \"NO-GO\"}\n",
+  "source_sha256": {
+    "strat01_base_identity_forward.py": "2481e9b92e5a6b2d71d8d2bab1f722f19d9944fe2e312c8dd03efbad91f68baa",
+    "strat01_capture_slot_preflight.py": "bc06f495b365bb109b9fe1273d4082df9e1172ee4995634ae4fb9212f12e2daa",
+    "strat01_investment_readiness.py": "94eea5037ee3f727f3796f20fc7413e613f6040be83e10ee8d90291e71af2bbd",
+    "strat01_independent_collector.py": "ad42f0602f229b3f3422e788b9f2f384cb3131719e716107c9453d8b6e8f7b33",
+    "strat01_local_monitor.py": "67c410ea1ac8cd8ee04230544c2bbc64852981ecfd3c2fed3826df386a47140c",
+    "strat01_collector_backup.py": "8875971d2a7f8e9daa97bddc5a65ad1873a8a0eb404ac4263907f93350b520fe"
+  }
+}

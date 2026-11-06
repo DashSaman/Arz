@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "observed_at_utc": "2026-11-06T20:07:31.325890+00:00",
+  "local_exact_snapshot_commit": "fac2456f916fd8846a082c6ce4ebada604eb242c",
+  "supersedes_verification_scope": "collector-verification.json (prior observations and logs preserved)",
+  "full_suite": {
+    "command": "PYTHONPATH=src:. python -m unittest discover -s tests",
+    "methods": 1595,
+    "skipped": 1,
+    "failures": 0,
+    "log": "collector-provider-final-full.log",
+    "sha256": "725f25b8fd4afe675ebf66b30de9aee9f4803458f1eca00aa220d5323e538424"
+  },
+  "new_regression_methods": 27,
+  "source_methods": 9,
+  "collector_methods": 18,
+  "independent_final_review": "collector-final-independent-review.json",
+  "package_review": "operations-package-review.json",
+  "source_preservation": {
+    "files": 44,
+    "base_git_commit": "e694646e8540264a835352ead361cfc176fc86dd",
+    "byte_identical": true,
+    "paired": 36,
+    "timely": 16,
+    "longest": 5
+  },
+  "provider_stop_before_validation": true,
+  "docker_ci": "PENDING_PUBLICATION_AT_THIS_OBSERVATION",
+  "financial_decision": "NO-GO",
+  "live_trading": "DISABLED",
+  "real_capital_authorized_usd": 0,
+  "qualified_paper_days": 0
+}

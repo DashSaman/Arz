@@ -73,7 +73,7 @@ def status(root: Path, now_unix: int) -> dict:
     )
     if errors or conflicts or audit.get("valid_source_files") != audit.get("file_count"):
         health = "SOURCE_FAIL_CLOSED"
-    elif collection_failed(root, events):
+    elif collection_failed(root, events, now_unix):
         health = "COLLECTOR_FAIL_CLOSED"
     elif not heartbeat_healthy(root, now_unix):
         health = "NO_RECENT_HEARTBEAT"

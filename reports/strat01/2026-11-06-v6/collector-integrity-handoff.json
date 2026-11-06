@@ -1,0 +1,84 @@
+{
+  "changed_files": [
+    {
+      "path": "scripts/strat01_independent_collector.py",
+      "sha256": "8ac6ba066b3c6592061e571791a298ff55170b8ad2c6485bc392b2999db14fb8"
+    },
+    {
+      "path": "scripts/strat01_local_monitor.py",
+      "sha256": "67c410ea1ac8cd8ee04230544c2bbc64852981ecfd3c2fed3826df386a47140c"
+    },
+    {
+      "path": "tests/test_strat01_collector_v6_integrity.py",
+      "sha256": "38ec278e7f946499d78de43514e219a723a6a66cada29f5f1204334e88e896b0"
+    }
+  ],
+  "classification": "OFFLINE_COLLECTOR_INTEGRITY_IMPLEMENTATION_HANDOFF",
+  "commits_created": 0,
+  "final_focused_review": "Requested from data_audit after final provider validation fix; parent will integrate final result.",
+  "financial_decision": "NO-GO",
+  "git_diff_check_exit_code": 0,
+  "host_deployment": false,
+  "intermediate_full_suite": {
+    "failures": 8,
+    "methods": 1604,
+    "reason": "Eight concurrent intentional RED cases from the financial-stage adapter before its implementation existed; original log retained.",
+    "skipped": 1
+  },
+  "live_trading": "DISABLED",
+  "logs": [
+    {
+      "path": "/workspace/scratch/4a6a75419487/ops_v6_integrity/collector-v6-red.log",
+      "sha256": "dc7139e6eae3e73942a904b5c0c64889ae7842fb9f124355ef6cdd686783bd8b"
+    },
+    {
+      "path": "/workspace/scratch/4a6a75419487/ops_v6_integrity/collector-v6-clock-red.log",
+      "sha256": "a32df5b10a97d443c756ded61a8058b9d30555e735bd2a226ea761080a6c8dc8"
+    },
+    {
+      "path": "/workspace/scratch/4a6a75419487/ops_v6_integrity/collector-v6-heartbeat-red.log",
+      "sha256": "81e8cdb2ce23741818cce8135e409d3badb500215fe01d9c8326bc24b609258a"
+    },
+    {
+      "path": "/workspace/scratch/4a6a75419487/ops_v6_integrity/collector-v6-orphan-red.log",
+      "sha256": "02a13a1425fee0e0cea8324b13ca86de42e242d90ba1515c784d371da6f1409c"
+    },
+    {
+      "path": "/workspace/scratch/4a6a75419487/ops_v6_integrity/collector-v6-provider-durability-red.log",
+      "sha256": "4a7f2dfb1d7d8b96fc59aeea31176f5af0108287a609147869a9046af7cbdde1"
+    },
+    {
+      "path": "/workspace/scratch/4a6a75419487/ops_v6_integrity/collector-v6-scoped-provider-final.log",
+      "sha256": "980011f72b86ecc326913e850432d16647a0eb6d59aa472fe3da2e142ac93e23"
+    },
+    {
+      "path": "/workspace/scratch/4a6a75419487/ops_v6_integrity/collector-v6-full-suite.log",
+      "sha256": "8d900a33b13a0b395acd4ebc3f2b5a53ae7a8e1ecc66e7e8bade7b5ca8f78c77"
+    }
+  ],
+  "market_provider_requests": 0,
+  "new_test_methods": 18,
+  "observed_at_utc": "2026-11-06T20:06:40.566002+00:00",
+  "package_data_review": "/workspace/scratch/4a6a75419487/ops_v6_integrity/operations-package-review.json",
+  "package_rehearsal_scope": "Explicitly bound to script hashes recorded in packaged-whitelist-rehearsal.json, before final provider-ordering fix; actual final Docker execution remains CI-pending.",
+  "real_capital_authorized_usd": 0,
+  "scoped_tests": {
+    "command": "PYTHONPATH=src:. python -m unittest -v tests.test_strat01_collector_v6_integrity tests.test_strat01_independent_collector tests.test_strat01_collector_provider_stop tests.test_strat01_collector_backup tests.test_strat01_local_monitor",
+    "exit_code": 0,
+    "methods": 56
+  },
+  "subsequent_independent_full_suite_before_last_provider_fix": {
+    "failures": 0,
+    "methods": 1606,
+    "review": "/workspace/scratch/4a6a75419487/v6-independent-ops-review.json",
+    "skipped": 1
+  },
+  "verified_behaviors": [
+    "Incomplete and late captures are preserved but produce durable REFUSED_CAPTURE_QUALITY instead of success.",
+    "Health rechecks completeness, timeliness, target slot, capture/event causality and source SHA before clearing a fault.",
+    "Retained incomplete/late orphan captures remain unhealthy without a matching failure event; later valid source-bound success can recover.",
+    "Incoming future receipts are refused before source publication; retained future capture/receipt times are unhealthy relative to explicit current clock.",
+    "Duplicate JSON keys/nonfinite constants and ambiguous schema/capital/heartbeat clock fields cannot establish healthy status.",
+    "Known provider refusal is journaled immediately before fallible clock/schema validation, remains permanent across invalid or slow response, restart, network opt-out, and byte-preserving backup/restore."
+  ]
+}

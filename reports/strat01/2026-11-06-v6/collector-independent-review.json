@@ -1,0 +1,87 @@
+{
+  "classification": "INDEPENDENT_OFFLINE_CODE_AND_SOURCE_INTEGRITY_REVIEW_NOT_RUNTIME_DEPLOYMENT",
+  "confirmed_fixed_behaviors": [
+    "Incomplete and operationally late captures remain immutable evidence but no longer establish successful collection health.",
+    "Latest successful event binds exact source SHA, both-market completeness, timeliness, target slot, and causal collection clock.",
+    "A failure wins an ambiguous same-second tie; neutral events do not clear it; legacy incomplete/late success metadata is rechecked from actual source bytes.",
+    "Incoming source receipt timestamps cannot exceed actual capture completion; retained capture/receipt timestamps after explicit caller clock fail health.",
+    "All individually valid source asset observations participate in revision detection even if the other asset is missing.",
+    "Duplicate JSON keys, nonfinite JSON constants, ambiguous schema types and heartbeat capital/clock mismatches cannot certify health.",
+    "Provider refusals retain permanent stop behavior across restart, network opt-out and backup/restore.",
+    "Orphan incomplete/late capture after interrupted writer remains unhealthy without its failure event; later genuine complete/timely source-bound success may recover without erasing earlier bytes."
+  ],
+  "financial_decision": "NO-GO",
+  "independent_review_finding_closed": {
+    "id": "V6_ORPHAN_CAPTURE_QUALITY",
+    "regression": "test_orphan_incomplete_or_late_capture_fails_health_until_later_success, four incomplete/late \u00d7 prior/no-prior-success subcases",
+    "reproduction": "With or without prior successful collection, append valid incomplete source without an event and write fresh heartbeat: before correction heartbeat_healthy=True; after correction fail-closed until later source-bound complete/timely success.",
+    "resolution": "Health reads retained quality timestamps from strict source manifest; provider-stop preflight remains distinct so transient source quality does not permanently prevent collection."
+  },
+  "live_trading": "DISABLED",
+  "new_capital_authorized_usd": 0,
+  "no_deployment_or_live_execution": true,
+  "no_market_provider_requests": true,
+  "reviewed_at_utc": "2026-11-06T19:57:32.852013+00:00",
+  "reviewed_files": [
+    {
+      "path": "scripts/strat01_independent_collector.py",
+      "sha256": "ad42f0602f229b3f3422e788b9f2f384cb3131719e716107c9453d8b6e8f7b33"
+    },
+    {
+      "path": "scripts/strat01_local_monitor.py",
+      "sha256": "67c410ea1ac8cd8ee04230544c2bbc64852981ecfd3c2fed3826df386a47140c"
+    },
+    {
+      "path": "tests/test_strat01_collector_v6_integrity.py",
+      "sha256": "8662a58dc85fa516652ed7e34a05f2e101d0c116adfc1e9d88dadc1259b3c96d"
+    },
+    {
+      "path": "scripts/strat01_investment_readiness.py",
+      "sha256": "94eea5037ee3f727f3796f20fc7413e613f6040be83e10ee8d90291e71af2bbd"
+    },
+    {
+      "path": "scripts/strat01_capture_slot_preflight.py",
+      "sha256": "bc06f495b365bb109b9fe1273d4082df9e1172ee4995634ae4fb9212f12e2daa"
+    },
+    {
+      "path": "tests/test_strat01_v6_source_integrity.py",
+      "sha256": "2604e90d019e3c63392cabfbad6778a5a30bea9405c98800e2ff9425cfb04d80"
+    }
+  ],
+  "schema_version": 1,
+  "source_preservation": {
+    "all_bytes_identical": true,
+    "longest_complete_run": 5,
+    "new_audit_equals_immutable_audit": true,
+    "paired_distinct_bars": 36,
+    "qualified_paper_days": 0,
+    "source_files_compared_to_git_object_bytes": 44,
+    "source_main_sha": "e694646e8540264a835352ead361cfc176fc86dd",
+    "timely_distinct_bars": 16
+  },
+  "verdict": "APPROVED_CODE_NO_OPEN_BLOCKING_FINDINGS_IN_REVIEWED_SCOPE",
+  "verification": [
+    {
+      "command": "PYTHONPATH=src:.:tests python -m unittest tests.test_strat01_collector_v6_integrity tests.test_strat01_independent_collector tests.test_strat01_collector_provider_stop tests.test_strat01_collector_backup tests.test_strat01_local_monitor tests.test_strat01_v6_source_integrity -q",
+      "exit_code": 0,
+      "log": "/workspace/scratch/4a6a75419487/v6-independent-ops-final-review-tests.log",
+      "log_sha256": "0f649f4d46bdd16cac43f8866883667c1b61e4dcb19825cf949198d09943a558",
+      "methods": 63
+    },
+    {
+      "command": "PYTHONPATH=src:. python -m unittest discover -s tests -q",
+      "exit_code": 0,
+      "log": "/workspace/scratch/4a6a75419487/v6-independent-integrated-review-full.log",
+      "log_sha256": "8548236f12cd7aeec341e0c147bad501a5dd9f92b11fceb065b904c5ab1ed48b",
+      "methods": 1606,
+      "skipped": 1,
+      "warnings": [
+        "Two unchanged-script ResourceWarning messages for unclosed CSVs in strat01_60m_native_probe.py"
+      ]
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0
+    }
+  ]
+}

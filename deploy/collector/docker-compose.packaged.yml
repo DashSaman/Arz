@@ -1,0 +1,42 @@
+# Standalone packaged release: no host source-code mount and no network.
+# Use the recorded content-addressed local image ID, never a mutable tag.
+# Host deployment still needs separate user authorization.
+services:
+  arz-packaged-collector:
+    image: ${ARZ_COLLECTOR_IMAGE:?Set the verified local sha256 image ID}
+    pull_policy: never
+    network_mode: none
+    user: '65534:65534'
+    environment:
+      ARZ_COLLECTOR_NETWORK: disabled
+    volumes:
+      - ../../runtime/arz-collector-package:/data:rw
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=16m
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 64
+    mem_limit: 256m
+    restart: unless-stopped
+    stop_grace_period: 15s
+    logging:
+      driver: json-file
+      options:
+        max-size: '5m'
+        max-file: '3'
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -m
+        - scripts.strat01_independent_collector
+        - health
+        - --data-root
+        - /data
+      interval: 10s
+      timeout: 5s
+      retries: 4
+      start_period: 10s

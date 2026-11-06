@@ -1,0 +1,14 @@
+test_agreeing_partial_capture_keeps_original_complete_pair (tests.test_strat01_v6_source_integrity.SourceIntegrityTests.test_agreeing_partial_capture_keeps_original_complete_pair) ... ok
+test_complementary_partial_captures_do_not_synthesize_a_pair (tests.test_strat01_v6_source_integrity.SourceIntegrityTests.test_complementary_partial_captures_do_not_synthesize_a_pair) ... ok
+test_future_asset_receipt_cannot_skip_even_if_capture_started_earlier (tests.test_strat01_v6_source_integrity.SourceIntegrityTests.test_future_asset_receipt_cannot_skip_even_if_capture_started_earlier) ... ok
+test_future_capture_cannot_skip_an_earlier_runtime_decision (tests.test_strat01_v6_source_integrity.SourceIntegrityTests.test_future_capture_cannot_skip_an_earlier_runtime_decision) ... ok
+test_offline_audit_stays_retrospective_without_an_implicit_wall_clock (tests.test_strat01_v6_source_integrity.SourceIntegrityTests.test_offline_audit_stays_retrospective_without_an_implicit_wall_clock) ... ok
+test_partial_line_hash_revision_is_also_a_conflict (tests.test_strat01_v6_source_integrity.SourceIntegrityTests.test_partial_line_hash_revision_is_also_a_conflict) ... ok
+test_partial_price_revision_invalidates_prior_complete_pair (tests.test_strat01_v6_source_integrity.SourceIntegrityTests.test_partial_price_revision_invalidates_prior_complete_pair) ... ok
+test_revisions_without_any_complete_pair_remain_visible (tests.test_strat01_v6_source_integrity.SourceIntegrityTests.test_revisions_without_any_complete_pair_remain_visible) ... ok
+test_source_observed_at_the_decision_clock_remains_eligible_to_skip (tests.test_strat01_v6_source_integrity.SourceIntegrityTests.test_source_observed_at_the_decision_clock_remains_eligible_to_skip) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.012s
+
+OK

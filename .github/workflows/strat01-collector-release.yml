@@ -4,6 +4,8 @@ on:
   pull_request:
     paths:
       - 'deploy/collector/**'
+      - 'LICENSE'
+      - 'scripts/strat01_base_identity_forward.py'
       - 'scripts/strat01_independent_collector.py'
       - 'scripts/strat01_local_monitor.py'
       - 'scripts/strat01_collector_backup.py'
@@ -11,6 +13,9 @@ on:
       - 'tests/test_strat01_collector_backup.py'
       - 'tests/test_strat01_collector_provider_stop.py'
       - 'tests/test_strat01_source_value_integrity.py'
+      - 'tests/test_strat01_collector_v6_integrity.py'
+      - 'tests/test_strat01_v6_source_integrity.py'
+      - 'scripts/strat01_capture_slot_preflight.py'
       - '.github/workflows/strat01-collector-release.yml'
   workflow_dispatch:
 
@@ -30,7 +35,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Recovery negative controls with synthetic records
-        run: python -m unittest tests.test_strat01_collector_backup tests.test_strat01_collector_provider_stop -v
+        run: python -m unittest tests.test_strat01_collector_backup tests.test_strat01_collector_provider_stop tests.test_strat01_collector_v6_integrity tests.test_strat01_v6_source_integrity -v
       - name: Validate and start network-isolated collector on ephemeral CI runner
         run: |
           mkdir -p runtime/arz-collector/forward runtime/arz-collector/events
@@ -92,5 +97,119 @@ jobs:
         with:
           name: arz-collector-release-check
           path: artifacts/local/collector-release/
+          if-no-files-found: warn
+          retention-days: 30
+
+  packaged-image-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      COMPOSE_PROJECT_NAME: arz-packaged-release-check
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Verify the real build context excludes unrelated files
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          for name in ('.arz-context-sentinel', 'scripts/.arz-context-sentinel', 'deploy/collector/.arz-context-sentinel'):
+              with Path(name).open('x') as stream:
+                  stream.write('Public synthetic context-exclusion sentinel; not a secret.\n')
+          PY
+          docker build --network none --target context-audit --output type=local,dest=/tmp/arz-context-audit -f deploy/collector/Dockerfile .
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          expected={'LICENSE','deploy/collector/Dockerfile','deploy/collector/Dockerfile.dockerignore'}
+          expected.update('scripts/'+name+'.py' for name in (
+              'strat01_base_identity_forward','strat01_capture_slot_preflight',
+              'strat01_investment_readiness','strat01_independent_collector',
+              'strat01_local_monitor','strat01_collector_backup'))
+          root=Path('/tmp/arz-context-audit/context')
+          observed={str(p.relative_to(root)) for p in root.rglob('*') if p.is_file()}
+          assert observed==expected, sorted(observed ^ expected)
+          out=Path('artifacts/local/collector-package')
+          out.mkdir(parents=True,exist_ok=True)
+          (out/'build-context.json').write_text(json.dumps({name:hashlib.sha256((root/name).read_bytes()).hexdigest() for name in sorted(expected)},indent=2)+'\n')
+          PY
+      - name: Build explicit read-only application image
+        run: |
+          mkdir -p artifacts/local/collector-package
+          docker build --network none --build-arg ARZ_SOURCE_REVISION="$(git rev-parse HEAD)" --iidfile artifacts/local/collector-package/image-id.txt -f deploy/collector/Dockerfile .
+          image_id=$(cat artifacts/local/collector-package/image-id.txt)
+          echo "ARZ_COLLECTOR_IMAGE=$image_id" >> "$GITHUB_ENV"
+          docker image inspect "$image_id" > artifacts/local/collector-package/image-inspect.json
+      - name: Run packaged collector without network or host source mounts
+        run: |
+          mkdir -p runtime/arz-collector-package/forward runtime/arz-collector-package/events
+          sudo chown -R 65534:65534 runtime/arz-collector-package
+          sudo chmod 700 runtime/arz-collector-package runtime/arz-collector-package/forward runtime/arz-collector-package/events
+          docker compose -f deploy/collector/docker-compose.packaged.yml config --format json > artifacts/local/collector-package/compose.json
+          docker compose -f deploy/collector/docker-compose.packaged.yml up -d --wait --wait-timeout 90
+          docker compose -f deploy/collector/docker-compose.packaged.yml exec -T arz-packaged-collector python -m scripts.strat01_independent_collector dry-run --data-root /data > artifacts/local/collector-package/dry-run.json
+          docker compose -f deploy/collector/docker-compose.packaged.yml exec -T arz-packaged-collector sha256sum --check /app/source-sha256.txt > artifacts/local/collector-package/source-check.txt
+          docker compose -f deploy/collector/docker-compose.packaged.yml exec -T arz-packaged-collector python -c 'import scripts.strat01_local_monitor, scripts.strat01_collector_backup'
+      - name: Verify actual package identity and isolation
+        run: |
+          python - <<'PY'
+          import hashlib, json, os, re, subprocess
+          from pathlib import Path
+          out=Path('artifacts/local/collector-package')
+          image_id=(out/'image-id.txt').read_text().strip()
+          assert re.fullmatch(r'sha256:[0-9a-f]{64}', image_id)
+          compose=['docker','compose','-f','deploy/collector/docker-compose.packaged.yml']
+          cid=subprocess.check_output(compose+['ps','-q'],text=True).strip()
+          actual=json.loads(subprocess.check_output(['docker','inspect',cid],text=True))[0]
+          image=json.loads((out/'image-inspect.json').read_text())[0]
+          revision=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
+          assert actual['Image']==image['Id']==image_id
+          assert image['Config']['Labels']['org.opencontainers.image.revision']==revision
+          assert actual['HostConfig']['NetworkMode']=='none'
+          assert actual['HostConfig']['ReadonlyRootfs'] is True
+          assert actual['Config']['User']=='65534:65534'
+          assert actual['State']['Health']['Status']=='healthy'
+          assert 'ARZ_COLLECTOR_NETWORK=disabled' in actual['Config']['Env']
+          binds=[m for m in actual['Mounts'] if m['Type']=='bind']
+          assert len(binds)==1 and binds[0]['Destination']=='/data'
+          assert json.loads((out/'dry-run.json').read_text())['network_used'] is False
+          execute=compose+['exec','-T','arz-packaged-collector']
+          manifest=subprocess.check_output(execute+['cat','/app/source-sha256.txt'],text=True)
+          expected={str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in (
+              Path('scripts/strat01_base_identity_forward.py'),
+              Path('scripts/strat01_capture_slot_preflight.py'),
+              Path('scripts/strat01_investment_readiness.py'),
+              Path('scripts/strat01_independent_collector.py'),
+              Path('scripts/strat01_local_monitor.py'),
+              Path('scripts/strat01_collector_backup.py'))}
+          observed={line.split()[1].removeprefix('/app/'):line.split()[0] for line in manifest.splitlines()}
+          assert observed==expected
+          version=subprocess.check_output(execute+['python','--version'],text=True).strip()
+          provenance=json.loads(Path('deploy/collector/image-provenance.json').read_text())
+          assert version=='Python '+provenance['python_version_upstream_reported']
+          count=subprocess.check_output(execute+['python','-c','from pathlib import Path; print(len(list(Path("/data/forward").glob("*.json"))))'],text=True).strip()
+          assert count=='0'
+          checks='from pathlib import Path; assert not Path("/app/.git").exists(); assert not Path("/app/runtime").exists(); assert not Path("/app/reports").exists()'
+          subprocess.check_call(execute+['python','-c',checks])
+          result={'kind':'EPHEMERAL_PACKAGED_IMAGE_SMOKE_NOT_DEPLOYMENT',
+                  'source_revision':revision,'local_content_addressed_image_id':image_id,
+                  'registry_manifest_digest':None,'registry_published':False,
+                  'python_version':version,
+                  'source_sha256':expected,'network_mode':'none','source_files':0,
+                  'new_paper_days':0,'financial_decision':'NO-GO',
+                  'real_capital_authorized_usd':0,'live_trading':'DISABLED'}
+          (out/'result.json').write_text(json.dumps(result,indent=2)+'\n')
+          print(json.dumps(result))
+          PY
+      - name: Stop ephemeral package and preserve logs
+        if: always() && env.ARZ_COLLECTOR_IMAGE != ''
+        run: |
+          docker compose -f deploy/collector/docker-compose.packaged.yml logs --no-color > artifacts/local/collector-package/container-log.txt 2>&1 || true
+          docker compose -f deploy/collector/docker-compose.packaged.yml down
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: arz-packaged-collector-check
+          path: artifacts/local/collector-package/
           if-no-files-found: warn
           retention-days: 30
