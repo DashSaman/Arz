@@ -1,0 +1,10 @@
+{
+  "repeated_calls": 5,
+  "resource_warning_count": 0,
+  "output_sha256": "040d6c4053c0104238128d827128960fe24c0721464e02ead8697e3653d08143",
+  "objects_and_emitted_bytes_equal_to_before": true,
+  "gate_rows": 2,
+  "annual_shortlist_rows": 2,
+  "native_rows": 16,
+  "financial_decision": "NO-GO"
+}

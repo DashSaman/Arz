@@ -20,15 +20,17 @@ def check_git_blob(path, expected):
 def inspect():
     check_git_blob(DATA,"9042e6b893e4eea4f4014dba727b3e81e517d87d")
     check_git_blob(GATES,"4f277d84e1558056eb7a05120d8c4762626b59ab")
-    gate=[x for x in csv.DictReader(GATES.open()) if x["pair_id"]=="4564367" and
-          x["minutes"]=="60" and x["variant"] in VALUES]
+    with GATES.open() as gate_file:
+        gate=[x for x in csv.DictReader(gate_file) if x["pair_id"]=="4564367" and
+              x["minutes"]=="60" and x["variant"] in VALUES]
     if len(gate)!=2 or any(x["passes_all"]!="False" or
             x["annual_count_at_least10"]!="True" or x["no_halt"]!="True" or
             x["positive_annual_and_later6m_mid_stress"]!="False" for x in gate):
         raise ValueError("Frozen native paired gate changed")
-    annual=[x for x in csv.DictReader(ORIGINAL.open()) if x["source"]=="other/clock_common.csv.gz"
-            and x["market"]=="WETH" and x["configuration"]=="60m"
-            and x["strategy"] in VALUES]
+    with ORIGINAL.open() as annual_file:
+        annual=[x for x in csv.DictReader(annual_file) if x["source"]=="other/clock_common.csv.gz"
+                and x["market"]=="WETH" and x["configuration"]=="60m"
+                and x["strategy"] in VALUES]
     if len(annual)!=2 or any(float(x["stress_net_pct"])<=0 or
                             x["strict_order_cap_scope"]!="pass in both historical simulations"
                             for x in annual):

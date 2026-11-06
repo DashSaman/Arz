@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "reviewed_at_utc": "2026-11-06T20:32:51.534922+00:00",
+  "scope": "Resolution of V6_DERIVED_RECOVERY_DEFAULTDICT_KEYS and preserved work-order provenance only",
+  "verdict": "APPROVED_CORRECTION_NO_OPEN_FINDINGS",
+  "resolved_finding_id": "V6_DERIVED_RECOVERY_DEFAULTDICT_KEYS",
+  "prior_review_sha256": "f370917792db878875c02bc6cb72805323fa26cef5ad989c29feb5056cacf13d",
+  "checks": {
+    "original_bytes_match_prior_review_sha256": true,
+    "corrected_exact_three_fields_plus_transparent_annotation_only": true,
+    "corrected_hash_matches_parent_observation": true,
+    "original_mapping_preserves_exact_bytes": true,
+    "derivative_mapping_matches_exact_bytes": true,
+    "original_review_reference_exists_and_matches_review": true,
+    "en_and_fa_correction_paragraphs_reviewed_accurate": true,
+    "strat01_precedes_wal01_in_current_order": true,
+    "old_order_and_priorities_preserved_exactly": true,
+    "all_track_dependencies_unchanged_from_initial_main": true,
+    "safety_protocol_stop_rules_verification_policy_unchanged_from_initial_main": true
+  },
+  "corrected_historical_recovery": {
+    "already_recovered_late_paired_slots": [
+      1793059200,
+      1793088000
+    ],
+    "already_recovered_late_slot_starts_utc": [
+      "2026-10-27T00:00:00Z",
+      "2026-10-27T08:00:00Z"
+    ],
+    "original_missing_slots_still_missing_after_separate_historical_union": 26
+  },
+  "reviewed_files_sha256": {
+    "reports/strat01/2026-11-06-v6/data-recovery-audit-original-review-input.json": "7efbd8fb4f2d0c0148ee6d27e85424f86acb953b7e92bc8e6a7557bd420cdc06",
+    "reports/strat01/2026-11-06-v6/data-recovery-audit.json": "7f9625f8603535765c14bf7c99e459ea8e7d996b69319cbf952afb3e8dc47dbf",
+    "reports/strat01/2026-11-06-v6/artifact-path-map.json": "7fc060c0064ecb0d6ea2b4b5f824f583c26fc70fb897349542abe1d218cbb78b",
+    "docs/en/strat01_mission_v6_20261106.md": "ca536d83072a06fc90e4e4a9e99b7eb5ff72d127e1ea5ea792bfd8806f737eaa",
+    "docs/fa/strat01_mission_v6_20261106.md": "bbd9d44dd3c6f246669cb570ece4f293616d131ee9b70a21e9ee7417f1c13dcb",
+    "research/control/STATE.json": "429820d203494254a2fe96c02ac994ee85aad8be761ba9bfc4883692326e3cb8"
+  },
+  "work_order_comparison_baseline": "e694646e8540264a835352ead361cfc176fc86dd",
+  "source_snapshot_unchanged": {
+    "forward_files": 44,
+    "distinct_pairs": 36,
+    "timely_pairs_1h": 16,
+    "longest_chain": 5,
+    "original_missing_pairs_in_64_slot_window": 28
+  },
+  "repository_edits": 0,
+  "new_tests_or_provider_calls": 0,
+  "new_main_metadata_reads": 0,
+  "financial_decision": "NO-GO",
+  "live_trading": "DISABLED",
+  "real_capital_authorized_usd": 0
+}

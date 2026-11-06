@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "financial_decision": "NO-GO",
+  "blockers": [
+    {
+      "id": "B01_CONTIGUOUS_DATA",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "cause": "44 retained files yield36 distinct pairs,16 operationally timely, longest complete/timely5;194 required. Original64-slot window contains28 missing paired slots.",
+      "next": "Obtain permitted complete contiguous source data; original missed first-seen bars cannot be backdated. Reconcile every UTC slot.",
+      "dependency": "LAWFUL_DATA_ACCESS_AND_REAL_TIME",
+      "evidence": "data-recovery-audit.json"
+    },
+    {
+      "id": "B02_HISTORICAL_RAW",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "cause": "Four exact historical raw-input hashes remain absent. Three newly inspected artifacts contain existing captures or old derived ledgers, not missing raw inputs.",
+      "next": "Recover exact entitled provider bytes or preregister a genuinely new dataset and hypothesis; retain old results unchanged.",
+      "dependency": "EXTERNAL_SOURCE_OR_RETAINED_EXPORT",
+      "evidence": "historical-artifact-strict-cap.json"
+    },
+    {
+      "id": "B03_COLLECTOR_RELIABILITY",
+      "status": "BLOCKED",
+      "cause": "Nov1\u20135:26 successful scheduled jobs,12/30 timely paired closes across all retained sources; no independent permanent host.",
+      "next": "After separate host approval, measure actual coverage and refusal/recovery over elapsed time, with delivered alerts and off-host recovery.",
+      "dependency": "SEPARATE_HOST_APPROVAL_AND_ELAPSED_OPERATION",
+      "evidence": "schedule-coverage-by-day.csv"
+    },
+    {
+      "id": "B04_COMPLETE_EXECUTION_COSTS",
+      "status": "COST_UNVERIFIED",
+      "cause": "No complete size-specific BUY/SELL signal and+60s cost record; public receipt attempt retained HTTP429. Operator arithmetic is conditional only.",
+      "next": "Use a permitted source to retain exact quotes/simulations/receipts and full component attribution. Do not retry or rotate around access refusals.",
+      "dependency": "AUTHORIZED_SOURCE_AND_PROSPECTIVE_OBSERVATION",
+      "evidence": "receipt-publication.json"
+    },
+    {
+      "id": "B05_UNTOUCHED_OOS",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "cause": "Saved holdouts and selected native windows were already examined; some windows overlap.",
+      "next": "Freeze hypothesis, parameters, selection correction, splits and rejection rules before any unseen evaluation.",
+      "dependency": "NEW_VALID_DATA_AND_PREREGISTRATION",
+      "evidence": "financial-observed-decision.json"
+    },
+    {
+      "id": "B06_INDEPENDENT_CYCLES",
+      "status": "NO_GO_FOR_SAVED_CANDIDATES",
+      "cause": "Saved positive S0 WETH2025 stress has8 closed cycles; selected ATR-volatility annual has20; copies across costs are correlated, not extra independent cycles.",
+      "next": "Require>=100 independent closed cycles or H3>=200 under the frozen valid experiment, without tuning seen outcomes.",
+      "dependency": "SUFFICIENT_INDEPENDENT_EVENTS",
+      "evidence": "financial-observed-decision.json"
+    },
+    {
+      "id": "B07_NET_EDGE_AND_LOWER_BOUND",
+      "status": "INSUFFICIENT_EVIDENCE_WITH_VALID_NEGATIVE_DIAGNOSTICS",
+      "cause": "Negative periods remain; some positive rows have PF<1.5 and lower intervals<=0. S0 has no valid dependence-aware lower interval.",
+      "next": "Recompute current-runtime account ledgers from authentic inputs and complete costs; require positive base/stress geometry and valid positive selection-adjusted lower bound.",
+      "dependency": "RAW_DATA_COSTS_AND_VALID_EXPERIMENT",
+      "evidence": "financial-observed-decision.json"
+    },
+    {
+      "id": "B08_PROSPECTIVE_PAPER",
+      "status": "BLOCKED",
+      "cause": "Zero qualified candidates and0 qualified elapsed days. Collector observations and CI simulations are not paper.",
+      "next": "Only after research/cost/operational gates pass, start a fixed-runtime real prospective cohort; require>=90 actual days or H4>=180.",
+      "dependency": "ALL_PRE_PAPER_GATES_AND_REAL_ELAPSED_TIME",
+      "evidence": "financial-publication.json"
+    },
+    {
+      "id": "B09_OPERATIONS_SECURITY",
+      "status": "BLOCKED",
+      "cause": "Two isolated container jobs pass; no permanent host, delivered alert, long-run uptime or full independent production security approval.",
+      "next": "Separately authorize host/provider/alert destinations; verify deployed isolation, backup restoration, monitoring, recovery and independent security review.",
+      "dependency": "SEPARATE_HOST_AND_INTEGRATION_APPROVAL",
+      "evidence": "container-publication.json"
+    },
+    {
+      "id": "B10_POSITIVE_STAGE_ADAPTERS",
+      "status": "UNIMPLEMENTED_FAIL_CLOSED",
+      "cause": "Only pinned negative/insufficient classification exists; four positive source-proof adapters are explicitly unsupported.",
+      "next": "Implement and independently review versioned adapters against actual authenticated protocol/runtime/OOS/cost/paper/review artifacts when those concrete sources exist. No boolean override.",
+      "dependency": "AUTHENTIC_EVIDENCE_CONTRACTS_AND_ENGINEERING",
+      "evidence": "financial-observed-decision.json"
+    },
+    {
+      "id": "B11_CAPITAL_AUTHORIZATION",
+      "status": "NO_GO",
+      "cause": "Hard research and readiness gates unmet; proposal-ready would still not authorize real funds.",
+      "next": "All gates must pass before any<=100USDC-total proposal; separate explicit user approval remains mandatory for any funded action.",
+      "dependency": "ALL_GATES_THEN_SEPARATE_EXPLICIT_APPROVAL",
+      "evidence": "financial-publication.json"
+    }
+  ]
+}

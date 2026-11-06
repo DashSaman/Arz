@@ -1,0 +1,499 @@
+{
+  "audit_checkout_head": "c62c135a4b602b825076c6a4cdcb989b98ae6cef",
+  "audit_generated_utc": "2026-11-06T19:53:19.527407+00:00",
+  "baseline": {
+    "capture_files": 38,
+    "longest_complete_run": 5,
+    "longest_timely_run": 5,
+    "paired_distinct_bars": 30,
+    "timely_distinct_bars": 12
+  },
+  "baseline_pr88_sha": "e060f9d299aa3375455ca1e759f5d37bc0ea286f",
+  "baseline_source_audit_path": "reports/strat01/audits/20261105T005630Z.json",
+  "classification": "OFFLINE_IMMUTABLE_SOURCE_AND_RETAINED_GITHUB_METADATA_AUDIT_NOT_FINANCIAL_EVIDENCE",
+  "current": {
+    "capture_files": 44,
+    "completed_grid_slots": 64,
+    "conflicts": [],
+    "errors": [],
+    "gap_intervals": 22,
+    "late_distinct_bars": 20,
+    "latest_consecutive_run_bars": 2,
+    "longest_complete_run": 5,
+    "longest_timely_run": 5,
+    "max_observed_source_lag_seconds": 14076,
+    "missing_interior_slots": 27,
+    "missing_leading_slots": 1,
+    "missing_original_slots": 28,
+    "paired_capture_files": 41,
+    "paired_distinct_bars": 36,
+    "timely_distinct_bars": 16
+  },
+  "current_source_audit_identical_before_after_fix": true,
+  "demonstrated_defects": [
+    {
+      "fix": "Compare each valid asset line/value across all invocations; keep all source bytes/hashes; reject conflicted slots; never synthesize paired invocation from partials.",
+      "fix_files": [
+        "scripts/strat01_investment_readiness.py",
+        "tests/test_strat01_v6_source_integrity.py"
+      ],
+      "id": "V6_SOURCE_PARTIAL_REVISION",
+      "observed_in_genuine_current_archive": false,
+      "root_cause": "Revision grouping previously included only complete paired invocations; a valid revised asset in an incomplete invocation was omitted.",
+      "synthetic_reproduction": "A complete pair and same-slot revised WETH or cbBTC with other market UNAVAILABLE produced conflicts=[] and ALREADY_PAIRED_TIMELY_SKIP_DUPLICATE."
+    },
+    {
+      "fix": "Fail closed when any retained capture start or valid asset receipt is later than the explicit decision clock. Keep offline audit retrospective.",
+      "fix_files": [
+        "scripts/strat01_capture_slot_preflight.py",
+        "tests/test_strat01_v6_source_integrity.py"
+      ],
+      "id": "V6_SOURCE_FUTURE_SKIP",
+      "observed_in_genuine_current_archive": false,
+      "root_cause": "Runtime preflight trusted retrospective auditor without comparing retained first-seen timestamps to its explicit actual clock.",
+      "synthetic_reproduction": "Capture started04:45UTC for the current closed bar incorrectly suppressed capture at04:15UTC; a per-asset receipt one second after runtime also incorrectly suppressed."
+    }
+  ],
+  "execution_costs_verified": false,
+  "financial_decision": "NO-GO",
+  "frozen_warmup": {
+    "additional_unbroken_bars_needed_to_extend_current_tail_to_194": 192,
+    "conditional_194th_close_if_current_tail_never_gaps_or_revises": "2026-12-08T16:00:00Z",
+    "current_longest_run_ranges": [
+      {
+        "bars": 5,
+        "first_bar_start_unix": 1793491200,
+        "first_bar_start_utc": "2026-11-01T00:00:00Z",
+        "last_bar_close_utc": "2026-11-01T20:00:00Z",
+        "last_bar_start_unix": 1793548800
+      }
+    ],
+    "current_tail": {
+      "bars": 2,
+      "first_bar_start_unix": 1793952000,
+      "first_bar_start_utc": "2026-11-06T08:00:00Z",
+      "last_bar_close_utc": "2026-11-06T16:00:00Z",
+      "last_bar_start_unix": 1793966400
+    },
+    "duration_days": "32 days 8 hours",
+    "duration_hours": 776,
+    "earliest_mathematical_194th_close_from_frozen_start": "2026-11-28T08:00:00Z",
+    "frozen_start_utc": "2026-10-27T00:00:00Z",
+    "required_consecutive_paired_h4_bars": 194,
+    "timeliness_threshold_is_operational_diagnostic_not_an_execution_or_strategy_signal": true
+  },
+  "historical_recovery": {
+    "already_recovered_late_paired_slots": [
+      1793059200,
+      1793088000
+    ],
+    "already_recovered_late_slot_starts_utc": [
+      "2026-10-27T00:00:00Z",
+      "2026-10-27T08:00:00Z"
+    ],
+    "new_provider_requests": 0,
+    "original_missing_slots_still_missing_after_separate_historical_union": 26,
+    "original_source_files_changed": false,
+    "prospective_eligibility": false,
+    "source": "reports/strat01/2026-10-28-late-recovery-observed.json",
+    "source_sha256": "1503f33709dfe917980fcdf4533a67f1594a11570856f4d595b1f545a5381a61"
+  },
+  "independent_ops_review": {
+    "full_suite_methods": 1606,
+    "full_suite_methods_1606_applies_before_final_provider_ordering_change": true,
+    "full_suite_skipped": 1,
+    "latest_incremental_provider_stop_exit_code": 0,
+    "latest_incremental_provider_stop_methods": 15,
+    "path": "/workspace/scratch/4a6a75419487/v6-independent-ops-review.json",
+    "scoped_methods": 63,
+    "sha256": "347d7d866501b8251f1f359608933a4ae847bd24fcf3044e44615d4085bd3d4b",
+    "verdict": "APPROVED_CODE_NO_OPEN_BLOCKING_FINDINGS_IN_REVIEWED_SCOPE"
+  },
+  "latest_artifact": {
+    "all_88_report_files_byte_identical_to_repository": true,
+    "all_members_inspected": true,
+    "archive_digest_independently_matches_metadata": true,
+    "archive_downloaded_or_members_verified_here": true,
+    "archive_path": "/workspace/scratch/4a6a75419487/arz-capture-42248267979.zip",
+    "artifact_id": 13518768161,
+    "expected_archive_sha256": "0d3dbdb653d926cf9a9aaf450ae2c629dcee43066e2adccee8f2048ae2cc4983",
+    "historical_raw_input_members": 0,
+    "inspection_report_path": "/workspace/scratch/4a6a75419487/v6-latest-artifact-inspection.json",
+    "inspection_report_sha256": "14e9ec0893a07fb32379d5e562342ec78f50e52c608ef6c0eb2b180498c229da",
+    "market_capture_visible_in_latest_job_already_in_main": true,
+    "member_counts": {
+      "audits": 44,
+      "forward": 44,
+      "slot_decisions": 1
+    },
+    "new_or_different_market_captures": 0,
+    "run_id": 42248267979,
+    "size_bytes": 256752,
+    "total_members": 89,
+    "url": "https://github.com/DashSaman/Arz/actions/runs/42248267979/artifacts/13518768161",
+    "workflow_declared_paths": [
+      "/tmp/arz-source-slot-decision.json",
+      "reports/strat01/forward/*.json",
+      "reports/strat01/audits/*.json"
+    ]
+  },
+  "latest_immutable_source_audit_path": "reports/strat01/audits/20261106T160023Z.json",
+  "latest_independent_job_attestation": {
+    "actual_checkout_sha": "3870211c392de20708ad40c0e6681f77820805cf",
+    "actual_push_to_main_result_sha": "e694646e8540264a835352ead361cfc176fc86dd",
+    "collection_started_utc": "2026-11-06T16:00:23Z",
+    "event_from_separate_api": "schedule",
+    "immutable_capture_sha256": "90c55393c154030f22dbb11a76e34d67c41f3aa0d2af967ca79bd779b17787f4",
+    "in_run_audit": "PASS_NO_GO",
+    "job_embedded_capture_equals_immutable_capture": true,
+    "job_id": 127996155519,
+    "job_log_path": "/workspace/scratch/4a6a75419487/latest-capture-job.log",
+    "job_log_sha256": "e0733af166b26aa1fa9d24a5757fb65d575a7ca76b8647fe8622323c97e338e5",
+    "original_runner_self_attestation_flags_preserved_false": true,
+    "run_id": 42248267979,
+    "run_url": "https://github.com/DashSaman/Arz/actions/runs/42248267979",
+    "scope": "THIS_RUN_ONLY_NOT_UNIVERSAL_SCHEDULER_OR_PROVIDER_ATTESTATION"
+  },
+  "live_trading": "DISABLED",
+  "metadata_snapshot_parent_provided": true,
+  "metadata_snapshot_remote_observation_utc_approximate": "2026-11-06T19:31:00Z",
+  "metadata_snapshot_sha256": "3cd71da07ee414f04e8eca4fee0f21bc8e3f2ebe63539ab290aaa963bd4bc467",
+  "new_capital_authorized_usd": 0,
+  "new_market_provider_requests": 0,
+  "new_since_pr88": {
+    "added_files": [
+      "reports/strat01/audits/20261105T123241Z.json",
+      "reports/strat01/audits/20261105T201817Z.json",
+      "reports/strat01/audits/20261106T010828Z.json",
+      "reports/strat01/audits/20261106T070015Z.json",
+      "reports/strat01/audits/20261106T123006Z.json",
+      "reports/strat01/audits/20261106T160023Z.json",
+      "reports/strat01/forward/20261105T123241Z.json",
+      "reports/strat01/forward/20261105T201817Z.json",
+      "reports/strat01/forward/20261106T010828Z.json",
+      "reports/strat01/forward/20261106T070015Z.json",
+      "reports/strat01/forward/20261106T123006Z.json",
+      "reports/strat01/forward/20261106T160023Z.json"
+    ],
+    "commits": 6,
+    "new_capture_records": [
+      {
+        "WETH_source_lag_seconds": 1961,
+        "bar_close_utc": "2026-11-05T12:00:00Z",
+        "bar_start_utc": "2026-11-05T08:00:00Z",
+        "both_assets_within_1h": true,
+        "cbBTC_source_lag_seconds": 1961,
+        "collection_started_utc": "2026-11-05T12:32:41+00:00",
+        "schedule_run_id": 42028016252,
+        "source_file": "reports/strat01/forward/20261105T123241Z.json",
+        "source_sha256": "9c31945e31c0bafc2c3f380b6355a4e0064a7bc2720a58077e37ad13a28529d6"
+      },
+      {
+        "WETH_source_lag_seconds": 1097,
+        "bar_close_utc": "2026-11-05T20:00:00Z",
+        "bar_start_utc": "2026-11-05T16:00:00Z",
+        "both_assets_within_1h": true,
+        "cbBTC_source_lag_seconds": 1097,
+        "collection_started_utc": "2026-11-05T20:18:17+00:00",
+        "schedule_run_id": 42102111733,
+        "source_file": "reports/strat01/forward/20261105T201817Z.json",
+        "source_sha256": "6bd7034effe2e992d36a93b60e88c616d0081ccea5e7dd95fd4f5e969a7e738e"
+      },
+      {
+        "WETH_source_lag_seconds": 4109,
+        "bar_close_utc": "2026-11-06T00:00:00Z",
+        "bar_start_utc": "2026-11-05T20:00:00Z",
+        "both_assets_within_1h": false,
+        "cbBTC_source_lag_seconds": 4109,
+        "collection_started_utc": "2026-11-06T01:08:28+00:00",
+        "schedule_run_id": 42141779073,
+        "source_file": "reports/strat01/forward/20261106T010828Z.json",
+        "source_sha256": "901dca8e47e3d2c1a53e16660d5ae77b2003638dd655c5d151ae6757bd031d55"
+      },
+      {
+        "WETH_source_lag_seconds": 10816,
+        "bar_close_utc": "2026-11-06T04:00:00Z",
+        "bar_start_utc": "2026-11-06T00:00:00Z",
+        "both_assets_within_1h": false,
+        "cbBTC_source_lag_seconds": 10816,
+        "collection_started_utc": "2026-11-06T07:00:15+00:00",
+        "schedule_run_id": 42177982709,
+        "source_file": "reports/strat01/forward/20261106T070015Z.json",
+        "source_sha256": "e6a91cd80149e70d9e3c3175fc36cb747a18350c27a08e44979c4518eebe0632"
+      },
+      {
+        "WETH_source_lag_seconds": 1806,
+        "bar_close_utc": "2026-11-06T12:00:00Z",
+        "bar_start_utc": "2026-11-06T08:00:00Z",
+        "both_assets_within_1h": true,
+        "cbBTC_source_lag_seconds": 1807,
+        "collection_started_utc": "2026-11-06T12:30:06+00:00",
+        "schedule_run_id": 42218112473,
+        "source_file": "reports/strat01/forward/20261106T123006Z.json",
+        "source_sha256": "fa7c1d995ac0b29557d4582d1807d657da2dcb56944fe2fba60ddd9fea8b54f6"
+      },
+      {
+        "WETH_source_lag_seconds": 24,
+        "bar_close_utc": "2026-11-06T16:00:00Z",
+        "bar_start_utc": "2026-11-06T12:00:00Z",
+        "both_assets_within_1h": true,
+        "cbBTC_source_lag_seconds": 24,
+        "collection_started_utc": "2026-11-06T16:00:23+00:00",
+        "schedule_run_id": 42248267979,
+        "source_file": "reports/strat01/forward/20261106T160023Z.json",
+        "source_sha256": "90c55393c154030f22dbb11a76e34d67c41f3aa0d2af967ca79bd779b17787f4"
+      }
+    ],
+    "new_exact_historical_raw_inputs": 0,
+    "new_market_data_capture_files": 6,
+    "new_paired_slots": 6,
+    "new_successful_schedule_runs": [
+      {
+        "conclusion": "success",
+        "created_at": "2026-11-06T16:00:15Z",
+        "head_sha": "3870211c392de20708ad40c0e6681f77820805cf",
+        "id": 42248267979,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-11-06T12:29:56Z",
+        "head_sha": "ffc544e7fc300e65af4e049486eede578bb6c483",
+        "id": 42218112473,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-11-06T07:00:09Z",
+        "head_sha": "fa70532fcc79f37929f4aa863e7827cf7af0747f",
+        "id": 42177982709,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-11-06T01:08:21Z",
+        "head_sha": "0edef03be8d2679d6eee0c7de8d388657e2e1b4d",
+        "id": 42141779073,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-11-05T22:07:22Z",
+        "head_sha": "0edef03be8d2679d6eee0c7de8d388657e2e1b4d",
+        "id": 42118733352,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-11-05T20:18:11Z",
+        "head_sha": "8de21f3cb04579ef763bd2c2f7386c5f37813200",
+        "id": 42102111733,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-11-05T12:45:34Z",
+        "head_sha": "8de21f3cb04579ef763bd2c2f7386c5f37813200",
+        "id": 42029854472,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-11-05T12:32:33Z",
+        "head_sha": "e060f9d299aa3375455ca1e759f5d37bc0ea286f",
+        "id": 42028016252,
+        "status": "completed"
+      }
+    ],
+    "new_timely_slots": 4
+  },
+  "permitted_data_options_without_new_access_claims": [
+    "Inspect already authorized retained GitHub artifacts and match exact file hashes before using them. Previously observed missing raw inputs remain unavailable; no recovery claim from metadata alone.",
+    "Use the two existing late-recovery slots only for labeled historical coverage diagnosis; never insert them into original forward evidence.",
+    "Accept an export or exact raw artifact from an entitled source only after source rights, immutable bytes, market identity, timestamps and conflicts are documented; no entitlement was newly established here.",
+    "Collect future actual-clock data through the existing approved bounded path, preserving refusal state; an independent host still requires separate deployment authorization."
+  ],
+  "qualifying_paper_days": 0,
+  "raw_historical_input_availability": {
+    "exact_expected_raw_sha256": {
+      "WETH": "633f1681a8381d164ea05994e545f61ac4c5f2804428df7bf3cf7a09ca4abfd1",
+      "cbBTC": "d14de847f54d0dee883fd1065bea1880f1a64d863998b3bbc09dadf5e52128f9",
+      "historical_proxy_zip": "7757695bb306bff86b0171cf7ec98ac079409d1d02102e984d7dda1f0014379e",
+      "original_backtest_provider": "283346087387fac0d312971e8c408c16d184212efe1458e06b692d0daf351e30"
+    },
+    "new_replays_performed": 0,
+    "new_since_pr88_exact_matches_found": false,
+    "prior_archives_inspected": 3,
+    "prior_exact_matches_found": false,
+    "prior_inventory_sha256": "8350de5ee0fd59656a20be5bd7a9c0b0d270d5ab72a4ffdc065229cc441ed412",
+    "prior_inventory_source": "reports/strat01/2026-11-05-final-blockers/retained-input-inventory.json.gz",
+    "prior_workspaces_files_scanned": 1557,
+    "repo_artifact_collection_listing": "Connector rejected /actions/artifacts?per_page=100 as unsupported (400); did not retry; used source-linked run artifact wrappers.",
+    "scope_limitation": "No cache found in the two requested prior workspace trees, including ignored runtime and archive members. No assertion about unavailable remote artifact stores.",
+    "targeted_remote_artifacts_inspected": [
+      {
+        "archive_already_present_in_repository": false,
+        "archive_bytes": 39141,
+        "archive_path": "/workspace/scratch/4a6a75419487/arz-strict-cap-41305629760.zip",
+        "archive_sha256": "b756d2366fc8208ab7486fb41bb9df974bea58448b325e59fbb25abb02a29722",
+        "artifact_id": 13082374845,
+        "exact_expected_input_hash_comparison_performed": true,
+        "exact_historical_input_sha256_matches": [],
+        "historical_derived_simulation_outputs_only": true,
+        "inspection_report_path": "/workspace/scratch/4a6a75419487/v6-historical-artifact-13082374845.json",
+        "inspection_report_sha256": "3f24c5f9402bdce6eb006e34b57dc44f7d5c056caea712ffef91b4cb64bea25c",
+        "member_count": 9,
+        "run_id": 41305629760
+      },
+      {
+        "archive_already_present_in_repository": true,
+        "archive_bytes": 116736,
+        "archive_path": "/workspace/scratch/4a6a75419487/arz-stateful-41308328518.zip",
+        "archive_sha256": "85d3e7bd9941ccdcf58cba8391dd482296421485ec494b7e9cd3452156d83af7",
+        "artifact_id": 13084406841,
+        "exact_expected_input_hash_comparison_performed": true,
+        "exact_historical_input_sha256_matches": [],
+        "historical_derived_simulation_outputs_only": true,
+        "inspection_report_path": "/workspace/scratch/4a6a75419487/v6-historical-artifact-13084406841.json",
+        "inspection_report_sha256": "8d6a54d565d03b070066def0097d0b2824855578f2b5cd2ed6675b7c42114264",
+        "member_count": 7,
+        "run_id": 41308328518
+      }
+    ]
+  },
+  "schedule": {
+    "configured_cron_expressions": [
+      "23 0,4,8,12,16,20 * * *",
+      "47 0,4,8,12,16,20 * * *"
+    ],
+    "current_cron_configuration_is_not_a_historical_expected_job_count": "The second expression was added during Nov1; this audit counts six market closes per full day and does not assign runs to individual nominal cron firings.",
+    "daily_coverage": [
+      {
+        "actual_schedule_runs_created_that_day": 4,
+        "completed_4h_close_opportunities": 6,
+        "current_workflow_cron_expressions_per_close": 2,
+        "fully_elapsed_day_at_metadata_snapshot": true,
+        "original_complete_paired_closes": 5,
+        "original_timely_paired_closes_1h": 5,
+        "schedule_run_ids": "41348903379;41347776146;41320466424;41280778576",
+        "successful_schedule_runs_created_that_day": 4,
+        "timely_close_hours_utc": "04:00;08:00;12:00;16:00;20:00",
+        "untimely_or_missing_close_hours_utc": "00:00",
+        "utc_date": "2026-11-01"
+      },
+      {
+        "actual_schedule_runs_created_that_day": 4,
+        "completed_4h_close_opportunities": 6,
+        "current_workflow_cron_expressions_per_close": 2,
+        "fully_elapsed_day_at_metadata_snapshot": true,
+        "original_complete_paired_closes": 2,
+        "original_timely_paired_closes_1h": 0,
+        "schedule_run_ids": "41504374569;41501400148;41402675317;41399973463",
+        "successful_schedule_runs_created_that_day": 4,
+        "timely_close_hours_utc": "",
+        "untimely_or_missing_close_hours_utc": "00:00;04:00;08:00;12:00;16:00;20:00",
+        "utc_date": "2026-11-02"
+      },
+      {
+        "actual_schedule_runs_created_that_day": 6,
+        "completed_4h_close_opportunities": 6,
+        "current_workflow_cron_expressions_per_close": 2,
+        "fully_elapsed_day_at_metadata_snapshot": true,
+        "original_complete_paired_closes": 3,
+        "original_timely_paired_closes_1h": 1,
+        "schedule_run_ids": "41706964624;41705200334;41635309199;41632683971;41567458071;41566278846",
+        "successful_schedule_runs_created_that_day": 6,
+        "timely_close_hours_utc": "12:00",
+        "untimely_or_missing_close_hours_utc": "00:00;04:00;08:00;16:00;20:00",
+        "utc_date": "2026-11-03"
+      },
+      {
+        "actual_schedule_runs_created_that_day": 6,
+        "completed_4h_close_opportunities": 6,
+        "current_workflow_cron_expressions_per_close": 2,
+        "fully_elapsed_day_at_metadata_snapshot": true,
+        "original_complete_paired_closes": 4,
+        "original_timely_paired_closes_1h": 3,
+        "schedule_run_ids": "41902898292;41901461864;41830437089;41828066710;41750306007;41748811627",
+        "successful_schedule_runs_created_that_day": 6,
+        "timely_close_hours_utc": "00:00;12:00;20:00",
+        "untimely_or_missing_close_hours_utc": "04:00;08:00;16:00",
+        "utc_date": "2026-11-04"
+      },
+      {
+        "actual_schedule_runs_created_that_day": 6,
+        "completed_4h_close_opportunities": 6,
+        "current_workflow_cron_expressions_per_close": 2,
+        "fully_elapsed_day_at_metadata_snapshot": true,
+        "original_complete_paired_closes": 3,
+        "original_timely_paired_closes_1h": 3,
+        "schedule_run_ids": "42118733352;42102111733;42029854472;42028016252;41946001290;41945009698",
+        "successful_schedule_runs_created_that_day": 6,
+        "timely_close_hours_utc": "00:00;12:00;20:00",
+        "untimely_or_missing_close_hours_utc": "04:00;08:00;16:00",
+        "utc_date": "2026-11-05"
+      },
+      {
+        "actual_schedule_runs_created_that_day": 4,
+        "completed_4h_close_opportunities": 5,
+        "current_workflow_cron_expressions_per_close": 2,
+        "fully_elapsed_day_at_metadata_snapshot": false,
+        "original_complete_paired_closes": 4,
+        "original_timely_paired_closes_1h": 2,
+        "schedule_run_ids": "42248267979;42218112473;42177982709;42141779073",
+        "successful_schedule_runs_created_that_day": 4,
+        "timely_close_hours_utc": "12:00;16:00",
+        "untimely_or_missing_close_hours_utc": "00:00;04:00;08:00",
+        "utc_date": "2026-11-06"
+      }
+    ],
+    "matching_main_collector_schedule_runs": 46,
+    "nominal_schedule_cannot_identify_specific_dropped_cron": true,
+    "query_records_returned": 46,
+    "query_total_records": 46,
+    "source_run_id_links_not_job_log_attestation": 35
+  },
+  "schema_version": 1,
+  "source_api": "https://api.github.com/repos/DashSaman/Arz/actions/runs?event=schedule&branch=main&per_page=100",
+  "source_main_sha": "e694646e8540264a835352ead361cfc176fc86dd",
+  "verification": {
+    "focused_green": {
+      "command": "PYTHONPATH=src:.:tests python -m unittest tests.test_strat01_v6_source_integrity tests.test_strat01_investment_readiness tests.test_strat01_source_value_integrity tests.test_strat01_capture_slot_preflight tests.test_forward_gap_latency tests.test_forward_pipeline_contract tests.test_strat01_schedule_clock_audit -v",
+      "exit_code": 0,
+      "log": "/workspace/scratch/4a6a75419487/v6-source-integrity-green.log",
+      "methods": 284
+    },
+    "full_suite": {
+      "command": "PYTHONPATH=src:. python -m unittest discover -s tests -q",
+      "concurrent_parent_receipt_changes_included": true,
+      "exit_code": 0,
+      "log": "/workspace/scratch/4a6a75419487/v6-source-integrity-full-suite.log",
+      "methods": 1577,
+      "skipped": 1,
+      "warnings": [
+        "Two ResourceWarning messages for unclosed CSV files in unchanged scripts/strat01_60m_native_probe.py"
+      ]
+    },
+    "git_diff_check_exit_code": 0,
+    "initial_focused_invocation_import_error": {
+      "cause": "Existing test_strat01_source_value_integrity uses unqualified test-module import; module-style invocation needs tests in PYTHONPATH. Corrected invocation passed.",
+      "log": "/workspace/scratch/4a6a75419487/v6-source-integrity-import-error.log"
+    },
+    "red_tests": {
+      "command": "PYTHONPATH=src:. python -m unittest tests.test_strat01_v6_source_integrity -v",
+      "exit_code": 1,
+      "expected_assertion_failures": 6,
+      "log": "/workspace/scratch/4a6a75419487/v6-source-integrity-red.log",
+      "methods": 9
+    }
+  },
+  "derived_summary_correction": {
+    "finding_id": "V6_DERIVED_RECOVERY_DEFAULTDICT_KEYS",
+    "original_review_input": "reports/strat01/2026-11-06-v6/data-recovery-audit-original-review-input.json",
+    "original_sha256": "7efbd8fb4f2d0c0148ee6d27e85424f86acb953b7e92bc8e6a7557bd420cdc06",
+    "review": "data-final-review-initial.json",
+    "reason": "Scratch summary counted empty defaultdict keys created while formatting all grid rows. The corrected derivative counts only slots with both WETH and cbBTC evidence. Original source observations, grid CSV and source hashes are unchanged.",
+    "correct_recovered_paired_slots": 2,
+    "correct_union_missing_slots": 26
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "repeated_calls": 5,
+  "resource_warning_count": 10,
+  "warnings": [
+    {
+      "category": "ResourceWarning",
+      "message": "unclosed file <_io.TextIOWrapper name='reports/strat01/2026-10-31-all-strategies/other/clock_native_gates.csv' mode='r' encoding='UTF-8'>",
+      "filename": "/workspace/scratch/4a6a75419487/Arz/scripts/strat01_60m_native_probe.py",
+      "lineno": 23
+    },
+    {
+      "category": "ResourceWarning",
+      "message": "unclosed file <_io.TextIOWrapper name='reports/strat01/2026-10-31-all-strategies/annual_comparison.csv' mode='r' encoding='UTF-8'>",
+      "filename": "/workspace/scratch/4a6a75419487/Arz/scripts/strat01_60m_native_probe.py",
+      "lineno": 29
+    },
+    {
+      "category": "ResourceWarning",
+      "message": "unclosed file <_io.TextIOWrapper name='reports/strat01/2026-10-31-all-strategies/other/clock_native_gates.csv' mode='r' encoding='UTF-8'>",
+      "filename": "/workspace/scratch/4a6a75419487/Arz/scripts/strat01_60m_native_probe.py",
+      "lineno": 23
+    },
+    {
+      "category": "ResourceWarning",
+      "message": "unclosed file <_io.TextIOWrapper name='reports/strat01/2026-10-31-all-strategies/annual_comparison.csv' mode='r' encoding='UTF-8'>",
+      "filename": "/workspace/scratch/4a6a75419487/Arz/scripts/strat01_60m_native_probe.py",
+      "lineno": 29
+    },
+    {
+      "category": "ResourceWarning",
+      "message": "unclosed file <_io.TextIOWrapper name='reports/strat01/2026-10-31-all-strategies/other/clock_native_gates.csv' mode='r' encoding='UTF-8'>",
+      "filename": "/workspace/scratch/4a6a75419487/Arz/scripts/strat01_60m_native_probe.py",
+      "lineno": 23
+    },
+    {
+      "category": "ResourceWarning",
+      "message": "unclosed file <_io.TextIOWrapper name='reports/strat01/2026-10-31-all-strategies/annual_comparison.csv' mode='r' encoding='UTF-8'>",
+      "filename": "/workspace/scratch/4a6a75419487/Arz/scripts/strat01_60m_native_probe.py",
+      "lineno": 29
+    },
+    {
+      "category": "ResourceWarning",
+      "message": "unclosed file <_io.TextIOWrapper name='reports/strat01/2026-10-31-all-strategies/other/clock_native_gates.csv' mode='r' encoding='UTF-8'>",
+      "filename": "/workspace/scratch/4a6a75419487/Arz/scripts/strat01_60m_native_probe.py",
+      "lineno": 23
+    },
+    {
+      "category": "ResourceWarning",
+      "message": "unclosed file <_io.TextIOWrapper name='reports/strat01/2026-10-31-all-strategies/annual_comparison.csv' mode='r' encoding='UTF-8'>",
+      "filename": "/workspace/scratch/4a6a75419487/Arz/scripts/strat01_60m_native_probe.py",
+      "lineno": 29
+    },
+    {
+      "category": "ResourceWarning",
+      "message": "unclosed file <_io.TextIOWrapper name='reports/strat01/2026-10-31-all-strategies/other/clock_native_gates.csv' mode='r' encoding='UTF-8'>",
+      "filename": "/workspace/scratch/4a6a75419487/Arz/scripts/strat01_60m_native_probe.py",
+      "lineno": 23
+    },
+    {
+      "category": "ResourceWarning",
+      "message": "unclosed file <_io.TextIOWrapper name='reports/strat01/2026-10-31-all-strategies/annual_comparison.csv' mode='r' encoding='UTF-8'>",
+      "filename": "/workspace/scratch/4a6a75419487/Arz/scripts/strat01_60m_native_probe.py",
+      "lineno": 29
+    }
+  ],
+  "output_sha256": "040d6c4053c0104238128d827128960fe24c0721464e02ead8697e3653d08143",
+  "all_output_objects_equal": true,
+  "gate_rows": 2,
+  "annual_shortlist_rows": 2,
+  "native_rows": 16,
+  "financial_decision": "NO-GO"
+}

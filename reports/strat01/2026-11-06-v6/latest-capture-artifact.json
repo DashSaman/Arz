@@ -1,0 +1,663 @@
+{
+  "all_88_market_source_and_audit_files_byte_identical_to_repository": true,
+  "archive_bytes": 256752,
+  "archive_path": "/workspace/scratch/4a6a75419487/arz-capture-42248267979.zip",
+  "archive_sha256": "0d3dbdb653d926cf9a9aaf450ae2c629dcee43066e2adccee8f2048ae2cc4983",
+  "artifact_id": 13518768161,
+  "financial_decision": "NO-GO",
+  "historical_raw_input_members": 0,
+  "member_counts": {
+    "audits": 44,
+    "forward": 44,
+    "slot_decisions": 1
+  },
+  "members": [
+    {
+      "bytes": 723,
+      "classification": "RUNTIME_SLOT_PREFLIGHT_NOT_MARKET_DATA",
+      "member": "tmp/arz-source-slot-decision.json",
+      "sha256": "753f83300d7d3e8cd2be52d2e1114e67cb817ede33aae690b588661750f8a6f6"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 5333,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261027T095359Z.json",
+      "repository_path": "reports/strat01/forward/20261027T095359Z.json",
+      "sha256": "34c7bc50dddcd93bfa0d4e4bf228094e54b957d82ba3e97ceb98baf759220d02"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 5343,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261027T180617Z.json",
+      "repository_path": "reports/strat01/forward/20261027T180617Z.json",
+      "sha256": "a18be33ace52e39e40eacba47811a7c2e0273eb9dc97faee43f62022a4434424"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 5336,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261027T235127Z.json",
+      "repository_path": "reports/strat01/forward/20261027T235127Z.json",
+      "sha256": "aa978726baba81fa12b76b0261557df8b76c3eb3a4ac2e80e8eb6bf41543b7d4"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 5811,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261028T055616Z.json",
+      "repository_path": "reports/strat01/forward/20261028T055616Z.json",
+      "sha256": "a3a7bd1cd7f251feec6aa7204244269adaf877c43dcd32ab32aff9e78453b33b"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 5814,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261028T151317Z.json",
+      "repository_path": "reports/strat01/forward/20261028T151317Z.json",
+      "sha256": "233119fa083a8deb453d9c493a5c35621ab997ca8518946982a77e7ff9599326"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 5808,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261028T211054Z.json",
+      "repository_path": "reports/strat01/forward/20261028T211054Z.json",
+      "sha256": "78e89c801e9d66a886841a9ab17dc8968d14dc9754ca9d7decf4f2fefe62a1a3"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 5807,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261029T060125Z.json",
+      "repository_path": "reports/strat01/forward/20261029T060125Z.json",
+      "sha256": "f9240dd36313bfe99e1ad28e9984dece4728a90639f04518030b40000c4e5f6c"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 5813,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261029T151825Z.json",
+      "repository_path": "reports/strat01/forward/20261029T151825Z.json",
+      "sha256": "a19e973e6246eefbf9e1f08ccf29f60e8a2ef0daa96ed8dabfb6999359c254b3"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 5815,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261029T211429Z.json",
+      "repository_path": "reports/strat01/forward/20261029T211429Z.json",
+      "sha256": "bbe682264f042f40755c5e7362ffceb274fe3e6883b6bf8310d589d4713165da"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 5812,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261030T060154Z.json",
+      "repository_path": "reports/strat01/forward/20261030T060154Z.json",
+      "sha256": "6283d4538564f3a31b05ef071b5ade4acc221c4950759217192815f3796f3297"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 5811,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261030T150712Z.json",
+      "repository_path": "reports/strat01/forward/20261030T150712Z.json",
+      "sha256": "65f5049ef3a79a9df718d1f1713032629ec8370a4211bf002aa02afc22140bc3"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 5809,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261030T205350Z.json",
+      "repository_path": "reports/strat01/forward/20261030T205350Z.json",
+      "sha256": "01206a36214ffec3515d41e40d2e5bd7acd7ad7ef6a35c4e294cf643fe911ce8"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 5811,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261031T055708Z.json",
+      "repository_path": "reports/strat01/forward/20261031T055708Z.json",
+      "sha256": "a5b5b951d3cd7ef9d91b8cf9d8b6192750bdb8eb3d4b49ee95488e0e6474e8a8"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 5813,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261031T143559Z.json",
+      "repository_path": "reports/strat01/forward/20261031T143559Z.json",
+      "sha256": "141fb7e325be717c62f0b93b2ec6c029b3027a6268d3f23d53c2a4b5ea64a36a"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 5412,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261031T164206Z.json",
+      "repository_path": "reports/strat01/forward/20261031T164206Z.json",
+      "sha256": "5b3a81f2a8ee08c414d5c77373514f57dd390b6bb96058f8553b381812964c0e"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 4992,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261031T200616Z.json",
+      "repository_path": "reports/strat01/forward/20261031T200616Z.json",
+      "sha256": "1e0ee310bfdf9042425255040bdb4009fa1c7d488d47c8588503aa8242d16b11"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 4991,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261031T232828Z.json",
+      "repository_path": "reports/strat01/forward/20261031T232828Z.json",
+      "sha256": "7d6dbcfd8fbdda33dbc1524b00b0d3744fcebdb6b2981a860ebffbb16e66fe99"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 4598,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261101T003741Z.json",
+      "repository_path": "reports/strat01/forward/20261101T003741Z.json",
+      "sha256": "c9d4d3a3b843b51b89d7ea4c623c68352b56df3e17adedc7e36d2b281ca21b8c"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 5416,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261101T044629Z.json",
+      "repository_path": "reports/strat01/forward/20261101T044629Z.json",
+      "sha256": "c188418b9b7322dfb1dca934700afd10df6569641692a66ed429ca8f78cdd100"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 5810,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261101T062536Z.json",
+      "repository_path": "reports/strat01/forward/20261101T062536Z.json",
+      "sha256": "8611776a7e39ef8c85726b8d36c14afcef5c0a568ee45994631bcdb488c2f611"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 5412,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261101T083900Z.json",
+      "repository_path": "reports/strat01/forward/20261101T083900Z.json",
+      "sha256": "10500c8894f814ef982522680a8db41193b11d4a036cbdc0c04a8837ed7c35ba"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 5414,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261101T124945Z.json",
+      "repository_path": "reports/strat01/forward/20261101T124945Z.json",
+      "sha256": "383198228bf45e1e253ce3c8783ad949def8fd611ae0097f231714b8e77add92"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 5417,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261101T161651Z.json",
+      "repository_path": "reports/strat01/forward/20261101T161651Z.json",
+      "sha256": "14f78a6cc64abae710ea151fb351dc0efbda49d29ae8959dbf4c4648ee89bc0b"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 5809,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261101T203711Z.json",
+      "repository_path": "reports/strat01/forward/20261101T203711Z.json",
+      "sha256": "f03222b531ffb56bdf5802be42a31fb73621ef8259e704282e68464cc9d071ea"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 5814,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261102T062710Z.json",
+      "repository_path": "reports/strat01/forward/20261102T062710Z.json",
+      "sha256": "948839d7b1863c554844ad86b64df8a43cd91135be5e4e1718360b05525b07d8"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 5814,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261102T065233Z.json",
+      "repository_path": "reports/strat01/forward/20261102T065233Z.json",
+      "sha256": "084c49693a0d9344ee5831192501dd1c7c76d2ab463c40e96f20dc3d4a0401b5"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 5811,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261102T183140Z.json",
+      "repository_path": "reports/strat01/forward/20261102T183140Z.json",
+      "sha256": "9210ba4fca35eb225951d3a9e45524cc67f1711866a67a2fad46b2e322dca110"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 5811,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261102T185048Z.json",
+      "repository_path": "reports/strat01/forward/20261102T185048Z.json",
+      "sha256": "0acf8a7c9c94d45ab3255e37605bda44c16f7f1305789020813dd436c7180ba3"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 5811,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261103T023927Z.json",
+      "repository_path": "reports/strat01/forward/20261103T023927Z.json",
+      "sha256": "aa900a74f87f8ef68d0e4316965238f2b82beb1f0b2b50d63e9aab15113a9ae3"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 5813,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261103T022801Z.json",
+      "repository_path": "reports/strat01/forward/20261103T022801Z.json",
+      "sha256": "3b3726bb0b9b5a5b5a0c848eb7999ee98da3ea3ada967a9d048b8c3bdb81bbe9"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 5810,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261103T120450Z.json",
+      "repository_path": "reports/strat01/forward/20261103T120450Z.json",
+      "sha256": "143e2969d8ee7c9b79d0d91949ac7ad35b0e555f4261aef71a346bb24d1511c2"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 5812,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261103T193907Z.json",
+      "repository_path": "reports/strat01/forward/20261103T193907Z.json",
+      "sha256": "3d416bb54dadea699a15dbd665c8e3bde4185798c8841d28eb6617e1851960eb"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 5812,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261103T195021Z.json",
+      "repository_path": "reports/strat01/forward/20261103T195021Z.json",
+      "sha256": "90fb67e142d8d9b5a67a8bae4c283ed202dc7d0b0984b881f6ba897d62985f91"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 5814,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261104T004228Z.json",
+      "repository_path": "reports/strat01/forward/20261104T004228Z.json",
+      "sha256": "6d1933a2e03fc6096150d353517feb0cc82a6b037da718cb21d673ada63d08cd"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 5813,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261104T121807Z.json",
+      "repository_path": "reports/strat01/forward/20261104T121807Z.json",
+      "sha256": "7c997fe2fb5437e1afd42fec72dbfa15e3eee1f1ac163857196bdd90ac95da86"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 5806,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261104T195435Z.json",
+      "repository_path": "reports/strat01/forward/20261104T195435Z.json",
+      "sha256": "326b804a2a54b9832374e6484fef5ebcbfac0128a128bce6099a659377d3691e"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 5810,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261104T200333Z.json",
+      "repository_path": "reports/strat01/forward/20261104T200333Z.json",
+      "sha256": "d12234e2855783e1119152f1a341e7627819f1f8414300620c394f75329844b1"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 5811,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261105T005630Z.json",
+      "repository_path": "reports/strat01/forward/20261105T005630Z.json",
+      "sha256": "e1e1e8291273c4e5a3162239cbee9c025da4a5c9c2654bd284eaff472025d576"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 5807,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261105T123241Z.json",
+      "repository_path": "reports/strat01/forward/20261105T123241Z.json",
+      "sha256": "9c31945e31c0bafc2c3f380b6355a4e0064a7bc2720a58077e37ad13a28529d6"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 5812,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261105T201817Z.json",
+      "repository_path": "reports/strat01/forward/20261105T201817Z.json",
+      "sha256": "6bd7034effe2e992d36a93b60e88c616d0081ccea5e7dd95fd4f5e969a7e738e"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 5809,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261106T070015Z.json",
+      "repository_path": "reports/strat01/forward/20261106T070015Z.json",
+      "sha256": "e6a91cd80149e70d9e3c3175fc36cb747a18350c27a08e44979c4518eebe0632"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 5814,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261106T010828Z.json",
+      "repository_path": "reports/strat01/forward/20261106T010828Z.json",
+      "sha256": "901dca8e47e3d2c1a53e16660d5ae77b2003638dd655c5d151ae6757bd031d55"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 5810,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261106T123006Z.json",
+      "repository_path": "reports/strat01/forward/20261106T123006Z.json",
+      "sha256": "fa7c1d995ac0b29557d4582d1807d657da2dcb56944fe2fba60ddd9fea8b54f6"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 5813,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/forward/20261106T160023Z.json",
+      "repository_path": "reports/strat01/forward/20261106T160023Z.json",
+      "sha256": "90c55393c154030f22dbb11a76e34d67c41f3aa0d2af967ca79bd779b17787f4"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 2175,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261027T095359Z.json",
+      "repository_path": "reports/strat01/audits/20261027T095359Z.json",
+      "sha256": "f8612d3ac1eec93d2cf98586dfb5677e737ede591ae6064aba85da6fa71587ba"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 3411,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261027T180617Z.json",
+      "repository_path": "reports/strat01/audits/20261027T180617Z.json",
+      "sha256": "1198dc2e619dec42030dfd4311902cd7d2680462a1a4c10afacf2facb1abcc9c"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 3887,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261027T235127Z.json",
+      "repository_path": "reports/strat01/audits/20261027T235127Z.json",
+      "sha256": "46e95a70e3536156ad18ce04c7a46d9de3417212da585e287152a2a0cd61a143"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 4765,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261028T055616Z.json",
+      "repository_path": "reports/strat01/audits/20261028T055616Z.json",
+      "sha256": "d0c4349a3c8b3b35ce5920907ff4e0a1aa8a8e69787a7c05a47374ca5df8c071"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 5393,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261028T151317Z.json",
+      "repository_path": "reports/strat01/audits/20261028T151317Z.json",
+      "sha256": "88b4367a067ada8bec15be186987fc2548c6989e78780eadb09d46de883b03ce"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 6019,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261028T211054Z.json",
+      "repository_path": "reports/strat01/audits/20261028T211054Z.json",
+      "sha256": "1ad552bf5a6347f5d951e78c59a5b930e6fafa6ad578fe252781026c929167b9"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 6645,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261029T060125Z.json",
+      "repository_path": "reports/strat01/audits/20261029T060125Z.json",
+      "sha256": "f8c615b8060c4f6fe024ee556f0159a2a1bdd3b1d5e4fb685c43fd3e6d97bca6"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 7273,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261029T151825Z.json",
+      "repository_path": "reports/strat01/audits/20261029T151825Z.json",
+      "sha256": "5ebe3bb79217bbeceef5bc2fe4860fd57d22d6e109ba42a6896beba5666ccdc8"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 7899,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261029T211429Z.json",
+      "repository_path": "reports/strat01/audits/20261029T211429Z.json",
+      "sha256": "a0a1bb7c72ec3551747cd7782fc5bbb4c75a25962e8ed9908249e5dfe855b06b"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 8528,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261030T060154Z.json",
+      "repository_path": "reports/strat01/audits/20261030T060154Z.json",
+      "sha256": "d08c00e4fcb447ee2ef0b3c693d58bfc5fd5b1f10cda0bc206055cd6fc4dcff3"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 9156,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261030T150712Z.json",
+      "repository_path": "reports/strat01/audits/20261030T150712Z.json",
+      "sha256": "777dabd183c9edba1d828e0f52179899329cff83058acb7072b670df51aac2b6"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 9785,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261030T205350Z.json",
+      "repository_path": "reports/strat01/audits/20261030T205350Z.json",
+      "sha256": "1f54282056ef8cb5f438f0193c72e6971d125d21b3c596575ce0910a709be245"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 10411,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261031T055708Z.json",
+      "repository_path": "reports/strat01/audits/20261031T055708Z.json",
+      "sha256": "89b4f88559f4fc4ca5c57c5a938319d6e0ba7c846ff06956e23386e3855cf0cf"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 11037,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261031T143559Z.json",
+      "repository_path": "reports/strat01/audits/20261031T143559Z.json",
+      "sha256": "1c1ddaa1ecc96b33d2ae18a6c001fcc2c233501070ca20cf2cd49108bfa8f17e"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 11644,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261031T164206Z.json",
+      "repository_path": "reports/strat01/audits/20261031T164206Z.json",
+      "sha256": "f041a2bc591193f0be22461c189e82b76b99ff7f88b9a510784062952e3bde87"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 12122,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261031T200616Z.json",
+      "repository_path": "reports/strat01/audits/20261031T200616Z.json",
+      "sha256": "20e0ed55d29bcbad328007b6af7b41da7e603d29e268c1a625adff3237decbe9"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 12600,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261031T232828Z.json",
+      "repository_path": "reports/strat01/audits/20261031T232828Z.json",
+      "sha256": "fe3f3b025a55cad22318fb7363ca391339c7df71b753af9def384e71ee5e581c"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 13065,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261101T003741Z.json",
+      "repository_path": "reports/strat01/audits/20261101T003741Z.json",
+      "sha256": "54559f6fd01593fbb30cf9670c9ab072c9c8d2e933a84fa6ae3bd19b873ffc30"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 13677,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261101T044629Z.json",
+      "repository_path": "reports/strat01/audits/20261101T044629Z.json",
+      "sha256": "3192f40d42f6405b2a9d191ae36c85fff42b9916d15f31599d4736ffe938b25e"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 14211,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261101T062536Z.json",
+      "repository_path": "reports/strat01/audits/20261101T062536Z.json",
+      "sha256": "72178f5865eb0df804b669c64b56f5ede1d1cf64b53a8c1edd574c7b11c7922b"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 14767,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261101T083900Z.json",
+      "repository_path": "reports/strat01/audits/20261101T083900Z.json",
+      "sha256": "e5f7691f0017a408172ed2978999b82491a13fd3a311c322b90d7d66f9d14aea"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 15323,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261101T124945Z.json",
+      "repository_path": "reports/strat01/audits/20261101T124945Z.json",
+      "sha256": "f0febfabc3dd4e2a8af6570d4c33ae1fc493ad677a42c10190d73593220e5b1b"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 15879,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261101T161651Z.json",
+      "repository_path": "reports/strat01/audits/20261101T161651Z.json",
+      "sha256": "a8714f54191d794909b8d5a7ef9212ce278bca6f955f3ef6b48186ef13592cc5"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 16448,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261101T203711Z.json",
+      "repository_path": "reports/strat01/audits/20261101T203711Z.json",
+      "sha256": "a62aa1a4e07c5473aa3e758b8342af46732690ccbdfe7226c5b2836fcbfa65e3"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 17610,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261102T065233Z.json",
+      "repository_path": "reports/strat01/audits/20261102T065233Z.json",
+      "sha256": "b0cf975e51538fa334e8ddbc7c739d2c3ec35e13f851f143e50699a10b2120d8"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 17074,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261102T062710Z.json",
+      "repository_path": "reports/strat01/audits/20261102T062710Z.json",
+      "sha256": "bb4e1c32aeea39c2753358916e67218dc450891548f90c755480a1e60f0ba561"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 18236,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261102T183140Z.json",
+      "repository_path": "reports/strat01/audits/20261102T183140Z.json",
+      "sha256": "937357827c5bc7876e05d166d187e4fe355e518613e30be92da9ef66d3d2fe6b"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 18772,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261102T185048Z.json",
+      "repository_path": "reports/strat01/audits/20261102T185048Z.json",
+      "sha256": "52198f240f3973280c227889e8fd75627c67ef74c1d7723ba109ea21e754d647"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 19932,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261103T023927Z.json",
+      "repository_path": "reports/strat01/audits/20261103T023927Z.json",
+      "sha256": "638d7fa1f11943401036925a999c63e1180662ea295eb81dc2f0b40b3f33de51"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 19398,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261103T022801Z.json",
+      "repository_path": "reports/strat01/audits/20261103T022801Z.json",
+      "sha256": "24df5dcf8041af1f29af5a8cf56f79d5386bd53a80356f9b7e1890d22c11e771"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 20555,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261103T120450Z.json",
+      "repository_path": "reports/strat01/audits/20261103T120450Z.json",
+      "sha256": "24dd4020ba84efec2497d7530f904bf48265deac4ec110f306f1c2087af967c8"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 21127,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261103T193907Z.json",
+      "repository_path": "reports/strat01/audits/20261103T193907Z.json",
+      "sha256": "6d0de3a3a1620976821368e6b2a799df0edd3218fd4fc7ce80ff2a6946bd889c"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 21663,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261103T195021Z.json",
+      "repository_path": "reports/strat01/audits/20261103T195021Z.json",
+      "sha256": "bf26e5b7c1b486d3411cd2a6be029e0695e4deedc402b07dffda344a7402ce5c"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 22288,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261104T004228Z.json",
+      "repository_path": "reports/strat01/audits/20261104T004228Z.json",
+      "sha256": "92569046acc7a31aa429b9b41f152a74229df885bacf67f349140591686a2c80"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 22913,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261104T121807Z.json",
+      "repository_path": "reports/strat01/audits/20261104T121807Z.json",
+      "sha256": "1072ec20cf37f5c4743da990c6c9b3d890e19d213088a73dc694561ba1be86f5"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 23485,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261104T195435Z.json",
+      "repository_path": "reports/strat01/audits/20261104T195435Z.json",
+      "sha256": "7c71e0efe7c0f38f39b375e348d712576e55b3c9fced24acc674061ff22aa0bc"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 24052,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261104T200333Z.json",
+      "repository_path": "reports/strat01/audits/20261104T200333Z.json",
+      "sha256": "92b85d9a13a98dccd8083f03b14d44854adddd72983f95efeeb12b1e4a8bea8f"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 24621,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261105T005630Z.json",
+      "repository_path": "reports/strat01/audits/20261105T005630Z.json",
+      "sha256": "f40e88187a0b5329756d2b3a1f5ccd23d812cb22b6557ccd397eb0fa254beedb"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 25246,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261105T123241Z.json",
+      "repository_path": "reports/strat01/audits/20261105T123241Z.json",
+      "sha256": "5181bb4dfd137e2ed38b1acc4f8a58eb8e9e2cb620d6793f59a724f64a5144c9"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 25871,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261105T201817Z.json",
+      "repository_path": "reports/strat01/audits/20261105T201817Z.json",
+      "sha256": "4c10167347ec2630d3cecce1f272cb885478579bbce2a6417771a7406a5207f8"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 26441,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261106T010828Z.json",
+      "repository_path": "reports/strat01/audits/20261106T010828Z.json",
+      "sha256": "8aff943aa420fcf2b0cf64cfb1d2c7e915c40ca21ad2db3b3e6af5f268586c43"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 27013,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261106T070015Z.json",
+      "repository_path": "reports/strat01/audits/20261106T070015Z.json",
+      "sha256": "d68c20dc534650d3e05823c0921171e14a24b525656e7dfd83fbec735adbeb33"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 27638,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261106T123006Z.json",
+      "repository_path": "reports/strat01/audits/20261106T123006Z.json",
+      "sha256": "a74ad5e4d9aa97c1756c5cd93484c84a2e74bfca5c0146a3c9ecf88341e0b42d"
+    },
+    {
+      "byte_identical_to_repository": true,
+      "bytes": 28203,
+      "member": "home/runner/work/Arz/Arz/reports/strat01/audits/20261106T160023Z.json",
+      "repository_path": "reports/strat01/audits/20261106T160023Z.json",
+      "sha256": "f17215ea2ce2dffef44598d7990b359a62b0ed885013c1375cb8089ae93b9dd8"
+    }
+  ],
+  "new_or_different_market_captures": 0,
+  "qualifying_paper_days_added": 0,
+  "run_id": 42248267979,
+  "slot_decision": {
+    "actual_wall_clock_utc": "2026-11-06T16:00:23+00:00",
+    "capture": true,
+    "classification": "RUNTIME_SLOT_PREFLIGHT_NOT_MARKET_DATA",
+    "decision": "CAPTURE_ONCE_AT_ACTUAL_CLOCK",
+    "existing_longest_contiguous_timely": 5,
+    "existing_source_file_count": 43,
+    "existing_valid_paired_bar_count": 35,
+    "financial_decision": "NO-GO",
+    "live_trading": "DISABLED",
+    "matching_timely_source_files": [],
+    "operational_lag_diagnostic_seconds": 3600,
+    "qualifying_paper_days": 0,
+    "read_only_quoter_is_filled_order": false,
+    "real_capital_authorized_usd": 0,
+    "schema_version": 1,
+    "source_publication_independently_verified": false,
+    "target_bar_closed_at_unix": 1793980800,
+    "target_bar_start_unix": 1793966400
+  },
+  "total_members": 89,
+  "unexpected_members": []
+}

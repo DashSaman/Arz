@@ -306,7 +306,7 @@
     {
       "id": "WAL-01",
       "title": "Mitch single-transaction actor, token and fee proof",
-      "priority": 2,
+      "priority": 3,
       "status": "PARTIAL",
       "depends_on": [
         "OPS-01"
@@ -347,7 +347,7 @@
     {
       "id": "DATA-01",
       "title": "Permitted reproducible archival coverage for 3 watched-wallet cohorts",
-      "priority": 3,
+      "priority": 4,
       "status": "BLOCKED",
       "depends_on": [
         "OPS-01"
@@ -367,7 +367,7 @@
     {
       "id": "WAL-02",
       "title": "Reconstruct whole-wallet signed swaps FIFO and daily adjusted equity",
-      "priority": 4,
+      "priority": 5,
       "status": "BLOCKED",
       "depends_on": [
         "DATA-01",
@@ -386,7 +386,7 @@
     {
       "id": "EXEC-01",
       "title": "Real follower-time $20 exact-input Base DEX quotes and gas/stress",
-      "priority": 5,
+      "priority": 6,
       "status": "BLOCKED",
       "depends_on": [
         "DATA-01"
@@ -403,7 +403,7 @@
     {
       "id": "STRAT-01",
       "title": "Frozen corrected ATR baseline + independent long-horizon OOS",
-      "priority": 6,
+      "priority": 2,
       "status": "IN_PROGRESS",
       "depends_on": [
         "OPS-01"
@@ -413,7 +413,7 @@
         "EV-007"
       ],
       "completion": "Separate H2 baseline and wallet-confirmed variant once wallet data arrives; baseline must pass realistic cost and OOS without retuning; CEX proxy never qualifies Base DEX H4",
-      "next_action": "V5 collector PR82 and offline HTML monitor PR83 merged on main; 10+7 focused tests and 1521 full offline suite PASS (4 skipped). Independent local Docker UTC four-hour clock and locally generated dashboard are NOT deployed to an approved host, have network disabled by default and do not sync automatically to GitHub. Actual offline dashboard over frozen 22 source files observed 18 dual-asset bars, 5 timely; 194 contiguous warmup, exact 60s follower $20 costs, 90 elapsed qualifying paper days and proven positive net geometric account returns remain unmet. Next: authorize isolated independent host/provider access and deploy+measure six actual daily closes, also build/validate prospective shadow observation journal. Financial NO-GO, $0 funded.",
+      "next_action": "V6 PR89/90/91 merged and independently reviewed; latest verified main83a3f583. Source snapshot e694646 has44 files,36 distinct pairs,16 operationally timely and longest5/194. Recover exact permitted raw historical inputs or valid new source contracts; preserve known provider stops and no backdating. Freeze any genuinely new evaluation before seeing OOS. Four positive-stage evidence adapters remain unimplemented. Complete costs, independent cycles/lower bounds,90 elapsed qualified paper days (H4:180), approved host and security evidence still missing. See post_audit_20261106_v6 and its11 blockers. NO-GO, $0, live DISABLED.",
       "github_issue_url": "https://github.com/DashSaman/Arz/issues/42",
       "last_verified_subcheckpoint": {
         "id": "STRAT01-IMMUTABLE-NEGATIVE-CONTROL-2026-10-26",
@@ -782,6 +782,23 @@
           "annual_decisions": "reports/strat01/2026-10-31-all-strategies/annual_comparison.csv",
           "decision_report": "docs/en/strat01_all_strategies_20261031.md",
           "next_step": "After genuine contiguous 194-bar warmup, log time-aligned $20 quotes +60s at S0 signals and all cost evidence. Forward source pilot and other track priorities continue."
+        },
+        {
+          "id": "STRAT01-MISSION-V6-2026-11-06",
+          "merged_prs": [
+            89,
+            90,
+            91
+          ],
+          "source_main": "e694646e8540264a835352ead361cfc176fc86dd",
+          "last_verified_main": "83a3f583131a36c967a9524c5b200e1762f9d84d",
+          "report": "reports/strat01/2026-11-06-v6/decision.json",
+          "full_tests": 1608,
+          "ci_skipped": 4,
+          "new_test_methods": 50,
+          "financial_decision": "NO-GO",
+          "live_trading": "DISABLED",
+          "real_capital_authorized_usd": 0
         }
       ]
     },
@@ -823,9 +840,9 @@
   "next_work_order": [
     "OPS-01",
     "OPS-02",
+    "STRAT-01",
     "WAL-01",
     "DATA-01",
-    "STRAT-01",
     "WAL-02",
     "EXEC-01",
     "PAPER-01",
@@ -887,13 +904,13 @@
     }
   ],
   "last_verified_delivery": {
-    "pr": 61,
-    "merged_sha": "af6dd71085d0f16af096d427e60321bdf96f5cf2",
-    "run_url": "https://github.com/DashSaman/Arz/actions/runs/40613807845",
-    "full_tests": 1424,
-    "focused": 130,
-    "new_actual_source_gets": 4,
-    "evidence": "reports/strat01/2026-10-28-late-recovery-observed.json",
+    "pr": 91,
+    "merged_sha": "83a3f583131a36c967a9524c5b200e1762f9d84d",
+    "run_url": "https://github.com/DashSaman/Arz/actions/runs/42286685383",
+    "full_tests": 1608,
+    "ci_skipped": 4,
+    "focused": 56,
+    "evidence": "reports/strat01/2026-11-06-v6/financial-publication.json",
     "net_alpha_verified": false
   },
   "post_checkpoint_verified_deliveries": [
@@ -1457,5 +1474,117 @@
       42017587635
     ],
     "ephemeral_container_receipt": "reports/strat01/2026-11-05-final-blockers/container-ci-receipt.json"
+  },
+  "historical_last_verified_delivery_before_v6": {
+    "pr": 61,
+    "merged_sha": "af6dd71085d0f16af096d427e60321bdf96f5cf2",
+    "run_url": "https://github.com/DashSaman/Arz/actions/runs/40613807845",
+    "full_tests": 1424,
+    "focused": 130,
+    "new_actual_source_gets": 4,
+    "evidence": "reports/strat01/2026-10-28-late-recovery-observed.json",
+    "net_alpha_verified": false
+  },
+  "post_audit_20261106_v6": {
+    "observed_at_utc": "2026-11-06T20:17:23Z",
+    "last_verified_main_sha": "83a3f583131a36c967a9524c5b200e1762f9d84d",
+    "initial_live_main_sha": "e694646e8540264a835352ead361cfc176fc86dd",
+    "merged_prs": [
+      89,
+      90,
+      91
+    ],
+    "merge_shas": {
+      "89": "e031a5d04d7238eccf9d8ef6b87a6656f6984b38",
+      "90": "c9e5cfd66a99c21c52600702cdabc08dd54e8633",
+      "91": "83a3f583131a36c967a9524c5b200e1762f9d84d"
+    },
+    "decision_report": "reports/strat01/2026-11-06-v6/decision.json",
+    "blocker_report": "reports/strat01/2026-11-06-v6/blockers.json",
+    "reports": {
+      "en": "docs/en/strat01_mission_v6_20261106.md",
+      "fa": "docs/fa/strat01_mission_v6_20261106.md"
+    },
+    "verified_source_snapshot": {
+      "source_commit": "e694646e8540264a835352ead361cfc176fc86dd",
+      "file_count": 44,
+      "distinct_paired_bars": 36,
+      "timely_1h_diagnostic_paired_bars": 16,
+      "max_consecutive_complete_bars": 5,
+      "max_consecutive_timely_bars": 5,
+      "latest_tail_bars": 2,
+      "required_consecutive_bars": 194,
+      "grid_window_end_utc": "2026-11-06T16:00:00Z",
+      "grid_slots_through_latest_retained_close": 64,
+      "missing_paired_slots_in_that_window": 28,
+      "new_pairs_since_pr88": 6,
+      "new_timely_pairs_since_pr88": 4,
+      "original_bytes_preserved": true,
+      "new_manual_market_probe_requests_this_mission": 0,
+      "twenty_utc_close_at_verification": "No retained capture yet; within the one-hour operational window at20:17:23Z; not counted as a proved missed deadline."
+    },
+    "verification": {
+      "baseline_methods": 1558,
+      "final_combined_methods": 1608,
+      "local_skipped": 1,
+      "ci_skipped": 4,
+      "new_distinct_regression_methods": 50,
+      "new_receipt_methods": 10,
+      "new_source_methods": 9,
+      "new_collector_methods": 18,
+      "new_financial_methods": 13,
+      "failures_at_latest_verified_code_ci": 0,
+      "new_tests_skipped": 0,
+      "counts_are_software_methods_not_trades": true,
+      "final_code_ci_run": 42286685383,
+      "container_ci_run": 42286336441,
+      "source_and_review_hashes_retained": true
+    },
+    "four_positive_stage_adapters_implemented": false,
+    "financial_decision": "NO-GO",
+    "profitability_evidence_status": "INSUFFICIENT_EVIDENCE",
+    "execution_costs": "COST_UNVERIFIED",
+    "live_trading": "DISABLED",
+    "real_capital_authorized_usd": 0,
+    "new_strategy_experiments": 0,
+    "qualified_paper_days": 0,
+    "last_verified_deployment": "NONE_USER_HOST; two ephemeral isolated CI jobs passed",
+    "next_executable_task": "Verify this checkpoint against actual main, then reconcile only later data/commits. Recover exact lawful raw inputs or obtain a reviewed source contract; do not rerun seen strategy trials or restricted probes. Positive-stage proof requires real evidence adapters, not asserted approval.",
+    "external_permissions_required": [
+      "Separate approval of any user host deployment, provider entitlement purchase or integration/alert destination.",
+      "Separate explicit approval for wallet connection, capital, signing or real orders even after future PILOT_PROPOSAL_READY."
+    ],
+    "reproduction_commands": [
+      "PYTHONPATH=src:. python scripts/verify_research_control.py",
+      "PYTHONPATH=src:. python -m unittest discover -s tests",
+      "PYTHONPATH=src:. python scripts/strat01_financial_decision.py --output /tmp/arz-v6-financial-fresh.json",
+      "python -m unittest tests.test_strat01_v6_source_integrity tests.test_strat01_collector_v6_integrity tests.test_strat01_v6_financial_decision -v"
+    ],
+    "next_control_track": "STRAT-01"
+  },
+  "historical_work_order_before_v6": {
+    "order": [
+      "OPS-01",
+      "OPS-02",
+      "WAL-01",
+      "DATA-01",
+      "STRAT-01",
+      "WAL-02",
+      "EXEC-01",
+      "PAPER-01",
+      "LIVE-01"
+    ],
+    "priorities": {
+      "OPS-01": 0,
+      "OPS-02": 1,
+      "WAL-01": 2,
+      "DATA-01": 3,
+      "WAL-02": 4,
+      "EXEC-01": 5,
+      "STRAT-01": 6,
+      "PAPER-01": 7,
+      "LIVE-01": 8
+    },
+    "reason": "Preserve the pre-mission ordering. V6 explicitly prioritizes the existing STRAT-01 S0 data and profitability blockers before wallet-discovery work; dependencies and acceptance criteria are unchanged."
   }
 }

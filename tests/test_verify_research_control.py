@@ -23,7 +23,8 @@ class ControlPlaneTests(unittest.TestCase):
         self.assertEqual(r["live_trading"], "DISABLED")
         self.assertGreaterEqual(r["pr_count"], 13)
         self.assertGreaterEqual(r["evidence_count"], 7)
-        self.assertEqual(r["next_work"], "WAL-01")
+        # V6 prioritizes the already-open S0/STRAT-01 blockers; no DAG or gate is relaxed.
+        self.assertEqual(r["next_work"], "STRAT-01")
 
     def test_no_live_mode_or_capital_approval(self):
         for key, value in [("financial_decision", "GO"),

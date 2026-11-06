@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "classification": "LOCAL_FINAL_CHECKPOINT_VERIFICATION_NOT_ALPHA_OR_PRODUCTION_UPTIME",
+  "observed_at_utc": "2026-11-06T20:31:55Z",
+  "remote_main_rechecked": "83a3f583131a36c967a9524c5b200e1762f9d84d",
+  "remote_main_tree": "1ed824b38b4fd4b17b624dcd6bef1e1d291f2abb",
+  "verification": {
+    "full_suite_after_csv_cleanup_before_work_order_edit": {
+      "command": "PYTHONPATH=src:. python -m unittest discover -s tests",
+      "methods": 1608,
+      "skipped": 1,
+      "failures": 0,
+      "exit_code": 0,
+      "resource_warnings": 0,
+      "raw_log": "checkpoint-full-1608.log",
+      "raw_sha256": "ce254e943e9f02531f6338df8e7bdbd6e363a5509c8a545d6a4a4add33399f4b"
+    },
+    "after_work_order_edit": {
+      "command": "PYTHONPATH=src:. python -m unittest tests.test_verify_research_control -v",
+      "methods": 21,
+      "skipped": 0,
+      "failures": 0,
+      "exit_code": 0,
+      "raw_log": "checkpoint-control-priority-21.log",
+      "raw_sha256": "24cdd5bb91aae423c9bdded06acc290613674cfce8af38acef6a07b08307929b"
+    },
+    "canonical_control_output": {
+      "checkpoint_id": "ARZ-2026-10-31-CONTROL-14",
+      "evidence_count": 38,
+      "financial_decision": "NO-GO",
+      "live_trading": "DISABLED",
+      "next_work": "STRAT-01",
+      "pr_count": 13,
+      "scope": "OFFLINE_CONSISTENCY_ONLY_REMOTE_FRESHNESS_NOT_PROVED",
+      "task_count": 9
+    },
+    "new_test_methods_in_this_checkpoint": 0,
+    "ci_of_this_checkpoint": "Not yet observed; record actual run and merge in the PR only after completion.",
+    "whitespace_check": {
+      "command": "git -c core.whitespace=trailing-space,space-before-tab,cr-at-eol diff --cached --check -- . ':(exclude)reports/strat01/2026-11-06-v6/*.log'",
+      "reason": "Retain original reviewed CSV CRLF bytes and raw unittest logs without changing evidence hashes; code/docs and non-log artifacts still checked."
+    }
+  },
+  "changes": {
+    "csv_ownership_cleanup": "Two context managers, exact output bytes preserved; see native-csv-handoff.json.",
+    "work_order": "STRAT-01 ahead of wallet discovery per V6 mission. Previous order/priorities retained; no dependency or financial gate changed.",
+    "derived_data_summary": "Exactly two late historical paired recovery slots and 26 remaining historical-union gaps; original incorrect scratch review input retained verbatim."
+  },
+  "review_records": [
+    "financial-final-review.json",
+    "data-final-review-initial.json",
+    "data-final-review-resolution.json",
+    "financial-final-review-resolution.json"
+  ],
+  "financial_decision": "NO_GO",
+  "execution_costs": "COST_UNVERIFIED",
+  "real_capital_authorized_usd": 0,
+  "live_trading": "DISABLED",
+  "new_market_provider_requests": 0,
+  "user_host_deployment": false
+}

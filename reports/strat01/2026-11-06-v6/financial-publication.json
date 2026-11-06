@@ -1,0 +1,155 @@
+{
+  "artifact": {
+    "bytes": 7363,
+    "decision_byte_identical_to_local_reference": true,
+    "decision_copy": "pr91_financial_ci_decision.json",
+    "id": 13537407964,
+    "independently_downloaded_archive": "pr91-financial-audit-artifact-13537407964.zip",
+    "local_reference": "financial_decision_observed.json",
+    "matches_github_digest_and_expected_digest": true,
+    "members": [
+      {
+        "bytes": 71159,
+        "name": "decision.json",
+        "sha256": "b68e0f30bf95c734e622b2f7299aca361d14f3553622912e5a6c636136292cac"
+      }
+    ],
+    "name": "arz-v6-financial-snapshot",
+    "run_id": 42286685537,
+    "sha256": "5d4e0c005ca6cf967d49fecc8fb06fd975a1df7829c49e0fc488389a7aa4d426",
+    "zip_crc_valid": true
+  },
+  "boundary_flags": {
+    "artifact_errors": [],
+    "capital_activation_authorized": false,
+    "cost_status": "COST_UNVERIFIED",
+    "financial_decision": "NO-GO",
+    "ledger_metrics_recomputed": false,
+    "live_trading": "DISABLED",
+    "new_experiments": false,
+    "profitability_evidence_status": "INSUFFICIENT_EVIDENCE",
+    "qualified_paper_candidates": 0,
+    "qualified_prospective_days": 0,
+    "raw_market_inputs_authenticated": false,
+    "real_capital_authorized_usd": 0,
+    "registry_entries": 164,
+    "saved_metric_rows": 58,
+    "stage": "NO_GO"
+  },
+  "ci_preview_commit": "016e8948f2c1cdda911df504e3a240bfea0140e8",
+  "job_log_observations": [
+    {
+      "decoded_log_characters": 292249,
+      "job_id": 128129201928,
+      "observed_lines": [
+        "2026-11-06T20:14:49.3846729Z 016e8948f2c1cdda911df504e3a240bfea0140e8",
+        "2026-11-06T20:14:51.9707353Z Ran 1608 tests in 2.156s",
+        "2026-11-06T20:14:51.9707550Z OK (skipped=4)"
+      ],
+      "run_id": 42286685383,
+      "url": "https://github.com/DashSaman/Arz/actions/runs/42286685383/job/128129201928"
+    },
+    {
+      "decoded_log_characters": 27692,
+      "job_id": 128129202770,
+      "observed_lines": [
+        "2026-11-06T20:14:49.9370311Z 016e8948f2c1cdda911df504e3a240bfea0140e8",
+        "2026-11-06T20:14:50.5111675Z Ran 56 tests in 0.303s",
+        "2026-11-06T20:14:50.5112935Z OK",
+        "2026-11-06T20:14:50.5944770Z {\"artifact_errors\": [], \"capital_activation_authorized\": false, \"financial_decision\": \"NO-GO\", \"live_trading\": \"DISABLED\", \"stage\": \"NO_GO\"}",
+        "2026-11-06T20:14:50.6485642Z VERIFIED_SAVED_NEGATIVE_SNAPSHOT_NOT_PROFITABILITY_OR_CAPITAL_APPROVAL"
+      ],
+      "run_id": 42286685537,
+      "url": "https://github.com/DashSaman/Arz/actions/runs/42286685537/job/128129202770"
+    }
+  ],
+  "limitations": [
+    "CI and checksum verification establish publication and deterministic saved-report classification, not profitability.",
+    "Positive-stage proof adapters remain unimplemented; real capital is zero and live execution remains disabled.",
+    "No new code, test execution, backtest or market/provider call was performed in this publication verification; only GitHub/artifact retrieval and local inspection."
+  ],
+  "merge_commit": "83a3f583131a36c967a9524c5b200e1762f9d84d",
+  "metric_diagnostic_counts": {
+    "INSUFFICIENT_EVIDENCE": 4,
+    "NO_GO": 54
+  },
+  "observed_at_utc": "2026-11-06T20:19:10.024452+00:00",
+  "positive_stages_implemented": {
+    "PAPER_IN_PROGRESS": false,
+    "PAPER_PASSED": false,
+    "PAPER_READY": false,
+    "PILOT_PROPOSAL_READY": false
+  },
+  "pr": 91,
+  "receipt_kind": "INDEPENDENT_PR91_PUBLICATION_AND_CI_ARTIFACT_VERIFICATION",
+  "remote_commit_tree_equality_verified": true,
+  "repo": "DashSaman/Arz",
+  "reviewed_head": "90d4275032e9b25c662c6e9aaaf890aa13c93c8b",
+  "reviewed_workflow_and_docs_binding": [
+    {
+      "merged_content_matches_reviewed_bytes": true,
+      "path": ".github/workflows/strat01-financial-snapshot.yml",
+      "remote_git_blob_sha1": "fab28561eb18e7edc134863e29f14093c4daaed3",
+      "reviewed_sha256": "e3a705c52377a128505ce473750efdf0736e483a2f9b3f9d994c856ceee94bb2",
+      "url": "https://github.com/DashSaman/Arz/blob/83a3f583131a36c967a9524c5b200e1762f9d84d/.github/workflows/strat01-financial-snapshot.yml"
+    },
+    {
+      "merged_content_matches_reviewed_bytes": true,
+      "path": "docs/en/strat01_v6_financial_decision_20261106.md",
+      "remote_git_blob_sha1": "9ca3a6061f366c14698458ba9acefcd80f799702",
+      "reviewed_sha256": "e49d59f48bed8bbc9794520a4c8419c330a4df176d807507b93b8df39bf3561b",
+      "url": "https://github.com/DashSaman/Arz/blob/83a3f583131a36c967a9524c5b200e1762f9d84d/docs/en/strat01_v6_financial_decision_20261106.md"
+    },
+    {
+      "merged_content_matches_reviewed_bytes": true,
+      "path": "docs/fa/strat01_v6_financial_decision_20261106.md",
+      "remote_git_blob_sha1": "98b6eb57c41cdb32b66edb55d2a468fbaf71a584",
+      "reviewed_sha256": "35962efa474177d8e8ee4661dd69b2a4aed77277efc7d5f47f2f202830b08b6c",
+      "url": "https://github.com/DashSaman/Arz/blob/83a3f583131a36c967a9524c5b200e1762f9d84d/docs/fa/strat01_v6_financial_decision_20261106.md"
+    }
+  ],
+  "shared_remote_git_tree": "1ed824b38b4fd4b17b624dcd6bef1e1d291f2abb",
+  "source_observation_files": {
+    "pr91_financial_ci_observation.json": "8579493cc1ab9cf946f230cf09f2d43af7441ca04baf7582cbe94a9ecc48b3a5",
+    "pr91_financial_remote_observation.json": "d623076eda6be41c1c39ecbe45efef80ad85548233b91d74fd89acfc03f1cbea"
+  },
+  "verdict": "VERIFIED_PUBLISHED_SAVED_NEGATIVE_SNAPSHOT_NO_CAPITAL_AUTHORITY",
+  "workflow_runs": [
+    {
+      "conclusion": "success",
+      "head_sha": "90d4275032e9b25c662c6e9aaaf890aa13c93c8b",
+      "html_url": "https://github.com/DashSaman/Arz/actions/runs/42286685358",
+      "id": 42286685358,
+      "name": "Research-only checks",
+      "path": ".github/workflows/research.yml",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "head_sha": "90d4275032e9b25c662c6e9aaaf890aa13c93c8b",
+      "html_url": "https://github.com/DashSaman/Arz/actions/runs/42286685537",
+      "id": 42286685537,
+      "name": "Arz saved financial evidence classification (NO-GO)",
+      "path": ".github/workflows/strat01-financial-snapshot.yml",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "head_sha": "90d4275032e9b25c662c6e9aaaf890aa13c93c8b",
+      "html_url": "https://github.com/DashSaman/Arz/actions/runs/42286685383",
+      "id": 42286685383,
+      "name": "Arz offline-only tests",
+      "path": ".github/workflows/offline-tests.yml",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "head_sha": "90d4275032e9b25c662c6e9aaaf890aa13c93c8b",
+      "html_url": "https://github.com/DashSaman/Arz/actions/runs/42286685368",
+      "id": 42286685368,
+      "name": "Immutable strategy net-profit qualification gate",
+      "path": ".github/workflows/net-profitability-gates.yml",
+      "status": "completed"
+    }
+  ]
+}

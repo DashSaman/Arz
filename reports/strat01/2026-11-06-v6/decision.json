@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "classification": "MISSION_V6_ENGINEERING_AND_SOURCE_RECONCILIATION_NOT_INVESTABLE_ALPHA",
+  "observed_at_utc": "2026-11-06T20:17:23Z",
+  "initial_live_main_sha": "e694646e8540264a835352ead361cfc176fc86dd",
+  "historical_pr88_reference": "e060f9d299aa3375455ca1e759f5d37bc0ea286f",
+  "last_verified_main_sha": "83a3f583131a36c967a9524c5b200e1762f9d84d",
+  "merged_engineering_prs": [
+    {
+      "pr": 89,
+      "head": "ddef7216e0b6c6170dfde2b481231de350d60a62",
+      "merge": "e031a5d04d7238eccf9d8ef6b87a6656f6984b38",
+      "ci": [
+        42281616221,
+        42281616264,
+        42281616289
+      ],
+      "methods": 1568,
+      "skips": 4,
+      "receipt": "receipt-publication.json",
+      "url": "https://github.com/DashSaman/Arz/pull/89",
+      "all_listed_ci_success": true
+    },
+    {
+      "pr": 90,
+      "head": "1251079b6c1182d2062d46ee78c4eef4192f10b6",
+      "merge": "c9e5cfd66a99c21c52600702cdabc08dd54e8633",
+      "ci": [
+        42286336110,
+        42286336441,
+        42286336438,
+        42286336057,
+        42286336187,
+        42286336056,
+        42286336129
+      ],
+      "methods": 1595,
+      "skips": 4,
+      "receipt": "container-publication.json",
+      "url": "https://github.com/DashSaman/Arz/pull/90",
+      "all_listed_ci_success": true
+    },
+    {
+      "pr": 91,
+      "head": "90d4275032e9b25c662c6e9aaaf890aa13c93c8b",
+      "merge": "83a3f583131a36c967a9524c5b200e1762f9d84d",
+      "ci": [
+        42286685383,
+        42286685537,
+        42286685368,
+        42286685358
+      ],
+      "methods": 1608,
+      "skips": 4,
+      "receipt": "financial-publication.json",
+      "url": "https://github.com/DashSaman/Arz/pull/91",
+      "all_listed_ci_success": true
+    }
+  ],
+  "acceptance_verdict": "NO_GO",
+  "financial_decision": "NO-GO",
+  "profitability_evidence_status": "INSUFFICIENT_EVIDENCE",
+  "cost_status": "COST_UNVERIFIED",
+  "capital_activation_authorized": false,
+  "real_capital_authorized_usd": 0,
+  "live_trading": "DISABLED",
+  "pilot_proposal_prepared": false,
+  "future_pilot_total_cap_usdc_including_gas": 100,
+  "qualified_candidates": 0,
+  "qualified_prospective_days": 0,
+  "current_executable_geometric_daily_return": null,
+  "source": {
+    "source_commit": "e694646e8540264a835352ead361cfc176fc86dd",
+    "file_count": 44,
+    "distinct_paired_bars": 36,
+    "timely_1h_diagnostic_paired_bars": 16,
+    "max_consecutive_complete_bars": 5,
+    "max_consecutive_timely_bars": 5,
+    "latest_tail_bars": 2,
+    "required_consecutive_bars": 194,
+    "grid_window_end_utc": "2026-11-06T16:00:00Z",
+    "grid_slots_through_latest_retained_close": 64,
+    "missing_paired_slots_in_that_window": 28,
+    "new_pairs_since_pr88": 6,
+    "new_timely_pairs_since_pr88": 4,
+    "original_bytes_preserved": true,
+    "new_manual_market_probe_requests_this_mission": 0,
+    "twenty_utc_close_at_verification": "No retained capture yet; within the one-hour operational window at20:17:23Z; not counted as a proved missed deadline."
+  },
+  "research": {
+    "registry_entries": 164,
+    "family_labels": 32,
+    "saved_metric_rows": 58,
+    "new_experiments": 0,
+    "saved_row_numeric_no_go": 54,
+    "saved_row_numeric_insufficient": 4,
+    "original_metric_artifacts_unchanged": true,
+    "fresh_independent_oos": false,
+    "full_positive_stage_engine_implemented": false,
+    "positive_stage_adapters_unimplemented": [
+      "PAPER_READY",
+      "PAPER_IN_PROGRESS",
+      "PAPER_PASSED",
+      "PILOT_PROPOSAL_READY"
+    ]
+  },
+  "verification": {
+    "baseline_methods": 1558,
+    "final_combined_methods": 1608,
+    "local_skipped": 1,
+    "ci_skipped": 4,
+    "new_distinct_regression_methods": 50,
+    "new_receipt_methods": 10,
+    "new_source_methods": 9,
+    "new_collector_methods": 18,
+    "new_financial_methods": 13,
+    "failures_at_latest_verified_code_ci": 0,
+    "new_tests_skipped": 0,
+    "counts_are_software_methods_not_trades": true,
+    "final_code_ci_run": 42286685383,
+    "container_ci_run": 42286336441,
+    "source_and_review_hashes_retained": true
+  },
+  "operations": {
+    "user_host_deployed": false,
+    "continuous_uptime_proved": false,
+    "alert_delivery_tested": false,
+    "network_isolated_container_ci": "PASS",
+    "local_application_image_id": "sha256:c16b988a951d242bf924dc63dcc12eb478cf11d9ff669659fe2ef0c118bd1a91",
+    "application_registry_manifest_digest": null,
+    "application_registry_published": false
+  },
+  "reports": {
+    "data": "data-recovery-audit.json",
+    "coverage": "market-grid-coverage.csv",
+    "schedule": "schedule-coverage-by-day.csv",
+    "blockers": "blockers.json",
+    "financial": "financial-observed-decision.json",
+    "financial_publication": "financial-publication.json",
+    "container": "container-publication.json"
+  },
+  "next_executable_task": "Verify this checkpoint against actual main, then reconcile only later data/commits. Recover exact lawful raw inputs or obtain a reviewed source contract; do not rerun seen strategy trials or restricted probes. Positive-stage proof requires real evidence adapters, not asserted approval.",
+  "external_permissions_required": [
+    "Separate approval of any user host deployment, provider entitlement purchase or integration/alert destination.",
+    "Separate explicit approval for wallet connection, capital, signing or real orders even after future PILOT_PROPOSAL_READY."
+  ],
+  "reproduction_commands": [
+    "PYTHONPATH=src:. python scripts/verify_research_control.py",
+    "PYTHONPATH=src:. python -m unittest discover -s tests",
+    "PYTHONPATH=src:. python scripts/strat01_financial_decision.py --output /tmp/arz-v6-financial-fresh.json",
+    "python -m unittest tests.test_strat01_v6_source_integrity tests.test_strat01_collector_v6_integrity tests.test_strat01_v6_financial_decision -v"
+  ]
+}

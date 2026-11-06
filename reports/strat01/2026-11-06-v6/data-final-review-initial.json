@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "reviewed_at_utc": "2026-11-06T20:29:23.412018+00:00",
+  "verdict": "ONE_DERIVED_RECOVERY_SUMMARY_CORRECTION_REQUIRED",
+  "repository_edits": 0,
+  "new_tests_executed": 0,
+  "new_market_provider_requests": 0,
+  "reviewed_files": {
+    "docs/en/strat01_mission_v6_20261106.md": "7cc0d526ee1581fbb7aba777b956ee16765bbb6428e6075d5fa41399fb0fffac",
+    "docs/fa/strat01_mission_v6_20261106.md": "9b45a2950bc0f5135c7119e2f6de1e21ae0c2c0e4b5e06e5f8366a8b9a047b6a",
+    "reports/strat01/2026-11-06-v6/decision.json": "1eaa68d9a8933dfa07fc460d6f801333719fd9c0d659923b57e438465286ee04",
+    "reports/strat01/2026-11-06-v6/blockers.json": "b2403b527ba16b91e5031740db628b753d4071ab8ac22c261204c934d977f094",
+    "RESEARCH_NOW.md": "dfd73e9253099a12ed0d13633c0d70ac38a51ccccb517fc5d67a1f6e7b720034",
+    "research/control/STATE.json": "e529287c9c2cde191683bc3e92a9fdf3b36e10e192260e2440f91773d38be732"
+  },
+  "snapshot": {
+    "observed_at_utc": "2026-11-06T20:17:23Z",
+    "main_sha": "83a3f583131a36c967a9524c5b200e1762f9d84d",
+    "source_sha": "e694646e8540264a835352ead361cfc176fc86dd",
+    "latest_retained_bar_close": "2026-11-06T16:00:00Z",
+    "twenty_utc_close_at_snapshot": "UNOBSERVED_WITHIN_ONE_HOUR_OPERATIONAL_WINDOW_NOT_PROVED_LATE"
+  },
+  "single_current_main_metadata_read": {
+    "url": "https://api.github.com/repos/DashSaman/Arz/branches/main",
+    "sha": "83a3f583131a36c967a9524c5b200e1762f9d84d",
+    "committed_at_utc": "2026-11-06T20:16:20Z",
+    "tree": "1ed824b38b4fd4b17b624dcd6bef1e1d291f2abb",
+    "later_collector_append_observed": false
+  },
+  "concrete_findings": [
+    {
+      "id": "V6_DERIVED_RECOVERY_DEFAULTDICT_KEYS",
+      "path": "reports/strat01/2026-11-06-v6/data-recovery-audit.json",
+      "observed_file_sha256": "7efbd8fb4f2d0c0148ee6d27e85424f86acb953b7e92bc8e6a7557bd420cdc06",
+      "field": "historical_recovery",
+      "observed_wrong_recovered_slot_count": 64,
+      "observed_wrong_remaining_union_gaps": 0,
+      "expected_fields": {
+        "already_recovered_late_paired_slots": [
+          1793059200,
+          1793088000
+        ],
+        "already_recovered_late_slot_starts_utc": [
+          "2026-10-27T00:00:00Z",
+          "2026-10-27T08:00:00Z"
+        ],
+        "original_missing_slots_still_missing_after_separate_historical_union": 26
+      },
+      "source_path": "reports/strat01/2026-10-28-late-recovery-observed.json",
+      "source_sha256": "1503f33709dfe917980fcdf4533a67f1594a11570856f4d595b1f545a5381a61",
+      "root_cause": "Scratch data_audit_analysis.py reads recovered[slot] from defaultdict while formatting all 64 grid rows, inserting empty keys; sorted(recovered) later mistakes those keys for actual recovery.",
+      "scope": "Derived summary only. Original forward data, late historical evidence, grid CSV, all published original counts and both language prose are correct.",
+      "recommended_action": "Preserve original audit receipt, write a transparent corrected derivative using only keys with both WETH and cbBTC evidence, and update artifact-path-map entry/hash as applicable. Never rerun market probes or backdate first-seen.",
+      "notified_parent": true
+    }
+  ],
+  "checks_passed": {
+    "en_fa_decision_state_snapshot_agree": true,
+    "state_source_and_verification_exactly_equal_decision": true,
+    "44_original_forward_git_blobs_identical_to_e694646": true,
+    "source_count": 44,
+    "complete_paired_invocations": 41,
+    "distinct_paired_slots": 36,
+    "timely_slots_1h_diagnostic": 16,
+    "late_slots": 20,
+    "max_complete_and_timely_chains": 5,
+    "latest_tail_bars": 2,
+    "original_grid_slots": 64,
+    "original_missing_slots": 28,
+    "new_pairs_since_pr88": 6,
+    "new_timely_pairs_since_pr88": 4,
+    "nov1_through_nov5_successful_job_creations": 26,
+    "nov1_through_nov5_timely_market_closes": 12,
+    "nov1_through_nov5_market_close_opportunities": 30,
+    "grid_csv_recovered_pair_rows": 2,
+    "all_18_artifact_path_map_entries_match_bytes": true,
+    "latest_archive_members": 89,
+    "latest_archive_has_new_historical_raw_input": false,
+    "targeted_historical_artifacts_derived_only": true,
+    "container_proof_retains_exact_pr90_head_and_synthetic_merge_tree_identity": true,
+    "image_id_not_registry_manifest_claim": true,
+    "no_host_uptime_or_qualified_paper_claim": true,
+    "ci_counts_bound_to_each_published_pr_head": true,
+    "initial_dashboard_failure_preserved": true,
+    "positive_adapters_remain_explicitly_unimplemented": true,
+    "no_new_probe_claim_preserved": true
+  },
+  "financial_boundary": {
+    "financial_decision": "NO-GO",
+    "cost_status": "COST_UNVERIFIED",
+    "live_trading": "DISABLED",
+    "real_capital_authorized_usd": 0,
+    "qualified_paper_days": 0
+  }
+}

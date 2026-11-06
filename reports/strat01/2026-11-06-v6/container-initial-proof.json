@@ -1,0 +1,211 @@
+{
+  "actual_checkout_and_image_source_revision": "b4e85dea2ed13e8c5de6c9eac91019b66ac383fe",
+  "actual_checkout_is_GitHub_synthetic_merge": true,
+  "base_image_provenance_source": {
+    "original_source_provenance_file_preserved": true,
+    "path": "/workspace/scratch/4a6a75419487/container-proof-42285712000/source-at-pr-head/deploy/collector/image-provenance.json",
+    "sha256": "3482692aafb51244df5800eea736975e1c8f78abb7ef81ca6154e48a26e874af"
+  },
+  "classification": "INITIAL_EXACT_SOURCE_EPHEMERAL_CONTAINER_PROOF_NOT_DEPLOYMENT_OR_FINAL_HEAD",
+  "final_pr_head_verification": false,
+  "financial_decision": "NO-GO",
+  "host_deployment_proved_or_authorized": false,
+  "jobs_and_artifacts": [
+    {
+      "actual_runtime_predicates_passed_in_CI": {
+        "config_user": "65534:65534",
+        "health_status": "healthy",
+        "network_mode": "none",
+        "readonly_rootfs": true
+      },
+      "archive_path": "/workspace/scratch/4a6a75419487/container-proof-42285712000/packaged.zip",
+      "artifact_bytes": 4750,
+      "artifact_id": 13537426862,
+      "artifact_name": "arz-packaged-collector-check",
+      "artifact_sha256": "df048d647fc2cb67c57c6e6d2b79517f6ce7a50fa3089dfde44bcdf6f2302eb6",
+      "artifact_url": "https://github.com/DashSaman/Arz/actions/runs/42285712000/artifacts/13537426862",
+      "conclusion": "success",
+      "job_id": 128125853374,
+      "job_log_path": "/workspace/scratch/4a6a75419487/container-proof-42285712000/job-128125853374.log",
+      "job_log_sha256": "005925b08d352337419b93955459ffa8800d48e615f75c535382a50c8a5f1f7f",
+      "job_name": "packaged-image-smoke",
+      "member_count": 8,
+      "members": [
+        {
+          "bytes": 970,
+          "name": "build-context.json",
+          "sha256": "f7d2c49a3086add41a985b5e8791484cc38e2916726a6924eeedafff5beacf36"
+        },
+        {
+          "bytes": 0,
+          "name": "container-log.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes": 1409,
+          "name": "compose.json",
+          "sha256": "420cf0e798c8a86ff270dfd83c5a8a607cf7285f8d961e62fc1ed76767d57cfc"
+        },
+        {
+          "bytes": 716,
+          "name": "dry-run.json",
+          "sha256": "c996bf8e93abe1baf1709def66cd62e83763bbd74296875a36aa4d52ca1dcdd9"
+        },
+        {
+          "bytes": 71,
+          "name": "image-id.txt",
+          "sha256": "eb3d5ad14e2efa3b6b67819b8ec92528ea44fbb56b6fd632193cc4e56600fd07"
+        },
+        {
+          "bytes": 2987,
+          "name": "image-inspect.json",
+          "sha256": "10b34ec7da381a831730136fb921049fcd53417cdfb349ba5faedc46f749edef"
+        },
+        {
+          "bytes": 1222,
+          "name": "result.json",
+          "sha256": "36afe2372656e342e46ef3011e2b4f3e2a92b9d4a6dc37a6c8cce73776c60de6"
+        },
+        {
+          "bytes": 287,
+          "name": "source-check.txt",
+          "sha256": "8a0c35ea38c7f3a47cac631ccbad48a2d46111bfec100354c3d2c129f1bcf04c"
+        }
+      ],
+      "result_equals_post_assertion_job_output": true,
+      "result_path": "/workspace/scratch/4a6a75419487/container-proof-42285712000/packaged/result.json",
+      "result_sha256": "36afe2372656e342e46ef3011e2b4f3e2a92b9d4a6dc37a6c8cce73776c60de6",
+      "runtime_predicate_evidence": "Successful logged Python assertions on docker inspect, followed by exact archived result output. Full raw container inspect is not an artifact member."
+    },
+    {
+      "actual_runtime_predicates_passed_in_CI": {
+        "config_user": "65534:65534",
+        "health_status": "healthy",
+        "network_mode": "none",
+        "readonly_rootfs": true
+      },
+      "archive_path": "/workspace/scratch/4a6a75419487/container-proof-42285712000/source-mounted.zip",
+      "artifact_bytes": 3941,
+      "artifact_id": 13536668817,
+      "artifact_name": "arz-collector-release-check",
+      "artifact_sha256": "bb72e5e8e24a382378e0bc4d55524a16edfa4be5b44ec208e7301285a13661b1",
+      "artifact_url": "https://github.com/DashSaman/Arz/actions/runs/42285712000/artifacts/13536668817",
+      "conclusion": "success",
+      "job_id": 128125853181,
+      "job_log_path": "/workspace/scratch/4a6a75419487/container-proof-42285712000/job-128125853181.log",
+      "job_log_sha256": "72f584a7843c2e65ad935be3baaa25e14b46a4d06fcae8ef6d92f840a2fed07a",
+      "job_name": "offline-release-smoke",
+      "member_count": 8,
+      "members": [
+        {
+          "bytes": 1848,
+          "name": "compose.json",
+          "sha256": "16420a1e2f342bd2750663475616f5fc97b3087ba16e5e127e3f4a90ff88e343"
+        },
+        {
+          "bytes": 0,
+          "name": "container-log.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes": 1236,
+          "name": "container.json",
+          "sha256": "95457e2b060235435a0e6dd0510637a2314ad1a1d295738d4db50d4f9e3cf8c5"
+        },
+        {
+          "bytes": 716,
+          "name": "dry-run.json",
+          "sha256": "62664cd81b4197e6b4f5270c1f8308973e1256f3445423a9e489790bd61265c6"
+        },
+        {
+          "bytes": 1316,
+          "name": "image-inspect.json",
+          "sha256": "ed8076fb08c2309db885fe9aab720eca4e855caa6c587cf3d1f0aaad78c2c5bc"
+        },
+        {
+          "bytes": 15,
+          "name": "python-version.txt",
+          "sha256": "9d0ae83e540febd225949f3df4aba97c7a9f79fcf745d6c835780f52a57b50cf"
+        },
+        {
+          "bytes": 332,
+          "name": "result.json",
+          "sha256": "65ff03fac5c457eb6607d901f8a9fb2a085587f31fcd05b584c261423203c25d"
+        },
+        {
+          "bytes": 328,
+          "name": "verified-image-identity.json",
+          "sha256": "48846ed02a40ea8d4a74dd055e6c7f84bf76a684ada45c015164c02253a03844"
+        }
+      ],
+      "result_equals_post_assertion_job_output": true,
+      "result_path": "/workspace/scratch/4a6a75419487/container-proof-42285712000/source-mounted/result.json",
+      "result_sha256": "65ff03fac5c457eb6607d901f8a9fb2a085587f31fcd05b584c261423203c25d",
+      "runtime_predicate_evidence": "Successful logged Python assertions on docker inspect, followed by exact archived result output. Full raw container inspect is not an artifact member."
+    }
+  ],
+  "live_trading": "DISABLED",
+  "new_paper_days": 0,
+  "new_source_files": 0,
+  "package": {
+    "all_context_hashes_match_exact_pr_head_git_blobs": true,
+    "architecture": "amd64",
+    "base_registry_index_digest": "sha256:e697c81897302a4c4333bade000d98038fbb21eb064f8ee1fd42d02ebcd9d337",
+    "build_RUN_network_mode": "none",
+    "build_context_files": 9,
+    "build_context_sha256": {
+      "LICENSE": "f4cc036bcd11d27f0b3780a0d59aaf778a23e19c6490a43454b787afc1dd0ce6",
+      "deploy/collector/Dockerfile": "29de84af478c8f66920a788ac52a6e6a4d0296368814d3a4325a148b9d86af9d",
+      "deploy/collector/Dockerfile.dockerignore": "c76fa184829604c48ca78196c74cbc4990faab7283518d8443b8273f6fe20f39",
+      "scripts/strat01_base_identity_forward.py": "2481e9b92e5a6b2d71d8d2bab1f722f19d9944fe2e312c8dd03efbad91f68baa",
+      "scripts/strat01_capture_slot_preflight.py": "bc06f495b365bb109b9fe1273d4082df9e1172ee4995634ae4fb9212f12e2daa",
+      "scripts/strat01_collector_backup.py": "8875971d2a7f8e9daa97bddc5a65ad1873a8a0eb404ac4263907f93350b520fe",
+      "scripts/strat01_independent_collector.py": "8ac6ba066b3c6592061e571791a298ff55170b8ad2c6485bc392b2999db14fb8",
+      "scripts/strat01_investment_readiness.py": "94eea5037ee3f727f3796f20fc7413e613f6040be83e10ee8d90291e71af2bbd",
+      "scripts/strat01_local_monitor.py": "67c410ea1ac8cd8ee04230544c2bbc64852981ecfd3c2fed3826df386a47140c"
+    },
+    "container_runtime_network_mode": "none",
+    "host_source_bind_mounts": 0,
+    "image_inspect_repo_digests": [],
+    "local_content_addressed_image_id": "sha256:b0fd24997501673cfcd3e9eda16dedfd41b2ada56666e1b97af2b8a2a8e47918",
+    "no_claim_that_registry_base_pull_used_zero_network": true,
+    "only_runtime_bind_mount_destination": "/data",
+    "os": "linux",
+    "python_version": "Python 3.12.16",
+    "registry_manifest_digest": null,
+    "registry_published": false,
+    "six_runtime_source_checksum_checks_passed": true,
+    "six_script_hashes": {
+      "scripts/strat01_base_identity_forward.py": "2481e9b92e5a6b2d71d8d2bab1f722f19d9944fe2e312c8dd03efbad91f68baa",
+      "scripts/strat01_capture_slot_preflight.py": "bc06f495b365bb109b9fe1273d4082df9e1172ee4995634ae4fb9212f12e2daa",
+      "scripts/strat01_collector_backup.py": "8875971d2a7f8e9daa97bddc5a65ad1873a8a0eb404ac4263907f93350b520fe",
+      "scripts/strat01_independent_collector.py": "8ac6ba066b3c6592061e571791a298ff55170b8ad2c6485bc392b2999db14fb8",
+      "scripts/strat01_investment_readiness.py": "94eea5037ee3f727f3796f20fc7413e613f6040be83e10ee8d90291e71af2bbd",
+      "scripts/strat01_local_monitor.py": "67c410ea1ac8cd8ee04230544c2bbc64852981ecfd3c2fed3826df386a47140c"
+    },
+    "source_revision_label": "b4e85dea2ed13e8c5de6c9eac91019b66ac383fe",
+    "three_synthetic_sentinel_files_excluded_by_actual_context_build": true
+  },
+  "pr_head_and_tested_merge_tree_equal": true,
+  "pr_head_and_tested_merge_tree_sha": "b25eb45498cdd77e1348cdda262d0618710b449d",
+  "pr_head_sha": "53aea19890371aadffc6778124c30ec208a1973d",
+  "pr_number": 90,
+  "real_capital_authorized_usd": 0,
+  "repository": "DashSaman/Arz",
+  "run_completed_utc": "2026-11-06T20:08:41Z",
+  "run_conclusion": "success",
+  "run_event": "pull_request",
+  "run_id": 42285712000,
+  "run_url": "https://github.com/DashSaman/Arz/actions/runs/42285712000",
+  "schema_version": 1,
+  "scope_limitation": "This receipt proves only the initial PR90 source tree at 53aea198 and synthetic merge b4e85dea. It must not be reused as final-head CI proof after any follow-up commit.",
+  "supervised_continuous_runtime_proved": false,
+  "verification": {
+    "checks_passed": true,
+    "new_market_provider_requests": 0,
+    "offline_script": "/workspace/scratch/4a6a75419487/container-proof-42285712000/verify_initial_artifacts.py"
+  },
+  "verified_at_utc": "2026-11-06T20:13:46.801938+00:00",
+  "workflow": ".github/workflows/strat01-collector-release.yml",
+  "workflow_exact_pr_head_source_sha256": "f44a74d2a9d0d792471de9ca7ea9af24a9c0ad7b1d1a1135c08140bc0922a5e4"
+}
