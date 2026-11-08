@@ -82,6 +82,12 @@ class MultiAssetPaper:
     def state(self):
         def money(v):
             return format(v, "f")
+        daily_returns = {}
+        previous = CAPITAL
+        for day, value in sorted(self.daily_equity.items()):
+            current = Decimal(value)
+            daily_returns[day] = money(current / previous - 1) if previous > 0 else None
+            previous = current
         return {
             "version": 1, "execution_class": "HYPOTHETICAL_PAPER_ONLY",
             "live_trading": "DISABLED", "real_capital_usdc": "0",
@@ -91,6 +97,7 @@ class MultiAssetPaper:
             "fills": self.fills, "closed_trades": self.closed_trades,
             "open_trades": self.open_trades, "rejections": self.rejections,
             "equity_marks": self.equity_marks, "daily_equity": self.daily_equity,
+            "daily_net_returns": daily_returns,
             "day": self.day, "day_start": money(self.day_start),
             "daily_cost": money(self.daily_cost),
             "daily_entry_count": self.daily_entry_count, "peak": money(self.peak),

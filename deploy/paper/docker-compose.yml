@@ -16,6 +16,8 @@ services:
       - /collector
       - --paper-root
       - /paper
+      - --input-root
+      - /paper-input
     environment:
       PYTHONPATH: /app:/app/src
       PYTHONDONTWRITEBYTECODE: '1'
@@ -24,6 +26,7 @@ services:
     volumes:
       - ${ARZ_COLLECTOR_DATA_ROOT:?Set absolute collector evidence directory}:/collector:ro
       - ${ARZ_PAPER_DATA_ROOT:?Set absolute persistent paper directory}:/paper:rw
+      - ${ARZ_PAPER_INPUT_ROOT:?Set absolute read-only paper quote/cost input directory}:/paper-input:ro
     read_only: true
     tmpfs:
       - /tmp:rw,noexec,nosuid,size=16m

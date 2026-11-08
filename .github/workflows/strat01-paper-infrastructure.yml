@@ -54,6 +54,7 @@ jobs:
           ARZ_PAPER_IMAGE: sha256:ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
           ARZ_COLLECTOR_DATA_ROOT: /tmp/arz-ci-collector
           ARZ_PAPER_DATA_ROOT: /tmp/arz-ci-paper
+          ARZ_PAPER_INPUT_ROOT: /tmp/arz-ci-paper-input
         run: docker compose -f deploy/paper/docker-compose.yml config --quiet
       - name: Build reviewed no-credential image
         run: |

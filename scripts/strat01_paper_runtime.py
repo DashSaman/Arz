@@ -288,6 +288,7 @@ def status_report(source_root, paper_root, *, now, input_root=None, contract_has
             "closed_trades": state["closed_trades"],
             "hypothetical_fills": len(state["fills"]),
             "daily_equity": state["daily_equity"],
+            "daily_net_returns": state["daily_net_returns"],
             "marked_equity": state["equity_marks"][-1]["equity"] if state["equity_marks"] else None,
             "halted": state["halted"],
             "journal_sha256": chain,
@@ -319,7 +320,8 @@ def render_html(s):
     ]
     cards = "".join("<div class='card'><small>" + esc(k) + "</small><strong>" +
                     esc(v) + "</strong></div>" for k, v in fields)
-    daily = "".join("<tr><td>" + esc(d) + "</td><td>" + esc(v) + "</td></tr>"
+    daily = "".join("<tr><td>" + esc(d) + "</td><td>" + esc(v) +
+                    "</td><td>" + esc(a["daily_net_returns"].get(d)) + "</td></tr>"
                     for d, v in sorted(a["daily_equity"].items())[-30:])
     return ("""<!doctype html><html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -336,7 +338,7 @@ hypothetical fills are not settled on-chain fills, return proof or qualified
 prospective Paper Trading. Missing costs and sources are UNKNOWN, never zero.</aside>
 <p>Observed: """ + esc(s["asof_utc"]) + """</p><div class="grid">""" +
             cards + """</div><h2>Hypothetical daily equity · not a qualified return</h2>
-<table><tr><th>UTC day</th><th>Last simulated equity USDC</th></tr>""" +
+<table><tr><th>UTC day</th><th>Last simulated equity USDC</th><th>Net account return (decimal)</th></tr>""" +
             daily + """</table></body></html>""")
 
 

@@ -14,6 +14,7 @@ WORKDIR /app
 COPY LICENSE /app/LICENSE
 COPY src/arz/__init__.py src/arz/data.py src/arz/strategies.py /app/src/arz/
 COPY scripts/strat01_multi_paper.py \
+     scripts/strat01_paper_sbom.py \
      scripts/strat01_paper_runtime.py \
      scripts/strat01_base_identity_forward.py \
      scripts/strat01_capture_slot_preflight.py \
