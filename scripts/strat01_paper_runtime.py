@@ -16,6 +16,7 @@ import json
 import os
 from pathlib import Path
 import re
+import signal
 import sys
 import tempfile
 import time
@@ -257,7 +258,8 @@ def status_report(source_root, paper_root, *, now, input_root=None, contract_has
         signals[a] = ("LONG" if Strategy(STRATEGIES[a]).signal(
             history[a], account.positions[a]["units"] > 0) else "FLAT") if ready else "INSUFFICIENT_CAUSAL_WARMUP"
     latest_slot = (now // BAR - 1) * BAR
-    reason = ("COLLECTOR_UNHEALTHY" if monitor["health"] != "HEARTBEAT_ALIVE_SOURCE_UNQUALIFIED"
+    reason = ("RISK_HALTED_REQUIRES_REVIEW" if account.halted
+              else "COLLECTOR_UNHEALTHY" if monitor["health"] != "HEARTBEAT_ALIVE_SOURCE_UNQUALIFIED"
               else "CONTIGUOUS_194_BAR_WARMUP_MISSING" if not ready
               else "NO_CURRENT_COMPLETED_PAIR" if last != latest_slot
               else "COST_UNVERIFIED" if not contract_hash
@@ -363,7 +365,8 @@ def paper_health(root, now):
         h, _ = _read(Path(root) / "heartbeat.json", 2048)
         t = h.get("actual_unix")
         return (type(t) is int and 0 <= now - t <= 180 and h.get("actual_utc") == utc(t)
-                and h.get("live_trading") == "DISABLED" and h.get("real_capital_usdc") == 0)
+                and h.get("live_trading") == "DISABLED" and h.get("real_capital_usdc") == 0
+                and h.get("status") in ("ALIVE_SAFE", "ALIVE_SAFE_NO_FINANCIAL_GO"))
     except (ValueError, OSError, TypeError, KeyError):
         return False
 
@@ -429,7 +432,10 @@ def run_once(source_root, paper_root, *, now, input_root=None, contract_hash=Non
             "financial_decision": "NO-GO",
         }
         append_once(root / "observations", str(slot), observation)
-        if reason.startswith("REFUSED_"):
+        alarm = (reason.startswith("REFUSED_")
+                 or reason in ("COLLECTOR_UNHEALTHY", "NO_CURRENT_COMPLETED_PAIR",
+                               "RISK_HALTED_REQUIRES_REVIEW"))
+        if alarm:
             append_once(root / "alerts", str(slot), {
                 "kind": "PAPER_LOCAL_ALERT_NOT_DELIVERED",
                 "bar_start": slot, "reason_code": reason,
@@ -438,7 +444,9 @@ def run_once(source_root, paper_root, *, now, input_root=None, contract_hash=Non
                                contract_hash=contract_hash)
         report["last_operation_result"] = reason
         publish(root, report)
-        _write_heartbeat(root, now, "OPERATOR_REVIEW_REQUIRED" if reason.startswith("REFUSED_") else "ALIVE_SAFE")
+        _write_heartbeat(root, now, "OPERATOR_REVIEW_REQUIRED"
+                         if reason.startswith("REFUSED_") or reason == "RISK_HALTED_REQUIRES_REVIEW"
+                         else "ALIVE_SAFE")
         return report
     finally:
         try:
@@ -446,6 +454,11 @@ def run_once(source_root, paper_root, *, now, input_root=None, contract_hash=Non
         except OSError:
             pass
         lock.unlink(missing_ok=True)
+
+
+def _stop_handler(_signal_number, _frame):
+    """Stop at the next Python checkpoint; journal writers remain fail-closed."""
+    raise KeyboardInterrupt
 
 
 def main(argv=None):
@@ -471,6 +484,9 @@ def main(argv=None):
         print(json.dumps({"last_operation_result": s["last_operation_result"],
                           "financial_decision": "NO-GO"}))
         return 0 if not s["last_operation_result"].startswith("REFUSED_") else 2
+    # Docker SIGTERM is expected during graceful stop/rollback. Never resume
+    # a missed 4-hour observation by claiming the old wall clock.
+    signal.signal(signal.SIGTERM, _stop_handler)
     try:
         while True:
             now = int(time.time())

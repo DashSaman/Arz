@@ -42,11 +42,24 @@ class PaperServiceTests(unittest.TestCase):
         self.assertEqual(report["last_operation_result"], "COLLECTOR_UNHEALTHY")
         self.assertEqual(len(list((self.paper / "observations").glob("*.json"))), 1)
         self.assertEqual(len(list((self.paper / "journal").glob("*.json"))), 0)
+        self.assertEqual(len(list((self.paper / "alerts").glob("*.json"))), 1)
+        again = p.run_once(self.collector, self.paper, now=self.now + 1)
+        self.assertEqual(again["last_operation_result"], "DUPLICATE_SLOT_NO_NEW_ACTION")
+        self.assertEqual(len(list((self.paper / "observations").glob("*.json"))), 1)
+        self.assertEqual(len(list((self.paper / "alerts").glob("*.json"))), 1)
         self.assertTrue(p.paper_health(self.paper, self.now))
         self.assertFalse(p.paper_health(self.paper, self.now + 181))
         html = (self.paper / "status.html").read_text()
         self.assertIn("FINANCIAL NO-GO", html)
         self.assertIn("cbBTC signal", html)
+
+    def test_paper_health_refuses_operator_fault_status(self):
+        p._write_heartbeat(self.paper, self.now, "OPERATOR_REVIEW_REQUIRED")
+        self.assertFalse(p.paper_health(self.paper, self.now))
+        p._write_heartbeat(self.paper, self.now, "ALIVE_SAFE_NO_FINANCIAL_GO")
+        self.assertTrue(p.paper_health(self.paper, self.now))
+        with self.assertRaises(KeyboardInterrupt):
+            p._stop_handler(15, None)
 
     def test_broken_journal_and_unsafe_restore_fail_closed(self):
         record = {

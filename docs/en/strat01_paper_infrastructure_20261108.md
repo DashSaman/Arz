@@ -17,7 +17,7 @@ Independent source collector (existing, scheduled at UTC 4h + 12m)
       |-- reviewed cost digest + fresh follower quote --> hypothetical ledger
       |    WETH and cbBTC share ONE $100 USDC account, never two $100 accounts
       |-- /paper/journal (append-only, replay-checked)
-      |-- /paper/observations, /paper/alerts (local only)
+      |-- /paper/observations, /paper/alerts (local only; collector fault recorded)
       |-- /paper/status.json and /paper/status.html (static, no web server)
       |-- /paper/heartbeat.json (process liveness, not investment readiness)
 ```
@@ -73,7 +73,7 @@ docker compose -f deploy/paper/docker-compose.yml up -d
 docker compose -f deploy/paper/docker-compose.yml ps
 ```
 
-The source volume must come from an independently permitted collector; the PAPER service itself never contacts providers. The status HTML/JSON are files under `$ARZ_PAPER_DATA_ROOT`, **not** a public dashboard endpoint. An external read-only viewer may be deployed only after a separate access-control review. `alerts/` means locally recorded alerts, **not** delivered notifications. A host watchdog must be configured and tested independently before unattended operations can be represented as monitored.
+The source volume must come from an independently permitted collector; the PAPER service itself never contacts providers. The status HTML/JSON are files under `$ARZ_PAPER_DATA_ROOT`, **not** a public dashboard endpoint. An external read-only viewer may be deployed only after a separate access-control review. `alerts/` means locally recorded alerts, **not** delivered notifications. A host watchdog must be configured and tested independently before unattended operations can be represented as monitored. SIGTERM terminates the service without catch-up/backdating; locally recorded alerts include collector outages, missing current pairs and risk stops, but external delivery is not enabled.
 
 ## Backup, restore, failure drills and rollback
 
