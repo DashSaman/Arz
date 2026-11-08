@@ -1,0 +1,53 @@
+{
+  "base_sha": "11e8bf28dee8ff85d386187928e53ead2b032144",
+  "inputs": [
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/registry.csv",
+      "git_blob_sha": "9194907da7c1fbfef7494a43a30a022a3103344c",
+      "bytes": 93280,
+      "kind": "SAVED_REPOSITORY_REPORT",
+      "original_raw_source_reexecution_proved": false
+    },
+    {
+      "path": "reports/strat01/2026-11-05-final-blockers/saved-metrics-58.csv",
+      "git_blob_sha": "131a4585630f37c87af2cd06df2e00cf74e8c282",
+      "bytes": 40229,
+      "kind": "SAVED_REPOSITORY_REPORT",
+      "original_raw_source_reexecution_proved": false
+    },
+    {
+      "path": "reports/backtests/summary.csv",
+      "git_blob_sha": "a2afaff3e9b4a6e1af8223eef4862cbd134b2d17",
+      "bytes": 13790,
+      "kind": "SAVED_REPOSITORY_REPORT",
+      "original_raw_source_reexecution_proved": false
+    },
+    {
+      "path": "reports/strat01/2026-11-01-stateful-causal/historical_summary.csv",
+      "git_blob_sha": "a1023bbd4b6234b1bd1b26955106561600f78b2e",
+      "bytes": 1781,
+      "kind": "SAVED_REPOSITORY_REPORT",
+      "original_raw_source_reexecution_proved": false
+    },
+    {
+      "path": "reports/backtests/manifest.json",
+      "git_blob_sha": "8488f3fffe4d45146c222e8ca98e95e0030affd5",
+      "bytes": 1330,
+      "kind": "SAVED_REPOSITORY_REPORT",
+      "original_raw_source_reexecution_proved": false
+    },
+    {
+      "path": "reports/strat01/2026-10-31-all-strategies/registry_counts.json",
+      "git_blob_sha": "bc46adf0392c7a24e2b412063472fb35a2174cc6",
+      "bytes": 909,
+      "kind": "SAVED_REPOSITORY_REPORT",
+      "original_raw_source_reexecution_proved": false
+    }
+  ],
+  "raw_actual_OHLCV_provided_in_repo": false,
+  "original_saved_data_hash": "283346087387fac0d312971e8c408c16d184212efe1458e06b692d0daf351e30",
+  "original_provider_replay": "NOT_COMPLETED",
+  "stateful_ledger_saved_only": "reports/strat01/2026-11-01-stateful-causal/stateful-historical-ledgers.zip",
+  "network_requests": 0,
+  "execution_costs_verified": false
+}
