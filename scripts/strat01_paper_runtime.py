@@ -21,7 +21,7 @@ import tempfile
 import time
 
 from arz.data import Bar
-from arz.multi_paper import MultiAssetPaper, ASSETS, BAR, START, canonical, sha, replay
+from scripts.strat01_multi_paper import MultiAssetPaper, ASSETS, BAR, START, canonical, sha, replay
 from arz.strategies import Strategy
 from scripts.strat01_independent_collector import _json_object, require_complete_restore
 from scripts.strat01_investment_readiness import (

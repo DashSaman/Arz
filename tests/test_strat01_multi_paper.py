@@ -2,7 +2,7 @@
 import copy
 import unittest
 
-from arz.multi_paper import MultiAssetPaper, replay, BAR, START
+from scripts.strat01_multi_paper import MultiAssetPaper, replay, BAR, START
 
 S = {"WETH": "trend", "cbBTC": "trend"}
 VOL = {"WETH": "1000000", "cbBTC": "1000000"}

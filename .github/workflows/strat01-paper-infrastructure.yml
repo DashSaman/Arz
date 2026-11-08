@@ -3,7 +3,7 @@ name: STRAT-01 offline paper infrastructure
 on:
   push:
     paths:
-      - 'src/arz/multi_paper.py'
+      - 'scripts/strat01_multi_paper.py'
       - 'scripts/strat01_paper_*.py'
       - 'deploy/paper/**'
       - 'tests/test_strat01_multi_paper.py'
@@ -11,7 +11,7 @@ on:
       - '.github/workflows/strat01-paper-infrastructure.yml'
   pull_request:
     paths:
-      - 'src/arz/multi_paper.py'
+      - 'scripts/strat01_multi_paper.py'
       - 'scripts/strat01_paper_*.py'
       - 'deploy/paper/**'
       - 'tests/test_strat01_multi_paper.py'
@@ -34,7 +34,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Compile simulation-only components
-        run: python3 -m py_compile src/arz/multi_paper.py scripts/strat01_paper_runtime.py scripts/strat01_paper_backup.py
+        run: python3 -m py_compile scripts/strat01_multi_paper.py scripts/strat01_paper_runtime.py scripts/strat01_paper_backup.py
       - name: Test shared balance and fail-closed operations
         run: |
           python3 -m unittest -v \

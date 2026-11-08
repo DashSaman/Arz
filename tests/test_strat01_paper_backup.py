@@ -7,7 +7,7 @@ import zipfile
 
 from scripts.strat01_paper_backup import backup, restore, _archive_contents
 from scripts.strat01_paper_runtime import require_root
-from arz.multi_paper import START, BAR
+from scripts.strat01_multi_paper import START, BAR
 
 
 class PaperBackupTests(unittest.TestCase):

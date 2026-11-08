@@ -6,7 +6,7 @@ import unittest
 from unittest.mock import patch
 
 from scripts import strat01_paper_runtime as p
-from arz.multi_paper import BAR, START, sha
+from scripts.strat01_multi_paper import BAR, START, sha
 
 
 class PaperServiceTests(unittest.TestCase):
