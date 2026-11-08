@@ -1,0 +1,81 @@
+name: ARZ M01 immutable Base H4 coverage (offline NO-GO)
+
+on:
+  pull_request:
+    paths:
+      - scripts/strat01_data_recovery.py
+      - scripts/strat01_independent_collector.py
+      - tests/test_strat01_data_recovery_mission01.py
+      - tests/test_strat01_collector_retries_mission01.py
+      - .github/workflows/mission01-data-recovery.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-original-coverage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      PYTHONPATH: src:.
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Run dedicated synthetic regressions
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/arz-m01
+          python -m unittest \
+            tests.test_strat01_data_recovery_mission01 \
+            tests.test_strat01_collector_retries_mission01 -v \
+            2>&1 | tee /tmp/arz-m01/mission01-tests.log
+      - name: Reaudit actual immutable original 53-file source
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m scripts.strat01_data_recovery \
+            --source-dir reports/strat01/forward \
+            --as-of-unix 1794143640 \
+            --output /tmp/arz-m01/mission01-coverage.json \
+            > /tmp/arz-m01/mission01-audit.log
+          python - <<'PY' | tee -a /tmp/arz-m01/mission01-audit.log
+          import hashlib
+          import json
+          from pathlib import Path
+          d=json.loads(Path("/tmp/arz-m01/mission01-coverage.json").read_text())
+          saved=json.loads(Path("reports/parallel/data-recovery/baseline-20261108.json").read_text())
+          canonical=json.loads(Path("reports/strat01/audits/20261108T064325Z.json").read_text())
+          assert d["original_source_file_count"] == d["valid_source_file_count"] == 53
+          assert d["complete_pair_distinct_bars"] == 42
+          assert d["timely_pair_distinct_bars_1h_diagnostic"] == 18
+          assert d["late_pair_distinct_bars"] == 24
+          assert d["missing_original_pair_bars_through_cutoff"] == 33
+          assert d["completed_four_hour_opportunities"] == 75
+          assert len(d["duplicate_pair_slots"]) == 8
+          assert d["max_consecutive_timely_bars"] == 5
+          assert d["current_timely_tail_bars"] == 0
+          assert d["qualified_paper_days"] == 0
+          assert d["financial_decision"] == "NO-GO" and d["live_trading"] == "DISABLED"
+          assert saved["coverage"]["complete_distinct_paired"] == 42
+          assert canonical["source_capture_audit"]["conflicts"] == []
+          for row in d["source_manifest"]:
+              src=Path("reports/strat01/forward")/row["filename"]
+              assert hashlib.sha256(src.read_bytes()).hexdigest()==row["sha256"]
+          print("MISSION01_ORIGINAL_SOURCE_53_HASHES=PASS")
+          print("MISSION01_CONSECUTIVE_194=NOT_READY")
+          print("MISSION01_QUALIFYING_PAPER_DAYS=0")
+          PY
+          sha256sum /tmp/arz-m01/mission01-coverage.json /tmp/arz-m01/mission01-tests.log | tee /tmp/arz-m01/mission01-sha256.txt
+      - name: Verify preserved canonical financial refusal
+        run: python scripts/verify_research_control.py
+      - name: Retain offline logs, exact SHA-256 and coverage (not source acquisition)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: arz-mission01-immutable-coverage
+          path: /tmp/arz-m01/
+          if-no-files-found: warn
+          retention-days: 30
