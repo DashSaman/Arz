@@ -98,16 +98,11 @@ jobs:
             --volume "${RUNNER_TEMP}/arz-paper-ci/paper:/paper:ro" \
             arz-paper-ci:local \
             python -m scripts.strat01_paper_runtime health --paper-root /paper
-          sudo -E python3 - <<'PY'
-          import json,os,pathlib
-          p=pathlib.Path(os.environ['RUNNER_TEMP'])/'arz-paper-ci'/'paper'
-          s=json.loads((p/'status.json').read_text())
-          assert s['financial_decision']=='NO-GO' and s['live_trading']=='DISABLED'
-          assert s['paper_account']['hypothetical_fills']==0
-          assert s['paper_qualified_calendar_days']==0
-          assert len(list((p/'journal').glob('*.json')))==0
-          print('ISOLATED_CONTAINER_SAFE_NO_FILL:PASS')
-          PY
+          docker run --rm --network none --read-only --user 65534:65534 \
+            --cap-drop ALL --security-opt no-new-privileges \
+            --volume "${RUNNER_TEMP}/arz-paper-ci/paper:/paper:ro" \
+            arz-paper-ci:local \
+            python -c 'import json,pathlib; p=pathlib.Path("/paper"); s=json.loads((p/"status.json").read_text()); assert s["financial_decision"]=="NO-GO" and s["live_trading"]=="DISABLED"; assert s["paper_account"]["hypothetical_fills"]==0; assert s["paper_qualified_calendar_days"]==0; assert not list((p/"journal").glob("*.json")); print("ISOLATED_CONTAINER_SAFE_NO_FILL:PASS")'
 
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
