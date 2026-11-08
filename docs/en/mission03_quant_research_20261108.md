@@ -30,7 +30,7 @@ All returns are saved modeled **net account** results, not paid DEX economics.
 
 Removing the three top winning trades from the fixed 2025 WETH S0 stressed account gives -5.4389%, a concentration diagnostic, not a fair retrained strategy. The saved annual ATR-vol stress interval [-7.1774%, +14.2262%] is conditional, not selection-adjusted. Its terminal six-month case overlaps the annual data. The original final holdout is already seen and overlaps the last forward fold.
 
-The 58 saved financial rows contain 17 positive, 34 negative and 7 zero account returns, with four insufficient native rows whose unavailable economic values must not be interpreted as zero profitable runs. No row has verified complete execution costs or fresh independent OOS. The largest cycle count in any single row is 23. Multiple scenarios are correlated copies, not additional independent trades.
+The 58 saved financial rows contain 17 positive, 34 negative, 3 actual zero and 4 UNKNOWN account returns. The four incomplete native rows have blank financial fields and must not be converted to zero. The three actual zeros are rejected-order cost scenarios, not profitable trading. No row has verified complete execution costs or fresh independent OOS. The largest cycle count in any single row is 23. Multiple scenarios are correlated copies, not additional independent trades.
 
 ## Reproducible independent work added
 
