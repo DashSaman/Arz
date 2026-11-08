@@ -69,7 +69,8 @@ class SyntheticPaperFlowTests(unittest.TestCase):
 
     def _run(self):
         with patch.object(p, "status_report", return_value=self.report), patch.object(
-                p, "capture_history", return_value=({}, self.history, 194)):
+                p, "capture_history", return_value=({}, self.history, 194)), patch.object(
+                p, "publish"):
             return p.run_once(self.base / "collector-unused", self.root,
                               now=self.observed, input_root=self.inputs,
                               contract_hash=self.cost)
