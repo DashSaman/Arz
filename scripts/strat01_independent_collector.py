@@ -20,7 +20,7 @@ import time
 from typing import Callable
 import uuid
 
-from scripts.strat01_base_identity_forward import BAR, START_OOS, _utc_bar_start, collect
+from scripts.strat01_base_identity_forward import BAR, START_OOS, _utc_bar_start, collect, BoundedError
 from scripts.strat01_capture_slot_preflight import decide
 from scripts.strat01_investment_readiness import (
     MAX_BYTES_PER_CAPTURE, MAX_CAPTURE_FILES, audit_capture_dir, snapshot_summary,
@@ -472,10 +472,67 @@ def run_once(root: Path, *, now_unix: int,
         except (ValueError, OSError, KeyError, TypeError, RuntimeError) as exc:
             if provider_stop_event is not None:
                 return provider_stop_event
+            # Directly raised bounded access errors are equally terminal.
+            # Never retry HTTP 403/429/529 after their response was rejected.
+            refused = (isinstance(exc, BoundedError)
+                       and str(exc) in {"HTTP_403", "HTTP_429", "HTTP_529",
+                                        "PROVIDER_ACCESS_STOPPED", "OVERSIZE_RESPONSE"})
+            stopped = provider_stopped or refused
             # Avoid logging URLs, request bodies or secrets through exception text.
             return _event(events, at=now_unix, target=target,
-                          outcome=PROVIDER_STOP_OUTCOME if provider_stopped else "REFUSED_COLLECTOR_ERROR",
-                          reason="PROVIDER_ACCESS_REVIEW_REQUIRED" if provider_stopped else type(exc).__name__)
+                          outcome=PROVIDER_STOP_OUTCOME if stopped else "REFUSED_COLLECTOR_ERROR",
+                          reason="PROVIDER_ACCESS_REVIEW_REQUIRED" if stopped else type(exc).__name__)
+
+
+# At most three attempts per real close. Only transient local/transport
+# failures are retryable; provider refusals, malformed captures, revisions,
+# wrong markets, disabled networking and quality failures are never retried.
+RETRY_DELAYS_SECONDS = (120, 240)
+RETRYABLE_FAILURE_REASONS = frozenset({
+    "OSError", "TimeoutError", "ConnectionError", "RuntimeError",
+})
+
+
+def run_due_with_retries(root: Path, *, network_enabled: bool,
+                         clock: Callable[[], int],
+                         sleeper: Callable[[int], None],
+                         attempt: Callable | None = None) -> dict:
+    """One bounded as-observed slot, with fresh clocks and append-only faults.
+
+    The first request may be late; further attempts are allowed only within
+    one hour after this same 4h close. Never replay a missed prior close.
+    This does not attest source publication, host uptime or paper eligibility.
+    """
+    initial = clock()
+    if type(initial) is not int or initial < START_OOS + BAR:
+        raise ValueError("Invalid independent scheduler clock")
+    target = _utc_bar_start(initial)
+    run = run_once if attempt is None else attempt
+    last_at = None
+    latest = None
+    for index in range(1 + len(RETRY_DELAYS_SECONDS)):
+        at = clock()
+        if type(at) is not int or at < initial:
+            raise ValueError("Independent scheduler clock moved backwards")
+        if index and (at <= last_at
+                      or _utc_bar_start(at) != target
+                      or at > target + BAR + 3600):
+            break
+        latest = run(root, now_unix=at, network_enabled=network_enabled)
+        last_at = at
+        print(json.dumps(latest, sort_keys=True), flush=True)
+        if (latest.get("outcome") != "REFUSED_COLLECTOR_ERROR"
+                or latest.get("reason_code") not in RETRYABLE_FAILURE_REASONS
+                or index == len(RETRY_DELAYS_SECONDS)):
+            break
+        delay = RETRY_DELAYS_SECONDS[index]
+        # No repeat if the current clock already makes a next attempt late.
+        if clock() + delay > target + BAR + 3600:
+            break
+        sleeper(delay)
+    if latest is None:
+        raise ValueError("No collector attempt at actual clock")
+    return latest
 
 
 def main() -> int:
@@ -510,9 +567,9 @@ def main() -> int:
                 _write_heartbeat(args.data_root, now_unix=now,
                                  state=operational_state(args.data_root, now, network))
                 time.sleep(min(30, max(1, due - now)))
-            result = run_once(args.data_root, now_unix=int(time.time()),
-                              network_enabled=network)
-            print(json.dumps(result, sort_keys=True), flush=True)
+            result = run_due_with_retries(
+                args.data_root, network_enabled=network,
+                clock=lambda: int(time.time()), sleeper=time.sleep)
             # Reconstruct status from durable evidence on every loop/restart.
             now = int(time.time())
             _write_heartbeat(args.data_root, now_unix=now,
