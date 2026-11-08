@@ -140,6 +140,7 @@ def marked_account(initial: float, records: list[dict[str, str]]) -> dict:
 def closed_cycle_stats(records: list[dict[str, str]]) -> dict:
     cycles = []
     previous_exit = None
+    seen_cycles = set()
     streak = peak_streak = 0
     for row in records:
         entry, exit_ = finite(row["entry_ts"]), finite(row["exit_ts"])
@@ -147,6 +148,10 @@ def closed_cycle_stats(records: list[dict[str, str]]) -> dict:
             raise ValueError("INVALID_OR_NONCHRONOLOGICAL_CYCLE")
         previous_exit = exit_
         pnl = finite(row["net_pnl"])
+        signature = (entry, exit_, pnl)
+        if signature in seen_cycles:
+            raise ValueError("DUPLICATE_CLOSED_CYCLE_NO_INDEPENDENT_ID")
+        seen_cycles.add(signature)
         cycles.append(pnl)
         streak = streak + 1 if pnl < 0 else 0
         peak_streak = max(peak_streak, streak)
@@ -229,6 +234,49 @@ def reconcile_case(root: Path, summary: dict[str, str]) -> dict:
     }
 
 
+def git_blob_sha1(raw: bytes) -> str:
+    # Git SHA-1 object identity is pinned to the original main snapshot.
+    # SHA-256 receipts are also emitted for independently inspectable data.
+    prefix = b"blob " + str(len(raw)).encode("ascii") + bytes([0])
+    return hashlib.sha1(prefix + raw).hexdigest()
+
+
+def verify_pinned_blob(root: Path, record: dict) -> str:
+    name = record.get("path")
+    if not isinstance(name, str) or not name.startswith(("reports/backtests/", "configs/")):
+        raise ValueError("UNSAFE_OR_NON_HISTORICAL_PIN_PATH")
+    relative = Path(name)
+    if relative.is_absolute() or ".." in relative.parts:
+        raise ValueError("UNSAFE_SOURCE_TRAVERSAL")
+    expected = record.get("git_blob_sha1")
+    size = record.get("size_bytes")
+    if not isinstance(expected, str) or len(expected) != 40 or any(x not in "0123456789abcdef" for x in expected):
+        raise ValueError("INVALID_PINNED_GIT_BLOB_ID")
+    if isinstance(size, bool) or not isinstance(size, int) or size < 0 or size > 5_000_000:
+        raise ValueError("INVALID_PINNED_SOURCE_SIZE")
+    path = root / relative
+    if not path.is_file() or path.is_symlink():
+        raise ValueError("MISSING_OR_SYMLINKED_PINNED_SOURCE:" + name)
+    raw = path.read_bytes()
+    if len(raw) != size or git_blob_sha1(raw) != expected:
+        raise ValueError("PINNED_SOURCE_BYTES_MISMATCH:" + name)
+    return hashlib.sha256(raw).hexdigest()
+
+
+def verify_pinned_sources(root: Path, expected_paths: set[str]) -> dict[str, str]:
+    path = root / "reports/parallel/quant-research/pinned_historical_inputs_20261108.json"
+    manifest = read_json(path)
+    if manifest.get("base_main_sha") != "11e8bf28dee8ff85d386187928e53ead2b032144":
+        raise ValueError("BASE_MAIN_IDENTITY_MISMATCH")
+    rows = manifest.get("files")
+    if not isinstance(rows, list) or len(rows) != 75:
+        raise ValueError("EXPECTED_75_PINNED_SAVED_SOURCES")
+    names = [r.get("path") for r in rows if isinstance(r, dict)]
+    if len(names) != len(rows) or len(set(names)) != 75 or set(names) != expected_paths:
+        raise ValueError("PINNED_SOURCE_SET_MISMATCH")
+    return {r["path"]: verify_pinned_blob(root, r) for r in rows}
+
+
 def run(root: Path = ROOT) -> dict:
     root = root.resolve()
     summary_file = root / "reports" / "backtests" / "summary.csv"
@@ -236,12 +284,22 @@ def run(root: Path = ROOT) -> dict:
     keys = [(r["case"], r["strategy"]) for r in summary]
     if len(keys) != 24 or len(set(keys)) != 24:
         raise ValueError("EXPECTED_24_UNIQUE_SAVED_CASES")
+    expected_paths = {
+        "reports/backtests/summary.csv", "reports/backtests/manifest.json",
+        "configs/preregistered_strategies.json",
+    }
+    for case, strategy in keys:
+        stem = "reports/backtests/" + case + "_" + strategy
+        expected_paths.update((stem + ".json", stem + "_equity.csv", stem + "_closed_trades.csv"))
+    pinned_sha256 = verify_pinned_sources(root, expected_paths)
     output = [reconcile_case(root, row) for row in summary]
     return {
         "schema_version": 1,
         "classification": "INDEPENDENT_SAVED_LEDGER_ARITHMETIC_RECONCILIATION_ONLY",
         "origin": "ARZ_MISSION_03_2026-11-08",
         "source_summary_sha256": hashlib.sha256(summary_file.read_bytes()).hexdigest(),
+        "revalidated_pinned_source_file_count": len(pinned_sha256),
+        "source_files_sha256": pinned_sha256,
         "historical_scenarios_reconciled": len(output),
         "positive_saved_scenario_count": sum(r["net_account_return_pct"] > 0 for r in output),
         "max_closed_cycles_in_one_scenario": max(r["closed_cycles"] for r in output),
