@@ -1,0 +1,383 @@
+{
+  "schema_version": 1,
+  "description": "Mission 03 immutable identity contract for 24 previously saved original-engine cases. Each source is pinned to its canonical main git blob, not freshly adopted from a modified working tree. Rechecking them authenticates saved bytes only, never provider OHLCV or real fills.",
+  "base_main_sha": "11e8bf28dee8ff85d386187928e53ead2b032144",
+  "source_case_count": 24,
+  "files": [
+    {
+      "path": "configs/preregistered_strategies.json",
+      "git_blob_sha1": "5693f693fe388825db5cc1176d1b073d1ef51633",
+      "size_bytes": 821
+    },
+    {
+      "path": "reports/backtests/development_mean_reversion.json",
+      "git_blob_sha1": "ea95e17c435349a46d0564fb8ff16ae16c1e7689",
+      "size_bytes": 3705
+    },
+    {
+      "path": "reports/backtests/development_mean_reversion_closed_trades.csv",
+      "git_blob_sha1": "f43ce81bc4d1bdf5fb7d77790d43555d18ca88ae",
+      "size_bytes": 804
+    },
+    {
+      "path": "reports/backtests/development_mean_reversion_equity.csv",
+      "git_blob_sha1": "ebbd6a4014402c4bfa59f12a317974de989e926e",
+      "size_bytes": 29347
+    },
+    {
+      "path": "reports/backtests/development_momentum.json",
+      "git_blob_sha1": "6d90a5e1ca848621f8b4dd0287b116e04fd556fe",
+      "size_bytes": 3676
+    },
+    {
+      "path": "reports/backtests/development_momentum_closed_trades.csv",
+      "git_blob_sha1": "972c61e1255622bc70b8a26c3c42a2dbd78bf275",
+      "size_bytes": 1276
+    },
+    {
+      "path": "reports/backtests/development_momentum_equity.csv",
+      "git_blob_sha1": "21989ff61dcc92f1d0e2ffa1c3a32155a130f41f",
+      "size_bytes": 28792
+    },
+    {
+      "path": "reports/backtests/development_trend.json",
+      "git_blob_sha1": "bcb0928955dc549cd3703eb87bb517bda3eab580",
+      "size_bytes": 3321
+    },
+    {
+      "path": "reports/backtests/development_trend_closed_trades.csv",
+      "git_blob_sha1": "b401c3655e31edc845dcff6f5076a050b4202ab7",
+      "size_bytes": 355
+    },
+    {
+      "path": "reports/backtests/development_trend_equity.csv",
+      "git_blob_sha1": "fa98682cdf7114cab40c00edebc69ae6be284753",
+      "size_bytes": 26181
+    },
+    {
+      "path": "reports/backtests/final_holdout_mean_reversion.json",
+      "git_blob_sha1": "37d4217be924209cd6730d735c38cb65ed37d2f8",
+      "size_bytes": 2887
+    },
+    {
+      "path": "reports/backtests/final_holdout_mean_reversion_closed_trades.csv",
+      "git_blob_sha1": "214b9b3bccbfaf0106e9016cfc46f491542fb6da",
+      "size_bytes": 437
+    },
+    {
+      "path": "reports/backtests/final_holdout_mean_reversion_equity.csv",
+      "git_blob_sha1": "3dba5bcc298c566ae6dc4647833c61705fbd62a4",
+      "size_bytes": 14702
+    },
+    {
+      "path": "reports/backtests/final_holdout_momentum.json",
+      "git_blob_sha1": "79572f64854c76be56a3ad49f3c4db89b791ae42",
+      "size_bytes": 3019
+    },
+    {
+      "path": "reports/backtests/final_holdout_momentum_closed_trades.csv",
+      "git_blob_sha1": "4bd83edd7bce3c9f436497c3cb2c63e848270d0b",
+      "size_bytes": 625
+    },
+    {
+      "path": "reports/backtests/final_holdout_momentum_equity.csv",
+      "git_blob_sha1": "df1017be6a6c0359ef06e20d2437a3e2a8c83d85",
+      "size_bytes": 14458
+    },
+    {
+      "path": "reports/backtests/final_holdout_trend.json",
+      "git_blob_sha1": "39024cd4a73d630a5364c8f9318c8e97dfb55496",
+      "size_bytes": 3129
+    },
+    {
+      "path": "reports/backtests/final_holdout_trend_closed_trades.csv",
+      "git_blob_sha1": "2cc80386fd123420c674b6f292b947abae7a55e8",
+      "size_bytes": 623
+    },
+    {
+      "path": "reports/backtests/final_holdout_trend_equity.csv",
+      "git_blob_sha1": "34c56d051425465164b8123aa19ddb178155e42a",
+      "size_bytes": 16237
+    },
+    {
+      "path": "reports/backtests/full_exploratory_mean_reversion.json",
+      "git_blob_sha1": "8312a1d687a1cfdbe1340da882c0d8b10fa412cf",
+      "size_bytes": 5481
+    },
+    {
+      "path": "reports/backtests/full_exploratory_mean_reversion_closed_trades.csv",
+      "git_blob_sha1": "2e5c12231412ca3cf8a6f21c2b4d2e5ae093fffd",
+      "size_bytes": 1899
+    },
+    {
+      "path": "reports/backtests/full_exploratory_mean_reversion_equity.csv",
+      "git_blob_sha1": "157dcaafe0a38b3c2629ac5c077599b10c201160",
+      "size_bytes": 71263
+    },
+    {
+      "path": "reports/backtests/full_exploratory_momentum.json",
+      "git_blob_sha1": "ef2327c55abbdf83bbf8f80ea09254f6819cfefc",
+      "size_bytes": 6199
+    },
+    {
+      "path": "reports/backtests/full_exploratory_momentum_closed_trades.csv",
+      "git_blob_sha1": "9b81bf7ee8e39603e15821326a7fedaffea48f9b",
+      "size_bytes": 1923
+    },
+    {
+      "path": "reports/backtests/full_exploratory_momentum_equity.csv",
+      "git_blob_sha1": "26feedb886cd0fb001e69508907092a55bbd94b3",
+      "size_bytes": 80924
+    },
+    {
+      "path": "reports/backtests/full_exploratory_trend.json",
+      "git_blob_sha1": "578a43d076395ba28e5c4e000a3e987c79b8e83f",
+      "size_bytes": 6081
+    },
+    {
+      "path": "reports/backtests/full_exploratory_trend_closed_trades.csv",
+      "git_blob_sha1": "d9cd26f31cc7558dae23b009b333ea5782214ee2",
+      "size_bytes": 804
+    },
+    {
+      "path": "reports/backtests/full_exploratory_trend_equity.csv",
+      "git_blob_sha1": "d5489fd4b374691ac3dc72d91fd42a4695f1ced6",
+      "size_bytes": 80857
+    },
+    {
+      "path": "reports/backtests/holdout_double_cost_mean_reversion.json",
+      "git_blob_sha1": "0c0210a66c0497a76131a4b193b09c1152f008dd",
+      "size_bytes": 2902
+    },
+    {
+      "path": "reports/backtests/holdout_double_cost_mean_reversion_closed_trades.csv",
+      "git_blob_sha1": "bd3e5b4921d3251d4db1568991b5ddde2f06a39f",
+      "size_bytes": 447
+    },
+    {
+      "path": "reports/backtests/holdout_double_cost_mean_reversion_equity.csv",
+      "git_blob_sha1": "894d5a087e224dbb062cca381e4ec1d46e9cec5c",
+      "size_bytes": 14492
+    },
+    {
+      "path": "reports/backtests/holdout_double_cost_momentum.json",
+      "git_blob_sha1": "1638d98ac40127571bedb6353fbd9d79e20b4671",
+      "size_bytes": 3003
+    },
+    {
+      "path": "reports/backtests/holdout_double_cost_momentum_closed_trades.csv",
+      "git_blob_sha1": "3141ca0ce3cf20830cae93e81c7c561f3a859c5e",
+      "size_bytes": 616
+    },
+    {
+      "path": "reports/backtests/holdout_double_cost_momentum_equity.csv",
+      "git_blob_sha1": "ddf37105c0b9a0c0b60b3397cb9376f7c6a90e21",
+      "size_bytes": 14089
+    },
+    {
+      "path": "reports/backtests/holdout_double_cost_trend.json",
+      "git_blob_sha1": "97bef084559ebb7d49fcfa96d89e2fc037cf0bf0",
+      "size_bytes": 3135
+    },
+    {
+      "path": "reports/backtests/holdout_double_cost_trend_closed_trades.csv",
+      "git_blob_sha1": "d4e9c7620f5f020e7c4f47738fb6e01dc850c65a",
+      "size_bytes": 606
+    },
+    {
+      "path": "reports/backtests/holdout_double_cost_trend_equity.csv",
+      "git_blob_sha1": "822c653c7f400cd1f1f09ecceb7b15dc352332f0",
+      "size_bytes": 16221
+    },
+    {
+      "path": "reports/backtests/holdout_gas_010_mean_reversion.json",
+      "git_blob_sha1": "3f68c530dc0f4a2141aed28a7cf53743cb218b0d",
+      "size_bytes": 2922
+    },
+    {
+      "path": "reports/backtests/holdout_gas_010_mean_reversion_closed_trades.csv",
+      "git_blob_sha1": "532ab9f785890ecb46e3ecdd74681b209ceafdc1",
+      "size_bytes": 438
+    },
+    {
+      "path": "reports/backtests/holdout_gas_010_mean_reversion_equity.csv",
+      "git_blob_sha1": "58f552854db8da8aefb1a447184d4047090dd3ad",
+      "size_bytes": 14559
+    },
+    {
+      "path": "reports/backtests/holdout_gas_010_momentum.json",
+      "git_blob_sha1": "840b72fb64fd2897e886c54a3561d222697fdd4a",
+      "size_bytes": 2981
+    },
+    {
+      "path": "reports/backtests/holdout_gas_010_momentum_closed_trades.csv",
+      "git_blob_sha1": "184571707a546e7aafb639e814180d731bbb9aa3",
+      "size_bytes": 621
+    },
+    {
+      "path": "reports/backtests/holdout_gas_010_momentum_equity.csv",
+      "git_blob_sha1": "6135c5449a48a7935cf7820cce1f109b0f9632ba",
+      "size_bytes": 14309
+    },
+    {
+      "path": "reports/backtests/holdout_gas_010_trend.json",
+      "git_blob_sha1": "eb5edd2a396c50111ec3c9c5fee25fb6785e0930",
+      "size_bytes": 3101
+    },
+    {
+      "path": "reports/backtests/holdout_gas_010_trend_closed_trades.csv",
+      "git_blob_sha1": "eda93622f1e94f518f15ad1ba9cc11b3661f869b",
+      "size_bytes": 625
+    },
+    {
+      "path": "reports/backtests/holdout_gas_010_trend_equity.csv",
+      "git_blob_sha1": "5ff66d1ecf9ad75eb611ca1939e1c009d76286a7",
+      "size_bytes": 16148
+    },
+    {
+      "path": "reports/backtests/holdout_gas_100_rejected_mean_reversion.json",
+      "git_blob_sha1": "8d8a765373ac48a3776972c09c081d97e55986b5",
+      "size_bytes": 2340
+    },
+    {
+      "path": "reports/backtests/holdout_gas_100_rejected_mean_reversion_closed_trades.csv",
+      "git_blob_sha1": "8e9b6a783c6601ea546758bdb12e37e4cb5574b4",
+      "size_bytes": 11
+    },
+    {
+      "path": "reports/backtests/holdout_gas_100_rejected_mean_reversion_equity.csv",
+      "git_blob_sha1": "eb8e906c90dcb51effc8ff6b2f2b3c8367f9836d",
+      "size_bytes": 7856
+    },
+    {
+      "path": "reports/backtests/holdout_gas_100_rejected_momentum.json",
+      "git_blob_sha1": "45cd2da319f11296ecedc11f092b5a89b10c3f4b",
+      "size_bytes": 2334
+    },
+    {
+      "path": "reports/backtests/holdout_gas_100_rejected_momentum_closed_trades.csv",
+      "git_blob_sha1": "8e9b6a783c6601ea546758bdb12e37e4cb5574b4",
+      "size_bytes": 11
+    },
+    {
+      "path": "reports/backtests/holdout_gas_100_rejected_momentum_equity.csv",
+      "git_blob_sha1": "eb8e906c90dcb51effc8ff6b2f2b3c8367f9836d",
+      "size_bytes": 7856
+    },
+    {
+      "path": "reports/backtests/holdout_gas_100_rejected_trend.json",
+      "git_blob_sha1": "809e84344d507f45cfd307e269f8928768fbb47a",
+      "size_bytes": 2332
+    },
+    {
+      "path": "reports/backtests/holdout_gas_100_rejected_trend_closed_trades.csv",
+      "git_blob_sha1": "8e9b6a783c6601ea546758bdb12e37e4cb5574b4",
+      "size_bytes": 11
+    },
+    {
+      "path": "reports/backtests/holdout_gas_100_rejected_trend_equity.csv",
+      "git_blob_sha1": "eb8e906c90dcb51effc8ff6b2f2b3c8367f9836d",
+      "size_bytes": 7856
+    },
+    {
+      "path": "reports/backtests/manifest.json",
+      "git_blob_sha1": "8488f3fffe4d45146c222e8ca98e95e0030affd5",
+      "size_bytes": 1330
+    },
+    {
+      "path": "reports/backtests/summary.csv",
+      "git_blob_sha1": "a2afaff3e9b4a6e1af8223eef4862cbd134b2d17",
+      "size_bytes": 13790
+    },
+    {
+      "path": "reports/backtests/walk_forward_1_mean_reversion.json",
+      "git_blob_sha1": "21e797d91e72701f3faffdc3c1cc377cbebc201f",
+      "size_bytes": 2849
+    },
+    {
+      "path": "reports/backtests/walk_forward_1_mean_reversion_closed_trades.csv",
+      "git_blob_sha1": "37c69f27d2bf281e7175b738517e9f06187abec4",
+      "size_bytes": 341
+    },
+    {
+      "path": "reports/backtests/walk_forward_1_mean_reversion_equity.csv",
+      "git_blob_sha1": "f2cab05515fab9f2b244782369b1bfb01b1f527f",
+      "size_bytes": 13842
+    },
+    {
+      "path": "reports/backtests/walk_forward_1_momentum.json",
+      "git_blob_sha1": "dcbf8b0223195a240b175adb2439cf482b0cff8f",
+      "size_bytes": 3152
+    },
+    {
+      "path": "reports/backtests/walk_forward_1_momentum_closed_trades.csv",
+      "git_blob_sha1": "1181df2a095e19741c2f73df970eaf387bce52fe",
+      "size_bytes": 635
+    },
+    {
+      "path": "reports/backtests/walk_forward_1_momentum_equity.csv",
+      "git_blob_sha1": "392d9a40240a0c8e539420b63f4a24da8d4fa4c5",
+      "size_bytes": 15042
+    },
+    {
+      "path": "reports/backtests/walk_forward_1_trend.json",
+      "git_blob_sha1": "a87c37e8ce5eacea19b5cf7822d3d86a0473c724",
+      "size_bytes": 3200
+    },
+    {
+      "path": "reports/backtests/walk_forward_1_trend_closed_trades.csv",
+      "git_blob_sha1": "a00fe993d325155200be850325a2f9a8712ce530",
+      "size_bytes": 436
+    },
+    {
+      "path": "reports/backtests/walk_forward_1_trend_equity.csv",
+      "git_blob_sha1": "3dc1de264a1e80d891ba4fd9474c17943908dad4",
+      "size_bytes": 17383
+    },
+    {
+      "path": "reports/backtests/walk_forward_2_mean_reversion.json",
+      "git_blob_sha1": "f460128bd0fcc2903f4937e624db213fb5036a43",
+      "size_bytes": 2835
+    },
+    {
+      "path": "reports/backtests/walk_forward_2_mean_reversion_closed_trades.csv",
+      "git_blob_sha1": "dd0f1dea1d30162731ac20ce8de808cfb10131ea",
+      "size_bytes": 554
+    },
+    {
+      "path": "reports/backtests/walk_forward_2_mean_reversion_equity.csv",
+      "git_blob_sha1": "fbf4b6c5f43e1a9762cb55bc89d9f115347c70fa",
+      "size_bytes": 13601
+    },
+    {
+      "path": "reports/backtests/walk_forward_2_momentum.json",
+      "git_blob_sha1": "337421b539f54ff95f30e7c59295dbf9b03cf585",
+      "size_bytes": 3081
+    },
+    {
+      "path": "reports/backtests/walk_forward_2_momentum_closed_trades.csv",
+      "git_blob_sha1": "f18b72d569011fe187e04b52d382d6990311d3cd",
+      "size_bytes": 173
+    },
+    {
+      "path": "reports/backtests/walk_forward_2_momentum_equity.csv",
+      "git_blob_sha1": "ff8136c760c9061baeb69584e1e85c8f31b4ec03",
+      "size_bytes": 17237
+    },
+    {
+      "path": "reports/backtests/walk_forward_2_trend.json",
+      "git_blob_sha1": "4e8180ddca69a75240876399237cc0bb6e9fdf42",
+      "size_bytes": 3183
+    },
+    {
+      "path": "reports/backtests/walk_forward_2_trend_closed_trades.csv",
+      "git_blob_sha1": "9dbab87905ca3b86f54829453c32e2e474f3fba0",
+      "size_bytes": 172
+    },
+    {
+      "path": "reports/backtests/walk_forward_2_trend_equity.csv",
+      "git_blob_sha1": "63fe96ccbe697c543e5d88ff305389ec97b4576a",
+      "size_bytes": 17971
+    }
+  ]
+}
