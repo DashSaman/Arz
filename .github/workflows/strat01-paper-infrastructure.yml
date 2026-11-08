@@ -1,0 +1,93 @@
+name: STRAT-01 offline paper infrastructure
+
+on:
+  push:
+    paths:
+      - 'src/arz/multi_paper.py'
+      - 'scripts/strat01_paper_*.py'
+      - 'deploy/paper/**'
+      - 'tests/test_strat01_multi_paper.py'
+      - 'tests/test_strat01_paper_*.py'
+      - '.github/workflows/strat01-paper-infrastructure.yml'
+  pull_request:
+    paths:
+      - 'src/arz/multi_paper.py'
+      - 'scripts/strat01_paper_*.py'
+      - 'deploy/paper/**'
+      - 'tests/test_strat01_multi_paper.py'
+      - 'tests/test_strat01_paper_*.py'
+      - '.github/workflows/strat01-paper-infrastructure.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  offline-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    env:
+      PYTHONPATH: src:.
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Compile simulation-only components
+        run: python3 -m py_compile src/arz/multi_paper.py scripts/strat01_paper_runtime.py scripts/strat01_paper_backup.py
+      - name: Test shared balance and fail-closed operations
+        run: |
+          python3 -m unittest -v \
+            tests.test_strat01_multi_paper \
+            tests.test_strat01_paper_runtime \
+            tests.test_strat01_paper_backup
+      - name: Verify canonical research control
+        run: PYTHONPATH=src:. python3 scripts/verify_research_control.py
+
+  isolated-container:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Verify isolated Compose syntax with no real host
+        env:
+          ARZ_PAPER_IMAGE: sha256:ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+          ARZ_COLLECTOR_DATA_ROOT: /tmp/arz-ci-collector
+          ARZ_PAPER_DATA_ROOT: /tmp/arz-ci-paper
+        run: docker compose -f deploy/paper/docker-compose.yml config --quiet
+      - name: Build reviewed no-credential image
+        run: |
+          docker build \
+            --file deploy/paper/Dockerfile \
+            --build-arg ARZ_SOURCE_REVISION="${GITHUB_SHA}" \
+            --tag arz-paper-ci:local .
+      - name: Run no-network nonroot image and verify safety refusal
+        run: |
+          set -eu
+          mkdir -p "${RUNNER_TEMP}/arz-paper-ci"/{collector/{forward,events},paper/{journal,observations,alerts}}
+          chmod -R 755 "${RUNNER_TEMP}/arz-paper-ci"
+          sudo chown -R 65534:65534 "${RUNNER_TEMP}/arz-paper-ci/paper"
+          docker run --rm --network none --read-only --user 65534:65534 \
+            --cap-drop ALL --security-opt no-new-privileges \
+            --tmpfs /tmp:rw,noexec,nosuid,size=16m \
+            --volume "${RUNNER_TEMP}/arz-paper-ci/collector:/collector:ro" \
+            --volume "${RUNNER_TEMP}/arz-paper-ci/paper:/paper:rw" \
+            arz-paper-ci:local \
+            python -m scripts.strat01_paper_runtime once --source-root /collector --paper-root /paper
+          docker run --rm --network none --read-only --user 65534:65534 \
+            --cap-drop ALL --security-opt no-new-privileges \
+            --volume "${RUNNER_TEMP}/arz-paper-ci/paper:/paper:ro" \
+            arz-paper-ci:local \
+            python -m scripts.strat01_paper_runtime health --paper-root /paper
+          python3 - <<'PY'
+          import json,os,pathlib
+          p=pathlib.Path(os.environ['RUNNER_TEMP'])/'arz-paper-ci'/'paper'
+          s=json.loads((p/'status.json').read_text())
+          assert s['financial_decision']=='NO-GO' and s['live_trading']=='DISABLED'
+          assert s['paper_account']['hypothetical_fills']==0
+          assert s['paper_qualified_calendar_days']==0
+          assert len(list((p/'journal').glob('*.json')))==0
+          print('ISOLATED_CONTAINER_SAFE_NO_FILL:PASS')
+          PY
