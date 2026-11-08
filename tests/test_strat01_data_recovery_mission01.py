@@ -114,10 +114,11 @@ class DataRecoveryCoverageTests(unittest.TestCase):
 
     def test_report_output_never_overwrites(self):
         with TemporaryDirectory() as d:
-            folder = Path(d)
+            folder = Path(d) / "original"
+            folder.mkdir()
             save(folder, sample_capture())
-            report = folder / "audited.json"
-            args = ["audit", "--source-dir", d, "--as-of-unix",
+            report = Path(d) / "audited.json"
+            args = ["audit", "--source-dir", str(folder), "--as-of-unix",
                     str(START + BAR_SECONDS + 3610), "--output", str(report)]
             with patch("sys.argv", args), redirect_stdout(io.StringIO()):
                 self.assertEqual(main(), 0)
