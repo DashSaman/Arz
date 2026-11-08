@@ -66,7 +66,7 @@ class Mission03ArithmeticTests(unittest.TestCase):
         receipt = AUDIT.run(ROOT)
         self.assertEqual(receipt["revalidated_pinned_source_file_count"], 75)
         self.assertEqual(len(receipt["source_files_sha256"]), 75)
-        self.assertEqual(len(set(receipt["source_files_sha256"])), 75)
+        self.assertTrue(all(len(v) == 64 for v in receipt["source_files_sha256"].values()))
 
     def test_modified_snapshot_does_not_become_its_own_baseline(self):
         data = b"original frozen bytes"
