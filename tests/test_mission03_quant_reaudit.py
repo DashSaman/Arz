@@ -57,6 +57,32 @@ class Mission03ArithmeticTests(unittest.TestCase):
         self.assertAlmostEqual(result["win_rate"], .25)
         self.assertEqual(result["max_consecutive_losing_cycles"], 2)
 
+    def test_duplicate_identical_closed_cycle_is_not_independent(self):
+        row = trade(0, 14400, 1.25)
+        with self.assertRaisesRegex(ValueError, "DUPLICATE_CLOSED_CYCLE"):
+            AUDIT.closed_cycle_stats([row, row])
+
+    def test_exact_pinned_source_bytes_and_sha256_receipts(self):
+        receipt = AUDIT.run(ROOT)
+        self.assertEqual(receipt["revalidated_pinned_source_file_count"], 75)
+        self.assertEqual(len(receipt["source_files_sha256"]), 75)
+        self.assertEqual(len(set(receipt["source_files_sha256"])), 75)
+
+    def test_modified_snapshot_does_not_become_its_own_baseline(self):
+        data = b"original frozen bytes"
+        blob = AUDIT.git_blob_sha1(data)
+        with tempfile.TemporaryDirectory() as td:
+            name = Path(td) / "reports" / "backtests" / "one.csv"
+            name.parent.mkdir(parents=True)
+            name.write_bytes(data)
+            record = {"path": "reports/backtests/one.csv",
+                      "size_bytes": len(data), "git_blob_sha1": blob}
+            receipt = AUDIT.verify_pinned_blob(Path(td), record)
+            self.assertEqual(len(receipt), 64)
+            name.write_bytes(b"changed original bytes")
+            with self.assertRaisesRegex(ValueError, "PINNED_SOURCE_BYTES_MISMATCH"):
+                AUDIT.verify_pinned_blob(Path(td), record)
+
     def test_no_cycles_is_not_profitable_pf(self):
         result = AUDIT.closed_cycle_stats([])
         self.assertEqual(result["closed_cycles"], 0)
