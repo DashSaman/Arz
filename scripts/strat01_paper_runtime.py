@@ -32,6 +32,20 @@ from scripts.strat01_local_monitor import status as collector_status
 MAX_PAPER_EVENTS = 20000
 SHA64 = re.compile(r"[0-9a-f]{64}\Z")
 DATA_MODE = "OFFLINE_PAPER_NO_WALLET"
+
+
+def runtime_identity():
+    """Bind journal restart to the exact independent paper code and interpreter."""
+    source = Path(__file__).resolve()
+    files = (source, source.with_name("strat01_multi_paper.py"),
+             source.parents[1] / "src/arz/strategies.py",
+             source.parents[1] / "src/arz/data.py")
+    return sha({"python": sys.version, "sources": {
+        str(f.relative_to(source.parents[1])): hashlib.sha256(f.read_bytes()).hexdigest()
+        for f in files
+    }})
+
+
 STRATEGIES = {"WETH": "trend", "cbBTC": "trend"}
 WARMUP = 194
 
@@ -65,7 +79,7 @@ def atomic(path, raw):
         raise ValueError("Unsafe paper output path")
     temp = None
     try:
-        fd, name = tempfile.mkstemp(prefix=".paper-", dir=path.parent)
+        fd, name = tempfile.mkstemp(prefix=".paper-", suffix=".pending", dir=path.parent)
         temp = Path(name)
         with os.fdopen(fd, "wb") as f:
             f.write(raw)
@@ -139,24 +153,24 @@ def _records(folder):
 def load_account(root):
     root = require_root(root)
     records = _records(root / "journal")
-    events = []
+    ledger = MultiAssetPaper(STRATEGIES)
     previous = None
     for item, _ in records:
         if item.get("kind") != "ARZ_PAPER_SIMULATION_EVENT_V1":
             raise ValueError("Unrecognized paper ledger event")
-        if item.get("previous_event_sha256") != previous or item.get("state_sha256") is None:
-            raise ValueError("Broken event chain")
+        if (item.get("previous_event_sha256") != previous
+                or item.get("runtime_sha256") != runtime_identity()):
+            raise ValueError("Wrong version or broken paper event chain")
         data = item.get("input")
         if type(data) is not dict or item.get("input_sha256") != sha(data):
             raise ValueError("Source-bound simulation input changed")
         if item.get("state") is None or item["state_sha256"] != sha(item["state"]):
             raise ValueError("Corrupted paper state checkpoint")
-        events.append(data)
-        computed = replay(STRATEGIES, events)
-        if canonical(computed.state()) != canonical(item["state"]):
+        ledger.apply(**data)
+        if canonical(ledger.state()) != canonical(item["state"]):
             raise ValueError("Paper journal cannot be independently replayed")
         previous = sha(item)
-    return replay(STRATEGIES, events), previous
+    return ledger, previous
 
 
 def capture_history(source_root, now):
@@ -242,10 +256,15 @@ def status_report(source_root, paper_root, *, now, input_root=None, contract_has
     for a in ASSETS:
         signals[a] = ("LONG" if Strategy(STRATEGIES[a]).signal(
             history[a], account.positions[a]["units"] > 0) else "FLAT") if ready else "INSUFFICIENT_CAUSAL_WARMUP"
+    latest_slot = (now // BAR - 1) * BAR
     reason = ("COLLECTOR_UNHEALTHY" if monitor["health"] != "HEARTBEAT_ALIVE_SOURCE_UNQUALIFIED"
               else "CONTIGUOUS_194_BAR_WARMUP_MISSING" if not ready
+              else "NO_CURRENT_COMPLETED_PAIR" if last != latest_slot
               else "COST_UNVERIFIED" if not contract_hash
+              else "NO_INDEPENDENT_FOLLOWER_INPUT" if input_root is None
               else "FOLLOWER_QUOTE_REVIEW_PENDING")
+    paired = sorted(set(audit.get("complete_both_asset_bar_starts", [])))
+    missing_within_span = max(0, (paired[-1] - paired[0]) // BAR + 1 - len(paired)) if paired else 0
     observations = _records(root / "observations")
     last_observation = observations[-1][0] if observations else None
     state = account.state()
@@ -258,8 +277,8 @@ def status_report(source_root, paper_root, *, now, input_root=None, contract_has
         "latest_pair_bar_start": last,
         "last_qualified_market_observation": None,
         "contiguous_pair_bars": streak, "required_pair_bars": WARMUP,
-        "data_gap_count": max(0, (audit.get("file_count") or 0) - len(
-            audit.get("complete_both_asset_bar_starts", []))),
+        "data_gap_count": missing_within_span,
+        "data_gap_scope": "Within first/last observed complete paired bar only",
         "signals": signals,
         "approved_cost_contract_configured": bool(contract_hash),
         "input_root_configured": input_root is not None,
@@ -358,10 +377,25 @@ def run_once(source_root, paper_root, *, now, input_root=None, contract_hash=Non
     try:
         os.write(fd, str(os.getpid()).encode())
         os.close(fd)
+        # A second scheduler invocation cannot revise or double-count this slot.
+        previous_observation = root / "observations" / (str(slot) + ".json")
+        if previous_observation.exists() or previous_observation.is_symlink():
+            old, _ = _read(previous_observation)
+            if (old.get("bar_start") != slot
+                    or old.get("kind") != "PAPER_PROSPECTIVE_LOCAL_CLOCK_NOT_QUALIFIED"):
+                raise ValueError("Corrupt duplicate observation")
+            report = status_report(source_root, root, now=now, input_root=input_root,
+                                   contract_hash=contract_hash)
+            report["last_operation_result"] = "DUPLICATE_SLOT_NO_NEW_ACTION"
+            publish(root, report)
+            _write_heartbeat(root, now, "ALIVE_SAFE")
+            return report
         report = status_report(source_root, root, now=now, input_root=input_root,
                                contract_hash=contract_hash)
         reason = report["block_reason"]
         ledger, prior = load_account(root)
+        if (root / "journal" / (str(slot) + ".json")).exists():
+            reason = "RECOVERED_PREVIOUS_PAPER_EVENT_UNQUALIFIED"
         if (reason == "FOLLOWER_QUOTE_REVIEW_PENDING"
                 and report["latest_pair_bar_start"] == slot):
             _, history, streak = capture_history(source_root, now)
@@ -373,6 +407,7 @@ def run_once(source_root, paper_root, *, now, input_root=None, contract_hash=Non
                     state = trial.state()
                     event = {
                         "kind": "ARZ_PAPER_SIMULATION_EVENT_V1", "bar_start": slot,
+                        "runtime_sha256": runtime_identity(),
                         "live_trading": "DISABLED", "input": data,
                         "input_sha256": sha(data), "state": state,
                         "state_sha256": sha(state), "previous_event_sha256": prior,

@@ -243,7 +243,7 @@ class MultiAssetPaper:
             pos["basis"] -= basis
             pos["units"] -= units
             trade = self.open_trades[asset]
-            trade["realized_pnl"] = str(decimal(trade["realized_pnl"]) + pnl) if pnl >= 0 else str(Decimal(trade["realized_pnl"]) + pnl)
+            trade["realized_pnl"] = str(Decimal(trade["realized_pnl"]) + pnl)
             if pos["units"] == 0:
                 pos["basis"] = ZERO
                 self.closed_trades.append({
