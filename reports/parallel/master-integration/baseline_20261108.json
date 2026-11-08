@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "record_kind": "INDEPENDENT_INTEGRATION_BASELINE",
+  "observed_at_utc": "2026-11-08T13:25:42.035Z",
+  "repository": "DashSaman/Arz",
+  "canonical_branch": "main",
+  "canonical_commit_sha": "11e8bf28dee8ff85d386187928e53ead2b032144",
+  "canonical_commit_time_utc": "2026-11-08T06:43:27Z",
+  "canonical_commit_url": "https://github.com/DashSaman/Arz/commit/11e8bf28dee8ff85d386187928e53ead2b032144",
+  "review_scope": "IMMUTABLE_MAIN_HEAD_SNAPSHOT_NOT_AUTOMATIC_LATEST_FOREVER",
+  "branch_snapshot": {
+    "team01": {
+      "branch": "parallel/20261108-data-recovery",
+      "found": false,
+      "pr_reviewed": false
+    },
+    "team02": {
+      "branch": "parallel/20261108-execution-costs",
+      "found": true,
+      "head_at_check": "11e8bf28dee8ff85d386187928e53ead2b032144",
+      "ahead": 0,
+      "pr_reviewed": false
+    },
+    "team03": {
+      "branch": "parallel/20261108-quant-research",
+      "found": true,
+      "head_at_check": "11e8bf28dee8ff85d386187928e53ead2b032144",
+      "ahead": 0,
+      "pr_reviewed": false
+    },
+    "team04": {
+      "branch": "parallel/20261108-paper-infrastructure",
+      "found": false,
+      "pr_reviewed": false
+    },
+    "master": {
+      "branch": "parallel/20261108-master-integration",
+      "created_from": "11e8bf28dee8ff85d386187928e53ead2b032144"
+    }
+  },
+  "already_merged_prs": [
+    89,
+    90,
+    91,
+    92,
+    93
+  ],
+  "source_audit": {
+    "source_directory": "reports/strat01/forward/",
+    "json_files_read": 53,
+    "paired_capture_files": 50,
+    "unique_paired_4h_market_slots": 42,
+    "distinct_paired_within_3600s_after_close": 18,
+    "maximum_consecutive_distinct_paired_4h_slots": 5,
+    "maximum_consecutive_timely_4h_slots": 5,
+    "required_consecutive_eligible_paired_4h_slots": 194,
+    "latest_paired_bar_start_utc": "2026-11-08T00:00:00Z",
+    "raw_provider_originals_authenticated_by_this_audit": false,
+    "execution_price_proven": false,
+    "duplication_note": "Same-slot additional scheduled captures are not new bars; repeated line digests matched across observed duplicates.",
+    "validation_scope": "Direct independent chronological scan of retained GitHub JSON claims; no external raw provider authentication."
+  },
+  "financial": {
+    "primary_decision": "NO_GO",
+    "cost_status": "COST_UNVERIFIED",
+    "profitability_status": "INSUFFICIENT_EVIDENCE",
+    "qualified_candidates": 0,
+    "saved_strategy_registry_entries": 164,
+    "saved_metric_rows": 58,
+    "qualified_prospective_paper_days": 0,
+    "realized_follower_fills_verified": 0,
+    "real_capital_authorized_usd": 0,
+    "live_trading": "DISABLED",
+    "separate_pilot_ceiling_usdc_all_in": 100,
+    "source_report": "reports/strat01/2026-11-06-v6/decision.json",
+    "source_blockers": "reports/strat01/2026-11-06-v6/blockers.json",
+    "positive_claim_source": "SAVED_HISTORICAL_METRICS_ONLY_NO_AUTHENTICATED_CURRENT_LEDGER",
+    "positive_example": {
+      "family": "S0_stateful",
+      "market": "WETH",
+      "window": "year_2025",
+      "cost_scenario": "stress",
+      "saved_net_return_pct": "9.225076784536455",
+      "saved_closed_cycles": 8,
+      "minimum_closed_cycles": 100,
+      "uncertainty_lower_bound": null
+    }
+  },
+  "security_ops": {
+    "host_deployed_verified": false,
+    "alerts_delivered_verified": false,
+    "continuous_uptime_verified": false,
+    "container_ci_20261106": "PASSED_ON_PRIOR_REVIEWED_HEAD_ONLY",
+    "current_main_exact_sha_offline_checks": [
+      {
+        "url": "https://github.com/DashSaman/Arz/actions/runs/42484236396/job/128742515128",
+        "result": "success"
+      },
+      {
+        "url": "https://github.com/DashSaman/Arz/actions/runs/42484195075/job/128742392964",
+        "result": "success"
+      }
+    ],
+    "live_default_disabled": true
+  },
+  "open_blocker_ids": [
+    "B01_CONTIGUOUS_DATA",
+    "B02_HISTORICAL_RAW",
+    "B03_COLLECTOR_RELIABILITY",
+    "B04_COMPLETE_EXECUTION_COSTS",
+    "B05_UNTOUCHED_OOS",
+    "B06_INDEPENDENT_CYCLES",
+    "B07_NET_EDGE_AND_LOWER_BOUND",
+    "B08_PROSPECTIVE_PAPER",
+    "B09_OPERATIONS_SECURITY",
+    "B10_POSITIVE_STAGE_ADAPTERS",
+    "B11_CAPITAL_AUTHORIZATION"
+  ],
+  "capital_activation_authorized": false,
+  "limitations": [
+    "No teammate commits beyond main at branch check. No team PR reviewed or merged in this baseline.",
+    "No independent authenticated original raw historical source is available in the checked repository.",
+    "Saved strategy evidence and CI do not qualify financial performance.",
+    "Past main/pr CI and read-only collector data cannot establish 90 elapsed prospective paper days."
+  ]
+}
