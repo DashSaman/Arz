@@ -169,7 +169,16 @@ def reconcile_case(root: Path, summary: dict[str, str]) -> dict:
     prefix = root / "reports" / "backtests" / (case + "_" + strategy)
     report = read_json(Path(str(prefix) + ".json"))
     equity_rows = read_csv(Path(str(prefix) + "_equity.csv"), REQUIRED_EQUITY)
-    trade_rows = read_csv(Path(str(prefix) + "_closed_trades.csv"), REQUIRED_TRADES)
+    trades_path = Path(str(prefix) + "_closed_trades.csv")
+    # The frozen engine represents a legitimately empty closed-trade ledger as
+    # exactly "no_records\\n", not as a CSV with headings. Never interpret
+    # malformed or missing input as an empty successful simulation.
+    if trades_path.is_file() and not trades_path.is_symlink() and trades_path.read_bytes() == b"no_records\\n":
+        if int(finite(summary["closed_trades"])) != 0 or int(finite(metrics["closed_trades"])) != 0:
+            raise ValueError("EMPTY_TRADE_LEDGER_CONTRADICTS_REPORTED_CYCLES")
+        trade_rows = []
+    else:
+        trade_rows = read_csv(trades_path, REQUIRED_TRADES)
     metrics = report.get("metrics")
     if not isinstance(metrics, dict) or report.get("strategy") != strategy or report.get("case") != case:
         raise ValueError("SAVED_REPORT_IDENTITY_MISMATCH")
