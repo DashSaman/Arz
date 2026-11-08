@@ -62,6 +62,24 @@ jobs:
             --file deploy/paper/Dockerfile \
             --build-arg ARZ_SOURCE_REVISION="${GITHUB_SHA}" \
             --tag arz-paper-ci:local .
+      - name: Generate offline inventory SBOM from the built image
+        run: |
+          mkdir -p artifacts/paper
+          docker run --rm --network none --read-only --user 65534:65534 \
+            --cap-drop ALL --security-opt no-new-privileges \
+            arz-paper-ci:local \
+            python -m scripts.strat01_paper_sbom > artifacts/paper/paper.spdx.json
+          docker run --rm --network none --read-only --user 65534:65534 \
+            arz-paper-ci:local \
+            sha256sum --check /app/source-sha256.txt > artifacts/paper/source-hash-verification.txt
+          python3 - <<'PY'
+          import json,pathlib
+          s=json.loads(pathlib.Path('artifacts/paper/paper.spdx.json').read_text())
+          assert s['spdxVersion']=='SPDX-2.3' and len(s['packages'])>10
+          assert any(x['name']=='python-3.12-slim-bookworm' for x in s['packages'])
+          assert any(x['fileName']=='./scripts/strat01_paper_runtime.py' for x in s['files'])
+          print('CONTAINER_SBOM_INVENTORY:PASS (CVE scan not performed)')
+          PY
       - name: Run no-network nonroot image and verify safety refusal
         run: |
           set -eu
@@ -90,3 +108,11 @@ jobs:
           assert len(list((p/'journal').glob('*.json')))==0
           print('ISOLATED_CONTAINER_SAFE_NO_FILL:PASS')
           PY
+
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: arz-paper-offline-container-evidence
+          path: artifacts/paper/
+          if-no-files-found: warn
+          retention-days: 30
