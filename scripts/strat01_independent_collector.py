@@ -496,7 +496,8 @@ RETRYABLE_FAILURE_REASONS = frozenset({
 def run_due_with_retries(root: Path, *, network_enabled: bool,
                          clock: Callable[[], int],
                          sleeper: Callable[[int], None],
-                         attempt: Callable | None = None) -> dict:
+                         attempt: Callable | None = None,
+                         on_result: Callable[[int], None] | None = None) -> dict:
     """One bounded as-observed slot, with fresh clocks and append-only faults.
 
     The first request may be late; further attempts are allowed only within
@@ -521,6 +522,10 @@ def run_due_with_retries(root: Path, *, network_enabled: bool,
         latest = run(root, now_unix=at, network_enabled=network_enabled)
         last_at = at
         print(json.dumps(latest, sort_keys=True), flush=True)
+        # The durable refusal must be visible to health checks before any
+        # backoff sleep; a previously healthy heartbeat must not mask it.
+        if on_result is not None:
+            on_result(clock())
         if (latest.get("outcome") != "REFUSED_COLLECTOR_ERROR"
                 or latest.get("reason_code") not in RETRYABLE_FAILURE_REASONS
                 or index == len(RETRY_DELAYS_SECONDS)):
@@ -569,7 +574,10 @@ def main() -> int:
                 time.sleep(min(30, max(1, due - now)))
             result = run_due_with_retries(
                 args.data_root, network_enabled=network,
-                clock=lambda: int(time.time()), sleeper=time.sleep)
+                clock=lambda: int(time.time()), sleeper=time.sleep,
+                on_result=lambda observed: _write_heartbeat(
+                    args.data_root, now_unix=observed,
+                    state=operational_state(args.data_root, observed, network)))
             # Reconstruct status from durable evidence on every loop/restart.
             now = int(time.time())
             _write_heartbeat(args.data_root, now_unix=now,
