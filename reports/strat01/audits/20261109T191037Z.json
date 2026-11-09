@@ -1,0 +1,1105 @@
+{
+  "blockers": [
+    "REVISED_OR_GAPPED_MARKET_BARS",
+    "MISSING_INITIAL_FROZEN_OOS_4H_BAR",
+    "BAR_SOURCE_FIRST_SEEN_OVER_1H_AFTER_CLOSE_DIAGNOSTIC",
+    "LESS_THAN_194_TIMELY_CAUSAL_BOTH_ASSET_BARS",
+    "FROZEN_S0_NEEDS_194_CONSECUTIVE_DUAL_ASSET_4H_BARS",
+    "ACTUAL_GITHUB_CRON_JOB_NOT_INDEPENDENTLY_ATTESTED",
+    "REAL_FOLLOWER_QUOTE_WITH_60SEC_DELAY_MISSING",
+    "PAID_GAS_L1_L2_AND_FAILURE_SLIPPAGE_COSTS_UNVERIFIED",
+    "NO_90_ELAPSED_PROSPECTIVE_ACCOUNT_DAYS",
+    "NO_POSITIVE_STRESSED_GEOMETRIC_NET_ACCOUNT_RETURN",
+    "NO_INDEPENDENT_OUT_OF_SAMPLE_TRADING_PROFITABILITY",
+    "NO_SEPARATE_USER_FUNDING_APPROVAL"
+  ],
+  "capital_activation_authorized": false,
+  "investment_recommendation": "NO-GO",
+  "live_trading": "DISABLED",
+  "market_trade_execution_profit_evidence_verified": false,
+  "notice": "Even a hypothetical success in statistical paper tests is never a capital-transfer authorization.",
+  "prior_historical_gate": {
+    "new_real_capital_authorized_usd": 0,
+    "prior_historical_models_qualified": 0,
+    "state_checkpoint": "ARZ-2026-10-31-CONTROL-14"
+  },
+  "report_kind": "OFFLINE_REAL_SOURCE_CONSISTENCY_NOT_FINANCIAL_ORACLE",
+  "requirements": {
+    "direct_external_verification_and_user_funding_approval": true,
+    "max_drawdown": "0.10",
+    "min_consecutive_market_bars": 194,
+    "min_prospective_days": 90,
+    "positive_primary_and_double_cost_geometric_returns": true,
+    "source_follower_latency_seconds": 60,
+    "source_lag_diagnostic_seconds_not_a_strategy_signal": 3600
+  },
+  "schema_version": 1,
+  "software_source_validator_passed": true,
+  "source_capture_audit": {
+    "complete_both_asset_bar_starts": [
+      1793073600,
+      1793102400,
+      1793116800,
+      1793145600,
+      1793174400,
+      1793203200,
+      1793232000,
+      1793260800,
+      1793289600,
+      1793318400,
+      1793347200,
+      1793376000,
+      1793404800,
+      1793433600,
+      1793448000,
+      1793491200,
+      1793505600,
+      1793520000,
+      1793534400,
+      1793548800,
+      1793577600,
+      1793620800,
+      1793649600,
+      1793692800,
+      1793707200,
+      1793736000,
+      1793779200,
+      1793793600,
+      1793808000,
+      1793822400,
+      1793865600,
+      1793894400,
+      1793908800,
+      1793923200,
+      1793952000,
+      1793966400,
+      1793980800,
+      1793995200,
+      1794009600,
+      1794038400,
+      1794067200,
+      1794096000,
+      1794153600,
+      1794168000,
+      1794182400,
+      1794225600
+    ],
+    "conflicts": [],
+    "errors": [],
+    "file_count": 61,
+    "first_schedule_run_independently_verified": false,
+    "full_historical_continuous_warmup_verified": false,
+    "late_both_market_bar_starts": [
+      1793073600,
+      1793102400,
+      1793116800,
+      1793145600,
+      1793174400,
+      1793203200,
+      1793232000,
+      1793260800,
+      1793289600,
+      1793318400,
+      1793347200,
+      1793404800,
+      1793433600,
+      1793577600,
+      1793620800,
+      1793649600,
+      1793707200,
+      1793793600,
+      1793908800,
+      1793923200,
+      1793980800,
+      1794009600,
+      1794038400,
+      1794096000,
+      1794182400,
+      1794225600
+    ],
+    "max_consecutive_complete_both_asset_bars": 5,
+    "max_consecutive_operationally_timely_bars": 5,
+    "max_observed_bar_close_to_source_lag_seconds": 14076,
+    "missing_leading_oos_bar_starts": [
+      1793059200
+    ],
+    "observed_candle_grid_gaps": [
+      [
+        1793073600,
+        1793102400
+      ],
+      [
+        1793116800,
+        1793145600
+      ],
+      [
+        1793145600,
+        1793174400
+      ],
+      [
+        1793174400,
+        1793203200
+      ],
+      [
+        1793203200,
+        1793232000
+      ],
+      [
+        1793232000,
+        1793260800
+      ],
+      [
+        1793260800,
+        1793289600
+      ],
+      [
+        1793289600,
+        1793318400
+      ],
+      [
+        1793318400,
+        1793347200
+      ],
+      [
+        1793347200,
+        1793376000
+      ],
+      [
+        1793376000,
+        1793404800
+      ],
+      [
+        1793404800,
+        1793433600
+      ],
+      [
+        1793448000,
+        1793491200
+      ],
+      [
+        1793548800,
+        1793577600
+      ],
+      [
+        1793577600,
+        1793620800
+      ],
+      [
+        1793620800,
+        1793649600
+      ],
+      [
+        1793649600,
+        1793692800
+      ],
+      [
+        1793707200,
+        1793736000
+      ],
+      [
+        1793736000,
+        1793779200
+      ],
+      [
+        1793822400,
+        1793865600
+      ],
+      [
+        1793865600,
+        1793894400
+      ],
+      [
+        1793923200,
+        1793952000
+      ],
+      [
+        1794009600,
+        1794038400
+      ],
+      [
+        1794038400,
+        1794067200
+      ],
+      [
+        1794067200,
+        1794096000
+      ],
+      [
+        1794096000,
+        1794153600
+      ],
+      [
+        1794182400,
+        1794225600
+      ]
+    ],
+    "operationally_timely_both_market_bar_starts": [
+      1793376000,
+      1793448000,
+      1793491200,
+      1793505600,
+      1793520000,
+      1793534400,
+      1793548800,
+      1793692800,
+      1793736000,
+      1793779200,
+      1793808000,
+      1793822400,
+      1793865600,
+      1793894400,
+      1793952000,
+      1793966400,
+      1793995200,
+      1794067200,
+      1794153600,
+      1794168000
+    ],
+    "original_publication_time_verified": false,
+    "qualified_trading_days": 0,
+    "source_exact_20USDC_execution_fee_paid_verified": false,
+    "source_manifest": [
+      {
+        "closed_bar_start": 1793073600,
+        "filename": "20261027T095359Z.json",
+        "first_seen": "2026-10-27T09:53:59+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 6839,
+          "cbBTC": 6840
+        },
+        "operational_timeliness_1h_both_assets": false,
+        "runner_reported_event_name": null,
+        "runner_reported_run_id": null,
+        "sha256": "34c7bc50dddcd93bfa0d4e4bf228094e54b957d82ba3e97ceb98baf759220d02",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793102400,
+        "filename": "20261027T180617Z.json",
+        "first_seen": "2026-10-27T18:06:17+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 7577,
+          "cbBTC": 7578
+        },
+        "operational_timeliness_1h_both_assets": false,
+        "runner_reported_event_name": null,
+        "runner_reported_run_id": null,
+        "sha256": "a18be33ace52e39e40eacba47811a7c2e0273eb9dc97faee43f62022a4434424",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793116800,
+        "filename": "20261027T235127Z.json",
+        "first_seen": "2026-10-27T23:51:27+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 13888,
+          "cbBTC": 13888
+        },
+        "operational_timeliness_1h_both_assets": false,
+        "runner_reported_event_name": null,
+        "runner_reported_run_id": null,
+        "sha256": "aa978726baba81fa12b76b0261557df8b76c3eb3a4ac2e80e8eb6bf41543b7d4",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793145600,
+        "filename": "20261028T055616Z.json",
+        "first_seen": "2026-10-28T05:56:16+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 6977,
+          "cbBTC": 6977
+        },
+        "operational_timeliness_1h_both_assets": false,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 40640850173,
+        "sha256": "a3a7bd1cd7f251feec6aa7204244269adaf877c43dcd32ab32aff9e78453b33b",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793174400,
+        "filename": "20261028T151317Z.json",
+        "first_seen": "2026-10-28T15:13:17+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 11598,
+          "cbBTC": 11598
+        },
+        "operational_timeliness_1h_both_assets": false,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 40713707997,
+        "sha256": "233119fa083a8deb453d9c493a5c35621ab997ca8518946982a77e7ff9599326",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793203200,
+        "filename": "20261028T211054Z.json",
+        "first_seen": "2026-10-28T21:10:54+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 4254,
+          "cbBTC": 4255
+        },
+        "operational_timeliness_1h_both_assets": false,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 40769755224,
+        "sha256": "78e89c801e9d66a886841a9ab17dc8968d14dc9754ca9d7decf4f2fefe62a1a3",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793232000,
+        "filename": "20261029T060125Z.json",
+        "first_seen": "2026-10-29T06:01:25+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 7285,
+          "cbBTC": 7285
+        },
+        "operational_timeliness_1h_both_assets": false,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 40826716778,
+        "sha256": "f9240dd36313bfe99e1ad28e9984dece4728a90639f04518030b40000c4e5f6c",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793260800,
+        "filename": "20261029T151825Z.json",
+        "first_seen": "2026-10-29T15:18:25+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 11906,
+          "cbBTC": 11906
+        },
+        "operational_timeliness_1h_both_assets": false,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 40900191539,
+        "sha256": "a19e973e6246eefbf9e1f08ccf29f60e8a2ef0daa96ed8dabfb6999359c254b3",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793289600,
+        "filename": "20261029T211429Z.json",
+        "first_seen": "2026-10-29T21:14:29+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 4470,
+          "cbBTC": 4470
+        },
+        "operational_timeliness_1h_both_assets": false,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 40956071086,
+        "sha256": "bbe682264f042f40755c5e7362ffceb274fe3e6883b6bf8310d589d4713165da",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793318400,
+        "filename": "20261030T060154Z.json",
+        "first_seen": "2026-10-30T06:01:54+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 7315,
+          "cbBTC": 7315
+        },
+        "operational_timeliness_1h_both_assets": false,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 41011697097,
+        "sha256": "6283d4538564f3a31b05ef071b5ade4acc221c4950759217192815f3796f3297",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793347200,
+        "filename": "20261030T150712Z.json",
+        "first_seen": "2026-10-30T15:07:12+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 11232,
+          "cbBTC": 11233
+        },
+        "operational_timeliness_1h_both_assets": false,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 41077719623,
+        "sha256": "65f5049ef3a79a9df718d1f1713032629ec8370a4211bf002aa02afc22140bc3",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793376000,
+        "filename": "20261030T205350Z.json",
+        "first_seen": "2026-10-30T20:53:50+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 3231,
+          "cbBTC": 3231
+        },
+        "operational_timeliness_1h_both_assets": true,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 41126803641,
+        "sha256": "01206a36214ffec3515d41e40d2e5bd7acd7ad7ef6a35c4e294cf643fe911ce8",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793404800,
+        "filename": "20261031T055708Z.json",
+        "first_seen": "2026-10-31T05:57:09+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 7029,
+          "cbBTC": 7029
+        },
+        "operational_timeliness_1h_both_assets": false,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 41174585405,
+        "sha256": "a5b5b951d3cd7ef9d91b8cf9d8b6192750bdb8eb3d4b49ee95488e0e6474e8a8",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793433600,
+        "filename": "20261031T143559Z.json",
+        "first_seen": "2026-10-31T14:35:59+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 9359,
+          "cbBTC": 9360
+        },
+        "operational_timeliness_1h_both_assets": false,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 41210881003,
+        "sha256": "141fb7e325be717c62f0b93b2ec6c029b3027a6268d3f23d53c2a4b5ea64a36a",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793448000,
+        "filename": "20261031T164206Z.json",
+        "first_seen": "2026-10-31T16:42:06+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 2526,
+          "cbBTC": 2526
+        },
+        "operational_timeliness_1h_both_assets": true,
+        "runner_reported_event_name": null,
+        "runner_reported_run_id": null,
+        "sha256": "5b3a81f2a8ee08c414d5c77373514f57dd390b6bb96058f8553b381812964c0e",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793462400,
+        "filename": "20261031T200616Z.json",
+        "first_seen": "2026-10-31T20:06:16+00:00",
+        "observed_bar_close_lag_seconds": {},
+        "operational_timeliness_1h_both_assets": false,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 41237305157,
+        "sha256": "1e0ee310bfdf9042425255040bdb4009fa1c7d488d47c8588503aa8242d16b11",
+        "two_asset_bar_received": false
+      },
+      {
+        "closed_bar_start": 1793462400,
+        "filename": "20261031T232828Z.json",
+        "first_seen": "2026-10-31T23:28:28+00:00",
+        "observed_bar_close_lag_seconds": {},
+        "operational_timeliness_1h_both_assets": false,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 41252669982,
+        "sha256": "7d6dbcfd8fbdda33dbc1524b00b0d3744fcebdb6b2981a860ebffbb16e66fe99",
+        "two_asset_bar_received": false
+      },
+      {
+        "closed_bar_start": 1793476800,
+        "filename": "20261101T003741Z.json",
+        "first_seen": "2026-11-01T00:37:41+00:00",
+        "observed_bar_close_lag_seconds": {},
+        "operational_timeliness_1h_both_assets": false,
+        "runner_reported_event_name": null,
+        "runner_reported_run_id": null,
+        "sha256": "c9d4d3a3b843b51b89d7ea4c623c68352b56df3e17adedc7e36d2b281ca21b8c",
+        "two_asset_bar_received": false
+      },
+      {
+        "closed_bar_start": 1793491200,
+        "filename": "20261101T044629Z.json",
+        "first_seen": "2026-11-01T04:46:29+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 2789,
+          "cbBTC": 2789
+        },
+        "operational_timeliness_1h_both_assets": true,
+        "runner_reported_event_name": null,
+        "runner_reported_run_id": null,
+        "sha256": "c188418b9b7322dfb1dca934700afd10df6569641692a66ed429ca8f78cdd100",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793491200,
+        "filename": "20261101T062536Z.json",
+        "first_seen": "2026-11-01T06:25:36+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 8736,
+          "cbBTC": 8736
+        },
+        "operational_timeliness_1h_both_assets": false,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 41280778576,
+        "sha256": "8611776a7e39ef8c85726b8d36c14afcef5c0a568ee45994631bcdb488c2f611",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793505600,
+        "filename": "20261101T083900Z.json",
+        "first_seen": "2026-11-01T08:39:00+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 2340,
+          "cbBTC": 2341
+        },
+        "operational_timeliness_1h_both_assets": true,
+        "runner_reported_event_name": null,
+        "runner_reported_run_id": null,
+        "sha256": "10500c8894f814ef982522680a8db41193b11d4a036cbdc0c04a8837ed7c35ba",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793520000,
+        "filename": "20261101T124945Z.json",
+        "first_seen": "2026-11-01T12:49:45+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 2985,
+          "cbBTC": 2986
+        },
+        "operational_timeliness_1h_both_assets": true,
+        "runner_reported_event_name": null,
+        "runner_reported_run_id": null,
+        "sha256": "383198228bf45e1e253ce3c8783ad949def8fd611ae0097f231714b8e77add92",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793534400,
+        "filename": "20261101T161651Z.json",
+        "first_seen": "2026-11-01T16:16:51+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 1011,
+          "cbBTC": 1011
+        },
+        "operational_timeliness_1h_both_assets": true,
+        "runner_reported_event_name": null,
+        "runner_reported_run_id": null,
+        "sha256": "14f78a6cc64abae710ea151fb351dc0efbda49d29ae8959dbf4c4648ee89bc0b",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793548800,
+        "filename": "20261101T203711Z.json",
+        "first_seen": "2026-11-01T20:37:11+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 2231,
+          "cbBTC": 2232
+        },
+        "operational_timeliness_1h_both_assets": true,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 41347776146,
+        "sha256": "f03222b531ffb56bdf5802be42a31fb73621ef8259e704282e68464cc9d071ea",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793577600,
+        "filename": "20261102T062710Z.json",
+        "first_seen": "2026-11-02T06:27:10+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 8831,
+          "cbBTC": 8831
+        },
+        "operational_timeliness_1h_both_assets": false,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 41399973463,
+        "sha256": "948839d7b1863c554844ad86b64df8a43cd91135be5e4e1718360b05525b07d8",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793577600,
+        "filename": "20261102T065233Z.json",
+        "first_seen": "2026-11-02T06:52:33+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 10354,
+          "cbBTC": 10354
+        },
+        "operational_timeliness_1h_both_assets": false,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 41402675317,
+        "sha256": "084c49693a0d9344ee5831192501dd1c7c76d2ab463c40e96f20dc3d4a0401b5",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793620800,
+        "filename": "20261102T183140Z.json",
+        "first_seen": "2026-11-02T18:31:40+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 9100,
+          "cbBTC": 9100
+        },
+        "operational_timeliness_1h_both_assets": false,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 41501400148,
+        "sha256": "9210ba4fca35eb225951d3a9e45524cc67f1711866a67a2fad46b2e322dca110",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793620800,
+        "filename": "20261102T185048Z.json",
+        "first_seen": "2026-11-02T18:50:48+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 10249,
+          "cbBTC": 10249
+        },
+        "operational_timeliness_1h_both_assets": false,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 41504374569,
+        "sha256": "0acf8a7c9c94d45ab3255e37605bda44c16f7f1305789020813dd436c7180ba3",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793649600,
+        "filename": "20261103T022801Z.json",
+        "first_seen": "2026-11-03T02:28:01+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 8881,
+          "cbBTC": 8882
+        },
+        "operational_timeliness_1h_both_assets": false,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 41566278846,
+        "sha256": "3b3726bb0b9b5a5b5a0c848eb7999ee98da3ea3ada967a9d048b8c3bdb81bbe9",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793649600,
+        "filename": "20261103T023927Z.json",
+        "first_seen": "2026-11-03T02:39:27+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 9568,
+          "cbBTC": 9568
+        },
+        "operational_timeliness_1h_both_assets": false,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 41567458071,
+        "sha256": "aa900a74f87f8ef68d0e4316965238f2b82beb1f0b2b50d63e9aab15113a9ae3",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793692800,
+        "filename": "20261103T120450Z.json",
+        "first_seen": "2026-11-03T12:04:50+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 290,
+          "cbBTC": 290
+        },
+        "operational_timeliness_1h_both_assets": true,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 41632683971,
+        "sha256": "143e2969d8ee7c9b79d0d91949ac7ad35b0e555f4261aef71a346bb24d1511c2",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793707200,
+        "filename": "20261103T193907Z.json",
+        "first_seen": "2026-11-03T19:39:07+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 13147,
+          "cbBTC": 13148
+        },
+        "operational_timeliness_1h_both_assets": false,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 41705200334,
+        "sha256": "3d416bb54dadea699a15dbd665c8e3bde4185798c8841d28eb6617e1851960eb",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793707200,
+        "filename": "20261103T195021Z.json",
+        "first_seen": "2026-11-03T19:50:21+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 13821,
+          "cbBTC": 13821
+        },
+        "operational_timeliness_1h_both_assets": false,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 41706964624,
+        "sha256": "90fb67e142d8d9b5a67a8bae4c283ed202dc7d0b0984b881f6ba897d62985f91",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793736000,
+        "filename": "20261104T004228Z.json",
+        "first_seen": "2026-11-04T00:42:28+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 2549,
+          "cbBTC": 2549
+        },
+        "operational_timeliness_1h_both_assets": true,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 41748811627,
+        "sha256": "6d1933a2e03fc6096150d353517feb0cc82a6b037da718cb21d673ada63d08cd",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793779200,
+        "filename": "20261104T121807Z.json",
+        "first_seen": "2026-11-04T12:18:07+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 1087,
+          "cbBTC": 1087
+        },
+        "operational_timeliness_1h_both_assets": true,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 41828066710,
+        "sha256": "7c997fe2fb5437e1afd42fec72dbfa15e3eee1f1ac163857196bdd90ac95da86",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793793600,
+        "filename": "20261104T195435Z.json",
+        "first_seen": "2026-11-04T19:54:35+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 14076,
+          "cbBTC": 14076
+        },
+        "operational_timeliness_1h_both_assets": false,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 41901461864,
+        "sha256": "326b804a2a54b9832374e6484fef5ebcbfac0128a128bce6099a659377d3691e",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793808000,
+        "filename": "20261104T200333Z.json",
+        "first_seen": "2026-11-04T20:03:33+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 213,
+          "cbBTC": 213
+        },
+        "operational_timeliness_1h_both_assets": true,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 41902898292,
+        "sha256": "d12234e2855783e1119152f1a341e7627819f1f8414300620c394f75329844b1",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793822400,
+        "filename": "20261105T005630Z.json",
+        "first_seen": "2026-11-05T00:56:30+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 3390,
+          "cbBTC": 3391
+        },
+        "operational_timeliness_1h_both_assets": true,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 41945009698,
+        "sha256": "e1e1e8291273c4e5a3162239cbee9c025da4a5c9c2654bd284eaff472025d576",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793865600,
+        "filename": "20261105T123241Z.json",
+        "first_seen": "2026-11-05T12:32:41+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 1961,
+          "cbBTC": 1961
+        },
+        "operational_timeliness_1h_both_assets": true,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 42028016252,
+        "sha256": "9c31945e31c0bafc2c3f380b6355a4e0064a7bc2720a58077e37ad13a28529d6",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793894400,
+        "filename": "20261105T201817Z.json",
+        "first_seen": "2026-11-05T20:18:17+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 1097,
+          "cbBTC": 1097
+        },
+        "operational_timeliness_1h_both_assets": true,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 42102111733,
+        "sha256": "6bd7034effe2e992d36a93b60e88c616d0081ccea5e7dd95fd4f5e969a7e738e",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793908800,
+        "filename": "20261106T010828Z.json",
+        "first_seen": "2026-11-06T01:08:28+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 4109,
+          "cbBTC": 4109
+        },
+        "operational_timeliness_1h_both_assets": false,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 42141779073,
+        "sha256": "901dca8e47e3d2c1a53e16660d5ae77b2003638dd655c5d151ae6757bd031d55",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793923200,
+        "filename": "20261106T070015Z.json",
+        "first_seen": "2026-11-06T07:00:15+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 10816,
+          "cbBTC": 10816
+        },
+        "operational_timeliness_1h_both_assets": false,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 42177982709,
+        "sha256": "e6a91cd80149e70d9e3c3175fc36cb747a18350c27a08e44979c4518eebe0632",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793952000,
+        "filename": "20261106T123006Z.json",
+        "first_seen": "2026-11-06T12:30:06+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 1806,
+          "cbBTC": 1807
+        },
+        "operational_timeliness_1h_both_assets": true,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 42218112473,
+        "sha256": "fa7c1d995ac0b29557d4582d1807d657da2dcb56944fe2fba60ddd9fea8b54f6",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793966400,
+        "filename": "20261106T160023Z.json",
+        "first_seen": "2026-11-06T16:00:23+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 24,
+          "cbBTC": 24
+        },
+        "operational_timeliness_1h_both_assets": true,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 42248267979,
+        "sha256": "90c55393c154030f22dbb11a76e34d67c41f3aa0d2af967ca79bd779b17787f4",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793980800,
+        "filename": "20261106T213739Z.json",
+        "first_seen": "2026-11-06T21:37:39+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 5859,
+          "cbBTC": 5860
+        },
+        "operational_timeliness_1h_both_assets": false,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 42298267095,
+        "sha256": "60760ff52ab672cca420004e63abfeb97fc9e72c6f4095936a83540a7ef4af5b",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1793995200,
+        "filename": "20261107T002208Z.json",
+        "first_seen": "2026-11-07T00:22:08+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 1328,
+          "cbBTC": 1329
+        },
+        "operational_timeliness_1h_both_assets": true,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 42317781760,
+        "sha256": "4ed4ee5d895c97add093e5112a5d2af711bb44abe47ddc7987b112cd5cf8d614",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1794009600,
+        "filename": "20261107T061418Z.json",
+        "first_seen": "2026-11-07T06:14:18+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 8059,
+          "cbBTC": 8059
+        },
+        "operational_timeliness_1h_both_assets": false,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 42346094623,
+        "sha256": "d55ad0c33447c771d992fad6fa65ef09a05f1e4d5ac4f620472ba9f8e13263b2",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1794009600,
+        "filename": "20261107T063751Z.json",
+        "first_seen": "2026-11-07T06:37:51+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 9471,
+          "cbBTC": 9471
+        },
+        "operational_timeliness_1h_both_assets": false,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 42347859700,
+        "sha256": "162bbc5aba144dede0048dd3d54ea6f2323389b651d542cf778bdbe52db29b27",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1794038400,
+        "filename": "20261107T145717Z.json",
+        "first_seen": "2026-11-07T14:57:17+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 10637,
+          "cbBTC": 10638
+        },
+        "operational_timeliness_1h_both_assets": false,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 42383992039,
+        "sha256": "e5f0dbd5d103be7e1f322a86a6eb06df97295d0efc7dc7738b8c5d2d5df239a3",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1794038400,
+        "filename": "20261107T151112Z.json",
+        "first_seen": "2026-11-07T15:11:12+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 11472,
+          "cbBTC": 11472
+        },
+        "operational_timeliness_1h_both_assets": false,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 42385138532,
+        "sha256": "40c65e6f1a9d38a4910c94713d7beba63c397e13d07d782ca63e327286b6f921",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1794067200,
+        "filename": "20261107T201835Z.json",
+        "first_seen": "2026-11-07T20:18:35+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 1116,
+          "cbBTC": 1116
+        },
+        "operational_timeliness_1h_both_assets": true,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 42410416955,
+        "sha256": "eb66952031340700959e7c3abadbd12a93e1509f37c92e1c94df6f96d4b619a6",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1794096000,
+        "filename": "20261108T061947Z.json",
+        "first_seen": "2026-11-08T06:19:47+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 8388,
+          "cbBTC": 8388
+        },
+        "operational_timeliness_1h_both_assets": false,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 42454278914,
+        "sha256": "932721cc430b74a9329bbfed2f81cf955250e08e1cab85a392cdbb20170b21a1",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1794096000,
+        "filename": "20261108T064325Z.json",
+        "first_seen": "2026-11-08T06:43:25+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 9806,
+          "cbBTC": 9806
+        },
+        "operational_timeliness_1h_both_assets": false,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 42455900128,
+        "sha256": "390d6a4c5b52f0dee10a8ac97d19b38bd10c2786f2f9083bc0bd8006597e3432",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1794124800,
+        "filename": "20261108T152250Z.json",
+        "first_seen": "2026-11-08T15:22:50+00:00",
+        "observed_bar_close_lag_seconds": {},
+        "operational_timeliness_1h_both_assets": false,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 42494506537,
+        "sha256": "01d859ad8573a2b54dda9296ed5e7c61d6799bb6238da808a32d366a4b63b246",
+        "two_asset_bar_received": false
+      },
+      {
+        "closed_bar_start": 1794124800,
+        "filename": "20261108T153620Z.json",
+        "first_seen": "2026-11-08T15:36:20+00:00",
+        "observed_bar_close_lag_seconds": {},
+        "operational_timeliness_1h_both_assets": false,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 42495648238,
+        "sha256": "38272bf10605240af0e22bef213f2b6b04daa72c7fe4a634c382f2905bb6c469",
+        "two_asset_bar_received": false
+      },
+      {
+        "closed_bar_start": 1794153600,
+        "filename": "20261108T203707Z.json",
+        "first_seen": "2026-11-08T20:37:07+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 2227,
+          "cbBTC": 2227
+        },
+        "operational_timeliness_1h_both_assets": true,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 42521037551,
+        "sha256": "351df6d49cb7b975d4d1962251bf2c27e19c94dda6586c29afb265b0014043f5",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1794168000,
+        "filename": "20261109T000754Z.json",
+        "first_seen": "2026-11-09T00:07:54+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 474,
+          "cbBTC": 474
+        },
+        "operational_timeliness_1h_both_assets": true,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 42538498758,
+        "sha256": "3bde5a51465d09130d0f57953fc0eefb1e33afc43ffea9972a920db5e3058d78",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1794182400,
+        "filename": "20261109T065315Z.json",
+        "first_seen": "2026-11-09T06:53:15+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 10396,
+          "cbBTC": 10396
+        },
+        "operational_timeliness_1h_both_assets": false,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 42575812732,
+        "sha256": "0e0c970d1031dbb8709a0fba614747c9fb2562714a59b1918cfc61929e0dec62",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1794182400,
+        "filename": "20261109T071351Z.json",
+        "first_seen": "2026-11-09T07:13:51+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 11632,
+          "cbBTC": 11632
+        },
+        "operational_timeliness_1h_both_assets": false,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 42577973768,
+        "sha256": "c980297b496ac0045b7beec5c9918e72023f7a5b8ed1d4e710461fa54acc6a4e",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1794225600,
+        "filename": "20261109T185553Z.json",
+        "first_seen": "2026-11-09T18:55:53+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 10553,
+          "cbBTC": 10554
+        },
+        "operational_timeliness_1h_both_assets": false,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 42678445694,
+        "sha256": "5b5e60d7624e96562458a7e6beaeb125211d7f09c7f20470de61502513cbc5c1",
+        "two_asset_bar_received": true
+      },
+      {
+        "closed_bar_start": 1794225600,
+        "filename": "20261109T191037Z.json",
+        "first_seen": "2026-11-09T19:10:37+00:00",
+        "observed_bar_close_lag_seconds": {
+          "WETH": 11437,
+          "cbBTC": 11438
+        },
+        "operational_timeliness_1h_both_assets": false,
+        "runner_reported_event_name": "schedule",
+        "runner_reported_run_id": 42680803482,
+        "sha256": "5c6848e7c7f3b2083bb107647304b4d95029e4521fc5b9ed1260596d275ffecb",
+        "two_asset_bar_received": true
+      }
+    ],
+    "valid_both_market_bar_groups": 46,
+    "valid_source_files": 61
+  }
+}
