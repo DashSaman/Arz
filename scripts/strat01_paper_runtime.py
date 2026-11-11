@@ -40,7 +40,12 @@ def runtime_identity():
     source = Path(__file__).resolve()
     files = (source, source.with_name("strat01_multi_paper.py"),
              source.parents[1] / "src/arz/strategies.py",
-             source.parents[1] / "src/arz/data.py")
+             source.parents[1] / "src/arz/data.py",
+             source.with_name("strat01_independent_collector.py"),
+             source.with_name("strat01_investment_readiness.py"),
+             source.with_name("strat01_local_monitor.py"),
+             source.with_name("strat01_capture_slot_preflight.py"),
+             source.with_name("strat01_base_identity_forward.py"))
     return sha({"python": sys.version, "sources": {
         str(f.relative_to(source.parents[1])): hashlib.sha256(f.read_bytes()).hexdigest()
         for f in files
@@ -119,7 +124,7 @@ def append_once(folder, key, obj):
 
 def require_root(root):
     root = Path(root)
-    if not root.is_dir() or root.is_symlink() or (root / ".restore-incomplete").exists():
+    if not root.is_dir() or root.is_symlink() or (root / ".restore-incomplete").exists() or (root / ".restore-incomplete").is_symlink():
         raise ValueError("Paper root missing or restore incomplete")
     for name in ("journal", "observations", "alerts"):
         child = root / name
@@ -193,7 +198,8 @@ def capture_history(source_root, now):
         summary = snapshot_summary(doc, filename=p.name)
         if datetime.fromisoformat(summary["first_seen"]).timestamp() > now:
             raise ValueError("Future first-seen source")
-        if not summary["two_asset_bar_received"]:
+        if (not summary["two_asset_bar_received"]
+                or not summary["operational_timeliness_1h_both_assets"]):
             continue
         target = summary["bar_start"]
         for c in doc["data"]["provider_candles"]:
@@ -212,9 +218,20 @@ def capture_history(source_root, now):
     return audit, tail, len(contiguous)
 
 
+def require_follower_proof():
+    """No authentic cost/signal-time proof adapter exists in this release.
+
+    A configured digest is not evidence. Fail closed until a separately
+    reviewed adapter binds complete costs and durable signal-before-quote
+    chronology. Synthetic tests may explicitly mock this boundary only.
+    """
+    raise ValueError("COST_AND_SIGNAL_PROOF_ADAPTER_UNIMPLEMENTED")
+
+
 def _input_for(slot, now, source_tail, ledger, input_root, contract_hash):
     if not contract_hash or SHA64.fullmatch(contract_hash) is None:
         raise ValueError("COST_UNVERIFIED")
+    require_follower_proof()
     if input_root is None:
         raise ValueError("NO_INDEPENDENT_FOLLOWER_INPUT")
     root = Path(input_root)
@@ -362,6 +379,13 @@ def paper_health(root, now):
     try:
         require_root(root)
         load_account(root)
+        # A liveness heartbeat or duplicate invocation is not fault recovery.
+        for record, _ in _records(Path(root) / "observations"):
+            reason = record.get("reason_code")
+            if (type(reason) is not str or reason.startswith("REFUSED_")
+                    or reason in ("COLLECTOR_UNHEALTHY", "NO_CURRENT_COMPLETED_PAIR",
+                                  "RISK_HALTED_REQUIRES_REVIEW")):
+                return False
         h, _ = _read(Path(root) / "heartbeat.json", 2048)
         t = h.get("actual_unix")
         return (type(t) is int and 0 <= now - t <= 180 and h.get("actual_utc") == utc(t)

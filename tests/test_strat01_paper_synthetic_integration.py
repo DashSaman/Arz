@@ -68,7 +68,7 @@ class SyntheticPaperFlowTests(unittest.TestCase):
         return doc
 
     def _run(self):
-        with patch.object(p, "status_report", return_value=self.report), patch.object(
+        with patch.object(p, "require_follower_proof", return_value=None), patch.object(p, "status_report", return_value=self.report), patch.object(
                 p, "capture_history", return_value=({}, self.history, 194)), patch.object(
                 p, "publish"):
             return p.run_once(self.base / "collector-unused", self.root,

@@ -36,8 +36,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          python -c "from tests.frozen_sources_v7 import materialize_frozen_forward; materialize_frozen_forward('.', '/tmp/arz-m01/frozen-forward')"
           python -m scripts.strat01_data_recovery \
-            --source-dir reports/strat01/forward \
+            --source-dir /tmp/arz-m01/frozen-forward \
             --as-of-unix 1794143640 \
             --output /tmp/arz-m01/mission01-coverage.json \
             > /tmp/arz-m01/mission01-audit.log
@@ -73,7 +74,7 @@ jobs:
         run: python scripts/verify_research_control.py
       - name: Retain offline logs, exact SHA-256 and coverage (not source acquisition)
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: arz-mission01-immutable-coverage
           path: /tmp/arz-m01/

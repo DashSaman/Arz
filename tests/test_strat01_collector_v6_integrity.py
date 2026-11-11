@@ -23,7 +23,7 @@ SUCCESS = "SOURCE_ARCHIVED_REQUIRES_INDEPENDENT_AUDIT"
 
 
 def unavailable(_mode):
-    raise RuntimeError("Synthetic transient failure")
+    raise TimeoutError("Synthetic transient failure")
 
 
 def forbidden_fetch(_mode):
@@ -60,18 +60,18 @@ class CaptureHealthIntegrityTests(unittest.TestCase):
             root = Path(d)
             prepare(root)
             run_once(root, now_unix=AT, network_enabled=True, fetcher=unavailable)
-            run_once(root, now_unix=AT + 1, network_enabled=True,
-                     fetcher=lambda mode: sample_capture(offset=1, completed=False),
-                     observed_now=lambda: AT + 1)
-            _write_heartbeat(root, now_unix=AT + 1, state="COLLECTION_HEALTHY")
-            self.assertFalse(heartbeat_healthy(root, AT + 1))
+            run_once(root, now_unix=AT + 120, network_enabled=True,
+                     fetcher=lambda mode: sample_capture(offset=120, completed=False),
+                     observed_now=lambda: AT + 120)
+            _write_heartbeat(root, now_unix=AT + 120, state="COLLECTION_HEALTHY")
+            self.assertFalse(heartbeat_healthy(root, AT + 120))
             preserved = {p.name: p.read_bytes() for p in (root / "forward").iterdir()}
-            recovered = run_once(root, now_unix=AT + 2, network_enabled=True,
-                                 fetcher=lambda mode: sample_capture(offset=2),
-                                 observed_now=lambda: AT + 2)
+            recovered = run_once(root, now_unix=AT + BAR, network_enabled=True,
+                                 fetcher=lambda mode: sample_capture(bar_index=1),
+                                 observed_now=lambda: AT + BAR)
             self.assertEqual(recovered["outcome"], SUCCESS)
-            _write_heartbeat(root, now_unix=AT + 2, state="COLLECTION_HEALTHY")
-            self.assertTrue(heartbeat_healthy(root, AT + 2))
+            _write_heartbeat(root, now_unix=AT + BAR, state="COLLECTION_HEALTHY")
+            self.assertTrue(heartbeat_healthy(root, AT + BAR))
             for name, raw in preserved.items():
                 self.assertEqual((root / "forward" / name).read_bytes(), raw)
 

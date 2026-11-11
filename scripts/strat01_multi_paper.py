@@ -33,7 +33,7 @@ MAX_VOLUME_FRACTION = Decimal("0.001")
 
 
 def decimal(value, *, positive=False):
-    if type(value) not in (str, int, float, Decimal):
+    if type(value) not in (str, int, Decimal):
         raise ValueError("Invalid decimal type")
     try:
         d = Decimal(str(value))
@@ -165,7 +165,10 @@ class MultiAssetPaper:
         equity_before = self._equity(quotes)
         if self.day != d:
             self.day = d
-            self.day_start = equity_before
+            # Preserve overnight losses against the last causal account mark.
+            # This is not a claim to have an exact midnight market observation.
+            self.day_start = (Decimal(self.equity_marks[-1]["equity"])
+                              if self.equity_marks else CAPITAL)
             self.daily_cost = ZERO
             self.daily_entry_count = 0
         self.peak = max(self.peak, equity_before)

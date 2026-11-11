@@ -175,7 +175,8 @@ class QuoteAdapterTests(unittest.TestCase):
         x = read_receipt_fee_wei(r, transaction_hash=TX, block_hash=BLOCK)
         self.assertEqual(x["l2_wei"], 10**12)
         self.assertEqual(x["l1_wei"], 10**9)
-        self.assertEqual(x["total_wei"], 1_001_000_000_000)
+        self.assertEqual(x["l1_l2_subtotal_wei"], 1_001_000_000_000)
+        self.assertIsNone(x["total_wei"])
 
     def test_missing_l1_is_unknown_not_zero(self):
         r = dict(transactionHash=TX, blockHash=BLOCK, status="0x0",

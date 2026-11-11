@@ -43,7 +43,7 @@ class BoundedRetryTests(unittest.TestCase):
         return result, calls, sleeps
 
     def test_transient_then_success_retries_with_new_first_seen_clock(self):
-        error = {"outcome": "REFUSED_COLLECTOR_ERROR", "reason_code": "RuntimeError"}
+        error = {"outcome": "REFUSED_COLLECTOR_ERROR", "reason_code": "TimeoutError"}
         ok = {"outcome": "SOURCE_ARCHIVED_REQUIRES_INDEPENDENT_AUDIT"}
         result, calls, sleeps = self.run_scenario([error, ok])
         self.assertEqual(result, ok)
@@ -51,7 +51,7 @@ class BoundedRetryTests(unittest.TestCase):
         self.assertEqual(sleeps, [120])
 
     def test_max_three_transient_attempts_without_storm(self):
-        fault = {"outcome": "REFUSED_COLLECTOR_ERROR", "reason_code": "OSError"}
+        fault = {"outcome": "REFUSED_COLLECTOR_ERROR", "reason_code": "ConnectionError"}
         result, calls, sleeps = self.run_scenario([fault] * 4)
         self.assertEqual(result, fault)
         self.assertEqual(calls, [FIRST, FIRST + 120, FIRST + 360])
@@ -93,7 +93,7 @@ class BoundedRetryTests(unittest.TestCase):
                 sleeper=lambda delay: None,
                 attempt=lambda path, **kw: (
                     calls.append(kw["now_unix"]) or
-                    {"outcome": "REFUSED_COLLECTOR_ERROR", "reason_code": "RuntimeError"}))
+                    {"outcome": "REFUSED_COLLECTOR_ERROR", "reason_code": "TimeoutError"}))
         self.assertEqual(len(calls), 1)
         self.assertEqual(result["outcome"], "REFUSED_COLLECTOR_ERROR")
 
@@ -116,12 +116,12 @@ class BoundedRetryTests(unittest.TestCase):
                                  fetcher=denied)
                 self.assertEqual(first["outcome"], PROVIDER_STOP_OUTCOME)
                 self.assertEqual(first["reason_code"], "PROVIDER_ACCESS_REVIEW_REQUIRED")
-                self.assertEqual(len(read_events(root, FIRST)), 1)
+                self.assertEqual(len(read_events(root, FIRST)), 2)
                 never = Mock(side_effect=AssertionError("No subsequent request"))
                 second = run_once(root, now_unix=FIRST + 120, network_enabled=True,
                                   fetcher=never)
                 self.assertEqual(second["outcome"], PROVIDER_STOP_OUTCOME)
-                self.assertEqual(len(read_events(root, FIRST + 120)), 2)
+                self.assertEqual(len(read_events(root, FIRST + 120)), 3)
                 never.assert_not_called()
                 self.assertEqual(list((root / "forward").glob("*.json")), [])
 

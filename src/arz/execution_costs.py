@@ -175,8 +175,10 @@ def read_receipt_fee_wei(receipt: dict, *, transaction_hash: str, block_hash: st
         raise CostValidationError("Unbounded L1 fee")
     return {"status": "MINED_SUCCESS" if receipt["status"] == "0x1" else "MINED_REVERT",
             "l2_wei": units * price, "l1_wei": l1,
-            "total_wei": units * price + l1 if l1 is not None else None,
-            "classification": "FULL_TRANSACTION_RECEIPT_NOT_PROOF_OF_ARZ_FILL"}
+            "l1_l2_subtotal_wei": units * price + l1 if l1 is not None else None,
+            "operator_fee_wei": None, "total_wei": None,
+            "complete_network_fee_verified": False,
+            "classification": "PARTIAL_NETWORK_FEES_NOT_PROOF_OF_ARZ_FILL"}
 
 
 @dataclass(frozen=True)

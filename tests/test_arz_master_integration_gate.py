@@ -7,6 +7,8 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
+from tests.frozen_sources_v7 import materialize_frozen_forward
 
 from scripts import arz_master_integration_gate as gate
 
@@ -37,7 +39,12 @@ def fake_capture(t=1794096000):
 
 class IntegrationGateTests(unittest.TestCase):
     def test_frozen_main_source_snapshot_remains_nonfunded(self):
-        verdict = gate.evaluate(gate.ROOT)
+        with tempfile.TemporaryDirectory() as folder:
+            isolated = Path(folder)
+            materialize_frozen_forward(gate.ROOT, isolated / "reports/strat01/forward")
+            historical = gate.scan_forward(isolated)
+        with patch.object(gate, "scan_forward", return_value=historical):
+            verdict = gate.evaluate(gate.ROOT)
         self.assertEqual(verdict["source_errors"], [], verdict["source_errors"])
         src = verdict["source_audit"]
         self.assertEqual(src["files_checked"], 53)
