@@ -1,0 +1,85 @@
+name: ARZ V7 reproduce safety candidate (NO_GO)
+on:
+  push:
+    branches: ['integration/20261111-v7-final']
+    paths:
+      - 'ops/v7/apply_safety_fixes.py'
+      - '.github/workflows/arz-v7-recover-safety.yml'
+permissions:
+  contents: write
+concurrency:
+  group: arz-v7-recover-safety
+  cancel-in-progress: false
+jobs:
+  candidate:
+    if: github.repository == 'DashSaman/Arz' && github.ref == 'refs/heads/integration/20261111-v7-final'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      PYTHONPATH: src:.
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Verify transport identity and reproduce the unfixed failures
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/v7"
+          test "$(git hash-object ops/v7/apply_safety_fixes.py)" = d6623f9ff1fbadef11ac066c5eeafdfa2b337e80
+          test "$(git hash-object tests/test_arz_v7_regressions.py)" = 9b9498f0e04fef0b780c8e54fe374c488aadb0da
+          git rev-parse HEAD > "$RUNNER_TEMP/v7/input-head.txt"
+          if python3 -m unittest tests.test_arz_v7_regressions -v > "$RUNNER_TEMP/v7/red.log" 2>&1; then
+            echo 'Expected unfixed regressions; refusing ambiguous patch baseline' >&2
+            exit 1
+          fi
+          grep -F 'FAILED (failures=11)' "$RUNNER_TEMP/v7/red.log"
+      - name: Apply anchored patch and verify whole repository offline
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 ops/v7/apply_safety_fixes.py
+          python3 -m unittest tests.test_arz_v7_regressions -v 2>&1 | tee "$RUNNER_TEMP/v7/green.log"
+          python3 -m unittest discover -s tests 2>&1 | tee "$RUNNER_TEMP/v7/full.log"
+          python3 scripts/verify_research_control.py 2>&1 | tee "$RUNNER_TEMP/v7/control.log"
+          python3 scripts/verify_strat01_saved_quant.py 2>&1 | tee "$RUNNER_TEMP/v7/saved-quant.log"
+          python3 scripts/arz_master_integration_gate.py --output "$RUNNER_TEMP/v7/current-gate.json"
+          python3 scripts/strat01_execution_cost_report.py --output "$RUNNER_TEMP/v7/synthetic-costs.json"
+          git diff --check
+          git diff --exit-code 6d2afebd4b5f4c607ec6c10dfc8a57c3a7af79a8 -- reports/strat01 research/control/STATE.json
+      - name: Create candidate commit and retained source bundle
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'Arz V7 offline verification'
+          git config user.email 'arz-v7@users.noreply.github.com'
+          git add -u
+          git add tests/frozen_sources_v7.py
+          git diff --cached --stat > "$RUNNER_TEMP/v7/changed-files.txt"
+          git commit -m 'fix(v7): durable requests, conservative fee semantics and fail-closed paper evidence'
+          git rev-parse HEAD > "$RUNNER_TEMP/v7/candidate-head.txt"
+          git rev-parse HEAD^{tree} > "$RUNNER_TEMP/v7/candidate-tree.txt"
+          git bundle create "$RUNNER_TEMP/v7/candidate.bundle" HEAD ^64fc296c02e19463d08ce4e1fa44cdc20bce360c
+          git bundle verify "$RUNNER_TEMP/v7/candidate.bundle"
+          sha256sum "$RUNNER_TEMP/v7/candidate.bundle" > "$RUNNER_TEMP/v7/candidate.bundle.sha256"
+      - name: Publish isolated candidate only (never main or a live host)
+        shell: bash
+        env:
+          PUBLISH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REPOSITORY" = DashSaman/Arz
+          test "$GITHUB_REF" = refs/heads/integration/20261111-v7-final
+          destination='refs/heads/integration/20261111-v7-recovered-safety'
+          test "$destination" != refs/heads/main
+          header="AUTHORIZATION: basic $(printf 'x-access-token:%s' "$PUBLISH_TOKEN" | base64 -w0)"
+          git -c "http.https://github.com/.extraheader=$header" push origin "HEAD:$destination"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: arz-v7-recovered-safety-source-and-tests
+          path: ${{ runner.temp }}/v7/
+          if-no-files-found: error
+          retention-days: 30
