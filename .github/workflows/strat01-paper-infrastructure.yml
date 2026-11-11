@@ -110,7 +110,11 @@ jobs:
             arz-paper-ci:local \
             python -c 'import json,pathlib; p=pathlib.Path("/paper"); s=json.loads((p/"status.json").read_text()); assert s["last_operation_result"]=="COLLECTOR_UNHEALTHY"; assert s["financial_decision"]=="NO-GO" and s["live_trading"]=="DISABLED"; assert s["paper_account"]["hypothetical_fills"]==0; assert s["paper_qualified_calendar_days"]==0; assert not list((p/"journal").glob("*.json")); print("ISOLATED_CONTAINER_SAFE_NO_FILL:PASS")'
 
-          cp "${RUNNER_TEMP}/arz-paper-ci/paper/status.json" artifacts/paper/status.json
+          # Retain private file permissions; read evidence as its owner in isolation.
+          docker run --rm --network none --read-only --user 65534:65534 \
+            --cap-drop ALL --security-opt no-new-privileges \
+            --volume "${RUNNER_TEMP}/arz-paper-ci/paper:/paper:ro" \
+            arz-paper-ci:local cat /paper/status.json > artifacts/paper/status.json
           docker image inspect arz-paper-ci:local > artifacts/paper/image-inspect.json
           git rev-parse HEAD > artifacts/paper/source-commit.txt
           git rev-parse HEAD^{tree} > artifacts/paper/source-tree.txt
