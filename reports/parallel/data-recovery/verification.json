@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "mission": "ARZ-MISSION-01",
+  "classification": "VERIFIED_GITHUB_CI_AND_OFFLINE_SOURCE_AUDIT_NOT_PROFIT_OR_HOST_UPTIME",
+  "verification_utc": "2026-11-08T13:35:33Z",
+  "base_main_commit": "11e8bf28dee8ff85d386187928e53ead2b032144",
+  "passed_ci_head": "cebba3de4447404e4501950550fe345ba33cd53b",
+  "pull_request_url": "https://github.com/DashSaman/Arz/pull/94",
+  "ci": {
+    "dedicated": {
+      "run_url": "https://github.com/DashSaman/Arz/actions/runs/42485650915",
+      "run_id": 42485650915,
+      "job_id": 128746815421,
+      "conclusion": "success",
+      "synthetic_mission01_unit_tests": {
+        "methods": 17,
+        "passed": 17,
+        "failed": 0
+      },
+      "original_forward_source_coverage": {
+        "retained_files": 53,
+        "exact_original_source_sha256_matched": 53,
+        "distinct_paired_bars": 42,
+        "timely_paired_bars": 18,
+        "missing_paired_four_hour_closes": 33,
+        "duplicate_paired_slots": 8,
+        "longest_timely_chain": 5,
+        "qualified_paper_days": 0
+      },
+      "source_coverage_json_sha256": "cb7c7d39918d276b51a49d734497daf0125f8d00b47d59ecada19008516d3994",
+      "unit_test_log_sha256": "62b877684bac5de35ea523120853aa703b7e02aeb530c7beef0473dd37e428e0",
+      "artifact_id": 13619770304,
+      "artifact_url": "https://github.com/DashSaman/Arz/actions/runs/42485650915/artifacts/13619770304",
+      "artifact_zip_sha256": "3f187fa527a01d9229895e917d086313026a9f7bea3c6c9ce613c08b788d75ac",
+      "canonical_research_control_verification": "pass"
+    },
+    "full_offline_tests": {
+      "run_url": "https://github.com/DashSaman/Arz/actions/runs/42485650908",
+      "run_id": 42485650908,
+      "job_id": 128746815366,
+      "conclusion": "success",
+      "methods": 1625,
+      "skipped": 4,
+      "failed": 0
+    },
+    "research_only": {
+      "run_id": 42485650892,
+      "run_url": "https://github.com/DashSaman/Arz/actions/runs/42485650892",
+      "conclusion": "success"
+    },
+    "local_monitor": {
+      "run_id": 42485650901,
+      "run_url": "https://github.com/DashSaman/Arz/actions/runs/42485650901",
+      "conclusion": "success"
+    },
+    "isolated_container": {
+      "run_id": 42485650893,
+      "run_url": "https://github.com/DashSaman/Arz/actions/runs/42485650893",
+      "conclusion": "success",
+      "jobs": [
+        "offline-release-smoke",
+        "packaged-image-smoke"
+      ],
+      "ephemeral_safety": {
+        "network_mode": "none",
+        "source_files": 0,
+        "qualified_paper_days": 0,
+        "financial_decision": "NO-GO",
+        "live_trading": "DISABLED"
+      },
+      "source_mount_artifact": {
+        "artifact_id": 13618884776,
+        "artifact_zip_sha256": "8099ba89a53c769be4c32fd8e19c8a7e03dcd9c68482ed3bd36bfc7d07a727c3"
+      },
+      "packaged_artifact": {
+        "artifact_id": 13619233129,
+        "artifact_zip_sha256": "c6779367a674fda8a55e3ee6227db83e17bfaffebe2f34cf4c5bfb833d8601e7"
+      }
+    }
+  },
+  "limits": {
+    "ci_covered_commit_only": "cebba3de4447404e4501950550fe345ba33cd53b",
+    "additional_delivery_only_commits_need_final_head_ci_verification": true,
+    "new_authentic_market_provider_calls": 0,
+    "new_historical_raw_inputs": 0,
+    "independent_247_host_uptime_verified": false,
+    "independent_candle_provider_publication_verified": false,
+    "continuous_194_paired_bars_verified": false,
+    "qualifying_paper_days": 0,
+    "financial_decision": "NO-GO",
+    "live_trading": "DISABLED",
+    "capital_authorized_usd": 0
+  }
+}
