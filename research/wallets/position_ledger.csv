@@ -1,0 +1,1 @@
+chain,wallet,token_contract,inventory_lot_id,entry_tx_hash,entry_time_utc,entry_qty,entry_cost_basis_usd,entry_fee_usd,exit_tx_hash,exit_time_utc,exit_qty,exit_proceeds_usd,exit_fee_usd,realized_pnl_usd,remaining_qty,unrealized_pnl_usd,holding_duration_seconds,mae,mfe,cost_basis_status,primary_data_status

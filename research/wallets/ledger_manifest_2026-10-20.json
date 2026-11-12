@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "as_of_utc": "2026-10-20",
+  "role": "schema_only_not_data",
+  "normalized_trades_csv": "research/wallets/normalized_trades.csv",
+  "normalized_trades_rows": 0,
+  "position_ledger_csv": "research/wallets/position_ledger.csv",
+  "position_ledger_rows": 0,
+  "copy_backtest_csv": "reports/backtests/wallet_copy_results.csv",
+  "copy_backtest_rows": 0,
+  "excluded_not_complete_trade_legs": "research/tradecitypro/data/gems_sale_legs_source_audited_2026-10-20.csv",
+  "why_zero": "No independently verified execution-level historical prices with full transfer/inventory/cost basis. Existing TradeCity 3 GEMS sale legs lack USD basis and complete chain RPC receipt checks. Provider token summaries are not real per-transaction legs. Do not fill these files using synthetic or inferred prices.",
+  "required_to_populate": [
+    "bounded legal full-history RPC/indexer capture and chain+slot+tx+log fidelity",
+    "actual executed token in/out quantities, mints, decimals, native/wrapped asset handling",
+    "DEX router/pool and real execution quote, bid/ask impact and gas/priority tips",
+    "transfers, staking, bridges, LP, cashflow, opening inventory accounted separately",
+    "independent second-source reconciliation",
+    "UNKNOWN rather than zero for missing basis",
+    "fresh OOS signal timing + wallet discovery and executable latency pricing"
+  ],
+  "authorized_to_trade": false,
+  "decision": "NO-GO"
+}

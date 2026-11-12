@@ -1,0 +1,1 @@
+strategy,wallet,chain,signal_timestamp_utc,discovery_timestamp_utc,copy_delay_seconds,slippage_fraction,starting_capital_usd,ending_capital_usd,net_return,max_drawdown,closed_trades,fees_usd,data_status,run_manifest_sha256
