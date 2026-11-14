@@ -1,0 +1,60 @@
+name: ARZ V7 offline integration verification
+
+on:
+  push:
+    branches: ['integration/20261111-v7-final']
+  pull_request:
+    paths:
+      - '.github/workflows/arz-v7-offline-verification.yml'
+      - 'scripts/arz_v7_*.py'
+      - 'tests/test_arz_v7_*.py'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: arz-v7-offline-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  offline-verification:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      PYTHONPATH: src:.
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Preserve committed source for isolated offline reproduction
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "${RUNNER_TEMP}/arz-v7-evidence"
+          git rev-parse HEAD > "${RUNNER_TEMP}/arz-v7-evidence/head.txt"
+          git rev-parse HEAD^{tree} > "${RUNNER_TEMP}/arz-v7-evidence/tree.txt"
+          git for-each-ref --format='%(refname) %(objectname)' > "${RUNNER_TEMP}/arz-v7-evidence/refs.txt"
+          python3 --version > "${RUNNER_TEMP}/arz-v7-evidence/python.txt"
+          git bundle create "${RUNNER_TEMP}/arz-v7-evidence/source.bundle" --all
+          git bundle verify "${RUNNER_TEMP}/arz-v7-evidence/source.bundle"
+          cd "${RUNNER_TEMP}/arz-v7-evidence"
+          sha256sum source.bundle > source.bundle.sha256
+      - name: Verify canonical research safety controls
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/verify_research_control.py 2>&1 | tee "${RUNNER_TEMP}/arz-v7-evidence/control.log"
+      - name: Run complete existing offline test suite
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m unittest discover -s tests 2>&1 | tee "${RUNNER_TEMP}/arz-v7-evidence/tests.log"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: arz-v7-offline-source-and-verification
+          path: ${{ runner.temp }}/arz-v7-evidence/
+          if-no-files-found: error
+          retention-days: 3

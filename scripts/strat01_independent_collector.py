@@ -20,7 +20,7 @@ import time
 from typing import Callable
 import uuid
 
-from scripts.strat01_base_identity_forward import BAR, START_OOS, _utc_bar_start, collect
+from scripts.strat01_base_identity_forward import BAR, START_OOS, _utc_bar_start, collect, BoundedError
 from scripts.strat01_capture_slot_preflight import decide
 from scripts.strat01_investment_readiness import (
     MAX_BYTES_PER_CAPTURE, MAX_CAPTURE_FILES, audit_capture_dir, snapshot_summary,
@@ -32,6 +32,7 @@ MAX_RUNTIME_LAG_SECONDS = 90
 HEALTH_MAX_AGE_SECONDS = 180
 MAX_EVENTS = 10_000
 MAX_EVENT_BYTES = 32_000
+ATTEMPT_RESERVED = "COLLECTOR_ATTEMPT_RESERVED_V7"
 PROVIDER_STOP_OUTCOME = "REFUSED_PROVIDER_ACCESS_STOP"
 FAILURE_OUTCOMES = frozenset({
     "REFUSED_INVALID_ARCHIVE", "REFUSED_COLLECTOR_ERROR", "REFUSED_POSTWRITE_AUDIT",
@@ -113,10 +114,54 @@ def read_events(root: Path, now_unix: int) -> list[dict]:
                 or type(event.get("real_capital_authorized_usd")) is not int
                 or event["real_capital_authorized_usd"] != 0
                 or event.get("outcome") not in FAILURE_OUTCOMES | {
-                    SUCCESS_OUTCOME, "SKIPPED_NO_CAPTURE", "REFUSED_NETWORK_DISABLED"}):
+                    SUCCESS_OUTCOME, ATTEMPT_RESERVED, "SKIPPED_NO_CAPTURE", "REFUSED_NETWORK_DISABLED"}):
             raise ValueError("Invalid event safety/provenance evidence")
         events.append(event)
-    return sorted(events, key=lambda event: event["actual_clock_unix"])
+    ordered = sorted(events, key=lambda event: event["actual_clock_unix"])
+    _attempt_history(ordered)
+    return ordered
+
+
+def _attempt_history(events):
+    """Reconcile durable pre-request reservations; an unfinished request is unknown.
+
+    The existing writer lock serializes reservations. Reservations and results
+    remain in the existing event directory, so backup/restore preserves budgets.
+    """
+    reserved, completed = {}, set()
+    for event in events:
+        identity = event.get("request_id")
+        if event["outcome"] != ATTEMPT_RESERVED:
+            continue
+        ordinal = event.get("request_ordinal")
+        target = event.get("target_bar_start_unix")
+        if (type(identity) is not str or len(identity) != 32
+                or any(ch not in "0123456789abcdef" for ch in identity)
+                or identity in reserved or type(ordinal) is not int
+                or not 1 <= ordinal <= 3 or type(target) is not int
+                or target != _utc_bar_start(event["actual_clock_unix"])):
+            raise ValueError("Invalid durable request reservation")
+        reserved[identity] = event
+    per_slot = {}
+    for item in reserved.values():
+        per_slot.setdefault(item["target_bar_start_unix"], []).append(item)
+    for group in per_slot.values():
+        group.sort(key=lambda e: e["actual_clock_unix"])
+        if [e["request_ordinal"] for e in group] != list(range(1, len(group) + 1)):
+            raise ValueError("Reordered or duplicate request reservation")
+        for index in range(1, len(group)):
+            if group[index]["actual_clock_unix"] - group[index-1]["actual_clock_unix"] < (120, 240)[index-1]:
+                raise ValueError("Persisted request backoff violated")
+    for event in events:
+        identity = event.get("request_id")
+        if identity is None or event["outcome"] == ATTEMPT_RESERVED:
+            continue
+        if (type(identity) is not str or identity not in reserved
+                or event["target_bar_start_unix"] != reserved[identity]["target_bar_start_unix"]
+                or event["actual_clock_unix"] != reserved[identity]["actual_clock_unix"]):
+            raise ValueError("Orphaned request result")
+        completed.add(identity)
+    return per_slot, set(reserved) - completed
 
 
 def collection_failed(root: Path, events: list[dict], now_unix: int) -> bool:
@@ -125,6 +170,8 @@ def collection_failed(root: Path, events: list[dict], now_unix: int) -> bool:
     Equal-second events have no reliable ordering, so failure wins the tie.
     Neutral skips/network opt-out do not establish recovery.
     """
+    if _attempt_history(events)[1]:
+        return True
     # Provider refusal requires explicit review; a later successful observation
     # or process restart is not authorization to resume access.
     if any(e["outcome"] == PROVIDER_STOP_OUTCOME for e in events):
@@ -275,6 +322,11 @@ def _write_new(folder: Path, name: str, obj: dict) -> Path:
         stream.write(raw)
         stream.flush()
         os.fsync(stream.fileno())
+    directory_fd = os.open(folder, os.O_RDONLY | os.O_DIRECTORY)
+    try:
+        os.fsync(directory_fd)
+    finally:
+        os.close(directory_fd)
     return path
 
 
@@ -344,7 +396,8 @@ def _exclusive(root: Path):
 
 
 def _event(events: Path, *, at: int, target: int | None,
-           outcome: str, source: dict | None = None, reason: str | None = None) -> dict:
+           outcome: str, source: dict | None = None, reason: str | None = None,
+           request_id: str | None = None, request_ordinal: int | None = None) -> dict:
     record = {
         "schema_version": 1,
         "kind": "INDEPENDENT_LOCAL_CLOCK_OBSERVATION_NOT_ELIGIBLE_PAPER",
@@ -363,6 +416,10 @@ def _event(events: Path, *, at: int, target: int | None,
         "live_trading": "DISABLED",
         "real_capital_authorized_usd": 0,
     }
+    if request_id is not None:
+        record["request_id"] = request_id
+    if request_ordinal is not None:
+        record["request_ordinal"] = request_ordinal
     name = datetime.fromtimestamp(at, timezone.utc).strftime("%Y%m%dT%H%M%SZ") \
            + "-" + uuid.uuid4().hex[:16] + ".json"
     _write_new(events, name, record)
@@ -414,6 +471,35 @@ def run_once(root: Path, *, now_unix: int,
             return _event(events, at=now_unix, target=target,
                           outcome="REFUSED_NETWORK_DISABLED",
                           reason="EXPLICIT_READONLY_OPT_IN_REQUIRED")
+        groups, pending = _attempt_history(previous)
+        prior_attempts = groups.get(target, [])
+        refusal = None
+        if pending:
+            refusal = "UNFINISHED_REQUEST_REQUIRES_REVIEW"
+        elif len(prior_attempts) >= 3:
+            refusal = "PER_CLOSE_REQUEST_BUDGET_EXHAUSTED"
+        elif prior_attempts:
+            last = prior_attempts[-1]
+            delay = (120, 240)[len(prior_attempts)-1]
+            results = [e for e in previous if e.get("request_id") == last["request_id"]
+                       and e["outcome"] != ATTEMPT_RESERVED]
+            if now_unix < last["actual_clock_unix"] + delay:
+                refusal = "PERSISTED_BACKOFF_NOT_ELAPSED"
+            elif now_unix > target + BAR + 3600:
+                refusal = "RETRY_WINDOW_EXPIRED"
+            elif not results or any(e["outcome"] != "REFUSED_COLLECTOR_ERROR"
+                                   or e["reason_code"] not in RETRYABLE_FAILURE_REASONS
+                                   for e in results):
+                refusal = "PREVIOUS_REQUEST_NOT_RETRYABLE"
+        if refusal:
+            return _event(events, at=now_unix, target=target,
+                          outcome="REFUSED_COLLECTOR_ERROR", reason=refusal)
+        request_id = uuid.uuid4().hex
+        _event(events, at=now_unix, target=target, outcome=ATTEMPT_RESERVED,
+               request_id=request_id, request_ordinal=len(prior_attempts)+1,
+               reason="RESERVED_BEFORE_EXTERNAL_REQUEST")
+        def result_event(folder, **kwargs):
+            return _event(folder, request_id=request_id, **kwargs)
         provider_stopped = False
         provider_stop_event = None
         try:
@@ -425,7 +511,7 @@ def run_once(root: Path, *, now_unix: int,
                 # Persist access refusal before any fallible clock/schema
                 # validation. Invalid or slow evidence is not permission to
                 # repeat a provider request after restart.
-                provider_stop_event = _event(
+                provider_stop_event = result_event(
                     events, at=now_unix, target=target,
                     outcome=PROVIDER_STOP_OUTCOME, reason="PROVIDER_ACCESS_REVIEW_REQUIRED")
             recorded = evidence.get("collected_utc")
@@ -452,7 +538,7 @@ def run_once(root: Path, *, now_unix: int,
             if (audit["errors"] or audit["conflicts"]
                     or audit["file_count"] != audit["valid_source_files"]):
                 # Keep the immutable file for investigation; do not erase evidence.
-                return _event(events, at=now_unix, target=target,
+                return result_event(events, at=now_unix, target=target,
                               outcome="REFUSED_POSTWRITE_AUDIT", reason="SOURCE_CONFLICT")
             sha = hashlib.sha256(file_path.read_bytes()).hexdigest()
             provider_stopped = provider_stopped or _provider_access_stopped(evidence)
@@ -461,7 +547,7 @@ def run_once(root: Path, *, now_unix: int,
                 quality_reason = "INCOMPLETE_TWO_ASSET_BAR"
             elif summary["operational_timeliness_1h_both_assets"] is not True:
                 quality_reason = "CAPTURE_OUTSIDE_OPERATIONAL_WINDOW"
-            return _event(events, at=now_unix, target=target,
+            return result_event(events, at=now_unix, target=target,
                           outcome=(PROVIDER_STOP_OUTCOME if provider_stopped else
                                    "REFUSED_CAPTURE_QUALITY" if quality_reason else SUCCESS_OUTCOME),
                           reason="PROVIDER_ACCESS_REVIEW_REQUIRED" if provider_stopped else quality_reason,
@@ -472,10 +558,72 @@ def run_once(root: Path, *, now_unix: int,
         except (ValueError, OSError, KeyError, TypeError, RuntimeError) as exc:
             if provider_stop_event is not None:
                 return provider_stop_event
+            # Directly raised bounded access errors are equally terminal.
+            # Never retry HTTP 403/429/529 after their response was rejected.
+            refused = (isinstance(exc, BoundedError)
+                       and str(exc) in {"HTTP_403", "HTTP_429", "HTTP_529",
+                                        "PROVIDER_ACCESS_STOPPED", "OVERSIZE_RESPONSE"})
+            stopped = provider_stopped or refused
             # Avoid logging URLs, request bodies or secrets through exception text.
-            return _event(events, at=now_unix, target=target,
-                          outcome=PROVIDER_STOP_OUTCOME if provider_stopped else "REFUSED_COLLECTOR_ERROR",
-                          reason="PROVIDER_ACCESS_REVIEW_REQUIRED" if provider_stopped else type(exc).__name__)
+            return result_event(events, at=now_unix, target=target,
+                          outcome=PROVIDER_STOP_OUTCOME if stopped else "REFUSED_COLLECTOR_ERROR",
+                          reason="PROVIDER_ACCESS_REVIEW_REQUIRED" if stopped else type(exc).__name__)
+
+
+# At most three attempts per real close. Only transient local/transport
+# failures are retryable; provider refusals, malformed captures, revisions,
+# wrong markets, disabled networking and quality failures are never retried.
+RETRY_DELAYS_SECONDS = (120, 240)
+RETRYABLE_FAILURE_REASONS = frozenset({
+    "TimeoutError", "ConnectionError",
+})
+
+
+def run_due_with_retries(root: Path, *, network_enabled: bool,
+                         clock: Callable[[], int],
+                         sleeper: Callable[[int], None],
+                         attempt: Callable | None = None,
+                         on_result: Callable[[int], None] | None = None) -> dict:
+    """One bounded as-observed slot, with fresh clocks and append-only faults.
+
+    The first request may be late; further attempts are allowed only within
+    one hour after this same 4h close. Never replay a missed prior close.
+    This does not attest source publication, host uptime or paper eligibility.
+    """
+    initial = clock()
+    if type(initial) is not int or initial < START_OOS + BAR:
+        raise ValueError("Invalid independent scheduler clock")
+    target = _utc_bar_start(initial)
+    run = run_once if attempt is None else attempt
+    last_at = None
+    latest = None
+    for index in range(1 + len(RETRY_DELAYS_SECONDS)):
+        at = clock()
+        if type(at) is not int or at < initial:
+            raise ValueError("Independent scheduler clock moved backwards")
+        if index and (at <= last_at
+                      or _utc_bar_start(at) != target
+                      or at > target + BAR + 3600):
+            break
+        latest = run(root, now_unix=at, network_enabled=network_enabled)
+        last_at = at
+        print(json.dumps(latest, sort_keys=True), flush=True)
+        # The durable refusal must be visible to health checks before any
+        # backoff sleep; a previously healthy heartbeat must not mask it.
+        if on_result is not None:
+            on_result(clock())
+        if (latest.get("outcome") != "REFUSED_COLLECTOR_ERROR"
+                or latest.get("reason_code") not in RETRYABLE_FAILURE_REASONS
+                or index == len(RETRY_DELAYS_SECONDS)):
+            break
+        delay = RETRY_DELAYS_SECONDS[index]
+        # No repeat if the current clock already makes a next attempt late.
+        if clock() + delay > target + BAR + 3600:
+            break
+        sleeper(delay)
+    if latest is None:
+        raise ValueError("No collector attempt at actual clock")
+    return latest
 
 
 def main() -> int:
@@ -510,9 +658,12 @@ def main() -> int:
                 _write_heartbeat(args.data_root, now_unix=now,
                                  state=operational_state(args.data_root, now, network))
                 time.sleep(min(30, max(1, due - now)))
-            result = run_once(args.data_root, now_unix=int(time.time()),
-                              network_enabled=network)
-            print(json.dumps(result, sort_keys=True), flush=True)
+            result = run_due_with_retries(
+                args.data_root, network_enabled=network,
+                clock=lambda: int(time.time()), sleeper=time.sleep,
+                on_result=lambda observed: _write_heartbeat(
+                    args.data_root, now_unix=observed,
+                    state=operational_state(args.data_root, observed, network)))
             # Reconstruct status from durable evidence on every loop/restart.
             now = int(time.time())
             _write_heartbeat(args.data_root, now_unix=now,

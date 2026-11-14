@@ -153,17 +153,17 @@ class IndependentReadOnlyTests(unittest.TestCase):
         with TemporaryDirectory() as d:
             root=Path(d);prepare(root);at=START_OOS+BAR+180
             run_once(root,now_unix=at,network_enabled=True,
-                     fetcher=Mock(side_effect=RuntimeError("offline fault")))
+                     fetcher=Mock(side_effect=TimeoutError("offline fault")))
             run_once(root,now_unix=at+1,network_enabled=False)
             _write_heartbeat(root,now_unix=at+1,state="NETWORK_DISABLED")
             self.assertFalse(heartbeat_healthy(root,at+1))
-            recovered=run_once(root,now_unix=at+2,network_enabled=True,
-                               fetcher=lambda mode:sample_capture(offset=2),
-                               observed_now=lambda:at+2)
+            recovered=run_once(root,now_unix=at+120,network_enabled=True,
+                               fetcher=lambda mode:sample_capture(offset=120),
+                               observed_now=lambda:at+120)
             self.assertEqual(recovered["outcome"],
                              "SOURCE_ARCHIVED_REQUIRES_INDEPENDENT_AUDIT")
-            _write_heartbeat(root,now_unix=at+2,state="COLLECTION_HEALTHY")
-            self.assertTrue(heartbeat_healthy(root,at+2))
+            _write_heartbeat(root,now_unix=at+120,state="COLLECTION_HEALTHY")
+            self.assertTrue(heartbeat_healthy(root,at+120))
 
     def test_incomplete_restore_blocks_collection_and_health(self):
         with TemporaryDirectory() as d:
@@ -201,17 +201,17 @@ class IndependentReadOnlyTests(unittest.TestCase):
             with self.subTest(mode=mode),TemporaryDirectory() as d:
                 root=Path(d);prepare(root);at=START_OOS+BAR+180
                 run_once(root,now_unix=at,network_enabled=True,
-                         fetcher=Mock(side_effect=RuntimeError("offline fault")))
-                success=run_once(root,now_unix=at+1,network_enabled=True,
-                                 fetcher=lambda mode:sample_capture(offset=1),
-                                 observed_now=lambda:at+1)
+                         fetcher=Mock(side_effect=TimeoutError("offline fault")))
+                success=run_once(root,now_unix=at+120,network_enabled=True,
+                                 fetcher=lambda mode:sample_capture(offset=120),
+                                 observed_now=lambda:at+120)
                 source=root/"forward"/success["source"]["filename"]
                 if mode=="missing":
                     source.unlink()
                 else:
                     source.write_text(source.read_text()+" ")
-                _write_heartbeat(root,now_unix=at+1,state="COLLECTION_HEALTHY")
-                self.assertFalse(heartbeat_healthy(root,at+1))
+                _write_heartbeat(root,now_unix=at+120,state="COLLECTION_HEALTHY")
+                self.assertFalse(heartbeat_healthy(root,at+120))
 
     def test_corrupt_event_cannot_be_masked_by_fresh_heartbeat(self):
         with TemporaryDirectory() as d:
