@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "mission": "ARZ-MISSION-02-20261108",
+  "base_main_sha_at_branch_creation": "11e8bf28dee8ff85d386187928e53ead2b032144",
+  "new_market_rpc_calls_by_mission": 0,
+  "transaction_signatures": 0,
+  "submitted_transactions": 0,
+  "own_real_transaction_receipts": 0,
+  "sources": [
+    {
+      "path": "reports/strat01/2026-10-27-base-identity-observed.json",
+      "class": "HISTORICAL_FACTORY_VERIFIED_500PPM_SINGLE_POOL"
+    },
+    {
+      "path": "research/control/STATE.json",
+      "evidence_id": "EV-002",
+      "class": "HISTORICAL_SAME_BLOCK_READ_ONLY_NOT_FILL",
+      "weth_same_block_roundtrip_gap_usdc_ex_gas": "0.020015",
+      "cbbtc_same_block_roundtrip_gap_usdc_ex_gas": "0.020629"
+    },
+    {
+      "path": "reports/strat01/2026-10-27-base-fee-envelope-observed.json",
+      "class": "HYPOTHETICAL_SIZED_GAS_ENVELOPE_NOT_PAID_NETWORK_FEE"
+    },
+    {
+      "path": "reports/strat01/2026-11-01-public-receipt-cost/pilot-observed.json",
+      "class": "HTTP_429_STOPPED_ZERO_RECEIPTS"
+    }
+  ],
+  "output_kind": "OFFLINE_NUMERICAL_SCENARIOS_AND_SYNTHETIC_TEST_FIXTURES",
+  "isolated_local_test_methods_passed": 25,
+  "whole_repository_tests_this_mission_observed": false,
+  "deterministic_sensitivity_rows": 18,
+  "completed_independent_follower_roundtrips": 0,
+  "new_genuine_paid_fee_observations": 0,
+  "new_actual_executable_router_simulations": 0,
+  "complete_execution_costs_verified": false,
+  "cost_verdict": "COST_UNVERIFIED",
+  "profitability_verdict": "NO_GO",
+  "prospective_paper_days_qualified": 0,
+  "real_capital_authorized_usdc": "0",
+  "live_trading": "DISABLED"
+}
