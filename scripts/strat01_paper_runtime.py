@@ -79,6 +79,15 @@ def _read(path, max_bytes=400000):
     return _json_object(raw), hashlib.sha256(raw).hexdigest()
 
 
+def _sync_parent_directory(folder):
+    """Persist a new/replaced directory entry, not only its file contents."""
+    fd = os.open(folder, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW)
+    try:
+        os.fsync(fd)
+    finally:
+        os.close(fd)
+
+
 def atomic(path, raw):
     path = Path(path)
     if path.is_symlink() or not path.parent.is_dir() or path.parent.is_symlink():
@@ -93,6 +102,7 @@ def atomic(path, raw):
             os.fsync(f.fileno())
         os.replace(temp, path)
         os.chmod(path, 0o600)
+        _sync_parent_directory(path.parent)
     finally:
         if temp is not None:
             temp.unlink(missing_ok=True)
@@ -111,6 +121,7 @@ def append_once(folder, key, obj):
             f.write(raw)
             f.flush()
             os.fsync(f.fileno())
+        _sync_parent_directory(folder)
         return True
     except FileExistsError:
         present, _ = _read(path)
