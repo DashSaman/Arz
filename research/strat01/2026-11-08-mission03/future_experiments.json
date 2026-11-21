@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "mission": "ARZ_MISSION_03_2026-11-08",
+  "origin_main_commit": "11e8bf28dee8ff85d386187928e53ead2b032144",
+  "type": "FUTURE_PROTOCOL_SPECIFICATION_NOT_EXECUTED_OR_OOS_APPROVED",
+  "status": "PREREGISTRATION_DRAFT_PENDING_INDEPENDENT_REVIEW_AND_AUTHENTIC_DATA",
+  "prior_information_contaminated": [
+    "historical 2025 and 2026 S0 paths",
+    "Oct 13 original holdouts and overlapping walk-forward results",
+    "native hourly selected positive and negative cases",
+    "October 31 all-family comparison",
+    "November 4 and November 6 financial audits"
+  ],
+  "no_new_results": true,
+  "unseen_holdout_not_opened": true,
+  "separation": {
+    "time_order": "strict chronological",
+    "train_fraction": 0.6,
+    "validation_fraction": 0.2,
+    "single_sealed_test_fraction": 0.2,
+    "warmup_bars": 194,
+    "minimum_inter_market_coverage": "same UTC close both Base WETH/USDC and cbBTC/USDC",
+    "blackouts": "drop ineligible windows rather than interpolate and never select favorable periods",
+    "time_of_signal": "completed source-close only, first genuine next execution opportunity at signal+60 seconds; protect gaps and stale quotes",
+    "estimated_independence": "correlated trade/cost copies and overlapping windows never increase cycles"
+  },
+  "data_requirements": [
+    "complete permitted raw candles and source timestamps with immutable hashes",
+    "original source availability and quote-token orientation",
+    "first-seen chronology and strict duplicate/revision controls",
+    "fresh untouched data recorded after final hypothesis freeze",
+    "uninterrupted 194-bar input prehistory where required"
+  ],
+  "cost_requirements": [
+    "Mission 02 verified full BUY and SELL size-specific +60 seconds quotes",
+    "L1 plus L2 plus operator/priority and failed/approval gas",
+    "spread, slippage, impact, route/MEV adverse selection",
+    "at least 2x full costs and outage/late execution stress",
+    "no missing cost default to zero"
+  ],
+  "canonical_gates": {
+    "independent_closed_cycles": 100,
+    "H3_independent_closed_cycles": 200,
+    "profit_factor_min": 1.5,
+    "maximum_full_account_drawdown": 0.1,
+    "positive_base_stress_net_geometric_calendar_account": true,
+    "dependence_aware_positive_selection_adjusted_lower_bound": true,
+    "real_prospective_days": 90,
+    "H4_real_prospective_days": 180,
+    "full_costs_verified": true,
+    "untouched_oos": true,
+    "live_trading": "DISABLED",
+    "authorized_capital_usd": 0
+  },
+  "policy": {
+    "capital_equivalent_usdc_cap_including_all_costs": 100,
+    "single_shared_account": true,
+    "max_leg_usd": 25,
+    "no_leverage": true,
+    "no_martingale": true,
+    "no_auto_funding": true,
+    "signal_count_quotas": "none",
+    "candidate_count_for_multiplicity": 5,
+    "inference": "family-wise one-sided 95% lower bound across all five candidates using a prespecified dependence-aware method; report uncorrected only as descriptive",
+    "negative_results": "publish all attempts and blocked outcomes"
+  },
+  "frozen_existing_baselines": [
+    {
+      "id": "registered_trend",
+      "config": "configs/preregistered_strategies.json",
+      "parameters": {
+        "fast": 12,
+        "slow": 48
+      }
+    },
+    {
+      "id": "registered_momentum",
+      "config": "configs/preregistered_strategies.json",
+      "parameters": {
+        "lookback": 12,
+        "entry_return": 0.02,
+        "exit_return": 0
+      }
+    },
+    {
+      "id": "registered_mean_reversion",
+      "config": "configs/preregistered_strategies.json",
+      "parameters": {
+        "window": 24,
+        "entry_z": -1.5,
+        "exit_z": 0
+      }
+    },
+    {
+      "id": "S0_ATR",
+      "protocol": "research/strat01/2026-10-31-all-strategies/protocol.md",
+      "parameters": "original frozen code and native clock, no refit on seen windows"
+    }
+  ],
+  "proposed_exploratory_families": [
+    {
+      "id": "ATR_TREND_RISK",
+      "rationale": "trend carry may be offset by tail loss; close-based ATR controls exposure without claiming stop fill",
+      "rules": "use pre-existing trend fast12/slow48 on completed 4h bars; ATR14 using only prior completed bars; 2x ATR protective exit signal and no same-bar idealized fills; first observed authentic executable quote after permitted delay",
+      "mandatory_caveat": "stop gaps and unfilled orders require actual quotes; cannot claim drawdown protection from close marks"
+    },
+    {
+      "id": "VOL_FILTER_MOMENTUM",
+      "rationale": "momentum may perform differently in volatility regimes",
+      "rules": "use pre-existing fixed momentum lookback12 entry>2%, exit<=0; admit entries only if trailing14-bar ATR/close is <= trailing90-bar median of that ratio computed strictly at signal time; no other parameters selected using held-out returns"
+    },
+    {
+      "id": "LOW_VOL_MEAN_REVERSION",
+      "rationale": "mean reversion may be overwhelmed in high-volatility trends",
+      "rules": "use existing window24 and entry_z=-1.5/exit_z=0; entry allowed only when realized volatility of 24 completed close returns <= trailing90-observation median of the same statistic at signal time"
+    },
+    {
+      "id": "RISK_ADJUSTED_ROTATION",
+      "rationale": "select positive cross-asset relative strength without overlap or simultaneous separate accounts",
+      "rules": "at most one $25 leg in a single $100 USDC account; compare WETH and cbBTC trailing12 four-hour close returns, choose highest strictly positive and above cash, rebalance only on a changed winner, min order and risk caps unchanged; both asset candles must be complete"
+    },
+    {
+      "id": "WALLET_CONFIRM_ONLY",
+      "rationale": "independently attributable wallet flow may have conditional predictive value, not proved by explorer balances",
+      "rules": "no autonomous wallet-copy execution; veto or confirm an otherwise eligible frozen S0 signal only when timestamped signer, actual acquisition lots, fresh quote and follower-time direction are independently corroborated; if unavailable remain abstain/blocked"
+    }
+  ],
+  "before_execution": [
+    "independent protocol reviewer signs exact code/data/cost hashes and locks selected hypothesis cohort",
+    "establish new chronologically untouched score window after freeze",
+    "run capacity and paired source/quote tests without forbidden provider probing",
+    "record every attempted and refused candidate, including null data",
+    "holdout only once; no tuning and re-testing",
+    "do not upgrade NO_GO from a drafted protocol"
+  ],
+  "reportable_now": "NO_GO_INSUFFICIENT_EVIDENCE_COST_UNVERIFIED"
+}

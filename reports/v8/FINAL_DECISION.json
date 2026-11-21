@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "kind": "ARZ_V8_FINAL_CLOSEOUT_READ_ONLY",
+  "as_of_utc": "2026-11-15T12:47Z",
+  "main_sha": "156464f38041069a4c59418375e04bce7712c3aa",
+  "source_pr_head_sha": "9f4be6d3a23a9a061b5c7806f08630fad8d5b6c2",
+  "report_scope": "REPRODUCED_OFFLINE_SAVED_EVIDENCE_AND_MAIN_CAPTURE_AUDIT_NOT_NEW_BACKTEST",
+  "python312_tests_run": 1703,
+  "skipped": 4,
+  "test_failures": 0,
+  "quant_saved_checks": 103,
+  "quant_saved_checks_failed": 0,
+  "saved_metric_rows": 58,
+  "positive_saved_model_rows": 17,
+  "max_closed_cycles_among_positive_rows": 23,
+  "financial_rows_qualified": 0,
+  "strategy_registry_rows": 164,
+  "inventory_class_counts": {
+    "INSUFFICIENT_FINANCIAL_EVIDENCE": 93,
+    "REJECTED_HISTORICAL_SCREEN": 16,
+    "OUTSIDE_SCOPE": 9,
+    "CONTROL_NOT_CANDIDATE": 45,
+    "PROMISING_UNVERIFIED": 1
+  },
+  "source_main_audit": {
+    "file_count": 88,
+    "distinct_complete_paired_bars": 64,
+    "timely_paired_bars": 27,
+    "max_eligible_consecutive_bars": 5,
+    "required_consecutive_bars": 194,
+    "original_publication_time_verified": false
+  },
+  "authentic_follower_roundtrip_quotes": 0,
+  "complete_paid_execution_costs_verified": false,
+  "independent_oos_replayed": false,
+  "qualified_prospective_days": 0,
+  "required_paper_days": 90,
+  "main_integrated": false,
+  "independent_code_security_review_complete": false,
+  "financial_decision": "NO_GO",
+  "v8_decision": "NOT_READY",
+  "authorized_real_capital_usdc": 0,
+  "live_trading": "DISABLED",
+  "real_earned_income_usdc_verified": null,
+  "monthly_expected_net_profit_usdc": null,
+  "source_sha": {
+    "metrics": "e59999c28a956440c48df42c568d4ef743e57841",
+    "registry": "fdbc89b7ee13332527f581558d7994f06219e4f7",
+    "costs": "5ba3b8c236e44b2cf5c99f151c9375029180b905",
+    "main_audit": "eb6d138d12c5217d79e02b4ee71aa1d5244eac35"
+  },
+  "ci": {
+    "integration": "https://github.com/DashSaman/Arz/actions/runs/43713877315",
+    "container": "https://github.com/DashSaman/Arz/actions/runs/43713877343"
+  },
+  "investment_authorization_required": true
+}

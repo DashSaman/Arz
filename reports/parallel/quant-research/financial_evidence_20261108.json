@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "mission": "ARZ_MISSION_03",
+  "source_main_sha": "11e8bf28dee8ff85d386187928e53ead2b032144",
+  "classification": "PREVIOUSLY_SAVED_EVIDENCE_RECONCILIATION_NOT_NEW_BACKTEST",
+  "registry_count": 164,
+  "unique_registry_families": 32,
+  "stage_counts": {
+    "EXECUTED": 84,
+    "DATA_BLOCKED": 14,
+    "OUTSIDE_POLICY": 9,
+    "CONTROL_OR_REFERENCE": 45,
+    "PRIOR_REPRODUCED": 5,
+    "RULE_BLOCKED": 7
+  },
+  "saved_metric_rows": 58,
+  "saved_scenarios_reconciled_to_original_summary": 24,
+  "saved_scenarios_reconciled_to_stateful_summary": 18,
+  "native_saved_rows_not_raw_replayed": 16,
+  "descriptive_family_market_window_groups": 38,
+  "fresh_independent_oos_reproduced": false,
+  "new_strategy_engine_backtest": false,
+  "full_cost_evidence": false,
+  "prospective_paper_days_qualified": 0,
+  "candidate_nominated_for_paper": null,
+  "financial_decision": "NO_GO",
+  "real_capital_usd": 0,
+  "live": "DISABLED",
+  "required_new_data": "Untouched time-ordered authentic market and execution inputs; original raw dataset not redistributed",
+  "data_sha256_original_saved_manifest": "283346087387fac0d312971e8c408c16d184212efe1458e06b692d0daf351e30",
+  "dataset_redistribution": "PENDING; raw and normalized provider data not included in Git until rights/retention resolved; exact repeat requires authorized input with this checksum.",
+  "warning": "This screen intentionally reuses known simulations. Scenario copies and overlapping windows are not independent statistical trials."
+}
