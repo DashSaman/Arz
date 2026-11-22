@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "kind": "INDEPENDENT_SAVED_METRIC_DESCRIPTIVE_RECOUNT",
+  "source_repo": "DashSaman/Arz",
+  "source_main_sha": "11e8bf28dee8ff85d386187928e53ead2b032144",
+  "source_path": "reports/strat01/2026-11-05-final-blockers/saved-metrics-58.csv",
+  "source_git_blob_sha": "131a4585630f37c87af2cd06df2e00cf74e8c282",
+  "observed_at_utc": "2026-11-08T13:52:54.690Z",
+  "saved_scenario_rows": 58,
+  "counts": {
+    "positive": 17,
+    "negative": 34,
+    "zero": 3,
+    "unknown": 4,
+    "qualifying": 0
+  },
+  "groups": [
+    {
+      "family": "S0_stateful",
+      "strategy": "S0_stateful",
+      "saved_scenario_rows": 18,
+      "positive": 6,
+      "negative": 12,
+      "zero": 0,
+      "unknown": 0,
+      "max_closed_cycles_in_one_row": 12,
+      "best_saved_net_return_pct": "10.531376231409453",
+      "worst_saved_net_return_pct": "-3.388058170069854",
+      "qualified_rows": 0
+    },
+    {
+      "family": "original_engine_saved",
+      "strategy": "trend",
+      "saved_scenario_rows": 8,
+      "positive": 3,
+      "negative": 4,
+      "zero": 1,
+      "unknown": 0,
+      "max_closed_cycles_in_one_row": 8,
+      "best_saved_net_return_pct": "5.202300983415675",
+      "worst_saved_net_return_pct": "-3.524309113334123",
+      "qualified_rows": 0
+    },
+    {
+      "family": "original_engine_saved",
+      "strategy": "momentum",
+      "saved_scenario_rows": 8,
+      "positive": 2,
+      "negative": 5,
+      "zero": 1,
+      "unknown": 0,
+      "max_closed_cycles_in_one_row": 20,
+      "best_saved_net_return_pct": "5.56309000444819",
+      "worst_saved_net_return_pct": "-3.016312960128875",
+      "qualified_rows": 0
+    },
+    {
+      "family": "original_engine_saved",
+      "strategy": "mean_reversion",
+      "saved_scenario_rows": 8,
+      "positive": 3,
+      "negative": 4,
+      "zero": 1,
+      "unknown": 0,
+      "max_closed_cycles_in_one_row": 20,
+      "best_saved_net_return_pct": "1.8249419874138972",
+      "worst_saved_net_return_pct": "-4.336877930455163",
+      "qualified_rows": 0
+    },
+    {
+      "family": "native_hourly_selected",
+      "strategy": "ATR_wall_clock",
+      "saved_scenario_rows": 8,
+      "positive": 1,
+      "negative": 5,
+      "zero": 0,
+      "unknown": 2,
+      "max_closed_cycles_in_one_row": 23,
+      "best_saved_net_return_pct": "3.0605047151675677",
+      "worst_saved_net_return_pct": "-3.389134120820458",
+      "qualified_rows": 0
+    },
+    {
+      "family": "native_hourly_selected",
+      "strategy": "ATR_vol_wall_clock",
+      "saved_scenario_rows": 8,
+      "positive": 2,
+      "negative": 4,
+      "zero": 0,
+      "unknown": 2,
+      "max_closed_cycles_in_one_row": 20,
+      "best_saved_net_return_pct": "4.943679005754234",
+      "worst_saved_net_return_pct": "-3.389134120820458",
+      "qualified_rows": 0
+    }
+  ],
+  "scopes": {
+    "group_count": 6,
+    "saved_strategy_family_counts_not_independent_trials": true,
+    "saved_scenarios_reused_cost_period_copies": true,
+    "actual_verified_execution_costs": false,
+    "actual_independent_untouched_oos": false,
+    "source_original_market_recomputed": false,
+    "saved_scenario_net_account_return_pct_not_verified_live_pnl": true,
+    "mandatory_closed_cycles_minimum": 100,
+    "H3_minimum": 200,
+    "qualified_candidates": 0
+  },
+  "financial_decision": "NO_GO",
+  "capital_authorized_usd": 0,
+  "live_trading": "DISABLED",
+  "note": "Best/worst across different overlapping periods/cost cases are descriptive only. Do not rank by best net return. All original 58 rows are still in the pinned CSV and the new recount does not invent/re-run market fills."
+}
