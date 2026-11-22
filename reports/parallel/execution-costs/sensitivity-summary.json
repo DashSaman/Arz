@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "classification": "DETERMINISTIC_SYNTHETIC_SENSITIVITY_SUBSET_NOT_REAL_EXECUTION_EVIDENCE",
+  "generated_by": "scripts/strat01_execution_cost_report.py",
+  "actual_quotes": 0,
+  "actual_net_return": null,
+  "cost_status": "COST_UNVERIFIED",
+  "parameters": "All bps/gas/impact/failure assumptions in scripts/strat01_execution_cost_report.py; buy+sell distinct.",
+  "flat_mid_price_return_assumed": "0",
+  "alternative_gross_mid_return_assumed": "0.01",
+  "note": "Break-even is hypothetical GROSS price return for $5/$20/$40 USDC. Net PnL at assumed 1% gross also hypothetical. For complete 18-row cost vectors run the script.",
+  "rows": [
+    {
+      "asset": "WETH",
+      "scenario": "baseline",
+      "notional_usdc": 5,
+      "break_even_gross_price_return": "0.0034335772504255532191849404225493141083408430960",
+      "hypothetical_pnl_at_gross_1pct_usdc": "0.0327501318417898521773871354374750299640431482221",
+      "source": "SYNTHETIC_NOT_MARKET_VERIFIED"
+    },
+    {
+      "asset": "WETH",
+      "scenario": "baseline",
+      "notional_usdc": 20,
+      "break_even_gross_price_return": "0.0027358349854811254631020326424351657154300590768",
+      "hypothetical_pnl_at_gross_1pct_usdc": "0.144920527367159408709548541749900119856172592889",
+      "source": "SYNTHETIC_NOT_MARKET_VERIFIED"
+    },
+    {
+      "asset": "WETH",
+      "scenario": "baseline",
+      "notional_usdc": 40,
+      "break_even_gross_price_return": "0.0026195446079903875037548813457494743166115950736",
+      "hypothetical_pnl_at_gross_1pct_usdc": "0.294481054734318817419097083499800239712345185777",
+      "source": "SYNTHETIC_NOT_MARKET_VERIFIED"
+    },
+    {
+      "asset": "WETH",
+      "scenario": "double_cost",
+      "notional_usdc": 5,
+      "break_even_gross_price_return": "0.0068783380790054140765991578103067976739522759174",
+      "hypothetical_pnl_at_gross_1pct_usdc": "0.0155304549082202713487629688747007182761372705508",
+      "source": "SYNTHETIC_NOT_MARKET_VERIFIED"
+    },
+    {
+      "asset": "WETH",
+      "scenario": "double_cost",
+      "notional_usdc": 20,
+      "break_even_gross_price_return": "0.0054793599358331662322037296972127531582113495087",
+      "hypothetical_pnl_at_gross_1pct_usdc": "0.089961819632881085395051875498802873104549082202",
+      "source": "SYNTHETIC_NOT_MARKET_VERIFIED"
+    },
+    {
+      "asset": "WETH",
+      "scenario": "double_cost",
+      "notional_usdc": 40,
+      "break_even_gross_price_return": "0.0052461969119711249248044916783637457389211951073",
+      "hypothetical_pnl_at_gross_1pct_usdc": "0.189203639265762170790103750997605746209098164405",
+      "source": "SYNTHETIC_NOT_MARKET_VERIFIED"
+    },
+    {
+      "asset": "WETH",
+      "scenario": "stress",
+      "notional_usdc": 5,
+      "break_even_gross_price_return": "0.0223429457364341085271317829457364341085271317829",
+      "hypothetical_pnl_at_gross_1pct_usdc": "-0.0609841225626740947075208913649025069637883008357",
+      "source": "SYNTHETIC_NOT_MARKET_VERIFIED"
+    },
+    {
+      "asset": "WETH",
+      "scenario": "stress",
+      "notional_usdc": 20,
+      "break_even_gross_price_return": "0.0145709372797744890768146582100070472163495419309",
+      "hypothetical_pnl_at_gross_1pct_usdc": "-0.090336490250696378830083565459610027855153203343",
+      "source": "SYNTHETIC_NOT_MARKET_VERIFIED"
+    },
+    {
+      "asset": "WETH",
+      "scenario": "stress",
+      "notional_usdc": 40,
+      "break_even_gross_price_return": "0.0132756025369978858350951374207188160676532769556",
+      "hypothetical_pnl_at_gross_1pct_usdc": "-0.129472980501392757660167130919220055710306406686",
+      "source": "SYNTHETIC_NOT_MARKET_VERIFIED"
+    },
+    {
+      "asset": "cbBTC",
+      "scenario": "baseline",
+      "notional_usdc": 5,
+      "break_even_gross_price_return": "0.0040358493589743589743589743589743589743589743590",
+      "hypothetical_pnl_at_gross_1pct_usdc": "0.0297284473290064902646030953569645531702446330504",
+      "source": "SYNTHETIC_NOT_MARKET_VERIFIED"
+    },
+    {
+      "asset": "cbBTC",
+      "scenario": "baseline",
+      "notional_usdc": 20,
+      "break_even_gross_price_return": "0.0033376883012820512820512820512820512820512820513",
+      "hypothetical_pnl_at_gross_1pct_usdc": "0.132833789316025961058412381427858212680978532202",
+      "source": "SYNTHETIC_NOT_MARKET_VERIFIED"
+    },
+    {
+      "asset": "cbBTC",
+      "scenario": "baseline",
+      "notional_usdc": 40,
+      "break_even_gross_price_return": "0.003221328125",
+      "hypothetical_pnl_at_gross_1pct_usdc": "0.270307578632051922116824762855716425361957064404",
+      "source": "SYNTHETIC_NOT_MARKET_VERIFIED"
+    },
+    {
+      "asset": "cbBTC",
+      "scenario": "double_cost",
+      "notional_usdc": 5,
+      "break_even_gross_price_return": "0.0080874478330658105939004815409309791332263242376",
+      "hypothetical_pnl_at_gross_1pct_usdc": "0.0095036490528414755732801595214356929212362911267",
+      "source": "SYNTHETIC_NOT_MARKET_VERIFIED"
+    },
+    {
+      "asset": "cbBTC",
+      "scenario": "double_cost",
+      "notional_usdc": 20,
+      "break_even_gross_price_return": "0.0066867897271268057784911717495987158908507223114",
+      "hypothetical_pnl_at_gross_1pct_usdc": "0.065854596211365902293120638085742771684945164506",
+      "source": "SYNTHETIC_NOT_MARKET_VERIFIED"
+    },
+    {
+      "asset": "cbBTC",
+      "scenario": "double_cost",
+      "notional_usdc": 40,
+      "break_even_gross_price_return": "0.0064533467094703049759229534510433386837881219904",
+      "hypothetical_pnl_at_gross_1pct_usdc": "0.140989192422731804586241276171485543369890329013",
+      "source": "SYNTHETIC_NOT_MARKET_VERIFIED"
+    },
+    {
+      "asset": "cbBTC",
+      "scenario": "stress",
+      "notional_usdc": 5,
+      "break_even_gross_price_return": "0.0254170276265376083887880621092962290784432345231",
+      "hypothetical_pnl_at_gross_1pct_usdc": "-0.0759442137677560345683917751067845435581603258170",
+      "source": "SYNTHETIC_NOT_MARKET_VERIFIED"
+    },
+    {
+      "asset": "cbBTC",
+      "scenario": "stress",
+      "notional_usdc": 20,
+      "break_even_gross_price_return": "0.0176216495261141359144988909054244807420850978020",
+      "hypothetical_pnl_at_gross_1pct_usdc": "-0.150176855071024138273567100427138174232641303268",
+      "source": "SYNTHETIC_NOT_MARKET_VERIFIED"
+    },
+    {
+      "asset": "cbBTC",
+      "scenario": "stress",
+      "notional_usdc": 40,
+      "break_even_gross_price_return": "0.0163224198427102238354506957047791893526920750151",
+      "hypothetical_pnl_at_gross_1pct_usdc": "-0.249153710142048276547134200854276348465282606537",
+      "source": "SYNTHETIC_NOT_MARKET_VERIFIED"
+    }
+  ]
+}
