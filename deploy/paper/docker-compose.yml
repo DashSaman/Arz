@@ -1,0 +1,59 @@
+# Isolated PAPER operations. No RPC, no wallet, no exposed HTTP port.
+# Run only after explicit operator approval of an independent host.
+services:
+  arz-paper-ops:
+    image: ${ARZ_PAPER_IMAGE:?Set reviewed immutable local image sha256 ID}
+    pull_policy: never
+    network_mode: none
+    user: '65534:65534'
+    working_dir: /app
+    command:
+      - python
+      - -m
+      - scripts.strat01_paper_runtime
+      - serve
+      - --source-root
+      - /collector
+      - --paper-root
+      - /paper
+      - --input-root
+      - /paper-input
+    environment:
+      PYTHONPATH: /app:/app/src
+      PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONUNBUFFERED: '1'
+      ARZ_PAPER_APPROVED_COST_SHA256: ${ARZ_PAPER_APPROVED_COST_SHA256:-}
+    volumes:
+      - ${ARZ_COLLECTOR_DATA_ROOT:?Set absolute collector evidence directory}:/collector:ro
+      - ${ARZ_PAPER_DATA_ROOT:?Set absolute persistent paper directory}:/paper:rw
+      - ${ARZ_PAPER_INPUT_ROOT:?Set absolute read-only paper quote/cost input directory}:/paper-input:ro
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=16m
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 64
+    mem_limit: 256m
+    restart: unless-stopped
+    stop_grace_period: 20s
+    init: true
+    logging:
+      driver: json-file
+      options:
+        max-size: '5m'
+        max-file: '3'
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -m
+        - scripts.strat01_paper_runtime
+        - health
+        - --paper-root
+        - /paper
+      interval: 45s
+      timeout: 10s
+      retries: 4
+      start_period: 75s
